@@ -1,0 +1,91 @@
+.section-felic-subscribe .section-title {
+    display: block;
+    margin-bottom: 80px;
+}
+.section-felic-subscribe .section-title .title {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 46px;
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #414141;
+}
+.section-felic-subscribe .section-title .separator {
+    position: relative;
+}
+
+.section-felic-subscribe .separator:before {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    width: 50px;
+    height: 1px;
+    margin-left: -25px;
+    content: '';
+    background: #757575;
+}
+.section-felic-subscribe .separator:after {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 40px;
+    height: 1px;
+    margin-left: -20px;
+    content: '';
+    background: #757575;
+}
+.section-felic-subscribe .section-title .sub-title {
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 30px;
+    color: #757575;
+}
+.section-felic-subscribe .panel-subscribe {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 0 11px rgba(152, 152, 152, 0.58);
+    box-shadow: 0 0 11px rgba(152, 152, 152, 0.58);
+    padding: 30px;
+}
+.section-felic-subscribe .subscribe-from .form-control {
+    width: 100%;
+    height: auto;
+    padding: 12px 20px;
+    border-color: #dfdfdf;
+    border-radius: 5px;
+    box-shadow: none;
+}
+.section-felic-subscribe .btn {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 30px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    color: #fff;
+    border-color: #fc4848;
+    background: #fc4848;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    outline: none;
+}
+.section-felic-subscribe .btn:hover, .section-felic-subscribe .btn:focus {
+    color: #fff;
+    border-color: #fb1616;
+    background: #fb1616;
+}
+.section-felic-subscribe .subscribe-from {
+    margin-bottom: 0;
+}
+@media (max-width: 568px){
+    .section-felic-subscribe .section-title .title {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .section-felic-subscribe .section-title{
+        margin-bottom: 50px;
+    }
+}

@@ -1,0 +1,5 @@
+.top-main-col img{
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}

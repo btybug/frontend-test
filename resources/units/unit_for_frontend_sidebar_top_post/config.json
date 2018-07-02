@@ -1,0 +1,46 @@
+{
+  "title": "Front sidebar top post",
+  "author": "Vahag",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "example":"demo",
+  "self_type": "units",
+  "type": "units",
+  "description": "sidebar top post",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "unit_for_frontend_sidebar_top_post",
+  "folder": "unit_for_frontend_sidebar_top_post",
+  "created_at": 1490088665,
+  "is_core": 0,
+  "place": "frontend",
+  "placeholders": {
+    "general": {
+      "type": "unit",
+      "tag": "general",
+      "title": "General",
+      "s" : true,
+      "f" : true
+    },
+    "header": {
+      "type": "unit",
+      "tag": "header",
+      "title": "Header",
+      "s" : true
+    },
+    "title": {
+      "type": "unit",
+      "tag": "title",
+      "title": "Title",
+      "s" : true
+    },
+    "description": {
+      "type": "unit",
+      "tag": "description",
+      "title": "Description",
+      "s" : true
+    }
+  },
+  "tags": ["my_account","frontend"],
+  "path": "resources\/units\/unit_for_frontend_sidebar_top_post"
+}

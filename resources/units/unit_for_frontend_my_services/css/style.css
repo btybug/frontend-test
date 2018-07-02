@@ -1,0 +1,59 @@
+section.my-service{
+    /*background-color: #f9f9f9;*/
+    overflow: hidden;
+}
+section.my-service .section-content{
+    /*padding-top: 65px;*/
+    /*padding-bottom: 75px;*/
+}
+section.my-service .section-content .title{
+    padding-bottom: 60px;
+}
+
+section.my-service .section-content .title .head h2{
+    margin: 0;
+    font-size: 36px;
+    font-weight: 700;
+    color: #040404;
+    float: left;
+}
+section.my-service .section-content .title .head p{
+    font-style: italic;
+    padding-top: 15px;
+}
+
+section.my-service .services-content .service-icon{
+    padding-bottom: 15px;
+    text-align: center;
+}
+section.my-service .services-content .service-icon i{
+    font-size: 48px;
+    color: #e32805;
+}
+section.my-service .services-content .sub-tittle{
+    display: table;
+    width: 100%;
+    padding-bottom: 15px;
+}
+
+section.my-service .services-content .sub-tittle .head h2{
+    font-size: 26px;
+    font-weight: 700;
+    color: #040404;
+    margin: 0;
+    float: left;
+}
+section.my-service .services-content .sub-tittle .head .service-no{
+    font-style: italic;
+    font-size: 26px;
+    font-weight: 700;
+    color: #e5e5e5;
+    line-height: 35px;
+    transition: .3s all ease-in-out;
+}
+section.my-service .services-content .service-text{
+    color: #424242;
+}
+section.my-service .services-content:hover .sub-tittle .service-no {
+    color: #e32805;
+}

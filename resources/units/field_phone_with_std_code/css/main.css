@@ -1,0 +1,67 @@
+.flag-cl-orange .selected-flag{
+    background-color: #FFA500 !important;
+}
+.flag-cl-orange .selected-flag .iti-arrow{
+    border-top-color: #fff !important;
+}
+.flag-cl-crimson .selected-flag{
+    background-color: #DC143C !important;
+}
+.flag-cl-crimson .selected-flag .iti-arrow{
+    border-top-color: #fff !important;
+}
+.flag-cl-fuchsia .selected-flag{
+    background-color: #FF00FF !important;
+}
+.flag-cl-fuchsia .selected-flag .iti-arrow{
+    border-top-color: #fff !important;
+}
+.flag-cl-deepskyblue .selected-flag{
+    background-color: #00BFFF !important;
+}
+.flag-cl-deepskyblue .selected-flag .iti-arrow{
+    border-top-color: #fff !important;
+}
+.flag-cl-black .selected-flag{
+    background-color: black !important;
+}
+.flag-cl-black .selected-flag .iti-arrow{
+    border-top-color: #fff !important;
+}
+
+.inp-cl-orange input[type="tel"]{
+    background-color: #FFA500 !important;
+    border: 1px solid #ccc !important;
+}
+.inp-cl-crimson input[type="tel"]{
+    background-color: #DC143C !important;
+    border: 1px solid #ccc !important;
+}
+.inp-cl-fuchsia input[type="tel"]{
+    background-color: #FF00FF !important;
+    border: 1px solid #ccc !important;
+}
+.inp-cl-deepskyblue input[type="tel"]{
+    background-color: #00BFFF !important;
+    border: 1px solid #ccc !important;
+}
+.inp-cl-black input[type="tel"]{
+    background-color: black !important;
+    border: 1px solid #ccc !important;
+}
+
+.list-cl-orange .country-list{
+    background-color: rgba(255, 165, 0, 0.25) !important;
+}
+.list-cl-crimson .country-list{
+    background-color: rgba(226, 21, 62, 0.18) !important;
+}
+.list-cl-fuchsia .country-list{
+    background-color: rgba(255, 0, 255, 0.21) !important;
+}
+.list-cl-blue .country-list{
+    background-color: rgba(0, 179, 239, 0.22) !important;
+}
+.list-cl-lightgray .country-list{
+    background-color: rgba(187, 187, 187, 0.37) !important;
+}

@@ -1,0 +1,54 @@
+.rating-cl-black .rating-container .filled-stars{
+    color: black !important;
+}
+.rating-cl-grey .rating-container .filled-stars{
+    color: grey !important;
+}
+.rating-cl-skyblue .rating-container .filled-stars{
+    color: #87CEEB !important;
+}
+.rating-cl-darksalmon .rating-container .filled-stars{
+    color: #E9967A !important;
+}
+.rating-cl-deeppink .rating-container .filled-stars{
+    color: #FF1493 !important;
+}
+.rating-cl-fuchsia .rating-container .filled-stars{
+    color: #FF00FF !important;
+}
+.rating-cl-brown .rating-container .filled-stars{
+    color: #A52A2A !important;
+}
+.rating-cl-red .rating-container .filled-stars{
+    color: #FF0000 !important;
+}
+.rating-cl-cyan .rating-container .filled-stars{
+    color: #00FFFF !important;
+}
+.rating-cl-lightcoral .rating-container .filled-stars{
+    color: #F08080 !important;
+}
+.rating-cl-darkorange .rating-container .filled-stars{
+    color: #FF8C00 !important;
+}
+.rating-cl-forestgreen .rating-container .filled-stars{
+    color: #228B22 !important;
+}
+.rating-cl-yellow .rating-container .filled-stars{
+    color: #FFFF00 !important;
+}
+.rating-cl-crimson .rating-container .filled-stars{
+    color: #DC143C !important;
+}
+.rating-cl-deepskyblue .rating-container .filled-stars{
+    color: #00BFFF !important;
+}
+.rating-cl-darkblue .rating-container .filled-stars{
+    color: #00008B !important;
+}
+.rating-cl-peru .rating-container .filled-stars{
+    color: #CD853F !important;
+}
+.rating-cl-orange .rating-container .filled-stars{
+    color: #FFA500 !important;
+}

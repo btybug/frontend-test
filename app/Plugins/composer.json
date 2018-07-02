@@ -1,0 +1,16 @@
+{
+  "require": {
+    "btybug.hook/blog": "dev-master",
+    "sahak.avatar/provaldation": "dev-master",
+    "sahak.avatar/forms": "dev-master",
+    "sahak.avatar/membership": "dev-master",
+    "sahak.avatar/payments": "dev-master",
+    "gloudemans/shoppingcart": "2.4.0",
+    "cartalyst/stripe-laravel": "7.0.*",
+    "btybug.hook/newstudio": "dev-master",
+    "btybug.hook/api": "dev-master",
+    "btybug.hook/cmslogin": "dev-master",
+    "btybug.hook/apiuser": "dev-master",
+    "sahak.avatar/social": "dev-master"
+  }
+}

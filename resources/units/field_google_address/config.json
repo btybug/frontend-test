@@ -1,0 +1,17 @@
+{
+  "title": "Amazing Google Adress",
+  "author": "Sahak",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "type": "unit",
+  "description": "Form Field",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "field_google_address",
+  "folder": "field_google_address",
+  "created_at": 1490088665,
+  "is_core": 1,
+  "place": "frontend",
+  "tags": ["form","field","field_google_address"],
+  "path": "resources\/units\/field_google_address"
+}

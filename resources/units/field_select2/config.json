@@ -1,0 +1,18 @@
+
+{
+  "title": "Amazing Select 2 Field",
+  "author": "unknow",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "type": "unit",
+  "description": "Form Field",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "field_select2",
+  "folder": "field_select2",
+  "created_at": 1490088665,
+  "is_core": 1,
+  "place": "frontend",
+  "tags": ["form","field","select","form_field","unkn"],
+  "path": "resources\/units\/field_select2"
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Header cart",
+  "author": "Gevorg",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "self_type": "units",
+  "type": "units",
+  "description": "cart functionality",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "unit_for_shop_layout_header_cart",
+  "folder": "unit_for_shop_layout_header_cart",
+  "created_at": 1490088665,
+  "is_core": 0,
+  "place": "frontend",
+  "tags": ["unit_for_header","shop_layout","frontend"],
+  "path": "resources\/units\/unit_for_shop_layout_header_cart"
+}

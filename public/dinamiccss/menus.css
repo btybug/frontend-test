@@ -1,0 +1,26 @@
+.menu-bg-lightblue {
+    background: #dce5ed!important;
+}
+.menu-bg-lightblue li>a{
+    border-bottom: 1px solid #ffffff!important;
+}
+.menu-bg-lightblue .sublink.active, .menu-bg-lightblue .profile-menu a:hover {
+    background-color: #b0b9c1!important;
+    color: white!important;
+}
+.menu-fs-18-cl-blue li>a{
+    font-size: 18px!important;
+    color: rgb(71, 122, 165)!important;
+}
+.menu-fs-20-cl-blue li>a{
+    font-size: 20px!important;
+    color: rgb(71, 122, 165)!important;
+}
+.menu-fs-18-cl-tomato li>a{
+    font-size: 18px!important;
+    color: tomato!important;
+}
+.menu-fs-20-cl-tomato li>a{
+    font-size: 20px!important;
+    color: tomato!important;
+}

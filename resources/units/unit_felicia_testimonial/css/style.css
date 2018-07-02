@@ -1,0 +1,87 @@
+.section-felic-testimonial .section-title {
+    display: block;
+    margin-bottom: 80px;
+}
+.section-felic-testimonial .section-title .title {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 46px;
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #414141;
+}
+.section-felic-testimonial .section-title .separator {
+    position: relative;
+}
+
+.section-felic-testimonial .separator:before {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    width: 50px;
+    height: 1px;
+    margin-left: -25px;
+    content: '';
+    background: #757575;
+}
+.section-felic-testimonial .separator:after {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 40px;
+    height: 1px;
+    margin-left: -20px;
+    content: '';
+    background: #757575;
+}
+.section-felic-testimonial .section-title .sub-title {
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 30px;
+    color: #757575;
+}
+@media (max-width: 568px){
+    .section-felic-testimonial .section-title .title {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .section-felic-testimonial .section-title{
+        margin-bottom: 50px;
+    }
+}
+.section-felic-testimonial .testimonial-wrapper .item {
+    padding: 30px;
+}
+.section-felic-testimonial .testimonial-wrapper .thumb {
+    display: inline-block;
+    overflow: hidden;
+    width: 90px;
+    height: 90px;
+    margin-bottom: 3rem;
+    border-radius: 50%;
+}
+.section-felic-testimonial .testimonial-wrapper .thumb img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.section-felic-testimonial .testimonial-wrapper .testimonial-text {
+    font-size: 20px;
+    font-style: italic;
+    line-height: 30px;
+    margin-bottom: 40px;
+    color: #757575;
+}
+.section-felic-testimonial .testimonial-author span{
+    font-weight: bold;
+    line-height: 1.3;
+    font-size: 14px;
+}
+.section-felic-testimonial .testimonial-wrapper.owl-theme .owl-nav.disabled + .owl-dots {
+    margin-top: 0;
+}
+.section-felic-testimonial .testimonial-wrapper.owl-theme .owl-dots .owl-dot.active span, .section-felic-testimonial .testimonial-wrapper.owl-theme .owl-dots .owl-dot:hover span {
+    background: #adadad;
+}

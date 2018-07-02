@@ -1,0 +1,119 @@
+.section-felic-price .section-title {
+    display: block;
+    margin-bottom: 80px;
+}
+.section-felic-price .section-title .title {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 46px;
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #414141;
+}
+.section-felic-price .section-title .separator {
+    position: relative;
+}
+
+.section-felic-price .separator:before {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    width: 50px;
+    height: 1px;
+    margin-left: -25px;
+    content: '';
+    background: #757575;
+}
+.section-felic-price .separator:after {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 40px;
+    height: 1px;
+    margin-left: -20px;
+    content: '';
+    background: #757575;
+}
+.section-felic-price .section-title .sub-title {
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 30px;
+    color: #757575;
+}
+.section-felic-price .price-list {
+    padding: 40px;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 0 40px rgba(0, 0, 0, .1);
+}
+.section-felic-price .price-list .price-title {
+    font-size: 24px;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.3;
+    color: #414141;
+}
+.section-felic-price .price-list .price-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 45px 0;
+}
+.section-felic-price .price-list .price-value sup {
+    font-size: 20px;
+    font-weight: normal;
+    position: relative;
+    top: -20px;
+    left: 5px;
+}
+.section-felic-price .price-list .price-value .price-duration {
+    font-size: 12px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #a6a6a6;
+}
+.section-felic-price .price-list .price-info-list li {
+    line-height: 40px;
+}
+.section-felic-price .btn {
+    margin: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 30px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    text-decoration: none;
+    outline: none;
+}
+.section-felic-price .btn-gray-border {
+    color: #414141;
+    border-color: #e8e8e8;
+}
+.section-felic-price .btn-info-solid {
+    color: #fff;
+    border-color: #33b3ee;
+    background: #33b3ee;
+}
+.section-felic-price .btn-info-solid:hover, .btn-info-solid:focus {
+    color: #33b3ee;
+    border-color: #33b3ee;
+    background: #fff;
+}
+.section-felic-price .btn-gray-border:hover, .btn-gray-border:focus {
+    color: #414141;
+    background: #e8e8e8;
+}
+@media (max-width: 568px){
+    .section-felic-price .section-title .title {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .section-felic-price .section-title{
+        margin-bottom: 50px;
+    }
+}

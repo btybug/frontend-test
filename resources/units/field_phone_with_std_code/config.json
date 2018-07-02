@@ -1,0 +1,17 @@
+{
+  "title": "Amazing Phone With Code",
+  "author": "Sahak",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "type": "unit",
+  "description": "Form Field",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "field_phone_with_std_code",
+  "folder": "field_phone_with_std_code",
+  "created_at": 1490088665,
+  "is_core": 1,
+  "place": "frontend",
+  "tags": ["form","field","field_phone_with_std_code"],
+  "path": "resources\/units\/field_phone_with_std_code"
+}

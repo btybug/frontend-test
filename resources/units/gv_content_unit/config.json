@@ -1,0 +1,18 @@
+{
+  "title": "Content side",
+  "author": "gv",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "self_type": "units",
+  "type": "units",
+  "description": "content",
+  "have_setting": 1,
+  "image": "images\/screenshot.png",
+  "slug": "gv_content_unit",
+  "folder": "gv_content_unit",
+  "created_at": 1490088665,
+  "is_core": 0,
+  "place": "frontend",
+  "tags": ["front_page_content","frontend"],
+  "path": "resources\/units\/gv_content_unit"
+}

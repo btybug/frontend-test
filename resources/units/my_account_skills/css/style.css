@@ -1,0 +1,136 @@
+ul, li {
+    list-style: none;
+}
+
+.profile-skills {
+    padding: 100px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 40px 0 rgba(1, 1, 1, 0.1);
+    margin-top: 40px;
+    color: #2f2f2f;
+    font-size: 16px;
+    line-height: 1.625;
+    letter-spacing: .5px;
+}
+
+.profile-skills .skill-head {
+    text-align: left;
+    margin-bottom: 80px;
+}
+
+.profile-skills .skill-head h3 {
+    font-size: 40px;
+    font-weight: 700;
+    padding: 15px 0;
+    line-height: 0.65;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.profile-skills .skill-head h3 i {
+    color: #1d82d8;
+    margin-right: 10px
+}
+
+.profile-skills .skill-bottom {
+    margin-bottom: 90px;
+}
+
+.profile-skills .skill-bottom .skill-tag {
+    padding: 0;
+    margin-bottom: 60px;
+}
+
+.profile-skills .skill-bottom .skill-tag .tag-item {
+    float: left;
+    width: auto;
+    height: 53px;
+    line-height: 53px;
+    text-align: center;
+}
+
+.profile-skills .skill-bottom .skill-tag .tag-icon {
+    width: 30px;
+    height: 53px;
+    color: #111111;
+    text-align: left;
+    line-height: 53px;
+}
+
+.profile-skills .skill-bottom .skill-tag .tag-item a {
+    color: #111111;
+    padding: 0 20px;
+    text-transform: lowercase;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.profile-skills .skill-bottom .skill-tag .tag-item a:hover, .profile-skills .skill-bottom .skill-tag .tag-item a.active {
+    background-color: #ffffff;
+    color: #1d82d8;
+    box-shadow: 0 10px 40px 0 rgba(1, 1, 1, 0.1);
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.profile-skills .skill-bottom .prof-skills {
+    padding: 60px 60px;
+    background-color: #fff;
+    box-shadow: 0 10px 40px 0 rgba(1, 1, 1, 0.1);
+    margin-top: 60px;
+}
+
+.profile-skills .skill-bottom .prof-skills h3 {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.profile-skills .skill-bottom .prof-skills .single .bar-blue {
+    width: 90%;
+
+}
+
+.profile-skills .skill-bottom .prof-skills .single .bar-green {
+    width: 60%;
+    background-color: green;
+}
+
+.profile-skills .skill-bottom .prof-skills .single .bar-red {
+    width: 75%;
+    background-color: red;
+}
+
+.profile-skills .skill-bottom .prof-skills .single .bar-black {
+    width: 80%;
+    background-color: black;
+}
+
+.profile-skills .skill-bottom .prof-skills .single .bar-orange {
+    width: 35%;
+    background-color: orange;
+}
+
+.profile-skills .skill-bottom .prof-skills .single .bar-brown {
+    width: 18%;
+    background-color: brown;
+}
+
+.profile-skills .skill-bottom .prof-skills .single .skilled-tittle {
+    font-size: 18px;
+    color: #888;
+}

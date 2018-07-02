@@ -1,0 +1,15 @@
+{
+  "title": "default",
+  "settings": {
+    "radio_inp": null,
+    "label": null,
+    "icon": null,
+    "tooltip_icon": null,
+    "help": null,
+    "validation_message": null,
+    "manual_item": "on",
+    "custom_color": null,
+    "extravalidation": null
+  },
+  "id": "field_rating.default"
+}

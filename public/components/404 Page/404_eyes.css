@@ -1,0 +1,349 @@
+.bty-page-error-4 {
+    background: #2d607b;
+}
+
+.bty-page-error-4 > div:first-of-type {
+    display: block;
+    position: relative;
+    width: 200px;
+    margin: 2% auto 0;
+    -webkit-animation: shvr-bty-page-error-4 0.2s infinite;
+    animation: shvr-bty-page-error-4 0.2s infinite;
+}
+
+.bty-page-error-4 > div:first-of-type::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: #000;
+    position: absolute;
+    top: 30px;
+    left: 25px;
+    border-radius: 50%;
+    box-shadow: 125px 0 0 #000;
+    -webkit-animation: eye-bty-page-error-4 2.5s infinite;
+    animation: eye-bty-page-error-4 2.5s infinite;
+}
+
+.bty-page-error-4 > div:first-of-type div {
+    position: relative;
+    display: inline-block;
+    background: #fff;
+    width: 75px;
+    height: 80px;
+    border-radius: 50% 50% 50% 50%/45px 45px 45% 45%;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.bty-page-error-4 > div:first-of-type div::after {
+    content: "";
+    position: absolute;
+    border-bottom: 2px solid #fff;
+    width: 70px;
+    height: 50px;
+    left: 0;
+    bottom: -10px;
+    border-radius: 50%;
+}
+
+.bty-page-error-4 > div:first-of-type div::before {
+    bottom: auto;
+    top: -100px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    left: 0;
+}
+
+.bty-page-error-4 > div:first-of-type div:nth-of-type(2) {
+    float: right;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.bty-page-error-4 > div:first-of-type div:nth-of-type(2)::after {
+    left: 5px;
+}
+
+.bty-page-error-4 > div:last-of-type {
+    margin-top: 100px;
+    text-align: center;
+    color: #fff;
+}
+
+.bty-page-error-4 > div:last-of-type::before {
+    content: "404";
+    font-size: 80px;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.bty-page-error-4 > div:last-of-type::after {
+    content: "Got lost? How.....?  why.....?  Ahhhh....";
+    color: #b7b7b7;
+    width: 120px;
+    font-size: 30px;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    -webkit-animation: text-bty-page-error-4 2s infinite steps(3);
+    animation: text-bty-page-error-4 2s infinite steps(3);
+}
+
+@-webkit-keyframes eye-bty-page-error-4 {
+    0%, 30%, 55%, 90%, 100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    10%, 25% {
+        -webkit-transform: translate(0, 20px);
+        transform: translate(0, 20px);
+    }
+    65% {
+        -webkit-transform: translate(-20px, 0);
+        transform: translate(-20px, 0);
+    }
+    80% {
+        -webkit-transform: translate(20px, 0);
+        transform: translate(20px, 0);
+    }
+}
+
+@keyframes  eye-bty-page-error-4 {
+    0%, 30%, 55%, 90%, 100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    10%, 25% {
+        -webkit-transform: translate(0, 20px);
+        transform: translate(0, 20px);
+    }
+    65% {
+        -webkit-transform: translate(-20px, 0);
+        transform: translate(-20px, 0);
+    }
+    80% {
+        -webkit-transform: translate(20px, 0);
+        transform: translate(20px, 0);
+    }
+}
+
+@-webkit-keyframes shvr-bty-page-error-4 {
+    0% {
+        -webkit-transform: translate(1px, 1em);
+        transform: translate(1px, 1em);
+    }
+    50% {
+        -webkit-transform: translate(0, 1em);
+        transform: translate(0, 1em);
+    }
+    100% {
+        -webkit-transform: translate(-1px, 1em);
+        transform: translate(-1px, 1em);
+    }
+}
+
+@keyframes  shvr-bty-page-error-4 {
+    0% {
+        -webkit-transform: translate(1px, 1em);
+        transform: translate(1px, 1em);
+    }
+    50% {
+        -webkit-transform: translate(0, 1em);
+        transform: translate(0, 1em);
+    }
+    100% {
+        -webkit-transform: translate(-1px, 1em);
+        transform: translate(-1px, 1em);
+    }
+}
+
+@-webkit-keyframes text-bty-page-error-4 {
+    to {
+        text-indent: -373px;
+    }
+}
+
+@keyframes  text-bty-page-error-4 {
+    to {
+        text-indent: -373px;
+    }
+}.bty-page-error-eyes-4 {
+    background: #865c5c;
+}
+
+.bty-page-error-eyes-4 > div:first-of-type {
+    display: block;
+    position: relative;
+    width: 200px;
+    margin: 2% auto 0;
+    -webkit-animation: shvr-bty-page-error-eyes-4 0.2s infinite;
+    animation: shvr-bty-page-error-eyes-4 0.2s infinite;
+}
+
+.bty-page-error-eyes-4 > div:first-of-type::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: #000;
+    position: absolute;
+    top: 30px;
+    left: 25px;
+    border-radius: 50%;
+    box-shadow: 125px 0 0 #000;
+    -webkit-animation: eye-bty-page-error-eyes-4 2.5s infinite;
+    animation: eye-bty-page-error-eyes-4 2.5s infinite;
+}
+
+.bty-page-error-eyes-4 > div:first-of-type div {
+    position: relative;
+    display: inline-block;
+    width: 75px;
+    height: 80px;
+    border-radius: 50% 50% 50% 50%/45px 45px 45% 45%;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 99%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.7)), color-stop(50%,rgba(0,0,0,0)), color-stop(99%,rgba(0,0,0,0)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,0) 99%);
+    background: -o-linear-gradient(top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,0) 99%);
+    background: -ms-linear-gradient(top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,0) 99%);
+    background: linear-gradient(to bottom, rgba(251, 1, 1, 0.73) 0%,rgba(255, 255, 255, 0.45) 50%,rgba(234, 87, 87, 0.3) 99%);
+}
+
+.bty-page-error-eyes-4 > div:first-of-type div::after {
+    content: "";
+    position: absolute;
+    border-bottom: 2px solid #000;
+    width: 70px;
+    height: 50px;
+    left: 0;
+    bottom: -10px;
+    border-radius: 50%;
+}
+
+.bty-page-error-eyes-4 > div:first-of-type div::before {
+    bottom: auto;
+    top: -100px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    left: 0;
+}
+
+.bty-page-error-eyes-4 > div:first-of-type div:nth-of-type(2) {
+    float: right;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.bty-page-error-eyes-4 > div:first-of-type div:nth-of-type(2)::after {
+    left: 5px;
+}
+
+.bty-page-error-eyes-4 > div:last-of-type {
+    margin-top: 100px;
+    text-align: center;
+    color: #a0323c;
+}
+
+.bty-page-error-eyes-4 > div:last-of-type::before {
+    content: "404";
+    font-size: 80px;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 4px #0000006e;
+}
+
+.bty-page-error-eyes-4 > div:last-of-type::after {
+    content: "Got lost? How.....?  why.....?  Ahhhh....";
+    color: #f3f3f3;
+    width: 120px;
+    font-size: 30px;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    -webkit-animation: text-bty-page-error-eyes-4 2s infinite steps(3);
+    animation: text-bty-page-error-eyes-4 2s infinite steps(3);
+}
+
+@-webkit-keyframes eye-bty-page-error-eyes-4 {
+    0%, 30%, 55%, 90%, 100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    10%, 25% {
+        -webkit-transform: translate(0, 20px);
+        transform: translate(0, 20px);
+    }
+    65% {
+        -webkit-transform: translate(-20px, 0);
+        transform: translate(-20px, 0);
+    }
+    80% {
+        -webkit-transform: translate(20px, 0);
+        transform: translate(20px, 0);
+    }
+}
+
+@keyframes  eye-bty-page-error-eyes-4 {
+    0%, 30%, 55%, 90%, 100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    10%, 25% {
+        -webkit-transform: translate(0, 20px);
+        transform: translate(0, 20px);
+    }
+    65% {
+        -webkit-transform: translate(-20px, 0);
+        transform: translate(-20px, 0);
+    }
+    80% {
+        -webkit-transform: translate(20px, 0);
+        transform: translate(20px, 0);
+    }
+}
+
+@-webkit-keyframes shvr-bty-page-error-eyes-4 {
+    0% {
+        -webkit-transform: translate(1px, 1em);
+        transform: translate(1px, 1em);
+    }
+    50% {
+        -webkit-transform: translate(0, 1em);
+        transform: translate(0, 1em);
+    }
+    100% {
+        -webkit-transform: translate(-1px, 1em);
+        transform: translate(-1px, 1em);
+    }
+}
+
+@keyframes  shvr-bty-page-error-eyes-4 {
+    0% {
+        -webkit-transform: translate(1px, 1em);
+        transform: translate(1px, 1em);
+    }
+    50% {
+        -webkit-transform: translate(0, 1em);
+        transform: translate(0, 1em);
+    }
+    100% {
+        -webkit-transform: translate(-1px, 1em);
+        transform: translate(-1px, 1em);
+    }
+}
+
+@-webkit-keyframes text-bty-page-error-eyes-4 {
+    to {
+        text-indent: -373px;
+    }
+}
+
+@keyframes  text-bty-page-error-eyes-4 {
+    to {
+        text-indent: -373px;
+    }
+}

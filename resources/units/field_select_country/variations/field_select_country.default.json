@@ -1,0 +1,13 @@
+{
+  "title": "default",
+  "settings": {
+    "radio_inp": null,
+    "label": null,
+    "icon": null,
+    "tooltip_icon": null,
+    "help": null,
+    "validation_message": null,
+    "manual_item": "on"
+  },
+  "id": "field_select_country.default"
+}

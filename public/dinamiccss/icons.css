@@ -1,0 +1,101 @@
+.icon-fs-18-cl-red i{
+    font-size: 18px!important;
+    color: red!important;
+}
+.icon-fs-20-cl-red i{
+    font-size: 20px!important;
+    color: red!important;
+}
+.icon-fs-22-cl-red i{
+    font-size: 22px!important;
+    color: red!important;
+}
+.icon-fs-24-cl-red i{
+    font-size: 24px!important;
+    color: red!important;
+}
+.icon-fs-18-cl-blue i{
+    font-size: 18px!important;
+    color: rgb(71, 122, 165)!important;
+}
+.icon-fs-20-cl-blue i{
+    font-size: 20px!important;
+    color: rgb(71, 122, 165)!important;
+}
+.icon-fs-22-cl-blue i{
+    font-size: 22px!important;
+    color: rgb(71, 122, 165)!important;
+}
+.icon-fs-24-cl-blue i{
+    font-size: 24px!important;
+    color: rgb(71, 122, 165)!important;
+}
+.icon-fs-18-hover-red i{
+    font-size: 18px!important;
+    transition: 0.4s ease!important;
+}
+.icon-fs-18-hover-red i:hover{
+    color: red!important;
+}
+.icon-fs-20-hover-red i{
+    font-size: 20px!important;
+    transition: 0.4s ease!important;
+}
+.icon-fs-20-hover-red i:hover{
+    color: red!important;
+}
+.icon-fs-22-hover-red i{
+    font-size: 22px!important;
+    transition: 0.4s ease!important;
+}
+.icon-fs-22-hover-red i:hover{
+    color: red!important;
+}
+.icon-fs-18-hover-blue i{
+    font-size: 18px!important;
+    transition: 0.4s ease!important;
+}
+.icon-fs-18-hover-blue i:hover{
+    color: rgb(71, 122, 165)!important;
+}
+.icon-fs-20-hover-blue i{
+    font-size: 20px!important;
+    transition: 0.4s ease!important;
+}
+.icon-fs-20-hover-blue i:hover{
+    color: rgb(71, 122, 165)!important;
+}
+.icon-fs-22-hover-blue i{
+    font-size: 22px!important;
+    transition: 0.4s ease!important;
+}
+.icon-fs-22-hover-blue i:hover{
+    color: rgb(71, 122, 165)!important;
+}
+.soc-icon-hover-black:hover{
+    background-color:#000!important;
+}
+.soc-icon-hover-brown:hover{
+    background-color:brown!important;
+}
+.soc-icon-hover-tomato:hover{
+    background-color:tomato!important;
+}
+.soc-icon-cl-brown{
+    background-color:brown!important;
+}
+.soc-icon-cl-brown:hover{
+    background-color:brown!important;
+}
+.soc-icon-cl-tomato{
+    background-color:tomato!important;
+}
+.soc-icon-cl-tomato:hover{
+    background-color:tomato!important;
+}
+.soc-icon-cl-darkblue{
+    background-color:darkblue!important;
+}
+.soc-icon-cl-darkblue:hover{
+    background-color:darkblue!important;
+}

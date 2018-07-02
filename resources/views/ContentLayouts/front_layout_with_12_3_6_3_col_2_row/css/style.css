@@ -1,0 +1,33 @@
+.left-bar, .top-bar, .main-cont{
+    border: 1px solid #000;
+    overflow: hidden;
+}
+.left-bar{
+
+    height: 100%;
+}
+.top-bar{
+    min-height: 100px;
+    /*margin-bottom: 20px;*/
+}
+.main-cont {
+    min-height: 680px;
+}
+.div-flex{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+.row-no-gutter>[class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}
+.cl-editor{
+    border: 2px solid #5bc0de;
+}
+.cl-editor>button{
+    border-radius: 0;
+}

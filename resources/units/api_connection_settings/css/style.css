@@ -1,0 +1,44 @@
+.custom_general_content select.form-control{
+        width: 40%;
+}
+.custom_general_content .bootstrap-tagsinput input{
+    display: unset;
+}
+.custom_general_content .bootstrap-tagsinput{
+    width: 100%;
+    min-height: 34px;
+}
+.custom_tabs .tab-pane{
+    box-shadow: inset 0 0 4px #444;
+    padding: 15px;
+}
+.custom_tabs>ul{
+    background: #c1ccd1;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+.custom_tabs .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+    background-color: #96a0a5;
+    border-radius: 5px 5px 0 0;
+}
+.custom_tabs .nav>li>a:focus, .nav>li>a:hover{
+    background-color: #96a0a5;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+}
+.custom_tabs .nav-pills>li>a{
+    color: #fff;
+    font-size: 16px;
+}
+.custom_tabs .custom_info{
+    margin: 10px 0;
+    font-style: italic;
+}
+.custom_general_content .d-flex{
+    display: flex;
+    align-items: center
+}
+.custom_general_content .d-flex button{
+    margin-left:20px;
+}

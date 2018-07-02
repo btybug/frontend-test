@@ -1,0 +1,269 @@
+.br-btn-bg-cl-black{
+    background-color: black !important;
+    border-color: black !important
+}
+.br-btn-bg-cl-black:hover{
+    background-color: black !important;
+    border-color: black !important
+}
+.br-btn-bg-cl-grey{
+    background-color: grey !important;
+    border-color: #707070 !important;
+}
+.br-btn-bg-cl-grey:hover{
+    background-color: grey !important;
+    border-color: #707070 !important;
+}
+.br-btn-bg-cl-skyblue{
+    background-color: #87CEEB !important;
+    border-color: #79b9d3 !important;
+}
+.br-btn-bg-cl-skyblue:hover{
+    background-color: #79b9d3 !important;
+    border-color: #79b9d3 !important;
+}
+.br-btn-bg-cl-darksalmon{
+    background-color: #E9967A !important;
+    border-color: #cb836a !important;
+}
+.br-btn-bg-cl-darksalmon:hover{
+    background-color: #cb836a !important;
+    border-color: #cb836a !important;
+}
+.br-btn-bg-cl-deeppink{
+    background-color: #FF1493 !important;
+    border-color: #e51184 !important;
+}
+.br-btn-bg-cl-deeppink:hover{
+    background-color: #e51184 !important;
+    border-color: #e51184 !important;
+}
+.br-btn-bg-cl-fuchsia{
+    background-color: #FF00FF !important;
+    border-color: #e100e1 !important;
+}
+.br-btn-bg-cl-fuchsia:hover{
+    background-color: #e100e1 !important;
+    border-color: #e100e1 !important;
+}
+.br-btn-bg-cl-brown{
+    background-color: #A52A2A !important;
+    border-color: #8a2323 !important;
+}
+.br-btn-bg-cl-brown:hover{
+    background-color: #8a2323 !important;
+    border-color: #8a2323 !important;
+}
+.br-btn-bg-cl-red{
+    background-color: #FF0000 !important;
+    border-color: #dd0000 !important;
+}
+.br-btn-bg-cl-red:hover{
+    background-color: #dd0000 !important;
+    border-color: #dd0000 !important;
+}
+.br-btn-bg-cl-cyan{
+    background-color: #00FFFF !important;
+    border-color: #00d8d8 !important;
+}
+.br-btn-bg-cl-cyan:hover{
+    background-color: #00d8d8 !important;
+    border-color: #00d8d8 !important;
+}
+.br-btn-bg-cl-lightcoral{
+    background-color: #F08080 !important;
+    border-color: #c36868 !important;
+}
+.br-btn-bg-cl-lightcoral:hover{
+    background-color: #c36868 !important;
+    border-color: #c36868 !important;
+}
+.br-btn-bg-cl-darkorange{
+    background-color: #FF8C00 !important;
+    border-color: #d67600 !important;
+}
+.br-btn-bg-cl-darkorange:hover{
+    background-color: #d67600 !important;
+    border-color: #d67600 !important;
+}
+.br-btn-bg-cl-forestgreen{
+    background-color: #228B22 !important;
+    border-color: #1d781d !important;
+}
+.br-btn-bg-cl-forestgreen:hover{
+    background-color: #1d781d !important;
+    border-color: #1d781d !important;
+}
+.br-btn-bg-cl-yellow{
+    background-color: #FFFF00 !important;
+    border-color: #e8e800 !important;
+}
+.br-btn-bg-cl-yellow:hover{
+    background-color: #e8e800 !important;
+    border-color: #e8e800 !important;
+}
+.br-btn-bg-cl-crimson{
+    background-color: #DC143C !important;
+    border-color: #cd1338 !important;
+}
+.br-btn-bg-cl-crimson:hover{
+    background-color: #cd1338 !important;
+    border-color: #cd1338 !important;
+}
+.br-btn-bg-cl-deepskyblue{
+    background-color: #00BFFF !important;
+    border-color: #00ace6 !important;
+}
+.br-btn-bg-cl-deepskyblue:hover{
+    background-color: #00ace6 !important;
+    border-color: #00ace6 !important;
+}
+.br-btn-bg-cl-darkblue{
+    background-color: #00008B !important;
+    border-color: #00007b !important;
+}
+.br-btn-bg-cl-darkblue:hover{
+    background-color: #00007b !important;
+    border-color: #00007b !important;
+}
+.br-btn-bg-cl-peru{
+    background-color: #CD853F !important;
+    border-color: #b37437 !important;
+}
+.br-btn-bg-cl-peru:hover{
+    background-color: #b37437 !important;
+    border-color: #b37437 !important;
+}
+.br-btn-bg-cl-orange{
+    background-color: #FFA500 !important;
+    border-color: #e79600 !important;
+}
+.br-btn-bg-cl-orange:hover{
+    background-color: #e79600 !important;
+    border-color: #e79600 !important;
+}
+.rem-btn-bg-cl-black, .upl-btn-bg-cl-black{
+    background-color: black !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-black:hover, .upl-btn-bg-cl-black:hover{
+    background-color: #4f4f4f !important;
+}
+.rem-btn-bg-cl-grey, .upl-btn-bg-cl-grey{
+    background-color: grey !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-grey:hover, .upl-btn-bg-cl-grey:hover{
+    background-color: #b4b4b4 !important;
+}
+.rem-btn-bg-cl-skyblue, .upl-btn-bg-cl-skyblue{
+    background-color: #87CEEB !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-skyblue:hover, .upl-btn-bg-cl-skyblue:hover{
+    background-color: rgba(135, 206, 235, 0.4) !important;
+}
+.rem-btn-bg-cl-darksalmon, .upl-btn-bg-cl-darksalmon{
+    background-color: #E9967A !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-darksalmon:hover, .upl-btn-bg-cl-darksalmon:hover{
+    background-color: rgba(233, 150, 122, 0.4) !important;
+}
+.rem-btn-bg-cl-deeppink, .upl-btn-bg-cl-deeppink{
+    background-color: #FF1493 !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-deeppink:hover, .upl-btn-bg-cl-deeppink:hover{
+    background-color: rgba(255, 20, 147, 0.4) !important;
+}
+.rem-btn-bg-cl-fuchsia, .upl-btn-bg-cl-fuchsia{
+    background-color: #FF00FF !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-fuchsia:hover, .upl-btn-bg-cl-fuchsia:hover{
+    background-color: rgba(255, 0, 255, 0.4) !important;
+}
+.rem-btn-bg-cl-brown, .upl-btn-bg-cl-brown{
+    background-color: #A52A2A !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-brown:hover, .upl-btn-bg-cl-brown:hover{
+    background-color: rgba(165, 42, 42, 0.4) !important;
+}
+.rem-btn-bg-cl-red, .upl-btn-bg-cl-red{
+    background-color: #FF0000 !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-red:hover, .upl-btn-bg-cl-red:hover{
+    background-color: rgba(255, 0, 0, 0.4) !important;
+}
+.rem-btn-bg-cl-cyan, .upl-btn-bg-cl-cyan{
+    background-color: #00FFFF !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-cyan:hover, .upl-btn-bg-cl-cyan:hover{
+    background-color: rgba(0, 255, 255, 0.4) !important;
+}
+.rem-btn-bg-cl-lightcoral, .upl-btn-bg-cl-lightcoral{
+    background-color: #F08080 !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-lightcoral:hover, .upl-btn-bg-cl-lightcoral:hover{
+    background-color: rgba(240, 128, 128, 0.4) !important;
+}
+.rem-btn-bg-cl-darkorange, .upl-btn-bg-cl-darkorange{
+    background-color: #FF8C00 !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-darkorange:hover, .upl-btn-bg-cl-darkorange:hover{
+    background-color: rgba(255, 140, 0, 0.4) !important;
+}
+.rem-btn-bg-cl-forestgreen, .upl-btn-bg-cl-forestgreen{
+    background-color: #228B22 !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-forestgreen:hover, .upl-btn-bg-cl-forestgreen:hover{
+    background-color: rgba(34, 139, 34, 0.4) !important;
+}
+.rem-btn-bg-cl-yellow, .upl-btn-bg-cl-yellow{
+    background-color: #FFFF00 !important;
+}
+.rem-btn-bg-cl-yellow:hover, .upl-btn-bg-cl-yellow:hover{
+    background-color: rgba(255, 255, 0, 0.4) !important;
+}
+.rem-btn-bg-cl-crimson, .upl-btn-bg-cl-crimson{
+    background-color: #DC143C !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-crimson:hover, .upl-btn-bg-cl-crimson:hover{
+    background-color: rgba(220, 20, 60, 0.4) !important;
+}
+.rem-btn-bg-cl-deepskyblue, .upl-btn-bg-cl-deepskyblue{
+    background-color: #00BFFF !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-deepskyblue:hover, .upl-btn-bg-cl-deepskyblue:hover{
+    background-color: rgba(0, 191, 255, 0.4) !important;
+}
+.rem-btn-bg-cl-darkblue, .upl-btn-bg-cl-darkblue{
+    background-color: #00008B !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-darkblue:hover, .upl-btn-bg-cl-darkblue:hover{
+    background-color: rgba(0, 0, 139, 0.4) !important;
+}
+.rem-btn-bg-cl-peru, .upl-btn-bg-cl-peru{
+    background-color: #CD853F !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-peru:hover, .upl-btn-bg-cl-peru:hover{
+    background-color: rgba(205, 133, 63, 0.4) !important;
+}
+.rem-btn-bg-cl-orange, .upl-btn-bg-cl-orange{
+    background-color: #FFA500 !important;
+    color: #fff !important;
+}
+.rem-btn-bg-cl-orange:hover, .upl-btn-bg-cl-orange:hover{
+    background-color: rgba(255, 165, 0, 0.4) !important;
+}

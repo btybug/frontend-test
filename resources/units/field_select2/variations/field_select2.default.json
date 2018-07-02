@@ -1,0 +1,1 @@
+{"title":"default","id":"field_select2.default","settings":{"select_inp":null,"label":null,"icon":null,"tooltip_icon":null,"help":null,"validation_message":null,"data_source":"related","json_data":{"data_source_table_name":"users","data_source_columns":"email"},"extravalidation":null}}

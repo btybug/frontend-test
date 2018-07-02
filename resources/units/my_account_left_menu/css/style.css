@@ -1,0 +1,189 @@
+ul, li {
+    list-style: none;
+}
+.profile-user{
+    color: #2f2f2f;
+    font-size: 16px;
+    line-height: 1.625;
+    letter-spacing: .5px;
+    margin-top: 15px;
+}
+.profile-user .profile-img {
+    text-align: center;
+}
+
+.profile-user .profile-img img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.profile-user .profile-name {
+    padding: 45px 10px 20px 10px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 40px 15px rgba(1, 1, 1, 0.1);
+    text-align: center;
+}
+
+.profile-user .profile-name h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    padding: 0;
+    color: #111111;
+}
+
+.profile-user .profile-name p span {
+    color: rgb(71, 122, 165);
+}
+
+.profile-user ul.social-btn {
+    width: 100%;
+    padding: 50px 10px;
+    text-align: center;
+}
+
+.profile-user ul.social-btn li {
+    margin: 5px;
+    width: 35px;
+    height: 35px;
+    opacity: 0.2;
+    border-radius: 100%;
+    display: inline-block;
+    background-color: #477aa5;
+    transition: opacity 0.4s ease;
+}
+
+.profile-user ul.social-btn li a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+}
+.profile-user .profile-menu{
+    background: #FBFBFC;
+    padding: 0;
+}
+.profile-user .profile-menu ul{
+    padding: 0;
+
+}
+.profile-user .profile-menu ul a{
+    text-indent: 2em !important;
+}
+.profile-user .profile-menu li a{
+    width: 100%;
+    line-height: 3.5em;
+    text-indent: 1.2em;
+    display: block;
+    position: relative;
+    color: #666;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+}
+.profile-user .profile-menu li .profile-item{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+.profile-user .profile-menu li .profile-item span{
+    margin-right:10px;
+}
+
+.profile-user .profile-menu .profile-item.active,.profile-user .profile-menu .cute a:hover,.profile-user .profile-menu .profile-item:hover{
+    background-color: #cacaca;
+    color: white;
+}
+.profile-user .profile-menu a i{
+    float: right;
+    margin: 20px 20px 0 0;
+}
+.profile-user .profile-menu .sublink.active i{
+    -webkit-transform: rotatex(180deg);
+    transform: rotatex(180deg);
+    -moz-transform: rotatex(180deg);
+    -o-transform: rotatex(180deg);
+    -ms-transform: rotatex(180deg)
+}
+.profile-user .profile-menu .cute{
+    overflow: hidden;
+    display: none;
+}
+
+.profile-user ul.social-btn li:hover {
+    background-color: rgb(71, 122, 165);
+    opacity: 1;
+}
+.profile-user .profile-icon{
+    background-color: #fff;
+    padding: 30px 10px;
+    box-shadow: 0 -7px 45px 6px rgba(1, 1, 1, 0.1);
+}
+.profile-user .profile-icon ul{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+.profile-user .profile-icon a{
+text-decoration: none;
+    color: #999;
+}
+.profile-user .profile-icon a i{
+    font-size: 23px;
+}
+
+.fs-14-cl-red{
+    font-size: 14px!important;
+    color: red!important;
+}
+.fs-16-cl-red{
+    font-size: 16px!important;
+    color: red!important;
+}
+.fs-18-cl-red{
+    font-size: 18px!important;
+    color: red!important;
+}
+.fs-20-cl-red{
+    font-size: 20px!important;
+    color: red!important;
+}
+.fs-28-cl-red{
+    font-size: 28px!important;
+    color: red!important;
+}
+.fs-32-cl-red{
+    font-size: 32px!important;
+    color: red!important;
+}
+.fs-14-cl-blue{
+    font-size: 14px!important;
+    color: rgb(71, 122, 165)!important;
+}
+.fs-16-cl-blue{
+    font-size: 16px!important;
+    color: rgb(71, 122, 165)!important;
+}
+.fs-18-cl-blue{
+    font-size: 18px!important;
+    color: rgb(71, 122, 165)!important;
+}
+.fs-20-cl-blue{
+    font-size: 20px!important;
+    color: rgb(71, 122, 165)!important;
+}
+.fs-28-cl-blue{
+    font-size: 28px!important;
+    color: rgb(71, 122, 165)!important;
+}
+.fs-32-cl-blue{
+    font-size: 32px!important;
+    color: rgb(71, 122, 165)!important;
+}

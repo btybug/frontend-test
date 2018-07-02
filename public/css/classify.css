@@ -1,0 +1,130 @@
+.bb-classify-container {
+    padding: 20px 0;
+    overflow: hidden; }
+.bb-classify-container .iconpicker-container {
+    display: none;
+    position: fixed;
+    z-index: 111111111; }
+.bb-classify-container .iconpicker-container .iconpicker-popover.popover.inline {
+    margin: 0 !important; }
+.bb-classify-container .ui-sortable-placeholder {
+    background: #fbf7d9;
+    visibility: visible !important;
+    margin-bottom: 6px; }
+.bb-classify-container .bb-classify-drag-handler {
+    float: left;
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin-top: -10px;
+    margin-left: -15px;
+    color: #a0a0a0;
+    font-size: 18px;
+    cursor: move; }
+.bb-classify-container .general-classify-settings {
+    display: none; }
+.bb-classify-container ol {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+.bb-classify-container ol.bb-sortable-static .level-1 {
+    margin-left: 20px; }
+.bb-classify-container ol.bb-sortable-static .level-2 {
+    margin-left: 40px; }
+.bb-classify-container ol.bb-sortable-static .level-3 {
+    margin-left: 60px; }
+.bb-classify-container ol li.ui-draggable-dragging {
+    z-index: 999999;
+    width: calc(100% - 60px);
+    opacity: 0.9; }
+.bb-classify-container ol li.ui-draggable-dragging .bb-add-to-classify {
+    display: none; }
+.bb-classify-container ol.bb-sortable-static .bb-classify-actions .bb-classify-delete,
+.bb-classify-container ol.bb-sortable-static .bb-classify-actions .bb-classify-collapse:not(.group-expander) {
+    display: none; }
+.bb-classify-container ol.bb-sortable-static .bb-add-to-classify {
+    color: #a2a2a2;
+    background: #dedede;
+    width: 40px;
+    line-height: 30px;
+    margin-top: -5px;
+    margin-right: -10px;
+    text-align: center; }
+.bb-classify-container ol.bb-sortable-group > .ui-draggable-dragging {
+    width: calc(100% - 30px) !important; }
+.bb-classify-container ol ol:not(.bb-sortable-static) {
+    margin-left: 20px; }
+.bb-classify-container .bb-classify-item {
+    margin-bottom: 6px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px; }
+.bb-classify-container .bb-classify-item .bb-classify-item-body {
+    padding: 10px;
+    background: #fff;
+    border-radius: 0 0 4px 4px; }
+.bb-classify-container .bb-classify-item-title {
+    padding: 10px 15px;
+    color: #333;
+    background-color: #fafafa;
+    border-bottom: 1px solid #dcdcdc;
+    cursor: pointer;
+    border-radius: 4px 4px 0 0; }
+.bb-classify-container .bb-classify-item-title.active {
+    background: #dcdcdc; }
+.bb-classify-container .bb-classify-item-title i {
+    width: 20px; }
+.bb-classify-container .bb-classify-item-title a.bb-classify-collapse {
+    display: table;
+    float: right;
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin-top: -10px;
+    margin-right: -15px;
+    background: #e8e8e8;
+    border-radius: 0 4px 4px 0;
+    margin-left: 15px;
+    color: #a0a0a0;
+    font-size: 20px; }
+.bb-classify-container .bb-classify-item-title a.bb-classify-delete {
+    color: rgba(208, 6, 6, 0.86); }
+.bb-classify-container .bb-classify-item-body {
+    display: none; }
+.bb-classify-container .bb-classify-area {
+    min-height: 50px;
+    position: relative; }
+.bb-classify-container .bb-classify-area .bb-classify-group-body .bb-sortable-static {
+    position: relative; }
+.bb-classify-container .bb-classify-area .bb-classify-group-body .bb-sortable-static:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1; }
+.bb-classify-container .bb-classify-area .panel {
+    margin-bottom: 6px; }
+.bb-classify-container .bb-classify-area .bb-add-to-classify {
+    display: none; }
+.bb-classify-container .bb-classify-area:empty {
+    border: 1px dashed #c0c0c0; }
+.bb-classify-container .bb-classify-area:empty:after {
+    content: "Add Items Here";
+    color: #bdbdbd;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 50px; }
+.bb-classify-container .panel-heading.classify-panel {
+    display: inline-table;
+    width: 100%; }
+.bb-classify-container .panel-heading.classify-panel h3 label {
+    font-size: 14px;
+    margin-right: 10px; }
+.bb-classify-container .panel-heading.classify-panel h3 input {
+    border: 1px solid #dfdfdf;
+    text-indent: 5px;
+    padding: 5px 0;
+    width: 250px; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,244 @@
+html, body{
+  height: 100%;
+}
+
+.grow {
+  flex: 1;
+}
+
+.main {
+  overflow-y: auto;
+}
+
+[bb-click]{
+  cursor: pointer;
+  user-select: none;
+}
+
+header {
+  background-color: black;
+  padding: 15px 0;
+}
+
+header .head-btn {
+  width: 100%;
+  text-align: right;
+  margin-right: 50px;
+}
+
+section.main {
+  margin-top: 20px;
+}
+
+section.main .preview, section.main .settings {
+  border: 1px solid #000;
+  min-height: 500px;
+}
+
+.ace_editor{
+  height:100%;
+  flex: 1;
+}
+.set_border{
+  border: 2px solid #FF0000;
+}
+.custom_inline_block{
+  display:inline-block;
+}
+
+.studio-container{
+  background: #e7e7e7;
+}
+
+.tree-area {
+  background: #3d3d3d;
+  overflow-y: auto;
+  position: relative;
+}
+
+.preview-area {
+  height: 100%;
+  padding: 10px;
+  background: #fff;
+  position: relative;
+  overflow: scroll;
+}
+
+.preview-area:empty:before {
+  content: "Code Preview";
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 120px;
+  text-transform: uppercase;
+  color: #afafaf;
+  font-size: 18px;
+}
+
+.tree-list{
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.node-content {
+  background: #4b9bc7;
+  margin-bottom: 10px;
+  color: #fff;
+  padding: 6px 10px;
+}
+
+.tree-list li {
+  list-style: none;
+}
+
+.controls {
+  float: right;
+}
+
+.controls a {
+  color: #fff;
+  margin-left: 10px;
+}
+
+.php-code-item, .node-php-code-item {
+  padding: 0 8px;
+  background: #b98e00;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 39px;
+}
+
+.node-php-code-item{
+  background: #4b9bc7;
+}
+
+.code-editor-area {
+  height: calc(100% - 44px);
+}
+
+a.outline-btn {
+  border: 1px solid #fff;
+  padding: 2px 10px;
+  font-size: 12px;
+  position: relative;
+  top: -2px;
+  text-decoration: none;
+  border-radius: 3px;
+  color: #fff;
+  margin-left: 10px;
+}
+
+a.outline-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.code-editor-bar {
+  background: #886805;
+  padding: 5px;
+}
+
+.node-code-editor-bar {
+  background: #282729;
+  padding: 5px;
+  display: table;
+  width: 100%;
+
+  select{
+    width: 100%;
+    height: 31px;
+    font-size: 13px;
+    padding-left: 7px;
+  }
+
+  input{
+    width: 100%;
+  }
+}
+
+.code-editor-bar input, .node-code-editor-bar input {
+  border: none;
+  width: 100%;
+  border-radius: 2px;
+  padding: 3px 10px;
+  outline: none;
+  color: #9a9a9a;
+}
+
+.easy-autocomplete {
+  width: 100%!important;
+  z-index: 999999999;
+}
+
+.node-code-editor-area .node-code-editor-bar input {
+  font-size: 13px;
+  line-height: 24px;
+  border-radius: 5px;
+}
+
+.add-code {
+  padding: 7px 10px;
+  outline: none!important;
+  box-shadow: none!important;
+}
+
+.node-code-editor-area {
+  height: calc(100% - 80px);
+}
+
+.inserted-code {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.inserted-item {
+  color: #fff;
+  font-size: 13px;
+  padding: 2px 10px;
+  margin-bottom: 1px;
+  cursor: pointer;
+  user-select: none;
+  background: #282729;
+
+  &.active{
+    background: #dd3545;
+  }
+}
+
+div#php-code-editor {
+  height: calc(100% - 63px);
+}
+
+.style-studio h4 {
+  background: #000;
+  margin: 0;
+  padding: 5px 10px;
+  font-size: 15px;
+  color: #fff;
+  user-select: none;
+
+  a{
+    color: #fff;
+  }
+}
+
+.style-studio-container {
+  height: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.preview-tabs {
+  background: #3d3d3d;
+}
+
+.preview-tabs a {
+  color: #fff;
+  border-radius: 0!important;
+  border: none!important;
+}

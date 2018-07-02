@@ -1,0 +1,50 @@
+/*Vertical Menu*/
+.bty-vertical-menu-2 ul {
+    list-style: none;
+}
+
+.bty-vertical-menu-2 ul,
+.bty-vertical-menu-2 li,
+.bty-vertical-menu-2 a {
+    padding: 0;
+    margin: 0;
+}
+
+.bty-vertical-menu-2 > ul a {
+    color: #FFFFFF;
+}
+
+.bty-vertical-menu-2 > ul li ul li a:hover {
+    background-color: #394963;
+}
+
+.bty-vertical-menu-2 ul li ul {
+    background-color: #4a5b78;
+    list-style: none;
+    display: none;
+}
+
+.bty-vertical-menu-2 > ul > li > a {
+    background-color: #282828;
+    padding: 16px 18px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 2px solid #212121;
+    background: linear-gradient(top, #343434, #111111);
+}
+
+.bty-vertical-menu-2 > ul li ul li a {
+    padding: 10px 0;
+    padding-left: 30px;
+    text-decoration: none;
+    display: block;
+}
+
+.bty-vertical-menu-2 {
+    background-color: #343434;
+    width: 280px;
+}
+
+.bty-vertical-menu-2 > ul li ul {
+    display: none;
+}

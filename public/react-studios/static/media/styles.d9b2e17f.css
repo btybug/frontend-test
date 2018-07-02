@@ -1,0 +1,226 @@
+.qb-draggable, .qb-drag-handler {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.rule--header:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.group--header,
+.group--footer {
+  display: flex;
+  align-items: center; }
+
+.query-builder {
+  overflow: hidden; }
+  .query-builder *, .query-builder *::before, .query-builder *::after {
+    box-sizing: border-box; }
+
+/******************************************************************************/
+/** COMMON ********************************************************************/
+/******************************************************************************/
+.query-builder, .query-preview {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.25;
+  margin: 1rem; }
+
+.query-builder.qb-dragging {
+  cursor: -webkit-grabbing !important;
+  cursor: grabbing !important; }
+  .query-builder.qb-dragging button {
+    pointer-events: none; }
+
+.query-preview {
+  font-size: 14px;
+  background: rgba(250, 240, 210, 0.5);
+  border: 1px solid #DCC896;
+  min-height: 1rem;
+  display: block;
+  padding: 1rem; }
+
+.group {
+  background: rgba(250, 240, 210, 0.5);
+  border: 1px solid #DCC896; }
+
+.rule {
+  background-color: white;
+  border: 1px solid transparent;
+  padding: 10px; }
+
+.group-or-rule {
+  border-radius: 5px;
+  position: relative; }
+
+.qb-draggable {
+  pointer-events: none;
+  position: absolute;
+  opacity: 0.7;
+  z-index: 1000; }
+
+.qb-placeholder {
+  border: 1px dashed gray; }
+
+.group-or-rule-container {
+  margin-bottom: 10px;
+  padding-right: 10px; }
+
+/******************************************************************************/
+/** GROUP *********************************************************************/
+/******************************************************************************/
+.group--children {
+  padding-left: 20px; }
+  .group--children > .group-or-rule-container > .group-or-rule:before {
+    top: -4px;
+    border-width: 0 0 2px 2px; }
+  .group--children > .group-or-rule-container > .group-or-rule::after {
+    top: 50%;
+    border-width: 0 0 0 2px; }
+  .group--children > .group-or-rule-container > .group-or-rule::before, .group--children > .group-or-rule-container > .group-or-rule::after {
+    content: '';
+    position: absolute;
+    left: -14px;
+    width: 14px;
+    height: calc(50% + 8px);
+    border-color: #CCC;
+    border-style: solid;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  .group--children > .group-or-rule-container:first-child > .group-or-rule::before {
+    top: -12px;
+    height: calc(50% + 14px); }
+  .group--children > .group-or-rule-container:last-child > .group-or-rule::before {
+    border-radius: 0 0 0 4px; }
+  .group--children > .group-or-rule-container:last-child > .group-or-rule::after {
+    display: none; }
+
+.group--children.hide--line > .group-or-rule-container > .group-or-rule::before, .group--children.hide--line > .group-or-rule-container > .group-or-rule::after {
+  border-color: rgba(128, 128, 128, 0.1); }
+
+.qb-draggable::before, .qb-draggable::after {
+  display: none; }
+
+.qb-drag-handler {
+  cursor: -webkit-grabbing;
+  cursor: grabbing; }
+
+.group--header,
+.group--footer {
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  padding-left: 10px; }
+
+.group--conjunctions.hide--conj {
+  opacity: 0.3; }
+
+.group--actions {
+  flex: 1;
+  display: flex; }
+  .group--actions--tl, .group--actions--bl {
+    justify-content: flex-start; }
+  .group--actions--tl {
+    margin-left: 20px; }
+  .group--actions--tc, .group--actions--bc {
+    justify-content: center; }
+  .group--actions--tr, .group--actions--br {
+    justify-content: flex-end; }
+
+/******************************************************************************/
+/** RULE **********************************************************************/
+/******************************************************************************/
+.rule--header {
+  float: right; }
+
+/*
+.rule--body {
+  @extend %clearfix;
+  display: inline-block;
+}
+*/
+.rule--field, .rule--operator, .rule--value, .rule--operator-options, .rule--widget,
+.widget--widget, .widget--valuesrc, .widget--sep, .operator--options--sep {
+  display: inline-block; }
+
+.rule--operator, .widget--widget, .widget--valuesrc, .widget--sep {
+  margin-left: 10px; }
+
+.operator--options--sep {
+  margin-right: 10px; }
+
+div.tooltip-inner {
+  max-width: 500px; }
+
+.rule--field label, .rule--operator label, .widget--widget label {
+  display: block;
+  font-weight: bold; }
+
+/******************************************************************************/
+/** CONJUNCTION ***************************************************************/
+/******************************************************************************/
+.conjunction {
+  display: inline-block; }
+  .conjunction label {
+    display: inline-block;
+    border: 1px solid;
+    cursor: pointer;
+    color: white;
+    text-transform: uppercase;
+    padding: 0.2rem 0.4rem; }
+  .conjunction input {
+    display: none; }
+  .conjunction[data-state="active"] label {
+    background-color: #3276b1;
+    border-color: #285e8e; }
+  .conjunction[data-state="inactive"] label {
+    background-color: #428bca;
+    border-color: #357ebd; }
+    .conjunction[data-state="inactive"] label:hover {
+      background-color: #3276b1;
+      border-color: #285e8e; }
+  .conjunction:first-child label {
+    border-radius: 3px 0 0 3px; }
+  .conjunction:last-child label {
+    border-radius: 0 3px 3px 0; }
+  .conjunction:first-child:last-child {
+    border-radius: 3px; }
+
+/******************************************************************************/
+/** ACTION ********************************************************************/
+/******************************************************************************/
+/*
+.action {
+  display: inline-block;
+  background-color: #5cb85c;
+  border: 1px solid #4cae4c;
+  cursor: pointer;
+  color: white;
+  padding: 0.2rem 0.4rem;
+  text-decoration: none;
+
+  &:first-child {
+    border-radius: 3px 0 0 3px;
+    border-left-width: 1px;
+  }
+
+  &:last-child {
+    border-radius: 0 3px 3px 0;
+  }
+
+  &:first-child:last-child {
+    border-radius: 3px;
+  }
+}
+
+.action--DELETE {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+*/
+
+/*# sourceMappingURL=styles.d9b2e17f.css.map */

@@ -1,0 +1,74 @@
+#about-flato{
+    /*background: #00bdbd;*/
+    /*color: #fff;*/
+    position: relative;
+}
+section#about-flato>.container {
+    /*padding-top: 85px;*/
+    /*padding-bottom: 93px;*/
+}
+
+#about-flato .heading{
+    text-align: center;
+    padding-bottom: 45px;
+    /*color: #fff;*/
+}
+#about-flato .heading .title{
+    font-size: 36px;
+    line-height: 38px;
+    padding-bottom: 0;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0;
+    /*color: #fff;*/
+}
+#about-flato .heading p{
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    margin: 0;
+    padding-bottom: 41px;
+}
+
+#about-flato .aboutme h3{
+    font-size: 24px;
+    line-height: 30px;
+    padding-bottom: 6px;
+    font-weight: 400;
+    margin: 0;
+}
+#about-flato .aboutme h4{
+    font-size: 19px;
+    line-height: 24px;
+    padding-bottom: 6px;
+    font-weight: 600;
+    margin: 0;
+}
+#about-flato .aboutme p{
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    padding-bottom: 22px;
+    margin: 0;
+}
+#about-flato .aboutme .bntDownload{
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    background: #474d5d;
+    padding: 16px 22px;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+}
+#about-flato .aboutme .bntDownload:hover{
+    background: #373d4c;
+    color: #CCCCCC;
+    text-decoration: none;
+}
+
+#about-flato .aboutme .proPic img{
+    margin-top: 20px;
+    object-fit: cover;
+}

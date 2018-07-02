@@ -1,0 +1,54 @@
+.sidebar-recent-post h3 {
+    margin: 0 0 8px 0;
+}
+
+.sidebar-recent-post .recent-post ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar-recent-post .recent-post .wrapper{
+    margin-bottom: 20px;
+}
+.sidebar-recent-post .recent-post .img{
+    overflow: hidden;
+}
+.sidebar-recent-post .recent-post .img img{
+    width: 100%;
+    object-fit: cover;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+
+}
+.sidebar-recent-post .recent-post ul li:hover .img img {
+    transform: rotate(5deg) scale(1.4, 1.4);
+    -webkit-transform: rotate(5deg) scale(1.4, 1.4);
+    -moz-transform: rotate(5deg) scale(1.4, 1.4);
+    -ms-transform: rotate(5deg) scale(1.4, 1.4);
+    -o-transform: rotate(5deg) scale(1.4, 1.4);
+}
+
+.sidebar-recent-post .recent-post .content p{
+    margin: 0;
+}
+.sidebar-recent-post .recent-post .content h6{
+    margin: 0;
+}
+.sidebar-recent-post .recent-post .content h6 a{
+    color: #191919;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    text-decoration: none;
+}
+.sidebar-recent-post .recent-post ul li:hover .content h6 a{
+    color: #fdc319;
+}

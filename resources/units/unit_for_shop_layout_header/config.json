@@ -1,0 +1,18 @@
+{
+  "title": "Header for shop",
+  "author": "Gevorg",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "self_type": "units",
+  "type": "units",
+  "description": "header",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "unit_for_shop_layout_header",
+  "folder": "unit_for_shop_layout_header",
+  "created_at": 1490088665,
+  "is_core": 0,
+  "place": "frontend",
+  "tags": ["frontend_header","shop_layout","frontend"],
+  "path": "resources\/units\/unit_for_shop_layout_header"
+}

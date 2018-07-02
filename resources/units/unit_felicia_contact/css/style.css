@@ -1,0 +1,94 @@
+.section-felic-contact .section-title {
+    display: block;
+    margin-bottom: 80px;
+}
+.section-felic-contact .section-title .title {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 46px;
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #414141;
+}
+.section-felic-contact .section-title .separator {
+    position: relative;
+}
+
+.section-felic-contact .separator:before {
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 50px;
+    height: 1px;
+    content: '';
+    background: #757575;
+}
+.section-felic-contact .separator:after {
+    position: absolute;
+    bottom: -15px;
+    left:0;
+    width: 40px;
+    height: 1px;
+    content: '';
+    background: #757575;
+}
+.section-felic-contact .section-title .sub-title {
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 30px;
+    color: #757575;
+}
+.section-felic-contact .light-txt h4{
+    line-height: 1.3;
+    color: #414141;
+    font-size: 18px;
+}
+.section-felic-contact .light-txt p{
+    font-size: 14px;
+    color: #757575;
+    line-height: 30px;
+    margin-bottom: 40px;
+}
+.section-felic-contact .contact-form {
+    margin-top: 90px;
+}
+.section-felic-contact input.form-control {
+    height: 50px;
+}
+.section-felic-contact .contact-form .form-control:focus {
+    box-shadow: none;
+}
+.section-felic-contact .contact-form .btn {
+    color: #fff;
+    border-color: #fc4848;
+    background: #fc4848;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 30px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    pointer-events: all;
+    cursor: pointer;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -ms-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+.section-felic-contact .contact-form button:hover, .section-felic-contact .contact-form button:focus, .section-felic-contact .contact-form button:active:focus {
+    color: #fff;
+    outline: none;
+    border-color: #fb1616;
+    background: #fb1616;
+}
+@media (max-width: 568px){
+    .section-felic-contact .section-title .title {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .section-felic-contact .section-title{
+        margin-bottom: 50px;
+    }
+}

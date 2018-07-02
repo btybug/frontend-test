@@ -1,0 +1,141 @@
+.section-felic-blog .section-title {
+    display: block;
+    margin-bottom: 80px;
+}
+.section-felic-blog .section-title .title {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 46px;
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #414141;
+}
+.section-felic-blog .section-title .separator {
+    position: relative;
+}
+
+.section-felic-blog .separator:before {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    width: 50px;
+    height: 1px;
+    margin-left: -25px;
+    content: '';
+    background: #757575;
+}
+.section-felic-blog .separator:after {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 40px;
+    height: 1px;
+    margin-left: -20px;
+    content: '';
+    background: #757575;
+}
+.section-felic-blog .section-title .sub-title {
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 30px;
+    color: #757575;
+}
+.section-felic-blog .m-bot-50 {
+    margin-bottom: 50px;
+}
+.section-felic-blog .blog-wrap {
+    padding: 10px;
+}
+.section-felic-blog img {
+    width: 100%;
+    height:273px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.section-felic-blog .post-header {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.section-felic-blog .post-header .cat .post-categories {
+    padding: 0;
+    list-style: none;
+}
+.section-felic-blog .post-header .cat .post-categories li {
+    display: inline-block;
+}
+.section-felic-blog .post-header .cat .post-categories li a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    margin-right: 10px;
+    text-transform: uppercase;
+    color: #fc4848;
+}
+.section-felic-blog a {
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    outline: none;
+}
+.section-felic-blog .post-header h4 {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 25px;
+    margin-top: 10px;
+    color: #414141;
+}
+.section-felic-blog .post-header h4 a {
+    color: #414141;
+}
+.section-felic-blog .post-header h4 a:hover {
+    color: #fc4848;
+}
+.section-felic-blog .post-header .post-auth-date {
+    font-size: 14px;
+    color: #909090;
+}
+.section-felic-blog .post-header .post-auth-date a {
+    color: #909090;
+}
+.section-felic-blog .post-header .post-auth-date a:hover {
+    color: #000;
+}
+.section-felic-blog .post-blog{
+    line-height: 30px;
+    margin-bottom: 40px;
+    color: #757575;
+    font-size: 16px;
+}
+.section-felic-blog .btn-link {
+    font-size: 14px;
+    position: relative;
+    color: #000;
+}
+.section-felic-blog .btn-link:after {
+    font-family: fontawesome;
+    font-size: 13px;
+    position: absolute;
+    top: 0;
+    right: -10px;
+    content: '\f105';
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+.section-felic-blog .btn-link:hover {
+    text-decoration: none;
+    color: #000;
+}
+.section-felic-blog .btn-link:hover:after {
+    right: -15px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+@media (max-width: 568px){
+    .section-felic-blog .section-title .title {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .section-felic-blog .section-title{
+        margin-bottom: 50px;
+    }
+}

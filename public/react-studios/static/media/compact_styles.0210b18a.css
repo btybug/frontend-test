@@ -1,0 +1,40 @@
+.group--children, .group--conjunctions {
+  margin: 0px !important; }
+
+.rule {
+  padding: 5px; }
+
+.group {
+  padding-left: 0px; }
+
+.group--children {
+  padding-left: 10px !important; }
+  .group--children > .group-or-rule-container > .group-or-rule::before, .group--children > .group-or-rule-container > .group-or-rule::after {
+    left: -7px;
+    width: 7px; }
+
+.group--conjunctions {
+  margin-left: 4px !important; }
+
+.group-or-rule-container {
+  margin-bottom: 5px;
+  padding-right: 5px; }
+
+/*
+.query-builder.qb-dragging {
+    .group-or-rule-container {
+        margin-bottom: 10px;
+    }
+}
+*/
+.rule--operator, .widget--widget, .widget--valuesrc, .widget--sep {
+  margin-left: 5px; }
+
+.operator--options--sep {
+  margin-right: 5px; }
+
+.group--header {
+  padding: 5px;
+  padding-left: 0; }
+
+/*# sourceMappingURL=compact_styles.0210b18a.css.map */

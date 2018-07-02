@@ -1,0 +1,124 @@
+.input-checkbox-1-bty input[type="checkbox"] {
+    display: none;
+}
+
+.input-checkbox-1-bty label {
+    position: relative;
+    display: inline-block;
+    padding-left: 1.5em;
+    margin-right: 2em;
+    cursor: pointer;
+    line-height: 1em;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-checkbox-1-bty label:before,
+.input-checkbox-1-bty label:after {
+    content:.input-checkbox-2-bty input[type="checkbox"]{
+    display: none;
+    cursor: pointer;
+}
+
+.input-checkbox-2-bty input[type="checkbox"]:focus,
+.input-checkbox-2-bty input[type="checkbox"]:active {
+    outline: none;
+}
+
+.input-checkbox-2-bty label {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 10px;
+    color: #0b4c6a;
+}
+
+.input-checkbox-2-bty label:before,
+.input-checkbox-2-bty label:after {
+    content:.input-checkbox-4-bty input[type="checkbox"]{
+    display: none;
+}
+
+.input-checkbox-4-bty label:before {
+    content: "";
+    margin: 0 .5em 0 0;
+    float: left;
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    color: #fff;
+    border: 3px solid #e5e5e5;
+    border-radius: 3px;
+    transition: all .3s ease;
+}
+
+.input-checkbox-4-bty input[type="checkbox"]:checked + label:before {
+    font-family: "FontAwesome";
+    content: "\f00c";
+    color: #fff;
+    background-color: #88c6ff;
+    border: 3px solid #2295ff;
+    font-size: 13px;
+}.input-checkbox-8-bty input[type="checkbox"] {
+    display: none;
+}
+
+.input-checkbox-8-bty label {
+    padding: 0;
+    display: inline-block;
+    position: relative;
+    font-size: 20px;
+    text-shadow: 0 0 9px rgba(0, 0, 0, 0.4);
+    color: #333;
+}
+
+.input-checkbox-8-bty input[type="checkbox"]:checked + label:before,
+.input-checkbox-8-bty label:active:before {
+    content: "\f05d";
+    font-family: FontAwesome;
+    padding-right: 5px;
+}
+
+.input-checkbox-8-bty label:before,
+.input-checkbox-8-bty input[type="checkbox"]:checked + label:active:before {
+    content: "\f05c";
+    font-family: FontAwesome;
+    padding-right: 5px;
+}.input-checkbox-7-bty input[type="checkbox"] {
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.input-checkbox-7-bty input[type="checkbox"]:after {
+    border: 1px solid #166B94;
+    border-radius: 3px;
+    color: #fff;
+    content: "";
+    display: block;
+    height: 16px;
+    line-height: 16px;
+    position: absolute;
+    text-align: center;
+    visibility: visible;
+    width: 16px;
+}
+
+.input-checkbox-7-bty input[type="checkbox"]:checked:after {
+    border: 1px solid #979797;
+    color: #979797;
+    content: "✓";
+}
+
+.input-checkbox-7-bty input[type="checkbox"]:checked + label {
+    color: #979797;
+    font-weight: normal;
+    text-decoration: line-through;
+}
+
+.input-checkbox-7-bty label {
+    color: #166B94;
+    font-weight: bold;
+    margin-left: 12px;
+    cursor: pointer;
+}

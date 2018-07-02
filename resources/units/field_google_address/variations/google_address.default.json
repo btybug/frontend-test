@@ -1,0 +1,8 @@
+{
+  "title": "default",
+  "id": "field_google_address.default",
+  "settings": {
+    "container_style": "cnt-w-50",
+    "label_style": "lab-cl-limegreen"
+  }
+}

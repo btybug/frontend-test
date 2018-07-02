@@ -1,0 +1,20 @@
+{
+  "title": "default",
+  "id": "field_select.default",
+  "settings": {
+    "select_inp": null,
+    "label": null,
+    "icon": null,
+    "tooltip_icon": null,
+    "help": null,
+    "validation_message": null,
+    "data_source": "manual",
+    "json_data": {
+      "manual": [
+        "ghfjhgf",
+        "nbvjnvmn"
+      ]
+    },
+    "extravalidation": null
+  }
+}

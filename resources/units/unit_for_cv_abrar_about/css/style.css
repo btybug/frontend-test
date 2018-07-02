@@ -1,0 +1,187 @@
+#about-me-abrar {
+    overflow: hidden;
+}
+#about-me-abrar .section-padding{
+    /*padding: 140px 0px;*/
+}
+#about-me-abrar .section-title{
+    padding-bottom: 25px;
+}
+#about-me-abrar .section-title .title-head{
+    font-size: 40px;
+    font-style: italic;
+    margin: 0;
+    font-weight: 700;
+}
+#about-me-abrar .section-title p{
+    font-size: 16px;
+    color: #888484;
+}
+
+#about-me-abrar .about-me-content .my-profile-pic{
+    overflow: hidden;
+    max-width: 450px;
+    max-height: 450px;
+    border-radius: 100%;
+    background-color: #dfdfdf;
+    margin-bottom: 90px;
+}
+#about-me-abrar .about-me-content .my-profile-pic img{
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#about-me-abrar .about-me-content .admin-text{
+    padding-left: 65px;
+    padding-top: 90px;
+}
+#about-me-abrar .about-me-content .admin-text .admin-quote{
+    margin-bottom: 30px;
+}
+#about-me-abrar .about-me-content .admin-text blockquote{
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 14px;
+    position: relative;
+}
+#about-me-abrar .about-me-content .admin-text .admin-quote blockquote:before {
+    top: -30px;
+    left: -50px;
+    color: #dfdfdf;
+    font-size: 40px;
+    content: "\f10d";
+    position: absolute;
+    font-family: FontAwesome;
+
+}
+#about-me-abrar .about-me-content .admin-text .admin-signature{
+    margin-bottom: 50px;
+}
+#about-me-abrar .about-me-content .admin-text .admin-signature img{
+    width: 15%;
+    height: auto;
+}
+
+#about-me-abrar .about-me-content .admin-sponsor .sponsor{
+    border: 1px solid black;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#about-me-abrar .about-me-content .admin-sponsor .sponsor img{
+    object-fit: cover;
+    height: 100%;
+}
+#about-me-abrar .about-me-description{
+    margin-bottom: 30px;
+}
+
+#about-me-abrar .about-me-description .admin-details-description .my-profile-details ul{
+list-style: none;
+}
+
+#about-me-abrar .about-me-description .admin-details-description .my-profile-details li{
+    margin-bottom: 20px;
+}
+#about-me-abrar .about-me-description .admin-details-description .my-profile-details li .pro-title{
+    font-size: 20px;
+    color: #2d318d;
+}
+#about-me-abrar .about-me-description .admin-details-description .my-profile-details li .pro-detail{
+    font-size: 16px;
+
+}
+
+#about-me-abrar .about-me-description .admin-details-description .skill_progress .skilled-tittle{
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+#about-me-abrar .about-me-description .admin-details-description .skill_progress .skilled-percent{
+    float: right;
+    font-size: 16px;
+}
+#about-me-abrar .about-me-description .admin-details-description .skill_progress .progress{
+    height: 8px;
+    border-radius: 0;
+    overflow: visible;
+    margin-bottom: 50px;
+    background-color: #e8e8e8;
+}
+
+#about-me-abrar .about-me-description .admin-details-description .skill_progress .progress .progress-bar {
+    height: 8px;
+    position: relative;
+    background-color: #2d318d;
+}
+
+#about-me-abrar .about-me-description .admin-details-description .skill_progress .progress .progress-bar.width-75 {
+    width: 75%;
+}
+#about-me-abrar .about-me-description .admin-details-description .skill_progress .progress .progress-bar.width-85 {
+    width: 85%;
+}
+#about-me-abrar .about-me-description .admin-details-description .skill_progress .progress .progress-bar.width-90 {
+    width: 90%;
+}
+#about-me-abrar .about-me-description .admin-details-description .skill_progress .progress .progress-bar.width-65 {
+    width: 65%;
+}
+#about-me-abrar .wall-btn{
+    background-color: #2d318d;
+    height: 50px;
+    width: 170px;
+    line-height: 50px;
+    margin: 0 auto;
+    font-size: 18px;
+    letter-spacing: .5px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    border: 0;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    transition: all ease 0.3s;
+    cursor: pointer;
+    overflow: hidden;
+}
+#about-me-abrar .wall-btn button{
+    color: #fff;
+    border: none;
+    background-color: transparent;
+}
+#about-me-abrar .wall-btn:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+#about-me-abrar .wall-btn:hover:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}

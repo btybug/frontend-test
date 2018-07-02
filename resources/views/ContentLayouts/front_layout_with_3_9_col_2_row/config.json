@@ -1,0 +1,71 @@
+{
+  "title": "Base Layout",
+  "author": "Vahag",
+  "self_type": "page_sections",
+  "type": "general",
+  "version": 1,
+  "descrition": "Base Layout",
+  "layout": "main",
+  "panel": "panel",
+  "css": [
+    "style.css",
+    "setting-body.css"
+  ],
+  "js": [
+    "js.js"
+  ],
+  "settings": {
+    "file": "settings",
+    "css": [
+      "style.css"
+    ],
+    "js": [
+      "js.js"
+    ]
+  },
+  "placeholders": {
+    "general": {
+      "type": "unit",
+      "tag": "general",
+      "title": "General",
+      "s" : true
+    },
+    "left_bar": {
+      "type": "unit",
+      "tag": "left_bar",
+      "title": "Left Sidebar",
+      "f" : true,
+      "s" : true
+    },
+    "top_right": {
+      "type": "unit",
+      "tag": "breadcrumb",
+      "title": "Top Right",
+      "f" : true,
+      "s" : true
+    } ,
+    "main_right": {
+      "type": "unit",
+      "tag": "breadcrumb",
+      "title": "Main Right",
+      "f" : true,
+      "s" : true,
+      "main" : true
+    },
+    "menu": {
+      "type": "unit",
+      "tag": "menu",
+      "title": "Menu",
+      "f" : true,
+      "s" : true
+    }
+  },
+  "folder": "front_layout_with_3_9_col_2_row",
+  "active": false,
+  "tags":["front_pages_layout"],
+  "slug": "front_layout_with_3_9_col_2_row",
+  "created_at": 1493719963,
+  "is_core": 0,
+  "place": "frontend",
+  "path": "resources\/views\/ContentLayouts\/front_layout_with_3_9_col_2_row"
+}

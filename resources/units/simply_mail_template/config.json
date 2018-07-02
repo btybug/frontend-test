@@ -1,0 +1,17 @@
+{
+  "title": "Amazing Mail Template",
+  "author": "Sahak",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "type": "unit",
+  "description": "Form Field",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "simply_mail_template",
+  "folder": "simply_mail_template",
+  "created_at": 1490088665,
+  "is_core": 1,
+  "place": "frontend",
+  "tags": ["template","mail_template"],
+  "path": "resources\/units\/simply_mail_template"
+}

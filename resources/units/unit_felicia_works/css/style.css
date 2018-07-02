@@ -1,0 +1,195 @@
+.section-felic-works .section-title {
+    display: block;
+    margin-bottom: 80px;
+}
+.section-felic-works .section-title .title {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 46px;
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #414141;
+}
+.section-felic-works .section-title .separator {
+    position: relative;
+}
+
+.section-felic-works .separator:before {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    width: 50px;
+    height: 1px;
+    margin-left: -25px;
+    content: '';
+    background: #757575;
+}
+.section-felic-works .separator:after {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 40px;
+    height: 1px;
+    margin-left: -20px;
+    content: '';
+    background: #757575;
+}
+.section-felic-works .section-title .sub-title {
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 30px;
+    color: #757575;
+}
+@media (max-width: 568px){
+    .section-felic-works .section-title .title {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .section-felic-works .section-title{
+        margin-bottom: 50px;
+    }
+}
+.section-felic-works .portfolio-filter {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.section-felic-works .portfolio-filter li {
+    display: inline-block;
+}
+.section-felic-works .portfolio-filter li a {
+    font-size: 12px;
+    margin: 0 1rem;
+    padding: 1rem 2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #acacac;
+    border: 1px solid #d4d4d4;
+    border-radius: 4px;
+}
+.section-felic-works a{
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    outline: none;
+    text-decoration: none;
+}
+.section-felic-works .portfolio-filter li a:hover, .portfolio-filter li.active a, .f-link li a:hover, .f-link li.active a {
+    padding: 1rem 2rem;
+    color: #fff;
+    border: 1px solid #fc4848;
+    background: #fc4848;
+}
+.section-felic-works .portfolio {
+    margin: 50px 0 0 0;
+}
+.section-felic-works .portfolio > [class*="col-"] {
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+.section-felic-works .portfolio .portfolio-item .thumb {
+    position: relative;
+    display: block;
+}
+.section-felic-works .portfolio .portfolio-item .thumb img {
+    display: block;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+.section-felic-works .portfolio-hover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    margin: 0;
+    cursor: pointer;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, .8);
+}
+.section-felic-works .portfolio-hover .portfolio-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10%;
+    -webkit-transition: all .3s .2s;
+    transition: all .3s .2s;
+    -webkit-transform: translateY(-55%);
+    -ms-transform: translateY(-55%);
+    transform: translateY(-55%);
+    opacity: 0;
+    color: #fff;
+}
+.section-felic-works .portfolio-description h4 {
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.3;
+}
+.section-felic-works .portfolio-description p {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 20px;
+    margin-bottom: 0;
+    color: #fff;
+}
+.section-felic-works .portfolio-item:hover .portfolio-hover, .section-felic-works .portfolio-item:hover .portfolio-hover .portfolio-description, .section-felic-works .portfolio-item:hover .portfolio-hover .action-btn {
+    opacity: 1;
+}
+.section-felic-works .portfolio-item:hover .portfolio-hover .portfolio-description {
+    top: 50%;
+}
+.section-felic-works .isotope-item {
+    z-index: 2;
+}
+
+.section-felic-works .isotope-hidden.isotope-item {
+    pointer-events: none;
+    z-index: 1;
+}
+.section-felic-works .isotope,
+.section-felic-works .isotope .isotope-item {
+    /* change duration value to whatever you like */
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -ms-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+
+.section-felic-works .isotope {
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    -ms-transition-property: height, width;
+    -o-transition-property: height, width;
+    transition-property: height, width;
+}
+
+.section-felic-works .isotope .isotope-item {
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property:    -moz-transform, opacity;
+    -ms-transition-property:     -ms-transform, opacity;
+    -o-transition-property:      -o-transform, opacity;
+    transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.section-felic-works .isotope.no-transition,
+.section-felic-works .isotope.no-transition .isotope-item,
+.section-felic-works .isotope .isotope-item.no-transition {
+    -webkit-transition-duration: 0s;
+    -moz-transition-duration: 0s;
+    -ms-transition-duration: 0s;
+    -o-transition-duration: 0s;
+    transition-duration: 0s;
+}

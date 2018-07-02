@@ -1,0 +1,283 @@
+.bb-css-studio{
+  background-color: #373638;
+  height: 100%;
+}
+
+.bb-css-studio h4 {
+  font-size: 17px;
+  color: #e6e4e6;
+  padding: 10px;
+  margin: 0;
+}
+
+.bb-node-action-menu {
+  position: absolute;
+  background: #4584ea;
+  color: #fff;
+  padding: 5px 10px;
+  display: table;
+  left: -200px;
+
+  i {
+    float: right;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .bb-node-move.disabled{
+    opacity: 0.5;
+  }
+
+}
+
+.ui-sortable-helper{
+  outline: 2px solid #4584ea!important;
+  background: #fff;
+}
+
+.ui-sortable-placeholder {
+  visibility: visible!important;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAADklEQVQIW2NgQAXGZHAAGioAza6+Hk0AAAAASUVORK5CYII=);
+}
+
+.bb-node-active-title{
+  position: absolute;
+  background: #4584ea;
+  color: #fff;
+  padding: 4px 10px;
+  display: table;
+  left: -2000px;
+  font-size: 12px;
+}
+
+.bb-column-resize-handler{
+  position: absolute;
+  width: 12px;
+  height: 50px;
+  background: #4584ea;
+  border-radius: 5px;
+  cursor: e-resize;
+  right: -7px;
+  top: calc(50% - 25px);
+  visibility: hidden;
+
+  &:before {
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 23px;
+    border: 1px dashed #fff;
+    border-top: none;
+    border-bottom: none;
+    left: 4px;
+    top: 13px;
+    z-index: 9999;
+  }
+}
+
+.bb-node-action-size{
+  position: absolute;
+  outline:2px solid #4584ea;
+  left: -200px;
+}
+
+.row.grid-overlay{
+  position: relative;
+}
+
+.row.grid-overlay:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url(../../images/grid_overlay.png) repeat-y;
+  opacity: 0.3;
+  background-size: contain;
+  display: block;
+}
+
+.form-area-active {
+  background: #fffacd;
+  position: relative;
+
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(255, 250, 205, 0.63);
+    display: block;
+    z-index: 1;
+  }
+}
+
+.form-area-hover {
+  background: #deffcd;
+
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(222, 255, 205, 0.63);
+    display: block;
+    z-index: 1;
+  }
+}
+
+.bbs-field-selectors {
+  color: #d6d6d6;
+  padding: 0;
+  overflow-y: auto;
+  height: 100%;
+  width: 200px;
+  float: left;
+  border-right: 5px solid #585858;
+}
+
+.bbs-field-selectors li {
+  line-height: 25px;
+  font-size: 14px;
+  border-bottom: 1px solid #585858;
+  user-select: none;
+  cursor: pointer;
+  list-style: none;
+  text-indent: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.bbs-field-selectors li:hover {
+  color: #ffffff;
+  background: #585858;
+}
+
+.bbs-field-selectors li i {
+  cursor: pointer;
+  line-height: 30px;
+  color: #ababab;
+  display: none;
+}
+
+.bbs-field-selectors li:hover i {
+  display: block;
+}
+
+.bbs-field-selectors li.active {
+  background: #000000;
+}
+
+.bb-css-studio > h3 {
+  font-size: 13px;
+  margin: 0;
+  padding: 0 10px 10px;
+  color: #868686;
+}
+
+.bbs-number-spinner {
+  float: left;
+  margin-right: 10px;
+  width: 70px;
+
+  .textbox{
+    width: 100%!important;
+  }
+}
+
+.bbs-color-box {
+  width: 170px;
+}
+
+.bbs-dropdown-box {
+  width: 130px;
+}
+
+.bb-add-class-panel {
+  position: absolute;
+  width: 200px;
+  right: 0;
+  background: #1b1b1b;
+  height: 100%;
+  padding: 2px;
+  top: 0;
+}
+
+.class-list {
+  margin-top: 10px;
+}
+
+.bootstrap-tagsinput {
+  position: absolute;
+  bottom: 2px;
+}
+
+.class-item {
+  cursor: pointer;
+  color: #464646;
+}
+
+#element-edit-panel .bootstrap-tagsinput {
+  min-height: 32px;
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  background: #000;
+}
+
+span.tag {
+  background: #e8e61c;
+  user-select: none;
+  color: #000000!important;
+}
+
+.layout-list {
+  padding: 10px;
+}
+
+a.layout-item {
+  width: 50%;
+  float: left;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.form-builder-area {
+  min-height: 50px;
+}
+
+.bb-unit {
+  float: left;
+  width: 65px;
+}
+
+.bb-unit .bbs-dropdown-box {
+  width: 100%;
+}
+
+.bb-css-studio.no-active:before {
+  content: "Select Element First";
+  position: absolute;
+  left: 200px;
+  right: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.66);
+  z-index: 1;
+  text-align: center;
+  color: #3a3a3abd;
+  line-height: 250px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+input.search-classes {
+  border: none;
+  width: 100%;
+  padding: 4px;
+  background: #404040;
+  outline: none;
+  color: #bfbfbf;
+}

@@ -1,0 +1,13 @@
+.iconpicker .iconpicker-item{
+    color: black !important;
+}
+.form-group.columns_list:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.data-source-box:after{
+    content: "";
+    clear: both;
+    display: table;
+}

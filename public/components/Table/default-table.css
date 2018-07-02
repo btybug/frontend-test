@@ -1,0 +1,226 @@
+.bty-table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: table;
+}
+
+.bty-table thead {
+    vertical-align: middle;
+}
+
+.bty-table > tbody > tr > td, .bty-table > tbody > tr > th, .bty-table > tfoot > tr > td, .bty-table > tfoot > tr > th, .bty-table > thead > tr > td, .bty-table > thead > tr > th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+}
+
+.bty-table, .bty-table > tbody > tr > td, .bty-table > tbody > tr > th, .bty-table > tfoot > tr > td, .bty-table > tfoot > tr > th, .bty-table > thead > tr > td, .bty-table > thead > tr > th {
+    border: 1px solid #ddd;
+}
+
+.bty-table > thead > tr {
+    color: #707070;
+    font-weight: 400;
+    background: repeat-x #F2F2F2;
+    background-image: -webkit-linear-gradient(top, #F8F8F8 0, #ECECEC 100%);
+    background-image: -o-linear-gradient(top, #F8F8F8 0, #ECECEC 100%);
+    background-image: linear-gradient(to bottom, #F8F8F8 0, #ECECEC 100%);
+}
+
+.bty-table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.bty-table > tbody > tr > td:nth-last-child(2) p {
+    margin-bottom: 0;
+}
+
+.bty-table > tbody > tr > td:first-child, .bty-table > thead > tr > th:first-child {
+    text-align: center;
+}.bty-table-hover {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: table;
+}
+
+.bty-table-hover thead {
+    vertical-align: middle;
+}
+
+.bty-table-hover > tbody > tr > td, .bty-table-hover > tbody > tr > th, .bty-table-hover > tfoot > tr > td, .bty-table-hover > tfoot > tr > th, .bty-table-hover > thead > tr > td, .bty-table-hover > thead > tr > th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+}
+
+.bty-table-hover, .bty-table-hover > tbody > tr > td, .bty-table-hover > tbody > tr > th, .bty-table-hover > tfoot > tr > td, .bty-table-hover > tfoot > tr > th, .bty-table-hover > thead > tr > td, .bty-table-hover > thead > tr > th {
+    border: 1px solid #ddd;
+}
+
+.bty-table-hover > thead > tr {
+    color: #707070;
+    font-weight: 400;
+    background: repeat-x #F2F2F2;
+    background-image: -webkit-linear-gradient(top, #F8F8F8 0, #ECECEC 100%);
+    background-image: -o-linear-gradient(top, #F8F8F8 0, #ECECEC 100%);
+    background-image: linear-gradient(to bottom, #F8F8F8 0, #ECECEC 100%);
+}
+
+.bty-table-hover > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.bty-table-hover > tbody > tr > td:nth-last-child(2) p {
+    margin-bottom: 0;
+}
+
+.bty-table-hover > tbody > tr > td:first-child, .bty-table-hover > thead > tr > th:first-child {
+    text-align: center;
+}
+.bty-table-hover > tbody > tr:hover {
+    background-color: #f5f5f5;
+}.bty-table-striped {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: table;
+}
+
+.bty-table-striped thead {
+    vertical-align: middle;
+}
+
+.bty-table-striped > tbody > tr > td, .bty-table-striped > tbody > tr > th, .bty-table-striped > tfoot > tr > td, .bty-table-striped > tfoot > tr > th, .bty-table-striped > thead > tr > td, .bty-table-striped > thead > tr > th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+}
+
+.bty-table-striped, .bty-table-striped > tbody > tr > td, .bty-table-striped > tbody > tr > th, .bty-table-striped > tfoot > tr > td, .bty-table-striped > tfoot > tr > th, .bty-table-striped > thead > tr > td, .bty-table-striped > thead > tr > th {
+    border: 1px solid #ddd;
+}
+
+.bty-table-striped > thead > tr {
+    color: #707070;
+    font-weight: 400;
+    background: repeat-x #F2F2F2;
+    background-image: -webkit-linear-gradient(top, #F8F8F8 0, #ECECEC 100%);
+    background-image: -o-linear-gradient(top, #F8F8F8 0, #ECECEC 100%);
+    background-image: linear-gradient(to bottom, #F8F8F8 0, #ECECEC 100%);
+}
+
+.bty-table-striped > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.bty-table-striped > tbody > tr > td:nth-last-child(2) p {
+    margin-bottom: 0;
+}
+
+.bty-table-striped > tbody > tr > td:first-child, .bty-table-striped > thead > tr > th:first-child {
+    text-align: center;
+}
+.bty-table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}.bty-table-cl-lightpink {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: table;
+}
+
+.bty-table-cl-lightpink thead {
+    vertical-align: middle;
+}
+
+.bty-table-cl-lightpink > tbody > tr > td, .bty-table-cl-lightpink > tbody > tr > th, .bty-table-cl-lightpink > tfoot > tr > td, .bty-table-cl-lightpink > tfoot > tr > th, .bty-table-cl-lightpink > thead > tr > td, .bty-table-cl-lightpink > thead > tr > th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+}
+
+.bty-table-cl-lightpink, .bty-table-cl-lightpink > tbody > tr > td, .bty-table-cl-lightpink > tbody > tr > th, .bty-table-cl-lightpink > tfoot > tr > td, .bty-table-cl-lightpink > tfoot > tr > th, .bty-table-cl-lightpink > thead > tr > td, .bty-table-cl-lightpink > thead > tr > th {
+    border: 1px solid #ddd;
+}
+
+.bty-table-cl-lightpink > thead > tr {
+    color: #fff;
+    font-weight: 400;
+   background: LightPink
+    
+}
+
+.bty-table-cl-lightpink > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.bty-table-cl-lightpink > tbody > tr > td:nth-last-child(2) p {
+    margin-bottom: 0;
+}
+
+.bty-table-cl-lightpink > tbody > tr > td:first-child, .bty-table-cl-lightpink > thead > tr > th:first-child {
+    text-align: center;
+}
+
+.bty-table-cl-lightpink > tbody {
+    background: LavenderBlush;
+}.bty-table-cl-blue {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: table;
+}
+
+.bty-table-cl-blue thead {
+    vertical-align: middle;
+}
+
+.bty-table-cl-blue > tbody > tr > td, .bty-table-cl-blue > tbody > tr > th, .bty-table-cl-blue > tfoot > tr > td, .bty-table-cl-blue > tfoot > tr > th, .bty-table-cl-blue > thead > tr > td, .bty-table-cl-blue > thead > tr > th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+}
+
+.bty-table-cl-blue > tbody > tr > td, .bty-table-cl-blue > tbody > tr > th, .bty-table-cl-blue > tfoot > tr > td, .bty-table-cl-blue > tfoot > tr > th, .bty-table-cl-blue > thead > tr > td, .bty-table-cl-blue > thead > tr > th {
+    border: 1px solid #ddd;
+}
+
+.bty-table-cl-blue > thead > tr {
+    color: #fff;
+    font-weight: 400;
+   background: #499bc7
+    
+}
+
+.bty-table-cl-blue > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.bty-table-cl-blue > tbody > tr > td:nth-last-child(2) p {
+    margin-bottom: 0;
+}
+
+.bty-table-cl-blue > tbody > tr > td:first-child, .bty-table-cl-blue > thead > tr > th:first-child {
+    text-align: center;
+}
+
+.bty-table-cl-blue > tbody {
+    background: #499bc72b;
+}

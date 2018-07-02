@@ -1,0 +1,94 @@
+.my_details{
+    margin: 2em 0 0 0;
+    background: #fff;
+    padding: 2em 2em;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    -o-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    border: 1px solid #E7E7E8;
+    border-radius: 0;
+}
+h3{
+    font-size: 2em;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 0.7em;
+}
+.my_details .form-control1 {
+    border: 1px solid #ddd;
+    padding: 5px 8px;
+    color: #777;
+    background: #fff;
+    box-shadow: none !important;
+    width: 100%;
+    font-size: 0.85em;
+    font-weight: 300;
+    height: 40px;
+    border-radius: 0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-appearance: none;
+    resize: none;
+    outline: none;
+}
+.my_details textarea{
+    height: 200px !important;
+}
+.my_details .form-group.button {
+    margin-top: 3em;
+    text-align: center;
+}
+
+.my_details .form-group.button > a {
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 0;
+    text-decoration: none;
+    padding: 10px 40px;
+    font-size: 17px;
+    color: #777;
+    border: 2px #ccc solid;
+    background: none;
+    transition: 0.5s ease;
+}
+.my_details .form-group.button > button {
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 0;
+    text-decoration: none;
+    padding: 10px 40px;
+    font-size: 17px;
+    color: #777;
+    border: 2px #ccc solid;
+    background: none;
+    transition: 0.5s ease;
+}
+
+.my_details .form-group.button > button:hover {
+    background-color: #00000082;
+    color: white;
+}
+#map {
+    height: 500px;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.my_details input.form-control1.icon {
+    padding: 7px 5px;
+    margin: 0;
+}
+.my_details .input-group-addon:first-child {
+    border-right: 0;
+    border-radius: 0;
+}
+
+.my_details .input-group-addon:last-child {
+    border-left: 0;
+    border-radius: 0;
+}
+.my_details .input-group-addon{
+    min-width: 41px;
+}

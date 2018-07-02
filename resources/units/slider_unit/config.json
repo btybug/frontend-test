@@ -1,0 +1,17 @@
+{
+  "title": "Amazing Slider",
+  "author": "Hamlet",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "type": "unit",
+  "description": "Form Field",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "slider_unit",
+  "folder": "slider_unit",
+  "created_at": 1490088665,
+  "is_core": 1,
+  "place": "frontend",
+  "tags": ["slider","slider_unit","hamlet"],
+  "path": "resources\/units\/slider_unit"
+}

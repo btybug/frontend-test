@@ -1,0 +1,49 @@
+.bty-message-2{
+    background-color: #1F2d43;
+    color: #BECEDE;
+}
+.bty-message-2 ul{
+    padding: 20px;
+    margin: 0;
+    list-style-type: none;
+}
+.bty-message-2 ul li{
+    display: flex;
+    padding: 15px 0;
+}
+.bty-message-2 ul li:not(:last-child){
+    border-bottom: 1px solid #5f718e;
+}
+.bty-message-2 ul li i{
+    /*align-self: center;*/
+    padding-right: 10px;
+    font-size: 32px;
+}
+.bty-message-2 ul li div h5{
+    font-size: 14px;
+    margin: 0;
+}
+.bty-message-2 ul li div p{
+    font-size: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin:0;
+}
+.bty-message-2 ul li div{
+    overflow: hidden;
+}
+.bty-message-2>div{
+    border-top: 1px solid #5f718e;
+    padding:15px 20px;
+}
+.bty-message-2>div button{
+    padding: 3px 15px;
+    color: white;
+    background-color: #499bc7;
+    border: 1px solid #becede;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    box-shadow: 0 0 6px 1px #becede;
+}

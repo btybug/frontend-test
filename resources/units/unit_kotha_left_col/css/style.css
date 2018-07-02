@@ -1,0 +1,242 @@
+
+.sidebar-left-col .widget{
+    padding: 35px 30px;
+    margin-bottom: 40px;
+    -webkit-box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0 1px 20px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0 1px 20px 0 rgba(0, 0, 0, 0.08);
+    border: 0;
+}
+.sidebar-left-col .widget .widget-title{
+    color: #444;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    margin-bottom: 28px;
+    font-weight: 500;
+}
+.sidebar-left-col a{
+    color: #444;
+    text-decoration: none;
+    -webkit-transition: all 0.33s;
+    -moz-transition: all 0.33s;
+    -ms-transition: all 0.33s;
+    -o-transition: all 0.33s;
+    transition: all 0.33s;
+}
+
+.sidebar-left-col .about-me-widget .bg-img{
+    -webkit-box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0 1px 20px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0 1px 20px 0 rgba(0, 0, 0, 0.08);
+}
+.sidebar-left-col .about-me-widget .bg-img img{
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+.sidebar-left-col .about-me-widget .widget{
+    margin-top: -150px;
+}
+.sidebar-left-col .about-me-widget .about-me-content{
+    padding-bottom: 13px;
+}
+.sidebar-left-col .about-me-widget .about-me-content .about-me-img{
+    padding-top: 8%;
+}
+.sidebar-left-col .about-me-widget .about-me-content .about-me-img .img-me{
+    display: inline-block;
+    border: 7px solid #fff;
+    border-radius: 50%;
+    max-height: 150px;
+    max-width: 150px;
+    object-fit: cover;
+    height: 100%;
+}
+.sidebar-left-col .about-me-widget .about-me-content h2{
+    margin-top: 12px;
+    margin-bottom: 22px;
+    color: #444;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+.sidebar-left-col .about-me-widget .about-me-content p{
+    font-size: 15px;
+    line-height: 25px;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.sidebar-left-col .about-me-widget .social-share ul{
+    padding-left: 0;
+    list-style: none;
+}
+.sidebar-left-col .about-me-widget .social-share ul li{
+    padding: 0;
+}
+.sidebar-left-col .about-me-widget .social-share ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2e2e2;
+    color: #aaaaaa;
+    font-size: 13px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    line-height: 28px;
+    margin-right: 6px;
+}
+.sidebar-left-col .about-me-widget .social-share ul li a:hover{
+    background: #da521e;
+    border-color: #da521e;
+    color: #fff;
+}
+.sidebar-left-col .news-letter-widget input[type="email"]{
+    width: 100%;
+    margin-bottom: 14px;
+    color: #b6b6b6;
+    border: 1px solid #eeeeee;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    padding: 10px 15px;
+    font-style: italic;
+    border-radius: 0;
+    background: #fafafa;
+    outline: none;
+}
+.sidebar-left-col .news-letter-widget .btn-subscribe{
+    width: 100%;
+    background-color: #da521e;
+    color: #fff;
+    border-radius: 0;
+    letter-spacing: 1px;
+    font-size: 12px;
+    padding: 9px 0;
+
+}
+.sidebar-left-col .widget-popular-post ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar-left-col .widget-popular-post ul li{
+    padding-left: 0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e2e2e2;
+}
+.sidebar-left-col .widget-popular-post ul li .popular-img{
+    position: relative;
+    display: block;
+    margin-bottom: 14px;
+}
+.sidebar-left-col .widget-popular-post ul li .popular-img img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.sidebar-left-col .widget-popular-post ul li .popular-img::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(218, 82, 32, 0);
+    -webkit-transition: all 0.33s;
+    -moz-transition: all 0.33s;
+    -ms-transition: all 0.33s;
+    -o-transition: all 0.33s;
+    transition: all 0.33s;
+}
+.sidebar-left-col .widget-popular-post ul li .popular-img:hover::after{
+    background: rgba(218, 82, 32, 0.3);
+}
+
+.sidebar-left-col .widget-popular-post ul li .p-content h4{
+    color: #444;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+.sidebar-left-col .widget-popular-post ul li .p-content h4 a:hover{
+    color: #da521e;
+}
+.sidebar-left-col .widget-popular-post ul li .p-content .p-date{
+    font-style: italic;
+    font-size: 14px;
+    margin-left: 0;
+    color: #777;
+}
+
+.sidebar-left-col .latest-post-widget ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.sidebar-left-col .latest-post-widget ul .media{
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 15px;
+    padding-left: 0;
+}
+
+.sidebar-left-col .latest-post-widget ul .media .media-left .popular-img{
+    position: relative;
+    display: block;
+}
+.sidebar-left-col .latest-post-widget ul .media .media-left .popular-img img{
+    height: 95px;
+    width: 100%;
+    object-fit: cover;
+}
+.sidebar-left-col .latest-post-widget ul .media .media-left .popular-img:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(218, 82, 32, 0);
+    -webkit-transition: all 0.33s;
+    -moz-transition: all 0.33s;
+    -ms-transition: all 0.33s;
+    -o-transition: all 0.33s;
+    transition: all 0.33s;
+}
+.sidebar-left-col .latest-post-widget ul .media .media-left .popular-img:hover:after{
+    background: rgba(218, 82, 32, 0.3);
+}
+.sidebar-left-col .latest-post-widget ul .media .latest-post-content h2{
+    color: #e2e2e2;
+    font-size: 14px;
+    letter-spacing: 0;
+    margin-bottom: 3px;
+    margin-top: 0;
+}
+.sidebar-left-col .latest-post-widget ul .media .latest-post-content p{
+    color: #777;
+    font-style: italic;
+    font-size: 14px;
+    margin-left: 0;
+    line-height: 25px;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.sidebar-left-col .insta-widget .instagram-feed{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+}
+.sidebar-left-col .insta-widget .single-instagram{
+    flex-basis: 48%;
+    margin-bottom: 4%;
+    position: relative;
+    display: block;
+}
+.sidebar-left-col .insta-widget .single-instagram img{
+height: 150px;
+    object-fit: cover;
+    width: 100%;
+}

@@ -1,0 +1,88 @@
+#get-in-touch-abrar {
+    overflow: hidden;
+}
+#get-in-touch-abrar .section-padding{
+    /*padding: 140px 0px;*/
+}
+#get-in-touch-abrar .section-title{
+    margin-bottom: 80px;
+}
+#get-in-touch-abrar .section-title .title-head{
+    font-size: 40px;
+    font-style: italic;
+    margin: 0;
+    font-weight: 700;
+}
+#get-in-touch-abrar .section-title p{
+    font-size: 16px;
+    color: #888484;
+}
+
+#get-in-touch-abrar .get-in-touch-contact .contact-area-form .form-control{
+    height: 60px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ececec;
+    background-color: #f8f8f8;
+    color: #333;
+    box-shadow: none;
+    border-radius: 0;
+}
+#get-in-touch-abrar .get-in-touch-contact .contact-area-form .contact-info-msg .form-control{
+    height: 150px;
+}
+
+#get-in-touch-abrar .get-in-touch-contact .contact-area-form .wall-btn{
+    background-color: #2d318d;
+    height: 50px;
+    width: 170px;
+    line-height: 50px;
+    margin: 0 auto;
+    font-size: 18px;
+    letter-spacing: .5px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    border: 0;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    transition: all ease 0.3s;
+    cursor: pointer;
+    overflow: hidden;
+}
+#get-in-touch-abrar .get-in-touch-contact .contact-area-form .wall-btn button{
+    color: #fff;
+    border: none;
+    background-color: transparent;
+}
+#get-in-touch-abrar .get-in-touch-contact .contact-area-form .wall-btn:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+#get-in-touch-abrar .get-in-touch-contact .contact-area-form .wall-btn:hover:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}

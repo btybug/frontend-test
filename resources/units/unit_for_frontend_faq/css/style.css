@@ -1,0 +1,42 @@
+.faqs h3 {
+    margin: 0 0 50px 0;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.faqs .faq-block a {
+    text-decoration: none;
+}
+
+.faqs .faq-block .panel-title > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.faqs .faq-block .panel-title > a.collapsed .icon i {
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -ms-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+.faqs .faq-block .panel-title > a.collapsed .icon i {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.faqs .faq-block .panel-default{
+    border-radius: 0;
+    margin-bottom: 30px;
+}
+
+.faqs .faq-block .panel-default .panel-heading{
+    padding: 20px 15px;
+    background-color: #ffffff;
+}
+.faqs .faq-block .panel-default .panel-heading .icon{
+    font-size: 26px;
+}

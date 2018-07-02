@@ -1,0 +1,149 @@
+.popular_cat h3 {
+    margin: 0 0 8px 0;
+}
+
+.popular_cat a {
+    text-decoration: none;
+}
+
+.popular_cat .category {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.popular_cat .category a {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 25px 20px;
+    text-align: left;
+    border: 1px solid #d6d6d6;
+    margin: -1px -1px 0 0;
+}
+
+.popular_cat .category a:hover {
+    z-index: 2;
+}
+
+.popular_cat .category a:hover::before {
+    opacity: 1;
+    visibility: visible;
+    top: -3px;
+    right: -3px;
+    bottom: -3px;
+    left: -3px;
+    transition: top .3s ease-out, right .3s ease-out, bottom .3s ease-out, left .3s ease-out;
+}
+
+@media (min-width: 576px) {
+    .popular_cat .category a {
+        width: 50%;
+        padding: 43px 20px 43px 30px;
+    }
+}
+
+@media (min-width: 992px) {
+    .popular_cat .category a {
+        width: 33.33333%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .popular_cat .category a {
+        width: 25%;
+    }
+}
+
+.popular_cat .category a:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #ffffff;
+    box-shadow: 0 2px 13px 0 rgba(0, 0, 0, 0.07);
+    transition: .22s;
+    opacity: 0;
+    visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.popular_cat .category a > * {
+    position: relative;
+    z-index: 1;
+}
+
+.popular_cat .category article {
+    display: flex;
+    align-items: center;
+    color: #9a9a9a;
+}
+
+.popular_cat .category .left {
+    font-size: 40px;
+    display: inline-block;
+    line-height: 1.1;
+    flex-shrink: 0;
+    min-width: 40px;
+    color: #fdc319;
+}
+
+.popular_cat .category .right {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.popular_cat .category .right .title {
+    font-size: 16px;
+    line-height: 1.4;
+    transition: .22s;
+    color: #151515;
+    margin: 0;
+}
+
+.popular_cat .category .right .second {
+    margin-top: 0;
+}
+
+.popular_cat .category .right {
+
+}
+
+.popular_cat .button {
+    margin-top: 30px;
+    letter-spacing: .05em;
+    padding: 17px 40px;
+    font-size: 14px;
+    line-height: 1.5;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    border: 2px solid;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle;
+    user-select: none;
+    transition: 250ms all ease-in-out;
+}
+
+.popular_cat .button, .popular_cat .button:focus {
+    color: #fdc319;
+    background-color: transparent;
+    border-color: #fdc319;
+}
+
+.popular_cat .button:hover, .popular_cat .button:active {
+    color: #ffffff;
+    background-color: #fdc319;
+    border-color: #fdc319;
+}
+
+.popular_cat .category {
+
+}

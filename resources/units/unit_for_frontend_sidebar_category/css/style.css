@@ -1,0 +1,31 @@
+.sidebar-category h3 {
+    margin: 0 0 8px 0;
+}
+
+.sidebar-category .category ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar-category .category ul li {
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-category .category ul li a {
+    text-decoration: none;
+    color: #191919;
+    padding: 12px 0;
+    display: block;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+
+}
+.sidebar-category .category ul li:first-child a {
+    padding-top: 0;
+}
+.sidebar-category .category ul li a:hover {
+    color: #fdc319;
+}

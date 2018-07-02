@@ -1,0 +1,116 @@
+#resume-abrar {
+    overflow: hidden;
+}
+#resume-abrar .section-padding{
+    /*padding: 140px 0;*/
+}
+#resume-abrar .section-title{
+    padding-bottom: 25px;
+}
+#resume-abrar .section-title .title-head{
+    font-size: 40px;
+    font-style: italic;
+    margin: 0;
+    font-weight: 700;
+}
+#resume-abrar .section-title p{
+    font-size: 16px;
+    color: #888484;
+}
+
+#resume-abrar .resume-tab-item .tab-button{
+    margin-bottom: 130px;
+}
+#resume-abrar .resume-tab-item .tab-button ul{
+    margin: 0;
+    padding: 0;
+}
+#resume-abrar .resume-tab-item .tab-button ul li{
+    display: inline-block;
+    list-style: none;
+    width: 170px;
+    height: 50px;
+    cursor: pointer;
+    line-height: 50px;
+    text-align: center;
+    background-color: #f0eded;
+}
+#resume-abrar .resume-tab-item .tabs li:first-child {
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+}
+#resume-abrar .resume-tab-item .tabs li:last-child {
+    margin-left: -2px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+#resume-abrar .resume-tab-item .tab-button ul.tabs li.active {
+    background-color: #2d318d;
+    color: #fff;
+}
+#resume-abrar .resume-tab-item .tab-button ul.tabs li.active a{
+    color: white;
+}
+#resume-abrar .resume-tab-item .tab-button ul li a{
+ text-decoration: none;
+}
+
+#resume-abrar .resume-tab-item .tab-content{
+    margin: 0 auto;
+    /*max-width: 800px;*/
+}
+
+#resume-abrar .resume-tab-item .education-resume .resume-institute-description{
+    width: 100%;
+    display: table;
+    margin-bottom: 80px;
+}
+#resume-abrar .resume-tab-item .education-resume .resume-institute{
+    float: left;
+    max-width: 270px;
+    margin-right: 100px;
+}
+#resume-abrar .resume-tab-item .education-resume .resume-institute .institute-icon-time{
+    padding: 70px 40px 50px;
+    border: 2px solid #2d318d;
+    position: relative;
+}
+#resume-abrar .resume-tab-item .education-resume .resume-institute .institute-icon-time .institute-icon{
+    left: 0;
+    right: 0;
+    top: -35px;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    font-size: 25px;
+    line-height: 60px;
+    position: absolute;
+    border-radius: 5px;
+    background-color: #2d318d;
+}
+#resume-abrar .resume-tab-item .education-resume .resume-institute .institute-icon-time .institute-icon i{
+    color: #fff;
+    line-height: 60px;
+}
+#resume-abrar .resume-tab-item .education-resume .resume-institute .institute-icon-time .resume-time{
+    font-size: 18px;
+}
+
+#resume-abrar .resume-tab-item .education-resume .resume-description .resume-degree{
+    margin-bottom: 20px;
+}
+#resume-abrar .resume-tab-item .education-resume .resume-description .resume-degree .degree-title{
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #2f2f2f;
+}
+#resume-abrar .resume-tab-item .education-resume .resume-description .resume-degree .degree-institute{
+    font-style: italic;
+    color: #333333;
+}
+#resume-abrar .resume-tab-item .education-resume .resume-description .degree-text{
+    color: #2f2f2f;
+    font-size: 14px;
+    line-height: 1.8;
+}
+

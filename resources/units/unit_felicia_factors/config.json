@@ -1,0 +1,19 @@
+{
+  "title": "Felicia factors",
+  "author": "Vahag",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "example":"demo",
+  "self_type": "units",
+  "type": "units",
+  "description": "factors",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "unit_felicia_factors",
+  "folder": "unit_felicia_factors",
+  "created_at": 1490088665,
+  "is_core": 0,
+  "place": "frontend",
+  "tags": ["my_account","frontend"],
+  "path": "resources\/units\/unit_felicia_factors"
+}

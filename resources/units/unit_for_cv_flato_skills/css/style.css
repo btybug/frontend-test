@@ -1,0 +1,73 @@
+#skills-flato{
+    /*background: #eeeeee;*/
+    /*color: #474d5d;*/
+}
+section#skills-flato> .container {
+    /*padding-top: 85px;*/
+    /*padding-bottom: 93px;*/
+}
+#skills-flato .heading{
+    text-align: center;
+    padding-bottom: 45px;
+}
+#skills-flato .heading .title{
+    font-size: 36px;
+    line-height: 38px;
+    padding-bottom: 0;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0;
+    color: #ff675f;
+}
+#skills-flato .heading p{
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    color: #84868d;
+    line-height: 18px;
+    padding-bottom: 41px;
+}
+
+#skills-flato .content-skills .skillsArea .skills{
+    margin: 0 auto;
+    margin-bottom: 23px;
+    text-align: center;
+    padding: 0;
+    float: none;
+}
+
+#skills-flato .content-skills .skillsArea .skills .chart{
+    position: relative;
+    display: flex;
+    width: 152px;
+    height: 152px;
+    text-align: center;
+    border: 10px solid #000;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin: 18px auto;
+}
+#skills-flato .content-skills .skillsArea .skills .chart .percent{
+    display: inline-block;
+    font-size: 21px;
+    color: #474d5d;
+    z-index: 2;
+}
+#skills-flato .content-skills .skillsArea .skills h4{
+    font-size: 19px;
+    line-height: 24px;
+    padding-bottom: 6px;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+#skills-flato .content-skills .skillsArea .skills p{
+    font-weight: 400;
+    padding-bottom: 22px;
+    margin: 0;
+    color: #84868d;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+}

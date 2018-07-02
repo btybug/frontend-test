@@ -1,0 +1,244 @@
+[
+  {
+    "title": "Text",
+    "fields": [
+      {
+        "title": "Font Family",
+        "css": "font-family",
+        "type": "dropdown",
+        "options": [
+          {
+            "value": "tahoma",
+            "title": "Tahoma"
+          },
+          {
+            "value": "arial",
+            "title": "Arial"
+          }
+        ]
+      },
+      {
+        "title": "Font Weight", "css": "font-weight", "type": "dropdown",
+        "options": [
+          { "value": "300", "title": "Light 300" },
+          { "value": "400", "title": "Normal 400" },
+          { "value": "500", "title": "Semi Bold 500" },
+          { "value": "600", "title": "Bold 600" },
+          { "value": "700", "title": "Extra Bold 700" }
+        ]
+      },
+      {
+        "title": "Font Size", "css": "font-size", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Line Height", "css": "line-height", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray"}
+      },
+      { "title": "Text Color", "css": "color", "type": "color" },
+      {
+        "title": "Text Align", "css": "text-align", "type": "toggle",
+        "options": [
+          { "value": "left", "title": "fa fa-align-left", "icon": true },
+          { "value": "center", "title": "fa fa-align-center", "icon": true },
+          { "value": "right", "title": "fa fa-align-right", "icon": true },
+          { "value": "justify", "title": "fa fa-align-justify", "icon": true }
+        ]
+      },
+      {
+        "title": "Text Transform", "css": "text-transform", "type": "toggle",
+        "options": [
+          { "value": "uppercase", "title": "UPPERCASE" },
+          { "value": "lowercase", "title": "lowercase" },
+          { "value": "capitalize", "title": "Capitalize" }
+        ]
+      },
+      {
+        "title": "Letter Spacing", "css": "letter-spacing", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Word Spacing", "css": "word-spacing", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Text Decoration", "css": "text-decoration", "type": "toggle",
+        "options": [
+          { "value": "none", "title": "None" },
+          { "value": "overline", "title": "Overline" },
+          { "value": "line-through", "title": "Line Through" },
+          { "value": "underline", "title": "Underline" }
+        ]
+      },
+      {
+        "title": "Text Indent", "css": "text-indent", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Word Wrap", "css": "word-wrap", "type": "toggle",
+        "options": [
+          { "value": "normal", "title": "Normal" },
+          { "value": "break-word", "title": "Break Word" }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Background",
+    "fields": [
+      { "title": "Background Color", "css": "background-color", "type": "color" }
+    ]
+  },
+  {
+    "title": "Padding",
+    "fields": [
+      {
+        "title": "Padding Top", "css": "padding-top", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Padding Bottom", "css": "padding-bottom", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Padding Left", "css": "padding-left", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Padding Right", "css": "padding-right", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      }
+    ]
+  },
+  {
+    "title": "Margin",
+    "fields": [
+      {
+        "title": "Margin Top", "css": "margin-top", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Margin Bottom", "css": "margin-bottom", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Margin Left", "css": "margin-left", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Margin Right", "css": "margin-right", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      }
+    ]
+  },
+  {
+    "title": "Border",
+    "fields": [
+      {
+        "title": "Border Style", "css": "border-style", "type": "toggle",
+        "options": [
+          { "value": "none", "title": "None" },
+          { "value": "solid", "title": "Solid" },
+          { "value": "dashed", "title": "Dashed" },
+          { "value": "dotted", "title": "Dotted" }
+        ]
+      },
+      {
+        "title": "Border Width", "css": "border-width", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      { "title": "Border Color", "css": "border-color", "type": "color" }
+    ]
+  },
+  {
+    "title": "Border Radius",
+    "fields": [
+      {
+        "title": "Top Left Radius", "css": "border-top-left-radius", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Top Right Radius", "css": "border-top-right-radius", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Bottom Left Radius", "css": "border-bottom-left-radius", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Bottom Right Radius", "css": "border-bottom-right-radius", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      }
+    ]
+  },
+  {
+    "title": "Position",
+    "fields": [
+      {
+        "title": "Z Index", "css": "z-index", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Position", "css": "position", "type": "toggle",
+        "options": [
+          { "value": "static", "title": "Static" },
+          { "value": "relative", "title": "Relative" },
+          { "value": "absolute", "title": "Absolute" },
+          { "value": "fixed", "title": "Fixed" }
+        ]
+      },
+      {
+        "title": "Top", "css": "top", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Bottom", "css": "bottom", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Left", "css": "left", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Right", "css": "right", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      }
+    ]
+  },
+  {
+    "title": "Sizing",
+    "fields": [
+      {
+        "title": "Width", "css": "width", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Height", "css": "height", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Box Sizing", "css": "box-sizing", "type": "toggle",
+        "options": [
+          { "value": "border-box", "title": "Border Box" },
+          { "value": "content-box", "title": "Content Box" }
+        ]
+      },
+      {
+        "title": "Min Width", "css": "min-width", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Min Height", "css": "min-height", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Max Width", "css": "max-width", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      },
+      {
+        "title": "Max Height", "css": "max-height", "type": "number",
+        "hasUnit": { "type": "dropdown", "options": "unitArray" }
+      }
+    ]
+  }
+]

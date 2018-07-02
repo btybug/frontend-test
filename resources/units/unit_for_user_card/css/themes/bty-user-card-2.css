@@ -1,0 +1,145 @@
+.bty-user-card-2 {
+    position: relative;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 4px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 1px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    background: #fff;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 65px;
+    margin-top: 94px;
+}
+
+.bty-user-card-2 div:nth-of-type(2) {
+    padding: 30px;
+}
+
+.bty-user-card-2 div:first-child {
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 0 3px #499bc7, 0 0 0 8px #fff;
+    box-shadow: 0 0 0 3px #499bc7, 0 0 0 8px #fff;
+    top: -75px;
+    margin-left: -75px;
+    left: 50%;
+    position: absolute;
+}
+
+.bty-user-card-2 div:first-child img {
+    width: 150px;
+    height: 150px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    display: block;
+}
+
+.bty-user-card-2 div:nth-of-type(2) h3 {
+    font-size: 38px;
+    font-weight: 100;
+    margin-bottom: 2px;
+    color: #3a3a3a;
+}
+
+.bty-user-card-2 div:nth-of-type(2) h4 {
+    font-size: 18px;
+    font-style: italic;
+    color: #707070;
+    margin-bottom: 2px;
+}
+
+.bty-user-card-2 div:nth-of-type(2) h5 {
+    font-size: 34px;
+    font-weight: 100;
+    margin-bottom: 2px;
+    color: #3a3a3a;
+}
+
+.bty-user-card-2 div:nth-of-type(2) h4 + p {
+    color: #b3b3b3;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.bty-user-card-2 div:nth-of-type(2) h4 + p i {
+    color: #c6c6c6;
+    margin-right: 4px;
+}
+
+.bty-user-card-2 div:nth-of-type(2) p:last-child {
+    font-size: 14px;
+    color: #888;
+}
+
+.bty-user-card-2 > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    padding-top: 1px;
+    display: table;
+    margin: 0 auto;
+}
+
+.bty-user-card-2 > ul > li {
+    float: left;
+    display: block;
+}
+
+.bty-user-card-2 > ul > li > a i {
+    display: block;
+    width: 45px;
+    height: 55px;
+    line-height: 55px;
+    font-size: 28px;
+    text-decoration: none;
+    color: #b3b3b3;
+    border-right: 1px solid #ededed;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    -ms-transition: 0.2s;
+    transition: 0.2s;
+}
+
+.bty-user-card-2 > ul > li > a:hover {
+    text-decoration: none;
+}
+
+.bty-user-card-2 > ul > li > a:hover i {
+    color: white;
+}
+
+.bty-user-card-2 > ul > li > a:hover .fa-facebook {
+    background: #3b5998;
+}
+
+.bty-user-card-2 > ul > li > a:hover .fa-dribbble {
+    background: #c32361;
+}
+
+.bty-user-card-2 > ul > li > a:hover .fa-twitter {
+    background: #55acee;
+}
+
+.bty-user-card-2 > ul > li > a:hover .fa-pinterest {
+    background: #cd2129;
+}
+
+.bty-user-card-2 > ul > li > a:hover .fa-linkedin {
+    background: #1683bc;
+}
+
+.bty-user-card-2 > ul > li:last-child > a i {
+    border-right: 1px;
+}
+
+.external{
+    color: red;
+}

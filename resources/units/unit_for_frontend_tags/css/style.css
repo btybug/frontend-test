@@ -1,0 +1,43 @@
+.sidebar-tags h3 {
+    margin: 0 0 8px 0;
+}
+
+.sidebar-tags .tags-block {
+
+}
+
+.sidebar-tags .tags-block ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.sidebar-tags .tags-block ul li {
+
+}
+
+.sidebar-tags .tags-block ul li a {
+    text-decoration: none;
+    outline: none;
+    padding: 5px 14px;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #191919;
+    margin: 0 5px 5px 0;
+    font-size: 14px;
+    letter-spacing: 2px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+
+.sidebar-tags .tags-block ul li a:hover{
+    background-color: #fdc319;
+}

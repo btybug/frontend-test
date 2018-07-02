@@ -1,0 +1,65 @@
+.timepic-inp-cl-aliceblue{
+    background-color: aliceblue !important;
+}
+.timepic-inp-cl-gold{
+    background-color: gold !important;
+}
+.timepic-inp-cl-red {
+    background-color: #da534f !important;
+    color: white !important;
+}
+.timepic-inp-cl-blue{
+    background-color: cornflowerblue !important;
+    color: white !important;
+}
+.timepic-inp-cl-black{
+    background-color: black !important;
+    color: white !important;
+}
+.timepic-inp-w-5{
+    width: 5%;
+}
+.timepic-inp-w-10{
+    width: 10%;
+}
+.timepic-inp-w-25{
+    width: 25%;
+}
+.timepic-inp-w-50{
+    width: 50%;
+}
+.timepic-inp-w-75{
+    width: 75%;
+}
+.timepic-inp-w-100{
+    width: 100%;
+}
+.timepic{
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    outline: none;
+}
+.ui-timepicker-wrapper::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+.ui-timepicker-wrapper::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+.ui-timepicker-wrapper::-webkit-scrollbar-thumb
+{
+    background-color: #000000;
+}

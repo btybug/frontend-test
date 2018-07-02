@@ -1,0 +1,48 @@
+.bty-breadcrumb-2 ol {
+    list-style-type: none;
+    margin: 0;
+}
+
+.bty-breadcrumb-2 li {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.bty-breadcrumb-2 li a {
+    display: inline-block;
+    position: relative;
+    line-height: 2.5;
+    padding: 0 20px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bty-breadcrumb-2 li:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #499bc7;
+    transform: skew(-20deg);
+    z-index: -1;
+}
+
+.bty-breadcrumb-2 li a {
+    cursor: pointer !important;
+}
+
+.bty-breadcrumb-2 li:last-child:before {
+    background: #4bafdc;
+}
+
+.bty-breadcrumb-2 li:last-child a {
+    cursor: default !important;
+}
+
+.bty-breadcrumb-2 li:not(:last-child):hover:before {
+    background: #4a76a3;
+}

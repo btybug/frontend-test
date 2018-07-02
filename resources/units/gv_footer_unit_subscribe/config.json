@@ -1,0 +1,18 @@
+{
+  "title": "Subscribe",
+  "author": "gv",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "self_type": "units",
+  "type": "units",
+  "description": "Super footer template subscribe",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "gv_footer_unit_subscribe",
+  "folder": "gv_footer_unit_subscribe",
+  "created_at": 1490088665,
+  "is_core": 0,
+  "place": "frontend",
+  "tags": ["footer_units","frontend"],
+  "path": "resources\/units\/gv_footer_unit_subscribe"
+}

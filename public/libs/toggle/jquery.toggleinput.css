@@ -1,0 +1,29 @@
+.has-toggle-input label, .has-toggle-input.radio label {
+    display: block;
+    float: left;
+    padding: 4px 10px;
+    margin: auto auto auto -1px;
+    background: #373638;
+    color: #9c9c9c;
+    border: 1px #696969 solid;
+    line-height: normal;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.has-toggle-input label.active {
+    background: #b1b1b1;
+    color: #3a3a3a;
+}
+
+.has-toggle-input label:first-of-type {
+    margin-left: auto;
+}
+
+.has-toggle-input label:last-of-type {
+}
+
+.bbs-toggle {
+    display: table;
+    user-select: none;
+}

@@ -1,0 +1,19 @@
+{
+  "title": "Sign up Form Dark",
+  "author": "Tawfik",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "type": "unit",
+  "description": "Dark Sign up Form",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "is_core": 0,
+  "place": "frontend",
+  "tags": [
+    "form_layout"
+  ],
+  "path": "resources\/units\/SignUpFormDark_5a45173f22ac6",
+  "slug": "5a45173f22ac6",
+  "folder": "SignUpFormDark_5a45173f22ac6",
+  "created_at": 1514477375
+}

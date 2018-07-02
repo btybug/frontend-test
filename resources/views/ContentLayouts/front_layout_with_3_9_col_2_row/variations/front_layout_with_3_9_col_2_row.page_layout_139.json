@@ -1,0 +1,31 @@
+{
+  "id": "front_layout_with_3_9_col_2_row.page_layout_139",
+  "hidden": 1,
+  "title": "New variation_page_layout_139",
+  "settings": {
+    "srch-term": null,
+    "ls_style": "0",
+    "ls_content_type": null,
+    "ls_unit": null,
+    "hooks": {
+      "ls_hook": null,
+      "tr_hook": null,
+      "main_hook": null
+    },
+    "tr_content_type": null,
+    "tr_unit": null,
+    "tr_style": "0",
+    "mr_style": "0",
+    "main_content_type": null,
+    "main_unit": null,
+    "ls_desktop": "col-lg-1",
+    "ls_l_table": "col-md-1",
+    "ls_p_table": "col-sm-1",
+    "ls_mobile": "col-xs-1",
+    "rc_desktop": "col-lg-1",
+    "rc_l_table": "col-md-1",
+    "rc_p_table": "col-sm-1",
+    "rc_mobile": "col-xs-1"
+  },
+  "used_in": "139"
+}

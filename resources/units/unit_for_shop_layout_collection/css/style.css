@@ -1,0 +1,76 @@
+/*----------------------------*\
+	Sections
+\*----------------------------*/
+
+.section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.section-grey {
+    background: #F6F7F8;
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-bottom: 1px solid #DADADA;
+}
+
+.section-title .title {
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.section-title:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1.5px;
+    height: 3px;
+    width: 60px;
+    background-color: #499bc7;
+}
+.section.head-collection img{
+    height: 260px;
+    object-fit: cover;
+}
+.white-color {
+    color: #FFF;
+}
+/*=========================================================
+	04 -> BANNERS
+===========================================================*/
+
+.banner {
+    display: block;
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.banner>img {
+    width: 100%;
+}
+
+.banner.banner-1 .banner-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.banner.banner-2 .banner-caption {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+}
+
+.banner h1 {
+    font-size: 46px;
+    text-transform: uppercase;
+}

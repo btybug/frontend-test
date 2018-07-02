@@ -1,0 +1,101 @@
+#contact-flato{
+    /*background: #eeeeee;*/
+    color: #474d5d;
+}
+section#contact-flato> .container,section#contact-flato .content-contact>.container {
+    /*padding-top: 85px;*/
+    /*padding-bottom: 93px;*/
+}
+#contact-flato .heading{
+    text-align: center;
+    padding-bottom: 45px;
+}
+#contact-flato .heading h2{
+    font-size: 36px;
+    line-height: 38px;
+    padding-bottom: 0;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0;
+    color: #ff675f;
+}
+#contact-flato .heading p{
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    color: #84868d;
+    line-height: 18px;
+    padding-bottom: 41px;
+}
+#contact-flato .mapArea{
+    border-top: 3px dashed;
+}
+#contact-flato .content-contact{
+    /*background: #474d5d;*/
+}
+
+#contact-flato .content-contact .contact-info h4{
+    font-size: 19px;
+    line-height: 24px;
+    margin: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+    color: #fff;
+}
+#contact-flato .content-contact .contact-info p{
+    font-weight: 400;
+    margin: 0;
+    color: #93959c;
+    font-size: 13px;
+    line-height: 19px;
+    padding-bottom: 14px;
+}
+#contact-flato .content-contact .contact-info p a{
+    color: #93959c;
+    text-decoration: none;
+    outline: none;
+}
+#contact-flato .content-contact .contact-info i{
+    padding-right: 15px;
+}
+
+#contact-flato .conForm h4{
+    font-size: 19px;
+    line-height: 24px;
+    margin: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+    color: #fff;
+}
+#contact-flato .conForm .form-control{
+    background: #585f73;
+    color: #93959c;
+    padding: 15px 30px;
+    border: none;
+    outline: none;
+    font-style: italic;
+    margin-bottom: 30px;
+    height:50px;
+    border-radius: 0;
+}
+#contact-flato .conForm textarea.form-control{
+    height:120px;
+}
+#contact-flato .conForm .submitBnt{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    background: #ff675f;
+    padding: 15px 30px;
+    border: none;
+    outline: none;
+    font-style: italic;
+
+}
+#contact-flato .conForm .submitBnt:hover{
+    background: #f5534b;
+}

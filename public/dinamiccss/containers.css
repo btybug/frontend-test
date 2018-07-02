@@ -1,0 +1,170 @@
+/*pad-tb-50*/
+.bty-div-p-tb-50 {
+    padding: 50px 0;}
+/*pad-lr-15*/
+.bty-div-p-lr-15 {
+    padding: 0 15px;}
+/*pad-lr-15,mb-20*/
+.bty-div-p-lr-15 {
+    padding: 0 15px;
+    margin-bottom:20px;}
+/*pad-tb-85,bg-gray*/
+.bty-div-p-tb-85-bg-gray {
+    padding: 85px 0;
+    background-color: #EEEEEE;}
+/*pad-tb-85,bg-white*/
+.bty-div-p-tb-85-bg-white {
+    padding: 85px 0;
+    background-color: white;}
+/*pad-15,mar-15,bg-light,border*/
+.bty-div-p15-m15-bg-light-border-bg {
+    margin: 15px;
+    background-color: whitesmoke;
+    padding: 15px;
+    border: 1px solid #ccc;
+    overflow: hidden; }
+/*pad-20,mar-15,bg-light,border*/
+.bty-div-p20-m15-bg-light-border-bg {
+    margin: 15px;
+    background-color: #f5f5f54d;
+    padding: 20px;
+    border: 1px solid #e8e7e7;
+    overflow: hidden; }
+/*pad-15,mar-15,bg-light,shadow*/
+.bty-div-p15-m15-bg-light-shad-bg {
+    margin: 15px;
+    background-color: whitesmoke;
+    padding: 15px;
+    box-shadow: 0 0 6px #adadad;
+    overflow: hidden; }
+/*pad-20,mar-15,bg-light,shadow*/
+.bty-div-p20-m15-bg-light-shad-bg {
+    margin: 15px;
+    background-color: whitesmoke;
+    padding: 20px;
+    box-shadow: 0 0 6px #adadad;
+    overflow: hidden; }
+/*pad-20,mar-15,shadow*/
+.bty-div-p20-m15-shad {
+    margin: 15px;
+    padding: 20px;
+    box-shadow: 0 0 6px #adadad; }
+/*pad-70-15,mar-15,shadow,bg-light*/
+.bty-div-p-70-15-m15-shad-bg {
+    margin: 15px;
+    background-color: whitesmoke;
+    padding: 70px 15px;
+    box-shadow: 0 0 6px #adadad; }
+/*pad-70-20,mar-15,shadow*/
+.bty-div-p-70-20-m15-shad {
+    margin: 15px;
+    padding: 70px 20px;
+    box-shadow: 0 0 6px #adadad; }
+/*pad-60-15,mar-15,shadow,radius*/
+.bty-div-p-60-15-m15-shad-rad {
+    margin: 15px;
+    padding: 60px 15px;
+    box-shadow: 0 0 6px #adadad;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; }
+/*pad-60-20,mar-15,shadow,radius*/
+.bty-div-p-60-20-m15-shad-rad {
+    margin: 15px;
+    padding: 60px 20px;
+    box-shadow: 0 0 6px #adadad;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; }
+/*pad-60-15,mar-15*/
+.bty-div-p-60-15-m15 {
+    margin: 15px;
+    padding: 60px 15px; }
+/*pad-60-20,mar-15*/
+.bty-div-p-60-20-m15 {
+    margin: 15px;
+    padding: 60px 20px; }
+/*center,bg-light*/
+.bty-div-center-bg-light {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: whitesmoke; }
+/*left,bg-black*/
+.bty-div-bg-black-align-left {
+    background: #000000;
+    text-align: left;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/*right,bg-black*/
+.bty-div-bg-black-align-right {
+    background: #000000;
+    text-align: right;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/*center,bg-black*/
+.bty-div-bg-black-align-center {
+    background: #000000;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/*bg-black,fixed*/
+.bty-div-bg-black-fixed {
+    background: #000000;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+/*menu-bg-gray*/
+.bty-div-menu-bg-gray {
+    background: #34495d;
+}
+/*menu-bg-black-center*/
+.bty-div-menu-bg-black-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #000;
+}
+/*menu-bg-white-center-shadow-mb-40*/
+.bty-div-menu-bg-white-center-mb-40 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 2px #ccc;
+}
+/*menu-bg-white-left-shadow-mb-40*/
+.bty-div-menu-bg-white-left-mb-40 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 2px #ccc;
+}
+/*menu-bg-white-right-shadow-mb-40*/
+.bty-div-menu-bg-white-right-mb-40 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 2px #ccc;
+}

@@ -1,0 +1,308 @@
+.bty-our-team-blur-3{
+    z-index: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.bty-our-team-blur-3 > div {
+    background: #000;
+    text-align: center;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+}
+
+.bty-our-team-blur-3 > div div:nth-of-type(1) img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.bty-our-team-blur-3 > div div:nth-of-type(2) {
+    padding: 5px 10px 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: rotate(0deg) translate(-50%, -50%);
+    transform-origin: 0 0;
+    transition: all 0.55s ease 0s;
+}
+
+.bty-our-team-blur-3 > div div:nth-of-type(2):before, .bty-our-team-blur-3 > div div:nth-of-type(2):after {
+    content: "";
+    width: 400px;
+    height: 2px;
+    background: #95ccea;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    transform: translateX(100%);
+    transition: all 0.55s ease 0s;
+}
+
+.bty-our-team-blur-3 > div div:nth-of-type(2):after {
+    top: auto;
+    left: auto;
+    bottom: 0;
+    right: 10px;
+    transform: translateX(-100%);
+}
+
+.bty-our-team-blur-3 > div div:nth-of-type(2) h4 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.bty-our-team-blur-3 > div div:nth-of-type(2) h4:before, .bty-our-team-blur-3 > div div:nth-of-type(2) h4:after {
+    content: "";
+    width: 2px;
+    height: 300px;
+    background: #95ccea;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    transform: translateY(100%);
+    transition: all 0.55s ease 0s;
+}
+
+.bty-our-team-blur-3 > div div:nth-of-type(2) h4:after {
+    top: auto;
+    right: auto;
+    bottom: 10px;
+    left: 0;
+    transform: translateY(-100%);
+}
+
+.bty-our-team-blur-3 > div div:nth-of-type(2) span {
+    display: block;
+    padding: 5px 10px;
+    background: #95ccea;
+    font-size: 17px;
+    font-weight: 700;
+    color: #000;
+    text-transform: capitalize;
+}
+
+.bty-our-team-blur-3 > div:hover img{
+    filter: blur(2px);
+}
+.bty-our-team-blur-3 > div:hover div:nth-of-type(2):before, .bty-our-team-blur-3 > div:hover div:nth-of-type(2):after {
+    transform: translate(0, 0);
+    transition-delay: 0.15s;
+}
+
+.bty-our-team-blur-3 > div:hover div:nth-of-type(2) {
+    opacity: 1;
+}
+
+.bty-our-team-blur-3 > div:hover div:nth-of-type(2) h4:before, .bty-our-team-blur-3 > div:hover div:nth-of-type(2) h4:after {
+    transform: translate(0, 0);
+}.bty-our-team-light-3 {
+    z-index: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.bty-our-team-light-3> div {
+    background: #000;
+    text-align: center;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+}
+
+.bty-our-team-light-3 > div div:nth-of-type(1) img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.bty-our-team-light-3 > div div:nth-of-type(2) {
+    padding: 5px 10px 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: rotate(0deg) translate(-50%, -50%);
+    transform-origin: 0 0;
+    transition: all 0.55s ease 0s;
+}
+
+.bty-our-team-light-3 > div div:nth-of-type(2):before, .bty-our-team-light-3 > div div:nth-of-type(2):after {
+    content: "";
+    width: 400px;
+    height: 2px;
+    background: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    transform: translateX(100%);
+    transition: all 0.55s ease 0s;
+}
+
+.bty-our-team-light-3 > div div:nth-of-type(2):after {
+    top: auto;
+    left: auto;
+    bottom: 0;
+    right: 10px;
+    transform: translateX(-100%);
+}
+
+.bty-our-team-light-3 > div div:nth-of-type(2) h4 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.bty-our-team-light-3 > div div:nth-of-type(2) h4:before, .bty-our-team-light-3 > div div:nth-of-type(2) h4:after {
+    content: "";
+    width: 2px;
+    height: 300px;
+    background: #ffffff;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    transform: translateY(100%);
+    transition: all 0.55s ease 0s;
+}
+
+.bty-our-team-light-3 > div div:nth-of-type(2) h4:after {
+    top: auto;
+    right: auto;
+    bottom: 10px;
+    left: 0;
+    transform: translateY(-100%);
+}
+
+.bty-our-team-light-3 > div div:nth-of-type(2) span {
+    display: block;
+    padding: 5px 10px;
+    background: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    color: #000;
+    text-transform: capitalize;
+}
+
+.bty-our-team-light-3 > div:hover img{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+.bty-our-team-light-3 > div:hover div:nth-of-type(2):before, .bty-our-team-light-3 > div:hover div:nth-of-type(2):after {
+    transform: translate(0, 0);
+    transition-delay: 0.15s;
+}
+
+.bty-our-team-light-3 > div:hover div:nth-of-type(2) {
+    opacity: 1;
+}
+
+.bty-our-team-light-3 > div:hover div:nth-of-type(2) h4:before, .bty-our-team-light-3 > div:hover div:nth-of-type(2) h4:after {
+    transform: translate(0, 0);
+}.bty-our-team-norm-3{
+    z-index: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.bty-our-team-norm-3 > div {
+    background: #000;
+    text-align: center;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+}
+
+.bty-our-team-norm-3 > div div:nth-of-type(1) img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.bty-our-team-norm-3 > div div:nth-of-type(2) {
+    padding: 5px 10px 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: rotate(45deg) translate(-50%, -50%);
+    transform-origin: 0 0;
+    transition: all 0.55s ease 0s;
+}
+
+.bty-our-team-norm-3 > div div:nth-of-type(2):before, .bty-our-team-norm-3 > div div:nth-of-type(2):after {
+    content: "";
+    width: 400px;
+    height: 2px;
+    background: #95ccea;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    transform: translateX(100%);
+    transition: all 0.55s ease 0s;
+}
+
+.bty-our-team-norm-3 > div div:nth-of-type(2):after {
+    top: auto;
+    left: auto;
+    bottom: 0;
+    right: 10px;
+    transform: translateX(-100%);
+}
+
+.bty-our-team-norm-3 > div div:nth-of-type(2) h4 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.bty-our-team-norm-3 > div div:nth-of-type(2) h4:before, .bty-our-team-norm-3 > div div:nth-of-type(2) h4:after {
+    content: "";
+    width: 2px;
+    height: 300px;
+    background: #95ccea;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    transform: translateY(100%);
+    transition: all 0.55s ease 0s;
+}
+
+.bty-our-team-norm-3 > div div:nth-of-type(2) h4:after {
+    top: auto;
+    right: auto;
+    bottom: 10px;
+    left: 0;
+    transform: translateY(-100%);
+}
+
+.bty-our-team-norm-3 > div div:nth-of-type(2) span {
+    display: block;
+    padding: 5px 10px;
+    background: #95ccea;
+    font-size: 17px;
+    font-weight: 700;
+    color: #000;
+    text-transform: capitalize;
+}
+
+.bty-our-team-norm-3 > div:hover div:nth-of-type(2):before, .bty-our-team-norm-3 > div:hover div:nth-of-type(2):after {
+    transform: translate(0, 0);
+    transition-delay: 0.15s;
+}
+
+.bty-our-team-norm-3 > div:hover div:nth-of-type(2) {
+    opacity: 1;
+}
+
+.bty-our-team-norm-3 > div:hover div:nth-of-type(2) h4:before, .bty-our-team-norm-3 > div:hover div:nth-of-type(2) h4:after {
+    transform: translate(0, 0);
+}

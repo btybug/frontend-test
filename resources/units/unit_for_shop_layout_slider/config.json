@@ -1,0 +1,18 @@
+{
+  "title": "Slider with content",
+  "author": "Gevorg",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "example":"demo",
+  "type": "unit",
+  "description": "Super unit",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "unit_for_shop_layout_slider",
+  "folder": "unit_for_shop_layout_slider",
+  "created_at": 1490088665,
+  "is_core": 1,
+  "place": "frontend",
+  "tags": ["slider","shop_layout","frontend"],
+  "path": "resources\/units\/unit_for_shop_layout_slider"
+}

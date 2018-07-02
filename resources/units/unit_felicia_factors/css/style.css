@@ -1,0 +1,77 @@
+.section-felic-factors .section-title {
+    display: block;
+    margin-bottom: 80px;
+}
+.section-felic-factors .section-title .title {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 46px;
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #414141;
+}
+.section-felic-factors .section-title .separator {
+    position: relative;
+}
+
+.section-felic-factors .separator:before {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    width: 50px;
+    height: 1px;
+    margin-left: -25px;
+    content: '';
+    background: #757575;
+}
+.section-felic-factors .separator:after {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 40px;
+    height: 1px;
+    margin-left: -20px;
+    content: '';
+    background: #757575;
+}
+.section-felic-factors .section-title .sub-title {
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 30px;
+    color: #757575;
+}
+@media (max-width: 568px){
+    .section-felic-factors .section-title .title {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .section-felic-factors .section-title{
+        margin-bottom: 50px;
+    }
+}
+.section-felic-factors .fun-separator {
+    padding: 3rem;
+    border: 1px solid #e9e9e9;
+    border-radius: 5px;
+}
+.section-felic-factors .fun-box .value {
+    font-size: 36px;
+    font-weight: 600;
+}
+.section-felic-factors .fun-box .title {
+    font-size: 12px;
+}
+.section-felic-factors .fun-separator-blue {
+    border-color: #33b3ee;
+}
+.section-felic-factors .fun-separator-red {
+    border-color: #fc4848;
+}
+.section-felic-factors .fun-separator-green {
+    border-color: #6ead02;
+}
+.section-felic-factors .fun-separator-yellow {
+    border-color: #f8b42f;
+}

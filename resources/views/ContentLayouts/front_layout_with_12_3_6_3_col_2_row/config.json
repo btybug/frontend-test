@@ -1,0 +1,71 @@
+{
+  "title": "Layout 12 and 3/6/3",
+  "author": "Vahag",
+  "self_type": "page_sections",
+  "type": "general",
+  "version": 1,
+  "descrition": "Layout 12 and 3/6/3",
+  "layout": "main",
+  "panel": "panel",
+  "css": [
+    "style.css",
+    "setting-body.css"
+  ],
+  "js": [
+    "js.js"
+  ],
+  "settings": {
+    "file": "settings",
+    "css": [
+      "style.css"
+    ],
+    "js": [
+      "js.js"
+    ]
+  },
+  "placeholders": {
+    "general": {
+      "type": "unit",
+      "tag": "general",
+      "title": "General",
+      "s" : true
+    },
+    "main_unit": {
+      "type": "unit",
+      "tag": "breadcrumb",
+      "title": "Main Unit",
+      "f" : true,
+      "s" : true,
+      "main" : true
+    },
+    "top_bar": {
+      "type": "unit",
+      "tag": "top",
+      "title": "Top bar",
+      "f" : true,
+      "s" : true
+    },
+    "left_bar": {
+      "type": "unit",
+      "tag": "left_bar",
+      "title": "Left Sidebar",
+      "f" : true,
+      "s" : true
+    },
+    "right_bar": {
+      "type": "unit",
+      "tag": "breadcrumb",
+      "title": "Right bar",
+      "f" : true,
+      "s" : true
+    }
+  },
+  "folder": "front_layout_with_12_3_6_3_col_2_row",
+  "active": false,
+  "tags":["front_pages_layout"],
+  "slug": "front_layout_with_12_3_6_3_col_2_row",
+  "created_at": 1493719963,
+  "is_core": 0,
+  "place": "frontend",
+  "path": "resources\/views\/ContentLayouts\/front_layout_with_12_3_6_3_col_2_row"
+}

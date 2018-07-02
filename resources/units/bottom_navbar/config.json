@@ -1,0 +1,17 @@
+{
+  "title": "Amazing Bottom Navigation Bar",
+  "author": "Hamlet",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "type": "unit",
+  "description": "Form Field",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "bottom_navbar",
+  "folder": "bottom_navbar",
+  "created_at": 1490088665,
+  "is_core": 1,
+  "place": "frontend",
+  "tags": ["navigation","navigation_bar","bottom","hamlet"],
+  "path": "resources\/units\/bottom_navbar"
+}

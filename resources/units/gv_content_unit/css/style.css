@@ -1,0 +1,242 @@
+/*Slider*/
+section.bty-slider .slider-carousel img {
+    height: 700px;
+    object-fit: cover;
+}
+
+section.bty-slider .slider-carousel .head-slider {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+}
+
+section.bty-slider .slider-carousel .head-slider p.title {
+    font-size: 120px;
+    text-transform: uppercase;
+}
+
+section.bty-slider .slider-carousel .head-slider p.desc {
+    font-size: 16px;
+}
+
+section.bty-slider .slider-carousel .owl-dots {
+    position: absolute;
+    bottom: 6%;
+    left: 0;
+    right: 0;
+}
+
+section.bty-slider .slider-carousel .owl-dots .owl-dot.active span, section.bty-slider .slider-carousel .owl-dots .owl-dot:hover span {
+    background-color: #ec0d0d;
+}
+
+/*testimonials*/
+.bty-testimonials {
+    color: white;
+    background-color: #d6d6d6;
+    padding: 100px 0;
+    background: url(http://wallscollection.net/wp-content/uploads/2016/12/Nice-Black-White-Wallpaper.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bty-testimonials .person img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: 0.5s ease;
+}
+
+.bty-testimonials .person {
+    text-align: center;
+}
+
+.bty-testimonials .person:hover img {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray; /* IE 6-9 */
+}
+
+.bty-testimonials .person h4 {
+    font-size: 20px;
+}
+
+.bty-testimonials h2 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 50px;
+}
+
+.bty-testimonials h2 + div {
+    height: 3px;
+    background-color: white;
+    margin-bottom: 60px;
+}
+
+.bty-testimonials .person p {
+    padding: 0px 35px;
+}
+
+.bty-testimonials .person:nth-of-type(2) {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+/*Welcome*/
+.bty-welcome {
+    padding: 100px 0;
+    background-color: white;
+}
+
+/*Welcome*/
+.bty-welcome h2 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 50px;
+}
+
+.bty-welcome h2 + div {
+    height: 3px;
+    background-color: #3072b9;
+    margin-bottom: 60px;
+}
+
+.bty-welcome h2 ~ .desc {
+    padding: 0 16%;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 55px;
+}
+
+.bty-welcome .our-about {
+    text-align: center;
+}
+
+.bty-welcome .our-about > div {
+    border: 1px solid #cccccc;
+    padding: 80px 12px;
+}
+
+.bty-welcome .our-about i {
+    font-size: 35px;
+    color: #3072b9;
+    margin-bottom: 12px;
+}
+
+.bty-welcome .our-about h4 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.bty-welcome .our-about p {
+    font-size: 14px;
+}
+
+/*Responsive*/
+@media (min-width: 320px) and (max-width: 735px){
+    section.bty-slider .slider-carousel img{
+        height: 270px;
+    }
+    section.bty-slider .slider-carousel .head-slider p.title{
+        font-size: 30px;
+    }
+    section.bty-slider .slider-carousel .head-slider p.desc{
+        font-size: 14px;
+    }
+    .bty-welcome h2{
+        font-size: 35px;
+    }
+    .bty-welcome .our-about{
+        margin-bottom: 15px;
+    }
+    .bty-testimonials h2{
+        font-size: 35px;
+    }
+    .bty-testimonials .person:nth-of-type(2){
+        border: none;
+    }
+    footer.bty-footer .footer-top .subscribe h5{
+        text-align: left;
+    }
+    footer.bty-footer .footer-bottom-content .reserverd{
+        display: inline-block;
+    }
+    footer.bty-footer .footer-bottom-content .social{
+        display: inline-block;
+    }
+}
+@media (max-width: 375px){
+    footer.bty-footer{
+        text-align: center;
+    }
+    footer.bty-footer .footer-top .subscribe h5{
+        text-align: center;
+    }
+    footer.bty-footer .footer-bottom .social ul{
+        text-align: right;
+        padding: 0
+    }
+    footer.bty-footer .footer-bottom-content .reserverd{
+        display: block;
+    }
+}
+@media (min-width: 736px) and (max-width: 768px){
+    .bty-testimonials .person:nth-of-type(2){
+        border: none;
+    }
+    .bty-testimonials h2, .bty-welcome h2{
+        font-size: 50px;
+    }
+    section.bty-slider .slider-carousel img{
+        height: 350px;
+    }
+    section.bty-slider .slider-carousel .head-slider p.title{
+        font-size: 50px;
+    }
+    section.bty-slider .slider-carousel .head-slider p.desc{
+        font-size: 16px;
+    }
+    .bty-welcome .our-about{
+        margin-bottom: 20px;
+    }
+    footer.bty-footer .footer-top .subscribe h5{
+        text-align: left;
+    }
+    footer.bty-footer .footer-bottom-content .reserverd, footer.bty-footer .footer-bottom-content .social{
+        display: inline-block;
+    }
+    footer.bty-footer .footer-bottom-content .social{
+        float: right;
+    }
+}
+
+
+
+
+
+
+.custom_empty_section{
+    display: flex;
+    align-items: center;
+    min-height:400px;
+    margin: 5px 0;
+    width: 100%;
+    border:2px solid rgba(10, 10, 10, 0.2);
+    justify-content: center;
+}
+.custom_empty_section h2{
+    color: #ccc;
+    font-size: 100px;
+}
+.custom_text_break{
+    word-wrap: break-word;
+}

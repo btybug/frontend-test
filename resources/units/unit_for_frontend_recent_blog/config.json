@@ -1,0 +1,19 @@
+{
+  "title": "Recent blog",
+  "author": "Vahag",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "example":"demo",
+  "self_type": "units",
+  "type": "units",
+  "description": "blog recent",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "unit_for_frontend_recent_blog",
+  "folder": "unit_for_frontend_recent_blog",
+  "created_at": 1490088665,
+  "is_core": 0,
+  "place": "frontend",
+  "tags": ["my_account","frontend"],
+  "path": "resources\/units\/unit_for_frontend_recent_blog"
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Mail template",
+  "author": "Edo",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "type": "unit",
+  "description": "Mail template unit",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "mail_template",
+  "folder": "mail_template",
+  "created_at": 1490088665,
+  "is_core": 1,
+  "place": "frontend",
+  "tags": ["mail_template","frontend"],
+  "path": "resources\/units\/mail_template"
+}

@@ -1,0 +1,16 @@
+{
+  "title": "My items listing",
+  "type": "unit",
+  "enabled": "true",
+  "have_settings": 1,
+  "author": "Vahag",
+  "main_file": "tpl.blade.php",
+  "settings": "settings.blade.php",
+  "slug": "my_items_content",
+  "folder": "my_items_content",
+  "created_at": 1498152050,
+  "is_core": 1,
+  "tags":["front_page_content","my-items","items","studios"],
+  "place": "frontend",
+  "path": "resources\/units\/my_items_content"
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Amazing Select Country",
+  "author": "Sahak",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "type": "unit",
+  "description": "Form Field",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "field_select_country",
+  "folder": "field_select_country",
+  "created_at": 1490088665,
+  "is_core": 1,
+  "place": "frontend",
+  "tags": ["form","field","field_select_country"],
+  "path": "resources\/units\/field_select_country"
+}

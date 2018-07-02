@@ -1,0 +1,10 @@
+{
+  "title": "default",
+  "settings": {
+    "range_inp": "bty-input-range-3",
+    "range_min": "25",
+    "range_max": "250",
+    "range_start": "50"
+  },
+  "id": "field_range.default"
+}

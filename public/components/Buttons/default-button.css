@@ -1,0 +1,526 @@
+.bty-btn-default {
+    color: #fff;
+    background-color: #cccccc;
+    font-size: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: none;
+    padding: 10px 40px;
+    display: inline-flex;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bty-btn-default:before {
+    content: "\f0ae";
+    font-family: FontAwesome;
+    left: 0;
+    top: -100%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-size: 190%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.bty-btn-default span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.3s;
+    -webkit-backface-visibility: hidden;
+    -moz-transition: all 0.3s;
+    -moz-backface-visibility: hidden;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+}
+
+.bty-btn-default:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bty-btn-default:hover:before {
+    top: 0;
+}
+
+.bty-btn-default:hover span {
+    -webkit-transform: translateY(300%);
+    -moz-transform: translateY(300%);
+    -ms-transform: translateY(300%);
+    transform: translateY(300%);
+}
+
+.bty-btn-default:active {
+    background: rgba(204, 204, 204, 0.53);
+}
+
+.bty-btn-default:active:before {
+    color: rgba(204, 204, 204, 0.73);
+}.bty-btn-save {
+    color: #fff;
+    background-color: #82AF6F;
+    font-size: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: none;
+    padding: 10px 40px;
+    display: inline-flex;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bty-btn-save:before {
+    content: "\f14a";
+    font-family: FontAwesome;
+    left: 0;
+    top: -100%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-size: 190%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.bty-btn-save span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.3s;
+    -webkit-backface-visibility: hidden;
+    -moz-transition: all 0.3s;
+    -moz-backface-visibility: hidden;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+}
+
+.bty-btn-save:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bty-btn-save:hover:before {
+    top: 0;
+}
+
+.bty-btn-save:hover span {
+    -webkit-transform: translateY(300%);
+    -moz-transform: translateY(300%);
+    -ms-transform: translateY(300%);
+    transform: translateY(300%);
+}
+
+.bty-btn-save:active {
+    background: rgba(130, 175, 111, 0.75);
+}
+
+.bty-btn-save:active:before {
+    color: rgba(130, 175, 111, 0.75);
+}.bty-btn-upload {
+    color: #fff;
+    background-color: #499bc7;
+    font-size: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: none;
+    padding: 10px 40px;
+    display: inline-flex;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bty-btn-upload:before {
+    content: "\f0ee";
+    font-family: FontAwesome;
+    left: 0;
+    top: -100%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-size: 190%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.bty-btn-upload span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.3s;
+    -webkit-backface-visibility: hidden;
+    -moz-transition: all 0.3s;
+    -moz-backface-visibility: hidden;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+}
+
+.bty-btn-upload:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bty-btn-upload:hover:before {
+    top: 0;
+}
+
+.bty-btn-upload:hover span {
+    -webkit-transform: translateY(300%);
+    -moz-transform: translateY(300%);
+    -ms-transform: translateY(300%);
+    transform: translateY(300%);
+}
+
+.bty-btn-upload:active {
+    background: rgba(73, 155, 199, 0.73);
+}
+
+.bty-btn-upload:active:before {
+    color: rgba(73, 155, 199, 0.73);
+}.bty-btn-view {
+    color: #fff;
+    background-color: #337ab7;
+    font-size: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: none;
+    padding: 10px 40px;
+    display: inline-flex;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bty-btn-view:before {
+    content: "\f06e";
+    font-family: FontAwesome;
+    left: 0;
+    top: -100%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-size: 190%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.bty-btn-view span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.3s;
+    -webkit-backface-visibility: hidden;
+    -moz-transition: all 0.3s;
+    -moz-backface-visibility: hidden;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+}
+
+.bty-btn-view:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bty-btn-view:hover:before {
+    top: 0;
+}
+
+.bty-btn-view:hover span {
+    -webkit-transform: translateY(300%);
+    -moz-transform: translateY(300%);
+    -ms-transform: translateY(300%);
+    transform: translateY(300%);
+}
+
+.bty-btn-view:active {
+    background: rgba(51, 122, 183, 0.74);
+}
+
+.bty-btn-view:active:before {
+    color: rgba(51, 122, 183, 0.74);
+}.bty-btn-edit {
+    color: #fff;
+    background-color: #f99e4e;
+    font-size: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: none;
+    padding: 10px 40px;
+    display: inline-flex;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bty-btn-edit:before {
+    content: "\f044";
+    font-family: FontAwesome;
+    left: 0;
+    top: -100%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-size: 190%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.bty-btn-edit span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.3s;
+    -webkit-backface-visibility: hidden;
+    -moz-transition: all 0.3s;
+    -moz-backface-visibility: hidden;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+}
+
+.bty-btn-edit:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bty-btn-edit:hover:before {
+    top: 0;
+}
+
+.bty-btn-edit:hover span {
+    -webkit-transform: translateY(300%);
+    -moz-transform: translateY(300%);
+    -ms-transform: translateY(300%);
+    transform: translateY(300%);
+}
+
+.bty-btn-edit:active {
+    background: rgba(249, 158, 78, 0.64);
+}
+
+.bty-btn-edit:active:before {
+    color: rgba(249, 158, 78, 0.74)
+}.bty-btn-add {
+    color: #fff;
+    background-color: #0A246A;
+    font-size: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: none;
+    padding: 10px 40px;
+    display: inline-flex;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bty-btn-add:before {
+    content: "\f055";
+    font-family: FontAwesome;
+    left: 0;
+    top: -100%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-size: 190%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.bty-btn-add span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.3s;
+    -webkit-backface-visibility: hidden;
+    -moz-transition: all 0.3s;
+    -moz-backface-visibility: hidden;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+}
+
+.bty-btn-add:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bty-btn-add:hover:before {
+    top: 0;
+}
+
+.bty-btn-add:hover span {
+    -webkit-transform: translateY(300%);
+    -moz-transform: translateY(300%);
+    -ms-transform: translateY(300%);
+    transform: translateY(300%);
+}
+
+.bty-btn-add:active {
+    background: rgba(10, 36, 106, 0.74);
+}
+
+.bty-btn-add:active:before {
+    color: rgba(10, 36, 106, 0.74);
+}.bty-btn-delete {
+    color: #fff;
+    background-color: #d9534f;
+    font-size: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: none;
+    padding: 10px 40px;
+    display: inline-flex;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bty-btn-delete:before {
+    content: "\f1f8";
+    font-family: FontAwesome;
+    left: 0;
+    top: -100%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-size: 190%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.bty-btn-delete span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.3s;
+    -webkit-backface-visibility: hidden;
+    -moz-transition: all 0.3s;
+    -moz-backface-visibility: hidden;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+}
+
+.bty-btn-delete:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.bty-btn-delete:hover:before {
+    top: 0;
+}
+
+.bty-btn-delete:hover span {
+    -webkit-transform: translateY(300%);
+    -moz-transform: translateY(300%);
+    -ms-transform: translateY(300%);
+    transform: translateY(300%);
+}
+
+.bty-btn-delete:active {
+    background: rgba(217, 83, 79, 0.65);
+}
+
+.bty-btn-delete:active:before {
+    color: rgba(217, 83, 79, 0.71);
+}

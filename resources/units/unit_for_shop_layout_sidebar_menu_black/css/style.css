@@ -1,0 +1,47 @@
+.sidebar-vertical-menu-black ul {
+    list-style: none;
+}
+
+.sidebar-vertical-menu-black ul,
+.sidebar-vertical-menu-black li,
+.sidebar-vertical-menu-black a {
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-vertical-menu-black > ul a {
+    color: #FFFFFF;
+}
+
+.sidebar-vertical-menu-black > ul li ul li a:hover {
+    background-color: #394963;
+}
+
+.sidebar-vertical-menu-black ul li ul {
+    background-color: #4a5b78;
+    list-style: none
+}
+
+.sidebar-vertical-menu-black > ul > li > a {
+    background-color: #282828;
+    padding: 16px 18px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 2px solid #212121;
+}
+
+.sidebar-vertical-menu-black > ul li ul li a {
+    padding: 10px 0;
+    padding-left: 30px;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar-vertical-menu-black {
+    background-color: #343434;
+    width: 100%;
+}
+
+.sidebar-vertical-menu-black > ul li ul {
+    display: none;
+}

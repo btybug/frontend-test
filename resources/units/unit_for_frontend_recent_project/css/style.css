@@ -1,0 +1,44 @@
+.sidebar-project h3 {
+    margin: 0 0 8px 0;
+}
+
+.sidebar-project .recent-project ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.sidebar-project .recent-project ul li {
+    height: 110px;
+    overflow: hidden;
+    margin-bottom: 10px;
+
+}
+
+.sidebar-project .recent-project ul li a {
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+
+}
+.sidebar-project .recent-project ul li img{
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.sidebar-project .recent-project ul li img:hover {
+    transform: rotate(5deg) scale(1.2, 1.2);
+    -webkit-transform: rotate(5deg) scale(1.2, 1.2);
+    -moz-transform: rotate(5deg) scale(1.2, 1.2);
+    -ms-transform: rotate(5deg) scale(1.2, 1.2);
+    -o-transform: rotate(5deg) scale(1.2, 1.2);
+}

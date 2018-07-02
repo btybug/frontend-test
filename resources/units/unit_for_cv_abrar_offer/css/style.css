@@ -1,0 +1,90 @@
+#what-offer-abrar {
+    overflow: hidden;
+    background-color: #f4f4f4
+}
+#what-offer-abrar .section-padding{
+    /*padding: 140px 0px;*/
+    /*padding-bottom: 90px;*/
+}
+#what-offer-abrar .section-title{
+    padding-bottom: 25px;
+}
+#what-offer-abrar .section-title .title-head{
+    font-size: 40px;
+    font-style: italic;
+    margin: 0;
+    font-weight: 700;
+}
+#what-offer-abrar .section-title p{
+    font-size: 16px;
+    color: #888484;
+}
+
+#what-offer-abrar .what-offer-content .service-text-icon{
+    background-color: #fff;
+    padding: 70px 35px 40px;
+    position: relative;
+}
+#what-offer-abrar .what-offer-content .service-text-icon .service-icon{
+    left: 0;
+    right: 0;
+    top: -35px;
+    width: 65px;
+    height: 65px;
+    margin: 0 auto;
+    line-height: 70px;
+    position: absolute;
+    border-radius: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-transition: .3s all ease-in-out;
+    transition: .3s all ease-in-out;
+}
+#what-offer-abrar .what-offer-content .service-text-icon:hover .service-icon{
+    background-color: #2d318d;
+}
+#what-offer-abrar .what-offer-content .service-text-icon:hover .service-icon i {
+    color: #fff;
+}
+#what-offer-abrar .what-offer-content.owl-carousel .owl-stage-outer {
+    padding-top: 50px;
+}
+#what-offer-abrar .what-offer-content .service-text-icon .service-icon i{
+    font-size: 26px;
+    -webkit-transition: .3s all ease-in-out;
+    transition: .3s all ease-in-out;
+}
+#what-offer-abrar .what-offer-content .service-text-icon .service-text{
+    margin-bottom: 20px;
+}
+
+#what-offer-abrar .what-offer-content .service-text-icon .service-text .service-title-head{
+    color: #616161;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#what-offer-abrar .what-offer-content .service-text-icon .service-text .service-text-des{
+    color: #333;
+}
+
+#what-offer-abrar .what-offer-content .owl-controls{
+    margin-top: 110px;
+    text-align: center;
+}
+
+#what-offer-abrar .what-offer-content .owl-controls .owl-nav .owl-prev{
+    margin: 0px 5px;
+    display: inline-block;
+}
+#what-offer-abrar .what-offer-content .owl-controls .owl-nav .owl-next{
+    margin: 0px 5px;
+    display: inline-block;
+}
+#what-offer-abrar .what-offer-content .owl-controls .owl-nav i{
+    color: #050505;
+    font-size: 30px;
+    transition: .3s all ease-in-out;
+}

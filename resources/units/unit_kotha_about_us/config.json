@@ -1,0 +1,42 @@
+{
+  "title": "Kotha about us",
+  "author": "Vahag",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "example":"demo",
+  "self_type": "units",
+  "type": "units",
+  "description": "about us",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "unit_kotha_about_us",
+  "folder": "unit_kotha_about_us",
+  "created_at": 1490088665,
+  "is_core": 0,
+  "place": "frontend",
+  "placeholders": {
+    "image": {
+      "type": "unit",
+      "tag": "image",
+      "title": "Image",
+      "f": true,
+      "s": true
+    },
+    "title": {
+      "type": "unit",
+      "tag": "text",
+      "title": "Title",
+      "f": true,
+      "s": true
+    },
+    "text": {
+      "type": "unit",
+      "tag": "text",
+      "title": "Text",
+      "f": true,
+      "s": true
+    }
+  },
+  "tags": ["kotha","blog","post","frontend","front_page_content"],
+  "path": "resources\/units\/unit_kotha_about_us"
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Amazing File Upload Field",
+  "author": "Sahak",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "type": "unit",
+  "description": "Form Field",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "field_file_upload",
+  "folder": "field_file_upload",
+  "created_at": 1490088665,
+  "is_core": 1,
+  "place": "frontend",
+  "tags": ["form","field","rating","field_file_upload"],
+  "path": "resources\/units\/field_file_upload"
+}

@@ -1,0 +1,162 @@
+#portfolio-flato{
+    /*background: #2bb3dd;*/
+}
+section#portfolio-flato> .container{
+    /*padding-top: 85px;*/
+    /*padding-bottom: 93px;*/
+}
+#portfolio-flato .heading{
+    text-align: center;
+    padding-bottom: 45px;
+}
+#portfolio-flato .heading h2{
+    font-size: 36px;
+    line-height: 38px;
+    padding-bottom: 0;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0;
+    /*color: #fff;*/
+}
+#portfolio-flato .heading p{
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    margin: 0;
+    padding-bottom: 41px;
+    /*color: #fff;*/
+}
+
+#portfolio-flato .content-portfolio .portfolioFilter{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+#portfolio-flato .content-portfolio .portfolioFilter ul{
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    margin-bottom: 30px;
+}
+#portfolio-flato .content-portfolio .portfolioFilter ul li{
+    display: inline-block;
+    margin: 5px 5px;
+}
+#portfolio-flato .content-portfolio .portfolioFilter a{
+    padding: 16px 18px;
+    font-size: 13px;
+    line-height: 15px;
+    /*color: #ffffff;*/
+    text-transform: uppercase;
+    display: block;
+    text-decoration: none;
+    border: solid 1px #95d9ee;
+    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+}
+#portfolio-flato .content-portfolio .portfolioFilter a.current{
+    background: #15596e;
+    border: solid 1px #15596e;
+    color: #fff;
+}
+#portfolio-flato .content-portfolio .portfolioContainer{
+    display: block;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+
+#portfolio-flato .content-portfolio .portfolioContainer li .lightCon{
+    display: block;
+    margin: 3px 3px 4px 4px;
+    position: relative;
+    overflow: hidden;
+}
+#portfolio-flato .content-portfolio .portfolioContainer li .hoverBox{
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+    background: rgba(0, 0, 0, 0.1);
+}
+#portfolio-flato .content-portfolio .portfolioContainer li .smallIcon{
+    width: 94px;
+    margin: 0px auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -47px;
+    margin-top: -21px;
+}
+#portfolio-flato .content-portfolio .portfolioContainer li i{
+    font-size: 2em;
+}
+#portfolio-flato .content-portfolio .portfolioContainer li .linKed{
+    visibility: hidden;
+    width: 42px;
+    height: 42px;
+    background: #313131;
+    color: #fff;
+    position: relative;
+    right: -150%;
+    text-align: center;
+    line-height: 52px;
+    float: right;
+    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+}
+#portfolio-flato .content-portfolio .portfolioContainer li .zoom{
+    visibility: hidden;
+    width: 42px;
+    height: 42px;
+    background: #ff675f;
+    color: #fff;
+    position: relative;
+    left: -150%;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+}
+#portfolio-flato .content-portfolio ul.portfolioContainer li:hover span.hoverBox {
+    visibility: visible;
+    left: 0px;
+    bottom: 0px;
+    background: rgba(0, 0, 0, 0.8);
+    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+}
+#portfolio-flato .content-portfolio ul.portfolioContainer li:hover span.hoverBox .zoom {
+    visibility: visible;
+    left: 0;
+    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+}
+#portfolio-flato .content-portfolio ul.portfolioContainer li:hover span.hoverBox .linKed{
+    visibility: visible;
+    right: 0%;
+    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+}
+#portfolio-flato .content-portfolio ul.portfolioContainer li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.isotope .isotope-item {
+    padding: 0;
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    transition-property: transform, opacity;
+}
+.isotope, .isotope .isotope-item {
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}

@@ -1,0 +1,358 @@
+.bty-message-1{
+    background-color: white;
+}
+.bty-message-1 ul{
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+}
+.bty-message-1 ul li a{
+    float: left;
+    padding-right: 15px;
+}
+.bty-message-1 img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.bty-message-1 ul li:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.bty-message-1 ul li div h5{
+    margin: 0;
+    padding-bottom: 3px;
+    color: #444;
+    font-size: 14px;
+}
+.bty-message-1 ul li div{
+    display: table;
+}
+.bty-message-1>ul li{
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e2e2;
+}
+.bty-message-1 ul li div p{
+    color: #777;
+    font-size: 12px;
+}
+.bty-message-1 form div{
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    padding: 21px;
+    border-top: 1px solid #ccc;
+}
+.bty-message-1 form div input{
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+    display: table-cell;
+    border: 1px solid #ccd0d4;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 12px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    height: 34px;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    color: #555;
+}
+.bty-message-1 form div input:focus{
+    outline: none;
+}
+.bty-message-1 form div span{
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: table-cell;
+}
+.bty-message-1 form div button{
+    color: #fff;
+    background: #348fe2;
+    border-radius: 0 3px 3px 0;
+    margin-left: -1px;
+    padding: 7px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    border: none;
+}.bty-message-img-1{
+    background-color: white;
+}
+.bty-message-img-1 ul{
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+}
+.bty-message-img-1 ul li a{
+    float: left;
+    padding-right: 15px;
+}
+.bty-message-img-1 img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+.bty-message-img-1 ul li:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.bty-message-img-1 ul li div h5{
+    margin: 0;
+    padding-bottom: 3px;
+    color: #444;
+    font-size: 14px;
+}
+.bty-message-img-1 ul li div{
+    display: table;
+}
+.bty-message-img-1>ul li{
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e2e2;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -ms-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+.bty-message-img-1>ul li:hover{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+.bty-message-img-1 ul li div p{
+    color: #777;
+    font-size: 12px;
+}
+.bty-message-img-1 form div{
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    padding: 21px;
+    border-top: 1px solid #ccc;
+}
+.bty-message-img-1 form div input{
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+    display: table-cell;
+    border: 1px solid #ccd0d4;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 12px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    height: 34px;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    color: #555;
+}
+.bty-message-img-1 form div input:focus{
+    outline: none;
+}
+.bty-message-img-1 form div span{
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: table-cell;
+}
+.bty-message-img-1 form div button{
+    color: #fff;
+    background: #348fe2;
+    border-radius: 0 3px 3px 0;
+    margin-left: -1px;
+    padding: 7px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    border: none;
+}.bty-message-img-big-1{
+    background-color: white;
+}
+.bty-message-img-big-1 ul{
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+}
+.bty-message-img-big-1 ul li a{
+    float: left;
+}
+.bty-message-img-big-1 img{
+    width: 100vw;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+.bty-message-img-big-1 ul li:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.bty-message-img-big-1 ul li div h5{
+    margin: 0;
+    padding-bottom: 3px;
+    color: #444;
+    font-size: 14px;
+}
+.bty-message-img-big-1 ul li div{
+    display: table;
+}
+.bty-message-img-big-1>ul li{
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e2e2;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -ms-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+.bty-message-img-big-1>ul li:hover{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+.bty-message-img-big-1 ul li div p{
+    color: #777;
+    font-size: 12px;
+}
+.bty-message-img-big-1 form div{
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    padding: 21px;
+    border-top: 1px solid #ccc;
+}
+.bty-message-img-big-1 form div input{
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+    display: table-cell;
+    border: 1px solid #ccd0d4;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 12px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    height: 34px;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    color: #555;
+}
+.bty-message-img-big-1 form div input:focus{
+    outline: none;
+}
+.bty-message-img-big-1 form div span{
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: table-cell;
+}
+.bty-message-img-big-1 form div button{
+    color: #fff;
+    background: #348fe2;
+    border-radius: 0 3px 3px 0;
+    margin-left: -1px;
+    padding: 7px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    border: none;
+}.bty-message-black-1{
+    background-color: white;
+}
+.bty-message-black-1 ul{
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+    background-color: black;
+}
+.bty-message-black-1 ul li a{
+    padding-right: 15px;
+}
+.bty-message-black-1 img{
+    width: 290px;
+    height: 100%;
+    object-fit: cover;
+}
+.bty-message-black-1 ul li:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.bty-message-black-1 ul li div h5{
+    margin: 0;
+    padding-bottom: 3px;
+    color: #fff;
+    font-size: 14px;
+}
+.bty-message-black-1 ul li div{
+    padding: 10px 5px 10px 0;
+}
+.bty-message-black-1>ul li{
+    box-shadow: 0 0 12px #fff;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+.bty-message-black-1 ul li div p{
+    color: #ccc;
+    font-size: 12px;
+}
+.bty-message-black-1 form div{
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    padding: 21px;
+    border-top: 1px solid #ccc;
+    background-color: #00000091;
+}
+.bty-message-black-1 form div input{
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+    display: table-cell;
+    border: 1px solid #ccd0d4;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 12px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    height: 34px;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    color: #555;
+}
+.bty-message-black-1 form div input:focus{
+    outline: none;
+}
+.bty-message-black-1 form div span{
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: table-cell;
+}
+.bty-message-black-1 form div button{
+    color: #fff;
+    background: #000;
+    border-radius: 0 3px 3px 0;
+    margin-left: -1px;
+    padding: 7px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    border: none;
+}

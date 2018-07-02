@@ -1,0 +1,1 @@
+{"title":"default","settings":{"radio_inp":"input-radio-7-bty","label":"Select user","icon":"fa-apple","tooltip_icon":"fa-info-circle","help":"HHH","validation_message":null,"data_source":"related","json_data":{"data_source_table_name":"users","data_source_columns":"username"},"extravalidation":null},"id":"field_radio.default"}

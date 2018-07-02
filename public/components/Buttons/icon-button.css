@@ -1,0 +1,325 @@
+.bty-bt-edit {
+    background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+    background-image: linear-gradient(top, #f4f1ee, #fff);
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, .3), inset 0 4px 1px 1px white, inset 0 -3px 1px 1px rgba(204, 198, 197, .5);
+    float: left;
+    height: 38px;
+    margin: 0 10px 10px 0;
+    position: relative;
+    width: 38px;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.bty-bt-edit:after {
+    color: #e9e6e4;
+    text-align: center;
+    content: "";
+    display: block;
+    font-size: 15px;
+    height: 23px;
+    text-decoration: none;
+    text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+    position: absolute;
+    width: 23px;
+}
+
+.bty-bt-edit:hover {
+    background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
+    background-image: linear-gradient(top, #fff, #f4f1ee);
+}
+
+.bty-bt-edit:active {
+    background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+    background-image: linear-gradient(top, #efedec, #f7f4f4);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .4), inset 0px -3px 1px 1px rgba(204, 198, 197, .5);
+}
+
+.bty-bt-edit:active:after {
+    color: #dbd2d2;
+    text-shadow: 0 -1px 1px #bdb5b4, 0 1px 1px white;
+}
+.bty-bt-edit:after {
+    content: "\f044";
+    font-family: FontAwesome;
+    left: 10px;
+    top: 9px;
+}
+
+.bty-bt-edit:hover:after {
+    color: #f99e4e;
+    text-shadow: 0 0 6px #f99e4e;
+}.bty-bt-delete {
+    background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+    background-image: linear-gradient(top, #f4f1ee, #fff);
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, .3), inset 0 4px 1px 1px white, inset 0 -3px 1px 1px rgba(204, 198, 197, .5);
+    float: left;
+    height: 38px;
+    margin: 0 10px 10px 0;
+    position: relative;
+    width: 38px;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.bty-bt-delete:after {
+    color: #e9e6e4;
+    text-align: center;
+    content: "";
+    display: block;
+    font-size: 15px;
+    height: 23px;
+    text-decoration: none;
+    text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+    position: absolute;
+    width: 23px;
+}
+
+.bty-bt-delete:hover {
+    background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
+    background-image: linear-gradient(top, #fff, #f4f1ee);
+}
+
+.bty-bt-delete:active {
+    background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+    background-image: linear-gradient(top, #efedec, #f7f4f4);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .4), inset 0px -3px 1px 1px rgba(204, 198, 197, .5);
+}
+
+.bty-bt-delete:active:after {
+    color: #dbd2d2;
+    text-shadow: 0 -1px 1px #bdb5b4, 0 1px 1px white;
+}
+.bty-bt-delete:after {
+    content: "\f014";
+    font-family: FontAwesome;
+    left: 8px;
+    top: 11px;
+}
+
+.bty-bt-delete:hover:after {
+    color: #d9534f;
+    text-shadow: 0 0 6px #d9534f;
+}.bty-bt-view {
+    background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+    background-image: linear-gradient(top, #f4f1ee, #fff);
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, .3), inset 0 4px 1px 1px white, inset 0 -3px 1px 1px rgba(204, 198, 197, .5);
+    float: left;
+    height: 38px;
+    margin: 0 10px 10px 0;
+    position: relative;
+    width: 38px;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.bty-bt-view:after {
+    color: #e9e6e4;
+    text-align: center;
+    content: "";
+    display: block;
+    font-size: 15px;
+    height: 23px;
+    text-decoration: none;
+    text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+    position: absolute;
+    width: 23px;
+}
+
+.bty-bt-view:hover {
+    background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
+    background-image: linear-gradient(top, #fff, #f4f1ee);
+}
+
+.bty-bt-view:active {
+    background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+    background-image: linear-gradient(top, #efedec, #f7f4f4);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .4), inset 0px -3px 1px 1px rgba(204, 198, 197, .5);
+}
+
+.bty-bt-view:active:after {
+    color: #dbd2d2;
+    text-shadow: 0 -1px 1px #bdb5b4, 0 1px 1px white;
+}
+.bty-bt-view:after {
+    content: "\f06e";
+    font-family: FontAwesome;
+    left: 8px;
+    top: 11px;
+}
+
+.bty-bt-view:hover:after {
+    color: #337ab7;
+    text-shadow: 0 0 6px #337ab7;
+}.bty-bt-search {
+    background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+    background-image: linear-gradient(top, #f4f1ee, #fff);
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, .3), inset 0 4px 1px 1px white, inset 0 -3px 1px 1px rgba(204, 198, 197, .5);
+    float: left;
+    height: 38px;
+    margin: 0 10px 10px 0;
+    position: relative;
+    width: 38px;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.bty-bt-search:after {
+    color: #e9e6e4;
+    text-align: center;
+    content: "";
+    display: block;
+    font-size: 15px;
+    height: 23px;
+    text-decoration: none;
+    text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+    position: absolute;
+    width: 23px;
+}
+
+.bty-bt-search:hover {
+    background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
+    background-image: linear-gradient(top, #fff, #f4f1ee);
+}
+
+.bty-bt-search:active {
+    background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+    background-image: linear-gradient(top, #efedec, #f7f4f4);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .4), inset 0px -3px 1px 1px rgba(204, 198, 197, .5);
+}
+
+.bty-bt-search:active:after {
+    color: #dbd2d2;
+    text-shadow: 0 -1px 1px #bdb5b4, 0 1px 1px white;
+}
+.bty-bt-search:after {
+    content: "\f002";
+    font-family: FontAwesome;
+    left: 8px;
+    top: 11px;
+}
+
+.bty-bt-search:hover:after {
+    color: #1c5c9b;
+    text-shadow: 0 0 6px #144676;
+}.bty-bt-envelope {
+    background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+    background-image: linear-gradient(top, #f4f1ee, #fff);
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, .3), inset 0 4px 1px 1px white, inset 0 -3px 1px 1px rgba(204, 198, 197, .5);
+    float: left;
+    height: 38px;
+    margin: 0 10px 10px 0;
+    position: relative;
+    width: 38px;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.bty-bt-envelope:after {
+    color: #e9e6e4;
+    text-align: center;
+    content: "";
+    display: block;
+    font-size: 15px;
+    height: 23px;
+    text-decoration: none;
+    text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+    position: absolute;
+    width: 23px;
+}
+
+.bty-bt-envelope:hover {
+    background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
+    background-image: linear-gradient(top, #fff, #f4f1ee);
+}
+
+.bty-bt-envelope:active {
+    background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+    background-image: linear-gradient(top, #efedec, #f7f4f4);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .4), inset 0px -3px 1px 1px rgba(204, 198, 197, .5);
+}
+
+.bty-bt-envelope:active:after {
+    color: #dbd2d2;
+    text-shadow: 0 -1px 1px #bdb5b4, 0 1px 1px white;
+}
+.bty-bt-envelope:after {
+    content: "\f0e0";
+    font-family: FontAwesome;
+    left: 8px;
+    top: 11px;
+}
+
+.bty-bt-envelope:hover:after {
+    color: yellow;
+    text-shadow: 0 0 6px #caca00;
+}.bty-bt-download {
+    background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+    background-image: linear-gradient(top, #f4f1ee, #fff);
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, .3), inset 0 4px 1px 1px white, inset 0 -3px 1px 1px rgba(204, 198, 197, .5);
+    float: left;
+    height: 38px;
+    margin: 0 10px 10px 0;
+    position: relative;
+    width: 38px;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.bty-bt-download:after {
+    color: #e9e6e4;
+    text-align: center;
+    content: "";
+    display: block;
+    font-size: 15px;
+    height: 23px;
+    text-decoration: none;
+    text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+    position: absolute;
+    width: 23px;
+}
+
+.bty-bt-download:hover {
+    background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
+    background-image: linear-gradient(top, #fff, #f4f1ee);
+}
+
+.bty-bt-download:active {
+    background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+    background-image: linear-gradient(top, #efedec, #f7f4f4);
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .4), inset 0px -3px 1px 1px rgba(204, 198, 197, .5);
+}
+
+.bty-bt-download:active:after {
+    color: #dbd2d2;
+    text-shadow: 0 -1px 1px #bdb5b4, 0 1px 1px white;
+}
+.bty-bt-download:after {
+    content: "\f01a";
+    font-family: FontAwesome;
+    left: 8px;
+    top: 11px;
+}
+
+.bty-bt-download:hover:after {
+    color: #000;
+    text-shadow: 0 0 6px #000;
+}
