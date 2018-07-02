@@ -1,0 +1,60 @@
+{
+  "settings": [
+    {
+      "alert_class": {
+        "type": "select",
+        "label": "Alert class",
+        "data": {
+          "success": "Success",
+          "info": "Info",
+          "warning": "Warning",
+          "danger": "Danger"
+        },
+        "value": "success"
+      },
+      "message": {
+        "type": "text",
+        "label": "Message",
+        "value": "Hello world"
+      }
+    },
+    {
+      "start_date": {
+        "type": "text",
+        "label": "Start Date"
+      },
+      "end_date": {
+        "type": "text",
+        "label": "End Date",
+        "value": "now"
+      },
+      "result_type": {
+        "type": "select",
+        "label": "Number of",
+        "data": {
+          "days": "Days",
+          "hours": "Hours",
+          "seconds": "Seconds"
+        },
+        "value": "days"
+      }
+    },
+    {
+      "age": {
+        "type": "text",
+        "label": "Age"
+      },
+      "move_to": {
+        "type": "select",
+        "label": "If < age",
+        "data": {
+          "403": "Access Denied(403)",
+          "404": "Not found(404)",
+          "logout": "Logout"
+        },
+        "value": "403"
+      }
+    }
+  ],
+  "event_namespace": "App\\Events\\AfterLoginEvent"
+}

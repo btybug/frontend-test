@@ -1,0 +1,316 @@
+<?php
+/**
+ * Copyright (c) 2016.
+ * *
+ *  * Created by PhpStorm.
+ *  * User: Edo
+ *  * Date: 10/3/2016
+ *  * Time: 10:44 PM
+ *
+ */
+
+namespace Btybug\User\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use Caffeinated\Shinobi\Models\Role;
+use DB;
+use File;
+use Illuminate\Http\Request;
+use Btybug\Console\Repository\AdminPagesRepository;
+use Btybug\Console\Repository\FrontPagesRepository;
+use Btybug\User\Http\Requests\Role\CreateRoleRequest;
+use Btybug\User\Http\Requests\Role\EditRoleRequest;
+use Btybug\User\Repository\RoleRepository;
+use Btybug\User\Repository\UserRepository;
+use Btybug\User\Services\PermissionService;
+use View;
+
+class RolesController extends Controller
+{
+    private $modules;
+    private $extra_modules;
+    private $roleRepository;
+    private $adminPagesRepository;
+    private $frontPagesRepository;
+    private $permissionService;
+    private $userRepository;
+    public function __construct(RoleRepository $roleRepository,
+                                AdminPagesRepository $adminPagesRepository,
+                                FrontPagesRepository $frontPagesRepository,
+                                PermissionService $permissionService,
+                                UserRepository $userRepository)
+    {
+        $this->roleRepository = $roleRepository;
+        $this->adminPagesRepository = $adminPagesRepository;
+        $this->frontPagesRepository = $frontPagesRepository;
+        $this->permissionService = $permissionService;
+        $this->userRepository = $userRepository;
+    }
+    public function getIndex()
+    {
+        $roles = $this->roleRepository->getAll();
+        $defaultRoles = $this->userRepository->getDefaultRoles();
+        return view('users::roles.index', compact(['roles', 'defaultRoles']));
+    }
+
+    public function getCreate()
+    {
+        return view('users::roles.create');
+    }
+
+    public function postCreate(CreateRoleRequest $request)
+    {
+        $requestData = $request->except('_token');
+        $this->roleRepository->create($requestData);
+        return redirect('/admin/users/roles')->with('message', 'Role has been created successfully.');
+    }
+
+    public function getEdit(Request $request)
+    {
+        $role = $this->roleRepository->find($request->id);
+        if (!$role) return redirect()->back();
+
+        return view('users::roles.edit', compact(['role']));
+    }
+
+    public function postEdit(EditRoleRequest $request)
+    {
+        $role = $this->roleRepository->findOrFail($request->id);
+        $requestData = $request->except('_token');
+
+        $this->roleRepository->update($role->id, $requestData);
+        return redirect('/admin/users/roles')->with('message', 'Role has been updated successfully.');
+    }
+
+    public function postDelete(Request $request)
+    {
+        $result = false;
+        if ($request->slug) {
+            $role = $this->roleRepository->find($request->slug);
+            $result = $this->roleRepository->delete($role->id);
+        }
+        return \Response::json(['success' => $result]);
+    }
+
+    public function getPermissions(Request $request)
+    {
+        $slug = $request->slug;
+        $role = $this->roleRepository->findBy('slug', $slug);
+        if (!$role) abort(404);
+        $roleRepository = $this->roleRepository;
+        switch ($role->access) {
+            case $roleRepository::ACCESS_TO_BACKEND:
+                $data = $this->adminPagesRepository->getGroupedWithModule();
+                return view("users::roles.permissions", compact(['role', 'data', 'slug']));
+                break;
+            case $roleRepository::ACCESS_TO_FRONTEND:
+                $dataFront = $this->frontPagesRepository->getGroupedWithModule();
+                return view("users::roles.front_permissions", compact(['role', 'dataFront', 'slug']));
+                break;
+            case $roleRepository::ACCESS_TO_BOTH:
+                $data = $adminPagesRepository->getGroupedWithModule();
+                $dataFront = $frontPagesRepository->getGroupedWithModule();
+                return view("users::roles.role-permissions", compact(['role', 'data', 'dataFront', 'slug']));
+                break;
+        }
+
+    }
+
+    public function postPermissions(Request $request)
+    {
+        $requestData = $request->except('_token');
+        $responseHtml = $this->permissionService->storePermission($requestData);
+        return \Response::json(['error' => false, 'html' => $responseHtml]);
+    }
+
+//    private function validateModule($basename)
+//    {
+    //TODO delete if needed
+//        if (isset($this->modules->$basename)) {
+//            return $this->modules->$basename;
+//        } else {
+//            if (isset($this->extra_modules->$basename)) {
+//                return $this->extra_modules->$basename;
+//            }
+//        }
+//
+//        return false;
+//    }
+
+    public function assignPermissions(Request $request)
+    {
+        $requestData = $request->except('_token');
+        $this->permissionService->assignPermissions($requestData);
+        return redirect('/admin/users/roles-configuration')->with([
+            'flash' => [
+                'message' => 'Permisiions successfuly assigned',
+                'class' => 'alert-success'
+            ]
+        ]);
+    }
+
+    public function toggleChild(Request $request)
+    {
+        $requestData = $request->except('_token');
+        $responseHtml = $this->permissionService->toggleChild($requestData);
+        return \Response::json(['data' => $responseHtml, 'code' => 200, 'error' => false]);
+
+    }
+
+    public function getAccess($id)
+    {
+        $role = Role::find($id);
+        if (!$role)
+            return redirect()->back();
+
+        $permissions = Permissions::orderBy('name')->get();
+
+        $permission_role = DB::table('permission_role')
+            ->select(DB::raw('CONCAT(role_id,"-",permission_id) AS detail,id'))
+            ->lists('detail', 'id');
+
+        $menus = json_decode(File::get('appdata/resources/menus/admin/1.json'), true);
+
+
+//        dd($role->getPermissions());
+        return view('users::roles.access', compact(['role', 'permissions', 'permission_role', 'menus']));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function postAddAccess(Request $request)
+    {
+        if ($request->ajax()) {
+            $perm_id = $request->get('permID');
+            $roleID = $request->get('roleID');
+            $child = $request->get('child');
+
+            if (Permissions::find($perm_id) && $r = Role::find($roleID)) {
+                $main = json_decode(File::get('appdata/resources/menus/admin/1.json'), true);
+                $f = File::get('appdata/resources/menus/admin/5.json');
+                $p = Permissions::find($perm_id);
+                $r->assignPermission($perm_id);
+                $this->makeJson($r);
+                $new = Role::find($roleID);
+
+                $html = View::make('users::roles._partials.original_menu')->with('menus', $main)->with('role', $new)->render();
+
+                if ($child == 0) {
+                    return \Response::json(['data' => $html, 'code' => 200, 'error' => false]);
+                } else {
+                    $list = Permissions::where('parent', $p->parent)->get();
+                    $rigth_html = View::make('users::roles._partials.content_perm')->with('list', $list)->with('role', $new)->render();
+
+                    return \Response::json(['data' => $html, 'right_html' => $rigth_html, 'code' => 200, 'error' => false]);
+                }
+
+            }
+
+            return \Response::json(['code' => 500, 'error' => true]);
+        }
+    }
+
+    public function makeJson($r)
+    {
+        //using shinobi package models
+        $data = array();
+        foreach ($r->permissions()->where('parent', 0)->get() as $perm) {
+            $data[] = [
+                'title' => $perm->name,
+                'custom-link' => $perm->slug,
+                "icon" => "fa fa-dashboard fa-fw",
+                'is_core' => 'yes'
+            ];
+        }
+
+        foreach ($r->permissions()->where('parent', '!=', 0)->get() as $perm) {
+            $parent = Permissions::find($perm->parent);
+            foreach ($data as $k => $v) {
+                if ($v['title'] == $parent->name) {
+                    $data[$k]['children'][] = [
+                        'title' => $perm->name,
+                        'custom-link' => "/admin/" . str_replace('.', '/', $perm->slug),
+                        "icon" => "fa fa-dashboard fa-fw",
+                        'is_core' => 'yes'
+                    ];
+                }
+            }
+        }
+
+        //using our model for get menus
+        $role = Roles::find($r->id);
+        $menu = $role->menus()->where('menus_id', 1)->first();
+        File::put(config('paths.ADMIN_MENU_VARIATION') . '/' . $menu->id . '.json', json_encode($data, true));
+        return $data;
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function postRemoveAccess(Request $request)
+    {
+        if ($request->ajax()) {
+            $perm_id = $request->get('permID');
+            $roleID = $request->get('roleID');
+            $child = $request->get('child');
+
+            $main = json_decode(File::get('appdata/resources/menus/admin/1.json'), true);
+            if ($p = Permissions::find($perm_id) && $r = Role::find($roleID)) {
+                $list = Permissions::getChilds($perm_id);
+                $list[] = $perm_id;
+                $r->permissions()->detach($list);
+                $this->makeJson($r);
+
+                $new = Role::find($roleID);
+                $html = View::make('users::roles._partials.original_menu')->with('menus', $main)->with('role', $new)->render();
+
+                if ($child == 0) {
+                    return \Response::json(['data' => $html, 'code' => 200, 'error' => false]);
+                } else {
+                    $list = Permissions::where('parent', $perm_id)->get();
+                    $rigth_html = View::make('users::roles._partials.content_perm')->with('list', $list)->with('role', $new)->render();
+
+                    return \Response::json(['data' => $html, 'right_html' => $rigth_html, 'code' => 200, 'error' => false]);
+                }
+            }
+
+            return \Response::json(['code' => 500, 'error' => true]);
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function postShowEdit(Request $request)
+    {
+        $perm_id = $request->get('permID');
+        $roleID = $request->get('roleID');
+
+        if ($p = Permissions::find($perm_id) && $r = Role::find($roleID)) {
+            $list = Permissions::where('parent', $perm_id)->get();
+            $html = View::make('users::roles._partials.content_perm')->with('list', $list)->with('role', $r)->render();
+
+            return \Response::json(['data' => $html, 'code' => 200, 'error' => false]);
+        }
+
+        return \Response::json(['code' => 500, 'error' => true]);
+    }
+
+    private function item($menu, $item, $p = false)
+    {
+        foreach ($menu as $k => $v) {
+            if ($v['title'] == $item) {
+                if ($p) {
+                    unset($menu[$k]['children']);
+                }
+                return $menu[$k];
+            }
+        }
+
+        return false;
+    }
+}

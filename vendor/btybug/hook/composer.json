@@ -1,0 +1,17 @@
+{
+    "name": "btybug/hook",
+    "authors": [
+        {
+            "name": "Sahak",
+            "email": "hakobyan.sahak88@gmail.com"
+        }
+    ],
+    "type": "package",
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Btybug\\Hook\\": "src/"
+        }
+    }
+}

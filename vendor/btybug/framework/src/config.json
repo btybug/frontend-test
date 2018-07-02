@@ -1,0 +1,30 @@
+{
+  "a": {
+    "$button-a-tag-master": {
+      "display_name": "Buttons",
+      "classes": "text-opacitypanel-default"
+    },
+    "$link-a-tag-master": {
+      "display_name": "Links",
+      "classes": "text-widecard-default"
+    }
+  },
+  "label": {
+    "$form-label-master": {
+      "display_name": "FormLabel",
+      "classes": "text-shadowpanel-default"
+    }
+  },
+  "span": {
+    "$badge-default": {
+      "display_name": "Badge",
+      "classes": "text-wideform-field"
+    }
+  },
+  "form": {
+    "$form-stacked-default": {
+      "display_name": "Formstacked",
+      "classes": "text-shadowpanel-default"
+    }
+  }
+}

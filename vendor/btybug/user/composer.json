@@ -1,0 +1,19 @@
+{
+    "name": "btybug/user",
+    "description": "User Module Description",
+    "authors": [
+        {
+            "name": "Eduard",
+            "email": "edo.terakyan@gmail.com"
+        }
+    ],
+    "type": "module",
+    "route": "users",
+    "require": {},
+	"autoload": {
+        "psr-4": {
+            "Btybug\\User\\": "src/"
+        }
+    },
+    "tables":["users","roles","profiles","users_profile","users_meta","permissions","permission_role"]
+}

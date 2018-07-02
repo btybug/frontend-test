@@ -1,0 +1,16 @@
+{
+    "name": "btybug/resources",
+    "authors": [
+        {
+            "name": "Eduard",
+            "email": "edo.terakyan@gmail.com"
+        }
+    ],
+    "type": "module",
+    "require": {},
+	"autoload": {
+        "psr-4": {
+            "Btybug\\Resources\\": "src/"
+        }
+    }
+}

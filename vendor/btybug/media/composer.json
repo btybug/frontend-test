@@ -1,0 +1,18 @@
+{
+  "name": "btybug/media",
+  "description": "Media package",
+  "authors": [
+    {
+      "name": "Eduard",
+      "email": "edo.terakyan@gmail.com"
+    }
+  ],
+  "type": "module",
+  "route": "media",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Btybug\\Media\\": "src/"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "btybug/framework",
+  "authors": [
+    {
+      "name": "Eduard",
+      "email": "edo.terakyan@gmail.com"
+    }
+  ],
+  "type": "module",
+  "route": "framework",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Btybug\\Framework\\": "src/"
+    }
+  }
+}

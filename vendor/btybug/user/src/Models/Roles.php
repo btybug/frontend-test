@@ -1,0 +1,64 @@
+<?php
+
+namespace Btybug\User\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Btybug\btybug\Models\Settings;
+use Btybug\User\Traits\ShinobiTrait;
+
+class Roles extends Model
+{
+    use ShinobiTrait;
+
+    const SUPERADMIN = 'superadmin';
+
+    protected static $menus = [
+        'Left Navbar Core' => 1,
+        'User Menu Core' => 2,
+        'Left Header Core' => 3,
+        'Right Header Core' => 4,
+    ];
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'roles';
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = ['id'];
+    /**
+     * The attributes which using Carbon.
+     *
+     * @var array
+     */
+    protected $dates = ['created_at', 'updated_at'];
+
+    public static function getDefaultFrontEndRole()
+    {
+        return Settings::where('settingkey', 'default_field_html')->first();
+    }
+
+    public static function getFrontendRoles()
+    {
+        return self::where('access', self::ACCESS_TO_FRONTEND)->pluck('name', 'id');
+    }
+
+    public function users()
+    {
+        return $this->hasMany('Btybug\User\User', 'role_id');
+    }
+
+    public function permission_role()
+    {
+        return $this->hasMany('Btybug\User\Models\PermissionRole', 'page_id', 'id');
+    }
+
+    public function menus()
+    {
+        return $this->hasMany('App\Modules\Backend\MenuVariation', 'user_role', 'id');
+    }
+}

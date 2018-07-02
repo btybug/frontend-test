@@ -1,0 +1,1 @@
+TESTIng HOOKS panel, without disabling and show all pages :)

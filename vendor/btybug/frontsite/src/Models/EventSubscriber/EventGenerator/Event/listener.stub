@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Listeners\Generator;
+
+
+use App\Events\DummyEvent;
+
+class DummyClass
+{
+    public function __construct()
+    {
+        //
+    }
+
+    public function onFormSubmited($event)
+    {
+
+    }
+
+    /**
+     * Handle the event.
+     *
+     * @param  FormSubmit $event
+     * @return void
+     */
+    public function handle(DummyEvent $event)
+    {
+    }
+
+    public function subscribe($events)
+    {
+        \Subscriber::listen($events);
+
+    }
+}

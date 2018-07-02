@@ -1,0 +1,1 @@
+{!! Form::text("conditions[$slug][$new_slug][expression]",(isset($inside["expression"])) ? $inside['expression'] : null,['class' => 'form-control']) !!}

@@ -1,0 +1,31 @@
+{
+  "name": "btybug/btybug",
+  "authors": [
+    {
+      "name": "Sahak",
+      "email": "hakobyan.sahak88@gmail.com"
+    }
+  ],
+  "type": "module",
+  "route": "btybug",
+  "require": {
+    "btybug/hook": "dev-master",
+    "btybug/console": "dev-master",
+    "btybug/framework": "dev-master",
+    "btybug/frontsite": "dev-master",
+    "btybug/resources": "dev-master",
+    "btybug/uploads": "dev-master",
+    "btybug/media": "dev-master",
+    "btybug/user": "dev-master"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Btybug\\btybug\\": "src/"
+    },
+    "files": [
+      "src/Helpers/api.php"
+    ]
+  }
+}

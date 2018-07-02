@@ -1,0 +1,17 @@
+{
+  "name": "btybug/frontsite",
+  "authors": [
+    {
+      "name": "Eduard",
+      "email": "edo.terakyan@gmail.com"
+    }
+  ],
+  "type": "module",
+  "route": "front-site",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Btybug\\FrontSite\\": "src/"
+    }
+  }
+}
