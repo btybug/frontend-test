@@ -62,12 +62,27 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'membership_id' => 1,
             'status' => 'active',
         ]);
+
+        $this->makeMiniCms($user);
+
+        return $user;
+    }
+
+    private function makeMiniCms($user){
+        BBRegisterFrontPages($user->username . ' page','/'.$user->username);
+        if(! \File::isDirectory('multisite')) {
+            \File::makeDirectory('multisite');
+        }
+
+        if(! \File::isDirectory('multisite'.DS.$user->username)) {
+            \File::makeDirectory('multisite'.DS.$user->username);
+        }
     }
 }

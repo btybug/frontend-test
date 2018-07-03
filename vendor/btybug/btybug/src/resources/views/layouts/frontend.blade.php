@@ -11,8 +11,8 @@
     @include("btybug::layouts._partials.frontend.head")
 </head>
 <body>
-@include("btybug::layouts._partials.frontend.notifications")
-@yield('contents')
-@include("btybug::layouts._partials.frontend.footer")
+    @include("btybug::layouts._partials.frontend.notifications")
+    @yield('contents')
+    @include("btybug::layouts._partials.frontend.footer")
 </body>
 </html>

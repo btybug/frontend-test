@@ -163,36 +163,36 @@ class FrontendPage extends Model
                         $child->delete();
                     }
                 }
-                if ($model->urlmanager) {
-                    $manager = $model->urlmanager;
-                    $manager->delete();
-                }
+//                if ($model->urlmanager) {
+//                    $manager = $model->urlmanager;
+//                    $manager->delete();
+//                }
             }
         );
 
-        static::created(
-            function ($model) {
-                Urlmanager::create([
-                    'front_page_id' => $model->id,
-                    'type' => $model->type,
-                    'url' => $model->url
-                ]);
-            }
-        );
-
-        static::updated(
-            function ($model) {
-                $url = Urlmanager::where('front_page_id', $model->id)->first();
-                if (!$url) {
-                    $url = Urlmanager::create(['front_page_id' => $model->id, 'url' => $model->url, 'type' => $model->type]);
-                } else {
-                    $url->update([
-                        'url' => $model->url
-                    ]);
-                }
-
-            }
-        );
+//        static::created(
+//            function ($model) {
+//                Urlmanager::create([
+//                    'front_page_id' => $model->id,
+//                    'type' => $model->type,
+//                    'url' => $model->url
+//                ]);
+//            }
+//        );
+//
+//        static::updated(
+//            function ($model) {
+//                $url = Urlmanager::where('front_page_id', $model->id)->first();
+//                if (!$url) {
+//                    $url = Urlmanager::create(['front_page_id' => $model->id, 'url' => $model->url, 'type' => $model->type]);
+//                } else {
+//                    $url->update([
+//                        'url' => $model->url
+//                    ]);
+//                }
+//
+//            }
+//        );
     }
 
     public function permission_membership()

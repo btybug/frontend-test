@@ -2538,3 +2538,23 @@ function BBgetUsersPluck()
     return $repository->pluck('username', 'id')->toArray();
 }
 
+function BBRegisterFrontPages($title = null, $url,$parent = 0)
+{
+
+   $frontPageRepository = new \Btybug\Console\Repository\FrontPagesRepository();
+
+    $page = $frontPageRepository->create([
+        'title' => $title,
+        'url' => $url,
+        'status' => 'published',
+        'page_access' => 0,
+        'slug' => str_slug($title),
+        'type' => 'core',
+        'page_layout' => null,
+        'js_type' => 'default',
+        'css_type' => 'default'
+    ]);
+
+    return $page;
+}
+

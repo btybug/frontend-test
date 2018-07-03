@@ -18,8 +18,7 @@
 @elseif($page->css_type == 'external')
     {!! BBlinkAssets($page->css) !!}
 @endif
-{{--end CSS--}}
-{!! HTML::style('public/css/pages/'.str_replace(' ','-',$page->title).'.css') !!}
+
 @yield('css')
 
 @stack('CSS')
