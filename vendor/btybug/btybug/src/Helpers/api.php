@@ -2561,7 +2561,7 @@ function BBcreateMiniCms($user){
     if(! \File::isDirectory('multisite')) {
         \File::makeDirectory('multisite');
     }
-    $test=new \App\multisite\Mini\Generator();
+    $test=new \App\Mini\Generator();
     $test->make('sahak');
 }
 

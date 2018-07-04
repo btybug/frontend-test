@@ -13,7 +13,7 @@ class MultisiteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->register('App\multisite\Mini\Providers\ModuleServiceProvider');
+        $this->app->register('App\Mini\Providers\ModuleServiceProvider');
 
     }
 

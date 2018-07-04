@@ -1,6 +1,6 @@
 <?php
 
-namespace App\multisite\Mini\Providers;
+namespace App\Mini\Providers;
 
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -15,7 +15,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\multisite\Mini\Http\Controllers';
+    protected $namespace = 'App\Mini\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

@@ -6,7 +6,7 @@
  * Time: 14:25
  */
 
-namespace App\multisite\Mini\Http\Controllers;
+namespace App\Mini\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;

@@ -6,7 +6,7 @@
  * Time: 20:57
  */
 
-namespace App\multisite\Mini;
+namespace App\Mini;
 
 
 class Generator
