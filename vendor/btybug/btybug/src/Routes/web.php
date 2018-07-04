@@ -115,7 +115,7 @@ Route::group(
 //        $ignores = config('ignoreroutes');//D:\wamp\www\avatar\appdata\config\ignoreroutes.php
         if (\Illuminate\Support\Facades\Schema::hasTable('frontend_pages')) {
             $url = \Request::server('REQUEST_URI'); //$_SERVER['REQUEST_URI'];
-            if (!starts_with($url, '/admin')) {
+            if (!starts_with($url, '/admin') && !starts_with($url, '/my-account')) {
                 $pages = Btybug\FrontSite\Models\FrontendPage::pluck('id', 'url')->all();
                 Route::group(['middleware' => 'frontPermissions'], function () use ($pages) {
                     foreach ($pages as $key => $value) {

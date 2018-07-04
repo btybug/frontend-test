@@ -27,6 +27,7 @@ class BtybugServiceProvider extends ServiceProvider
         $this->app->register('Btybug\FrontSite\Providers\ModuleServiceProvider');
         $this->app->register('Btybug\Framework\Providers\ModuleServiceProvider');
         $this->app->register('Btybug\Resources\Providers\ModuleServiceProvider');
+
     }
 
     /**
