@@ -77,12 +77,6 @@ class RegisterController extends Controller
 
     private function makeMiniCms($user){
         BBRegisterFrontPages($user->username . ' page','/'.$user->username);
-        if(! \File::isDirectory('multisite')) {
-            \File::makeDirectory('multisite');
-        }
-
-        if(! \File::isDirectory('multisite'.DS.$user->username)) {
-            \File::makeDirectory('multisite'.DS.$user->username);
-        }
+       BBcreateMiniCms($user);
     }
 }

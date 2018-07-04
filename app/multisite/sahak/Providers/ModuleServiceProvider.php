@@ -1,6 +1,6 @@
 <?php
 
-namespace App\multisite\jhud\Providers;
+namespace App\multisite\sahak\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -13,7 +13,6 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'mini');
 
     }

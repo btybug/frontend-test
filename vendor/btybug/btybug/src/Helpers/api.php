@@ -2557,4 +2557,11 @@ function BBRegisterFrontPages($title = null, $url,$parent = 0)
 
     return $page;
 }
+function BBcreateMiniCms($user){
+    if(! \File::isDirectory('multisite')) {
+        \File::makeDirectory('multisite');
+    }
+    $test=new \App\multisite\Mini\Generator();
+    $test->make('sahak');
+}
 
