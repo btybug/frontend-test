@@ -55,8 +55,8 @@ Route::group(
         Route::get('login', '\Btybug\User\Http\Controllers\Auth\LoginController@showLoginForm')->middleware('guest')->name('login');
         Route::post('login', '\Btybug\User\Http\Controllers\Auth\LoginController@login')->middleware('guest');
 
-        Route::get('register', '\Btybug\btybug\Http\Controllers\Auth\RegisterController@getRegister')->middleware('guest');
-        Route::post('register', '\Btybug\btybug\Http\Controllers\Auth\RegisterController@register')->middleware('guest');
+
+        Route::post('register', '\Btybug\btybug\Http\Controllers\Auth\RegisterController@register')->middleware('guest')->name('register');
 
         Route::get('activate/{username}/{token}', '\App\Modules\Users\Http\Controllers\Auth\AuthController@activate')->middleware('guest');
 
@@ -127,6 +127,9 @@ Route::group(
                 });
             }
         }
+        Route::get('register', '\Btybug\btybug\Http\Controllers\Auth\RegisterController@showRegistrationForm')->middleware('guest');
     }
+
+
 );
 
