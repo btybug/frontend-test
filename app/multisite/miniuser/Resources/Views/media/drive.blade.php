@@ -1,4 +1,4 @@
 @extends('mini::layouts.app')
 @section('content')
-    lists
+    media
 @endsection
