@@ -47,8 +47,8 @@ class VersionProfilesService extends GeneralService
     {
         $generatingData = $profile->files;
         $file_data = "";
-        if (isset($generatingData['frontHeaderJs']) && count($generatingData['frontHeaderJs'])) {
-            foreach ($generatingData['frontHeaderJs'] as $key => $item) {
+        if (isset($generatingData['frontHeader'.ucfirst($type)]) && count($generatingData['frontHeader'.ucfirst($type)])) {
+            foreach ($generatingData['frontHeader'.ucfirst($type)] as $key => $item) {
                 if($item['type'] == 'path' or $item['type'] == 'unit'){
                     if (\File::exists($item['path'])) {
                         $file_data .= \File::get($item['path']) . "\r\n";

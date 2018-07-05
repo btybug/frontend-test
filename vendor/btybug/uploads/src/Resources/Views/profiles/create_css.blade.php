@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="navbar-form navbar-right">
-                        <button type="submit" class="btn btn-default js-btn-save">Save</button>
+                        <button type="submit" class="btn btn-default css-btn-save">Save</button>
                     </div>
                 </div>
             </nav>
@@ -95,7 +95,7 @@
                         Footer Css
                         <button
                                 type="button"
-                                class="btn btn-xs btn-default pull-right add-assets css-add-assets footer-css>
+                                class="btn btn-xs btn-default pull-right add-assets css-add-assets footer-css js-add-assets >
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
                         </button>
                     </h3>
@@ -167,7 +167,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary css-get-assets">Add asset</button>
+                    <button type="button" class="btn btn-primary css-get-assets js-get-assets">Add asset</button>
                 </div>
                 {!! Form::close() !!}
             </div>

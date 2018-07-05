@@ -32,27 +32,7 @@ $(document).ready(function () {
         console.log(e.target.className)
     });
 
-    $("body").on('click', '.add-assets', function (e) {
 
-        var elementsHeaderId = []
-        var elemntsHeader = document.querySelectorAll(".added-item").forEach(item => elementsHeaderId.push(item.getAttribute("data-id")))
-        document.querySelectorAll("input[type='checkbox']").forEach(item => {
-            item.checked = false
-        item.disabled = false
-        console.log(item.value)
-        console.log(elementsHeaderId.includes(item.value))
-        if (elementsHeaderId.includes(item.value)) {
-            item.disabled = true
-        }
-    })
-        console.log(elementsHeaderId)
-        // var elementsFooterId = []
-        // var elemntsHeader = document.querySelectorAll("#footer-js li").forEach(item => elementsHeaderId.push(item.getAttribute("data-id")))
-        // document.querySelectorAll(".script-box input").forEach(item => elementsHeaderId.includes(item.value) ? item.setAttribute("disabled", true) : null)
-        sectionOfaddedItem = $(this).parent().parent().next().attr('id');
-        $("#uploadAssets").modal();
-        console.log(e.target.className)
-    });
 
     $("body").on('click', '.js-get-assets', function () {
         var data = $("#assetsForm").serialize();
@@ -114,6 +94,43 @@ $(document).ready(function () {
         });
     });
 
+    $("body").on('click', '.css-btn-save', function () {
+        var json_object = function () {
+            return {
+                path: $(this).attr('data-link'),
+                id: $(this).attr('data-id'),
+                type: $(this).attr('data-type')
+            };
+        }
+
+        var json = JSON.stringify({
+            headerCss: $('#header-js > li.list-group-item').map(json_object).get(),
+            frontHeaderCss: $('#menus-list > li.list-group-item').map(json_object).get(),
+            footerCss: $('#footer-js > li.list-group-item').map(json_object).get(),
+            ignoreUnitsCss: $('#ignored-units-js > li.list-group-item').map(json_object).get()
+        });
+
+        $.ajax({
+            type: "post",
+            url: window.location.pathname,
+            cache: false,
+            datatype: "json",
+            data: {
+                name: $(".profile-name").val(),
+                files: json
+            },
+            headers: {
+                'X-CSRF-TOKEN': $("[name=_token]").val()
+            },
+            success: function (data) {
+                if (!data.error) {
+                    window.location.href = data.url;
+                }
+            }
+        });
+    });
+
+
     $("body").on("change", ".generate", function () {
         var id = $(this).data('id');
         var name = $(this).attr("name");
@@ -168,5 +185,5 @@ function addAssetToDOM(item, sectionOfaddedItem) {
         "data-type": item.env ? 'link' : 'path',
         "data-link": item.path,
         "data-id": item.id
-    }).text(item.name + '.js' + ' (asset: ' + (item.env ? 'link' : 'path') + ')').append($buttonDelete).prependTo('#' + sectionOfaddedItem);
+    }).text(item.name + '.'+ item.type + ' (asset: ' + (item.env ? 'link' : 'path') + ')').append($buttonDelete).prependTo('#' + sectionOfaddedItem);
 }

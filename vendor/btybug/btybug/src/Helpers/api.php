@@ -2447,7 +2447,7 @@ function BBgetProfileAssets($id, $type = 'js', $section = 'headerJs')
     if ($id == false) {
         $adminsettingRepository = new \Btybug\btybug\Repositories\AdminsettingRepository();
         $model = $adminsettingRepository->getVersionsSettings('versions', 'frontend');
-        $id = issetReturn($model, 'js_data');
+        $id = issetReturn($model, ($type == 'js') ? 'js_data' : 'css_version');
     }
 
     $profileRepository = new \Btybug\Uploads\Repository\VersionProfilesRepository();

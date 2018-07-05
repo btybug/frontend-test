@@ -9,6 +9,7 @@
 
 {{--start CSS--}}
 @if($page->css_type == 'default')
+    {!! BBgetProfileAssets(false,'css','headerCss') !!}
     {!! BBCss()  !!}
     <link rel="stylesheet" href="{{ url("public/css/font-awesome/css/font-awesome.min.css") }}"/>
     <link rel="stylesheet" href="{{ url("public/js/jquery-ui/jquery-ui.min.css") }}"/>

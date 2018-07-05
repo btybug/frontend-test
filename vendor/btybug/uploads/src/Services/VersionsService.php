@@ -234,15 +234,15 @@ class VersionsService extends GeneralService
             $data = $this->versionsRepository->getBy('name', $item->name);
             if (count($data)) {
                 foreach ($data as $val) {
-                    if (\File::exists(public_path("js/versions/" . $val->name . "/" . $val->version . "/" . $val->file_name))) {
-                        unlink(public_path("js/versions/" . $val->name . "/" . $val->version . "/" . $val->file_name));
+                    if(\File::exists(public_path("js/versions/" . $val->file_name))){
+                        unlink(public_path("js/versions/" . $val->file_name));
                     }
                     $this->versionsRepository->delete($val->id);
                 }
-                if ($item->type == "js") {
-                    $this->synchronize();
-                    $this->synchronize("is_generated_front");
-                }
+//                if ($item->type == "js") {
+//                    $this->synchronize();
+//                    $this->synchronize("is_generated_front");
+//                }
             }
         } else {
             return $this->versionsRepository->delete($item->id);
