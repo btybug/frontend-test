@@ -13,7 +13,12 @@ class Generator
 {
     private $tree = [
         'Providers' => ['ModuleServiceProvider'],
-        'Resources' => ['Views' => ['account.blade']],
+        'Resources' => ['Views' => [
+            '_partials' => ['sidebar.blade'],
+            'layouts' => ['app.blade'],
+            'pages' => ['lists.blade'],
+            'account.blade',
+        ]],
         'Main',
     ];
     private $storage;
@@ -35,16 +40,16 @@ class Generator
         $this->rekursiveMakeCms($this->tree, $this->root);
     }
 
-    public function rekursiveMakeCms($array, $root,$path=null)
+    public function rekursiveMakeCms($array, $root, $path = null)
     {
         foreach ($array as $key => $value) {
             if (is_array($value)) {
-                $dir=$path.DS.$key;
-                \File::makeDirectory($root.$dir);
-                $this->rekursiveMakeCms($value,$root, $dir);
-            }else{
-                $content=str_replace('{username}',$this->name,\File::get($this->storage.$path.DS.$value.'.stub'));
-                \File::put($root.DS.$path.DS.$value.'.php',$content);
+                $dir = $path . DS . $key;
+                \File::makeDirectory($root . $dir);
+                $this->rekursiveMakeCms($value, $root, $dir);
+            } else {
+                $content = str_replace('{username}', $this->name, \File::get($this->storage . $path . DS . $value . '.stub'));
+                \File::put($root . DS . $path . DS . $value . '.php', $content);
             }
         }
 //        if (isset($array[$i]) && is_array($array[$i])) {

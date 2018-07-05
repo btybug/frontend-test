@@ -3,6 +3,7 @@
 namespace Btybug\User;
 
 use Auth;
+use Btybug\FrontSite\Models\FrontendPage;
 use File;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -346,6 +347,11 @@ class User extends Authenticatable
             ->where('username', 'like', '%' . $search['uname'] . '%')
             ->paginate(self::PER_PAGE);
 
+    }
+
+    public function frontPages()
+    {
+       return $this->hasMany(FrontendPage::class,'user_id') ;
     }
 }
 

@@ -10,17 +10,28 @@ namespace App\Mini\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
+use App\Mini\Http\Requests\PageCreateRequest;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class ClientController extends MiniController
 {
     public function account(Request $request)
     {
-        $user=\Auth::user();
-        $username=\Auth::user()->username;
-        $class='App\multisite\\'.$username.'\Main';
-        $cms=new $class();
-        return $cms->run($user,$request);
+        $this->ennable($request);
+        return $this->cms->run();
+    }
 
+    public function pages(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->listPages();
+    }
+
+    public function pagesCreate(PageCreateRequest $request)
+    {
+        $this->ennable($request);
+        $page = $this->user->frontPages()->where('parent_id', null)->first();
+        BBRegisterFrontPages($request->get('title') . ' page', $page->url . '/' . \Str::slug($request->get('title')), $page->id, $this->user->id,'custom');
+        return redirect()->back();
     }
 }

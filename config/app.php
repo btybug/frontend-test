@@ -244,6 +244,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'HTML' => Collective\Html\HtmlFacade::class,
         'Route' => \Btybug\btybug\Models\Route::class,
+        'Str'       => Illuminate\Support\Str::class,
 //        'Zipper' => 'Chumper\Zipper\Zipper'
 
     ],

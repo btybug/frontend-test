@@ -6,7 +6,7 @@
  * Time: 16:09
  */
 
-namespace App\multisite\{username};
+namespace App\multisite\jhud;
 
 
 
