@@ -2405,6 +2405,7 @@ function BBpageAssetsOptimise()
     $frontPagesRepository = new \Btybug\Console\Repository\FrontPagesRepository();
     $unitsRepository = new \Btybug\Uploads\Repository\UnitsRepository();
     $assetRepository = new \Btybug\Uploads\Repository\AssetsRepository();
+    $assetRepository->model()->query()->truncate();
     $pages = $frontPagesRepository->getAll();
     $collection = [];
     foreach ($pages as $page) {
@@ -2412,7 +2413,6 @@ function BBpageAssetsOptimise()
         $units = \Config::get('units', []);
         $activesJs = \Config::get('units_js', []);
         $activesCss = \Config::get('units_css', []);
-
         foreach ($units as $unit) {
             $slug = $unit['unit']->slug;
             $variation_id = $unit['variation']->id;

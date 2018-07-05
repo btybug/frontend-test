@@ -25,9 +25,9 @@
                             <td>{!! BBGetUserName($item->author_id) !!}</td>
                             <td>No Files</td>
                             <td>
+                                <a href="{!! url(route('uploads_assets_profiles_edit_css',['id' => $item->id])) !!}"
+                                   class="btn btn-info">Update</a>
                                 @if(! $item->structured_by)
-                                    <a href="{!! url(route('uploads_assets_profiles_edit_css',['id' => $item->id])) !!}"
-                                       class="btn btn-info">Update</a>
                                     <a data-href="{!! route('uploads_assets_profiles_delete') !!}"
                                        data-key="{!! $item->id !!}" data-type="{{ $item->name }}"
                                        class="delete-button btn btn-danger"><i

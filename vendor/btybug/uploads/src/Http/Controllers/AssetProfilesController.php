@@ -72,10 +72,9 @@ class AssetProfilesController extends Controller
     {
         $model = null;
         $plugins = $versionsRepository->getJS();
-        $mains = $versionsRepository->getJQuery();
         $assets = $assetsRepository->getWithGroupBy();
 
-        return view('uploads::profiles.create_js', compact(['plugins', 'model', 'mains', 'assets']));
+        return view('uploads::profiles.create_js', compact(['plugins', 'model', 'assets']));
     }
 
     public function postJsCreate (
@@ -134,24 +133,22 @@ class AssetProfilesController extends Controller
     {
         $model = $profilesRepository->findOrFail($id);
         $plugins = $versionsRepository->getJS();
-        $mains = $versionsRepository->getJQuery();
         $assets = $assetsRepository->getWithGroupBy();
-
-        return view('uploads::profiles.create_js', compact(['plugins', 'model', 'mains', 'assets']));
+        return view('uploads::profiles.create_js', compact(['plugins', 'model', 'assets']));
     }
 
     public function getCssEdit (
         $id,
         Request $request,
         VersionProfilesRepository $profilesRepository,
-        VersionsRepository $versionsRepository
+        VersionsRepository $versionsRepository,
+        AssetsRepository $assetsRepository
     )
     {
         $model = $profilesRepository->findOrFail($id);
         $plugins = $versionsRepository->getCss();
-        $mains = $versionsRepository->getFrameworks();
-
-        return view('uploads::profiles.create_css', compact(['plugins', 'model', 'mains']));
+        $assets = $assetsRepository->getWithGroupBy('css');
+        return view('uploads::profiles.create_css', compact(['plugins', 'model', 'assets']));
     }
 
     public function postCssEdit (

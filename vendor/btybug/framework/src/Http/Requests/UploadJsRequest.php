@@ -34,8 +34,7 @@ class UploadJsRequest extends Request
         if ($this->isMethod('POST')) {
             return [
                 'name' => 'required|max:255|alpha_num|unique:versions',
-                'version' => 'required|max:255|alpha_num',
-                'type' => 'required|in:js,jquery'
+                'type' => 'required|in:js'
             ];
         }
         return [];

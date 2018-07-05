@@ -67,9 +67,7 @@ class AssetsController extends Controller
     )
     {
         $plugins = $versionsRepository->getJS();
-        $mains = $versionsRepository->getJquery();
-
-        return view('uploads::assets.js', compact(['plugins', 'mains']));
+        return view('uploads::assets.js', compact(['plugins']));
     }
 
     public function postUploadJs (
@@ -87,24 +85,24 @@ class AssetsController extends Controller
         VersionsService $versionsService
     )
     {
-        $versionsService->makeCss($request);
+        $versionsService->makeVersion($request);
 
         return redirect()->back()->with('message', 'File uploaded successfully');
     }
 
-    public function postUploadVersion (
-        UpdateJsRequest $request,
-        VersionsService $versionsService
-    )
-    {
-        if ($request->get('type') == 'jquery') {
-            $versionsService->updateJQueryVersion($request);
-        } else {
-            $versionsService->updateVersion($request);
-        }
-
-        return redirect()->back()->with('message', 'File uploaded successfully');
-    }
+//    public function postUploadVersion (
+//        UpdateJsRequest $request,
+//        VersionsService $versionsService
+//    )
+//    {
+//        if ($request->get('type') == 'jquery') {
+//            $versionsService->updateJQueryVersion($request);
+//        } else {
+//            $versionsService->updateVersion($request);
+//        }
+//
+//        return redirect()->back()->with('message', 'File uploaded successfully');
+//    }
 
     public function getVersions (
         Request $request,
@@ -122,46 +120,45 @@ class AssetsController extends Controller
         return \Response::json(['error' => false, 'html' => $html]);
     }
 
-    public function getActiveVersions (
-        Request $request,
-        VersionsRepository $versionsRepository
-    )
-    {
-        $data = $versionsRepository->getByExcept('type', "js", 'active', 0);
-        $section = $request->get('section');
-        $html = view('uploads::assets._partials.active_versions', compact(['data', 'section']))->render();
+//    public function getActiveVersions (
+//        Request $request,
+//        VersionsRepository $versionsRepository
+//    )
+//    {
+//        $data = $versionsRepository->getByExcept('type', "js", 'active', 0);
+//        $section = $request->get('section');
+//        $html = view('uploads::assets._partials.active_versions', compact(['data', 'section']))->render();
+//
+//        return \Response::json(['error' => false, 'html' => $html]);
+//    }
 
-        return \Response::json(['error' => false, 'html' => $html]);
-    }
+//    public function postChangeVersion (
+//        ChangeVersionRequest $request,
+//        VersionsService $versionsService
+//    )
+//    {
+//        $versionsService->changeVersion($request->id);
+//
+//        return redirect()->back()->with('message', 'version activated');
+//    }
 
-    public function postChangeVersion (
-        ChangeVersionRequest $request,
-        VersionsService $versionsService
-    )
-    {
-        $versionsService->changeVersion($request->id);
-
-        return redirect()->back()->with('message', 'version activated');
-    }
-
-    public function postMakeActive (
-        MakeActiveVersionRequest $request,
-        VersionsService $versionsService
-    )
-    {
-        $versionsService->makeActive($request->id);
-
-        return redirect()->back()->with('message', 'version activated');
-    }
+//    public function postMakeActive (
+//        MakeActiveVersionRequest $request,
+//        VersionsService $versionsService
+//    )
+//    {
+//        $versionsService->makeActive($request->id);
+//
+//        return redirect()->back()->with('message', 'version activated');
+//    }
 
     public function getCss (
         VersionsRepository $versionsRepository
     )
     {
-        $frameworks = $versionsRepository->getFrameworks();
         $plugins = $versionsRepository->getCss();
 
-        return view('uploads::assets.css', compact(['plugins', 'frameworks']));
+        return view('uploads::assets.css', compact(['plugins']));
     }
 
     public function getProfiles (

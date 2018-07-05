@@ -149,27 +149,17 @@
                     <div class="form-group">
                         {!! Form::label('files','Files') !!}
                         <div class="script-box">
-                            <div>
-                                @if(count($mains))
-                                    @foreach( $mains as $item)
-                                        @if($item->path)
-                                            <label class="checkbox-inline" data-path="{{ $item->path }}">
-                                                {!! Form::checkbox('files[]',$item->id,null) !!} {{ $item->name }}
-                                            </label>
-                                        @else
-                                            <label class="checkbox-inline">
-                                                <a href="{!! route('uploads_assets_js') !!}">Broken assets</a> {{ $item->name }}
-                                            </label>
-                                        @endif
-
-                                    @endforeach
-                                @endif
-                            </div>
                             @if(count($plugins))
                                 @foreach( $plugins as $plugin)
-                                    <label class="checkbox-inline" data-path="{{ $item->path }}">
-                                        {!! Form::checkbox('files[]',$plugin->id,null) !!} {{ $plugin->name }}
-                                    </label>
+                                    @if($plugin->path)
+                                        <label class="checkbox-inline" data-path="{{ $plugin->path }}">
+                                            {!! Form::checkbox('files[]',$plugin->id,null) !!} {{ $plugin->name }}
+                                        </label>
+                                    @else
+                                        <label class="checkbox-inline">
+                                            <a href="{!! route('uploads_assets_js') !!}">Broken assets</a> {{ $plugin->name }}
+                                        </label>
+                                    @endif
                                 @endforeach
                             @endif
                         </div>

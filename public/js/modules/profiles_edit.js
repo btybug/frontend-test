@@ -32,6 +32,28 @@ $(document).ready(function () {
         console.log(e.target.className)
     });
 
+    $("body").on('click', '.add-assets', function (e) {
+
+        var elementsHeaderId = []
+        var elemntsHeader = document.querySelectorAll(".added-item").forEach(item => elementsHeaderId.push(item.getAttribute("data-id")))
+        document.querySelectorAll("input[type='checkbox']").forEach(item => {
+            item.checked = false
+        item.disabled = false
+        console.log(item.value)
+        console.log(elementsHeaderId.includes(item.value))
+        if (elementsHeaderId.includes(item.value)) {
+            item.disabled = true
+        }
+    })
+        console.log(elementsHeaderId)
+        // var elementsFooterId = []
+        // var elemntsHeader = document.querySelectorAll("#footer-js li").forEach(item => elementsHeaderId.push(item.getAttribute("data-id")))
+        // document.querySelectorAll(".script-box input").forEach(item => elementsHeaderId.includes(item.value) ? item.setAttribute("disabled", true) : null)
+        sectionOfaddedItem = $(this).parent().parent().next().attr('id');
+        $("#uploadAssets").modal();
+        console.log(e.target.className)
+    });
+
     $("body").on('click', '.js-get-assets', function () {
         var data = $("#assetsForm").serialize();
         let checkbox = document.querySelectorAll(".script-box input:checked")

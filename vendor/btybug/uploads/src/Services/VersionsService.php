@@ -45,7 +45,7 @@ class VersionsService extends GeneralService
             $this->versionsRepository->create([
                 'name'      => $request->get('name'),
                 'type'      => $request->get('type'),
-                'version'   => $request->get('version'),
+                'version'   => 0,
                 'file_name' => $request->get('link'),
                 'author_id' => \Auth::id(),
                 'env'       => 1,
@@ -56,17 +56,17 @@ class VersionsService extends GeneralService
             $oname = $request->file('file')->getClientOriginalName(); // getting image extension
             $fname = uniqid() . '.' . $this->exstension;
             $type = $this->getType($request->type);
-            $request->file('file')->move(public_path($type . '/versions/' . $request->get('name') . '/' . $request->get('version')), $fname);
+            $request->file('file')->move(public_path($type . '/versions'), $fname);
 
             $this->versionsRepository->create([
                 'name'      => $request->get('name'),
                 'type'      => $request->get('type'),
-                'version'   => $request->get('version'),
+                'version'   => 0,
                 'file_name' => $fname,
                 'author_id' => \Auth::id(),
                 'active'    => 1,
                 'env'       => 0,
-                'content'   => md5(public_path($type . '/versions/' . $request->get('name') . '/' . $request->get('version')))
+                'content'   => md5(public_path($type . '/versions/' . $fname))
             ]);
         }
     }
@@ -195,7 +195,7 @@ class VersionsService extends GeneralService
             $this->versionsRepository->create([
                 'name'      => $request->get('name'),
                 'type'      => $request->get('type'),
-                'version'   => $request->get('version'),
+                'version'   => 0,
                 'file_name' => $request->get('link'),
                 'author_id' => \Auth::id(),
                 'env'       => 1,
@@ -210,10 +210,10 @@ class VersionsService extends GeneralService
             $this->versionsRepository->create([
                 'name'      => $request->get('name'),
                 'type'      => $request->get('type'),
-                'version'   => $request->get('version'),
+                'version'   => 0,
                 'file_name' => $fname,
                 'author_id' => \Auth::id(),
-                'active'    => 0,
+                'active'    => 1,
                 'env'       => 0,
                 'content'   => md5(public_path('css/versions'))
             ]);
@@ -272,19 +272,15 @@ class VersionsService extends GeneralService
         if ($val->path && \File::exists($val->path)) {
             $code = \File::get($val->path);
         }
-
         return $code;
     }
 
     public function updateContent ($val, $code)
     {
-        if ($val->type == 'css' || $val->type == 'framework') {
+        if ($val->type == 'css') {
             \File::put(public_path("css/versions/" . $val->file_name), $code);
         } else {
-            if (! \File::isDirectory(public_path("js/versions/" . $val->name . "/" . $val->version))) {
-                \File::makeDirectory(public_path("js/versions/" . $val->name . "/" . $val->version),493,true);
-            }
-            $a = \File::put(public_path("js/versions/" . $val->name . "/" . $val->version . "/" . $val->file_name), $code);
+            \File::put(public_path("js/versions/" . $val->file_name), $code);
         }
     }
 }

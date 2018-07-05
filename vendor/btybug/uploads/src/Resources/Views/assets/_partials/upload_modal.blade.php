@@ -14,10 +14,7 @@
                         <label for="username">Name</label>
                         {!! Form::text('name',null,['class' => 'form-control', 'placeholder' => 'Enter name']) !!}
                     </div>
-                    <div>
-                        <label for="username">Version</label>
-                        {!! Form::text('version',null,['class' => 'form-control', 'placeholder' => 'Enter Version']) !!}
-                    </div>
+
                     <div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="checkboxes">Select Content Type</label>
@@ -54,11 +51,6 @@
     <script>
         $(document).ready(function () {
             $('body').on('click', '.uplCss', function () {
-                $("#cssType").val('css');
-                $('#uploadfile').modal();
-            });
-            $('body').on('click', '.upload-framework', function () {
-                $("#cssType").val('framework');
                 $('#uploadfile').modal();
             });
 

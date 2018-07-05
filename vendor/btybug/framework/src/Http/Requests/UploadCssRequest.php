@@ -33,8 +33,7 @@ class UploadCssRequest extends Request
     {
         if ($this->isMethod('POST')) {
             return [
-                'name' => 'required|max:255|unique:versions',
-                'version' => 'required|max:255'
+                'name' => 'required|max:255|unique:versions'
             ];
         }
         return [];
