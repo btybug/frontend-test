@@ -32,7 +32,7 @@
                         </div>
                         <div class="info">
                             <b class="caret pull-right"></b>
-                            Sean Ngu
+                            {!! $user->username !!}
                             <small>Front end developer</small>
                         </div>
                     </a>
