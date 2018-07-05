@@ -2465,21 +2465,12 @@ function BBgetProfileAssets($id, $type = 'js', $section = 'headerJs')
                         $result .= Html::script($item['path']) . "\r\n";
                     } else {
                         $result .= Html::script($path) . "\r\n";
-//                        if (\File::exists($item['path'])) {
-//                            try {
-//                                $result .= "<script>" . \File::get($item['path']) . "</script> \r\n";
-//                            } catch (\Exception $e) {
-////                               dd($item,$e->getMessage());
-//                            }
-//                        }
                     }
                 } else {
                     if ($item['type'] == 'link') {
                         $result .= Html::style($item['path']) . "\r\n";
                     } else {
-                        if (\File::exists($item['path'])) {
-                            $result .= "<style>" . \File::get($item['path']) . "</style> \r\n";
-                        }
+                        $result .= Html::style($path) . "\r\n";
                     }
                 }
             }
