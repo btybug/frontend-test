@@ -14,17 +14,17 @@ Route::group(['prefix' => 'pages'], function () {
 
 Route::group(['prefix' => 'plugins'], function () {
     Route::get('/', 'ClientController@plugins')->name('mini_plugins');
-    Route::post('/settings', 'ClientController@pluginsSettings')->name('mini_plugins_settings');
+    Route::get('/settings', 'ClientController@pluginsSettings')->name('mini_plugins_settings');
 });
 Route::group(['prefix' => 'media'], function () {
     Route::get('/', 'ClientController@media')->name('mini_media');
-    Route::post('/settings', 'ClientController@mediaSettings')->name('mini_media_settings');
+    Route::get('/settings', 'ClientController@mediaSettings')->name('mini_media_settings');
 });
 Route::group(['prefix' => 'preferences'], function () {
     Route::get('/', 'ClientController@preferences')->name('mini_preferences');
 });
 Route::group(['prefix' => 'market'], function () {
     Route::get('/', 'ClientController@marketPlugins')->name('mini_market_plugins');
-    Route::post('/create', 'ClientController@marketGears')->name('mini_market_gears');
+    Route::get('/create', 'ClientController@marketGears')->name('mini_market_gears');
 });
 
