@@ -30,7 +30,52 @@
         <ul class="nav">
             <li class="nav-header">Navigation</li>
             <li><a href="{!! url('/my-account') !!}"><i class="fa fa-th-large"></i>Dashboard</a></li>
+            <li><a href="{!! route('mini_account_settings') !!}"><i class="fa fa-pencil-alt"></i>My Account</a></li>
             <li><a href="{!! route('mini_page_lists') !!}"><i class="fa fa-pencil-alt"></i>Pages</a></li>
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret"></b>
+                    <i class="fa fa-medkit"></i>
+                    <span>Plugins</span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{!! route('mini_plugins') !!}">Lists</a></li>
+                    <li><a href="{!! route('mini_plugins_settings') !!}">Settings</a></li>
+                </ul>
+            </li>
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret"></b>
+                    <i class="fa fa-image"></i>
+                    <span>Media</span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{!! route('mini_media') !!}">Drive</a></li>
+                    <li><a href="{!! route('mini_media_settings') !!}">Settings</a></li>
+                </ul>
+            </li>
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret"></b>
+                    <i class="fa fa-star"></i>
+                    <span>Preferences</span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{!! route('mini_preferences') !!}">Index</a></li>
+                </ul>
+            </li>
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret"></b>
+                    <i class="fa fa-gem"></i>
+                    <span>Market <span class="label label-theme m-l-5">NEW</span></span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{!! route('mini_market_plugins') !!}">Plugins <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
+                    <li><a href="{!! route('mini_market_gears') !!}">Gears <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
+                </ul>
+            </li>
+
             <!-- end sidebar minify button -->
         </ul>
         <!-- end sidebar nav -->

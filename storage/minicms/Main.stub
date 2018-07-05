@@ -10,7 +10,7 @@ namespace App\multisite\{username};
 
 
 
-use App\multisite\miniuser\Providers\ModuleServiceProvider;
+use App\multisite\{username}\Providers\ModuleServiceProvider;
 use Btybug\User\User;
 use Illuminate\Http\Request;
 

@@ -33,4 +33,54 @@ class Main
     {
         return view('mini::pages.lists')->with(['user'=>$this->user,'pages'=>$this->user->frontPages]);
     }
+
+
+    public function accountSettings()
+    {
+         return view('mini::account.settings')->with('user',$this->user);
+
+    }
+    public function plugins()
+    {
+         return view('mini::plugins.lists')->with('user',$this->user);
+
+    }
+
+    public function pluginsSettings()
+    {
+         return view('mini::plugins.settings')->with('user',$this->user);
+
+    }
+
+    public function media()
+    {
+         return view('mini::media.drive')->with('user',$this->user);
+
+    }
+
+    public function mediaSettings()
+    {
+         return view('mini::media.settings')->with('user',$this->user);
+
+    }
+
+    public function preferences()
+    {
+         return view('mini::preferences.lists')->with('user',$this->user);
+
+    }
+
+    public function marketPlugins()
+    {
+         return view('mini::market.plugins')->with('user',$this->user);
+
+    }
+
+    public function marketGears()
+    {
+         return view('mini::market.gears')->with('user',$this->user);
+
+    }
+
+
 }
