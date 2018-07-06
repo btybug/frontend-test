@@ -12,14 +12,23 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
-
+    <link rel="stylesheet" href="{!!url('public/minicms/css/style.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/minicms/css/style-responsive.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/style.css')!!}">
+
+    <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+    <link rel="stylesheet" href="{!!url('public/minicms/plugins/jquery-jvectormap/jquery-jvectormap.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/minicms/plugins/bootstrap-datepicker/bootstrap-datepicker.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/minicms/plugins/gritter/jquery.gritter.css')!!}">
+
+    <!-- ================== END PAGE LEVEL STYLE ================== -->
     <title>Document</title>
     @yield('css')
 </head>
 <body>
 <div id="page-container" class=" page-sidebar-fixed page-header-fixed">
     <!-- begin #sidebar -->
+    @include('mini::_partials.header')
     @include('mini::_partials.sidebar')
     <div class="sidebar-bg"></div>
     <!-- end #sidebar -->
@@ -39,6 +48,18 @@
 <script src="{!!url('public/minicms/jquery.slimscroll.min.js')!!}"></script>
 <script src="{!!url('public/minicms/js.cookie.js')!!}"></script>
 <script src="{!!url('public/minicms/apps.min.js')!!}"></script>
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+<script src="{!!url('public/minicms/plugins/gritter/jquery.gritter.js')!!}"></script>
+<script src="{!!url('public/minicms/plugins/flot/jquery.flot.min.js')!!}"></script>
+<script src="{!!url('public/minicms/plugins/flot/jquery.flot.time.min.js')!!}"></script>
+<script src="{!!url('public/minicms/plugins/flot/jquery.flot.resize.min.js')!!}"></script>
+<script src="{!!url('public/minicms/plugins/flot/jquery.flot.pie.min.js')!!}"></script>
+<script src="{!!url('public/minicms/plugins/sparkline/jquery.sparkline.js')!!}"></script>
+<script src="{!!url('public/minicms/plugins/jquery-jvectormap/jquery-jvectormap.min.js')!!}"></script>
+<script src="{!!url('public/minicms/plugins/jquery-jvectormap/jquery-jvectormap-world-mill-en.js')!!}"></script>
+<script src="{!!url('public/minicms/plugins/bootstrap-datepicker/bootstrap-datepicker.js')!!}"></script>
+
+<script src="{!!url('public/minicms/js/dashboard.js')!!}"></script>
 <script src="{!!url('public/minicms/main.js')!!}"></script>
 @yield('js')
 
