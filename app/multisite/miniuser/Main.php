@@ -40,6 +40,11 @@ class Main
          return view('mini::account.settings')->with('user',$this->user);
 
     }
+    public function accountGeneral()
+    {
+         return view('mini::account.general')->with('user',$this->user);
+
+    }
     public function plugins()
     {
          return view('mini::plugins.lists')->with('user',$this->user);

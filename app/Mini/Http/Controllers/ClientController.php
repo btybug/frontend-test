@@ -40,6 +40,13 @@ class ClientController extends MiniController
         $this->ennable($request);
         return $this->cms->accountSettings();
     }
+
+    public function accountGeneral(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->accountGeneral();
+    }
+
     public function plugins(Request $request)
     {
         $this->ennable($request);

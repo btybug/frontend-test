@@ -30,7 +30,18 @@
         <ul class="nav">
             <li class="nav-header">Navigation</li>
             <li><a href="{!! url('/my-account') !!}"><i class="fa fa-th-large"></i>Dashboard</a></li>
-            <li><a href="{!! route('mini_account_settings') !!}"><i class="fa fa-pencil-alt"></i>My Account</a></li>
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret"></b>
+                    <i class="fa fa-medkit"></i>
+                    <span>My Account</span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{!! route('mini_account_settings') !!}">Settings</a></li>
+                    <li><a href="{!! route('mini_account_general') !!}">General</a></li>
+                </ul>
+            </li>
+
             <li><a href="{!! route('mini_page_lists') !!}"><i class="fa fa-pencil-alt"></i>Pages</a></li>
             <li class="has-sub">
                 <a href="javascript:;">
