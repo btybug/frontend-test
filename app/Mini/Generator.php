@@ -15,6 +15,10 @@ class Generator
         'Providers' => ['ModuleServiceProvider'],
         'Resources' => ['Views' => [
             '_partials' => ['sidebar.blade'],
+            'account'=>['settings.blade'],
+            'market'=>['gears.blade','plugins.blade'],
+            'plugins'=>['lists.blade','plugins.blade'],
+            'media'=>['drive.blade','settings.blade'],
             'layouts' => ['app.blade'],
             'pages' => ['lists.blade'],
             'account.blade',
