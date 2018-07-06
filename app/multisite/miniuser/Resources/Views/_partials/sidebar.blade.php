@@ -50,8 +50,8 @@
                     <span>Plugins</span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="{!! route('mini_plugins') !!}">Lists</a></li>
-                    <li><a href="{!! route('mini_plugins_settings') !!}">Settings</a></li>
+                    <li><a href="#">Plugin1</a></li>
+                    <li><a href="#">Plugin2</a></li>
                 </ul>
             </li>
             <li class="has-sub">
@@ -79,11 +79,11 @@
                 <a href="javascript:;">
                     <b class="caret"></b>
                     <i class="fa fa-gem"></i>
-                    <span>Market <span class="label label-theme m-l-5">NEW</span></span>
+                    <span>Extra</span>
                 </a>
                 <ul class="sub-menu">
+                    <li><a href="{!! route('mini_market_gears') !!}">Units <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
                     <li><a href="{!! route('mini_market_plugins') !!}">Plugins <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
-                    <li><a href="{!! route('mini_market_gears') !!}">Gears <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
                 </ul>
             </li>
 
