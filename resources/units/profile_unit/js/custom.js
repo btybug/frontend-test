@@ -9,7 +9,7 @@ $(document).ready(function() {
     var topnavigation = document.querySelector("#top-navigation");
 
     // Get the offset position of the navbar
-    var sticky = navbar.offsetTop;
+    var sticky = (navbar) ? navbar.offsetTop : 0;
 
     // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function myFunction() {

@@ -2542,7 +2542,8 @@ function BBRegisterFrontPages($title = null, $url,$parent = 0,$user_id=null,$typ
         'page_access' => 0,
         'slug' => str_slug($title),
         'type' => $type,
-        'page_layout' => null,
+        'page_layout' => "front_layout_with_3_9_col_2_row",
+        'template' => "profile_unit.default",
         'js_type' => 'default',
         'css_type' => 'default'
     ]);
