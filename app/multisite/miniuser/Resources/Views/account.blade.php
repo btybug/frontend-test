@@ -1,5 +1,8 @@
 @extends('mini::layouts.app')
 @section('content')
+    <div class="add-unit text-right mb-2">
+        <button type="button" class="btn btn-outline-dark btn-lg">Add unit<i class="fas fa-plus"></i></button>
+    </div>
     <!-- begin #content -->
 
         <!-- begin breadcrumb -->
