@@ -57,8 +57,9 @@
         });
         $(function () {
             $('body').on('change', '.content_type', function () {
-                var value = $(this).val();
-                if (value == 'html') {
+                var value = $(this).attr('data-role');
+                console.log(value);
+                if (value == 'editor') {
                     $('.html_body').removeClass('hide').addClass('show');
                     $('.template_body').removeClass('show').addClass('hide');
                 } else {
