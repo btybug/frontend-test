@@ -5,16 +5,16 @@
 
         <div class="row">
             <ul class="list-unit">
+                @foreach($units as $unit)
                 <li>
-                    <div class="col-md-8">Unit 1</div>
+                    <div class="col-md-8">{!! $unit->title !!}</div>
                     <div class="col-md-4"> <a>activate</a><a>remove</a><a>settings</a></div>
                 </li>
-                <li>
-                    <div class="col-md-8">Unit 2</div>
-                    <div class="col-md-4"> <a>deactivate</a><a>remove</a><a>settings</a></div>
-                </li>
+                    @endforeach
+
             </ul>
         </div>
+        {!! $units->links() !!}
     </div>
 @endsection
 
