@@ -46,6 +46,8 @@
     <input type="hidden" id="page" value="{!! $page->id !!}">
 @stop
 @section('js')
+    {!! HTML::script("public/js/UiElements/bb_styles.js?v=".rand(999,9999)) !!}
+
     <script>
         $(function () {
             $('body').on('change', '.content_type', function () {
