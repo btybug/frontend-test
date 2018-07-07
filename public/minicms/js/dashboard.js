@@ -270,12 +270,12 @@ var handleDashboardGritterNotification = function() {
             $.gritter.add({
                 title: 'Welcome back, Admin!',
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus lacus ut lectus rutrum placerat.',
-                image: 'public/minicms/images/user-2.jpg',
+                image: '/public/minicms/images/user-2.jpg',
                 sticky: true,
                 time: '',
                 class_name: 'my-sticky-class'
             });
-        }, 1000);
+        },3000);
     });
 };
 

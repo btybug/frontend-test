@@ -44,6 +44,8 @@
         @yield('content')
     </div>
 </div>
+@include('resources::assests.magicModal')
+
 
 <script src="{!!url('public/minicms/plugins/jquery/jquery-3.2.1.min.js')!!}"></script>
 <script src="{!!url('public/minicms/plugins/jquery/jquery-migrate-1.1.0.min.js')!!}"></script>

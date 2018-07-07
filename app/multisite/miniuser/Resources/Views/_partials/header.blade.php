@@ -41,7 +41,7 @@
                 <li class="media">
                     <a href="javascript:;">
                         <div class="media-left">
-                            <img src="../assets/img/user/user-1.jpg" class="media-object" alt="" />
+                            <img src="/public/minicms/images/user-1.jpg" class="media-object" alt="" />
                             <i class="fab fa-facebook-messenger text-primary media-object-icon"></i>
                         </div>
                         <div class="media-body">
@@ -54,7 +54,7 @@
                 <li class="media">
                     <a href="javascript:;">
                         <div class="media-left">
-                            <img src="../assets/img/user/user-2.jpg" class="media-object" alt="" />
+                            <img src="/public/minicms/images/user-2.jpg" class="media-object" alt="" />
                             <i class="fab fa-facebook-messenger text-primary media-object-icon"></i>
                         </div>
                         <div class="media-body">
@@ -94,7 +94,7 @@
         </li>
         <li class="dropdown navbar-user">
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="../assets/img/user/user-13.jpg" alt="" />
+                <img src="/public/minicms/images/user-13.jpg" alt="" />
                 <span class="d-none d-md-inline">Adam Schwartz</span> <b class="caret"></b>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
