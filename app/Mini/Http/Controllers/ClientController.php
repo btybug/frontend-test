@@ -11,6 +11,8 @@ namespace App\Mini\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Mini\Http\Requests\PageCreateRequest;
+use App\Mini\Services\PagesService;
+use Btybug\Console\Repository\FrontPagesRepository;
 use Illuminate\Http\Request;
 
 class ClientController extends MiniController
@@ -98,6 +100,12 @@ class ClientController extends MiniController
     {
         $this->ennable($request);
         return $this->cms->pageEditContent();
+    }
+
+    public function editUserPage(Request $request,$id,PagesService $service,FrontPagesRepository $repository)
+    {
+        $service->editPage($request,$repository);
+        return redirect()->back();
     }
 
 

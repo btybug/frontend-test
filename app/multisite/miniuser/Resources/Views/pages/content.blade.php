@@ -1,6 +1,6 @@
 @extends('btybug::layouts.mTabs',['index'=>'mini_user_page_edit'])
 @section('tab')
-    {!! Form::model($page,['url' => route('frontsite_settings',$id), 'id' => 'page_settings_form','files' => true]) !!}
+    {!! Form::model($page,['url' => route('mini_user_page_edit',$id), 'id' => 'page_settings_form','files' => true]) !!}
 
     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 p-20">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 page-data p-20">
@@ -16,14 +16,7 @@
                     </div>
 
                     <div class="panel-body template_body @if($page->content_type!='template') hide @endif">
-
-                        <div class="col-sm-5 p-l-0 p-r-10">
-                            <input name="selcteunit" data-key="title" readonly="readonly" data-id="template"
-                                   class="page-layout-title form-control"
-                                   value="{!! BBgetUnitAttr(($page->template)??null,'title') !!}"
-                            >
-                        </div>
-                        {!! BBbutton2('unit','template','front_page_content',"Change",['class'=>'btn btn-default change-layout','data-action'=>'main_content','model'=>($page->content_type=='editor')?null:$page]) !!}
+                        {!! BBbutton2('unit','template','my_account',"Change",['class'=>'btn btn-default change-layout','data-action'=>'main_content','model'=>$page]) !!}
                     </div>
                 </div>
             </div>
