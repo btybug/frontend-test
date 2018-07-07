@@ -22,7 +22,7 @@
             <div class="bb-menu-container">
                 <div class="col-md-8 col-md-offset-2 bb-menu-group-body">
                     <ol class="bb-menu-area">
-                        {!! hierarchyAdminPagesListFull($pages) !!}
+                        {!! hierarchyMiniUserPagesListFull($pages) !!}
                     </ol>
                 </div>
             </div>

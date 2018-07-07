@@ -653,7 +653,59 @@ function hierarchyAdminPagesListFull($data, $parent = true, $icon = true, $id = 
     // Return data tree
     return $output;
 }
+function hierarchyMiniUserPagesListFull($data, $parent = true, $icon = true, $id = 0)
+{
+    $output = '';
+    // Loop through items
+    if ($data) {
+        foreach ($data as $item) {
+            $children = $item->childs;
+            $output .= '<li data-id="' . $item->id . '" data-type="' . $item->type . '">';
+            $title = 'core';
+            $output .= '<div class="listinginfo bb-menu-item">';
+            switch ($item->type) {
+                case  "custom" :
+                    $title = 'custom';
+                    $output .= '<div class="lsitingbutton bb-menu-item-title" style="background: #36e0a0; !important">';
+                    break;
+                case  "a_special" :
+                    $title = 'special custom';
+                    $output .= '<div class="lsitingbutton bb-menu-item-title" style="background: #ffea00; !important">';
+                    break;
+                case  "plugin" :
+                    $title = 'plugin';
+                    $output .= '<div class="lsitingbutton bb-menu-item-title" style="background: #e0223c;  !important">';
+                    break;
+                default:
+                    $output .= '<div class="lsitingbutton bb-menu-item-title" style="background: #00c7e0;  !important">';
+                    break;
+            }
+            $output .= '<span class="listingtitle">' . $item->title . ' - ' . $title . '</span>';
+            $settings = json_decode($item->settings, true);
+            $output .= '<a href="' . url('/my-account/pages/edit', $item->id) . '" class="pull-right"><i class="fa fa-edit"></i></a>';
 
+            if ($item->parent_id) {
+                $output .= '<a data-href="' . url('/my-account/pages/delete') . '" data-key="' . $item->id . '" data-type="Page ' . $item->title . '" style="cursor: pointer;"  class="delete-button pull-right trashBtn"><i class="fa fa-trash"></i></a>';
+            }
+            $output .= '</div>';
+            $output .= '</div>';
+            /* Actions */
+            /* Actions END */
+            if (count($children)) {
+                $output .= '<ol>';
+                $output .= hierarchyMiniUserPagesListFull($children, false, $icon, 0);
+                $output .= '</ol>';
+            }
+
+//        $output .= '</li>';
+            // If this is the top parent
+            $output .= '</li>';
+        }
+    }
+
+    // Return data tree
+    return $output;
+}
 function BBGetTables()
 {
     $tables = \DB::select('SHOW TABLES');

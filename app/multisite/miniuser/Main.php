@@ -10,6 +10,7 @@ namespace App\multisite\miniuser;
 
 
 use App\multisite\miniuser\Providers\ModuleServiceProvider;
+use Btybug\FrontSite\Models\FrontendPage;
 use Btybug\User\User;
 use Illuminate\Http\Request;
 
@@ -84,6 +85,14 @@ class Main
     public function marketGears()
     {
          return view('mini::market.gears')->with('user',$this->user);
+
+    }
+
+    public function pageEdit()
+    {
+        $page_id=$this->request->id;
+        $page=FrontendPage::find($page_id);
+        return view('mini::pages.edit',compact('page'))->with('user',$this->user);
 
     }
 

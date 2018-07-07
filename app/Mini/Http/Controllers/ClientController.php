@@ -89,5 +89,11 @@ class ClientController extends MiniController
         return $this->cms->marketGears();
     }
 
+    public function pageEdit(Request $request,$di)
+    {
+        $this->ennable($request);
+        return $this->cms->pageEdit();
+    }
+
 
 }

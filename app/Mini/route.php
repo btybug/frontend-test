@@ -12,6 +12,7 @@ Route::get('/general', 'ClientController@accountGeneral')->name('mini_account_ge
 Route::group(['prefix' => 'pages'], function () {
     Route::get('/', 'ClientController@pages')->name('mini_page_lists');
     Route::post('/create', 'ClientController@pagesCreate')->name('mini_page_create');
+    Route::get('/edit/{id}', 'ClientController@pageEdit')->name('mini_page_edit');
 });
 
 Route::group(['prefix' => 'plugins'], function () {
