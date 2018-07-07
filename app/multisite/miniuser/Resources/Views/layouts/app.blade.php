@@ -28,6 +28,8 @@
     <!-- ================== END PAGE LEVEL STYLE ================== -->
     <title>Document</title>
     @yield('css')
+
+    @stack('css')
 </head>
 <body>
 <div id="page-container" class=" page-sidebar-fixed page-header-fixed">
@@ -74,5 +76,6 @@
 <script src="{!!url('public/minicms/main.js')!!}"></script>
 @yield('js')
 
+@stack('javascript')
 </body>
 </html>

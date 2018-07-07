@@ -14,7 +14,6 @@ class ModuleServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'multisite');
-
     }
 
     /**
@@ -26,4 +25,6 @@ class ModuleServiceProvider extends ServiceProvider
     {
         $this->app->register(RouteServiceProvider::class);
     }
+
+
 }

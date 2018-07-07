@@ -1,13 +1,16 @@
-@extends('btybug::layouts.admin')
+@inject('section','Btybug\btybug\Helpers\Tabs')
+@php
+$tabs=$section->getTabs($index);
+@endphp
+@extends($section->layout)
 @section('content')
     @yield('parag')
     <div class="row" style="margin: 0 -5px;">
         <div class="box box-default color-palette-box">
-            <div class="box-body">
-                @inject('section','Btybug\btybug\Helpers\Tabs')
+            <div class="box-body" style="min-width: 1600px">
                 <div class="top-nav-btybug">
                     <ul role="tablist">
-                        @foreach($section->getTabs($index) as $value)
+                        @foreach($tabs as $value)
                             <?php
                             if ($section->just_text_in_quotes($value['url'])) {
                                 $var = $section->just_text_in_quotes($value['url']);

@@ -75,7 +75,7 @@ class ModuleServiceProvider extends ServiceProvider
                 [
                     'title' => 'Hooks',
                     'url' => '/admin/front-site/structure/hooks',
-                ]
+                ],
             ],
             'page_edit' => [
                 [

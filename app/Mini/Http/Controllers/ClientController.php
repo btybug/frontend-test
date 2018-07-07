@@ -94,6 +94,11 @@ class ClientController extends MiniController
         $this->ennable($request);
         return $this->cms->pageEdit();
     }
+    public function pageEditContent(Request $request,$di)
+    {
+        $this->ennable($request);
+        return $this->cms->pageEditContent();
+    }
 
 
 }

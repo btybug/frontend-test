@@ -2290,7 +2290,6 @@ function BBgetFrontPagesPanels($page, $poss = 'front')
                     break;
                 case "panel_main_content":
                     if ($page->panel_main_content) {
-                        dd($data['view']);
                         BBrenderPanel($data['view'], $key, $page);
                     }
                     break;

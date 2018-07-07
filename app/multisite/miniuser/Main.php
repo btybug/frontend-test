@@ -90,9 +90,18 @@ class Main
 
     public function pageEdit()
     {
-        $page_id=$this->request->id;
-        $page=FrontendPage::find($page_id);
-        return view('mini::pages.edit',compact('page'))->with('user',$this->user);
+        $id=$this->request->id;
+        $page=FrontendPage::find($id);
+        return view('mini::pages.edit',compact('page','id'))->with('user',$this->user);
+
+    }
+    public function pageEditContent()
+    {
+        $id=$this->request->id;
+        $page=FrontendPage::find($id);
+        $page->setAttribute('cssData', []);
+        $page->setAttribute('jsData', []);
+        return view('mini::pages.content',compact('page','id'))->with('user',$this->user);
 
     }
 

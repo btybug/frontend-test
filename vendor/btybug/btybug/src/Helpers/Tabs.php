@@ -13,6 +13,7 @@ use View;
 
 class Tabs
 {
+    public $layout='btybug::layouts.admin';
 
     /**
      * @param string $page
@@ -24,14 +25,19 @@ class Tabs
         $section = [];
         foreach ($data as $value) {
             if (isset($value[$page])) {
-                foreach ($value[$page] as $tab) {
-                    if (isset($tab['permission'])) {
-                        if (Auth::user()->can($tab['permission'])) {
-                            $section[] = $tab;
+                foreach ($value[$page] as $key=>$tab) {
+                    if($key==='layout'){
+                        $this->layout=$tab;
+                    }else{
+                        if (isset($tab['permission'])) {
+                            if (Auth::user()->can($tab['permission'])) {
+                                $section[$key] = $tab;
+                            }
+                        } else {
+                            $section[$key] = $tab;
                         }
-                    } else {
-                        $section[] = $tab;
                     }
+
                 }
             }
         }
@@ -96,6 +102,7 @@ class Tabs
         $panels = View::make('admin.toggle_panels')->with('panels', $section)->with($args);
         return $panels;
     }
+
 
 
 }
