@@ -80,16 +80,16 @@ class Main
 
     }
 
-    public function marketPlugins()
+    public function extraPlugins()
     {
-        return view('mini::market.plugins')->with('user', $this->user);
+        return view('mini::extra.plugins')->with('user', $this->user);
 
     }
 
-    public function marketGears()
+    public function extraGears()
     {
         $units = Painter::whereTag('my_account')->paginate(4, 4, 'bty-pagination-2');
-        return view('mini::market.gears', compact('units'))->with('user', $this->user);
+        return view('mini::extra.gears', compact('units'))->with('user', $this->user);
 
     }
 

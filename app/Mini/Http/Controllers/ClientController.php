@@ -77,16 +77,16 @@ class ClientController extends MiniController
         return $this->cms->preferences();
     }
 
-    public function marketPlugins(Request $request)
+    public function extraPlugins(Request $request)
     {
         $this->ennable($request);
-        return $this->cms->marketPlugins();
+        return $this->cms->extraPlugins();
     }
 
-    public function marketGears(Request $request)
+    public function extraGears(Request $request)
     {
         $this->ennable($request);
-        return $this->cms->marketGears();
+        return $this->cms->extraGears();
     }
 
     public function pageEdit(Request $request,$di)

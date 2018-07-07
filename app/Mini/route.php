@@ -27,8 +27,8 @@ Route::group(['prefix' => 'media'], function () {
 Route::group(['prefix' => 'preferences'], function () {
     Route::get('/', 'ClientController@preferences')->name('mini_preferences');
 });
-Route::group(['prefix' => 'market'], function () {
-    Route::get('/', 'ClientController@marketPlugins')->name('mini_market_plugins');
-    Route::get('/create', 'ClientController@marketGears')->name('mini_market_gears');
+Route::group(['prefix' => 'extra'], function () {
+    Route::get('/plugins', 'ClientController@extraPlugins')->name('mini_extra_plugins');
+    Route::get('/units', 'ClientController@extraGears')->name('mini_extra_gears');
 });
 

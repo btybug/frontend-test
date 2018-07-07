@@ -82,8 +82,8 @@
                     <span>Extra</span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="{!! route('mini_market_gears') !!}">Units <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
-                    <li><a href="{!! route('mini_market_plugins') !!}">Plugins <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
+                    <li><a href="{!! route('mini_extra_gears') !!}">Units <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
+                    <li><a href="{!! route('mini_extra_plugins') !!}">Plugins <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
                 </ul>
             </li>
 
