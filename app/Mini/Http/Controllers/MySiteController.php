@@ -17,12 +17,15 @@ use Illuminate\Http\Request;
 class MySiteController extends MiniController
 {
     protected $pageService;
+    protected $pageRepositroy;
 
     public function __construct(
-        PagesService $pagesService
+        PagesService $pagesService,
+        FrontPagesRepository $frontPagesRepository
     )
     {
         $this->pageService = $pagesService;
+        $this->pageRepositroy = $frontPagesRepository;
     }
 
     public function settings(Request $request)
@@ -80,5 +83,19 @@ class MySiteController extends MiniController
         }
 
         return $this->cms->responseJson(false,'successfully sorted');
+    }
+
+    public function showPage(Request $request)
+    {
+        $this->ennable($request);
+        try{
+            $page = $this->pageRepositroy->findOrFail($request->id);
+            $html = \View('mini::pages._partials.view')->with('page',$page)->render();
+        }catch (\Exception $exception){
+            return $this->cms->responseJson(true,$exception->getMessage());
+
+        }
+
+        return $this->cms->responseJson(false,'successfully requested',['html' => $html]);
     }
 }

@@ -34,7 +34,7 @@ class Main
 
     public function responseJson($error = false,$message = '', $data = [])
     {
-        return \Response::json(['error' => $error,'message' => $message,'data' => $data]);
+        return \Response::json(['error' => $error,'message' => $message,'response' => $data]);
     }
 
     public function listPages()

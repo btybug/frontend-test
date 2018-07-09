@@ -30,66 +30,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-9">
-                    <div class="my-account-right-col">
-                        <div class="heading">
-                            <ol class="breadcrumb pull-right">
-                                <li class="breadcrumb-item"><a href="javascript:;">Edit</a></li>
-                                <li class="breadcrumb-item active">settings</li>
-                                <li class="breadcrumb-item active">preview</li>
-                            </ol>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="status mb-5 mt-5">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Status</label>
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="access">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Access</label>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="checkaccess">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-check form-check-inline">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox"
-                                                               id="inlineCheckbox1"
-                                                               value="option1">Public
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 text-right">
-                                                <div class="form-check form-check-inline">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox"
-                                                               id="inlineCheckbox2"
-                                                               value="option2">Members
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="area-preview">
-                            preview area
-                        </div>
-                        <div>
-
-                        </div>
-                    </div>
+                <div class="col-md-9 view-box">
+                    {{--@include('mini::pages._partials.view')--}}
                 </div>
             </div>
 
@@ -105,7 +47,11 @@
     {!! HTML::style('public/css/page.css?v=0.15') !!}
     {!! HTML::style('public/css/admin_pages.css') !!}
     {!! HTML::style('public/minicms/main.css?v='.rand(111,999)) !!}
-
+    <style>
+        .show-page{
+            cursor:pointer;
+        }
+    </style>
 @stop
 
 
@@ -115,6 +61,25 @@
     {!! HTML::script('public/js/menus.js') !!}
     <script>
         $(document).ready(function () {
+            $("body").on('click','.show-page',function () {
+                var id = $(this).data('id');
+                $.ajax({
+                    url: '{!! route('mini_page_show') !!}',
+                    dataType: 'json',
+                    type: 'POST',
+                    data: {id: id},
+                    headers: {
+                        'X-CSRF-TOKEN': $("input[name='_token']").val()
+                    },
+                    success: function(data){
+                        if(! data.error){
+                            console.log(data)
+                            $(".view-box").html(data.response.html);
+                        }
+                    }
+                });
+            });
+
             let items = $(".Item")
 
             $(".bb-menu-area")
