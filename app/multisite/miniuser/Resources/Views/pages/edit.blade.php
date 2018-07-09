@@ -7,6 +7,7 @@
             <div class="panel panel-default custompanel m-t-20">
                 <div class="panel-heading">General Settings</div>
                 <div class="panel-body">
+                    @if($page->type!='core')
                     <div class="form-group row">
                         <label for="page_name" class="col-2 col-form-label">Page Name</label>
                         <div class="col-10">
@@ -16,12 +17,6 @@
                                 </div>
                                 {!! Form::text('title',null,['class'=>'form-control here','id'=>'page_name']) !!}
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="page_icon" class="col-2 col-form-label">Page Icon</label>
-                        <div class="col-10">
-                            {!! Form::text('page_icon',null,['class'=>'form-control here','id'=>'page_icon']) !!}
                         </div>
                     </div>
                     <div class="form-group row">
@@ -38,6 +33,7 @@
                             @endif
                         </div>
                     </div>
+                    @endif
                     <div class="form-group row">
                         <label for="select" class="col-2 col-form-label">Tags</label>
                         <div class="col-10">
@@ -49,6 +45,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="page_description" class="col-2 col-form-label">Key Words</label>
+                        <div class="col-10">
+                            <input id="key_words" name="key_words"  class="form-control">
+                        </div>
+                    </div>
+                        <div class="form-group row">
                         <label for="page_description" class="col-2 col-form-label">Page Description</label>
                         <div class="col-10">
                             <textarea id="page_description" name="page_description" cols="40" rows="5" class="form-control"></textarea>
