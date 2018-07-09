@@ -357,3 +357,38 @@ button.BBbuttons, button.BBcustomize,button.clean-bb-button {
     display: block;
     font-size: 16px;
 }
+.bb-menu-area{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.my-account-left-col li span{
+    padding: 10px 20px;
+    display: block;
+    color: #babdc1;
+    font-size: 14px;
+    background-color: #333333;
+    text-transform: uppercase;
+    border-bottom: 1px solid;
+}
+.my-account-right-col{
+    background-color: #ffffff;
+    padding: 15px;
+}
+.my-account-right-col .area-preview{
+    background-color: #e8e8e8;
+    margin-top: 80px;
+    min-height: 150px;
+    padding: 15px;
+}
+.form-controll.account{
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.form-controll.account+.button>button{
+    height: 100%;
+    border-radius: 0;
+
+}
