@@ -9,7 +9,7 @@
                 <div class="panel-body">
 
                     <div class="form-group">
-                        <label for="text" class="control-label col-xs-4">Text Field</label>
+                        <label for="text" class="control-label col-xs-4">Url</label>
                         <div class="col-xs-8">
                             <div class="input-group">
                                 <div class="input-group-addon">
