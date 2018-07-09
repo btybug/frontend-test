@@ -197,7 +197,7 @@ class PageSectionsController extends Controller
        }
         $output = ContentLayouts::savePageSectionSettings($request->slug, $request->itemname, $request->except(['_token', 'itemname']), null);
         return response()->json([
-            'url' => ($request->save) ? url('/admin/front-site/structure/front-pages/settings/'.$page_id.'/layout') : false,
+            'url' => ($request->save) ? url()->previous() : false,
             'html' => isset($output['data']) ? $output['data'] : false
         ]);
     }

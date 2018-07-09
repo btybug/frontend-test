@@ -56,7 +56,7 @@ class RouteServiceProvider extends ServiceProvider
             'middleware' => 'web',
         ], function ($router) {
             Route::group([
-                'middleware' => ['admin:Users'],
+
                 'prefix'     => 'admin/uploads',
                 'namespace'  => $this->namespace,
             ], function ($router) {

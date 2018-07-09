@@ -9,7 +9,6 @@
 namespace App\Mini\Http\Controllers;
 
 
-use App\Http\Controllers\Controller;
 use App\Mini\Http\Requests\PageCreateRequest;
 use App\Mini\Services\PagesService;
 use Btybug\Console\Repository\FrontPagesRepository;
@@ -43,13 +42,13 @@ class MySiteController extends MiniController
         return redirect()->back();
     }
 
-    public function editUserPage(Request $request,$id,PagesService $service,FrontPagesRepository $repository)
+    public function editUserPage(Request $request, $id, PagesService $service, FrontPagesRepository $repository)
     {
-        $service->editPage($request,$repository);
+        $service->editPage($request, $repository);
         return redirect()->back();
     }
 
-    public function pageEdit(Request $request,$di)
+    public function pageEdit(Request $request, $di)
     {
         $this->ennable($request);
         return $this->cms->pageEdit();
