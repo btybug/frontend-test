@@ -660,7 +660,7 @@ function hierarchyMiniUserPagesListFull($data, $parent = true, $icon = true, $id
     if ($data) {
         foreach ($data as $item) {
             $children = $item->childs;
-            $output .= '<li data-id="' . $item->id . '" data-type="' . $item->type . '">';
+            $output .= '<li class="Item" data-id="' . $item->id . '" data-type="' . $item->type . '">';
             $title = 'core';
             $output .= '<div class="listinginfo bb-menu-item">';
             switch ($item->type) {

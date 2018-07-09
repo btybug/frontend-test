@@ -392,3 +392,11 @@ button.BBbuttons, button.BBcustomize,button.clean-bb-button {
     border-radius: 0;
 
 }
+.bb-menu-area>.Item {
+    vertical-align: middle;
+    transition: transform 0.3s ease-in-out;
+}
+
+.bb-menu-area>.Item[class~=ui-sortable-helper] {
+    transform: rotate(-5deg);
+}

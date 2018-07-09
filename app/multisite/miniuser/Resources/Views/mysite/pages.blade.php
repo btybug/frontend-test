@@ -113,4 +113,18 @@ preview area
     {!! HTML::script('public/js/create_pages.js') !!}
     {!! HTML::script('public/js/admin_pages.js') !!}
     {!! HTML::script('public/js/menus.js') !!}
+    <script>
+        $(document).ready(function() {
+            $(".bb-menu-area")
+                .sortable({
+                    cursor: "move",
+                    revert: true
+                })
+                .find(".Item[class~=ui-sortable-helper]")
+                .on("transitionend", function(e) {
+                    $(this).css("transform", "rotate(0deg)");
+                });
+            $("#sortable").disableSelection();
+        });
+    </script>
 @stop
