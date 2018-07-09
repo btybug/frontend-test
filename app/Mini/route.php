@@ -33,3 +33,8 @@ Route::group(['prefix' => 'extra'], function () {
     Route::get('/units', 'ClientController@extraGears')->name('mini_extra_gears');
 });
 
+Route::group(['prefix' => 'my-site'], function () {
+    Route::get('/pages', 'MySiteController@pages')->name('mini_my_site_pages');
+    Route::get('/settings', 'MySiteController@settings')->name('mini_my_site_settings');
+});
+

@@ -87,6 +87,18 @@
                 </ul>
             </li>
 
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret"></b>
+                    <i class="fa fa-gem"></i>
+                    <span>My Site</span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{!! route('mini_my_site_pages') !!}">Pages <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
+                    <li><a href="{!! route('mini_my_site_settings') !!}">Settings <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
+                </ul>
+            </li>
+
             <!-- end sidebar minify button -->
         </ul>
         <!-- end sidebar nav -->

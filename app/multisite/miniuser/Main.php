@@ -111,5 +111,17 @@ class Main
 
     }
 
+    public function mySitePages()
+    {
+        return view('mini::mysite.pages')->with('user', $this->user);
+    }
+
+
+    public function mySiteSettings()
+    {
+        return view('mini::mysite.settings')->with('user', $this->user);
+
+    }
+
 
 }
