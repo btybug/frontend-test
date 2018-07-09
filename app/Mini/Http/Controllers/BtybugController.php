@@ -12,7 +12,7 @@ namespace App\Mini\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
- class BtybugController extends Controller
+ class BtybugController extends MiniController
 {
      protected $cms;
      protected $user;
