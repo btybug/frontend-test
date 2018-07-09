@@ -28,4 +28,29 @@ class MySiteController extends MiniController
         $this->ennable($request);
         return $this->cms->mySitePages();
     }
+
+    public function pagesCreate(PageCreateRequest $request)
+    {
+        $this->ennable($request);
+        $page = $this->user->frontPages()->where('parent_id', null)->first();
+        BBRegisterFrontPages($request->get('title') . ' page', $page->url . '/' . \Str::slug($request->get('title')), $page->id, $this->user->id, 'custom');
+        return redirect()->back();
+    }
+
+    public function editUserPage(Request $request,$id,PagesService $service,FrontPagesRepository $repository)
+    {
+        $service->editPage($request,$repository);
+        return redirect()->back();
+    }
+
+    public function pageEdit(Request $request,$di)
+    {
+        $this->ennable($request);
+        return $this->cms->pageEdit();
+    }
+    public function pageEditContent(Request $request,$di)
+    {
+        $this->ennable($request);
+        return $this->cms->pageEditContent();
+    }
 }

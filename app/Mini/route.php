@@ -9,14 +9,6 @@ Route::get('/', 'ClientController@account');
 Route::get('/settings', 'ClientController@accountSettings')->name('mini_account_settings');
 Route::get('/general', 'ClientController@accountGeneral')->name('mini_account_general');
 
-Route::group(['prefix' => 'pages'], function () {
-    Route::get('/', 'ClientController@pages')->name('mini_page_lists');
-    Route::post('/create', 'ClientController@pagesCreate')->name('mini_page_create');
-    Route::post('/edit/{id}', 'ClientController@editUserPage')->name('mini_user_page_edit');
-    Route::get('/edit/{id}', 'ClientController@pageEdit')->name('mini_page_edit');
-    Route::get('/edit/{id}/content', 'ClientController@pageEditContent')->name('mini_page_edit_content');
-});
-
 Route::group(['prefix' => 'plugins'], function () {
     Route::get('/', 'ClientController@plugins')->name('mini_plugins');
     Route::get('/settings', 'ClientController@pluginsSettings')->name('mini_plugins_settings');
@@ -34,7 +26,15 @@ Route::group(['prefix' => 'extra'], function () {
 });
 
 Route::group(['prefix' => 'my-site'], function () {
-    Route::get('/pages', 'MySiteController@pages')->name('mini_my_site_pages');
+
+    Route::group(['prefix' => 'pages'], function () {
+        Route::get('/', 'MySiteController@pages')->name('mini_my_site_pages');
+        Route::post('/create', 'MySiteController@pagesCreate')->name('mini_page_create');
+        Route::post('/edit/{id}', 'MySiteController@editUserPage')->name('mini_user_page_edit');
+        Route::get('/edit/{id}', 'MySiteController@pageEdit')->name('mini_page_edit');
+        Route::get('/edit/{id}/content', 'MySiteController@pageEditContent')->name('mini_page_edit_content');
+    });
+
     Route::get('/settings', 'MySiteController@settings')->name('mini_my_site_settings');
 });
 

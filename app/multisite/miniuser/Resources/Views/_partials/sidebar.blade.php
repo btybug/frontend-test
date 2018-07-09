@@ -42,7 +42,6 @@
                 </ul>
             </li>
 
-            <li><a href="{!! route('mini_page_lists') !!}"><i class="fa fa-pencil-alt"></i>Pages</a></li>
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>

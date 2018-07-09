@@ -23,20 +23,6 @@ class ClientController extends MiniController
         return $this->cms->run();
     }
 
-    public function pages(Request $request)
-    {
-        $this->ennable($request);
-        return $this->cms->listPages();
-    }
-
-    public function pagesCreate(PageCreateRequest $request)
-    {
-        $this->ennable($request);
-        $page = $this->user->frontPages()->where('parent_id', null)->first();
-        BBRegisterFrontPages($request->get('title') . ' page', $page->url . '/' . \Str::slug($request->get('title')), $page->id, $this->user->id, 'custom');
-        return redirect()->back();
-    }
-
     public function accountSettings(Request $request)
     {
         $this->ennable($request);
@@ -91,22 +77,9 @@ class ClientController extends MiniController
         return $this->cms->extraGears();
     }
 
-    public function pageEdit(Request $request,$di)
-    {
-        $this->ennable($request);
-        return $this->cms->pageEdit();
-    }
-    public function pageEditContent(Request $request,$di)
-    {
-        $this->ennable($request);
-        return $this->cms->pageEditContent();
-    }
-
     public function editUserPage(Request $request,$id,PagesService $service,FrontPagesRepository $repository)
     {
         $service->editPage($request,$repository);
         return redirect()->back();
     }
-
-
 }

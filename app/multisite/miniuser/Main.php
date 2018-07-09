@@ -113,7 +113,7 @@ class Main
 
     public function mySitePages()
     {
-        return view('mini::mysite.pages')->with('user', $this->user);
+        return view('mini::mysite.pages')->with(['user' => $this->user, 'pages' => $this->user->frontPages]);
     }
 
 
