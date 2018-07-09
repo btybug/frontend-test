@@ -130,7 +130,7 @@
                                     <span class="text-white">F</span>
                                  </a>
                                  <div class="email-info">
-                                    <a href="#">
+                                    <a href="{!! route('mini_communications_view_messages',1) !!}">
                                        <span class="email-time">Today</span>
                                        <span class="email-sender">Facebook Blueprint</span>
                                        <span class="email-title">Newly released courses, holiday marketing tips, how-to video, and more!</span>
@@ -149,7 +149,7 @@
                                     <span class="text-white">C</span>
                                  </a>
                                  <div class="email-info">
-                                    <a href="#">
+                                    <a href="{!! route('mini_communications_view_messages',1) !!}">
                                        <span class="email-time">Today</span>
                                        <span class="email-sender">Color Admin</span>
                                        <span class="email-title">Color Admin dashboard v2 is ready for live</span>
@@ -168,7 +168,7 @@
                                     <span class="text-white">W</span>
                                  </a>
                                  <div class="email-info">
-                                    <a href="#">
+                                    <a href="{!! route('mini_communications_view_messages',1) !!}">
                                        <span class="email-time">Today</span>
                                        <span class="email-sender">support@wrapbootstrap.com</span>
                                        <span class="email-title">Bootstrap v4.0 is coming soon</span>
@@ -187,7 +187,7 @@
                                     <i class="fab fa-github-alt text-white"></i>
                                  </a>
                                  <div class="email-info">
-                                    <a href="#">
+                                    <a href="{!! route('mini_communications_view_messages',1) !!}">
                                        <span class="email-time">2 days ago</span>
                                        <span class="email-sender">Github</span>
                                        <span class="email-title">Sidebar animation bugfix</span>
@@ -206,7 +206,7 @@
                                     <span class="text-white">W</span>
                                  </a>
                                  <div class="email-info">
-                                    <a href="#">
+                                    <a href="{!! route('mini_communications_view_messages',1) !!}">
                                        <span class="email-time">1 week ago</span>
                                        <span class="email-sender">Wrapbootstrap</span>
                                        <span class="email-title">Bootstrap Framework is awesome</span>
@@ -225,7 +225,7 @@
                                     <img src="{!!url('public/minicms/images/user-12.jpg')!!}" alt="" />
                                  </a>
                                  <div class="email-info">
-                                    <a href="#">
+                                    <a href="{!! route('mini_communications_view_messages',1) !!}">
                                        <span class="email-time">2 months ago</span>
                                        <span class="email-sender">Gerald Huff</span>
                                        <span class="email-title">Handlebars help you to build semantic template </span>
@@ -244,7 +244,7 @@
                                     <img src="#" alt="" />
                                  </a>
                                  <div class="email-info">
-                                    <a href="#">
+                                    <a href="{!! route('mini_communications_view_messages',1) !!}">
                                        <span class="email-time">2 months ago</span>
                                        <span class="email-sender">Rick	Hopkins</span>
                                        <span class="email-title">jQuery 2++ no longer compatibility with the old browser</span>
@@ -263,7 +263,7 @@
                                     <img src="{!!url('public/minicms/images/user-13.jpg')!!}" alt="" />
                                  </a>
                                  <div class="email-info">
-                                    <a href="#">
+                                    <a href="{!! route('mini_communications_view_messages',1) !!}">
                                        <span class="email-time">2 months ago</span>
                                        <span class="email-sender">Jan Scott</span>
                                        <span class="email-title">LESS & SASS, which one is good?</span>
@@ -282,7 +282,7 @@
                                     <img src="{!!url('public/minicms/images/user-14.jpg')!!}" alt="" />
                                  </a>
                                  <div class="email-info">
-                                    <a href="#">
+                                    <a href="{!! route('mini_communications_view_messages',1) !!}">
                                        <span class="email-time">3 months ago</span>
                                        <span class="email-sender">Nadine Barnes</span>
                                        <span class="email-title">Simple Line Icons is available on Color Admin v1.4</span>
@@ -301,7 +301,7 @@
                                     <span class="text-white">E</span>
                                  </a>
                                  <div class="email-info">
-                                    <a href="#">
+                                    <a href="{!! route('mini_communications_view_messages',1) !!}">
                                        <span class="email-time">3 months ago</span>
                                        <span class="email-sender">Ellen Underwood</span>
                                        <span class="email-title">Font Awesome 5 is available now</span>
@@ -320,7 +320,7 @@
                                     <span class="text-white">W</span>
                                  </a>
                                  <div class="email-info">
-                                    <a href="#">
+                                    <a href="{!! route('mini_communications_view_messages',1) !!}">
                                        <span class="email-time">3 months ago</span>
                                        <span class="email-sender">newsletter@wrapbootstrap.com</span>
                                        <span class="email-title">Cyber week sale! Save up to 45%</span>
@@ -339,7 +339,7 @@
                                     <span class="text-white">S</span>
                                  </a>
                                  <div class="email-info">
-                                    <a href="#">
+                                    <a href="{!! route('mini_communications_view_messages',1) !!}">
                                        <span class="email-time">3 months ago</span>
                                        <span class="email-sender">Starbucks</span>
                                        <span class="email-title">Get your favorite Grande handcrafted beverage at $13</span>

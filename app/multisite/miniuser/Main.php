@@ -139,6 +139,11 @@ class Main
         return view('mini::communications.create_message')->with('user', $this->user);
     }
 
+    public function CCMessageView($id)
+    {
+        return view('mini::communications.view_message',compact(['id']))->with('user', $this->user);
+    }
+
     public function CCNotifications()
     {
         return view('mini::communications.notifications')->with('user', $this->user);

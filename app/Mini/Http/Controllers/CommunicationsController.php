@@ -29,6 +29,12 @@ use Illuminate\Http\Request;
          return $this->cms->CCMessageCreate();
      }
 
+     public function viewMessage($id,Request $request)
+     {
+         $this->ennable($request);
+         return $this->cms->CCMessageView($id);
+     }
+
      public function notifications(Request $request)
      {
          $this->ennable($request);

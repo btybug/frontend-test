@@ -43,6 +43,7 @@ Route::group(['prefix' => 'communications'], function () {
     Route::group(['prefix' => 'messages'], function () {
         Route::get('/', 'CommunicationsController@messages')->name('mini_communications_messages');
         Route::get('/create', 'CommunicationsController@createMessages')->name('mini_communications_create_messages');
+        Route::get('/view/{id}', 'CommunicationsController@viewMessage')->name('mini_communications_view_messages');
     });
     Route::get('/notifications', 'CommunicationsController@notifications')->name('mini_communications_notifications');
     Route::get('/reviews', 'CommunicationsController@reviews')->name('mini_communications_reviews');
