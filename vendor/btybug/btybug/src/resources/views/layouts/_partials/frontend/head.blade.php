@@ -8,7 +8,7 @@
 <meta property="og:type" content="Multi Site">
 <meta property="og:title" content="Btybug Multy Site Management System">
 <meta property="og:description" content="Btybug Multy Site Management System">
-<meta property="og:image" content="https://freepngimg.com/download/bugs/7-2-bug-png-6.png">
+<meta property="og:image" content="http://btybug.com/public/images/avatar.png">
 <meta name="geo.region" content="UK">
 <meta name="geo.region" content="GB" />
 <meta name="geo.placename" content="London" />
