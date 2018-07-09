@@ -682,10 +682,10 @@ function hierarchyMiniUserPagesListFull($data, $parent = true, $icon = true, $id
             }
             $output .= '<span class="listingtitle">' . $item->title . ' - ' . $title . '</span>';
             $settings = json_decode($item->settings, true);
-            $output .= '<a href="' . url('/my-account/pages/edit', $item->id) . '" class="pull-right"><i class="fa fa-edit"></i></a>';
+            $output .= '<a href="' . url('/my-account/my-site/pages/edit', $item->id) . '" class="pull-right"><i class="fa fa-edit"></i></a>';
 
             if ($item->parent_id) {
-                $output .= '<a data-href="' . url('/my-account/pages/delete') . '" data-key="' . $item->id . '" data-type="Page ' . $item->title . '" style="cursor: pointer;"  class="delete-button pull-right trashBtn"><i class="fa fa-trash"></i></a>';
+                $output .= '<a data-href="' . url('/my-account/my-site/pages/delete') . '" data-key="' . $item->id . '" data-type="Page ' . $item->title . '" style="cursor: pointer;"  class="delete-button pull-right trashBtn"><i class="fa fa-trash"></i></a>';
             }
             $output .= '</div>';
             $output .= '</div>';
