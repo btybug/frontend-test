@@ -1,7 +1,7 @@
 @extends('mini::layouts.app')
 @section('content')
     <div class="add-unit text-right mb-2">
-        <button type="button" class="btn btn-outline-dark btn-lg">Add unit<i class="fas fa-plus"></i></button>
+        <button type="button" class="btn btn-outline-dark btn-lg add-unit-btn">Add unit<i class="fas fa-plus"></i></button>
     </div>
     <!-- begin #content -->
 
@@ -76,7 +76,7 @@
         </div>
         <!-- end row -->
         <!-- begin row -->
-        <div class="row">
+        <div class="row" id="droppable">
             <!-- begin col-8 -->
             <div class="col-lg-8">
                 <!-- begin panel -->
@@ -557,6 +557,30 @@
             </div>
             <!-- end col-4 -->
         </div>
+        <div class="right-side" style="width: 200px; height: 500px; background-color: yellow;  position:fixed; right:0px; margin-right: -200px; top: 0">
+
+            <div class="item draggable">012</div>
+            <div class="item draggable">345</div>
+            <div class="item draggable">678</div>
+            <div class="item draggable">910</div>
+            <div class="item draggable">910</div>
+            <div class="item draggable">910</div>
+            <div class="item draggable">910</div>
+            <div class="item draggable">910</div>
+        </div>
         <!-- end row -->
     <!-- end #content -->
+   <style>
+       .right-side,.add-unit-btn {
+         transition:         all 600ms cubic-bezier(0.47, 0, 0.745, 0.715); 
+
+       }
+
+   </style>
 @endsection
+
+
+@section('js')
+    {!! HTML::script('public/js/add-unit.js') !!}
+@stop
+
