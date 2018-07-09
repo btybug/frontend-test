@@ -1,3 +1,4 @@
+<!-- ================== BEGIN FOOTER JS ================== -->
 @if($page->js_type == 'default')
     {!! BBgetProfileAssets(1,'js','footerJs') !!}
 @elseif($page->js_type == 'cms')
@@ -5,10 +6,10 @@
 @elseif($page->js_type == 'external')
     {!! BBlinkAssets($page->js) !!}
 @endif
+<!-- ================== END FOOTER JS ================== -->
 
-{{--start CSS--}}
+<!-- ================== BEGIN FOOTER CSS ================== -->
 @if($page->css_type == 'default')
     {!! BBgetProfileAssets(false,'css','footerCss') !!}
 @endif
-
-{{--{!! HTML::script('public/js/pages/'.str_replace(' ','-',$page->title).'.js') !!}--}}
+<!-- ================== END FOOTER CSS ================== -->
