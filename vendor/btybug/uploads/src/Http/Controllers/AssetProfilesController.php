@@ -99,28 +99,27 @@ class AssetProfilesController extends Controller
         VersionProfilesService $profilesService
     )
     {
-        $data = $request->except('_token', 'main', 'files');
-        if ($request->get('files')) {
-            $data['files'] = array_prepend($request->get('files'), $request->get('main'));
-        } else {
-            $data['files'] = $request->get('main');
-        }
+        $data = $request->except('_token');
         $data['user_id'] = \Auth::id();
+        $data['type'] = 'css';
+        $data['files'] = json_decode($data['files'],true);
         $profile = $profilesRepository->create($data);
         $profilesService->generateCSS($profile);
-        return redirect()->route('uploads_assets_profiles_css');
+
+        return \Response::json(['error' => false,'url' => route('uploads_assets_profiles_css')]);
     }
 
     public function getCssCreate (
         VersionsRepository $versionsRepository,
-        VersionsService $versionsService
+        VersionsService $versionsService,
+        AssetsRepository $assetsRepository
     )
     {
         $model = null;
         $plugins = $versionsRepository->getCss();
-        $mains = $versionsRepository->getFrameworks();
+        $assets = $assetsRepository->getWithGroupBy('css');
 
-        return view('uploads::profiles.create_css', compact(['plugins', 'model', 'mains']));
+        return view('uploads::profiles.create_css', compact(['plugins', 'model','assets']));
     }
 
     public function getJsEdit (
