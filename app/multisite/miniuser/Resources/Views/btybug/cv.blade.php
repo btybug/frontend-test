@@ -1,5 +1,5 @@
-@extends('btybug::layouts.mTabs',['index'=>'mini_user_page_edit'])
-@section('tab')
+@extends('mini::layouts.app')
+@section('content')
    cv
 @stop
 @section('js')
