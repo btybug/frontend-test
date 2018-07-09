@@ -9,7 +9,7 @@
             <div class="vertical-box">
                <!-- begin wrapper -->
                <div class="wrapper bg-silver text-center">
-                  <a href="#" class="btn btn-inverse p-l-40 p-r-40 btn-sm">
+                  <a href="{!! route('mini_communications_create_messages') !!}" class="btn btn-inverse p-l-40 p-r-40 btn-sm">
                      Compose
                   </a>
                </div>
