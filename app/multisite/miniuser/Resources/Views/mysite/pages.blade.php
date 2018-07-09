@@ -104,7 +104,7 @@ preview area
     {!! HTML::style('public/css/tool-css.css?v=0.23') !!}
     {!! HTML::style('public/css/page.css?v=0.15') !!}
     {!! HTML::style('public/css/admin_pages.css') !!}
-    {!! HTML::style('public/minicms/main.css') !!}
+    {!! HTML::style('public/minicms/main.css?v='.rand(111,999)) !!}
 
 @stop
 
