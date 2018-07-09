@@ -40,7 +40,7 @@
     <!-- end #sidebar -->
 
     <!-- begin #content -->
-    <div id="content" class="content nopadding">
+    <div id="content" class="content">
         @yield('content')
     </div>
 </div>
