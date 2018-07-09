@@ -195,20 +195,20 @@ class PagesController extends Controller
                 . $frontendPageService->getPlaceholdersInUrl($updatedPage->page_layout_settings)
                 . '&content_type=' . $request->get('content_type') . '&template=' . $request->get('template'));
         }
-        $extraMessage='';
-        try{
+        $extraMessage = '';
+        try {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, url($updatedPage->url));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
             $data = curl_exec($ch);
             curl_close($ch);
-        }catch (\Exception $e){
-            $extraMessage=$e->getMessage();
+        } catch (\Exception $e) {
+            $extraMessage = $e->getMessage();
         }
 
 
-        return redirect()->back()->with('message', 'Page settings has been saved successfully.'." $extraMessage");
+        return redirect()->back()->with('message', 'Page settings has been saved successfully.' . " $extraMessage");
     }
 
     public function postSpecialSettings(
@@ -489,19 +489,19 @@ class PagesController extends Controller
         return view('manage::frontend.pages.extra', compact('id'));
     }
 
-    public function getSettingsLayout($id,FrontPagesRepository $repository,Request $request)
+    public function getSettingsLayout($id, FrontPagesRepository $repository, Request $request)
     {
-        $page=$repository->find($id);
-        $layout=$request->get('layout');
-        if(! $layout) $layout = $page->page_layout;
+        $page = $repository->find($id);
+        $layout = $request->get('layout');
+        if (!$layout) $layout = $page->page_layout;
         $slug = $request->get('variations');
-        if(! $slug) $slug = $layout.'.default';
+        if (!$slug) $slug = $layout . '.default';
 
-        $inherit = $request->get('inherit',$page->page_layout_inheritance);
+        $inherit = $request->get('inherit', $page->page_layout_inheritance);
 //        dd($inherit);
-        if($inherit){
+        if ($inherit) {
             $parent = $page->parent;
-            if($parent){
+            if ($parent) {
                 $page->page_layout_settings = $parent->page_layout_settings;
                 $page->page_layout = $parent->page_layout;
                 $slug = $parent->page_layout;
@@ -509,14 +509,17 @@ class PagesController extends Controller
         }
 
         $page->page_layout_inheritance = $inherit;
-        $settings=($request->get('layout'))?[]:(@json_decode($page->page_layout_settings,true))?json_decode($page->page_layout_settings,true):[];
+        $settings = ($request->get('layout')) ? [] : (@json_decode($page->page_layout_settings, true)) ? json_decode($page->page_layout_settings, true) : [];
 
         if ($slug) {
-            $view = ContentLayouts::renderPageLivePreview($slug,$settings,$page);
+
+            $view = ContentLayouts::renderPageLivePreview($slug, $settings, $page);
             return $view ? $view : abort('404');
-        } else {
-            abort('404');
+
         }
+
+        abort('404');
+
     }
 
 }

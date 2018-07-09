@@ -20,6 +20,7 @@ class LivePreviewController extends MiniController
     {
         $this->ennable($request);
         $page = $this->user->frontPages()->find($id);
+        if($page->type!='custom')abort(403);
         $layout = $request->get('layout');
         if (!$layout) $layout = $page->page_layout;
         $slug = $request->get('variations');
