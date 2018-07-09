@@ -123,6 +123,12 @@ class Main
 
     }
 
+    public function mySiteSpecialSettings()
+    {
+        return view('mini::mysite.special')->with('user', $this->user);
+
+    }
+
     public function CCMessages()
     {
         return view('mini::communications.messages')->with('user', $this->user);

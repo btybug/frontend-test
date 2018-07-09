@@ -1,4 +1,4 @@
 @extends('btybug::layouts.mTabs',['index'=>'mini_my_site_settings'])
 @section('tab')
-   settings
+   special
 @endsection

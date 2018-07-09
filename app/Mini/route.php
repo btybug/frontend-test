@@ -33,7 +33,10 @@ Route::group(['prefix' => 'my-site'], function () {
         Route::get('/edit/{id}', 'MySiteController@pageEdit')->name('mini_page_edit');
         Route::get('/edit/{id}/content', 'MySiteController@pageEditContent')->name('mini_page_edit_content');
     });
-    Route::get('/settings', 'MySiteController@settings')->name('mini_my_site_settings');
+    Route::group(['prefix' => 'settings'], function () {
+        Route::get('/', 'MySiteController@settings')->name('mini_my_site_settings');
+        Route::get('/special', 'MySiteController@specialSettings')->name('mini_my_site_special_settings');
+    });
 });
 
 Route::group(['prefix' => 'communications'], function () {

@@ -23,6 +23,12 @@ class MySiteController extends MiniController
         return $this->cms->mySiteSettings();
     }
 
+    public function specialSettings(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->mySiteSpecialSettings();
+    }
+
     public function pages(Request $request)
     {
         $this->ennable($request);

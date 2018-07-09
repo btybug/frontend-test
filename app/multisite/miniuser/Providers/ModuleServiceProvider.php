@@ -41,6 +41,17 @@ class ModuleServiceProvider extends ServiceProvider
                 ],
                 'layout' => 'mini::layouts.app'
             ],
+            'mini_my_site_settings' => [
+                [
+                    'title' => 'General',
+                    'url' => '/my-account/my-site/settings',
+                ],
+                [
+                    'title' => 'Special',
+                    'url' => '/my-account/my-site/settings/special',
+                ],
+                'layout' => 'mini::layouts.app'
+            ],
         ];
         \Eventy::action('my.tab', $tubs);
     }
