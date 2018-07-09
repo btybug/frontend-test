@@ -1,24 +1,22 @@
 @extends('mini::layouts.app')
 @section('content')
-    <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-
-        <div class="col-md-12 pull-right">
-            {!! Form::open(['route' => "mini_page_create"]) !!}
-            <div class="form-group">
+    <div class="">
+        {!! Form::open(['route' => "mini_page_create"]) !!}
+        <div class="form-group">
+            <div class="row">
                 <div class="col-md-3">
-                    <div class="row">
+                    <div class="d-flex">
                         <input type="text" name="title" class="form-controll account">
                         <div class="button">
                             {{ Form::button('<i class="fa fa-plus" aria-hidden="true"></i> New Page', array('type' => 'submit', 'class' => ' create_new_btn')) }}
                         </div>
                     </div>
-
                 </div>
             </div>
-            {!! Form::close() !!}
         </div>
+        {!! Form::close() !!}
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div>
         <article class="mt-4">
             <div class="row">
                 <div class="col-md-3">
@@ -63,7 +61,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                        <input class="form-check-input" type="checkbox"
+                                                               id="inlineCheckbox1"
                                                                value="option1">Public
                                                     </label>
                                                 </div>
@@ -71,7 +70,8 @@
                                             <div class="col-md-6 text-right">
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                        <input class="form-check-input" type="checkbox"
+                                                               id="inlineCheckbox2"
                                                                value="option2">Members
                                                     </label>
                                                 </div>
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="area-preview">
-preview area
+                            preview area
                         </div>
                         <div>
 
@@ -114,17 +114,23 @@ preview area
     {!! HTML::script('public/js/admin_pages.js') !!}
     {!! HTML::script('public/js/menus.js') !!}
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
+            let items = $(".Item")
+
             $(".bb-menu-area")
                 .sortable({
                     cursor: "move",
-                    revert: true
+                    revert: true,
+                    stop: function (e, ui) {
+                        let sorted = $(".bb-menu-area").sortable("toArray");
+                        let newJson = Object.assign({}, sorted)
+                    }
                 })
                 .find(".Item[class~=ui-sortable-helper]")
-                .on("transitionend", function(e) {
+                .on("transitionend", function (e) {
                     $(this).css("transform", "rotate(0deg)");
                 });
-            $("#sortable").disableSelection();
+            $(".bb-menu-area").disableSelection();
         });
     </script>
 @stop
