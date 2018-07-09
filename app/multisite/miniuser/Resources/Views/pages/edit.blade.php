@@ -25,9 +25,17 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="page_icon" class="col-2 col-form-label">Key Words</label>
-                        <div class="col-10">
-                            {!! Form::text('page_key_words',null,['class'=>'form-control here','id'=>'page_key_words']) !!}
+                        {{Form::label('icon', 'Page Icon',['class' => 'col-sm-2 control-label'])}}
+                        <div class="col-sm-4">
+                            <div class="input-group iconpicker-container">
+                                {{Form::text('icon', null,
+                                ['class' =>$errors->has('icon') ? 'icon icp icp-auto iconpicker-element iconpicker-input form-control  is-invalid' : "icon icp icp-auto iconpicker-element iconpicker-input form-control ",
+                                'placeholder' => 'icon'])}}
+                                <span class="input-group-addon"><i class="fas fa-archive"></i></span>
+                            </div>
+                            @if ($errors->has('icon'))
+                                <span class="invalid-feedback"><strong>{{ $errors->first('icon') }}</strong></span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group row">
@@ -74,7 +82,14 @@
 
     <input type="hidden" id="page" value="{!! $page->id !!}">
 @stop
+@section('css')
+    {!! Html::style("public/css/fontawesome-iconpicker.min.css") !!}
+@stop
 @section('js')
+    {!! Html::script("public/js/fontawesome-iconpicker.min.js") !!}
 
-@endsection
+    <script>
+        $('.icp-auto').iconpicker();
+    </script>
+@stop
 
