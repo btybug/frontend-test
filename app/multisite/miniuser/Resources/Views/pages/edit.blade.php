@@ -7,6 +7,14 @@
             <div class="panel panel-default custompanel m-t-20">
                 <div class="panel-heading">General Settings</div>
                 <div class="panel-body">
+
+                    <div class="form-group">
+                        <label for="select" class="control-label col-xs-4">Status</label>
+                        <div class="col-xs-8">
+                            {!! Form::select('status',['draft'=>'Draft','published'=>'Published'],old('status'),['class'=>'select form-control']) !!}
+
+                        </div>
+                    </div>
                     @if($page->type!='core')
                     <div class="form-group row">
                         <label for="page_name" class="col-2 col-form-label">Page Name</label>

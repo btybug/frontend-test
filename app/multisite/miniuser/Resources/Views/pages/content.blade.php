@@ -8,42 +8,9 @@
                 <div class="panel-heading">Main Content</div>
                 <div class="panel-body">
 
-                    <div class="form-group">
-                        <label for="text" class="control-label col-xs-4">Url</label>
-                        <div class="col-xs-8">
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-address-card"></i>
-                                </div>
-                                {!! Form::text('url',null,['class'=>'form-control','readonly']) !!}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="radio" class="control-label col-xs-4">Page access</label>
-                        <div class="col-xs-8">
-                            <label class="radio-inline">
-                                {!! Form::radio('page_access',0) !!}
-                                Public
-                            </label>
-                            <label class="radio-inline">
-                                {!! Form::radio('page_access',1) !!}
-                                page_access
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="select" class="control-label col-xs-4">Status</label>
-                        <div class="col-xs-8">
-                            {!! Form::select('status',['draft'=>'Draft','published'=>'Published'],old('status'),['class'=>'select form-control']) !!}
-
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-xs-offset-4 col-xs-8">
-                            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
+                    @if($page->type=='core')
+                        @include('multisite::forms.'.$page->slug)
+                        @endif
                     {{--<div class="pull-right">--}}
                         {{--Editor{!! Form::radio('content_type','editor',null,['data-role'=>'editor','class'=>'content_type']) !!}--}}
                         {{--Template{!! Form::radio('content_type','template',null,['data-role'=>'template','class'=>'content_type']) !!}--}}
