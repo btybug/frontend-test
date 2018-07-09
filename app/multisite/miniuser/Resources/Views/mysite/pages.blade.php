@@ -122,8 +122,24 @@
                     cursor: "move",
                     revert: true,
                     stop: function (e, ui) {
+
                         let sorted = $(".bb-menu-area").sortable("toArray");
-                        let newJson = Object.assign({}, sorted)
+
+                        $.ajax({
+                            url: '{!! route('mini_page_sorting') !!}',
+                            dataType: 'json',
+                            type: 'POST',
+                            data: {data: sorted},
+                            headers: {
+                                'X-CSRF-TOKEN': $("input[name='_token']").val()
+                            },
+                            success: function(data){
+
+                            },
+                            error: function(data){
+                                console.log(data);
+                            }
+                        });
                     }
                 })
                 .find(".Item[class~=ui-sortable-helper]")

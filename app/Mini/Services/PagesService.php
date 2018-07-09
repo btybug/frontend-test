@@ -9,13 +9,23 @@
 namespace App\Mini\Services;
 
 
+use Btybug\Console\Repository\FrontPagesRepository;
 use Illuminate\Http\Request;
 
 class PagesService
 {
-    public function editPage(Request $request,$repository)
+    private $pagesRepositroy;
+
+    public function __construct(
+        FrontPagesRepository $frontPagesRepository
+    )
     {
-        $page=$repository->findOrFail($request->id);
+        $this->pagesRepositroy = $frontPagesRepository;
+    }
+
+    public function editPage(Request $request)
+    {
+        $page = $this->pagesRepositroy->findOrFail($request->id);
         if(\Auth::id()!=$page->user_id)abort(404);
 
         $data=$request->except('_token');
@@ -25,5 +35,11 @@ class PagesService
             }
         }
         $page->update($data);
+    }
+
+    public function saveSort($data){
+        foreach ($data as $sorting => $id ){
+            $this->pagesRepositroy->updatePageSort($id,\Auth::id(),$sorting);
+        }
     }
 }

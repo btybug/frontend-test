@@ -32,6 +32,11 @@ class Main
         return view('mini::account')->with('user', $this->user);
     }
 
+    public function responseJson($error = false,$message = '', $data = [])
+    {
+        return \Response::json(['error' => $error,'message' => $message,'data' => $data]);
+    }
+
     public function listPages()
     {
         return view('mini::pages.lists')->with(['user' => $this->user, 'pages' => $this->user->frontPages]);
@@ -113,7 +118,8 @@ class Main
 
     public function mySitePages()
     {
-        return view('mini::mysite.pages')->with(['user' => $this->user, 'pages' => $this->user->frontPages]);
+        $pages = $this->user->frontPages()->orderBy('sorting')->get();
+        return view('mini::mysite.pages')->with(['user' => $this->user, 'pages' => $pages]);
     }
 
 

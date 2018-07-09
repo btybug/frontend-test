@@ -29,6 +29,7 @@ Route::group(['prefix' => 'my-site'], function () {
     Route::group(['prefix' => 'pages'], function () {
         Route::get('/', 'MySiteController@pages')->name('mini_my_site_pages');
         Route::post('/create', 'MySiteController@pagesCreate')->name('mini_page_create');
+        Route::post('/sorting', 'MySiteController@sorting')->name('mini_page_sorting');
         Route::post('/edit/{id}', 'MySiteController@editUserPage')->name('mini_user_page_edit');
         Route::get('/edit/{id}', 'MySiteController@pageEdit')->name('mini_page_edit');
         Route::get('/edit/{id}/content', 'MySiteController@pageEditContent')->name('mini_page_edit_content');

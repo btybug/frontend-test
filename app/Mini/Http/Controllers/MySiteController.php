@@ -16,6 +16,15 @@ use Illuminate\Http\Request;
 
 class MySiteController extends MiniController
 {
+    protected $pageService;
+
+    public function __construct(
+        PagesService $pagesService
+    )
+    {
+        $this->pageService = $pagesService;
+    }
+
     public function settings(Request $request)
     {
         $this->ennable($request);
@@ -42,13 +51,13 @@ class MySiteController extends MiniController
         return redirect()->back();
     }
 
-    public function editUserPage(Request $request, $id, PagesService $service, FrontPagesRepository $repository)
+    public function editUserPage(Request $request,$id)
     {
-        $service->editPage($request, $repository);
+        $this->pageService->editPage($request);
         return redirect()->back();
     }
 
-    public function pageEdit(Request $request, $di)
+    public function pageEdit(Request $request,$di)
     {
         $this->ennable($request);
         return $this->cms->pageEdit();
@@ -57,5 +66,19 @@ class MySiteController extends MiniController
     {
         $this->ennable($request);
         return $this->cms->pageEditContent();
+    }
+
+    public function sorting(Request $request)
+    {
+        $this->ennable($request);
+        if(count($request->data)){
+            try{
+                $this->pageService->saveSort($request->data);
+            }catch (\Exception $exception){
+                return $this->cms->responseJson(true,$exception->getMessage());
+            }
+        }
+
+        return $this->cms->responseJson(false,'successfully sorted');
     }
 }

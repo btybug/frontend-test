@@ -102,6 +102,11 @@ class FrontPagesRepository extends GeneralRepository
         return self::model()->where('module_id', $module->slug)->where('parent_id', 0)->get();
     }
 
+    public function updatePageSort($id,$user_id,$sorting)
+    {
+        return self::model()->where('id', $id)->where('user_id', $user_id)->update(['sorting' => $sorting]);
+    }
+
     /**
      * @return FrontendPage
      */
