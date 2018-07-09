@@ -371,6 +371,7 @@ button.BBbuttons, button.BBcustomize,button.clean-bb-button {
     background-color: #333333;
     text-transform: uppercase;
     border-bottom: 1px solid;
+    transition: 0.5s ease ;
 }
 .my-account-right-col{
     background-color: #ffffff;
@@ -399,4 +400,8 @@ button.BBbuttons, button.BBcustomize,button.clean-bb-button {
 
 .bb-menu-area>.Item[class~=ui-sortable-helper] {
     transform: rotate(-5deg);
+}
+.my-account-left-col li span:hover{
+    background-color: #000;
+    color: #ffffff;
 }
