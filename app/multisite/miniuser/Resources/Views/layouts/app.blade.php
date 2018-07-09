@@ -32,7 +32,7 @@
     @stack('css')
 </head>
 <body>
-<div id="page-container" class=" page-sidebar-fixed page-header-fixed">
+<div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">
     <!-- begin #sidebar -->
     @include('mini::_partials.header')
     @include('mini::_partials.sidebar')
