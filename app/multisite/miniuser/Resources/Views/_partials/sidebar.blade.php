@@ -89,12 +89,38 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="fa fa-gem"></i>
+                    <i class="fas fa-sitemap"></i>
                     <span>My Site</span>
                 </a>
                 <ul class="sub-menu">
                     <li><a href="{!! route('mini_my_site_pages') !!}">Pages <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
                     <li><a href="{!! route('mini_my_site_settings') !!}">Settings <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
+                </ul>
+            </li>
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret"></b>
+                    <i class="far fa-comments"></i>
+                    <span>Communications </span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{!! route('mini_communications_messages') !!}">Messages <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
+                    <li><a href="{!! route('mini_communications_notifications') !!}">Notifications <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
+                    <li><a href="{!! route('mini_communications_reviews') !!}">Reviews <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
+                </ul>
+            </li>
+
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret"></b>
+                    <i class="fas fa-cookie-bite"></i>
+                    <span>Btybug</span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="{!! route('mini_btybug_cv') !!}">CV <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
+                    <li><a href="{!! route('mini_btybug_jobs') !!}">Jobs <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
+                    <li><a href="{!! route('mini_btybug_market') !!}">Market <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
+                    <li><a href="{!! route('mini_btybug_blog') !!}">Blog <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
                 </ul>
             </li>
 

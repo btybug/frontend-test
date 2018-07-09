@@ -26,7 +26,6 @@ Route::group(['prefix' => 'extra'], function () {
 });
 
 Route::group(['prefix' => 'my-site'], function () {
-
     Route::group(['prefix' => 'pages'], function () {
         Route::get('/', 'MySiteController@pages')->name('mini_my_site_pages');
         Route::post('/create', 'MySiteController@pagesCreate')->name('mini_page_create');
@@ -34,7 +33,20 @@ Route::group(['prefix' => 'my-site'], function () {
         Route::get('/edit/{id}', 'MySiteController@pageEdit')->name('mini_page_edit');
         Route::get('/edit/{id}/content', 'MySiteController@pageEditContent')->name('mini_page_edit_content');
     });
-
     Route::get('/settings', 'MySiteController@settings')->name('mini_my_site_settings');
 });
+
+Route::group(['prefix' => 'communications'], function () {
+    Route::get('/messages', 'CommunicationsController@messages')->name('mini_communications_messages');
+    Route::get('/notifications', 'CommunicationsController@notifications')->name('mini_communications_notifications');
+    Route::get('/reviews', 'CommunicationsController@reviews')->name('mini_communications_reviews');
+});
+
+Route::group(['prefix' => 'btybug'], function () {
+    Route::get('/cv', 'BtybugController@cv')->name('mini_btybug_cv');
+    Route::get('/jobs', 'BtybugController@jobs')->name('mini_btybug_jobs');
+    Route::get('/market', 'BtybugController@market')->name('mini_btybug_market');
+    Route::get('/blog', 'BtybugController@blog')->name('mini_btybug_blog');
+});
+
 

@@ -1,0 +1,37 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: menq
+ * Date: 05.07.2018
+ * Time: 21:28
+ */
+
+namespace App\Mini\Http\Controllers;
+
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+ class CommunicationsController extends Controller
+{
+     protected $cms;
+     protected $user;
+
+     public function messages(Request $request)
+     {
+         $this->ennable($request);
+         return $this->cms->CCMessages();
+     }
+
+     public function notifications(Request $request)
+     {
+         $this->ennable($request);
+         return $this->cms->CCNotifications();
+     }
+
+     public function reviews(Request $request)
+     {
+         $this->ennable($request);
+         return $this->cms->CCReviews();
+     }
+}

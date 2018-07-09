@@ -123,5 +123,38 @@ class Main
 
     }
 
+    public function CCMessages()
+    {
+        return view('mini::communications.messages')->with('user', $this->user);
+    }
 
+    public function CCNotifications()
+    {
+        return view('mini::communications.notifications')->with('user', $this->user);
+    }
+
+    public function CCReviews()
+    {
+        return view('mini::communications.reviews')->with('user', $this->user);
+    }
+
+    public function BtyCv()
+    {
+        return view('mini::btybug.cv')->with('user', $this->user);
+    }
+
+    public function BtyJobs()
+    {
+        return view('mini::btybug.jobs')->with('user', $this->user);
+    }
+
+    public function BtyMarket()
+    {
+        return view('mini::btybug.market')->with('user', $this->user);
+    }
+
+    public function BtyBlog()
+    {
+        return view('mini::btybug.blog')->with('user', $this->user);
+    }
 }
