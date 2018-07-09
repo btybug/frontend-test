@@ -14,7 +14,7 @@
                                 <div class="input-group-addon">
                                     <i class="fa fa-adn"></i>
                                 </div>
-                                {!! Form::text('page_name',null,['class'=>'form-control here','id'=>'page_name']) !!}
+                                {!! Form::text('title',null,['class'=>'form-control here','id'=>'page_name']) !!}
                             </div>
                         </div>
                     </div>

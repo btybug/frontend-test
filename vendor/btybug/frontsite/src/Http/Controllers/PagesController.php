@@ -513,7 +513,6 @@ class PagesController extends Controller
 
         if ($slug) {
             $view = ContentLayouts::renderPageLivePreview($slug,$settings,$page);
-
             return $view ? $view : abort('404');
         } else {
             abort('404');
