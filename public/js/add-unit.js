@@ -474,7 +474,8 @@ $(document).ready(function () {
   </div>`
   }
 
-  var units = [ineractiveChart, threePanels, quickPost, messages, analyticsDetalis, visitorUserAgent, doDoList, worldVisitors, calendar]
+
+    var units = [ineractiveChart, threePanels, quickPost, messages, analyticsDetalis, visitorUserAgent, doDoList, worldVisitors, calendar]
   var elemnts = units.map((item, index) => `<li class="item draggable item-container">${item.name}</li>`)
   console.log()
   $(".right-side").append(elemnts)
@@ -484,15 +485,14 @@ $(document).ready(function () {
     if ($(this).css("margin-right") == slider_width + "px" && !$(this).is(':animated')) {
       $('.right-side,.add-unit-btn').animate({ "margin-right": '-=' + slider_width });
       $(this).html(buttonValue)
-      $(".save-unit").remove()
+      $(".save-unit").toggleClass("active")
     }
     else {
       if (!$(this).is(':animated')) {
         $('.right-side,.add-unit-btn').animate({ "margin-right": '+=' + slider_width });
-
         $(this).html("Close")
-        let button = $(`<button type="button" class="btn btn-outline-dark btn-lg save-unit" style="float: left">Save</button>`)
-        $(this).parent().append(button)
+          $(".save-unit").toggleClass("active");
+
       }
     }
   });

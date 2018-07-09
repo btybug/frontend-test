@@ -522,3 +522,47 @@ ul.wysihtml5-toolbar div[data-wysihtml5-command-value="orange"] {
     content: "\0000a0";
 }
 
+.right-side{
+    width: 400px;
+    background-color: #00000091;
+    position: fixed;
+    right: 0;
+    margin-right: -400px;
+    top: 0;
+    padding: 0;
+    list-style: none;
+    bottom: 0;
+    margin-bottom: 0;
+}
+.right-side,.add-unit-btn {
+    transition: all 600ms cubic-bezier(0.47, 0, 0.745, 0.715);
+
+}
+
+#droppable {
+    min-height: 500px;
+}
+.right-side .item{
+    padding: 15px 20px;
+    background-color: #2e353c;
+    border-bottom: 1px solid;
+    color: #a8acb1;
+    text-transform: uppercase;
+}
+.right-side .item:hover{
+    background-color: #000000;
+    color: white;
+}
+.save-unit{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.save-unit.active {
+    opacity: 1 !important;
+    /*display: none;*/
+
+}

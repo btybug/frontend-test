@@ -1,6 +1,7 @@
 @extends('mini::layouts.app')
 @section('content')
     <div class="add-unit text-right mb-2">
+        <button type="button" class="btn btn-outline-dark btn-lg save-unit  " style="float: left; opacity: 0">Save</button>
         <button type="button" class="btn btn-outline-dark btn-lg add-unit-btn">Add unit<i class="fas fa-plus"></i></button>
     </div>
     <!-- begin #content -->
@@ -100,30 +101,12 @@
             </div>
             <!-- end col-4 -->
         </div>
-        <ul class="right-side" style="width: 200px; height: 500px; background-color: yellow;  position:fixed; right:0px; margin-right: -200px; top: 0">
+        <ul class="right-side" >
                     
-            <!-- <div class="item draggable">012</div>
-            <div class="item draggable">345</div>
-            <div class="item draggable">678</div>
-            <div class="item draggable">910</div>
-            <div class="item draggable">910</div>
-            <div class="item draggable">910</div>
-            <div class="item draggable">910</div>
-            <div class="item draggable">910</div> -->
-</ul>
+        </ul>
         <!-- end row -->
     <!-- end #content -->
-   <style>
-       .right-side,.add-unit-btn {
-         transition: all 600ms cubic-bezier(0.47, 0, 0.745, 0.715); 
 
-       }
-
-       #droppable {
-           min-height: 500px;
-       }
-
-   </style>
 @endsection
 
 
