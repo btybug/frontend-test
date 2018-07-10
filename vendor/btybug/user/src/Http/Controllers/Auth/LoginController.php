@@ -83,6 +83,7 @@ class LoginController extends Controller
 
             return $this->sendLockoutResponse($request);
         }
+
         if (\Auth::attempt(array_add($request->only($field, 'password'), 'status', 'active'), $request->has('remember'))) {
             return $this->sendLoginResponse($request);
         }
