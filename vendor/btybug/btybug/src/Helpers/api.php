@@ -1440,11 +1440,9 @@ function BBrenderPageContent($settings)
 
 function BBstyle($path, $unit = null)
 {
-
     if(!File::isDirectory(public_path('cache'.DS.'css'))){
-        File::makeDirectory(public_path('cache'.DS.'css'));
+        File::makeDirectory(public_path('cache'.DS.'css'),0775,true);
     }
-    dd($path,DS);
 
     if (File::exists($path)) {
         $flag=false;
