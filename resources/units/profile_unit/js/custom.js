@@ -32,15 +32,16 @@
 
 
     function updateNav() {
-        let minWidth = 300;
+        let minWidth = 160;
 
-        document.querySelectorAll(".cd-side-navigation > .menuitem").forEach(item => {
-            if(minWidth > item.offsetWidth){
-            minWidth = item.offsetWidth
-        }
-    })
-        console.log(minWidth, "min" )
-        minWidth += 20
+    //     document.querySelectorAll(".cd-side-navigation > .menuitem").forEach(item => {
+    //         console.log(item.offsetWidth)
+    //         if(minWidth > item.offsetWidth){
+    //         minWidth = item.offsetWidth
+    //     }
+    // })
+    //     console.log(minWidth, "min" )
+    //     minWidth += 20
         if ($vlinks.width() < $("#nav").children().length * minWidth) {
             breaks.push($vlinks.width());
             // Move item to the hidden list
