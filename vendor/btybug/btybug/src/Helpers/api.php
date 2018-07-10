@@ -1440,6 +1440,9 @@ function BBrenderPageContent($settings)
 
 function BBstyle($path, $unit = null)
 {
+    if(!File::isDirectory(public_path('cache'.DS.'css'))){
+        File::makeDirectory(public_path('cache'.DS.'css'));
+    }
     if (File::exists($path)) {
         $flag=false;
         $actives = \Config::get('units_css', []);
@@ -1488,6 +1491,9 @@ function getCss(){
 
 function BBscript($path, $unit = null,$position='footer')
 {
+    if(!File::isDirectory(public_path('cache'.DS.'js'))){
+        File::makeDirectory(public_path('cache'.DS.'js'));
+    }
     if (File::exists($path)) {
         $flag=false;
         $actives = \Config::get("units_js.$position", []);
