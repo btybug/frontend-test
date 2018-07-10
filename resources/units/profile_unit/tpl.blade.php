@@ -103,10 +103,10 @@
 
 
 {!! Html::style('/public/css/font-awesome/css/font-awesome.css') !!}
-{!! Html::style('/resources/units/profile_unit/css/style.css') !!}
-{!! Html::script('/resources/units/profile_unit/js/headlines.min.js') !!}
-{!! Html::script('/resources/units/profile_unit/js/custom.js') !!}
+{{--{!! Html::script('/resources/units/profile_unit/js/headlines.min.js') !!}--}}
+{{--{!! Html::script('/resources/units/profile_unit/js/custom.js') !!}--}}
 
+{{--{!! BBstyle(public_path('css'.DS.'font-awesome'.DS.'css'.DS.'font-awesome.css')) !!}--}}
 {!! BBstyle($_this->path.DS.'css'.DS.'style.css',$_this) !!}
 {!! BBscript($_this->path.DS.'js'.DS.'headlines.min.js',$_this) !!}
 {!! BBscript($_this->path.DS.'js'.DS.'custom.js',$_this) !!}

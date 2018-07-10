@@ -653,6 +653,7 @@ function hierarchyAdminPagesListFull($data, $parent = true, $icon = true, $id = 
     // Return data tree
     return $output;
 }
+
 function hierarchyMiniUserPagesListFull($data, $parent = true, $icon = true, $id = 0)
 {
     $output = '';
@@ -660,7 +661,7 @@ function hierarchyMiniUserPagesListFull($data, $parent = true, $icon = true, $id
     if ($data) {
         foreach ($data as $item) {
             $children = $item->childs;
-            $output .= '<li class="Item show-page" data-id="' . $item->id . '" id="'. $item->id .'" data-type="' . $item->type . '">';
+            $output .= '<li class="Item show-page" data-id="' . $item->id . '" id="' . $item->id . '" data-type="' . $item->type . '">';
             $title = 'core';
             $output .= '<div class="listinginfo bb-menu-item">';
             switch ($item->type) {
@@ -706,6 +707,7 @@ function hierarchyMiniUserPagesListFull($data, $parent = true, $icon = true, $id
     // Return data tree
     return $output;
 }
+
 function BBGetTables()
 {
     $tables = \DB::select('SHOW TABLES');
@@ -1438,30 +1440,136 @@ function BBrenderPageContent($settings)
 
 function BBstyle($path, $unit = null)
 {
-    $adminsettingRepository = new \Btybug\btybug\Repositories\AdminsettingRepository();
-    $model = $adminsettingRepository->getVersionsSettings('versions', 'frontend');
-    $id = issetReturn($model, 'css_version');
-
-    $profileRepository = new \Btybug\Uploads\Repository\VersionProfilesRepository();
-    $profile = $profileRepository->findOneByMultiple(['id' => $id, 'type' => 'css']);
-    $assets = $profile->files;
-
-//    dd($assets);
-
-    if ($unit) {
+    if (File::exists($path)) {
+        $flag=false;
         $actives = \Config::get('units_css', []);
-        $key = $unit->getSlug();
-        if (!isset($actives[$key])) $actives[$key] = [];
-        $actives[$key][] = $path;
+        $contentMD5 = md5(File::get($path));
+        if (!isset($actives[$contentMD5])) {
+            $exploaded = explode(DS, $path);
+            $name = explode('.', ($exploaded[count($exploaded) - 1]))[0];
+            checker:{
+                if (File::exists(public_path('cache' . DS . 'css' . DS . $name . '.css')) && !compare_with_profile('css',$contentMD5)) {
+                    if(md5(File::get(public_path('cache' . DS . 'css' . DS . $name . '.css')))!=$contentMD5){
+                        $flag=true;
+                        if ($unit) {
+                            $key = $unit->getSlug();
+                            if (!File::exists(public_path('cache' . DS . 'css' . DS . $name . ".$key.js"))) {
+                                $name = $name . ".$key.js";
+                                goto checker;
+                            }
+                        }
+                        for ($i = 1; $i < 500; $i++) {
+                            if (File::exists(public_path('cache' . DS . 'css' . DS . $name . "_$i.css"))) {
+                                $name = $name . "_$i.css";
+                                goto checker;
+                            }
+                        }
+                    }
+                }else{
+                    $flag=true;
+                }
+            }
+            $actives[$contentMD5] = url('public/cache/css/' . $name . ".css");
+            if($flag){
+            File::copy($path, public_path('cache' . DS . 'css' . DS . $name . ".css"));
+            }
+        }
         \Config::set('units_css', $actives);
     }
-    $styles = [];
-    if (\Session::has('custom.styles')) {
-        $styles = \Session::get('custom.styles', []);
+}
+function getCss(){
+    $actives = \Config::get('units_css', []);
+    $html='';
+    foreach ($actives as $key=>$active){
+        $html.=Html::style($active);
     }
-    $styles[md5($path)] = $path;
+    return $html;
+}
 
-    \Session::put('custom.styles', $styles);
+function BBscript($path, $unit = null,$position='footer')
+{
+    if (File::exists($path)) {
+        $flag=false;
+        $actives = \Config::get("units_js.$position", []);
+        $contentMD5 = md5(File::get($path));
+        if (!isset($actives[$contentMD5])) {
+            $exploaded = explode(DS, $path);
+            $name = explode('.', ($exploaded[count($exploaded) - 1]))[0];
+            checker:{
+                if (File::exists(public_path('cache' . DS . 'js' . DS . $name . '.js')) && !compare_with_profile('js',$contentMD5)) {
+                    if(md5(File::get(public_path('cache' . DS . 'js' . DS . $name . '.js')))!=$contentMD5){
+                        $flag=true;
+                        if ($unit) {
+                            $key = $unit->getSlug();
+                            if (!File::exists(public_path('cache' . DS . 'js' . DS . $name . ".$key.js"))) {
+                                $name = $name . ".$key.js";
+                                goto checker;
+                            }
+                        }
+                        for ($i = 1; $i < 500; $i++) {
+                            if (File::exists(public_path('cache' . DS . 'js' . DS . $name . "_$i.js"))) {
+                                $name = $name . "_$i.js";
+                                goto checker;
+                            }
+                        }
+                    }
+                }else{
+                    $flag=true;
+                }
+            }
+            $actives[$contentMD5] = url('public/cache/js/' . $name . ".js");
+            if($flag){
+                File::copy($path, public_path('cache' . DS . 'js' . DS . $name . ".js"));
+            }
+        }
+        \Config::set("units_js.$position", $actives);
+    }
+}
+function getFooterJs(){
+    $actives = \Config::get('units_js.footer', []);
+    $html='';
+    foreach ($actives as $key=>$active){
+        $html.=Html::script($active);
+    }
+    return $html;
+}function getHeaderJs(){
+    $actives = \Config::get('units_js.header', []);
+    $html='';
+    foreach ($actives as $key=>$active){
+        $html.=Html::script($active);
+    }
+    return $html;
+}
+
+
+function compare_with_profile($type, $hash)
+{
+    $version = ($type == 'css') ? 'css_version' : 'js_data';
+    $adminsettingRepository = new \Btybug\btybug\Repositories\AdminsettingRepository();
+    $model = $adminsettingRepository->getVersionsSettings('versions', 'frontend');
+    $id = issetReturn($model, $version);
+
+    $profileRepository = new \Btybug\Uploads\Repository\VersionProfilesRepository();
+    $profile = $profileRepository->findOneByMultiple(['id' => $id, 'type' => $type]);
+    $assets = $profile->files;
+    $file_ides = [];
+    if($type=='css'){
+
+    $friles = (isset($assets['headerCss'])) ? $assets['headerCss'] : [];
+
+    }else{
+        $friles = (isset($assets['headerJs'])) ? $assets['headerJs'] : [];
+        $friles2 = (isset($assets['headerCss'])) ? $assets['headerCss'] : [];
+        foreach ($friles2 as $file) {
+            $file_ides[] = $file['id'];
+        }
+    }
+
+    foreach ($friles as $file) {
+        $file_ides[] = $file['id'];
+    }
+    return \Btybug\Framework\Models\Versions::whereIn('id',$file_ides)->where('content',$hash)->exists();
+
 }
 
 
@@ -2442,24 +2550,7 @@ function BBmargeJs()
     File::put(public_path('js' . DS . 'cms_main.js'), $content);
 }
 
-function BBscript($path, $unit = null)
-{
-    if ($unit) {
-        $actives = \Config::get('units_js', []);
-        $key = $unit->getSlug();
-        if (!isset($actives[$key])) $actives[$key] = [];
-        $actives[$key][] = $path;
-        \Config::set('units_js', $actives);
-    }
 
-
-    $scripts = [];
-    if (\Session::has('custom.scripts')) {
-        $scripts = \Session::get('custom.scripts', []);
-    }
-    $scripts[md5($path)] = $path;
-    \Session::put('custom.scripts', $scripts);
-}
 
 function BBpageAssetsOptimise()
 {
@@ -2581,7 +2672,7 @@ function BBmediaButton($name, $model = null, $text = 'Open Media')
         }
     }
 //    return "<button type='button' class='btn btn-info btn-md btnsettingsModal media-modal-open' data-id='".$name.'-'.$a."'>Open Media</button><input type='hidden' $value id='".$name.'-'.$a."' name='$name'>";
-    return View::make('media::drive.galery',compact('a','value','value_tmp','name'))->render();
+    return View::make('media::drive.galery', compact('a', 'value', 'value_tmp', 'name'))->render();
 }
 
 function BBgetUsersPluck()
@@ -2591,10 +2682,10 @@ function BBgetUsersPluck()
     return $repository->pluck('username', 'id')->toArray();
 }
 
-function BBRegisterFrontPages($title = null, $url,$parent = 0,$user_id=null,$type='core')
+function BBRegisterFrontPages($title = null, $url, $parent = 0, $user_id = null, $type = 'core')
 {
 
-   $frontPageRepository = new \Btybug\Console\Repository\FrontPagesRepository();
+    $frontPageRepository = new \Btybug\Console\Repository\FrontPagesRepository();
 
     $page = $frontPageRepository->create([
         'title' => $title,
@@ -2612,11 +2703,13 @@ function BBRegisterFrontPages($title = null, $url,$parent = 0,$user_id=null,$typ
 
     return $page;
 }
-function BBcreateMiniCms($user){
-    if(! \File::isDirectory('multisite')) {
+
+function BBcreateMiniCms($user)
+{
+    if (!\File::isDirectory('multisite')) {
         \File::makeDirectory('multisite');
     }
-    $test=new \App\Mini\Generator();
+    $test = new \App\Mini\Generator();
     $test->make($user->username);
 }
 

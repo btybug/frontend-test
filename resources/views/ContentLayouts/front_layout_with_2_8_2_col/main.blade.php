@@ -12,4 +12,4 @@
     </div>
 </div>
 
-{!! BBstyle($_this->path.DS.'css/style.css') !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'style.css') !!}
