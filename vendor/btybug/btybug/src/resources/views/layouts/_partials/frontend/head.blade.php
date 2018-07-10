@@ -25,18 +25,21 @@
 <!-- ================== BEGIN BASE CSS STYLE ================== -->
 @if($page->css_type == 'default')
     {!! BBgetProfileAssets(false,'css','headerCss') !!}
+    {!! BBCss()  !!}
 @elseif($page->css_type == 'cms')
     {!! BBgetProfile($page->css_cms,'css',true) !!}
 @elseif($page->css_type == 'external')
     {!! BBlinkAssets($page->css) !!}
 @endif
-
-
 <!-- ================== END BASE CSS STYLE ================== -->
 
-@yield('css')
 
+<!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
+{!! getCss() !!}
+@yield('css')
 @stack('CSS')
+<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
+
 
 <!-- ================== BEGIN BASE JS ================== -->
 @if($page->js_type == 'default')
@@ -49,3 +52,7 @@
     {!! BBlinkAssets($page->js) !!}
 @endif
 <!-- ================== END BASE JS ================== -->
+
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+{!! getHeaderJs() !!}
+<!-- ================== END PAGE LEVEL JS ================== -->

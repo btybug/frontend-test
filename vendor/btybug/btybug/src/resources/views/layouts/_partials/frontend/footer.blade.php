@@ -1,4 +1,4 @@
-<!-- ================== BEGIN FOOTER JS ================== -->
+<!-- ================== BEGIN BASE FOOTER JS ================== -->
 @if($page->js_type == 'default')
     {!! BBgetProfileAssets(1,'js','footerJs') !!}
 @elseif($page->js_type == 'cms')
@@ -8,8 +8,6 @@
 @endif
 <!-- ================== END FOOTER JS ================== -->
 
-<!-- ================== BEGIN FOOTER CSS ================== -->
-@if($page->css_type == 'default')
-    {!! BBgetProfileAssets(false,'css','footerCss') !!}
-@endif
-<!-- ================== END FOOTER CSS ================== -->
+<!-- ================== BEGIN FOOTER PAGE LEVEL JS ================== -->
+{!! getFooterJs() !!}
+<!-- ================== END FOOTER PAGE LEVEL JS ================== -->
