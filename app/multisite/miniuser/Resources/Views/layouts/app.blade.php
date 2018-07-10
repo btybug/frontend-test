@@ -17,17 +17,30 @@
         <link rel="stylesheet" href="{!!url('public/minicms/main.css')!!}">
     <!-- ================== END PAGE BASE STYLE ================== -->
 
-
-
-    {{--<link rel="stylesheet" href="{!!url('public/minicms/plugins/jquery-jvectormap/jquery-jvectormap.css')!!}">--}}
-    {{--<link rel="stylesheet" href="{!!url('public/minicms/plugins/bootstrap-datepicker/bootstrap-datepicker.css')!!}">--}}
-    {{--<link rel="stylesheet" href="{!!url('public/minicms/plugins/gritter/jquery.gritter.css')!!}">--}}
-
-    <title>Document</title>
     <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
         @yield('css')
     <!-- ================== END PAGE LEVEL STYLE ================== -->
     @stack('css')
+
+    <!-- ================== BEGIN HEADER BASE JS ================== -->
+    <script src="{!!url('public/minicms/plugins/jquery/jquery-3.2.1.min.js')!!}"></script>
+    <script src="{!!url('public/minicms/plugins/jquery/jquery-migrate-1.1.0.min.js')!!}"></script>
+    <script src="{!!url('public/minicms/plugins/jquery-ui/jquery-ui.min.js')!!}"></script>
+    <script src="{!!url('public/minicms/plugins/bootstrap/4/bootstrap.bundle.min.js')!!}"></script>
+    <!--[if lt IE 9]>
+    <script src="{!!url('public/minicms/js/crossbrowserjs/html5shiv.js')!!}"></script>
+    <script src="{!!url('public/minicms/js/crossbrowserjs/respond.min.js')!!}"></script>
+    <script src="{!!url('public/minicms/js/crossbrowserjs/excanvas.min.js')!!}"></script>
+    <![endif]-->
+    <!-- ================== END HEADER BASE JS ================== -->
+
+    <!-- ================== BEGIN HEADER PAGE LEVEL JS ================== -->
+        @yield('header_js')
+    <!-- ================== END HEADER PAGE LEVEL JS ================== -->
+    {{--<link rel="stylesheet" href="{!!url('public/minicms/plugins/jquery-jvectormap/jquery-jvectormap.css')!!}">--}}
+    {{--<link rel="stylesheet" href="{!!url('public/minicms/plugins/bootstrap-datepicker/bootstrap-datepicker.css')!!}">--}}
+    {{--<link rel="stylesheet" href="{!!url('public/minicms/plugins/gritter/jquery.gritter.css')!!}">--}}
+    <title>Document</title>
 </head>
 <body>
 <div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">
@@ -36,7 +49,6 @@
     @include('mini::_partials.sidebar')
     <div class="sidebar-bg"></div>
     <!-- end #sidebar -->
-
     <!-- begin #content -->
     <div id="content" class="content">
         @yield('content')
@@ -44,23 +56,12 @@
 </div>
 @include('resources::assests.magicModal')
 
-<!-- ================== BEGIN BASE JS ================== -->
-    <script src="{!!url('public/minicms/plugins/jquery/jquery-3.2.1.min.js')!!}"></script>
-    <script src="{!!url('public/minicms/plugins/jquery/jquery-migrate-1.1.0.min.js')!!}"></script>
-    <script src="{!!url('public/minicms/plugins/jquery-ui/jquery-ui.min.js')!!}"></script>
-    <script src="{!!url('public/minicms/plugins/bootstrap/4/bootstrap.bundle.min.js')!!}"></script>
-
-    <!--[if lt IE 9]>
-        <script src="{!!url('public/minicms/js/crossbrowserjs/html5shiv.js')!!}"></script>
-        <script src="{!!url('public/minicms/js/crossbrowserjs/respond.min.js')!!}"></script>
-        <script src="{!!url('public/minicms/js/crossbrowserjs/excanvas.min.js')!!}"></script>
-    <![endif]-->
-
+<!-- ================== BEGIN FOOTER BASE JS ================== -->
     <script src="{!!url('public/minicms/jquery.slimscroll.min.js')!!}"></script>
     <script src="{!!url('public/minicms/js.cookie.js')!!}"></script>
     <script src="{!!url('public/minicms/js/default.js')!!}"></script>
     <script src="{!!url('public/minicms/apps.min.js')!!}"></script>
-<!-- ================== END BASE JS ================== -->
+<!-- ================== END FOOTER BASE JS ================== -->
 
 {{--<script src="{!!url('public/minicms/plugins/gritter/jquery.gritter.js')!!}"></script>--}}
 {{--<script src="{!!url('public/minicms/plugins/flot/jquery.flot.min.js')!!}"></script>--}}
