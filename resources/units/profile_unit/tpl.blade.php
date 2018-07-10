@@ -41,7 +41,7 @@
                             </div>
                             <div class="col-md-2 nopadding pdf">
                                 <a href="#" class="hvr-sweep-to-right d-flex justify-content-center align-items-center w-100 h-100">
-                                    <i class="fa fa-behance" aria-hidden="true"></i>
+                                    <i class="fab fa-behance" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
