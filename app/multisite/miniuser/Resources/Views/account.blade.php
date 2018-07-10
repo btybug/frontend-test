@@ -1,7 +1,7 @@
 @extends('mini::layouts.app')
 @section('content')
     <div class="add-unit text-right mb-2">
-        <button type="button" class="btn btn-outline-dark btn-lg save-unit  " style="float: left; opacity: 0">Save</button>
+        <button type="button" class="btn btn-outline-dark btn-lg save-unit ml-3" style="float: right; opacity: 1; display: block" >Save</button>
         <button type="button" class="btn btn-outline-dark btn-lg add-unit-btn">Add unit<i class="fas fa-plus"></i></button>
     </div>
     <!-- begin #content -->
@@ -79,13 +79,13 @@
         <!-- begin row -->
         <div class="row" id="droppable">
             <!-- begin col-8 -->
-            <div class="col-lg-8 droppable1">
+            <div id="sortable1" class="col-lg-8 droppable1 connectedSortable">
                 <!-- begin panel -->
                
             </div>
             <!-- end col-8 -->
             <!-- begin col-4 -->
-            <div class="col-lg-4 droppable2">
+            <div id="sortable2" class="col-lg-4 droppable2 connectedSortable">
                
                 <!-- begin panel -->
                

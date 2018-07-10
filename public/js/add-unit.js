@@ -1,7 +1,7 @@
 $(document).ready(function () {
-  var ineractiveChart = {
-    name: "ineractiveLiveChart",
-    body: ` <div class="panel panel-inverse" data-sortable-id="index-1">
+    var ineractiveChart = {
+        name: "ineractiveLiveChart",
+        body: ` <div class="panel panel-inverse" data-sortable-id="index-1">
     <div class="panel-heading">
         <div class="panel-heading-btn">
             <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
@@ -15,10 +15,10 @@ $(document).ready(function () {
         <div id="interactive-chart" class="height-sm"></div>
     </div>
   </div>`
-  }
-  let threePanels = {
-    name: "threePanels",
-    body: ` <ul class="nav nav-tabs nav-tabs-inverse nav-justified nav-justified-mobile" data-sortable-id="index-2">
+    }
+    let threePanels = {
+        name: "threePanels",
+        body: ` <ul class="nav nav-tabs nav-tabs-inverse nav-justified nav-justified-mobile" data-sortable-id="index-2">
     <li class="nav-item"><a href="#latest-post" data-toggle="tab" class="nav-link active"><i class="fa fa-camera fa-lg m-r-5"></i> <span class="d-none d-md-inline">Latest Post</span></a></li>
     <li class="nav-item"><a href="#purchase" data-toggle="tab" class="nav-link"><i class="fa fa-archive fa-lg m-r-5"></i> <span class="d-none d-md-inline">Purchase</span></a></li>
     <li class="nav-item"><a href="#email" data-toggle="tab" class="nav-link"><i class="fa fa-envelope fa-lg m-r-5"></i> <span class="d-none d-md-inline">Email</span></a></li>
@@ -203,10 +203,10 @@ $(document).ready(function () {
         </div>
     </div>
   </div>`
-  }
-  var quickPost = {
-    name: "quickPost",
-    body: ` <div class="panel panel-inverse" data-sortable-id="index-4">
+    }
+    var quickPost = {
+        name: "quickPost",
+        body: ` <div class="panel panel-inverse" data-sortable-id="index-4">
     <div class="panel-heading">
         <div class="panel-heading-btn">
             <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
@@ -235,10 +235,10 @@ $(document).ready(function () {
         <a href="javascript:;" class="btn btn-primary btn-sm m-l-5">Action</a>
     </div>
   </div>`
-  }
-  var messages = {
-    name: "messages",
-    body: `<div class="panel panel-inverse" data-sortable-id="index-5">
+    }
+    var messages = {
+        name: "messages",
+        body: `<div class="panel panel-inverse" data-sortable-id="index-5">
     <div class="panel-heading">
         <div class="panel-heading-btn">
             <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
@@ -301,10 +301,10 @@ $(document).ready(function () {
         </form>
     </div>
     </div>`
-  }
-  var analyticsDetalis = {
-    name: "analyicsDetalis",
-    body: `<div class="panel panel-inverse" data-sortable-id="index-6">
+    }
+    var analyticsDetalis = {
+        name: "analyicsDetalis",
+        body: `<div class="panel panel-inverse" data-sortable-id="index-6">
     <div class="panel-heading">
         <div class="panel-heading-btn">
             <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
@@ -360,10 +360,10 @@ $(document).ready(function () {
         </div>
     </div>
     </div>`
-  }
-  var visitorUserAgent = {
-    name: "visitorUserAgent",
-    body: `div class="panel panel-inverse" data-sortable-id="index-7">
+    }
+    var visitorUserAgent = {
+        name: "visitorUserAgent",
+        body: `div class="panel panel-inverse" data-sortable-id="index-7">
     <div class="panel-heading">
         <div class="panel-heading-btn">
             <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
@@ -377,10 +377,10 @@ $(document).ready(function () {
         <div id="donut-chart" class="height-sm"></div>
     </div>
     </div>`
-  }
-  var doDoList = {
-    name: "doDoList",
-    body: `<div class="panel panel-inverse" data-sortable-id="index-8">
+    }
+    var doDoList = {
+        name: "doDoList",
+        body: `<div class="panel panel-inverse" data-sortable-id="index-8">
     <div class="panel-heading">
         <div class="panel-heading-btn">
             <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
@@ -437,10 +437,10 @@ $(document).ready(function () {
         </ul>
     </div>
     </div>`
-  }
-  var worldVisitors = {
-    name: "worldVisitors",
-    body: `<div class="panel panel-inverse" data-sortable-id="index-9">
+    }
+    var worldVisitors = {
+        name: "worldVisitors",
+        body: `<div class="panel panel-inverse" data-sortable-id="index-9">
     <div class="panel-heading">
         <div class="panel-heading-btn">
             <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
@@ -454,11 +454,11 @@ $(document).ready(function () {
         <div id="world-map" class="height-sm width-full"></div>
     </div>
     </div>`
-  }
+    }
 
-  var calendar = {
-    name: "Calendar",
-    body: `<div class="panel panel-inverse" data-sortable-id="index-10">
+    var calendar = {
+        name: "Calendar",
+        body: `<div class="panel panel-inverse" data-sortable-id="index-10">
     <div class="panel-heading">
         <div class="panel-heading-btn">
             <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
@@ -472,55 +472,61 @@ $(document).ready(function () {
         <div id="datepicker-inline" class="datepicker-full-width overflow-y-scroll position-relative"><div></div></div>
     </div>
   </div>`
-  }
+    }
 
 
     var units = [ineractiveChart, threePanels, quickPost, messages, analyticsDetalis, visitorUserAgent, doDoList, worldVisitors, calendar]
-  var elemnts = units.map((item, index) => `<li class="item draggable item-container">${item.name}</li>`)
-  console.log()
-  $(".right-side").append(elemnts)
-  var slider_width = $('.right-side').width();
-  let buttonValue = $(".add-unit-btn").html()
-  $('.add-unit-btn').click(function () {
-    if ($(this).css("margin-right") == slider_width + "px" && !$(this).is(':animated')) {
-      $('.right-side,.add-unit-btn').animate({ "margin-right": '-=' + slider_width });
-      $(this).html(buttonValue)
-      $(".save-unit").toggleClass("active")
-    }
-    else {
-      if (!$(this).is(':animated')) {
-        $('.right-side,.add-unit-btn').animate({ "margin-right": '+=' + slider_width });
-        $(this).html("Close")
-          $(".save-unit").toggleClass("active");
+    var elemnts = units.map((item, index) => `<li class="item draggable item-container">${item.name}</li>`)
+    $(".right-side").append(elemnts)
+    var slider_width = $('.right-side').width();
+    let buttonValue = $(".add-unit-btn").html()
+    console.log(slider_width)
+    $('.add-unit-btn').click(function () {
+        if ($(this).css("margin-right") == (slider_width - 100) + "px" && !$(this).is(':animated')) {
+            $('.add-unit-btn').animate({ "margin-right": '-=' + (slider_width - 100) });
+            $('.right-side').animate({ "margin-right": '-=' + slider_width });
+            $(this).html(buttonValue)
+            $(".save-unit").toggleClass("active").style("display: block")
+        }
+        else {
+            if (!$(this).is(':animated')) {
+                $('.add-unit-btn').animate({ "margin-right": '+=' + (slider_width - 100) });
+                $('.right-side').animate({ "margin-right": '+=' + slider_width });
+                console.log(slider_width)
+                $(this).html("Close")
+                $(".save-unit").toggleClass("active");
 
-      }
-    }
-  });
+            }
+        }
+    });
 
-  $(".right-side, .droppable1, .droppable2").sortable();
-  $(".right-side, .droppable1, .droppable2").droppable({
-    accept: ".item-container",
-    drop: function (e, ui) {
-      console.log(111111)
-      var dropped = ui.draggable;
-      var droppedOn = $(this);
-      $(this).append(dropped.clone().removeAttr('style').removeClass("item-container").addClass("item"));
-      dropped.remove();
-    }
-  });
+    $(".right-side, .droppable1, .droppable2").sortable();
+    $(".droppable1, .droppable2").droppable({
 
-  $(".droppable1, .droppable2").droppable({
-    accept: ".item",
-    drop: function (e, ui) {
-      var dropped = ui.draggable;
-      var droppedOn = $(this);
-      console.log(dropped.text().length, units[0].name.length)
-      console.log(dropped.text() == units[0].name)
-      let elm = units.filter(item => item.name == dropped.text())
-      console.log(elm)
-      $(this).append(elm[0].body);
-      dropped.remove();
-    }
-  });
+        accept: ".item-container",
+        classes: {
+            // "ui-droppable-active": "ui-state-active",
+            "ui-droppable-hover": "ui-state-hover"
+        },
+        drop: function (e, ui) {
+            var dropped = ui.draggable;
+            var droppedOn = $(this);
+            $(this).append(dropped.clone().removeAttr('style').removeClass("item-container").addClass("item"));
+            dropped.remove();
+        }
+    });
+
+    $(".droppable1, .droppable2").droppable({
+        accept: ".item",
+        drop: function (e, ui) {
+            var dropped = ui.draggable;
+            var droppedOn = $(this);
+            let elm = units.filter(item => item.name == dropped.text())
+            $(this).append(elm[0].body);
+            dropped.remove();
+        }
+    });
+
+    $(function () { $("#sortable1, #sortable2").sortable({ placeholder: "highlight", connectWith: ".connectedSortable", refreshPositions: true, opacity: 0.6, forcePlaceholderSize: true, scroll: true, }).disableSelection(); });
 
 });     

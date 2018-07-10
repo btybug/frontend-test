@@ -562,7 +562,13 @@ ul.wysihtml5-toolbar div[data-wysihtml5-command-value="orange"] {
 }
 
 .save-unit.active {
-    opacity: 1 !important;
-    /*display: none;*/
+    opacity: 0 !important;
+    /* display: none !important;  */
+}
+
+.ui-state-hover {
+    border: 2px dashed rgba(0, 0, 0, .4) !important;
+    background-color: rgba(0, 0, 0, .2);
+    background: transparent;
 
 }
