@@ -5,7 +5,7 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-form navbar-left">
-                        @if($model && $model->structured_by)
+                        @if($model)
                             {!! Form::hidden('name',@$model->name,['class' => 'profile-name']) !!}
                             {!! Form::hidden('id',@$model->id,['class' => 'profile-id']) !!}
                             <h5>{!! $model->name !!}</h5>
@@ -55,35 +55,18 @@
                         </div>
                         <div class="panel-body">
                             <ul id="menus-list" class="connectedSortable">
-                                @if(count($assets) && @$model->structured_by)
-                                    @foreach($assets as $item)
-                                        <li class="list-group-item auto-item" data-id="{{$item->id}}"
-                                            data-name="{{ get_filename_from_path($item->path,DS) }}"
-                                            data-link="{{ $item->path }}"
-                                            data-type="unit">
-                                            {{ get_filename_from_path($item->path,DS) }} (unit: {{ $item->page->slug }})
-
-                                            <button type="button" class="btn btn-xs btn-danger pull-right">
-                                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                            </button>
+                                @if($model && isset($model->files['frontHeaderJs']) && count($model->files['frontHeaderJs']))
+                                    @foreach($model->files['frontHeaderJs'] as $frontHeaderJs)
+                                        <li class="list-group-item added-item" data-name=""
+                                            data-type="{{ $frontHeaderJs['type'] }}" data-link="{{ $frontHeaderJs['path'] }}" data-id="{{ $frontHeaderJs['id'] }}">
+                                            {{ (($frontHeaderJs['type'] != 'unit') ? BBgetVersion($frontHeaderJs['id']) : get_filename_from_path($frontHeaderJs['path'],DS)) }} (asset: {{ $frontHeaderJs['type'] }})
+                                            <button class="btn btn-xs btn-default pull-right glyphicon glyphicon-trash" type="button"></button>
                                         </li>
                                     @endforeach
-                                @else
-                                    @if($model && isset($model->files['frontHeaderJs']) && count($model->files['frontHeaderJs']))
-                                        @foreach($model->files['frontHeaderJs'] as $frontHeaderJs)
-                                            <li class="list-group-item added-item" data-name=""
-                                                data-type="{{ $frontHeaderJs['type'] }}" data-link="{{ $frontHeaderJs['path'] }}" data-id="{{ $frontHeaderJs['id'] }}">
-                                                {{ (($frontHeaderJs['type'] != 'unit') ? BBgetVersion($frontHeaderJs['id']) : get_filename_from_path($frontHeaderJs['path'],DS)) }} (asset: {{ $frontHeaderJs['type'] }})
-                                                <button class="btn btn-xs btn-default pull-right glyphicon glyphicon-trash" type="button"></button>
-                                            </li>
-                                        @endforeach
-                                    @endif
                                 @endif
                             </ul>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>

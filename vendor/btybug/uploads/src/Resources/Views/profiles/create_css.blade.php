@@ -5,7 +5,7 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-form navbar-left">
-                        @if($model && $model->structured_by)
+                        @if($model)
                             {!! Form::hidden('name',@$model->name,['class' => 'profile-name']) !!}
                             {!! Form::hidden('id',@$model->id,['class' => 'profile-id']) !!}
                             <h5>{!! $model->name !!}</h5>
@@ -55,29 +55,14 @@
                         </div>
                         <div class="panel-body">
                             <ul id="menus-list" class="connectedSortable">
-                                @if(count($assets) && @$model->structured_by)
-                                    @foreach($assets as $item)
-                                        <li class="list-group-item auto-item" data-id="{{$item->id}}"
-                                            data-name="{{ get_filename_from_path($item->path,DS) }}"
-                                            data-link="{{ $item->path }}"
-                                            data-type="unit">
-                                            {{ get_filename_from_path($item->path,DS) }} (unit: {{ $item->page->slug }})
-
-                                            <button type="button" class="btn btn-xs btn-danger pull-right">
-                                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                            </button>
+                                @if($model && isset($model->files['frontHeaderCss']) && count($model->files['frontHeaderCss']))
+                                    @foreach($model->files['frontHeaderCss'] as $frontHeaderCss)
+                                        <li class="list-group-item added-item" data-name=""
+                                            data-type="{{ $frontHeaderCss['type'] }}" data-link="{{ $frontHeaderCss['path'] }}" data-id="{{ $frontHeaderCss['id'] }}">
+                                            {{ (($frontHeaderCss['type'] != 'unit') ? BBgetVersion($frontHeaderCss['id']) : get_filename_from_path($frontHeaderCss['path'],DS)) }} (asset: {{ $frontHeaderCss['type'] }})
+                                            <button class="btn btn-xs btn-default pull-right glyphicon glyphicon-trash" type="button"></button>
                                         </li>
                                     @endforeach
-                                @else
-                                    @if($model && isset($model->files['frontHeaderCss']) && count($model->files['frontHeaderCss']))
-                                        @foreach($model->files['frontHeaderCss'] as $frontHeaderCss)
-                                            <li class="list-group-item added-item" data-name=""
-                                                data-type="{{ $frontHeaderCss['type'] }}" data-link="{{ $frontHeaderCss['path'] }}" data-id="{{ $frontHeaderCss['id'] }}">
-                                                {{ (($frontHeaderCss['type'] != 'unit') ? BBgetVersion($frontHeaderCss['id']) : get_filename_from_path($frontHeaderCss['path'],DS)) }} (asset: {{ $frontHeaderCss['type'] }})
-                                                <button class="btn btn-xs btn-default pull-right glyphicon glyphicon-trash" type="button"></button>
-                                            </li>
-                                        @endforeach
-                                    @endif
                                 @endif
                             </ul>
                         </div>
@@ -88,31 +73,31 @@
             </div>
         </div>
 
-        <div class="col-md-12 m-t-15">
-            <div class="panel panel-primary"js->
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Footer Css
-                        <button
-                                type="button"
-                                class="btn btn-xs btn-default pull-right add-assets css-add-assets footer-css js-add-assets >
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
-                        </button>
-                    </h3>
-                </div>
-                <div class="panel-body connectedSortable" id="footer-css">
-                    @if($model && isset($model->files['footerCss']) && count($model->files['footerCss']))
-                        @foreach($model->files['footerCss'] as $footerItem)
-                            <li class="list-group-item added-item" data-name=""
-                                data-type="{{ $footerItem['type'] }}" data-link="{{ $footerItem['path'] }}" data-id="{{ $footerItem['id'] }}">
-                                {{ (($footerItem['type'] != 'unit') ? BBgetVersion($footerItem['id']) : get_filename_from_path($footerItem['path'],DS)) }} (asset: {{ $footerItem['type'] }})
-                                <button class="btn btn-xs btn-default pull-right glyphicon glyphicon-trash" type="button"></button>
-                            </li>
-                        @endforeach
-                    @endif
-                </div>
-            </div>
-        </div>
+        {{--<div class="col-md-12 m-t-15">--}}
+            {{--<div class="panel panel-primary"js->--}}
+                {{--<div class="panel-heading">--}}
+                    {{--<h3 class="panel-title">--}}
+                        {{--Footer Css--}}
+                        {{--<button--}}
+                                {{--type="button"--}}
+                                {{--class="btn btn-xs btn-default pull-right add-assets css-add-assets footer-css js-add-assets >--}}
+                            {{--<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add--}}
+                        {{--</button>--}}
+                    {{--</h3>--}}
+                {{--</div>--}}
+                {{--<div class="panel-body connectedSortable" id="footer-css">--}}
+                    {{--@if($model && isset($model->files['footerCss']) && count($model->files['footerCss']))--}}
+                        {{--@foreach($model->files['footerCss'] as $footerItem)--}}
+                            {{--<li class="list-group-item added-item" data-name=""--}}
+                                {{--data-type="{{ $footerItem['type'] }}" data-link="{{ $footerItem['path'] }}" data-id="{{ $footerItem['id'] }}">--}}
+                                {{--{{ (($footerItem['type'] != 'unit') ? BBgetVersion($footerItem['id']) : get_filename_from_path($footerItem['path'],DS)) }} (asset: {{ $footerItem['type'] }})--}}
+                                {{--<button class="btn btn-xs btn-default pull-right glyphicon glyphicon-trash" type="button"></button>--}}
+                            {{--</li>--}}
+                        {{--@endforeach--}}
+                    {{--@endif--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
         <div class="col-md-12 m-t-15">
             <div class="panel panel-primary">
