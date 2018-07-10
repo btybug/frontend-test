@@ -25,7 +25,7 @@
                             <div class="col-md-10 position-title">
 
                                 <section class="cd-intro">
-                                    <h2 class="cd-headline clip is-full-width font-accident-two-light">
+                                    <h2 class="cd-headline clip is-full-width font-accident-two-light d-flex align-items-center">
                                         <span>The experienced </span>
                                         <span class="cd-words-wrapper">
                            <b class="is-visible">UI/UX Designer</b>
@@ -42,7 +42,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="bty-responsive-tab-1">
+                        <div class="profile-responsive-tab">
                             <button>
                                 <div></div>
                             </button>
@@ -105,4 +105,5 @@
 
 
 {!! BBstyle($_this->path.DS.'css'.DS.'style.css',$_this) !!}
+{!! BBscript($_this->path.DS.'js'.DS.'headlines.min.js',$_this) !!}
 {!! BBscript($_this->path.DS.'js'.DS.'custom.js',$_this) !!}

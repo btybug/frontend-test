@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     // When the user scrolls the page, execute myFunction
     window.onscroll = function() {
@@ -5,7 +6,7 @@ $(document).ready(function() {
     };
 
     // Get the navbar
-    var navbar = document.querySelector(".bty-responsive-tab-1");
+    var navbar = document.querySelector(".profile-responsive-tab");
     var topnavigation = document.querySelector("#top-navigation");
 
     // Get the offset position of the navbar
@@ -16,17 +17,15 @@ $(document).ready(function() {
         if (window.pageYOffset >= sticky) {
             topnavigation.classList.add("sticky");
 
-            topnavigation.parentElement.classList.remove("container");
         } else {
             topnavigation.classList.remove("sticky");
-            topnavigation.parentElement.classList.add("container");
         }
     }
 
-    var $nav = $(".bty-responsive-tab-1");
-    var $btn = $(".bty-responsive-tab-1 button");
-    var $vlinks = $(".bty-responsive-tab-1 >div>ul:nth-of-type(1)");
-    var $hlinks = $(".bty-responsive-tab-1 >div>ul:nth-of-type(2)");
+    var $nav = $(".profile-responsive-tab");
+    var $btn = $(".profile-responsive-tab button");
+    var $vlinks = $(".profile-responsive-tab >div>ul:nth-of-type(1)");
+    var $hlinks = $(".profile-responsive-tab >div>ul:nth-of-type(2)");
 
     var breaks = [];
     let minWidth = 120;

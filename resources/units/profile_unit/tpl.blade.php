@@ -1,6 +1,5 @@
 <header>
-    <div class="container">
-        <section id="top-navigation" class="container-fluid nopadding">
+    <section id="top-navigation" class="container-fluid nopadding">
             <div class="row nopadding ident ui-bg-color01">
                 <div class="col-md-4 vc-photo photo nopadding">
                     <div>
@@ -25,7 +24,7 @@
                             <div class="col-md-10 position-title">
 
                                 <section class="cd-intro">
-                                    <h2 class="cd-headline clip is-full-width font-accident-two-light">
+                                    <h2 class="cd-headline clip is-full-width font-accident-two-light d-flex align-items-center">
                                         <span>The experienced </span>
                                         <span class="cd-words-wrapper">
                            <b class="is-visible">UI/UX Designer</b>
@@ -42,7 +41,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="bty-responsive-tab-1">
+                        <div class="profile-responsive-tab">
                             <button>
                                 <div></div>
                             </button>
@@ -94,7 +93,6 @@
                 </div>
             </div>
         </section>
-    </div>
 </header>
 
 <div class="container">
@@ -102,8 +100,13 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi blanditiis dolor eligendi error est explicabo fugit, id ipsum laborum magni minus nemo obcaecati placeat possimus ratione sequi tenetur voluptas voluptatibus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut inventore iusto, molestias nemo pariatur quaerat quo sapiente! Asperiores assumenda debitis distinctio fuga illo numquam rem similique unde. Ad, autem, nihil. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur dolore, fuga incidunt libero modi. Architecto blanditiis consequuntur culpa eaque, et ex harum libero omnis quisquam quo similique velit, voluptates? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad atque quo voluptas. Ad aut autem consequatur delectus deserunt eaque est, numquam possimus, qui quia reiciendis voluptas voluptatibus. Cum, illo iure! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolorum incidunt labore maiores officiis quasi quisquam quo sed sit tempore voluptates, voluptatibus voluptatum! Distinctio earum nostrum officiis rem sint velit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam debitis delectus ducimus error expedita fuga illum obcaecati quidem tempore voluptatum. Ab ad atque eaque fugit, natus perspiciatis quis vel voluptate? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi delectus dolores ducimus, et explicabo incidunt iusto labore molestias numquam placeat praesentium qui quidem quis rem ut velit vero vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab earum error excepturi facere facilis fugit inventore laudantium modi molestiae natus, neque nihil nostrum perspiciatis quas qui quis sunt, veritatis, voluptatibus?
     </div>
 </div>
-{{--{!! Html::style('/resources/units/profile_unit/css/style.css') !!}--}}
-{{--{!! Html::script('/resources/units/profile_unit/js/custom.js') !!}--}}
+
+
+{!! Html::style('/public/css/font-awesome/css/font-awesome.css') !!}
+{!! Html::style('/resources/units/profile_unit/css/style.css') !!}
+{!! Html::script('/resources/units/profile_unit/js/headlines.min.js') !!}
+{!! Html::script('/resources/units/profile_unit/js/custom.js') !!}
 
 {!! BBstyle($_this->path.DS.'css'.DS.'style.css',$_this) !!}
+{!! BBscript($_this->path.DS.'js'.DS.'headlines.min.js',$_this) !!}
 {!! BBscript($_this->path.DS.'js'.DS.'custom.js',$_this) !!}

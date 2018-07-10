@@ -38,6 +38,7 @@
     font-size: 40px;
     line-height: 2.1em;
     font-weight: 200;
+    color: #e7e7e7;
 }
 #top-navigation .ident .vc-name .name .name-pdf a {
     width: 100%;
@@ -115,10 +116,12 @@ section {
     font-weight: 300;
     margin: 0;
     text-overflow: ellipsis;
+    color: #e7e7e7;
 }
 .cd-headline.clip span {
     display: inline-block;
     padding: .2em 0;
+    margin-right:5px;
 }
 .cd-words-wrapper {
     display: inline-block;
@@ -221,10 +224,13 @@ section {
     min-height: 120px;
     text-align: center;
 }
-.sticky .bty-responsive-tab-1{
+.sticky .profile-responsive-tab{
     position: fixed;
     top: 0;
     width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 9;
 }
 .sticky .vc-photo{
     display: none;
@@ -232,36 +238,32 @@ section {
 
 /*Responsive Tab*/
 
-.bty-responsive-tab-1 {
+.profile-responsive-tab {
     position: relative;
     min-width: 250px;
     display: flex;
 }
 
-.bty-responsive-tab-1 a {
+.profile-responsive-tab a {
     padding: 0px 30px;
 }
 
-.bty-responsive-tab-1 button {
+.profile-responsive-tab button {
     position: relative;
-    /* height: 100%; */
-    /* right: 0; */
     order: 2;
-    /* padding: 0 15px; */
     border: 0;
     outline: none;
     background-color: #499bc7;
     color: #fff;
     cursor: pointer;
-    /*flex: 1;*/
     flex: auto;
 }
 
-.bty-responsive-tab-1 button:hover {
+.profile-responsive-tab button:hover {
     background-color: #499bc7;
 }
 
-.bty-responsive-tab-1 button::after {
+.profile-responsive-tab button::after {
     content: attr(count);
     position: absolute;
     width: 30px;
@@ -278,11 +280,11 @@ section {
     font-weight: bold;
 }
 
-.bty-responsive-tab-1 button:hover::after {
+.profile-responsive-tab button:hover::after {
     transform: scale(1.075);
 }
 
-.bty-responsive-tab-1 button > div {
+.profile-responsive-tab button > div {
     position: relative;
     width: 32px;
     height: 4px;
@@ -290,8 +292,8 @@ section {
     margin: auto;
 }
 
-.bty-responsive-tab-1 button > div:before,
-.bty-responsive-tab-1 button > div:after {
+.profile-responsive-tab button > div:before,
+.profile-responsive-tab button > div:after {
     content: '';
     position: absolute;
     left: 0;
@@ -300,15 +302,15 @@ section {
     background: #fff;
 }
 
-.bty-responsive-tab-1 button > div:before {
+.profile-responsive-tab button > div:before {
     top: -8px;
 }
 
-.bty-responsive-tab-1 button > div:after {
+.profile-responsive-tab button > div:after {
     bottom: -8px;
 }
 
-.bty-responsive-tab-1 > ul:nth-of-type(2) {
+.profile-responsive-tab > ul:nth-of-type(2) {
     position: absolute;
     right: 0;
     top: 100%;
@@ -317,29 +319,28 @@ section {
     z-index: 2;
 }
 
-.bty-responsive-tab-1 > ul:nth-of-type(2) li {
+.profile-responsive-tab > ul:nth-of-type(2) li {
     display: block;
 }
 
 
-.bty-responsive-tab-1 > ul:nth-of-type(1) li:first-child a {
+.profile-responsive-tab > ul:nth-of-type(1) li:first-child a {
 }
 
-.bty-responsive-tab-1 .hidden {
+.profile-responsive-tab .hidden {
     visibility: hidden;
 }
 
-.bty-responsive-tab-1 > ul:nth-of-type(1) li:after {
+.profile-responsive-tab > ul:nth-of-type(1) li:after {
     content: "";
     clear: both;
 
 }
 
-.bty-responsive-tab-1 > ul:nth-of-type(1) li.active:before, .bty-responsive-tab-1 > ul:nth-of-type(1) li:hover:before {
+.profile-responsive-tab > ul:nth-of-type(1) li.active:before, .profile-responsive-tab > ul:nth-of-type(1) li:hover:before {
     content: "";
     bottom: 0;
     z-index: -1;
-    /*height: 120%;*/
     -webkit-transform: perspective(5px) rotateX(2deg);
     -webkit-transform-origin: bottom;
     -moz-transform: perspective(5px) rotateX(2deg);
@@ -351,26 +352,24 @@ section {
     position: absolute;
     border-radius: 5px 5px 0 0;
 }
-.bty-responsive-tab-1 > ul:nth-of-type(1) li.active a, .bty-responsive-tab-1 > ul:nth-of-type(1) li:hover a{
+.profile-responsive-tab > ul:nth-of-type(1) li.active a, .profile-responsive-tab > ul:nth-of-type(1) li:hover a{
     color: white !important;
 }
-.bty-responsive-tab-1 > ul:nth-of-type(1) li {
+.profile-responsive-tab > ul:nth-of-type(1) li {
     position: relative;
     left: 0;
     bottom: 0;
 }
 
-.bty-responsive-tab-1 > ul:nth-of-type(2) a{
+.profile-responsive-tab > ul:nth-of-type(2) a{
     background-color: #499bc7;
     color: white;
 
 }
-.bty-responsive-tab-1 > ul:nth-of-type(2) li:hover a{
+.profile-responsive-tab > ul:nth-of-type(2) li:hover a{
     background-color: #37789b;
 }
-.custom_div{
 
-}
 .custom_ul{
     position: absolute;
     right: 0;
@@ -384,7 +383,7 @@ section {
 .sticky .custom_div{
     flex: 1;
 }
-.sticky .bty-responsive-tab-1 button{
+.sticky .profile-responsive-tab button{
     flex: 0
 }
 .sticky .cd-side-navigation .menuitem{
