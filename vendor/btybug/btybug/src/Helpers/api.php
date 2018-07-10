@@ -1449,6 +1449,7 @@ function BBstyle($path, $unit = null)
 
     if (File::exists($path)) {
         $flag=false;
+        $Uflag=false;
         $actives = \Config::get('units_css', []);
         $contentMD5 = md5(File::get($path));
 
@@ -1459,7 +1460,8 @@ function BBstyle($path, $unit = null)
                 if (File::exists(public_path('cache' . DS . 'css' . DS . $name . '.css')) && !compare_with_profile('css',$contentMD5)) {
                     if(md5(File::get(public_path('cache' . DS . 'css' . DS . $name . '.css')))!=$contentMD5){
                         $flag=true;
-                        if ($unit) {
+                        if ($unit && !$Uflag) {
+                            $Uflag=true;
                             $key = $unit->getSlug();
                             if (!File::exists(public_path('cache' . DS . 'css' . DS . $name . ".$key.js"))) {
                                 $name = $name . ".$key.js";
@@ -1503,6 +1505,7 @@ function BBscript($path, $unit = null,$position='footer')
 
     if (File::exists($path)) {
         $flag=false;
+        $Uflag=false;
         $actives = \Config::get("units_js.$position", []);
         $contentMD5 = md5(File::get($path));
         if (!isset($actives[$contentMD5])) {
@@ -1513,7 +1516,8 @@ function BBscript($path, $unit = null,$position='footer')
                 if (File::exists(public_path('cache' . DS . 'js' . DS . $name . '.js')) && !compare_with_profile('js',$contentMD5)) {
                     if(md5(File::get(public_path('cache' . DS . 'js' . DS . $name . '.js')))!=$contentMD5){
                         $flag=true;
-                        if ($unit) {
+                        if ($unit && !$Uflag) {
+                            $Uflag=true;
                             $key = $unit->getSlug();
                             if (!File::exists(public_path('cache' . DS . 'js' . DS . $name . ".$key.js"))) {
                                 $name = $name . ".$key.js";
