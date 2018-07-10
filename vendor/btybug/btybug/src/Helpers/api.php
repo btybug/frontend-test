@@ -1446,8 +1446,8 @@ function BBstyle($path, $unit = null)
     if (File::exists($path)) {
         $flag=false;
         $actives = \Config::get('units_css', []);
-        $contentMD5 = md5(File::get($path));
         dd($path,DS);
+        $contentMD5 = md5(File::get($path));
 
         if (!isset($actives[$contentMD5])) {
             $exploaded = explode(DS, $path);
@@ -1499,9 +1499,10 @@ function BBscript($path, $unit = null,$position='footer')
     if (File::exists($path)) {
         $flag=false;
         $actives = \Config::get("units_js.$position", []);
+        dd($path,DS);
         $contentMD5 = md5(File::get($path));
         if (!isset($actives[$contentMD5])) {
-            dd($path,DS);
+
             $exploaded = explode(DS, $path);
             $name = explode('.', ($exploaded[count($exploaded) - 1]))[0];
             checker:{
