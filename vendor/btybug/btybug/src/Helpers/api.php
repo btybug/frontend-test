@@ -1495,9 +1495,8 @@ function BBscript($path, $unit = null,$position='footer')
 {
 
     if(!File::isDirectory(public_path('cache'.DS.'js'))){
-        File::makeDirectory(public_path('cache'.DS.'js'));
+        File::makeDirectory(public_path('cache'.DS.'js'),0775,true);
     }
-    dd($path,DS);
 
     if (File::exists($path)) {
         $flag=false;
