@@ -1,4 +1,5 @@
 <?php
+ $HEADER=null;
 /**
  * Created by PhpStorm.
  * User: menq
@@ -53,6 +54,8 @@ function BBCheckRegistrationEnabled()
 
 function BBheader()
 {
+    global  $HEADER;
+    if($HEADER)return BBRenderTpl($HEADER);
     $tpl = \Btybug\btybug\Models\Settings::where('section', 'setting_system')->where('settingkey', 'header_tpl')->first();
     if ($tpl and !empty($tpl->val)) {
         return BBRenderTpl($tpl->val);
