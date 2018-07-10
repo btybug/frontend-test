@@ -28,9 +28,19 @@
     var $hlinks = $(".profile-responsive-tab >div>ul:nth-of-type(2)");
 
     var breaks = [];
-    let minWidth = 120;
+
+
 
     function updateNav() {
+        let minWidth = 300;
+
+        document.querySelectorAll(".cd-side-navigation > .menuitem").forEach(item => {
+            if(minWidth > item.offsetWidth){
+            minWidth = item.offsetWidth
+        }
+    })
+        console.log(minWidth, "min" )
+        minWidth += 20
         if ($vlinks.width() < $("#nav").children().length * minWidth) {
             breaks.push($vlinks.width());
             // Move item to the hidden list
@@ -50,7 +60,7 @@
             console.log("ekav");
             $hlinks
                 .children()
-                .first()
+                .last()
                 .appendTo($vlinks);
             breaks.pop();
             // Hide the dropdown btn if hidden list is empty
