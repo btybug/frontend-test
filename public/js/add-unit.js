@@ -500,9 +500,10 @@ $(document).ready(function () {
         }
     });
 
-    $(".right-side, .droppable1, .droppable2").sortable();
+    $(".right-side, .droppable1, .droppable2").sortable({
+        connectWith: ".connectedSortable"
+    });
     $(".droppable1, .droppable2").droppable({
-
         accept: ".item-container",
         classes: {
             // "ui-droppable-active": "ui-state-active",
@@ -528,5 +529,10 @@ $(document).ready(function () {
     });
 
     $(function () { $("#sortable1, #sortable2").sortable({ placeholder: "highlight", connectWith: ".connectedSortable", refreshPositions: true, opacity: 0.6, forcePlaceholderSize: true, scroll: true, }).disableSelection(); });
+
+
+
+
+
 
 });     

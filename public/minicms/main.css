@@ -572,3 +572,10 @@ ul.wysihtml5-toolbar div[data-wysihtml5-command-value="orange"] {
     background: transparent;
 
 }
+
+
+.ui-sortable-placeholder {
+    border: 4px dashed rgba(80, 80, 80, .4) !important;
+    background-color: rgba(0, 0, 0, .2);
+    background: transparent;
+}
