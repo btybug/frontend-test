@@ -1440,13 +1440,14 @@ function BBrenderPageContent($settings)
 
 function BBstyle($path, $unit = null)
 {
+    dd($path,DS);
+
     if(!File::isDirectory(public_path('cache'.DS.'css'))){
         File::makeDirectory(public_path('cache'.DS.'css'));
     }
     if (File::exists($path)) {
         $flag=false;
         $actives = \Config::get('units_css', []);
-        dd($path,DS);
         $contentMD5 = md5(File::get($path));
 
         if (!isset($actives[$contentMD5])) {
@@ -1493,13 +1494,14 @@ function getCss(){
 
 function BBscript($path, $unit = null,$position='footer')
 {
+    dd($path,DS);
+
     if(!File::isDirectory(public_path('cache'.DS.'js'))){
         File::makeDirectory(public_path('cache'.DS.'js'));
     }
     if (File::exists($path)) {
         $flag=false;
         $actives = \Config::get("units_js.$position", []);
-        dd($path,DS);
         $contentMD5 = md5(File::get($path));
         if (!isset($actives[$contentMD5])) {
 
