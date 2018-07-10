@@ -1,5 +1,5 @@
 
-$(document).ready(function() {
+// $(document).ready(function() {
     // When the user scrolls the page, execute myFunction
     window.onscroll = function() {
         myFunction();
@@ -81,4 +81,4 @@ $(document).ready(function() {
     });
 
     updateNav();
-});
+// });

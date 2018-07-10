@@ -106,9 +106,7 @@
                                 </ul>
                                 <ul class='hidden custom_ul'></ul>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>
