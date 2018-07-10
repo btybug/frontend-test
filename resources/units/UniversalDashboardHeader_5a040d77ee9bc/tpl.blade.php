@@ -1,4 +1,4 @@
-{!! BBstyle($_this->path.DS.'css/header.css') !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'header.css',$_this) !!}
 
 <header>
     <div class="brand pull-left">
