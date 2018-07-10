@@ -31,6 +31,7 @@
 @elseif($page->css_type == 'external')
     {!! BBlinkAssets($page->css) !!}
 @endif
+
 <!-- ================== END BASE CSS STYLE ================== -->
 
 

@@ -16,7 +16,7 @@
                             <div class="col-md-10 name-title"><h1 class="font-accident-two-extralight">Samuel Anderson</h1></div>
                             <div class="col-md-2 nopadding name-pdf">
                                 <a href="#" class="hvr-sweep-to-right d-flex justify-content-center align-items-center w-100 h-100">
-                                    <i class="fa fa-download" aria-hidden="true"></i>
+                                    <i class="fas fa-download" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </div>
@@ -49,37 +49,38 @@
                                 <ul id="nav" class="row nopadding cd-side-navigation">
                                     <li class=" nopadding menuitem ui-menu-color01">
                                         <a href="index.html" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column">
-                                            <i class="fa fa-flag" aria-hidden="true"></i>
+                                            <i class="fas fa-user-graduate" aria-hidden="true"></i>
                                             <span>home</span>
                                         </a>
                                     </li>
                                     <li class=" nopadding menuitem ui-menu-color02">
-                                        <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                        <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column">
+                                            <i class="fas fa-user-graduate" aria-hidden="true"></i>
                                             <span>resume</span></a>
                                     </li>
                                     <li class="nopadding menuitem ui-menu-color03">
                                         <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column">
-                                            <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                            <i class="fas fa-user-graduate" aria-hidden="true"></i>
                                             <span>portfolio</span></a>
                                     </li>
                                     <li class=" nopadding menuitem ui-menu-color04" >
                                         <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            <i class="fas fa-user-graduate" aria-hidden="true"></i>
                                             <span>contacts</span></a>
                                     </li>
                                     <li class=" nopadding menuitem ui-menu-color05" >
                                         <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column">
-                                            <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                                            <i class="fas fa-user-graduate" aria-hidden="true"></i>
                                             <span>feedback</span></a>
                                     </li>
                                     <li class="nopadding menuitem ui-menu-color06" >
                                         <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column">
-                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            <i class="fas fa-user-graduate" aria-hidden="true"></i>
                                             <span>blog</span></a>
                                     </li>
                                     <li class=" nopadding menuitem ui-menu-color01">
                                         <a href="index.html" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column">
-                                            <i class="fa fa-flag" aria-hidden="true"></i>
+                                            <i class="fas fa-user-graduate" aria-hidden="true"></i>
                                             <span>home</span>
                                         </a>
                                     </li>
@@ -101,12 +102,6 @@
     </div>
 </div>
 
-
-{!! Html::style('/public/css/font-awesome/css/font-awesome.css') !!}
-{{--{!! Html::script('/resources/units/profile_unit/js/headlines.min.js') !!}--}}
-{{--{!! Html::script('/resources/units/profile_unit/js/custom.js') !!}--}}
-
-{{--{!! BBstyle(public_path('css'.DS.'font-awesome'.DS.'css'.DS.'font-awesome.css')) !!}--}}
 {!! BBstyle($_this->path.DS.'css'.DS.'style.css',$_this) !!}
 {!! BBscript($_this->path.DS.'js'.DS.'headlines.min.js',$_this) !!}
 {!! BBscript($_this->path.DS.'js'.DS.'custom.js',$_this) !!}
