@@ -148,15 +148,9 @@
    <!-- ================== END PAGE CSS STYLE ================== -->
 @stop
 @section('js')
-   <!-- ================== BEGIN PAGE LEVEL JS ================== -->
    {!! HTML::script('public/minicms/plugins/jquery-tag-it/tag-it.min.js') !!}
    {!! HTML::script('public/minicms/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') !!}
    {!! HTML::script('public/minicms/js/email-compose.demo.min.js') !!}
-   <!-- ================== END PAGE LEVEL JS ================== -->
-   <script>
-       $(document).ready(function() {
-           EmailCompose.init();
-       });
-   </script>
+   {!! HTML::script('public/minicms/js/pages/emailcompose.js') !!}
 @endsection
 

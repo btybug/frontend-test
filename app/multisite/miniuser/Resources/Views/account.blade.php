@@ -110,8 +110,24 @@
 
 @endsection
 
+@section('css')
+    {!! HTML::style('public/minicms/plugins/jquery-jvectormap/jquery-jvectormap.css') !!}
+    {!! HTML::style('public/minicms/plugins/bootstrap-datepicker/bootstrap-datepicker.css') !!}
+    {!! HTML::style('public/minicms/plugins/gritter/jquery.gritter.css') !!}
 
+@stop
 @section('js')
+    {!! HTML::script('public/minicms/plugins/gritter/jquery.gritter.js') !!}
+    {!! HTML::script('public/minicms/plugins/flot/jquery.flot.min.js') !!}
+    {!! HTML::script('public/minicms/plugins/flot/jquery.flot.time.min.js') !!}
+    {!! HTML::script('public/minicms/plugins/flot/jquery.flot.resize.min.js') !!}
+    {!! HTML::script('public/minicms/plugins/flot/jquery.flot.pie.min.js') !!}
+    {!! HTML::script('public/minicms/plugins/sparkline/jquery.sparkline.js') !!}
+    {!! HTML::script('public/minicms/plugins/jquery-jvectormap/jquery-jvectormap.min.js') !!}
+    {!! HTML::script('public/minicms/plugins/jquery-jvectormap/jquery-jvectormap-world-mill-en.js') !!}
+    {!! HTML::script('public/minicms/plugins/bootstrap-datepicker/bootstrap-datepicker.js') !!}
+    {!! HTML::script('public/minicms/js/dashboard.js') !!}
+    {!! HTML::script('public/minicms/js/pages/dashboard.js') !!}
     {!! HTML::script('public/js/add-unit.js') !!}
 @stop
 

@@ -1,3 +1,3 @@
 $(document).ready(function() {
-    App.init();
+    FormPlugins.init();
 });

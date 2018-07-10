@@ -917,8 +917,6 @@
     {!! HTML::style('public/minicms/plugins/jquery-simplecolorpicker/jquery.simplecolorpicker.css') !!}
     {!! HTML::style('public/minicms/plugins/jquery-simplecolorpicker/jquery.simplecolorpicker-fontawesome.css') !!}
     {!! HTML::style('public/minicms/plugins/jquery-simplecolorpicker/jquery.simplecolorpicker-glyphicons.css') !!}
-
-    <!-- ================== END PAGE LEVEL STYLE ================== -->
 @stop
 @section('js')
     <!-- ================== BEGIN PAGE LEVEL JS ================== -->
@@ -942,7 +940,5 @@
     {!! HTML::script('public/minicms/plugins/jquery-simplecolorpicker/jquery.simplecolorpicker.js') !!}
     {!! HTML::script('public/minicms/plugins/clipboard/clipboard.min.js') !!}
     {!! HTML::script('public/minicms/js/form-plugins.demo.min.js') !!}
-
-
-    <!-- ================== END PAGE LEVEL JS ================== -->
+    {!! HTML::script('public/minicms/js/pages/formplugins.js') !!}
 @stop

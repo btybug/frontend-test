@@ -480,19 +480,17 @@ $(document).ready(function () {
     $(".right-side").append(elemnts)
     var slider_width = $('.right-side').width();
     let buttonValue = $(".add-unit-btn").html()
-    console.log(slider_width)
     $('.add-unit-btn').click(function () {
         if ($(this).css("margin-right") == (slider_width - 100) + "px" && !$(this).is(':animated')) {
             $('.add-unit-btn').animate({ "margin-right": '-=' + (slider_width - 100) });
             $('.right-side').animate({ "margin-right": '-=' + slider_width });
-            $(this).html(buttonValue)
-            $(".save-unit").toggleClass("active").style("display: block")
+            $(this).html(buttonValue);
+            $(".save-unit").toggleClass("active");
         }
         else {
             if (!$(this).is(':animated')) {
                 $('.add-unit-btn').animate({ "margin-right": '+=' + (slider_width - 100) });
                 $('.right-side').animate({ "margin-right": '+=' + slider_width });
-                console.log(slider_width)
                 $(this).html("Close")
                 $(".save-unit").toggleClass("active");
 

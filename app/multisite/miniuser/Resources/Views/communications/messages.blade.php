@@ -380,9 +380,7 @@
 
 @stop
 @section('js')
-   <!-- ================== BEGIN PAGE LEVEL JS ================== -->
    {!! HTML::script('public/minicms/js/email-inbox.demo.js') !!}
-   <!-- ================== END PAGE LEVEL JS ================== -->
-
+   {!! HTML::script('public/minicms/js/pages/inbox.js') !!}
 @endsection
 

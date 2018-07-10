@@ -1,3 +1,3 @@
 $(document).ready(function() {
-    App.init();
+    InboxV2.init();
 });
