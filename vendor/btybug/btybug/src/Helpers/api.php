@@ -1438,6 +1438,16 @@ function BBrenderPageContent($settings)
 
 function BBstyle($path, $unit = null)
 {
+    $adminsettingRepository = new \Btybug\btybug\Repositories\AdminsettingRepository();
+    $model = $adminsettingRepository->getVersionsSettings('versions', 'frontend');
+    $id = issetReturn($model, 'css_version');
+
+    $profileRepository = new \Btybug\Uploads\Repository\VersionProfilesRepository();
+    $profile = $profileRepository->findOneByMultiple(['id' => $id, 'type' => 'css']);
+    $assets = $profile->files;
+
+//    dd($assets);
+
     if ($unit) {
         $actives = \Config::get('units_css', []);
         $key = $unit->getSlug();

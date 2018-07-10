@@ -66,7 +66,7 @@ class VersionsService extends GeneralService
                 'author_id' => \Auth::id(),
                 'active'    => 1,
                 'env'       => 0,
-                'content'   => md5(public_path($type . '/versions/' . $fname))
+                'content'   => md5(\File::get(public_path($type . '/versions/' . $fname)))
             ]);
         }
     }
