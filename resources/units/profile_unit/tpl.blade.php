@@ -54,7 +54,7 @@
                                     @if(count($pages))
                                         @php $color = 1; @endphp
                                         @foreach($pages as $k => $p)
-                                            @if($k > 6)
+                                            @if($color > 6)
                                                 @php $color = 1; @endphp
                                             @endif
 
