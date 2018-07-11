@@ -1,5 +1,5 @@
-{!! BBstyle($_this->path.DS.'css/main.css',$_this) !!}
-{!! BBstyle($_this->path.DS.'css/fileinput.css',$_this) !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'main.css',$_this) !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'fileinput.css',$_this) !!}
 <div class="form-group">
     <div class="{!! issetReturn($settings,'radio_inp',null) !!}">
         <h4>
@@ -41,7 +41,7 @@
         });
     });
 </script>--}}
-{!! BBscript($_this->path.DS.'js/fileinput.js') !!}
+{!! BBscript($_this->path.DS.'js'.DS.'fileinput.js') !!}
 <script>
     window.frameElement.contentWindow.targetFunction(1);
 

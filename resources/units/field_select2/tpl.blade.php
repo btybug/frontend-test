@@ -36,8 +36,7 @@
         <div class="clearfix"></div>
     </div>
 </fieldset>
-{!! BBstyle('public/css/select2.min.css',$_this) !!}
-{!! BBscript('public/js/select2.min.js') !!}
+
 <script>
     window.frameElement.contentWindow.targetFunction(1);
 

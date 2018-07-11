@@ -1,6 +1,6 @@
-{!! BBstyle($_this->path.DS.'css/main.css') !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'main.css') !!}
 
-{!! BBstyle($_this->path.DS.'css/intlTelInput.css') !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'intlTelInput.css') !!}
 
 <form>
     <div class="{{isset($settings["flag_style"]) ? $settings["flag_style"] : ''}} {{isset($settings["input_style"]) ? $settings["input_style"] : ''}} {{isset($settings["list_style"]) ? $settings["list_style"] : ''}}">
@@ -24,8 +24,8 @@
     }
 </style>
 
-{!! BBscript($_this->path.DS.'js/intlTelInput.min.js') !!}
-{!! BBscript($_this->path.DS.'js/utils.js') !!}
+{!! BBscript($_this->path.DS.'js'.DS.'intlTelInput.min.js') !!}
+{!! BBscript($_this->path.DS.'js'.DS.'utils.js') !!}
 
 <script>
     $(document).ready(function () {

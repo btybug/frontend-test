@@ -1,4 +1,4 @@
-{!! BBstyle($_this->path.DS.'css/main.css',$_this) !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'main.css',$_this) !!}
 
 @if(isset($settings['range_inp']))
         <input type="range" class="range {{$settings['range_inp']}}" {{isset($settings['range_min'])?'min='.$settings['range_min']:''}}

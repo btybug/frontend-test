@@ -1,6 +1,6 @@
-{!! BBstyle($_this->path.DS.'css/main.css',$_this) !!}
-{!! BBstyle($_this->path.DS.'css/star-rating.css',$_this) !!}
-{!! BBstyle($_this->path.DS.'css/theme.css',$_this) !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'main.css',$_this) !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'star-rating.css',$_this) !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'theme.css',$_this) !!}
 <div class="form-group">
     <div class="{!! issetReturn($settings,'radio_inp',null) !!}">
         <h4>
@@ -29,8 +29,8 @@
         </div>
     </div>
 @endif
-{!! BBscript($_this->path.DS.'js/star-rating.js',$_this) !!}
-{!! BBscript($_this->path.DS.'js/theme.js',$_this) !!}
+{!! BBscript($_this->path.DS.'js'.DS.'star-rating.js',$_this) !!}
+{!! BBscript($_this->path.DS.'js'.DS.'theme.js',$_this) !!}
 <script>
 
     window.frameElement.contentWindow.targetFunction(1);

@@ -22,6 +22,7 @@
                     </div> 
 
                 </div>
- 
-{!! $_this->style('css/styles.css') !!} 
-{!! $_this->script('js/main.js',$_this) !!}
+
+
+{!! BBstyle($_this->path.DS.'css'.DS.'style.css',$_this) !!}
+{!! BBscript($_this->path.DS.'js'.DS.'main.js',$_this) !!}

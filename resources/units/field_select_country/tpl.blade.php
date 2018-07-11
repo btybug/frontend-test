@@ -1,5 +1,5 @@
-{!! BBstyle($_this->path.DS.'css/main.css') !!}
-{!! BBstyle($_this->path.DS.'css/countrySelect.css') !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'main.css') !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'countrySelect.css') !!}
 
 <form>
     <div class="form-item {{isset($settings["flag_style"]) ? $settings["flag_style"] : ''}} {{isset($settings["input_style"]) ? $settings["input_style"] : ''}} {{isset($settings["list_style"]) ? $settings["list_style"] : ''}}">
@@ -28,7 +28,7 @@
         }
     }
 </style>
-{!! BBscript($_this->path.DS.'js/countrySelect.min.js') !!}
+{!! BBscript($_this->path.DS.'js'.DS.'countrySelect.min.js') !!}
 
 <script>
     $( document ).ready(function() {

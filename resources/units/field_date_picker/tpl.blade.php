@@ -1,5 +1,5 @@
-{!! BBstyle($_this->path.DS.'css/main.css',$_this) !!}
-{!! BBstyle($_this->path.DS.'css/bootstrap-datepicker.min.css',$_this) !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'main.css',$_this) !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'bootstrap-datepicker.min.css',$_this) !!}
 <div>
     <div id="event_period" class="{{isset($settings["icon_style"]) ? $settings["icon_style"] : ''}} {{isset($settings["input_style"]) ? $settings["input_style"] : ''}}">
         @if(isset($settings["datepicker_setting"]["type"]) && $settings["datepicker_setting"]["type"] == "component")

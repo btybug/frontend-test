@@ -150,6 +150,3 @@
     <!-- /.container -->
 
 </aside>
-
-{!! $_this->style('css/styles.css') !!}
-{!! $_this->script('js/popper/popper.min.js') !!}

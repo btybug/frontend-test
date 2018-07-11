@@ -56,5 +56,5 @@
     </nav>
 @endif
 
-{!! BBstyle($_this->path.DS.'css'.DS.'main.css') !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'main.css',$_this) !!}
 {!! BBscript($_this->path.DS.'js'.DS.'main.js',$_this) !!}

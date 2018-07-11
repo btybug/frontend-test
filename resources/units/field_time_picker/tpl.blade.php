@@ -1,12 +1,12 @@
-{!! BBstyle($_this->path.DS.'css/main.css',$_this) !!}
-{!! BBstyle($_this->path.DS.'css/bootstrap-datepicker.min.css',$_this) !!}
-{!! BBstyle($_this->path.DS.'css/jquery.timepicker.min.css',$_this) !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'main.css',$_this) !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'bootstrap-datepicker.min.css',$_this) !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'jquery.timepicker.min.css',$_this) !!}
     <div>
         <input  id="basicExample" type="text" class="timepic {{isset($settings["input_style"])?$settings["input_style"]:""}}">
     </div>
 
-{!! BBscript($_this->path.DS.'js/bootstrap-datepicker.min.js',$_this) !!}
-{!! BBscript($_this->path.DS.'js/jquery.timepicker.min.js',$_this) !!}
+{!! BBscript($_this->path.DS.'js'.DS.'bootstrap-datepicker.min.js',$_this) !!}
+{!! BBscript($_this->path.DS.'js'.DS.'jquery.timepicker.min.js',$_this) !!}
 
 <script>
     $(function() {

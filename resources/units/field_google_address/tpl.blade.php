@@ -131,4 +131,4 @@
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBP5WutMrM_j9ubit8CT9xocuxTvULEXSI&libraries=places&callback=initAutocomplete" async defer></script>
-{!! BBstyle($_this->path.DS.'css/main.css') !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'main.css') !!}

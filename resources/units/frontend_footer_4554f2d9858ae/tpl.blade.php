@@ -22,4 +22,3 @@
     </div>
 </footer>
 <!-- Footer -->
-{!! $_this->style('css/styles.css') !!}
