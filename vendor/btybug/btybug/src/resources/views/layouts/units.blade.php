@@ -15,6 +15,9 @@
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
+    <script>
+        $.noConflict();
+    </script>
     {!! HTML::script("public/js/jquery-2.1.4.min.js") !!}
     {!! BBCss('backend') !!}
     {!! HTML::style('public/js/jquery-ui/jquery-ui.min.css') !!}
@@ -27,7 +30,7 @@
 
 <div class="container-fluid coreheadersetting m-b-10">
     <div class="row">
-        <div class="col-xs-4 p-t-10">
+        <div class="col-md-4 p-t-10">
             <div class="form-group">
                 <label class="sr-only" for="itemname">itemname</label>
                 @if(isset($variation))
@@ -39,10 +42,10 @@
                 @endif
             </div>
         </div>
-        <div class="col-xs-4  p-t-10">
+        <div class="col-md-4  p-t-10">
 
         </div>
-        <div class="col-xs-4 text-right  p-t-10">
+        <div class="col-md-4 text-right  p-t-10">
             <button class="btn btn-danger" data-settingaction="console">Console</button>
             <button class="btn btn-info" data-settingaction="setting"> Setting</button>
             <button class="btn btn-success" data-settingaction="save"> save</button>

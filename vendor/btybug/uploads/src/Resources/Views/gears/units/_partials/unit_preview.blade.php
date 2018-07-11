@@ -1,6 +1,5 @@
 <head>
     {!! BBgetProfileAssets(false,'css','headerCss') !!}
-
     {!! HTML::style("public/css/preview-template.css?v=".rand('1111','9999')) !!}
     {!! HTML::style('public/css/cms.css') !!}
     {!! HTML::style("public/css/bty.css?v=".rand('1111','9999')) !!}
@@ -130,7 +129,7 @@
     <div class="content animated bounceInRight hide" data-settinglive="settings">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xs-3">
+                <div class="col-md-3">
                     <div class="left">
                         <ul id="placeholders-render-list-main-box-bty">
                             @isset($ui->placeholders)
@@ -164,7 +163,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-xs-9">
+                <div class="col-md-9">
                     <div class="right" id="right-settings-main-box-bty">
                         @include("uploads::gears.units._partials.right_box")
                     </div>

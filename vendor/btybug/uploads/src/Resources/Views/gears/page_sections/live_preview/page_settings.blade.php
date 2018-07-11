@@ -23,7 +23,7 @@
             <div class="content animated bounceInRight hide" data-settinglive="settings">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-xs-3">
+                        <div class="col-md-3">
                             <div class="left">
                                 <ul id="placeholders-render-list-main-box-bty">
                                     @isset($model->placeholders)
@@ -73,7 +73,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-xs-9">
+                        <div class="col-md-9">
                             <img src="{!! url('/public/images/loader.gif') !!}"
                                  style="position: relative;left: 40%;width: 100px;top: 70px;" id="loader-img" class="hide"/>
                             <div class="right" id="right-settings-main-box-bty">
