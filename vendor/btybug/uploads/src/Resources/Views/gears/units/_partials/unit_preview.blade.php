@@ -1,8 +1,6 @@
 <head>
-    {!! HTML::script("public/js/jquery-2.1.4.min.js") !!}
-    {!! BBCss('backend') !!}
-    {!! HTML::style("public/css/font-awesome/css/font-awesome.min.css") !!}
-    {!! HTML::style("public/js/jquery-ui/jquery-ui.min.css") !!}
+    {!! BBgetProfileAssets(false,'css','headerCss') !!}
+
     {!! HTML::style("public/css/preview-template.css?v=".rand('1111','9999')) !!}
     {!! HTML::style('public/css/cms.css') !!}
     {!! HTML::style("public/css/bty.css?v=".rand('1111','9999')) !!}
@@ -179,7 +177,8 @@
 
 <button data-settingaction="save" class="hide" id="settings_savebtn"></button>
 <input type="hidden" id="hidden_data" value='{!!$settings_json!!}'>
-{!! BBMainFrontJS() !!}
+{!! BBgetProfileAssets(false) !!}
+{!!  BBJs() !!}
 {!! HTML::script("public/js/UiElements/bb_styles.js?v.5") !!}
 {!! HTML::script("public/js/UiElements/ui-preview-setting.js?v=".rand('1111','9999')) !!}
 {!! HTML::script("public/js/UiElements/ui-settings.js?v=".rand('1111','9999')) !!}
