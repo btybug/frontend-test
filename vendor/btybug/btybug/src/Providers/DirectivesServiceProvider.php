@@ -23,7 +23,7 @@ class DirectivesServiceProvider extends ServiceProvider
 
         Blade::directive('option', function ($expression) {
             $t = self::parseMultipleArgs($expression);
-            $hide = 'hide';
+            $hide = 'd-none';
             return  "<?php if( isset({$t->get(2)}['key']) && isset({$t->get(2)}['type']) && {$t->get(2)}['type'] == {$t->get(1)} &&  {$t->get(2)}['key'] == {$t->get(0)}){ echo '<div>'; }else{ echo '<div class=".$hide.">'; } ?>";
         });
 

@@ -1,6 +1,25 @@
 <head>
-    {!! BBgetProfileAssets(false,'css','headerCss') !!}
-    {!! HTML::style("public/css/preview-template.css?v=".rand('1111','9999')) !!}
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+        {!! BBgetProfileAssets(false,'css','headerCss') !!}
+        {!! BBCss()  !!}
+    <!-- ================== END BASE CSS STYLE ================== -->
+
+    <!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
+        {!! getCss() !!}
+    <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
+
+
+
+<!-- ================== BEGIN BASE JS ================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    {!! BBgetProfileAssets(false) !!}
+    {!!  BBJs() !!}
+<!-- ================== END BASE JS ================== -->
+
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+    {!! getHeaderJs() !!}
+<!-- ================== END PAGE LEVEL JS ================== -->
+
     {!! HTML::style('public/css/cms.css') !!}
     {!! HTML::style("public/css/bty.css?v=".rand('1111','9999')) !!}
     {!! getCss() !!}
@@ -176,21 +195,28 @@
 
 <button data-settingaction="save" class="hide" id="settings_savebtn"></button>
 <input type="hidden" id="hidden_data" value='{!!$settings_json!!}'>
-{!! BBgetProfileAssets(false) !!}
-{!!  BBJs() !!}
+
+<!-- ================== BEGIN BASE FOOTER JS ================== -->
+    {!! BBgetProfileAssets(false,'js','footerJs') !!}
+<!-- ================== END FOOTER JS ================== -->
+
+<!-- ================== BEGIN FOOTER PAGE LEVEL JS ================== -->
+{!! getFooterJs() !!}
+<!-- ================== END FOOTER PAGE LEVEL JS ================== -->
+
+{!! HTML::script("public/js/UiElements/bb_styles.js?v.5") !!}
 {!! HTML::script("public/js/UiElements/bb_styles.js?v.5") !!}
 {!! HTML::script("public/js/UiElements/ui-preview-setting.js?v=".rand('1111','9999')) !!}
 {!! HTML::script("public/js/UiElements/ui-settings.js?v=".rand('1111','9999')) !!}
-{!! HTML::script("public/js/jquery-ui/jquery-ui.js") !!}
 {!! getFooterJs() !!}
 <script>
     $(document).ready(function () {
         $('.closeCSSEditor').on('click', function () {
-            if ($(this).closest('.head').next().hasClass("hide")) {
-                $(this).closest('.head').next().removeClass('hide');
+            if ($(this).closest('.head').next().hasClass("d-none")) {
+                $(this).closest('.head').next().removeClass('d-none');
                 $(this).removeClass('top-show')
             } else {
-                $(this).closest('.head').next().addClass('hide');
+                $(this).closest('.head').next().addClass('d-none');
                 $(this).addClass('top-show')
             }
         });
@@ -200,14 +226,14 @@
 //                containment: 'body',
             start: function () {
                 $(this).find('.content').height('calc(100% - 50px)');
-                $(this).find('.content').removeClass('hide');
+                $(this).find('.content').removeClass('d-none');
                 $(this).find('.closeCSSEditor').on('click', function () {
                     $(this).closest('.settings-bottom').attr('style', '');
                 })
             },
             stop: function () {
                 $(this).find('.content').height('calc(100% - 50px)');
-                $(this).find('.content').removeClass('hide');
+                $(this).find('.content').removeClass('d-none');
             }
         });
     });

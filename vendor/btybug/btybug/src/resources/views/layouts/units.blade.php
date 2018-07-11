@@ -15,9 +15,6 @@
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
-    <script>
-        $.noConflict();
-    </script>
     {!! HTML::script("public/js/jquery-2.1.4.min.js") !!}
     {!! BBCss('backend') !!}
     {!! HTML::style('public/js/jquery-ui/jquery-ui.min.css') !!}

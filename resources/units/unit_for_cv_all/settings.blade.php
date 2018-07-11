@@ -58,7 +58,7 @@ $text_styles = getDinamicStyle('texts');
     </div>
 </div>
 @endoption
-{!! BBstyle($_this->path.DS.'css'.DS.'settings.css') !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'settings.css',$_this) !!}
 <script type="template" id="template">
     <div class="bty-panel-collapse {key}">
         <div>
@@ -100,7 +100,8 @@ $text_styles = getDinamicStyle('texts');
     $('a.delete').click(function(){
         console.log($("div."+$(this).attr('id')));
         $("div."+$(this).attr('id')).remove();
-    })
+    });
+    
     $('#plus').click(function(){
         var exp_index = Number($('input#exp_count').val())+1;
 
