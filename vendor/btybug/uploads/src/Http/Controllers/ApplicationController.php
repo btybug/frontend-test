@@ -18,7 +18,6 @@ class ApplicationController extends Controller
 {
     public function getIndex ()
     {
-        dd(1);
-        return view('uploads::application.index');
+        return view('uploads::applications.index');
     }
 }
