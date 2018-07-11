@@ -6,7 +6,7 @@
     {!! HTML::style("public/css/preview-template.css?v=".rand('1111','9999')) !!}
     {!! HTML::style('public/css/cms.css') !!}
     {!! HTML::style("public/css/bty.css?v=".rand('1111','9999')) !!}
-    {!! HTML::style('public-x/custom/css/'.str_replace(' ','-',$ui->slug).'.css') !!}
+    {!! getCss() !!}
     <style>
         .settings-bottom {
             position: fixed;
@@ -184,6 +184,7 @@
 {!! HTML::script("public/js/UiElements/ui-preview-setting.js?v=".rand('1111','9999')) !!}
 {!! HTML::script("public/js/UiElements/ui-settings.js?v=".rand('1111','9999')) !!}
 {!! HTML::script("public/js/jquery-ui/jquery-ui.js") !!}
+{!! getFooterJs() !!}
 <script>
     $(document).ready(function () {
         $('.closeCSSEditor').on('click', function () {
@@ -213,8 +214,5 @@
         });
     });
 </script>
-@if(isset($ui))
-    {!! HTML::script('public-x/custom/js/'.str_replace(' ','-',$ui->slug).'.js') !!}
-@endif
 {!! BBscriptsHook() !!}
 </body>
