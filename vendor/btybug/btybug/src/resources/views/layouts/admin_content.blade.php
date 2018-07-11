@@ -16,8 +16,11 @@
 <!-- ================== END PAGE LEVEL JS ================== -->
 </head>
 <body>
+
 @yield('main_content')
+
 @include('modal')
+
 {{ csrf_field() }}
 
 <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
