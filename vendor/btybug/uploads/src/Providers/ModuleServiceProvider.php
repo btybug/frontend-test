@@ -238,6 +238,22 @@ class ModuleServiceProvider extends ServiceProvider
                             'custom-link' => '/admin/uploads/profiles/css'
                         ]
                     ]
+                ],
+                [
+                    "title"       => "Applications",
+                    "custom-link" => "/admin/uploads/application",
+                    "icon"        => "fa fa-angle-right",
+//                    'children'    => [
+//                        [
+//                            "title"       => "JS",
+//                            "icon"        => "fa fa-code",
+//                            'custom-link' => '/admin/uploads/application'
+//                        ], [
+//                            "title"       => "CSS",
+//                            "icon"        => "fa fa-css3",
+//                            'custom-link' => '/admin/uploads/profiles/css'
+//                        ]
+//                    ]
                 ]
             ]]);
 
@@ -250,7 +266,7 @@ class ModuleServiceProvider extends ServiceProvider
             }
         }
         //TODO; remove when finish all
-        // \Btybug\btybug\Models\Routes::registerPages('sahak.avatar/uploads');
+         \Btybug\btybug\Models\Routes::registerPages('sahak.avatar/uploads');
     }
 
     /**

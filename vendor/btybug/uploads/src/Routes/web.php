@@ -20,8 +20,12 @@ Route::group( ['middleware' => ['admin:Users']],function (){
 //    return redirect()->back()->with(['flash' => ['message' => 'modules optimisation successfully!!!']]);
 //});
 
-    Route::group(['prefix' => 'modules'], function () {
+    Route::group(['prefix' => 'application'], function () {
+        Route::get('/', 'ApplicationController@getIndex', true)->name('application_index');
+        Route::get('/form-builder', 'ApplicationController@getFormBuilder', true)->name('application_form');
+    });
 
+    Route::group(['prefix' => 'modules'], function () {
         Route::get('/', 'ModulesController@getIndex', true)->name('modules_index');
         Route::get('/core-packages', 'ModulesController@getCoreModules', true)->name('core_packages');
         Route::get('/update-cms', 'ModulesController@getUpdateCms', true)->name('update_cms');
