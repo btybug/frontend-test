@@ -1,4 +1,4 @@
-{!! BBstyle($_this->path.DS.'css/header.css',$_this) !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'header.css',$_this) !!}
 {{--<div class="logo-menu">--}}
     {{--<nav class="navbar navbar-default" role="navigation" data-spy="affix" data-offset-top="50">--}}
         {{--<div class="row">--}}

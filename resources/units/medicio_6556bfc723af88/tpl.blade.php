@@ -1,6 +1,7 @@
-{!! $_this->style('assets/css/main.css') !!}
+
+{!! BBstyle('assets'.DS.'css'.DS.'main.css',$_this) !!}
 <!-- Responsive Style -->
-{!! $_this->style('assets/css/responsive.css') !!}
+{!! BBstyle('assets'.DS.'css'.DS.'responsive.css',$_this) !!}
 <!-- Extras -->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -294,8 +295,10 @@
 <!-- Conatct Section -->
 <!-- Smooth Scroll -->
 <!-- Smooth Scroll -->
-{!! $_this->script('assets/js/smooth-scroll.js') !!}
-{!! $_this->script('assets/js/lightbox.min.js') !!}
 
+{!! BBscript('assets'.DS.'js'.DS.'smooth-scroll.js',$_this) !!}
+
+{!! BBscript('assets'.DS.'js'.DS.'lightbox.min.js',$_this) !!}
 <!-- All JS plugin Triggers -->
-{!! $_this->script('assets/js/main.js') !!}
+
+{!! BBscript('assets'.DS.'js'.DS.'main.js',$_this) !!}
