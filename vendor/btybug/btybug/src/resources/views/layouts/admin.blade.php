@@ -1,6 +1,5 @@
 @php
     $page = \Btybug\btybug\Services\RenderService::getPageByURL();
-dd($page);
 @endphp
 @extends('btybug::layouts.admin_content')
 @section('main_content')
