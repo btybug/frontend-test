@@ -16,7 +16,7 @@
     <meta content="" name="description"/>
     <meta content="" name="author"/>
     {!! HTML::script("public/js/jquery-2.1.4.min.js") !!}
-    {!! BBCss() !!}
+    {!! BBCss('backend') !!}
     {!! HTML::style('public/js/jquery-ui/jquery-ui.min.css') !!}
     {!! HTML::style('public/css/cms.css') !!}
     @yield('CSS')
