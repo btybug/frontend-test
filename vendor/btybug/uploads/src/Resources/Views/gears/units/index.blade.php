@@ -93,8 +93,8 @@
 @section('JS')
     {!! HTML::script('public/js/dropzone/js/dropzone.js') !!}
 
-    {!! BBscript('public/js/custom_plugin.js') !!}
-    {!! BBscript('public/js/bootstrap-select/js/bootstrap-select.min.js') !!}
+    {!! BBscript('public'.DS.'js'.DS.'custom_plugin.js') !!}
+    {!! BBscript('public'.DS.'js'.DS.'bootstrap-select'.DS.'js'.DS.'bootstrap-select.min.js') !!}
     <script>
         Dropzone.options.myAwesomeDropzone = {
             init: function () {
