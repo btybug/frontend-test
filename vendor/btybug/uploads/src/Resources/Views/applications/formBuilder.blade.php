@@ -158,30 +158,25 @@
     var subJSON = document.getElementById('subjson');
     var builder = new Formio.FormBuilder(document.getElementById("builder"), {
       display: 'form',
-      components: [],
-      settings: {
-        pdf: {
-          "id": "1ec0f8ee-6685-5d98-a847-26f67b67d6f0",
-          "src": "https://files.form.io/pdf/5692b91fd1028f01000407e3/file/1ec0f8ee-6685-5d98-a847-26f67b67d6f0"
-        }
-      }
+      components: []
     }, {
         baseUrl: 'https://examples.form.io'
       });
 
     var onForm = function (form) {
       form.on('change', function () {
-        subJSON.innerHTML = '';
+        subJSON.innerHTML = ''; // Subjson result
         subJSON.appendChild(document.createTextNode(JSON.stringify(form.submission, null, 4)));
       });
     };
-
+    var jsonForSend = null
     var setDisplay = function (display) {
       builder.setDisplay(display).then(function (instance) {
-        var jsonElement = document.getElementById('json');
-        var formElement = document.getElementById('formio');
+        var jsonElement = document.getElementById('json'); // Data full
+        var formElement = document.getElementById('formio'); // full form
         instance.on('saveComponent', function (event) {
-          var schema = instance.schema;
+            var schema = instance.schema;
+            jsonForSend  = JSON.stringify(schema, null, 4)
           jsonElement.innerHTML = '';
           formElement.innerHTML = '';
           jsonElement.appendChild(document.createTextNode(JSON.stringify(schema, null, 4)));
@@ -217,7 +212,52 @@
       this.textContent = components.classList.contains("displayToggle") ? "Close" : "Add unit"
     })
     document.querySelector(".saveForm").addEventListener("click", function () {
-      alert("saveing")
+      let formName = document.querySelector(".form-name").value
+      let formDescription = document.querySelector(".form-description").value
+      console.log( jsonForSend)
+      if (formName.trim().length === 0  && formDescription.trim().length === 0) {
+          alert("formName & formDescription filesds is requried")
+      } else if (formName.trim().length === 0) {
+        alert("formName filed  is requried")
+      }else if(formDescription.trim().length === 0) {
+        alert("formDescription filed is requried")
+      }else {
+          let obj = {
+              formName: formName,
+              formDescription: formDescription,
+              body: jsonForSend 
+          }
+          console.log(obj)
+        //   fetch('{{ route('application_form_save') }}', {
+        //     method: 'POST', 
+        //     body: obj,
+        //     header: 
+        //   } ).then(res => console.log(res)).catch(err => console.log(err))
+          $.ajax({
+            type: "post",
+            datatype: "json",
+            url: '{{ route('application_form_save') }}',
+            data: obj,
+            headers: {
+                'X-CSRF-TOKEN': $("input[name='_token']").val()
+            },
+            success: function (data) {
+                console.log(data)
+                if (!data.error) {
+                    // console.log(data.html)
+                    // $('#magic-settings .modal-title').html("Select " + action);
+                    // var html=$(data.html);
+                    // var script=html.find('script').html();
+                    // $('body').find('.magic-modal-select-variations').html(script)
+                    // $('#magic-body').html(html);
+
+                    // $('#magic-settings').modal();
+
+                }
+            }
+        });
+
+      }
     })
     setDisplay('form');
     </script>
