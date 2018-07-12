@@ -23,6 +23,7 @@ Route::group( ['middleware' => ['admin:Users']],function (){
     Route::group(['prefix' => 'application'], function () {
         Route::get('/', 'ApplicationController@getIndex', true)->name('application_index');
         Route::get('/form-builder', 'ApplicationController@getFormBuilder', true)->name('application_form');
+        Route::post('/save-builder-form', 'ApplicationController@saveBuildedForm', true)->name('application_form_save');
     });
 
     Route::group(['prefix' => 'modules'], function () {
