@@ -2,7 +2,9 @@
 @section('content')
     <div class="col-md-12">
         <h2>Unit List</h2>
-
+        <div class="m-15 text-right">
+            <a href="{!! route('mini_extra_gears_optimize') !!}" class="btn btn-dark">Optimize (for Development)</a>
+        </div>
         <div class="row">
             <ul class="list-unit">
                 @if(count($units))

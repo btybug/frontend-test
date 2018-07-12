@@ -23,6 +23,7 @@ Route::group(['prefix' => 'preferences'], function () {
 Route::group(['prefix' => 'extra'], function () {
     Route::get('/plugins', 'ClientController@extraPlugins')->name('mini_extra_plugins');
     Route::get('/units', 'ClientController@extraGears')->name('mini_extra_gears');
+    Route::get('/units-optimize', 'ClientController@extraGearsOptimize')->name('mini_extra_gears_optimize');
 });
 
 Route::group(['prefix' => 'my-site'], function () {

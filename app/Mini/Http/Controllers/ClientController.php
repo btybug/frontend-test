@@ -83,4 +83,11 @@ class ClientController extends MiniController
         $service->editPage($request,$repository);
         return redirect()->back();
     }
+
+    public function extraGearsOptimize(Request $request)
+    {
+        $this->ennable($request);
+        MiniPainter::optimize();
+        return redirect()->back();
+    }
 }
