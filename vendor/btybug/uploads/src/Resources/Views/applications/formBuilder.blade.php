@@ -227,12 +227,6 @@
               formDescription: formDescription,
               body: jsonForSend 
           }
-          console.log(obj)
-        //   fetch('{{ route('application_form_save') }}', {
-        //     method: 'POST', 
-        //     body: obj,
-        //     header: 
-        //   } ).then(res => console.log(res)).catch(err => console.log(err))
           $.ajax({
             type: "post",
             datatype: "json",
@@ -242,21 +236,11 @@
                 'X-CSRF-TOKEN': $("input[name='_token']").val()
             },
             success: function (data) {
-                console.log(data)
                 if (!data.error) {
-                    // console.log(data.html)
-                    // $('#magic-settings .modal-title').html("Select " + action);
-                    // var html=$(data.html);
-                    // var script=html.find('script').html();
-                    // $('body').find('.magic-modal-select-variations').html(script)
-                    // $('#magic-body').html(html);
-
-                    // $('#magic-settings').modal();
-
+                    window.location.replace(data.url);
                 }
             }
         });
-
       }
     })
     setDisplay('form');
