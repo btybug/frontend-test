@@ -27,8 +27,12 @@ class ApplicationController extends Controller
         return view('uploads::applications.index');
     }
 
+    public function getFormBuilder ()
+    {
+        return view('uploads::applications.formBuilder');
+    }
 
-    public function getFormBuilder (Request $request)
+    public function saveBuildedForm (Request $request)
     {
         $title = $request->title;
         $description = $request->description;
