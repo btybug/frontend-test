@@ -67,49 +67,21 @@
 @stop
 
 @section( 'JS' )
-    {!! HTML::script("public/libs/jspanel/jspanel.min.js") !!}
+    <!-- {!! HTML::script("public/libs/jspanel/jspanel.min.js") !!}
     {!! Html::script("public/js/form-builder/form-builder.js?m=m") !!}
     {!! Html::script("public/js/form-builder/form-logic.js?m=m") !!}
-    {!! HTML::script('public/js/tinymice/tinymce.min.js') !!}
-    <script>
-        tinymce.init({
-            selector: '.contentEditor',
-            height: 300,
-            theme: 'modern',
-            plugins: [
-                'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-                'searchreplace wordcount visualblocks visualchars code fullscreen',
-                'insertdatetime media nonbreaking save table contextmenu directionality',
-                'emoticons template paste textcolor colorpicker textpattern imagetools'
-            ],
-            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-            toolbar2: 'print preview media | forecolor backcolor emoticons',
-            image_advtab: true,
-
-        });
-
-        $('body').on('click', ".sc-item", function () {
-            tinymce.activeEditor.execCommand('mceInsertContent', false, $(this).text());
-        });
-
-        $('body').on('click', ".delete-email", function () {
-            var key = $(this).data('key');
-            $("#data-email-" + key).remove();
-        });
-        $('body').on('click', '.add-tmp', function () {
-            var unique_count = uniqueID();
-            var tmpHTML = $("#form-email-template").html();
-            tmpHTML = tmpHTML.replace(/{count}/g, unique_count);
-            $(".templates-box").append(tmpHTML);
-        });
-    </script>
-
-@stop
+    {!! HTML::script('public/js/tinymice/tinymce.min.js') !!} -->
+    {!! HTML::script('public/add-unit.js') !!}
+    
 
 @section( 'content' )
     <!-- Form Builder -->
     {!! Form::model($form,['id'=>'fields-list','url' => url(route('save_core_forms',$form->id))]) !!}
     {!! Form::hidden('id',$form->id) !!}
+    <!-- <div class="add-unit text-right mb-2">
+        <button type="button" class="btn btn-outline-dark btn-lg save-unit ml-3" style="float: right; opacity: 1; display: block" >Save</button>
+        <button type="button" class="btn btn-outline-dark btn-lg add-unit-btn">Add unit<i class="fas fa-plus"></i></button>
+    </div> -->
     <div class="bb-form-header">
         <div class="row">
             <div class="col-md-4">
@@ -903,144 +875,3 @@
     </div>
 @stop
 
-@section( 'JS' )
-    <script>
-        $(function () {
-            var checkedit = $("input[value='editor']");
-            var checktemple = $("input[value='template']");
-            var edBody = $('.editor_body');
-            var temBody = $('.template_body');
-            checkedit.on('click', function () {
-                if ($(this).is(':checked')) {
-                    $(this).closest('.dis-flex').find(edBody).show();
-                    $(this).closest('.dis-flex').find(temBody).hide();
-                } else {
-                    alert(55);
-                    $(this).closest('.dis-flex').find(edBody).hide();
-                    $(this).closest('.dis-flex').find(temBody).show();
-
-                }
-            });
-            checktemple.on('click', function () {
-                if ($(this).is(':checked')) {
-                    $(this).closest('.dis-flex').find(edBody).hide();
-                    $(this).closest('.dis-flex').find(temBody).show();
-                } else {
-                    $(this).closest('.dis-flex').find(temBody).hide();
-
-                }
-            });
-//get partial options view
-            $('body').on('change', '.partials-change', function () {
-
-                var data = {
-                    'type': $(this).val(),
-                    'data_id': $(this).attr('data-id'),
-                    'options_form_id': $('input[name=id]').val()
-                };
-                $.ajax({
-                    type: 'POST',
-                    url: "",
-                    data: data,
-                    headers: {
-                        'X-CSRF-TOKEN': $("input[name='_token']").val()
-                    },
-                    dataType: 'json',
-                    success: function (data) {
-                        if (!data.error) {
-                            var data_id = data.data_id;
-                            $('body').find('div[data-id=' + data_id + ']').find('.partials-area').html(data.html);
-                        } else {
-                            alert(data.message);
-                        }
-                    }
-                });
-            });
-
-            var jsonString = $('#tabs-json-area').text();
-            var jsonData = JSON.parse(jsonString);
-            var tabJson = {name: null, data: {}}
-            $('#save-tab-changes').on('click', function () {
-                var newTab = (objectifyForm($('#tab-options')));
-                var copyData = tabJson;
-                copyData.name = newTab.name;
-                copyData.data = [{'type': 'unit', 'value': 'price_calculate.default'}];
-                jsonData.push(copyData);
-                updateTabs(jsonData);
-                $('#tab-manage-modal').modal('hide');
-                $('#tabs-json-area').text(JSON.stringify(jsonData));
-
-
-            });
-
-//data-id
-
-            function objectifyForm(formArray) {//serialize data function
-                var data = {};
-                formArray.serializeArray().map(function (x) {
-                    data[x.name] = x.value;
-                });
-                data.data = {};
-                return data;
-            }
-        });
-
-    </script>
-
-
-
-    <script>
-
-        $("body").on('input', '.form-title-settings', function () {
-            var val = $(this).val();
-
-            $(".form-title").text(val);
-        });
-
-        $("body").on('change', '.select-field', function () {
-            var checkbox = this;
-            var field = $(checkbox).val();
-            if (checkbox.checked) {
-                var table = $(checkbox).data('table');
-                $.ajax({
-                    url: "mbsp_render_fields",
-                    data: {table: table, field: field},
-                    headers: {
-                        'X-CSRF-TOKEN': $("input[name='_token']").val()
-                    },
-                    dataType: 'json',
-                    success: function (data) {
-                        if (!data.error) {
-                            $(".field-box").append(data.html);
-                        }
-                    },
-                    type: 'POST'
-                });
-                // alert($(checkbox).val());
-            } else {
-
-                $("#bty-input-id-" + $(checkbox).data('id')).remove();
-            }
-        });
-
-
-        $('button[data-action=save-form]').on('click', function () {
-            var data = $('#fields-list').serialize();
-            $.ajax({
-                url: "mbsp_save_form",
-                data: data,
-                headers: {
-                    'X-CSRF-TOKEN': $("input[name='_token']").val()
-                },
-                dataType: 'json',
-                success: function (data) {
-                    if (!data.error) {
-                        window.location.href = "blog_form_list";
-                    }
-                },
-                type: 'POST'
-            });
-        });
-    </script>
-
-@stop
