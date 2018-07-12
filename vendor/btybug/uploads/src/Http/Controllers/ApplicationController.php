@@ -46,11 +46,10 @@ class ApplicationController extends Controller
     }
 
     public function editFormField($id = null){
-        $allData = $this->formBuilderRepository->getAll();
-        if ($id){
-            $editableData = $this->formBuilderRepository->find($id);
-        }
-        return view('uploads::applications.index')->with(['editableData' => $editableData,'allData' => $allData]);
+
+        $editableData = $this->formBuilderRepository->findOrFail($id);
+
+        return view('uploads::applications.formBuilder')->with('editableData', $editableData);
     }
 
     public function deleteFormField($id = null){
