@@ -15,7 +15,7 @@
         </div>
     </div>
     @if(isset($editableData))
-        <textarea class="hidden">{{$editableData}}</textarea>
+        <textarea class="hidden">{!! $editableData !!}</textarea>
     @endif
     <div class="bb-form-sub-header">
         <div class="row">
