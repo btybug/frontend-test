@@ -18,5 +18,7 @@ class formBuilder extends Model
      */
     protected $guarded = ['id'];
 
-
+//    protected $casts = [
+//        'body' => 'json'
+//    ];
 }

@@ -34,14 +34,13 @@ class ApplicationController extends Controller
 
     public function saveBuildedForm (Request $request)
     {
-        $title = $request->formName;
-        $description = $request->formDescription;
-        $jsonData  = $request->body;
-        $this->formBuilderRepository->model()->title = $title;
-        $this->formBuilderRepository->model()->description = $description;
-        $this->formBuilderRepository->model()->json_data = $jsonData;
-        $this->formBuilderRepository->model()->save();
-        $data = $this->formBuilderRepository->model()->getAll();
-        return view('uploads::applications.index');
+        $data = $request->except('_token');
+        $this->formBuilderRepository->create([
+            'title' => $data['formName'],
+            'description' => $data['formDescription'],
+            'json_data' => $data['body'],
+        ]);
+
+        return \Response::json(['error' => false,'url' => route('application_index')]);
     }
 }
