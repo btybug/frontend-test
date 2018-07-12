@@ -5,16 +5,17 @@
 
         <div class="row">
             <ul class="list-unit">
-                @foreach($units as $unit)
-                <li>
-                    <div class="col-md-8">{!! $unit->title !!}</div>
-                    <div class="col-md-4"> <a>activate</a><a>remove</a><a>settings</a></div>
-                </li>
+                @if(count($units))
+                    @foreach($units as $unit)
+                        <li>
+                            <div class="col-md-8">{!! $unit->title !!}</div>
+                            <div class="col-md-4"> <a>activate</a><a>remove</a><a>settings</a></div>
+                        </li>
                     @endforeach
-
+                @endif
             </ul>
         </div>
-        {!! $units->links() !!}
+        {{--{!! $units->links() !!}--}}
     </div>
 @endsection
 

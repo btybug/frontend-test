@@ -17,12 +17,32 @@ use View;
 
 class Painter extends BasePainter
 {
+
+    public function __construct()
+    {
+        $this->base_path = config('painter.PAINTERSPATHS');
+        $this->config_path = storage_path(config('painter.CONFIG'));
+        parent::__construct();
+    }
     /**
      * @return mixed
      */
+    public function setConfigPath($path):void
+    {
+        $this->config_path = $path;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function setStoragePath($path):void
+    {
+        $this->base_path = $path;
+    }
+
     public function getStoragePath()
     {
-        return config('painter.PAINTERSPATHS');
+        return $this->base_path;
     }
 
     /**
@@ -30,7 +50,7 @@ class Painter extends BasePainter
      */
     public function getConfigPath()
     {
-        return storage_path(config('painter.CONFIG'));
+        return $this->config_path;
     }
 
     /**

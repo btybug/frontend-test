@@ -11,6 +11,7 @@ namespace App\Mini\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Mini\Http\Requests\PageCreateRequest;
+use App\Mini\Model\MiniPainter;
 use App\Mini\Services\PagesService;
 use Btybug\Console\Repository\FrontPagesRepository;
 use Illuminate\Http\Request;

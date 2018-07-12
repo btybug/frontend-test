@@ -560,7 +560,6 @@ function BBRenderUnits($variation_id, $source = [], $data = null)
             $variation = $unit->variations(false)->find($variation_id);
             if (!is_null($variation)) {
                 $settings = $variation->settings;
-
                 if ($unit->have_settings && !$settings) {
                     $settings = [];
                 }
@@ -577,6 +576,61 @@ function BBRenderUnits($variation_id, $source = [], $data = null)
                     $settings = array_merge($settings, $liveSettings);
                 }
 
+                return $unit->render(compact(['variation', 'settings', 'source', 'field', 'cheked', 'data']));
+            }
+        }
+
+        return 'Wrong Unit';
+    }
+}
+
+function mini_unit_content($settings){
+    $page = \Btybug\btybug\Services\RenderService::getFrontPageByURL();
+    $pageModel = ($page) ?? ((\Request::route()->parameter('param')) ? BBgetFrontPage(\Request::route()->parameter('param')) : issetReturn($settings, '_page'));
+    if ($pageModel) {
+        if ($pageModel->type == 'custom' && isset($settings['live_preview_action'])) {
+            return render_mini_unit(issetReturn($settings, 'main_unit', $pageModel->template), ['_page' => $pageModel]);
+        } else {
+            if ($pageModel->content_type == "editor") {
+                echo $pageModel->main_content;
+            } else {
+                return render_mini_unit($pageModel->template, ['_page' => $pageModel]);
+            }
+        }
+    } else {
+        return render_mini_unit(issetReturn($settings, 'main_unit'));
+    }
+}
+
+function render_mini_unit($variation_id, $source = [], $data = null) {
+    $field = null;
+    $cheked = null;
+    $slug = explode('.', $variation_id);
+    if (isset($slug[0]) && isset($slug[1])) {
+        $widget_id = $slug[0];
+        $variationID = $slug[1];
+
+        $unit = \App\Mini\Model\MiniPainter::find($widget_id);
+        if (!is_null($unit)) {
+            $variation = $unit->variations(false)->find($variation_id);
+            if (!is_null($variation)) {
+                $settings = $variation->settings;
+
+                if ($unit->have_settings && !$settings) {
+                    $settings = [];
+                }
+
+                $liveSettings = $source;
+                if (count($liveSettings) && is_array($liveSettings) && is_array($settings)) {
+                    array_filter($settings, function ($value) {
+                        return $value !== '';
+                    });
+
+                    array_filter($liveSettings, function ($value) {
+                        return $value !== '';
+                    });
+                    $settings = array_merge($settings, $liveSettings);
+                }
                 return $unit->render(compact(['variation', 'settings', 'source', 'field', 'cheked', 'data']));
             }
         }

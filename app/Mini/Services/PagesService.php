@@ -42,4 +42,6 @@ class PagesService
             $this->pagesRepositroy->updatePageSort($id,\Auth::id(),$sorting);
         }
     }
+
+
 }

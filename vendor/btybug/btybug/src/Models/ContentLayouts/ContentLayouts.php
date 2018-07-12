@@ -28,10 +28,31 @@ class ContentLayouts extends BasePainter implements VariationAccess
      */
     protected $attributes;
 
+    public function __construct()
+    {
+        $this->base_path = config('painter.ContentLayouts');
+        $this->config_path = storage_path(config('painter.LAYOUT'));
+        parent::__construct();
+    }
+    /**
+     * @return mixed
+     */
+    public function setConfigPath($path):void
+    {
+        $this->config_path = $path;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function setStoragePath($path):void
+    {
+        $this->base_path = $path;
+    }
 
     public function getStoragePath()
     {
-        return config('painter.ContentLayouts');
+        return $this->base_path;
     }
 
     /**
@@ -39,7 +60,7 @@ class ContentLayouts extends BasePainter implements VariationAccess
      */
     public function getConfigPath()
     {
-        return storage_path(config('painter.LAYOUT'));
+        return $this->config_path;
     }
 
     public function scopeFindByVariation($id)

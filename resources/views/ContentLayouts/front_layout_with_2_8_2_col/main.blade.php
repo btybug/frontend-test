@@ -4,7 +4,7 @@
 
         </div>
         <div class="col-md-8">
-            {!! main_content($settings) !!}
+            {!! mini_unit_content($settings) !!}
         </div>
         <div class="col-md-2">
 

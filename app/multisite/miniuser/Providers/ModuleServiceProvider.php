@@ -15,6 +15,7 @@ class ModuleServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'mini');
         $this->mapTabs();
+        $this->mapUnits('miniuser');
     }
 
     /**
@@ -26,6 +27,14 @@ class ModuleServiceProvider extends ServiceProvider
     {
 
     }
+
+
+    public function mapUnits($username)
+    {
+        \Config::set('miniunits_config_path',"app" . DS . "multisite" . DS . $username . DS . "Resources". DS . "Units" . DS . "painter.json");
+        \Config::set('miniunits_storage_path',["app" . DS . "multisite" . DS . $username . DS . "Resources". DS . "Units"]);
+    }
+
 
     public function mapTabs()
     {

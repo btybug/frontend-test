@@ -8,6 +8,7 @@
 
 namespace Btybug\btybug\Models\Painter;
 
+use Btybug\btybug\Helpers\helpers;
 use Btybug\btybug\Models\Universal\Paginator;
 use Btybug\btybug\Models\Universal\VariationAccess;
 use Btybug\btybug\Models\Universal\Variations;
@@ -51,8 +52,6 @@ abstract class BasePainter implements PainterInterface, VariationAccess
      */
     public function __construct()
     {
-        $this->config_path = $this->getConfigPath();
-        $this->base_path = $this->getStoragePath();
         $this->makeConfigJson();
     }
 
@@ -110,19 +109,22 @@ abstract class BasePainter implements PainterInterface, VariationAccess
         if (count($paths)) {
             foreach ($paths as $path) {
                 $units = \File::directories(base_path($path));
-
-                if (!count($units)) $this->throwError("There is no unit found");
-                foreach ($units as $key => $unit) {
-                    $full_path = $unit . DS . $this->name_of_json;
-                    $obj = new static();
-                    $is_true = $obj->validateWithReturn($full_path);
-                    $test[$full_path] = $is_true;
-                    if ($is_true) {
-                        $all[] = $obj->makeItem($full_path);
+//                if (!count($units)) $this->throwError("There is no unit found");
+                if(count($units)){
+                    foreach ($units as $key => $unit) {
+                        $full_path = $unit . DS . $this->name_of_json;
+                        $obj = new static();
+                        $is_true = $obj->validateWithReturn($full_path);
+                        $test[$full_path] = $is_true;
+                        if ($is_true) {
+                            $all[] = $obj->makeItem($full_path);
+                        }
                     }
                 }
+
             }
         }
+
         $this->storage = $all;
         return $this;
     }
