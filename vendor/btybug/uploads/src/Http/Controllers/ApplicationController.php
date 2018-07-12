@@ -37,10 +37,11 @@ class ApplicationController extends Controller
         $title = $request->title;
         $description = $request->description;
         $jsonData  = $request->jsonData;
-        $formBuilderRepository->model()->title = $title;
-        $formBuilderRepository->model()->description = $description;
-        $formBuilderRepository->model()->json_data = $jsonData;
-        $data = ['title'=> $title,'description'=> $description,'jsonData' => $jsonData];
+        $this->formBuilderRepository->model()->title = $title;
+        $this->formBuilderRepository->model()->description = $description;
+        $this->formBuilderRepository->model()->json_data = $jsonData;
+        $this->formBuilderRepository->model()->save();
+        $data = $this->formBuilderRepository->model()->getAll();
         return view('uploads::applications.index',$data);
     }
 }
