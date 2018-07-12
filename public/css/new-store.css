@@ -1025,3 +1025,14 @@ ul.field_tabs li.current{
 	margin-right: 8px;
 	padding: 9.8px;
 }
+button.creat{
+	float:right;
+	margin: 0px 0px 10px 0px;
+}
+.table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th,.table-bordered > thead {
+	border: 1px solid white; //your desired color
+}
+.glyphicon-edit, .glyphicon-trash {
+	float: right;
+	margin-left: 5px;
+}

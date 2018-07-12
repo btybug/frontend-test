@@ -20,4 +20,10 @@ class ApplicationController extends Controller
     {
         return view('uploads::applications.index');
     }
+
+
+    public function getFormBuilder ()
+    {
+        return view('uploads::applications.formBuilder');
+    }
 }
