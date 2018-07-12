@@ -24,6 +24,8 @@ Route::group( ['middleware' => ['admin:Users']],function (){
         Route::get('/', 'ApplicationController@getIndex', true)->name('application_index');
         Route::get('/form-builder', 'ApplicationController@getFormBuilder', true)->name('application_form');
         Route::post('/save-builder-form', 'ApplicationController@saveBuildedForm', true)->name('application_form_save');
+        Route::get('/edit/{id}', 'ApplicationController@editFormField', true)->name('edit-firld');
+        Route::get('/delete/{id}', 'ApplicationController@deleteFormField', true)->name('delete-field');
     });
 
     Route::group(['prefix' => 'modules'], function () {

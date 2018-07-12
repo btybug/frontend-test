@@ -24,7 +24,9 @@ class ApplicationController extends Controller
 
     public function getIndex ()
     {
-        return view('uploads::applications.index');
+        $allData = $this->formBuilderRepository->getAll();
+
+        return view('uploads::applications.index')->with('allData',$allData);
     }
 
     public function getFormBuilder ()
@@ -40,7 +42,15 @@ class ApplicationController extends Controller
             'description' => $data['formDescription'],
             'json_data' => $data['body'],
         ]);
-
         return \Response::json(['error' => false,'url' => route('application_index')]);
     }
+
+    public function editFormField(Request $request){
+
+    }
+
+    public function deleteFormField(Request $request){
+
+    }
+
 }
