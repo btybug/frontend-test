@@ -45,12 +45,20 @@ class ApplicationController extends Controller
         return \Response::json(['error' => false,'url' => route('application_index')]);
     }
 
-    public function editFormField(Request $request){
-
+    public function editFormField($id = null){
+        $allData = $this->formBuilderRepository->getAll();
+        if ($id){
+            $editableData = $this->formBuilderRepository->find($id);
+        }
+        return view('uploads::applications.index')->with(['editableData' => $editableData,'allData' => $allData]);
     }
 
-    public function deleteFormField(Request $request){
+    public function deleteFormField($id = null){
+        if ($id){
+            $this->formBuilderRepository->delete($id);
+        }
 
+        return back();
     }
 
 }
