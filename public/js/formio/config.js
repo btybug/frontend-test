@@ -149,7 +149,7 @@ document.querySelector(".saveForm").addEventListener("click", function () {
     $.ajax({
       type: "post",
       datatype: "json",
-      url: 'http://multisite.loc/admin/uploads/application/save-builder-form',
+      url: '/admin/uploads/application/save-builder-form',
       data: obj,
       headers: {
         'X-CSRF-TOKEN': $("input[name='_token']").val()
