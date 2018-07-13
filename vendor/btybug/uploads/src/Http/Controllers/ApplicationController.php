@@ -36,14 +36,27 @@ class ApplicationController extends Controller
 
     public function saveBuildedForm (Request $request)
     {
+
         $data = $request->except('_token');
-        $this->formBuilderRepository->create([
-            'title' => $data['formName'],
-            'description' => $data['formDescription'],
-            'json_data' => $data['body'],
-        ]);
+
+        if (!$request->id){
+            $this->formBuilderRepository->create([
+                'title' => $data['formName'],
+                'description' => $data['formDescription'],
+                'json_data' => $data['body'],
+            ]);
+        }else{
+            $this->formBuilderRepository->update($request->id,[
+                'title' => $data['formName'],
+                'description' => $data['formDescription'],
+                'json_data' => $data['body'],
+            ]);
+        }
+
+
         return \Response::json(['error' => false,'url' => route('application_index')]);
     }
+
 
     public function editFormField($id = null){
 
