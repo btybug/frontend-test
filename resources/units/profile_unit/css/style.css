@@ -735,6 +735,9 @@ list-style: none;
     }
 }
 @media (max-width: 767px) {
+    #top-navigation .ident .vc-name .name .name-pdf i{
+        font-size: 20px;
+    }
     .header .navbar-user .name {
         display: none;
     }
@@ -900,6 +903,10 @@ list-style: none;
 @media (max-width: 1080px) {
     #header{
         width: 100%;
+    }
+    #top-navigation .ident .vc-name .name h1{
+        font-size: 24px;
+        line-height: 72px;
     }
 }
 
