@@ -16,7 +16,7 @@ var builder = Formio.builder(document.getElementById('builder'), editData, {
     advanced: false,
     data: false,
     custom: {
-      title: 'User Fields',
+      title: 'Custom Fields',
       weight: 10,
       components: {
         firstName: {
