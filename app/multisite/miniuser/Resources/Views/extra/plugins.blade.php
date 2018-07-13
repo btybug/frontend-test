@@ -41,14 +41,13 @@
                                             </div>
                                         </div>
                                     </li>
-
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-9 view-box">
-
+                    @include('mini::extra._partials.view')
                 </div>
             </div>
 

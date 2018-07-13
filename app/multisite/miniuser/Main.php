@@ -56,18 +56,6 @@ class Main
 
     }
 
-    public function plugins()
-    {
-        return view('mini::plugins.lists')->with('user', $this->user);
-
-    }
-
-    public function pluginsSettings()
-    {
-        return view('mini::plugins.settings')->with('user', $this->user);
-
-    }
-
     public function media()
     {
         return view('mini::media.drive')->with('user', $this->user);
@@ -90,6 +78,11 @@ class Main
     {
         return view('mini::extra.plugins')->with('user', $this->user);
 
+    }
+
+    public function pluginsSettings()
+    {
+        return view('mini::extra.plugin_settings')->with('user', $this->user);
     }
 
     public function extraGears()
@@ -181,9 +174,5 @@ class Main
     public function BtyBlog()
     {
         return view('mini::btybug.blog')->with('user', $this->user);
-    }
-    public function extraPluginSettings()
-    {
-        return view('mini::btybug.extar.plugin_settings')->with('user', $this->user);
     }
 }

@@ -9,10 +9,6 @@ Route::get('/', 'ClientController@account');
 Route::get('/settings', 'ClientController@accountSettings')->name('mini_account_settings');
 Route::get('/general', 'ClientController@accountGeneral')->name('mini_account_general');
 
-Route::group(['prefix' => 'plugins'], function () {
-    Route::get('/', 'ClientController@plugins')->name('mini_plugins');
-    Route::get('/settings', 'ClientController@pluginsSettings')->name('mini_plugins_settings');
-});
 Route::group(['prefix' => 'media'], function () {
     Route::get('/', 'ClientController@media')->name('mini_media');
     Route::get('/settings', 'ClientController@mediaSettings')->name('mini_media_settings');
@@ -21,8 +17,12 @@ Route::group(['prefix' => 'preferences'], function () {
     Route::get('/', 'ClientController@preferences')->name('mini_preferences');
 });
 Route::group(['prefix' => 'extra'], function () {
-    Route::get('/plugins', 'ClientController@extraPlugins')->name('mini_extra_plugins');
-    Route::get('/plugin/settings', 'ClientController@extraPluginSettings')->name('mini_extra_plugin_settings');
+
+    Route::group(['prefix' => 'plugins'], function () {
+        Route::get('/', 'PluginsController@getList')->name('mini_extra_plugins');
+        Route::get('/settings', 'PluginsController@getSettings')->name('mini_extra_plugin_settings');
+    });
+
     Route::get('/units', 'ClientController@extraGears')->name('mini_extra_gears');
     Route::get('/units-optimize', 'ClientController@extraGearsOptimize')->name('mini_extra_gears_optimize');
 });
