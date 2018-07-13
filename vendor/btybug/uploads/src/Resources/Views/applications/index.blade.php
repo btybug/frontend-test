@@ -35,5 +35,5 @@
 @stop
 
 @section('CSS')
-    {!! HTML::style('public/css/new-store.css') !!}
+    {!! HTML::style('public/css/new-store.css?v='.rand(999,9999)) !!}
 @stop
