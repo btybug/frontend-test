@@ -1,5 +1,4 @@
 <?php
-die();
 define('LARAVEL_START', microtime(true));
 defined('DS') or define('DS', DIRECTORY_SEPARATOR);
 defined('ZERO') or define('ZERO', 0);
