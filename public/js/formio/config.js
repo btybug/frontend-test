@@ -1,7 +1,15 @@
 var subJSON = document.getElementById('subjson');
 var jsonForSend = null
-console.log(document.querySelector("#formJson"))
-var editData = document.querySelector("#formJson") !== null ? JSON.parse(JSON.parse(document.querySelector("#formJson").value).json_data) : {}
+var editData = {}
+if (document.querySelector("#formJson") !== null) {
+  let formJsonData = JSON.parse(document.querySelector("#formJson").value)
+  editData = JSON.parse(formJsonData.json_data)
+  console.log(formJsonData)
+  document.querySelector(".form-name").value = formJsonData.title
+  document.querySelector(".form-description").value = formJsonData.description
+
+}
+// var editData = document.querySelector("#formJson") !== null ? JSON.parse(JSON.parse(document.querySelector("#formJson").value).json_data) : {}
 var builder = Formio.builder(document.getElementById('builder'), editData, {
   builder: {
     basic: false,
