@@ -9,6 +9,7 @@ if (document.querySelector("#formJson") !== null) {
   document.querySelector(".form-description").value = formJsonData.description
 
 }
+
 // var editData = document.querySelector("#formJson") !== null ? JSON.parse(JSON.parse(document.querySelector("#formJson").value).json_data) : {}
 var builder = Formio.builder(document.getElementById('builder'), editData, {
   builder: {
@@ -110,6 +111,32 @@ var builder = Formio.builder(document.getElementById('builder'), editData, {
   });
 
   Formio.createForm(formElement, builder.schema).then(onForm);
+  document.querySelector(".component-settings-button-edit").addEventListener("click", function () {
+    let navTabs = $(".nav-tabs")
+    let tabContent = $(".tab-content")
+    let element = `<li class="nav-item" role="presentation"><a class="nav-link add-style"  href="#style">Style</a></li>`
+    navTabs.append(element)
+    let tabPannel = `<div role="tabpanel" class="tab-pane" id="style"><input  type="text" class="form-control" placeholder="Description for this field."> </div>`
+    tabContent.append(tabPannel)
+    document.querySelectorAll(".nav-link").forEach(item => item.addEventListener("click", function () {
+      let styleElement = document.querySelector(".add-style")
+      styleElement.classList.remove("active")
+      styleElement.parentNode.classList.remove("active")
+      $("#style").hide()
+
+    }))
+    document.querySelector(".add-style").addEventListener("click", function () {
+      $(".tab-content > .active").empty()
+      $(".nav-tabs > .active").removeClass("active")
+      $(".nav-tabs > .active > a").removeClass("active")
+      this.classList.add("active")
+      this.parentNode.classList.add("active")
+      $("#style").show()
+
+    })
+    // this.click()
+  })
+
 
 });
 
@@ -119,6 +146,8 @@ var onForm = function (form) {
     subJSON.appendChild(document.createTextNode(JSON.stringify(form.submission, null, 4)));
   });
 };
+
+
 
 document.querySelector(".add-unit").addEventListener("click", function () {
   let components = document.querySelector(".formcomponents")
@@ -170,6 +199,8 @@ document.querySelector(".saveForm").addEventListener("click", function () {
     });
   }
 })
+
+
 
 
 // console.log(JSON.parse(JSON.parse(document.querySelector("#formJson").value).json_data)) 
