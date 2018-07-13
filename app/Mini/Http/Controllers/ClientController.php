@@ -90,4 +90,10 @@ class ClientController extends MiniController
         MiniPainter::optimize();
         return redirect()->back();
     }
+
+    public function extraPluginSettings(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->extraPluginSettings();
+    }
 }

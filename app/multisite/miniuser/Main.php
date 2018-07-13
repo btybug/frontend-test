@@ -182,4 +182,8 @@ class Main
     {
         return view('mini::btybug.blog')->with('user', $this->user);
     }
+    public function extraPluginSettings()
+    {
+        return view('mini::btybug.extar.plugin_settings')->with('user', $this->user);
+    }
 }
