@@ -35,6 +35,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
+        $this->mapAdminRoutes();
         $this->mapWebRoutes();
         //
     }
@@ -58,6 +59,22 @@ class RouteServiceProvider extends ServiceProvider
                 'namespace' => $this->namespace,
             ], function ($router) {
                 require __DIR__ . '/../route.php';
+            });
+        });
+    }
+    protected function mapAdminRoutes()
+    {
+
+        Route::group([
+            'domain' => (string)env('DOMAIN'),
+            'middleware' => 'web',
+        ], function ($router) {
+            Route::group([
+                'middleware' => ['admin:Users'],
+                'prefix' => 'admin/minicms',
+                'namespace' => $this->namespace,
+            ], function ($router) {
+                require __DIR__ . '/../admin.php';
             });
         });
     }
