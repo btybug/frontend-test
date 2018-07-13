@@ -156,5 +156,5 @@
 @section( 'JS' )
     {!! HTML::script("public/js/formio/buttons.js") !!}
     {!! HTML::script("public/js/formio/formio.full.min.js") !!}
-    {!! HTML::script("public/js/formio/config.js") !!}
+    {!! HTML::script("public/js/formio/config.js?v=".rand(999,9999).") !!}
 @stop
