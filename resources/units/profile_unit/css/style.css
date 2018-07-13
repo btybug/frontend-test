@@ -232,7 +232,7 @@ section {
     right: 0;
     z-index: 9;
 }
-.sticky .vc-photo{
+.sticky .vc-photo,.sticky .vc-name .name,.sticky .vc-name .position{
     display: none;
 }
 
