@@ -73,8 +73,9 @@ class ApplicationController extends Controller
         return back();
     }
 
-    public function renderFormView (){
-
+    public function renderFormView ($id = null){
+        $editableData = $this->formBuilderRepository->findOrFail($id);
+        return view('uploads::applications.formRender')->with('editableData', $editableData);
     }
 
 }
