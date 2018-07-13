@@ -44,7 +44,6 @@ $( document ).ready(function() {
     function recalculateTabs(){
 
         let hiddenTabs = [];
-        console.log(hiddenTabs)
         headers.forEach((h) => {
             h.style.display = ''; // by default its block for divs
 
@@ -65,7 +64,6 @@ $( document ).ready(function() {
         let classNameOrignal = tabName.className.split(' ')
         classNameOrignal.forEach(item => li.classList.add(item))
         li.classList.contains("ux-tabs__header") ? li.classList.remove("ux-tabs__header") : null
-        console.log(li)
 
         li.innerHTML = tabName.innerHTML
         ;
