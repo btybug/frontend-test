@@ -29,8 +29,8 @@
         <div class="row">
             <div class="col-md-12">
                 <button type="button" class="panel-trigger pull-right add-unit" bb-click="openFieldsWindow">Add fields</button>
-                <button type="button" class="panel-trigger pull-right" bb-click="openStudioWindow"
-                        data-main="global">Styling
+                <button type="button" class="panel-trigger pull-right add-custom-filed" bb-click="openStudioWindow"
+                        data-main="global">Add custom filed
                 </button>
                 <button type="button" class="panel-trigger pull-right" bb-click="openLogicModal" data-toggle="modal"
                         data-target="#logicModal">Logic
@@ -95,6 +95,24 @@
   </div>
   </div>
   </div>
+  <div id="add-filed-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <p>Do you want to save changes you made to document before closing?</p>
+                <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 @stop
 
 @section( 'Footer' )

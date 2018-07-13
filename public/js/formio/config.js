@@ -125,6 +125,14 @@ document.querySelector(".add-unit").addEventListener("click", function () {
   components.classList.toggle("displayToggle")
   this.textContent = components.classList.contains("displayToggle") ? "Close" : "Add unit"
 })
+
+document.querySelector(".add-custom-filed").addEventListener("click", function () {
+  $(".add-filed-modal").trigger()
+  // let components = document.querySelector(".formcomponents")
+  // components.classList.toggle("displayToggle")
+  // this.textContent = components.classList.contains("displayToggle") ? "Close" : "Add unit"
+})
+
 document.querySelector(".saveForm").addEventListener("click", function () {
   let formName = document.querySelector(".form-name").value
   let formDescription = document.querySelector(".form-description").value
