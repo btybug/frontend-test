@@ -26,6 +26,7 @@ Route::group( ['middleware' => ['admin:Users']],function (){
         Route::post('/save-builder-form', 'ApplicationController@saveBuildedForm', true)->name('application_form_save');
         Route::get('/edit/{id}', 'ApplicationController@editFormField', true)->name('application_form_edit');
         Route::get('/delete/{id}', 'ApplicationController@deleteFormField', true)->name('application_form_delete');
+        Route::get('/render-form-view/{id}', 'ApplicationController@renderFormView', true)->name('application_form_view');
     });
 
     Route::group(['prefix' => 'modules'], function () {

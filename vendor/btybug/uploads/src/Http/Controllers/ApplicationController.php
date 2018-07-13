@@ -73,4 +73,8 @@ class ApplicationController extends Controller
         return back();
     }
 
+    public function renderFormView (){
+
+    }
+
 }
