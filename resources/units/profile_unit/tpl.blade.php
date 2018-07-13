@@ -4,7 +4,20 @@
 <div id="header" class="header navbar-default">
     <!-- begin navbar-header -->
     <div class="navbar-header">
-        <a href="#" class="navbar-brand"><span class="navbar-logo"></span> <b>Color</b> Admin</a>
+        <a href="#" class="navbar-brand">
+            <i class="fas fa-bars"></i> <span class="navbar-logo"></span> <b>BtyBug</b>
+        </a>
+    </div>
+    <div class="head-left-menu">
+        <a href="javascript:void(0);" class="close"><i class="fas fa-times"></i></a>
+        <div class="content">
+            <ul class="menu-item">
+                <li class="item"><a href="#">item 1</a></li>
+                <li class="item"><a href="#">item 2</a></li>
+                <li class="item"><a href="#">item 3</a></li>
+            </ul>
+        </div>
+
     </div>
     <!-- end navbar-header -->
 
@@ -194,95 +207,77 @@
 
                 <div class="col-md-8 vc-name nopadding">
                     <div>
-                        <div class="row nopadding name">
-                            <div class="col-md-10 name-title"><h1 class="font-accident-two-extralight">Samuel Anderson</h1></div>
-                            <div class="col-md-2 nopadding name-pdf">
-                                <a href="#" class="hvr-sweep-to-right d-flex justify-content-center align-items-center w-100 h-100">
-                                    <i class="fas fa-download" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row nopadding position">
-                            <div class="col-md-10 position-title">
+                        <div class="row nopadding name position">
+                            <div class="col-md-10" >
+                                <div class="name-title">
+                                    <h1 class="font-accident-two-extralight">Samuel Anderson</h1>
+                                </div>
+                                <div class="col-md-10 position-title">
 
-                                <section class="cd-intro">
-                                    <h2 class="cd-headline clip is-full-width font-accident-two-light d-flex align-items-center">
-                                        <span>The experienced </span>
-                                        <span class="cd-words-wrapper">
+                                    <section class="cd-intro">
+                                        <h2 class="cd-headline clip is-full-width font-accident-two-light d-flex align-items-center">
+                                            <span>The experienced </span>
+                                            <span class="cd-words-wrapper">
                            <b class="is-visible">UI/UX Designer</b>
                            <b>Web Designer</b>
                            <b>Photographer</b>
                         </span>
-                                    </h2>
-                                </section>
+                                        </h2>
+                                    </section>
 
+                                </div>
                             </div>
-                            <div class="col-md-2 nopadding pdf">
-                                <a href="#" class="hvr-sweep-to-right d-flex justify-content-center align-items-center w-100 h-100">
-                                    <i class="fab fa-behance" aria-hidden="true"></i>
-                                </a>
+                            <div class="col-md-2 nopadding name-pdf">
+                                <div class="d-flex flex-column justify-content-around">
+                                    <div class="name-pdf d-flex">
+                                        <a href="#" class="hvr-sweep-to-right d-flex justify-content-center align-items-center w-100 ">
+                                            <i class="fas fa-user-plus"></i></i>
+                                        </a>
+
+                                        <a href="#" class="hvr-sweep-to-right d-flex justify-content-center align-items-center w-100 ">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                    </div>
+                                    <div class="pdf d-flex">
+                                        <a href="#" class="hvr-sweep-to-right d-flex justify-content-center align-items-center w-100 ">
+                                            <i class="fas fa-user-friends"></i>
+                                        </a>
+                                        <a href="#" class="hvr-sweep-to-right d-flex justify-content-center align-items-center w-100 ">
+                                            <i class="fas fa-chart-line"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                        <div class="profile-responsive-tab">
-                            <button>
-                                <div></div>
-                            </button>
-                            <div class="custom_div">
-                                <ul id="nav" class="row nopadding cd-side-navigation">
-                                    @if(count($pages))
-                                        @php $color = 1; @endphp
-                                        @foreach($pages as $k => $p)
-                                            @if($color > 6)
-                                                @php $color = 1; @endphp
-                                            @endif
+                        <div class="ux-tabs">
+                            <ul class="ux-tabs__headers">
+                                @if(count($pages))
+                                    @php $color = 1; @endphp
+                                    @foreach($pages as $k => $p)
+                                        @if($color > 6)
+                                            @php $color = 1; @endphp
+                                        @endif
 
-                                            <li class=" nopadding menuitem ui-menu-color0{{ $color }}">
-                                                <a href="{!! url($p->url) !!}" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column">
-                                                    @if($p->icon)
-                                                        <i class="{{ $p->icon }}" aria-hidden="true"></i>
-                                                    @else
-                                                        <i class="fas fa-align-justify" aria-hidden="true"></i>
-                                                    @endif
-                                                    <span>{{ $p->title }}</span>
-                                                </a>
-                                            </li>
-                                                @php $color++; @endphp
-                                        @endforeach
-                                    @endif
-
-                                    {{--<li class=" nopadding menuitem ui-menu-color02">--}}
-                                        {{--<a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column">--}}
-                                            {{--<i class="fas fa-user-graduate" aria-hidden="true"></i>--}}
-                                            {{--<span>resume</span></a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="nopadding menuitem ui-menu-color03">--}}
-                                        {{--<a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column">--}}
-                                            {{--<i class="fas fa-user-graduate" aria-hidden="true"></i>--}}
-                                            {{--<span>portfolio</span></a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class=" nopadding menuitem ui-menu-color04" >--}}
-                                        {{--<a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column">--}}
-                                            {{--<i class="fas fa-user-graduate" aria-hidden="true"></i>--}}
-                                            {{--<span>contacts</span></a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class=" nopadding menuitem ui-menu-color05" >--}}
-                                        {{--<a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column">--}}
-                                            {{--<i class="fas fa-user-graduate" aria-hidden="true"></i>--}}
-                                            {{--<span>feedback</span></a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="nopadding menuitem ui-menu-color06" >--}}
-                                        {{--<a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column">--}}
-                                            {{--<i class="fas fa-user-graduate" aria-hidden="true"></i>--}}
-                                            {{--<span>blog</span></a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class=" nopadding menuitem ui-menu-color01">--}}
-                                        {{--<a href="index.html" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 h-100 flex-column">--}}
-                                            {{--<i class="fas fa-user-graduate" aria-hidden="true"></i>--}}
-                                            {{--<span>home</span>--}}
-                                        {{--</a>--}}
-                                    {{--</li>--}}
+                                        <li class="ux-tabs__header ui-menu-color0{{ $color }}">
+                                            <a href="{!! url($p->url) !!}" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
+                                                @if($p->icon)
+                                                    <i class="{{ $p->icon }}" aria-hidden="true"></i>
+                                                @else
+                                                    <i class="fas fa-align-justify" aria-hidden="true"></i>
+                                                @endif
+                                                <span>{{ $p->title }}</span>
+                                            </a>
+                                        </li>
+                                        @php $color++; @endphp
+                                    @endforeach
+                                @endif
+                            </ul>
+                            <div class="ux-tabs__dropdown">
+                                More tabs <i class="fas fa-caret-down"></i><strong>(<span class="ux-tabs__dropdown-count"></span>)</strong>
+                                <ul class="ux-tabs__dropdown-items">
+                                    <li class="ux-tabs__dropdown-item">Item 1</li>
                                 </ul>
-                                <ul class='hidden custom_ul'></ul>
                             </div>
                         </div>
                     </div>

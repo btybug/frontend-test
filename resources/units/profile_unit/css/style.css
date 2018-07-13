@@ -6,6 +6,7 @@
     text-decoration: none;
     cursor: pointer;
     color: #ffffff;
+    padding:25px 0;
     transition: all 0.25s ease 0s;
     -moz-transition: all 0.25s ease 0s;
     -webkit-transition: all 0.25s ease 0s;
@@ -22,9 +23,8 @@
 }
 #top-navigation .photo img{
     width: 100%;
-    max-height: 370px;
+    height: 339px;
     object-fit: cover;
-    height: 100%;
 }
 #top-navigation .ident .vc-name .name .name-title {
     padding: 17px 40px 18px 40px;
@@ -96,8 +96,8 @@
     color: #efefef;
 }
 #top-navigation .ident .vc-name .position .position-title {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 23px 40px 34px 40px;
+    /*background: rgba(0, 0, 0, 0.2);*/
+    padding: 20px 0px 20px 40px;
     min-height: 120px;
 }
 .cd-intro {
@@ -161,7 +161,7 @@ section {
 }
 #top-navigation i{
     color: rgba(255, 255, 255, 0.6);
-    font-size: 30px;
+    font-size: 25px;
 }
 #top-navigation .cd-side-navigation .menuitem a i {
     display: block;
@@ -224,7 +224,7 @@ section {
     min-height: 120px;
     text-align: center;
 }
-.sticky .profile-responsive-tab{
+.sticky .ux-tabs{
     position: fixed;
     top: 0;
     width: 100%;
@@ -232,163 +232,20 @@ section {
     right: 0;
     z-index: 9;
 }
-.sticky .vc-photo,.sticky .vc-name .name,.sticky .vc-name .position{
+.sticky .vc-photo,.sticky .name.position{
     display: none;
 }
 
 /*Responsive Tab*/
 
-.profile-responsive-tab {
-    position: relative;
-    min-width: 250px;
-    display: flex;
-}
-
-.profile-responsive-tab a {
-    padding: 0px 30px;
-}
-
-.profile-responsive-tab button {
-    position: relative;
-    order: 2;
-    border: 0;
-    outline: none;
-    background-color: #499bc7;
-    color: #fff;
-    cursor: pointer;
-    flex: auto;
-}
-
-.profile-responsive-tab button:hover {
-    background-color: #499bc7;
-}
-
-.profile-responsive-tab button::after {
-    content: attr(count);
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    left: -16px;
-    top: 12px;
-    text-align: center;
-    background-color: #326b8a;
-    color: #fff;
-    font-size: 14px;
-    line-height: 28px;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    font-weight: bold;
-}
-
-.profile-responsive-tab button:hover::after {
-    transform: scale(1.075);
-}
-
-.profile-responsive-tab button > div {
-    position: relative;
-    width: 32px;
-    height: 4px;
-    background: #fff;
-    margin: auto;
-}
-
-.profile-responsive-tab button > div:before,
-.profile-responsive-tab button > div:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 32px;
-    height: 4px;
-    background: #fff;
-}
-
-.profile-responsive-tab button > div:before {
-    top: -8px;
-}
-
-.profile-responsive-tab button > div:after {
-    bottom: -8px;
-}
-
-.profile-responsive-tab > ul:nth-of-type(2) {
-    position: absolute;
-    right: 0;
-    top: 100%;
-    margin: 0;
-    padding: 0;
-    z-index: 2;
-}
-
-.profile-responsive-tab > ul:nth-of-type(2) li {
-    display: block;
-}
-
-
-.profile-responsive-tab > ul:nth-of-type(1) li:first-child a {
-}
-
-.profile-responsive-tab .hidden {
-    visibility: hidden;
-}
-
-.profile-responsive-tab > ul:nth-of-type(1) li:after {
-    content: "";
-    clear: both;
-
-}
-
-.profile-responsive-tab > ul:nth-of-type(1) li.active:before, .profile-responsive-tab > ul:nth-of-type(1) li:hover:before {
-    content: "";
-    bottom: 0;
-    z-index: -1;
-    -webkit-transform: perspective(5px) rotateX(2deg);
-    -webkit-transform-origin: bottom;
-    -moz-transform: perspective(5px) rotateX(2deg);
-    -moz-transform-origin: bottom;
-    transform: perspective(5px) rotateX(2deg);
-    transform-origin: bottom;
-    background-color: #499bc7;
+.sticky .ux-tabs__headers{
     width: 100%;
-    position: absolute;
-    border-radius: 5px 5px 0 0;
-}
-.profile-responsive-tab > ul:nth-of-type(1) li.active a, .profile-responsive-tab > ul:nth-of-type(1) li:hover a{
-    color: white !important;
-}
-.profile-responsive-tab > ul:nth-of-type(1) li {
-    position: relative;
-    left: 0;
-    bottom: 0;
-}
-
-.profile-responsive-tab > ul:nth-of-type(2) a{
-    background-color: #499bc7;
-    color: white;
-
-}
-.profile-responsive-tab > ul:nth-of-type(2) li:hover a{
-    background-color: #37789b;
-}
-
-.custom_ul{
-    position: absolute;
-    right: 0;
-}
-.custom_ul a{
-    padding: 15px 30px;
-}
-.cd-side-navigation{
     flex: 1;
 }
-.sticky .custom_div{
-    flex: 1;
+.sticky .ux-tabs__header{
+    width: 25%;
 }
-.sticky .profile-responsive-tab button{
-    flex: 0
-}
-.sticky .cd-side-navigation .menuitem{
-    flex: auto;
-}
+
 #header{
     box-shadow: 0 0 24px rgba(0,0,0,0.15);
 }
@@ -466,6 +323,11 @@ section {
     position: relative;
     overflow: hidden;
     border-radius: 4px;
+}
+.header .navbar-header .navbar-brand i{
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
 }
 .header .navbar {
     border: none;
@@ -776,6 +638,69 @@ section {
     border-right: 4px solid transparent;
     border-left: 4px solid transparent;
 }
+.head-left-menu{
+    position: fixed;
+    z-index: 1020;
+    background: #131313bf;
+    transition: left .2s linear;
+    top: 0px;
+    bottom: 0;
+    width: 260px;
+    left: -290px;
+}
+.head-left-menu.active{
+left: 0;
+}
+.head-left-menu .content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*overflow: scroll;*/
+    margin: 0;
+    z-index: 1020;
+}
+.head-left-menu .content .menu-item{
+list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.head-left-menu .content .menu-item .item{
+
+}
+.head-left-menu .content .menu-item .item a{
+    display: block;
+    padding: 15px 20px;
+    transition: 0.5s ease;
+    background-color: #3e3e3e;
+    color: white;
+    border-bottom: 1px solid #6b6b6b;
+    text-decoration: none;
+    cursor: pointer;
+}
+.head-left-menu .content .menu-item .item a:hover{
+    background-color: #000000;
+}
+.head-left-menu .close {
+    text-decoration: none;
+    position: absolute;
+    top: 10%;
+    margin-top: -15px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    color: #000;
+    background: #fff;
+    border-radius: 4px 0 0 4px;
+    text-align: center;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.39);
+    right: -30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 @media (min-width: 768px) {
     .header .navbar-toggle {
         display: none;
@@ -978,3 +903,78 @@ section {
     }
 }
 
+.ux-tabs {
+    display: flex;
+    justify-content: space-between;
+}
+.ux-tabs__headers {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.ux-tabs__header {
+    display: inline-block;
+    padding: 5px;
+    margin: 0;
+    background-color: #eee;
+    cursor: pointer;
+    float: left;
+    width: 154.7px;
+
+}
+.ux-tabs__dropdown {
+    background-color: #499bc76b;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.ux-tabs__dropdown-items {
+    position: absolute;
+    padding: 0;
+    display: none;
+    right: 0;
+    top: 100px;
+    margin: 0;
+}
+.ux-tabs__dropdown-item {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+    background: #ddd;
+}
+.ux-tabs__dropdown-item a{
+    padding:25px !important;
+}
+
+.ux-u-d-block {
+    display: block;
+}
+
+.ux-u-d-none {
+    display: none;
+}
+.ux-tabs__dropdown>i{
+    padding: 1.2px;
+}
+@media (max-width: 1216px) {
+    .ux-tabs__header{
+        width: 166.2px;
+    }
+}
+@media (max-width: 1023px) {
+    .ux-tabs__header{
+        width: 249px;
+    }
+}
+@media (max-width: 1022px) {
+    .ux-tabs__header{
+        width: 100%;
+    }
+    .ux-tabs__headers{
+        width: 100%;
+    }
+}

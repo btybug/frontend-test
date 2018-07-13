@@ -1,107 +1,82 @@
-// $(document).ready(function() {
-// When the user scrolls the page, execute myFunction
-window.onscroll = function() {
-  myFunction();
-};
+$( document ).ready(function() {
+    $("body").on("click",".navbar-brand",function () {
+        $(this).closest('#header').find('.head-left-menu').toggleClass('active');
+
+    })
+    $("body").on("click",".head-left-menu .close",function () {
+        $(this).closest('.head-left-menu').removeClass('active');
+
+    });
+    // When the user scrolls the page, execute myFunction
+    window.onscroll = function() {
+        myFunction();
+    };
 
 // Get the navbar
-var navbar = document.querySelector(".profile-responsive-tab");
-var topnavigation = document.querySelector("#top-navigation");
+    var navbar = document.querySelector(".ux-tabs");
+    var topnavigation = document.querySelector("#top-navigation");
 
 // Get the offset position of the navbar
-var sticky = navbar ? navbar.offsetTop : 0;
+//        var sticky = navbar.offsetTop;
+    var sticky = navbar ? navbar.offsetTop : 0;
 
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    topnavigation.classList.add("sticky");
-  } else {
-    topnavigation.classList.remove("sticky");
-  }
-}
-
-var $nav = $(".profile-responsive-tab");
-var $btn = $(".profile-responsive-tab button");
-var $vlinks = $(".profile-responsive-tab >div>ul:nth-of-type(1)");
-var $hlinks = $(".profile-responsive-tab >div>ul:nth-of-type(2)");
-
-var breaks = [];
-var minWidth = 300;
-let y = true;
-function updateNav() {
-  if (y) {
-    $vlinks
-      .children()
-      .first()
-      .prependTo($hlinks);
-  }
-  y = false;
-  var test = 0;
-  let x = document.querySelectorAll(".cd-side-navigation > .menuitem");
-  x.forEach((item, i) => {
-    if (i != x.length - 1) {
-      test += item.offsetWidth;
-      if (minWidth > item.offsetWidth) {
-        minWidth = item.offsetWidth;
-      }
-    }
-    // console.log(item);
-  });
-
-  console.log(minWidth, "min");
-  console.log(test / $("#nav").children().length, "test");
-
-  if (
-    $vlinks.width() <
-    $("#nav").children().length * (test / $("#nav").children().length)
-  ) {
-    breaks.push($vlinks.width());
-    // Move item to the hidden list
-    $vlinks
-      .children()
-      .first()
-      .prependTo($hlinks);
-
-    // Show the dropdown btn
-    if ($btn.hasClass("hidden")) {
-      $btn.removeClass("hidden");
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            topnavigation.classList.add("sticky");
+        } else {
+            topnavigation.classList.remove("sticky");
+        }
     }
 
-    // The visible list is not overflowing
-  } else {
-    // Move the item to the visible list
-    console.log("ekav");
-    $hlinks
-      .children()
-      .first()
-      .appendTo($vlinks);
-    breaks.pop();
-    // Hide the dropdown btn if hidden list is empty
-    if (breaks.length < 1) {
-      $btn.addClass("hidden");
-      $hlinks.addClass("hidden");
+    // Monsieur, high level idea for eUI to improve ux-tabs component.
+// Could be applied to angular component with some tricks.
+
+    const headers = document.querySelectorAll('.ux-tabs__header');
+    const dropdown = document.querySelector('.ux-tabs__dropdown');
+    const dropdownCount = document.querySelector('.ux-tabs__dropdown-count');
+    const dropdownItems = document.querySelector('.ux-tabs__dropdown-items');
+
+    dropdown.addEventListener('click', function() {
+        dropdownItems.classList.toggle('ux-u-d-block');
+    });
+
+    function recalculateTabs(){
+
+        let hiddenTabs = [];
+        console.log(hiddenTabs)
+        headers.forEach((h) => {
+            h.style.display = ''; // by default its block for divs
+
+        // all tabs which are floated, should not be visible on main bar
+        if(h.offsetTop > 0) {
+            h.style.display = 'none';
+            hiddenTabs.push(h)
+        }
+
+        // show dropdown only if there are some tabs not fitting on the screen monsieur !
+        dropdownItems.innerHTML = '';
+        dropdownCount.innerHTML = hiddenTabs.length;
+        dropdown.style.visibility = hiddenTabs.length > 0 ? 'visible' : 'hidden';
+
+        // populate dropdown with names of hidden tabs.
+        hiddenTabs.forEach((tabName) => {
+            const li = document.createElement('li');
+        let classNameOrignal = tabName.className.split(' ')
+        classNameOrignal.forEach(item => li.classList.add(item))
+        li.classList.contains("ux-tabs__header") ? li.classList.remove("ux-tabs__header") : null
+        console.log(li)
+
+        li.innerHTML = tabName.innerHTML
+        ;
+        li.classList.add('ux-tabs__dropdown-item');
+        dropdownItems.appendChild(li);
+    });
+
+    });
     }
-  }
 
-  // Keep counter updated
-  $btn.attr("count", breaks.length);
-  console.log(
-    $vlinks.width() <
-      $("#nav").children().length * (test / $("#nav").children().length)
-  );
-  // Recur if the visible list is still overflowing the nav
-  if ($vlinks.width() < $("#nav").children().length * minWidth) {
-    updateNav();
-  }
-}
-
-$(window).resize(function() {
-  updateNav();
+// we might debounce here monsieur, some browsers shoot events like crazy during resize.
+    window.addEventListener('resize', recalculateTabs, true);
+    recalculateTabs();
 });
-
-$btn.on("click", function() {
-  $hlinks.toggleClass("hidden");
-});
-
-updateNav();
-// });
