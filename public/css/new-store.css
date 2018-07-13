@@ -1032,7 +1032,7 @@ button.creat{
 .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th,.table-bordered > thead {
 	border: 1px solid white; //your desired color
 }
-.glyphicon-edit, .glyphicon-trash {
+.glyphicon-edit, .glyphicon-trash , .glyphicon-eye-open{
 	float: right;
 	margin-left: 5px;
 }
