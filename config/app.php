@@ -187,7 +187,7 @@ return [
         App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\MultisiteServiceProvider::class,
+        Btybug\Mini\Providers\ModuleServiceProvider::class,
 
     ],
 
