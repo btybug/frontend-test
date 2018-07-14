@@ -16,7 +16,9 @@
     "btybug/resources": "dev-master",
     "btybug/uploads": "dev-master",
     "btybug/media": "dev-master",
-    "btybug/user": "dev-master"
+    "btybug/user": "dev-master",
+    "btybug/mini": "dev-master"
+
   },
   "require-dev": {
   },
