@@ -15,7 +15,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\Mini\Http\Controllers';
+    protected $namespace = 'Btybug\Mini\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
