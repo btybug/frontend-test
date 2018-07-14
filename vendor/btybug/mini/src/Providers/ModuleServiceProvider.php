@@ -22,17 +22,19 @@ class ModuleServiceProvider extends ServiceProvider
             "children" => [
                 [
                     "title" => "Index",
-                    "custom-link" => "/admin/minicms",
+                    "custom-link" => "/admin/mini",
                     "icon" => "fa fa-cog",
                     "is_core" => "yes"
                 ], [
                     "title" => "Settings",
-                    "custom-link" => "/admin/minicms/settings",
+                    "custom-link" => "/admin/mini/settings",
                     "icon" => "fa fa-cog",
                     "is_core" => "yes"
                 ]
             ]
         ]);
+        \Btybug\btybug\Models\Routes::registerPages('Btybug/Mini');
+
     }
 
     /**
@@ -43,7 +45,6 @@ class ModuleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
-        \Btybug\btybug\Models\Routes::registerPages('Btybug/Mini');
     }
 
 
