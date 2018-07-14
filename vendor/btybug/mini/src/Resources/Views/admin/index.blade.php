@@ -1,1 +1,4 @@
-account.blade.phpdddddddddddd
+@extends('btybug::layouts.admin')
+@section('content')
+
+@stop
