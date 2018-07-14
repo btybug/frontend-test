@@ -25,5 +25,26 @@ class AdminController extends Controller
         return view('multisite::admin.settings');
     }
 
+    public function assetsUnits()
+    {
+        return view('multisite::admin.assets.units');
+
+    }
+    public function assetsForms()
+    {
+        return view('multisite::admin.assets.forms');
+
+    }
+    public function assetsPages()
+    {
+        return view('multisite::admin.assets.pages');
+
+    }
+    public function assetsPlugins()
+    {
+        return view('multisite::admin.assets.plugins');
+
+    }
+
 
 }

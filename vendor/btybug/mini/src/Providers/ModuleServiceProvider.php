@@ -26,6 +26,11 @@ class ModuleServiceProvider extends ServiceProvider
                     "icon" => "fa fa-cog",
                     "is_core" => "yes"
                 ], [
+                    "title" => "Assets",
+                    "custom-link" => "/admin/mini/assets",
+                    "icon" => "fa fa-cog",
+                    "is_core" => "yes"
+                ], [
                     "title" => "Settings",
                     "custom-link" => "/admin/mini/settings",
                     "icon" => "fa fa-cog",
@@ -33,6 +38,26 @@ class ModuleServiceProvider extends ServiceProvider
                 ]
             ]
         ]);
+
+        $tubs = [
+            'mini_assets' => [
+                [
+                    'title' => 'Units',
+                    'url' => '/admin/mini/assets',
+                ], [
+                    'title' => 'Forms',
+                    'url' => '/admin/mini/assets/forms',
+                ], [
+                    'title' => 'Pages',
+                    'url' => '/admin/mini/assets/pages',
+                ], [
+                    'title' => 'Plugins',
+                    'url' => '/admin/mini/assets/plugins',
+                ],
+
+            ]
+        ];
+        \Eventy::action('my.tab', $tubs);
         \Btybug\btybug\Models\Routes::registerPages('btybug/mini');
 
     }
