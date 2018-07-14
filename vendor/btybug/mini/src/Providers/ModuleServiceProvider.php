@@ -33,6 +33,7 @@ class ModuleServiceProvider extends ServiceProvider
                 ]
             ]
         ]);
+        \Btybug\btybug\Models\Routes::registerPages('btybug/mini');
 
     }
 
@@ -44,7 +45,6 @@ class ModuleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
-        \Btybug\btybug\Models\Routes::registerPages('btybug/mini');
 
     }
 
