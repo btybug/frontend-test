@@ -5,5 +5,5 @@
  * Date: 04.07.2018
  * Time: 13:27
  */
-Route::get('/', 'AdminController@getIndex')->name('mini_admin');
-Route::get('/settings', 'AdminController@getSettings')->name('mini_admin_settings');
+Route::get('/', 'AdminController@getIndex',true)->name('mini_admin');
+Route::get('/settings', 'AdminController@getSettings',true)->name('mini_admin_settings');
