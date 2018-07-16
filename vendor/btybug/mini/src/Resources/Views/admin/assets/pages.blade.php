@@ -13,6 +13,7 @@
                             <span>{!! $page->title !!}</span>
                             <div class="button">
                                 <button class="btn btn-sm btn-success">Disable</button>
+                                <button class="btn btn-sm btn-info">Publish</button>
                                 <button class="btn btn-sm btn-warning"><i class="fa fa-trash"></i></button>
                             </div>
                         </li>
@@ -62,6 +63,23 @@
                         <option value="draft">Draft</option>
                         <option value="published">Published</option>
                     </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="select" class="control-label col-xs-4">Membership</label>
+                <div class="col-xs-8">
+                    <select id="select" name="membership" class="select form-control">
+                        <option value="free">Free</option>
+                        <option value="pro">Pro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="page_url" class="control-label col-xs-4"></label>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                       {!! BBmediaButton('icon') !!}
+                    </div>
                 </div>
             </div>
             <div class="form-group">

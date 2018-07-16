@@ -21,10 +21,10 @@ Route::group(['prefix'=>'assets'],function (){
         Route::get('/render/{slug}', 'AdminController@iframeRander', true)->name('unit_iframe_render');
     });
 
-    Route::get('/pages', 'AdminController@assetsPages',true)->name('mini_admin_assets_pages');
+    Route::get('/pages', 'AdminPagesController@assetsPages',true)->name('mini_admin_assets_pages');
     Route::get('/plugins', 'AdminController@assetsPlugins',true)->name('mini_admin_assets_plugins');
     Route::get('/forms', 'AdminController@assetsForms',true)->name('mini_admin_assets_forms');
-    Route::post('/create-page', 'AdminController@createPage',true)->name('minicms_create_page');
+    Route::post('/create-page', 'AdminPagesController@createPage',true)->name('minicms_create_page');
 });
 Route::get('/settings', 'AdminController@getSettings',true)->name('mini_admin_settings');
 

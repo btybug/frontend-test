@@ -13,7 +13,6 @@ use App\Http\Controllers\Controller;
 use Btybug\btybug\Models\Painter\Painter;
 use Btybug\Mini\Repositories\MinicmsPagesRepository;
 use Btybug\Mini\Services\UnitService;
-use Btybug\Uploads\Models\Units;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
