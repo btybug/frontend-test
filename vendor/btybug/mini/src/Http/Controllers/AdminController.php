@@ -11,6 +11,7 @@ namespace Btybug\Mini\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Btybug\btybug\Models\Painter\Painter;
+use Btybug\Mini\Repositories\MinicmsPagesRepository;
 use Btybug\Uploads\Models\Units;
 use Illuminate\Http\Request;
 
@@ -38,9 +39,10 @@ class AdminController extends Controller
         return view('multisite::admin.assets.forms');
 
     }
-    public function assetsPages()
+    public function assetsPages(MinicmsPagesRepository $pagesRepository)
     {
-        return view('multisite::admin.assets.pages');
+        $pages=$pagesRepository->getAll();
+        return view('multisite::admin.assets.pages',compact('pages'));
 
     }
     public function assetsPlugins()

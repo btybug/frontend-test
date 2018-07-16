@@ -5,21 +5,22 @@
             <div class="col-md-3 col-xs-12">
                 <div class="left-menu">
                     <ul>
+                        @foreach($pages as $page)
                         <li>
-                            <span>Item 1</span>
+                            <span>{!! $page->title !!}</span>
                             <div class="button">
                                 <button class="btn btn-sm btn-success">Disable</button>
                                 <button class="btn btn-sm btn-warning"><i class="fa fa-trash"></i></button>
                             </div>
                         </li>
-                        <li><span>Item 2</span></li>
+                            @endforeach
                     </ul>
                 </div>
             </div>
             <div class="col-md-9 col-xs-12">
                 <div class="display-area">
                     <div class="settings text-right">
-
+                        <button class="btn btn-md btn-warning">Create Page</button>
                     </div>
                     <div class="right-iframe">
 
