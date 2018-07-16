@@ -55,9 +55,6 @@ class AdminController extends Controller
     public function iframeRander($slug){
         return BBRenderUnits($slug);
     }
-    public function iframeSettingsRander($slug){
-        return RenderSettings($slug);
-    }
 
     public function createPage(Request $request,MinicmsPagesRepository $pagesRepository)
     {
