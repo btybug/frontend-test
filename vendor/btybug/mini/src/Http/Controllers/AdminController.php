@@ -56,5 +56,10 @@ class AdminController extends Controller
         return BBRenderUnits($slug);
     }
 
+    public function createPage(Request $request)
+    {
+        dd($request->all());
+    }
+
 
 }
