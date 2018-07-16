@@ -243,7 +243,7 @@ section {
     flex: 1;
 }
 .sticky .ux-tabs__header{
-    width: 25%;
+    /*width: 25%;*/
 }
 
 #header{
@@ -911,8 +911,8 @@ list-style: none;
 }
 
 .ux-tabs {
-    display: flex;
-    justify-content: space-between;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
 }
 .ux-tabs__headers {
     margin: 0;
@@ -926,8 +926,13 @@ list-style: none;
     background-color: #eee;
     cursor: pointer;
     float: left;
-    width: 154.7px;
-
+    /*width: 154.7px;*/
+width: 150px;
+}
+.ux-tabs__headers:after{
+    content: '';
+    display: table;
+    clear: both;
 }
 .ux-tabs__dropdown {
     background-color: #499bc76b;
@@ -938,6 +943,7 @@ list-style: none;
     align-items: center;
     justify-content: center;
     position: relative;
+    height: 99px;
 }
 .ux-tabs__dropdown-items {
     position: absolute;
@@ -972,16 +978,19 @@ list-style: none;
         width: 166.2px;
     }
 }
+@media (max-width: 1200px) {
+    .ux-tabs__dropdown .more{
+        display: none;
+    }
+}
 @media (max-width: 1023px) {
     .ux-tabs__header{
         width: 249px;
     }
+
 }
 @media (max-width: 1022px) {
     .ux-tabs__header{
-        width: 100%;
-    }
-    .ux-tabs__headers{
-        width: 100%;
+        /*width: 100%;*/
     }
 }

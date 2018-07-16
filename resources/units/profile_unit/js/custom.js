@@ -1,4 +1,15 @@
 $( document ).ready(function() {
+    var window_width = $(window).width();
+    $(window).on('resize', function(){
+        var win = $(this); //this = window
+        window_width = win.width();
+        if (window.pageYOffset >= sticky) {
+            StickyTop()
+        } else {
+            StickyDown()
+        }
+    });
+
     $("body").on("click",".navbar-brand",function () {
         $(this).closest('#header').find('.head-left-menu').toggleClass('active');
 
@@ -9,8 +20,13 @@ $( document ).ready(function() {
     });
     // When the user scrolls the page, execute myFunction
     window.onscroll = function() {
-        myFunction();
+        if (window.pageYOffset >= sticky) {
+            StickyTop()
+        } else {
+            StickyDown()
+        }
     };
+
 
 // Get the navbar
     var navbar = document.querySelector(".ux-tabs");
@@ -21,12 +37,36 @@ $( document ).ready(function() {
     var sticky = navbar ? navbar.offsetTop : 0;
 
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-    function myFunction() {
-        if (window.pageYOffset >= sticky) {
-            topnavigation.classList.add("sticky");
-        } else {
-            topnavigation.classList.remove("sticky");
+    function StickyTop() {
+        recalculateTabs();
+        if($('ul.ux-tabs__dropdown-items li').length < 1){
+            $('.ux-tabs__headers').parent().removeClass('col-10').css({'width':'100%'});
+            $('.ux-tabs__headers').css({'display':'flex'});
+            $('.ux-tabs__headers > li').css({'flex':'auto'});
+        }else{
+            $(".ux-tabs__headers  >li:first-of-type").removeAttr('style');
         }
+        topnavigation.classList.add("sticky");
+    }
+
+    function StickyDown() {
+        recalculateTabs();
+        if($('ul.ux-tabs__dropdown-items li').length < 1){
+            $('.ux-tabs__headers').parent().addClass('col-10').removeAttr('style');
+            $('.ux-tabs__headers').removeAttr('style');
+            $('.ux-tabs__headers > li').removeAttr('style');
+        }else {
+            if($(".ux-tabs__headers > li:not(:hidden)").length == 1){
+                $(".ux-tabs__headers > li:first-of-type").css({"width":'100%'});
+            }else{
+                $(".ux-tabs__headers > li:first-of-type").removeAttr('style');
+            }
+        }
+        topnavigation.classList.remove("sticky");
+    }
+
+    function myFunction() {
+
     }
 
     // Monsieur, high level idea for eUI to improve ux-tabs component.
@@ -72,9 +112,16 @@ $( document ).ready(function() {
     });
 
     });
+
     }
 
 // we might debounce here monsieur, some browsers shoot events like crazy during resize.
     window.addEventListener('resize', recalculateTabs, true);
     recalculateTabs();
+
+    if($(".ux-tabs__headers > li:not(:hidden)").length == 1){
+        $(".ux-tabs__headers > li:first-of-type").css({"width":'100%'});
+    }else{
+        $(".ux-tabs__headers > li:first-of-type").removeAttr('style');
+    }
 });

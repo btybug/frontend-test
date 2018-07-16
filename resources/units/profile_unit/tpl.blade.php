@@ -251,33 +251,39 @@
                             </div>
                         </div>
                         <div class="ux-tabs">
-                            <ul class="ux-tabs__headers">
-                                @if(count($pages))
-                                    @php $color = 1; @endphp
-                                    @foreach($pages as $k => $p)
-                                        @if($color > 6)
+                            <div class="row nopadding">
+                                <div class="col-10 nopadding">
+                                    <ul class="ux-tabs__headers">
+                                        @if(count($pages))
                                             @php $color = 1; @endphp
-                                        @endif
-
-                                        <li class="ux-tabs__header ui-menu-color0{{ $color }}">
-                                            <a href="{!! url($p->url) !!}" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
-                                                @if($p->icon)
-                                                    <i class="{{ $p->icon }}" aria-hidden="true"></i>
-                                                @else
-                                                    <i class="fas fa-align-justify" aria-hidden="true"></i>
+                                            @foreach($pages as $k => $p)
+                                                @if($color > 6)
+                                                    @php $color = 1; @endphp
                                                 @endif
-                                                <span>{{ $p->title }}</span>
-                                            </a>
-                                        </li>
-                                        @php $color++; @endphp
-                                    @endforeach
-                                @endif
-                            </ul>
-                            <div class="ux-tabs__dropdown">
-                                More tabs <i class="fas fa-caret-down"></i><strong>(<span class="ux-tabs__dropdown-count"></span>)</strong>
-                                <ul class="ux-tabs__dropdown-items">
-                                    <li class="ux-tabs__dropdown-item">Item 1</li>
-                                </ul>
+
+                                                <li class="ux-tabs__header ui-menu-color0{{ $color }}">
+                                                    <a href="{!! url($p->url) !!}" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
+                                                        @if($p->icon)
+                                                            <i class="{{ $p->icon }}" aria-hidden="true"></i>
+                                                        @else
+                                                            <i class="fas fa-align-justify" aria-hidden="true"></i>
+                                                        @endif
+                                                        <span>{{ $p->title }}</span>
+                                                    </a>
+                                                </li>
+                                                @php $color++; @endphp
+                                            @endforeach
+                                        @endif
+                                    </ul>
+                                </div>
+                                <div class="col-2 nopadding">
+                                    <div class="ux-tabs__dropdown">
+                                        More tabs <i class="fas fa-caret-down"></i><strong>(<span class="ux-tabs__dropdown-count"></span>)</strong>
+                                        <ul class="ux-tabs__dropdown-items">
+                                            <li class="ux-tabs__dropdown-item">Item 1</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

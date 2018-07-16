@@ -250,57 +250,60 @@
                             </div>
                         </div>
                         <div class="ux-tabs">
-                            <ul class="ux-tabs__headers">
-                                <li class="ux-tabs__header ui-menu-color01">
-                                    <a href="index.html" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
-                                        <i class="fa fa-flag" aria-hidden="true"></i>
-                                        <span>home</span>
-                                    </a>
-                                </li>
-                                <li class="ux-tabs__header ui-menu-color02">
-                                    <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                        <span>resume</span>
-                                    </a>
-                                </li>
-                                <li class="ux-tabs__header ui-menu-color03">
-                                    <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
-                                        <i class="fa fa-briefcase" aria-hidden="true"></i>
-                                        <span>portfolio</span>
-                                    </a>
-                                </li>
-                                <li class="ux-tabs__header ui-menu-color04">
-                                    <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
-                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                        <span>contacts</span></a>
-                                </li>
-                                <li class="ux-tabs__header ui-menu-color05">
-                                    <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
-                                        <i class="fas fa-headphones"></i>
-                                        <span>feedback</span></a>
-                                </li>
-                                <li class="ux-tabs__header ui-menu-color06">
-                                    <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
-                                        <i class="fab fa-blogger"></i>
-                                        <span>blog</span></a>
-                                </li>
-                                <li class="ux-tabs__header ui-menu-color01">
-                                    <a href="index.html" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
-                                        <i class="fa fa-flag" aria-hidden="true"></i>
-                                        <span>home</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="ux-tabs__dropdown">
-                                More tabs <i class="fas fa-caret-down"></i><strong>(<span class="ux-tabs__dropdown-count"></span>)</strong>
-                                <ul class="ux-tabs__dropdown-items">
-                                    <li class="ux-tabs__dropdown-item">Item 1</li>
-                                </ul>
+                            <div class="row nopadding">
+                                <div class="col-10 nopadding ">
+                                    <ul class="ux-tabs__headers">
+                                        <li class="ux-tabs__header ui-menu-color01">
+                                            <a href="index.html" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
+                                                <i class="fa fa-flag" aria-hidden="true"></i>
+                                                <span>home</span>
+                                            </a>
+                                        </li>
+                                        <li class="ux-tabs__header ui-menu-color02">
+                                            <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                                <span>resume</span>
+                                            </a>
+                                        </li>
+                                        <li class="ux-tabs__header ui-menu-color03">
+                                            <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
+                                                <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                                <span>portfolio</span>
+                                            </a>
+                                        </li>
+                                        <li class="ux-tabs__header ui-menu-color04">
+                                            <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                <span>contacts</span></a>
+                                        </li>
+                                        <li class="ux-tabs__header ui-menu-color05">
+                                            <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
+                                                <i class="fas fa-headphones"></i>
+                                                <span>feedback</span></a>
+                                        </li>
+                                        <li class="ux-tabs__header ui-menu-color06">
+                                            <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
+                                                <i class="fab fa-blogger"></i>
+                                                <span>blog</span></a>
+                                        </li>
+                                        <li class="ux-tabs__header ui-menu-color01">
+                                            <a href="index.html" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100 flex-column">
+                                                <i class="fa fa-flag" aria-hidden="true"></i>
+                                                <span>home</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-2 nopadding">
+                                    <div class="ux-tabs__dropdown">
+                                        <span class="more">More tabs</span> <i class="fas fa-caret-down"></i><strong>(<span class="ux-tabs__dropdown-count"></span>)</strong>
+                                        <ul class="ux-tabs__dropdown-items">
+                                            <li class="ux-tabs__dropdown-item">Item 1</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-
                     </div>
-
                 </div>
             </div>
         </section>
