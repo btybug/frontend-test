@@ -12,7 +12,7 @@
                                     <span>{{ $val->title }}</span>
                                     <div class="button">
                                         <button class="btn btn-sm btn-success">Form</button>
-                                        <button class="btn btn-sm btn-info preview">Preview</button>
+                                        <button class="btn btn-sm btn-info preview" data-slug="{{ $val->slug }}">Preview</button>
                                     </div>
                                 </li>
                             @endforeach
@@ -23,11 +23,11 @@
             <div class="col-md-9 col-xs-12">
                 <div class="display-area">
                     <div class="settings text-right">
-                        <button class="btn btn-md btn-warning">Settings</button>
+                        <a href="{{url('/admin/uploads/gears/settings/'.array_first($units)->slug.'.default')}}" class="btn btn-md btn-warning unit_settings">Settings</a>
                     </div>
                     <div class="right-iframe">
 
-                        <iframe class="unit_preview" src="{{url('admin/mini/assets/'.array_first($units)->slug.'.default')}}" width="100%" style="min-height: 500px;">
+                        <iframe class="unit_preview" data-slug="{{array_first($units)->slug}}"  src="{{url('admin/mini/assets/'.array_first($units)->slug.'.default')}}" width="100%" style="min-height: 500px;">
 
                         </iframe>
                     </div>
@@ -40,14 +40,33 @@
     <script>
         $(document).ready(function () {
             var url = window.location.href+'/';
-            $('li.unit_rend').on('click',function (e) {
+           /* $('li.unit_rend').on('click',function (e) {
                 e.preventDefault();
                 var slug = $(this).data('slug');
                 var url = window.location.href+'/';
                 var uri = url+slug+'.default';
                 $('iframe.unit_preview').attr('src',uri);
+                $('iframe.unit_preview').data('slug',slug);
+
+            })*/
+
+            $('.preview').on('click',function (e) {
+                e.preventDefault();
+                var slug = $(this).data('slug');
+                var url = window.location.href+'/';
+                var uri = url+slug+'.default';
+                var setting_url = '/admin/uploads/gears/settings/'+slug+'.default';
+                $('a.unit_settings').attr('href',setting_url);
+                $('iframe.unit_preview').attr('src',uri);
+                $('iframe.unit_preview').attr('data-slug',slug);
+
+            })
 
 
+            $('a.unit_settings').on('click',function (e) {
+                e.preventDefault();
+                var url = $(this).attr('href');
+                $('iframe.unit_preview').attr('src',url);
             })
         })
 
