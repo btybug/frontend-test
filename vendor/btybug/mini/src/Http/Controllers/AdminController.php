@@ -12,54 +12,89 @@ namespace Btybug\Mini\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Btybug\btybug\Models\Painter\Painter;
 use Btybug\Mini\Repositories\MinicmsPagesRepository;
+use Btybug\Mini\Services\UnitService;
 use Btybug\Uploads\Models\Units;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
 
-    public function getIndex()
+    private $unitService;
+
+    public function __construct (
+        UnitService $unitService
+    )
+    {
+        $this->unitService = $unitService;
+    }
+
+    public function getIndex ()
     {
         return view('multisite::admin.index');
     }
 
-    public function getSettings()
+    public function getSettings ()
     {
         return view('multisite::admin.settings');
     }
 
-    public function assetsUnits()
+    public function getAssets ()
     {
-       $units= Painter::whereTag('minicms')->get();
-        return view('multisite::admin.assets.units')->with('units',$units);
-
-
+        return view('multisite::admin.assets.index');
     }
-    public function assetsForms()
+
+    public function assetsUnits (Request $request,$slug = null)
+    {
+        $units = Painter::whereTag('minicms')->get();
+        $model = $this->unitService->getUnit($units,$slug);
+
+        return view('multisite::admin.assets.units',compact(['units','model']));
+    }
+
+    public function assetsUnitsForm (Request $request,$slug = null)
+    {
+        $model = null;
+        $units = Painter::whereTag('minicms')->get();
+        if($slug){
+            $model = Painter::whereTag('minicms')->where('slug',$slug)->first();
+        }else{
+            if(count($units)){
+                $model = array_first($units);
+            }
+        }
+
+        return view('multisite::admin.assets.units',compact(['units','model']));
+    }
+
+    public function assetsForms ()
     {
         return view('multisite::admin.assets.forms');
-
     }
-    public function assetsPages(MinicmsPagesRepository $pagesRepository)
+
+    public function assetsPages (MinicmsPagesRepository $pagesRepository)
     {
-        $pages=$pagesRepository->getAll();
-        return view('multisite::admin.assets.pages',compact('pages'));
+        $pages = $pagesRepository->getAll();
+
+        return view('multisite::admin.assets.pages', compact('pages'));
 
     }
-    public function assetsPlugins()
+
+    public function assetsPlugins ()
     {
         return view('multisite::admin.assets.plugins');
 
     }
 
-    public function iframeRander($slug){
+    public function iframeRander ($slug)
+    {
         return BBRenderUnits($slug);
     }
 
-    public function createPage(Request $request,MinicmsPagesRepository $pagesRepository)
+    public function createPage (Request $request, MinicmsPagesRepository $pagesRepository)
     {
-        $data=$request->except('_token');
-       return $pagesRepository->create($data);
+        $data = $request->except('_token');
+
+        return $pagesRepository->create($data);
     }
 
 

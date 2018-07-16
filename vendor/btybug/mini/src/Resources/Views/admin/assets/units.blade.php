@@ -8,12 +8,8 @@
                     <ul>
                         @if(count($units))
                             @foreach($units as $key => $val)
-                                <li data-slug="{{ $val->slug }}" class="unit_rend">
-                                    <span>{{ $val->title }}</span>
-                                    <div class="button">
-                                        <button class="btn btn-sm btn-success">Form</button>
-                                        <button class="btn btn-sm btn-info preview" data-slug="{{ $val->slug }}">Preview</button>
-                                    </div>
+                                <li class="unit_rend {{ (@$model->slug == $val->slug)? 'active' : '' }}">
+                                    <a href="{!! route('mini_admin_assets_units',$val->slug) !!}">{{ $val->title }}</a>
                                 </li>
                             @endforeach
                         @endif
@@ -21,17 +17,21 @@
                 </div>
             </div>
             <div class="col-md-9 col-xs-12">
-                <div class="display-area">
-                    <div class="settings text-right">
-                        <a href="{{url('/admin/uploads/gears/settings/'.array_first($units)->slug.'.default')}}" class="btn btn-md btn-warning unit_settings">Settings</a>
-                    </div>
-                    <div class="right-iframe">
+                @if($model)
+                    <div class="display-area">
+                        <div class="settings text-right">
+                            <a href="{!! route('mini_admin_assets_units',$model->slug) !!}" class="btn btn-md btn-info unit_preview">Preview</a>
+                            <a href="{!! route('mini_admin_assets_units_form',$model->slug) !!}" class="btn btn-md btn-primary unit_form">Form</a>
+                            <a href="#" class="btn btn-md btn-success unit_mapping">Mapping</a>
+                            <a href="#" class="btn btn-md btn-warning unit_settings">Settings</a>
+                        </div>
+                        <div class="right-iframe">
+                            <iframe class="unit_preview" data-slug="{{$model->slug}}"  src="{{url('admin/mini/assets/units/render/'.$model->slug.'.default')}}" width="100%" style="min-height: 500px;">
 
-                        <iframe class="unit_preview" data-slug="{{array_first($units)->slug}}"  src="{{url('admin/mini/assets/'.array_first($units)->slug.'.default')}}" width="100%" style="min-height: 500px;">
-
-                        </iframe>
+                            </iframe>
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>
@@ -101,10 +101,16 @@
         transition: 0.5s ease;
     }
 
-    .ui-2_col .left-menu li > span {
+    .ui-2_col .left-menu li > a {
         align-self: center;
         margin-left: 10px;
         font-size: 16px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .ui-2_col .left-menu li.active {
+        background: rgba(0, 0, 0, 0.48);
     }
 
     .ui-2_col .left-menu .button {
