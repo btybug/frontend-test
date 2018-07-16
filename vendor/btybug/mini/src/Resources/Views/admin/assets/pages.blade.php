@@ -9,15 +9,15 @@
                 <div class="left-menu">
                     <ul>
                         @foreach($pages as $page)
-                        <li>
-                            <span>{!! $page->title !!}</span>
-                            <div class="button">
-                                <button class="btn btn-sm btn-success">Disable</button>
-                                <button class="btn btn-sm btn-info">Publish</button>
-                                <button class="btn btn-sm btn-warning"><i class="fa fa-trash"></i></button>
-                            </div>
-                        </li>
-                            @endforeach
+                            <li>
+                                <span>{!! $page->title !!}</span>
+                                <div class="button">
+                                    <button class="btn btn-sm btn-success">Disable</button>
+                                    <button class="btn btn-sm btn-info">Publish</button>
+                                    <button class="btn btn-sm btn-warning"><i class="fa fa-trash"></i></button>
+                                </div>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                 <label for="page_url" class="control-label col-xs-4"></label>
                 <div class="col-xs-8">
                     <div class="input-group">
-                       {!! BBmediaButton('icon') !!}
+                        {!! BBmediaButton('icon') !!}
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-xs-offset-4 col-xs-8">
-                    <button  id="siteSubmit" type="submit" class="btn btn-primary">Submit</button>
+                    <button id="siteSubmit" type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </div>
 
@@ -147,37 +147,38 @@
         .ui-2_col .left-menu li:hover {
             background: rgba(0, 0, 0, 0.48);
         }
-        .ui-2_col .settings-button{
-            margin-bottom:10px;
+
+        .ui-2_col .settings-button {
+            margin-bottom: 10px;
         }
     </style>
 @stop
 
 @section("JS")
     {!! HTML::script("public/js/UiElements/bb_styles.js?v.5") !!}
-<script>
-  $(".create-page").click(function() {
-      let form = $('#create-page-form-template').html();
-      $(".right-iframe").append(form)
+    <script>
+        $(".create-page").click(function () {
+            let form = $('#create-page-form-template').html();
+            $(".right-iframe").append(form)
 
-    $("body").on("click", "#siteSubmit", function(e){
-        e.preventDefault()
-        let data = $('body').find('form#create-page-form').serialize();
-        $.ajax({
-      type: "post",
-      datatype: "json",
-      url: '/admin/mini/assets/create-page',
-      data: data,
-      headers: {
-        'X-CSRF-TOKEN': $("input[name='_token']").val()
-      },
-      success: function (data) {
-        //   window.location.replace(data.url);
-            location.reload();
-      }
-    });
-    })  
-  })
-</script>
+            $("body").on("click", "#siteSubmit", function (e) {
+                e.preventDefault()
+                let data = $('body').find('form#create-page-form').serialize();
+                $.ajax({
+                    type: "post",
+                    datatype: "json",
+                    url: '/admin/mini/assets/create-page',
+                    data: data,
+                    headers: {
+                        'X-CSRF-TOKEN': $("input[name='_token']").val()
+                    },
+                    success: function (data) {
+                        //   window.location.replace(data.url);
+                        location.reload();
+                    }
+                });
+            })
+        })
+    </script>
 
 @stop
