@@ -30,6 +30,56 @@
             </div>
         </div>
     </div>
+    @include('resources::assests.magicModal')
+    <template id="create-page-form-template">
+        <form class="form-horizontal" id="create-page-form">
+            <div class="form-group">
+                <label for="page_title" class="control-label col-xs-4">Title</label>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-bullhorn"></i>
+                        </div>
+                        <input id="page_title" name="title" placeholder="About us" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="page_url" class="control-label col-xs-4">Url</label>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-link"></i>
+                        </div>
+                        <input id="page_url" name="url" placeholder="about-us" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="select" class="control-label col-xs-4">Select</label>
+                <div class="col-xs-8">
+                    <select id="select" name="status" class="select form-control">
+                        <option value="draft">Draft</option>
+                        <option value="published">Published</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="page_url" class="control-label col-xs-4"></label>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        {!! BBbutton2('unit','template','minicms','Select Page Template') !!}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-offset-4 col-xs-8">
+                    <button  id="siteSubmit" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </form>
+    </template>
 @stop
 @section('CSS')
     <style>
@@ -86,35 +136,26 @@
 @stop
 
 @section("JS")
-
+    {!! HTML::script("public/js/UiElements/bb_styles.js?v.5") !!}
 <script>
   $(".create-page").click(function() {
-      let form = ` <form>
-    <input type="text" name="" class="form-control" placeholder="Enter site title" id="siteTitle">
-    <input type="text" name="" class="form-control" placeholder="Enter site URL" id="siteUrl">
-    <button id="siteSubmit" class="btn btn-submit" type="submit">Add site</button>
-  </form>`
+      let form = $('#create-page-form-template').html();
       $(".right-iframe").append(form)
 
     $("body").on("click", "#siteSubmit", function(e){
         e.preventDefault()
-        let data = {
-            siteTitle: $("#siteTitle").val(),
-            siteUrl: $("#siteUrl").val()
-        }
+        let data = $('body').find('form#create-page-form').serialize();
         $.ajax({
       type: "post",
       datatype: "json",
-      url: '/admin/mini/assets/pages',
+      url: '/admin/mini/assets/create-page',
       data: data,
       headers: {
         'X-CSRF-TOKEN': $("input[name='_token']").val()
       },
       success: function (data) {
-        if (!data.error) {
         //   window.location.replace(data.url);
-        console.log("true")
-        }
+            location.reload();
       }
     });
     })  

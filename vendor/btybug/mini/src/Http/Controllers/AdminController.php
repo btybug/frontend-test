@@ -59,9 +59,10 @@ class AdminController extends Controller
         return RenderSettings($slug);
     }
 
-    public function createPage(Request $request)
+    public function createPage(Request $request,MinicmsPagesRepository $pagesRepository)
     {
-        dd($request->all());
+        $data=$request->except('_token');
+       return $pagesRepository->create($data);
     }
 
 
