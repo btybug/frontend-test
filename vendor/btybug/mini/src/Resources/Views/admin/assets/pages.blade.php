@@ -1,6 +1,9 @@
 @extends('btybug::layouts.mTabs',['index'=>'mini_assets'])
 @section('tab')
     <div class="ui-2_col">
+        <div class="settings-button">
+            <button class="btn btn-md btn-warning create-page">Create Page</button>
+        </div>
         <div class="row">
             <div class="col-md-3 col-xs-12">
                 <div class="left-menu">
@@ -19,9 +22,7 @@
             </div>
             <div class="col-md-9 col-xs-12">
                 <div class="display-area">
-                    <div class="settings text-right">
-                        <button class="btn btn-md btn-warning create-page">Create Page</button>
-                    </div>
+
                     <div class="right-iframe">
 
                     </div>
@@ -77,6 +78,9 @@
 
         .ui-2_col .left-menu li:hover {
             background: rgba(0, 0, 0, 0.48);
+        }
+        .ui-2_col .settings-button{
+            margin-bottom:10px;
         }
     </style>
 @stop
