@@ -1517,7 +1517,7 @@ function BBstyle($path, $unit = null)
                         if ($unit && !$Uflag) {
                             $Uflag=true;
                             $key = $unit->getSlug();
-                            if (!File::exists(public_path('cache' . DS . 'css' . DS . $name . ".$key.js"))) {
+                            if (!File::exists(public_path('cache' . DS . 'css' . DS . $name . ".$key.css"))) {
                                 $name = $name . ".$key.js";
                                 goto checker;
                             }
