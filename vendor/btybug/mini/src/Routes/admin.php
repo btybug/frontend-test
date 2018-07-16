@@ -10,10 +10,8 @@ Route::group(['prefix'=>'assets'],function (){
     Route::get('/', 'AdminController@getAssets',true)->name('mini_admin_assets');
 
     Route::group(['prefix'=>'units'],function () {
-        Route::group(['prefix'=>'{id?}'],function () {
-            Route::get('/', 'AdminController@assetsUnits', true)->name('mini_admin_assets_units');
-        });
-
+        Route::get('/', 'AdminController@assetsUnits', true)->name('mini_admin_assets_units');
+        Route::get('{id}', 'AdminController@assetsUnitsForm', true)->name('mini_admin_assets_units_form');
         Route::get('{id}/forms', 'AdminController@assetsUnitsForm', true)->name('mini_admin_assets_units_form');
         Route::get('{id}/mapping', 'AdminController@assetsUnitsMapping', true)->name('mini_admin_assets_units_mapping');
         Route::get('{id}/settings', 'AdminController@assetsUnitsSettings', true)->name('mini_admin_assets_units_settings');
