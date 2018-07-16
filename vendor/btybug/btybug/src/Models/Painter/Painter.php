@@ -71,6 +71,7 @@ class Painter extends BasePainter
      */
     public function scopeRenderLivePreview(string $slug)
     {
+
         $ui = $model = $this->findByVariation($slug);
         if (!$ui) {
             return false;

@@ -1,18 +1,22 @@
 @extends('btybug::layouts.mTabs',['index'=>'mini_assets'])
 @section('tab')
+   {{-- {{$units}}--}}
     <div class="ui-2_col">
         <div class="row">
             <div class="col-md-3 col-xs-12">
                 <div class="left-menu">
                     <ul>
-                        <li>
-                            <span>Item 1</span>
-                            <div class="button">
-                                <button class="btn btn-sm btn-success">Form</button>
-                                <button class="btn btn-sm btn-info">Preview</button>
-                            </div>
-                        </li>
-                        <li><span>Item 2</span></li>
+                        @if(count($units))
+                            @foreach($units as $key => $val)
+                                <li data-slug="{{ $val->slug }}" class="unit_rend">
+                                    <span>{{ $val->title }}</span>
+                                    <div class="button">
+                                        <button class="btn btn-sm btn-success">Form</button>
+                                        <button class="btn btn-sm btn-info preview">Preview</button>
+                                    </div>
+                                </li>
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -23,12 +27,34 @@
                     </div>
                     <div class="right-iframe">
 
+                        <iframe class="unit_preview" src="{{url('admin/mini/assets/'.array_first($units)->slug.'.default')}}" width="100%" style="min-height: 500px;">
+
+                        </iframe>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @stop
+@section("JS")
+    <script>
+        $(document).ready(function () {
+            var url = window.location.href+'/';
+            $('li.unit_rend').on('click',function (e) {
+                e.preventDefault();
+                var slug = $(this).data('slug');
+                var url = window.location.href+'/';
+                var uri = url+slug+'.default';
+                $('iframe.unit_preview').attr('src',uri);
+
+
+            })
+        })
+
+
+    </script>
+@stop
+
 <style>
     .ui-2_col {
         margin-top: 30px;
@@ -77,3 +103,10 @@
         background: rgba(0, 0, 0, 0.48);
     }
 </style>
+
+
+
+{{--
+public function iframeRander($slug){
+return BBRenderUnits($slug);
+}--}}

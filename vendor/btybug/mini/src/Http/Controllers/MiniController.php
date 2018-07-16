@@ -24,4 +24,5 @@ use Illuminate\Http\Request;
          $class = 'App\multisite\\' . $username . '\Main';
          $this->cms = new $class($this->user, $request);
      }
+
 }

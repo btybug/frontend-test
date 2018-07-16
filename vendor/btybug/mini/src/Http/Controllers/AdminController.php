@@ -31,7 +31,8 @@ class AdminController extends Controller
     public function assetsUnits()
     {
        $units= Painter::whereTag('minicms')->get();
-        return view('multisite::admin.assets.units');
+        return view('multisite::admin.assets.units')->with('units',$units);
+
 
     }
     public function assetsForms()
@@ -49,6 +50,10 @@ class AdminController extends Controller
     {
         return view('multisite::admin.assets.plugins');
 
+    }
+
+    public function iframeRander($slug){
+        return BBRenderUnits($slug);
     }
 
 

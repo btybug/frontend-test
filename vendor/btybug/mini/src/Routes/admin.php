@@ -11,6 +11,8 @@ Route::group(['prefix'=>'assets'],function (){
     Route::get('/pages', 'AdminController@assetsPages',true)->name('mini_admin_assets_pages');
     Route::get('/plugins', 'AdminController@assetsPlugins',true)->name('mini_admin_assets_plugins');
     Route::get('/forms', 'AdminController@assetsForms',true)->name('mini_admin_assets_forms');
-
+    Route::get('/{slug}', 'AdminController@iframeRander',true)->name('unit_iframe_render');
 });
 Route::get('/settings', 'AdminController@getSettings',true)->name('mini_admin_settings');
+
+
