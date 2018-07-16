@@ -30,7 +30,6 @@ class AdminController extends Controller
     public function assetsUnits()
     {
        $units= Painter::whereTag('minicms')->get();
-       dd($units);
         return view('multisite::admin.assets.units');
 
     }

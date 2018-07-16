@@ -9,8 +9,8 @@
 namespace Btybug\Mini\Http\Controllers;
 
 
-use App\Mini\Http\Requests\PageCreateRequest;
-use App\Mini\Services\PagesService;
+use Btybug\Mini\Http\Requests\PageCreateRequest;
+use Btybug\Mini\Services\PagesService;
 use Btybug\Console\Repository\FrontPagesRepository;
 use Illuminate\Http\Request;
 

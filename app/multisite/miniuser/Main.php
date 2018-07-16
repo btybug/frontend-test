@@ -11,7 +11,6 @@ namespace App\multisite\miniuser;
 
 use Btybug\Mini\Model\MiniPainter;
 use App\multisite\miniuser\Providers\ModuleServiceProvider;
-use Btybug\btybug\Models\Painter\Painter;
 use Btybug\FrontSite\Models\FrontendPage;
 use Btybug\User\User;
 use Illuminate\Http\Request;
