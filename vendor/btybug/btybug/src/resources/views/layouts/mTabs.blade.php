@@ -5,9 +5,9 @@ $tabs=$section->getTabs($index);
 @extends($section->layout)
 @section('content')
     @yield('parag')
-    <div class="row" style="margin: 0 -5px;">
+    <div class="col-md-12">
         <div class="box box-default color-palette-box">
-            <div class="box-body" style="min-width: 1600px">
+            <div class="box-body">
                 <div class="top-nav-btybug">
                     <ul role="tablist">
                         @foreach($tabs as $value)
