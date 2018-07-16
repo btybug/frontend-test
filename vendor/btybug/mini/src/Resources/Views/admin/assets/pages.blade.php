@@ -20,7 +20,7 @@
             <div class="col-md-9 col-xs-12">
                 <div class="display-area">
                     <div class="settings text-right">
-                        <button class="btn btn-md btn-warning">Create Page</button>
+                        <button class="btn btn-md btn-warning create-page">Create Page</button>
                     </div>
                     <div class="right-iframe">
 
@@ -79,4 +79,42 @@
             background: rgba(0, 0, 0, 0.48);
         }
     </style>
+@stop
+
+@section("JS")
+
+<script>
+  $(".create-page").click(function() {
+      let form = ` <form>
+    <input type="text" name="" class="form-control" placeholder="Enter site title" id="siteTitle">
+    <input type="text" name="" class="form-control" placeholder="Enter site URL" id="siteUrl">
+    <button id="siteSubmit" class="btn btn-submit" type="submit">Add site</button>
+  </form>`
+      $(".right-iframe").append(form)
+
+    $("body").on("click", "#siteSubmit", function(e){
+        e.preventDefault()
+        let data = {
+            siteTitle: $("#siteTitle").val(),
+            siteUrl: $("#siteUrl").val()
+        }
+        $.ajax({
+      type: "post",
+      datatype: "json",
+      url: '/admin/mini/assets/pages',
+      data: data,
+      headers: {
+        'X-CSRF-TOKEN': $("input[name='_token']").val()
+      },
+      success: function (data) {
+        if (!data.error) {
+        //   window.location.replace(data.url);
+        console.log("true")
+        }
+      }
+    });
+    })  
+  })
+</script>
+
 @stop
