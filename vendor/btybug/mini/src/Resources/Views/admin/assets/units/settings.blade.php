@@ -21,41 +21,6 @@
     </div>
 @stop
 @section("JS")
-    <script>
-        $(document).ready(function () {
-            var url = window.location.href+'/';
-           /* $('li.unit_rend').on('click',function (e) {
-                e.preventDefault();
-                var slug = $(this).data('slug');
-                var url = window.location.href+'/';
-                var uri = url+slug+'.default';
-                $('iframe.unit_preview').attr('src',uri);
-                $('iframe.unit_preview').data('slug',slug);
-
-            })*/
-
-            $('.preview').on('click',function (e) {
-                e.preventDefault();
-                var slug = $(this).data('slug');
-                var url = window.location.href+'/';
-                var uri = url+slug+'.default';
-                var setting_url = '/admin/uploads/gears/settings/'+slug+'.default';
-                $('a.unit_settings').attr('href',setting_url);
-                $('iframe.unit_preview').attr('src',uri);
-                $('iframe.unit_preview').attr('data-slug',slug);
-
-            })
-
-
-            $('a.unit_settings').on('click',function (e) {
-                e.preventDefault();
-                var url = $(this).attr('href');
-                $('iframe.unit_preview').attr('src',url);
-            })
-        })
-
-
-    </script>
 @stop
 
 <style>
