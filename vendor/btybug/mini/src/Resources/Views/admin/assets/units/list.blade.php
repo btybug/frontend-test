@@ -4,27 +4,13 @@
     <div class="ui-2_col">
         <div class="row">
             <div class="col-md-3 col-xs-12">
-                <div class="left-menu">
-                    <ul>
-                        @if(count($units))
-                            @foreach($units as $key => $val)
-                                <li class="unit_rend {{ (@$model->slug == $val->slug)? 'active' : '' }}">
-                                    <a href="{!! route('mini_admin_assets_units',$val->slug) !!}">{{ $val->title }}</a>
-                                </li>
-                            @endforeach
-                        @endif
-                    </ul>
-                </div>
+                @include('multisite::admin.assets.units._partials.sidebar')
             </div>
             <div class="col-md-9 col-xs-12">
                 @if($model)
                     <div class="display-area">
-                        <div class="settings text-right">
-                            <a href="{!! route('mini_admin_assets_units',$model->slug) !!}" class="btn btn-md btn-info unit_preview">Preview</a>
-                            <a href="{!! route('mini_admin_assets_units_form',$model->slug) !!}" class="btn btn-md btn-primary unit_form">Form</a>
-                            <a href="#" class="btn btn-md btn-success unit_mapping">Mapping</a>
-                            <a href="#" class="btn btn-md btn-warning unit_settings">Settings</a>
-                        </div>
+                        @include('multisite::admin.assets.units._partials.buttons')
+
                         <div class="right-iframe">
                             <iframe class="unit_preview" data-slug="{{$model->slug}}"  src="{{url('admin/mini/assets/units/render/'.$model->slug.'.default')}}" width="100%" style="min-height: 500px;">
 

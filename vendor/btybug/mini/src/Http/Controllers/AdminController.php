@@ -48,22 +48,15 @@ class AdminController extends Controller
         $units = Painter::whereTag('minicms')->get();
         $model = $this->unitService->getUnit($units,$slug);
 
-        return view('multisite::admin.assets.units',compact(['units','model']));
+        return view('multisite::admin.assets.units.list',compact(['units','model']));
     }
 
     public function assetsUnitsForm (Request $request,$slug = null)
     {
-        $model = null;
         $units = Painter::whereTag('minicms')->get();
-        if($slug){
-            $model = Painter::whereTag('minicms')->where('slug',$slug)->first();
-        }else{
-            if(count($units)){
-                $model = array_first($units);
-            }
-        }
+        $model = $this->unitService->getUnit($units,$slug);
 
-        return view('multisite::admin.assets.units',compact(['units','model']));
+        return view('multisite::admin.assets.units.form',compact(['units','model']));
     }
 
     public function assetsForms ()
