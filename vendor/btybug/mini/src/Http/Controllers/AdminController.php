@@ -10,6 +10,8 @@ namespace Btybug\Mini\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
+use Btybug\btybug\Models\Painter\Painter;
+use Btybug\Uploads\Models\Units;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -27,6 +29,8 @@ class AdminController extends Controller
 
     public function assetsUnits()
     {
+       $units= Painter::whereTag('minicms')->get();
+       dd($units);
         return view('multisite::admin.assets.units');
 
     }
