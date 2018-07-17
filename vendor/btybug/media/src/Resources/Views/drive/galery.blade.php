@@ -8,7 +8,7 @@
             class='btnsettingsModal  media-modal-open' data-id='{!! $name.'-'.$a !!}'><img
                 style='width: 100%;height: 100%;object-fit: contain;'
 
-                src='http://dpskurukshetra.com/wp-content/uploads/2018/01/Camara-GALLERY-Icon.png' alt=''></button>
+                src='{!! url('public/images/icons/media.png') !!}' alt=''></button>
 </div>
 <input type='hidden' {!! $value !!} id='{!! $name.'-'.$a!!}' name='{!!$name!!}'>
 <input type='hidden' {!! $value_tmp !!} id='tmp_{!!$name.'-'.$a !!}' name='tmp_{!!$name!!}'>

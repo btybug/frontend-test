@@ -24,7 +24,6 @@
 {{ csrf_field() }}
 
 <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-{!! BBJs("backend") !!}
 {!! HTML::script("public/js/admin.js?v=6.0") !!}
 {!! HTML::script("public/js/BB.js") !!}
 {!! HTML::script("public/js/DataTables/datatables.js") !!}
