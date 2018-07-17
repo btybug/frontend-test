@@ -291,6 +291,6 @@
             </div>
         </section>
 
-{!! BBstyle($_this->path.DS.'css'.DS.'style.css?v=rand(100,999)',$_this) !!}
-{!! BBscript($_this->path.DS.'js'.DS.'headlines.min.js?v=rand(100,999)',$_this) !!}
-{!! BBscript($_this->path.DS.'js'.DS.'custom.js?v=rand(100,999)',$_this) !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'style.css',$_this) !!}
+{!! BBscript($_this->path.DS.'js'.DS.'headlines.min.js',$_this) !!}
+{!! BBscript($_this->path.DS.'js'.DS.'custom.js',$_this) !!}

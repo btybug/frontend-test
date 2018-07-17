@@ -30,6 +30,7 @@ $( document ).ready(function() {
     //         StickyDown()
     //     }
     // };
+
     var yourHeader = $('#top-navigation').height();
 
     $(window).scroll(function() {
