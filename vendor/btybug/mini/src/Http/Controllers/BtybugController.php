@@ -12,32 +12,32 @@ namespace Btybug\Mini\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
- class BtybugController extends MiniController
+class BtybugController extends MiniController
 {
-     protected $cms;
-     protected $user;
+    protected $cms;
+    protected $user;
 
-     public function cv(Request $request)
-     {
-         $this->ennable($request);
-         return $this->cms->BtyCv();
-     }
+    public function cv(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->BtyCv();
+    }
 
-     public function jobs(Request $request)
-     {
-         $this->ennable($request);
-         return $this->cms->BtyJobs();
-     }
+    public function jobs(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->BtyJobs();
+    }
 
-     public function market(Request $request)
-     {
-         $this->ennable($request);
-         return $this->cms->BtyMarket();
-     }
+    public function market(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->BtyMarket();
+    }
 
-     public function blog(Request $request)
-     {
-         $this->ennable($request);
-         return $this->cms->BtyBlog();
-     }
+    public function blog(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->BtyBlog();
+    }
 }

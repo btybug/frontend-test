@@ -18,8 +18,11 @@
                                         {!! Form::text('name',null,['class' => 'form-name', 'placeholder' => 'Form Name']) !!}
                                     </div>
                                     <div class="col-md-8">
-                                        <button type="submit" class="form-save pull-right saveForm" bb-click="saveHTML">Save</button>
-                                        <button type="button" class="panel-trigger pull-right" data-toggle="modal" data-target="#settingsModal">
+                                        <button type="submit" class="form-save pull-right saveForm" bb-click="saveHTML">
+                                            Save
+                                        </button>
+                                        <button type="button" class="panel-trigger pull-right" data-toggle="modal"
+                                                data-target="#settingsModal">
                                             Settings
                                         </button>
                                     </div>
@@ -39,16 +42,24 @@
                             <div class="bb-form-header">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <button type="button" class="panel-trigger pull-right add-unit" bb-click="openFieldsWindow">Add fields</button>
-                                        <button type="button" class="panel-trigger pull-right add-custom-filed" bb-click="openStudioWindow"
+                                        <button type="button" class="panel-trigger pull-right add-unit"
+                                                bb-click="openFieldsWindow">Add fields
+                                        </button>
+                                        <button type="button" class="panel-trigger pull-right add-custom-filed"
+                                                bb-click="openStudioWindow"
                                                 data-main="global">Add custom filed
                                         </button>
-                                        <button type="button" class="panel-trigger pull-right" bb-click="openLogicModal" data-toggle="modal"
+                                        <button type="button" class="panel-trigger pull-right" bb-click="openLogicModal"
+                                                data-toggle="modal"
                                                 data-target="#logicModal">Logic
                                         </button>
 
-                                        <button type="button" class="panel-trigger pull-right" bb-click="openLayoutWindow">Layout</button>
-                                        <button type="button" class="panel-trigger pull-right" bb-click="openPanelWindow">Panel</button>
+                                        <button type="button" class="panel-trigger pull-right"
+                                                bb-click="openLayoutWindow">Layout
+                                        </button>
+                                        <button type="button" class="panel-trigger pull-right"
+                                                bb-click="openPanelWindow">Panel
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -61,8 +72,10 @@
                                 <div class="row formBuilderShow">
                                     <div class="col-sm-12">
                                         <h3 class="text-center text-muted" style="display: none">The
-                                            <a href="https://github.com/formio/formio.js" target="_blank">Form Builder</a> allows you to build a
-                                            <select class="form-control" id="form-select" style="display: inline-block; width: 150px;">
+                                            <a href="https://github.com/formio/formio.js" target="_blank">Form
+                                                Builder</a> allows you to build a
+                                            <select class="form-control" id="form-select"
+                                                    style="display: inline-block; width: 150px;">
                                                 <option value="form">Form</option>
                                                 <option value="wizard">Wizard</option>
                                                 <option value="pdf">PDF</option>
@@ -82,7 +95,8 @@
                                 <div class="row" style="display: none">
                                     <div class="col-sm-8 col-sm-offset-2">
                                         <h3 class="text-center text-muted">which
-                                            <a href="https://github.com/formio/ngFormio" target="_blank">Renders as a Form</a> in your Application</h3>
+                                            <a href="https://github.com/formio/ngFormio" target="_blank">Renders as a
+                                                Form</a> in your Application</h3>
                                         <div id="formio" class="well"></div>
                                     </div>
                                     <div class="clearfix"></div>
@@ -98,11 +112,6 @@
                                 </div>
 
 
-
-
-
-
-
                             </div>
                         </div>
                     </div>
@@ -110,12 +119,16 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
                                     <h4 class="modal-title">Confirmation</h4>
                                 </div>
                                 <div class="modal-body">
                                     <p>Do you want to save changes you made to document before closing?</p>
-                                    <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                                    <p class="text-warning">
+                                        <small>If you don't save, your changes will be lost.</small>
+                                    </p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -124,11 +137,11 @@
                             </div>
                         </div>
                     </div>
-                        </div>
-                    </div>
             </div>
         </div>
-        @endif
+    </div>
+    </div>
+    @endif
     </div>
 @stop
 

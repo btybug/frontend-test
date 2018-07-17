@@ -62,6 +62,7 @@ class RouteServiceProvider extends ServiceProvider
             });
         });
     }
+
     protected function mapAdminRoutes()
     {
 

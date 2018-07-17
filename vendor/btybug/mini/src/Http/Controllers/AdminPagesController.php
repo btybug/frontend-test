@@ -15,7 +15,7 @@ use Btybug\Mini\Repositories\MinicmsPagesRepository;
 
 class AdminPagesController extends Controller
 {
-    public function assetsPages (MinicmsPagesRepository $pagesRepository)
+    public function assetsPages(MinicmsPagesRepository $pagesRepository)
     {
         $pages = $pagesRepository->getAll();
 
@@ -23,7 +23,7 @@ class AdminPagesController extends Controller
 
     }
 
-    public function createPage (Request $request, MinicmsPagesRepository $pagesRepository)
+    public function createPage(Request $request, MinicmsPagesRepository $pagesRepository)
     {
         $data = $request->except('_token');
         return $pagesRepository->create($data);

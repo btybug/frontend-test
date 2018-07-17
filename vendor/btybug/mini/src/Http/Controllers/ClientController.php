@@ -78,9 +78,9 @@ class ClientController extends MiniController
         return $this->cms->extraGears();
     }
 
-    public function editUserPage(Request $request,$id,PagesService $service,FrontPagesRepository $repository)
+    public function editUserPage(Request $request, $id, PagesService $service, FrontPagesRepository $repository)
     {
-        $service->editPage($request,$repository);
+        $service->editPage($request, $repository);
         return redirect()->back();
     }
 

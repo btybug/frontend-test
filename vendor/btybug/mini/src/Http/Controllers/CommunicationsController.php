@@ -12,38 +12,38 @@ namespace Btybug\Mini\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
- class CommunicationsController extends MiniController
+class CommunicationsController extends MiniController
 {
-     protected $cms;
-     protected $user;
+    protected $cms;
+    protected $user;
 
-     public function messages(Request $request)
-     {
-         $this->ennable($request);
-         return $this->cms->CCMessages();
-     }
+    public function messages(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->CCMessages();
+    }
 
-     public function createMessages(Request $request)
-     {
-         $this->ennable($request);
-         return $this->cms->CCMessageCreate();
-     }
+    public function createMessages(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->CCMessageCreate();
+    }
 
-     public function viewMessage($id,Request $request)
-     {
-         $this->ennable($request);
-         return $this->cms->CCMessageView($id);
-     }
+    public function viewMessage($id, Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->CCMessageView($id);
+    }
 
-     public function notifications(Request $request)
-     {
-         $this->ennable($request);
-         return $this->cms->CCNotifications();
-     }
+    public function notifications(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->CCNotifications();
+    }
 
-     public function reviews(Request $request)
-     {
-         $this->ennable($request);
-         return $this->cms->CCReviews();
-     }
+    public function reviews(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->CCReviews();
+    }
 }

@@ -1,6 +1,6 @@
 @extends('btybug::layouts.mTabs',['index'=>'mini_assets'])
 @section('tab')
-   {{-- {{$units}}--}}
+    {{-- {{$units}}--}}
     <div class="ui-2_col">
         <div class="row">
             <div class="col-md-3 col-xs-12">
@@ -12,7 +12,7 @@
                         @include('multisite::admin.assets.units._partials.buttons')
 
                         <div class="right-iframe">
-                           settings
+                            settings
                         </div>
                     </div>
                 @endif
@@ -77,7 +77,6 @@
         background: rgba(0, 0, 0, 0.48);
     }
 </style>
-
 
 
 {{--

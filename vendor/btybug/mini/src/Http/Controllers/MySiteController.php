@@ -54,18 +54,19 @@ class MySiteController extends MiniController
         return redirect()->back();
     }
 
-    public function editUserPage(Request $request,$id)
+    public function editUserPage(Request $request, $id)
     {
         $this->pageService->editPage($request);
         return redirect()->back();
     }
 
-    public function pageEdit(Request $request,$di)
+    public function pageEdit(Request $request, $di)
     {
         $this->ennable($request);
         return $this->cms->pageEdit();
     }
-    public function pageEditContent(Request $request,$di)
+
+    public function pageEditContent(Request $request, $di)
     {
         $this->ennable($request);
         return $this->cms->pageEditContent();
@@ -74,28 +75,28 @@ class MySiteController extends MiniController
     public function sorting(Request $request)
     {
         $this->ennable($request);
-        if(count($request->data)){
-            try{
+        if (count($request->data)) {
+            try {
                 $this->pageService->saveSort($request->data);
-            }catch (\Exception $exception){
-                return $this->cms->responseJson(true,$exception->getMessage());
+            } catch (\Exception $exception) {
+                return $this->cms->responseJson(true, $exception->getMessage());
             }
         }
 
-        return $this->cms->responseJson(false,'successfully sorted');
+        return $this->cms->responseJson(false, 'successfully sorted');
     }
 
     public function showPage(Request $request)
     {
         $this->ennable($request);
-        try{
+        try {
             $page = $this->pageRepositroy->findOrFail($request->id);
-            $html = \View('mini::pages._partials.view')->with('page',$page)->render();
-        }catch (\Exception $exception){
-            return $this->cms->responseJson(true,$exception->getMessage());
+            $html = \View('mini::pages._partials.view')->with('page', $page)->render();
+        } catch (\Exception $exception) {
+            return $this->cms->responseJson(true, $exception->getMessage());
 
         }
 
-        return $this->cms->responseJson(false,'successfully requested',['html' => $html]);
+        return $this->cms->responseJson(false, 'successfully requested', ['html' => $html]);
     }
 }

@@ -17,12 +17,12 @@ class UnitService
 {
     private $unitModel = null;
 
-    public function getUnit ($units, $slug = null)
+    public function getUnit($units, $slug = null)
     {
-        if($slug){
-            $this->unitModel = Painter::whereTag('minicms')->where('slug',$slug)->first();
-        }else{
-            if(count($units)){
+        if ($slug) {
+            $this->unitModel = Painter::whereTag('minicms')->where('slug', $slug)->first();
+        } else {
+            if (count($units)) {
                 $this->unitModel = array_first($units);
             }
         }

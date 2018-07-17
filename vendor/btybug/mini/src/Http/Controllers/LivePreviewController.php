@@ -20,7 +20,7 @@ class LivePreviewController extends MiniController
     {
         $this->ennable($request);
         $page = $this->user->frontPages()->find($id);
-        if($page->type!='custom')abort(403);
+        if ($page->type != 'custom') abort(403);
         $layout = $request->get('layout');
         if (!$layout) $layout = $page->page_layout;
         $slug = $request->get('variations');
@@ -36,7 +36,7 @@ class LivePreviewController extends MiniController
         }
         $page->page_layout_inheritance = $inherit;
         $settings = ($request->get('layout')) ? [] : (@json_decode($page->page_layout_settings, true)) ? json_decode($page->page_layout_settings, true) : [];
-        $settings['main_unit']=$page->template;
+        $settings['main_unit'] = $page->template;
         if ($slug) {
             $view = ContentLayouts::renderPageLivePreview($slug, $settings, $page);
             return $view ? $view : abort('404');

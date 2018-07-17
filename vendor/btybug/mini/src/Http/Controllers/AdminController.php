@@ -20,66 +20,66 @@ class AdminController extends Controller
 
     private $unitService;
 
-    public function __construct (
+    public function __construct(
         UnitService $unitService
     )
     {
         $this->unitService = $unitService;
     }
 
-    public function getIndex ()
+    public function getIndex()
     {
         return view('multisite::admin.index');
     }
 
-    public function getSettings ()
+    public function getSettings()
     {
         return view('multisite::admin.settings');
     }
 
-    public function getAssets ()
+    public function getAssets()
     {
         return view('multisite::admin.assets.index');
     }
 
-    public function assetsUnits (Request $request,$slug = null)
+    public function assetsUnits(Request $request, $slug = null)
     {
         $units = Painter::whereTag('minicms')->get();
-        $model = $this->unitService->getUnit($units,$slug);
+        $model = $this->unitService->getUnit($units, $slug);
 
-        return view('multisite::admin.assets.units.preview',compact(['units','model']));
+        return view('multisite::admin.assets.units.preview', compact(['units', 'model']));
     }
 
-    public function assetsUnitsForm (Request $request,$slug = null)
+    public function assetsUnitsForm(Request $request, $slug = null)
     {
         $units = Painter::whereTag('minicms')->get();
-        $model = $this->unitService->getUnit($units,$slug);
+        $model = $this->unitService->getUnit($units, $slug);
 
-        return view('multisite::admin.assets.units.form',compact(['units','model']));
+        return view('multisite::admin.assets.units.form', compact(['units', 'model']));
     }
 
-    public function assetsUnitsMapping (Request $request,$slug = null)
+    public function assetsUnitsMapping(Request $request, $slug = null)
     {
         $units = Painter::whereTag('minicms')->get();
-        $model = $this->unitService->getUnit($units,$slug);
+        $model = $this->unitService->getUnit($units, $slug);
 
-        return view('multisite::admin.assets.units.mapping',compact(['units','model']));
+        return view('multisite::admin.assets.units.mapping', compact(['units', 'model']));
     }
 
-    public function assetsUnitsSettings (Request $request,$slug = null)
+    public function assetsUnitsSettings(Request $request, $slug = null)
     {
         $units = Painter::whereTag('minicms')->get();
-        $model = $this->unitService->getUnit($units,$slug);
+        $model = $this->unitService->getUnit($units, $slug);
 
-        return view('multisite::admin.assets.units.settings',compact(['units','model']));
+        return view('multisite::admin.assets.units.settings', compact(['units', 'model']));
     }
 
-    public function assetsForms ()
+    public function assetsForms()
     {
         return view('multisite::admin.assets.forms');
     }
 
-    public function assetsPages (MinicmsPagesRepository $pagesRepository)
+    public function assetsPages(MinicmsPagesRepository $pagesRepository)
     {
         $pages = $pagesRepository->getAll();
 
@@ -87,18 +87,18 @@ class AdminController extends Controller
 
     }
 
-    public function assetsPlugins ()
+    public function assetsPlugins()
     {
         return view('multisite::admin.assets.plugins');
 
     }
 
-    public function iframeRander ($slug)
+    public function iframeRander($slug)
     {
         return BBRenderUnits($slug);
     }
 
-    public function createPage (Request $request, MinicmsPagesRepository $pagesRepository)
+    public function createPage(Request $request, MinicmsPagesRepository $pagesRepository)
     {
         $data = $request->except('_token');
 

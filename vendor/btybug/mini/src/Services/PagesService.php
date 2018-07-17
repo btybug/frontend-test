@@ -26,20 +26,21 @@ class PagesService
     public function editPage(Request $request)
     {
         $page = $this->pagesRepositroy->findOrFail($request->id);
-        if(\Auth::id()!=$page->user_id)abort(404);
+        if (\Auth::id() != $page->user_id) abort(404);
 
-        $data=$request->except('_token');
-        foreach ($data as $key=>$value){
-            if(is_null($value)){
+        $data = $request->except('_token');
+        foreach ($data as $key => $value) {
+            if (is_null($value)) {
                 unset($data[$key]);
             }
         }
         $page->update($data);
     }
 
-    public function saveSort($data){
-        foreach ($data as $sorting => $id ){
-            $this->pagesRepositroy->updatePageSort($id,\Auth::id(),$sorting);
+    public function saveSort($data)
+    {
+        foreach ($data as $sorting => $id) {
+            $this->pagesRepositroy->updatePageSort($id, \Auth::id(), $sorting);
         }
     }
 

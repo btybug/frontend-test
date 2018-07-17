@@ -79,7 +79,6 @@
 </style>
 
 
-
 {{--
 public function iframeRander($slug){
 return BBRenderUnits($slug);

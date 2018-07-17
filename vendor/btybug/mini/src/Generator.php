@@ -14,11 +14,11 @@ class Generator
     private $tree = [
         'Providers' => ['ModuleServiceProvider'],
         'Resources' => ['Views' => [
-            '_partials' => ['sidebar.blade','header.blade'],
-            'account'=>['settings.blade','general.blade'],
-            'market'=>['gears.blade','plugins.blade'],
-            'plugins'=>['lists.blade','settings.blade'],
-            'media'=>['drive.blade','settings.blade'],
+            '_partials' => ['sidebar.blade', 'header.blade'],
+            'account' => ['settings.blade', 'general.blade'],
+            'market' => ['gears.blade', 'plugins.blade'],
+            'plugins' => ['lists.blade', 'settings.blade'],
+            'media' => ['drive.blade', 'settings.blade'],
             'layouts' => ['app.blade'],
             'pages' => ['lists.blade'],
             'account.blade',

@@ -12,17 +12,17 @@ namespace Btybug\Mini\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
- class MiniController extends Controller
+class MiniController extends Controller
 {
-     protected $cms;
-     protected $user;
+    protected $cms;
+    protected $user;
 
-     public function ennable(Request $request)
-     {
-         $this->user = \Auth::user();
-         $username = $this->user->username;
-         $class = 'App\multisite\\' . $username . '\Main';
-         $this->cms = new $class($this->user, $request);
-     }
+    public function ennable(Request $request)
+    {
+        $this->user = \Auth::user();
+        $username = $this->user->username;
+        $class = 'App\multisite\\' . $username . '\Main';
+        $this->cms = new $class($this->user, $request);
+    }
 
 }
