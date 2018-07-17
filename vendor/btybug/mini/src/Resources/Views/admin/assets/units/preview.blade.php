@@ -115,6 +115,13 @@
     .ui-2_col .left-menu li:hover {
         background: rgba(0, 0, 0, 0.48);
     }
+
+    .unit_preview {
+        border: none;
+        margin-top: 15px;
+        height: calc(100vh - 180px);
+    }
+
 </style>
 
 
