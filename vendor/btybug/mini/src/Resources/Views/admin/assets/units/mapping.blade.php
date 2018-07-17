@@ -12,7 +12,7 @@
                         @include('multisite::admin.assets.units._partials.buttons')
 
                         <div class="right-iframe">
-                            mapping
+                            mapping vvvvvv
                         </div>
                     </div>
                 @endif
