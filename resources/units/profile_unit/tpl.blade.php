@@ -278,7 +278,7 @@
                                 </div>
                                 <div class="col-2 nopadding">
                                     <div class="ux-tabs__dropdown">
-                                        More tabs <i class="fas fa-caret-down"></i><strong>(<span class="ux-tabs__dropdown-count"></span>)</strong>
+                                        <span class="more">More tabs</span> <i class="fas fa-caret-down"></i><strong>(<span class="ux-tabs__dropdown-count"></span>)</strong>
                                         <ul class="ux-tabs__dropdown-items">
                                             <li class="ux-tabs__dropdown-item">Item 1</li>
                                         </ul>
@@ -291,6 +291,6 @@
             </div>
         </section>
 
-{!! BBstyle($_this->path.DS.'css'.DS.'style.css',$_this) !!}
-{!! BBscript($_this->path.DS.'js'.DS.'headlines.min.js',$_this) !!}
-{!! BBscript($_this->path.DS.'js'.DS.'custom.js',$_this) !!}
+{!! BBstyle($_this->path.DS.'css'.DS.'style.css?v=rand(100,999)',$_this) !!}
+{!! BBscript($_this->path.DS.'js'.DS.'headlines.min.js?v=rand(100,999)',$_this) !!}
+{!! BBscript($_this->path.DS.'js'.DS.'custom.js?v=rand(100,999)',$_this) !!}

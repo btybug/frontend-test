@@ -1,13 +1,17 @@
 $( document ).ready(function() {
     var window_width = $(window).width();
     $(window).on('resize', function(){
+
         var win = $(this); //this = window
+        yourHeader = $('#top-navigation').height();
         window_width = win.width();
-        if (window.pageYOffset >= sticky) {
-            StickyTop()
+        if ($(this).scrollTop() >= yourHeader) {
+            StickyTop();
         } else {
             StickyDown()
         }
+        // console.log($(this).scrollTop());
+        // console.log(yourHeader);
     });
 
     $("body").on("click",".navbar-brand",function () {
@@ -19,13 +23,24 @@ $( document ).ready(function() {
 
     });
     // When the user scrolls the page, execute myFunction
-    window.onscroll = function() {
-        if (window.pageYOffset >= sticky) {
-            StickyTop()
+    // window.onscroll = function() {
+    //     if (window.pageYOffset >= sticky) {
+    //         StickyTop()
+    //     } else {
+    //         StickyDown()
+    //     }
+    // };
+    var yourHeader = $('#top-navigation').height();
+
+    $(window).scroll(function() {
+        yourHeader = $('#top-navigation').height();
+        if( $(this).scrollTop() >= yourHeader ) {
+            StickyTop();
         } else {
-            StickyDown()
+            StickyDown();
+
         }
-    };
+    });
 
 
 // Get the navbar
@@ -39,6 +54,7 @@ $( document ).ready(function() {
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function StickyTop() {
         recalculateTabs();
+
         if($('ul.ux-tabs__dropdown-items li').length < 1){
             $('.ux-tabs__headers').parent().removeClass('col-10').css({'width':'100%'});
             $('.ux-tabs__headers').css({'display':'flex'});
@@ -47,10 +63,12 @@ $( document ).ready(function() {
             $(".ux-tabs__headers  >li:first-of-type").removeAttr('style');
         }
         topnavigation.classList.add("sticky");
+
     }
 
     function StickyDown() {
         recalculateTabs();
+        topnavigation.classList.remove("sticky");
         if($('ul.ux-tabs__dropdown-items li').length < 1){
             $('.ux-tabs__headers').parent().addClass('col-10').removeAttr('style');
             $('.ux-tabs__headers').removeAttr('style');
@@ -62,7 +80,7 @@ $( document ).ready(function() {
                 $(".ux-tabs__headers > li:first-of-type").removeAttr('style');
             }
         }
-        topnavigation.classList.remove("sticky");
+
     }
 
     function myFunction() {

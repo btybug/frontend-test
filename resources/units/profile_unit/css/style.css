@@ -233,7 +233,7 @@ section {
     z-index: 9;
 }
 .sticky .vc-photo,.sticky .name.position{
-    display: none;
+    /*display: none;*/
 }
 
 /*Responsive Tab*/
@@ -973,24 +973,9 @@ width: 150px;
 .ux-tabs__dropdown>i{
     padding: 1.2px;
 }
-@media (max-width: 1216px) {
-    .ux-tabs__header{
-        width: 166.2px;
-    }
-}
+
 @media (max-width: 1200px) {
     .ux-tabs__dropdown .more{
         display: none;
-    }
-}
-@media (max-width: 1023px) {
-    .ux-tabs__header{
-        width: 249px;
-    }
-
-}
-@media (max-width: 1022px) {
-    .ux-tabs__header{
-        /*width: 100%;*/
     }
 }
