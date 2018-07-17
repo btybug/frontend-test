@@ -610,7 +610,7 @@ function render_mini_unit($variation_id, $source = [], $data = null) {
         $widget_id = $slug[0];
         $variationID = $slug[1];
 
-        $unit = \App\Mini\Model\MiniPainter::find($widget_id);
+        $unit = \Btybug\Mini\Model\MiniPainter::find($widget_id);
         if (!is_null($unit)) {
             $variation = $unit->variations(false)->find($variation_id);
             if (!is_null($variation)) {
