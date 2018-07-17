@@ -47,7 +47,7 @@ class AdminController extends Controller
         $units = Painter::whereTag('minicms')->get();
         $model = $this->unitService->getUnit($units, $slug);
 
-        return view('multisite::admin.assets.units.preview', compact(['units', 'model']));
+        return view('multisite::admin.assets.units.preview', compact(['units', 'model','slug']));
     }
 
     public function assetsUnitsForm(Request $request, $slug = null)
@@ -55,7 +55,7 @@ class AdminController extends Controller
         $units = Painter::whereTag('minicms')->get();
         $model = $this->unitService->getUnit($units, $slug);
 
-        return view('multisite::admin.assets.units.form', compact(['units', 'model']));
+        return view('multisite::admin.assets.units.form', compact(['units', 'model','slug']));
     }
 
     public function assetsUnitsMapping(Request $request, $slug = null)
@@ -63,7 +63,7 @@ class AdminController extends Controller
         $units = Painter::whereTag('minicms')->get();
         $model = $this->unitService->getUnit($units, $slug);
 
-        return view('multisite::admin.assets.units.mapping', compact(['units', 'model']));
+        return view('multisite::admin.assets.units.mapping', compact(['units', 'model','slug']));
     }
 
     public function assetsUnitsSettings(Request $request, $slug = null)
@@ -71,7 +71,7 @@ class AdminController extends Controller
         $units = Painter::whereTag('minicms')->get();
         $model = $this->unitService->getUnit($units, $slug);
 
-        return view('multisite::admin.assets.units.settings', compact(['units', 'model']));
+        return view('multisite::admin.assets.units.settings', compact(['units', 'model','slug']));
     }
 
     public function assetsForms()

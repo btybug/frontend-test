@@ -43,7 +43,7 @@ class ModuleServiceProvider extends ServiceProvider
             'mini_assets' => [
                 [
                     'title' => 'Units',
-                    'url' => '/admin/mini/assets/units/{id}',
+                    'url' => '/admin/mini/assets/units/{slug}',
                 ], [
                     'title' => 'Forms',
                     'url' => '/admin/mini/assets/forms',
