@@ -44,4 +44,9 @@ class AdminPagesController extends Controller
         $html=\View::make('multisite::admin.assets.page_edit_form',compact('model'))->render();
         return response()->json(['error'=>false,'html'=>$html]);
     }
+
+    public function assetsGeneral()
+    {
+       return view('multisite::admin.assets.general') ;
+    }
 }

@@ -42,6 +42,9 @@ class ModuleServiceProvider extends ServiceProvider
         $tubs = [
             'mini_assets' => [
                 [
+                    'title' => 'General',
+                    'url' => '/admin/mini/assets/general',
+                ],[
                     'title' => 'Units',
                     'url' => '/admin/mini/assets/units/{slug}',
                 ], [
