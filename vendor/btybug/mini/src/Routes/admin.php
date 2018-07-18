@@ -22,6 +22,17 @@ Route::group(['prefix' => 'assets'], function () {
         Route::get('/render/{slug}', 'AdminController@iframeRander', true)->name('unit_iframe_render');
     });
 
+    Route::group(['prefix' => 'layouts'], function () {
+        Route::get('/{id?}', 'AdminLayoutsController@assetsLayouts', true)->name('mini_admin_assets_layouts');
+
+
+        Route::get('{id}/forms', 'AdminLayoutsController@assetsUnitsForm', true)->name('mini_admin_assets_units_form');
+        Route::get('{id}/mapping', 'AdminLayoutsController@assetsUnitsMapping', true)->name('mini_admin_assets_units_mapping');
+        Route::get('{id}/settings', 'AdminLayoutsController@assetsUnitsSettings', true)->name('mini_admin_assets_units_settings');
+
+        Route::get('/render/{slug}', 'AdminLayoutsController@iframeRander', true)->name('unit_iframe_render');
+    });
+
     Route::get('/pages', 'AdminPagesController@assetsPages', true)->name('mini_admin_assets_pages');
     Route::get('/plugins', 'AdminController@assetsPlugins', true)->name('mini_admin_assets_plugins');
     Route::get('/forms', 'AdminController@assetsForms', true)->name('mini_admin_assets_forms');
