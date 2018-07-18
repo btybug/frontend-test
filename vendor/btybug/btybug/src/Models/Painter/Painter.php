@@ -154,4 +154,10 @@ class Painter extends BasePainter
         return \File::delete($path);
     }
 
+    public function setAttributes($key, $value)
+    {
+        $this->attributes[$key] = $value;
+        return $this;
+    }
+
 }

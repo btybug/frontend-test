@@ -77,13 +77,18 @@ class AdminController extends Controller
     {
         $units = $this->painter->whereTag('minicms')->get();
         $model = $this->unitService->getUnit($units, $slug);
+        $tags = $model->tags;
 
-        return view('multisite::admin.assets.units.settings', compact(['units', 'model', 'slug']));
+        if (($key = array_search('minicms', $tags)) !== false) {
+            unset($tags[$key]);
+        }
+        $tags = implode(',', $tags);
+        return view('multisite::admin.assets.units.settings', compact(['units', 'model', 'slug','tags']));
     }
 
     public function postAssetsUnitsSettings(Request $request, $slug)
     {
-        $tags = explode(',', $request->get('tags'));
+        $tags = ($request->get('tags')) ? explode(',', $request->get('tags')):[];
 
         if(count($tags)){
             foreach ($tags as $tag){
@@ -92,8 +97,10 @@ class AdminController extends Controller
         }
 
         $unit = $this->painter->findByVariation($slug);
+        array_push($tags, 'minicms');
+        $unit->setAttributes('tags',$tags)->edit();
 
-        dd($unit);
+        return redirect()->back();
     }
 
     public function assetsForms()

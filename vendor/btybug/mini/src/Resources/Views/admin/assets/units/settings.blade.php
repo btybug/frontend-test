@@ -13,7 +13,7 @@
                         <div class="right-iframe">
                             {!! Form::model(null,['url' => route('mini_admin_assets_units_settings_post',$slug)]) !!}
                             <div class="form-group">
-                                {!! Form::text('tags',null,['class' => 'form-control','id' => 'tagits']) !!}
+                                {!! Form::text('tags',$tags,['class' => 'form-control','id' => 'tagits']) !!}
                             </div>
                             <div class="form-group">
                                 {!! Form::submit('save',['class' => 'btn btn-success']) !!}

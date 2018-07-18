@@ -790,6 +790,12 @@ abstract class BasePainter implements PainterInterface, VariationAccess
         return $this->slug;
     }
 
+    public function scopeEdit()
+    {
+        \File::put($this->getPath().DS.$this->name_of_json, json_encode($this->attributes));
+        return $this;
+    }
+
 //    public function getPath()
 //    {
 //        return base_path($this->base_path);
