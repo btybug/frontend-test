@@ -1,4 +1,8 @@
 @extends('mini::layouts.app')
 @section('content')
-    plugins.blade.php
+   cv
+@stop
+@section('js')
+
 @endsection
+

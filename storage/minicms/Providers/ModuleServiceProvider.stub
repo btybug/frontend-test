@@ -14,7 +14,8 @@ class ModuleServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'mini');
-
+        $this->mapTabs();
+        $this->mapUnits('{username}');
     }
 
     /**
@@ -25,5 +26,42 @@ class ModuleServiceProvider extends ServiceProvider
     public function register()
     {
 
+    }
+
+
+    public function mapUnits($username)
+    {
+        \Config::set('miniunits_config_path',"app" . DS . "multisite" . DS . $username . DS . "Resources". DS . "Units" . DS . "painter.json");
+        \Config::set('miniunits_storage_path',["app" . DS . "multisite" . DS . $username . DS . "Resources". DS . "Units"]);
+    }
+
+
+    public function mapTabs()
+    {
+        $tubs = [
+            'mini_user_page_edit' => [
+                [
+                    'title' => 'General',
+                    'url' => '/my-account/my-site/pages/edit/{id}',
+                ],
+                [
+                    'title' => 'Content',
+                    'url' => '/my-account/my-site/pages/edit/{id}/content',
+                ],
+                'layout' => 'mini::layouts.app'
+            ],
+            'mini_my_site_settings' => [
+                [
+                    'title' => 'General',
+                    'url' => '/my-account/my-site/settings',
+                ],
+                [
+                    'title' => 'Special',
+                    'url' => '/my-account/my-site/settings/special',
+                ],
+                'layout' => 'mini::layouts.app'
+            ],
+        ];
+        \Eventy::action('my.tab', $tubs);
     }
 }
