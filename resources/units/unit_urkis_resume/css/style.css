@@ -1,73 +1,79 @@
-#skills-flato{
-    /*background: #eeeeee;*/
-    /*color: #474d5d;*/
+/*********Resume Section ******/
+.resume-area.section-padding {
+    padding: 120px 0;
 }
-section#skills-flato> .container {
-    /*padding-top: 85px;*/
-    /*padding-bottom: 93px;*/
+section.resume-area {
+    background: #031219;
+    color: #fff;
 }
-#skills-flato .heading{
-    text-align: center;
-    padding-bottom: 45px;
+.resume-area .section-header {
+    margin: 0 0 65px;
 }
-#skills-flato .heading .title{
+.resume-area .section-header {
+    margin: 0 0 65px;
+}
+.resume-area .section-header h2 {
     font-size: 36px;
-    line-height: 38px;
-    padding-bottom: 0;
-    font-weight: 300;
     text-transform: uppercase;
-    margin: 0;
-    color: #ff675f;
 }
-#skills-flato .heading p{
-    font-size: 14px;
-    font-weight: 400;
-    margin: 0;
-    color: #84868d;
-    line-height: 18px;
-    padding-bottom: 41px;
+.resume-area p.slugan {
+    color: #F4BE0C;
+    font-size: 18px;
 }
-
-#skills-flato .content-skills .skillsArea .skills{
-    margin: 0 auto;
-    margin-bottom: 23px;
-    text-align: center;
-    padding: 0;
-    float: none;
-}
-
-#skills-flato .content-skills .skillsArea .skills .chart{
+.resume-area .single-timeline {
+    border-left: 1px solid #899397;
+    padding: 0 0 60px 33px;
     position: relative;
-    display: flex;
-    width: 152px;
-    height: 152px;
-    text-align: center;
-    border: 10px solid #000;
+    margin-left: 10px;
+}
+.resume-area .single-timeline:after {
+    content: "";
+    position: absolute;
+    left: -11px;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    background: #000;
+    border: 2px solid #C8D2D7;
     border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    margin: 18px auto;
 }
-#skills-flato .content-skills .skillsArea .skills .chart .percent{
-    display: inline-block;
-    font-size: 21px;
-    color: #474d5d;
-    z-index: 2;
+.resume-area .single-timeline:last-child {
+    padding-bottom: 0;
 }
-#skills-flato .content-skills .skillsArea .skills h4{
-    font-size: 19px;
-    line-height: 24px;
-    padding-bottom: 6px;
-    margin: 0;
-    text-transform: uppercase;
-    font-weight: 700;
+.resume-area .item-heading {
+    background: #F4BE0C;
+    margin-bottom: 50px;
 }
-#skills-flato .content-skills .skillsArea .skills p{
-    font-weight: 400;
-    padding-bottom: 22px;
-    margin: 0;
-    color: #84868d;
-    font-size: 13px;
-    line-height: 18px;
+.resume-area .hicom {
+    margin: 10px 15px;
+}
+.resume-area .hicom i {
+    color: #000;
+    background: #fff;
+    font-size: 22px;
+    height: 50px;
+    width: 50px;
     text-align: center;
+    line-height: 50px;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+.resume-area .item-heading h3.single-ititle {
+    font-size: 22px;
+    text-transform: uppercase;
+    margin: 0;
+}
+.resume-area .single-timeline p.years {
+    color: #F4BE0C;
+    font-size: 20px;
+    line-height: 1;
+    margin: 0 0 25px;
+}
+.resume-area .single-timeline h4.timeline-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+}
+.resume-area .single-timeline .timeline-desc {
+    color: #b7b6b6;
 }

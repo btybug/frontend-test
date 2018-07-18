@@ -1,5 +1,5 @@
 {
-  "title": "unit_urkis_resume",
+  "title": "Urkis resume",
   "author": "Vardan",
   "site": "http:\/\/bootydev.co.uk",
   "version": "1.0",
@@ -14,15 +14,6 @@
   "created_at": 1490088665,
   "is_core": 0,
   "place": "frontend",
-  "placeholders": {
-    "general": {
-      "type": "unit",
-      "tag": "general",
-      "title": "General",
-      "s": true,
-      "f": true
-    }
-  },
-  "tags": ["cv","urkis resume"],
-  "path": "resources\/units\/unit_for_cv_all"
+  "tags": ["blog","post","frontend","front_page_content","minicms"],
+  "path": "resources\/units\/unit_urkis_resume"
 }
