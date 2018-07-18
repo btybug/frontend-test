@@ -1,0 +1,28 @@
+{
+  "title": "unit_urkis_resume",
+  "author": "Vardan",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "example":"demo",
+  "self_type": "units",
+  "type": "units",
+  "description": "Urkis's resume",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "unit_urkis_resume",
+  "folder": "unit_urkis_resume",
+  "created_at": 1490088665,
+  "is_core": 0,
+  "place": "frontend",
+  "placeholders": {
+    "general": {
+      "type": "unit",
+      "tag": "general",
+      "title": "General",
+      "s": true,
+      "f": true
+    }
+  },
+  "tags": ["cv","urkis resume"],
+  "path": "resources\/units\/unit_for_cv_all"
+}

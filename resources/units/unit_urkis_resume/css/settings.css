@@ -1,0 +1,21 @@
+.bty-panel-collapse .content-panel{
+    padding:20px;
+}
+.bty-panel-collapse .content-panel h4{
+    border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
+}
+.bty-panel-collapse{
+    margin-bottom: 10px;
+}
+.bty-panel-collapse > div:first-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bty-panel-collapse > div:first-child .btn{
+    margin-right:10px;
+}
+#skills-flato .content-skills .skillsArea .skills .chart .percent{
+    z-index: 0 !important;
+}
