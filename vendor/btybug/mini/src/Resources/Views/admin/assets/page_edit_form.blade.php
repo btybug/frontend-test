@@ -1,4 +1,5 @@
 {!! Form::model($model,['class'=>'form-horizontal']) !!}
+{!! Form::hidden('id') !!}
         <div class="form-group">
             <label for="page_title" class="control-label col-xs-4">Title</label>
             <div class="col-xs-8">
