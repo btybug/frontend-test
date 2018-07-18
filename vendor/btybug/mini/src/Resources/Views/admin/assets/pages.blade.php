@@ -11,7 +11,7 @@
                         @foreach($pages as $page)
                             <li class="pages-lists" data-id="{!! $page->id !!}">
                                 <span>{!! $page->title !!}</span>
-                                <div class="button" >
+                                <div class="button">
                                     <button class="btn btn-sm btn-success">Disable</button>
                                     <button class="btn btn-sm btn-info">Publish</button>
                                     <button class="btn btn-sm btn-warning"><i class="fa fa-trash"></i></button>
@@ -31,6 +31,7 @@
             </div>
         </div>
     </div>
+    @include('resources::assests.magicModal')
     <template id="create-page-form-template">
         <form class="form-horizontal" id="create-page-form">
             <div class="form-group">
@@ -82,6 +83,20 @@
                         <option value="mini_urkis">Mini Urkis</option>
                         <option value="mini_urkis_cv">Mini Urkis CV</option>
                     </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        {!! BBbutton2('unit','header','frontend_header','Select Default Header') !!}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        {!! BBbutton2('layouts','layout','front_pages_layout','Select Default Layout') !!}
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -158,6 +173,8 @@
 @stop
 
 @section("JS")
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    {!! HTML::script("public/js/UiElements/bb_styles.js?v.5") !!}
     <script>
         $(".create-page").click(function () {
             let form = $('#create-page-form-template').html();
@@ -184,7 +201,7 @@
         $(function () {
             $("body").on("click", ".pages-lists", function () {
 
-                let data = {id:$(this).attr('data-id')};
+                let data = {id: $(this).attr('data-id')};
                 $.ajax({
                     type: "post",
                     datatype: "json",
@@ -194,7 +211,7 @@
                         'X-CSRF-TOKEN': $("input[name='_token']").val()
                     },
                     success: function (data) {
-                        if(data.error===false){
+                        if (data.error === false) {
                             $(".right-iframe").append(data.html)
                         }
                     }
