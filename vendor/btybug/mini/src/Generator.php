@@ -114,17 +114,18 @@ class Generator
                 $painters = Painter::whereTag($corePage->template)->get();
                 $teplate = null;
                 if (count($painters)) {
-                    $teplate = $painters[0]->id . '.default';
+                    $teplate = $painters[0]->slug . '.default';
                     $newPages[] = [
                         'title' => $corePage->title,
                         'url' => '/'.$this->name.'/'.$corePage->url,
-                        'user_id' => 66,
+                        'user_id' => $this->user_id,
                         'status' => 'published',
                         'page_access' => 0,
                         'slug' => str_slug($corePage->title . $this->user_id),
                         'type' => 'core',
-                        'page_layout' => $corePage->page_layout,
-                        'template' => $corePage->template
+                        'content_type' => 'template',
+                        'page_layout' => 'front_layout_with_2_8_2_col',
+                        'template' => $teplate
                     ];
                 }
             }
