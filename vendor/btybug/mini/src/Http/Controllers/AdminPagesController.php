@@ -11,21 +11,30 @@ namespace Btybug\Mini\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Btybug\Mini\Repositories\MinicmsPagesRepository;
+use Illuminate\Http\Request;
 
 
 class AdminPagesController extends Controller
 {
-    public function assetsPages(MinicmsPagesRepository $pagesRepository)
+    private $pageRepository;
+
+    public function __construct(
+        MinicmsPagesRepository $pagesRepository
+    )
     {
-        $pages = $pagesRepository->getAll();
-
-        return view('multisite::admin.assets.pages', compact('pages'));
-
+        $this->pageRepository = $pagesRepository;
     }
 
-    public function createPage(Request $request, MinicmsPagesRepository $pagesRepository)
+    public function assetsPages()
+    {
+        $pages = $this->pageRepository->getAll();
+
+        return view('multisite::admin.assets.pages', compact('pages'));
+    }
+
+    public function createPage(Request $request)
     {
         $data = $request->except('_token');
-        return $pagesRepository->create($data);
+        return $this->pageRepository->create($data);
     }
 }

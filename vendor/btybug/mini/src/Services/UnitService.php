@@ -16,11 +16,19 @@ use Illuminate\Http\Request;
 class UnitService
 {
     private $unitModel = null;
+    private $painter;
+
+    public function __construct(
+        Painter $painter
+    )
+    {
+        $this->painter = $painter;
+    }
 
     public function getUnit($units, $slug = null)
     {
         if ($slug) {
-            $this->unitModel = Painter::whereTag('minicms')->where('slug', $slug)->first();
+            $this->unitModel = $this->painter->whereTag('minicms')->where('slug', $slug)->first();
         } else {
             if (count($units)) {
                 $this->unitModel = array_first($units);

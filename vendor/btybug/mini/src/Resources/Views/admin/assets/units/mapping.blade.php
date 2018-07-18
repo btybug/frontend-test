@@ -1,5 +1,5 @@
-@extends('btybug::layouts.mTabs',['index'=>'mini_assets'])
-@section('tab')
+@extends('btybug::layouts.admin')
+@section('content')
     {{-- {{$units}}--}}
     <div class="ui-2_col">
         <div class="row">
