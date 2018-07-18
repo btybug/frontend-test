@@ -80,7 +80,7 @@ $(document).ready(function () {
         BBcustomize = $(this);
 
         var url = '/modality/settings-customize';
-        if(action == 'layouts') url = '/modality/settings-customize-layouts'
+        if (action == 'layouts') url = '/modality/settings-customize-layouts'
         $('#magic-body').empty();
         $.ajax({
             type: "post",
@@ -107,8 +107,8 @@ $(document).ready(function () {
             success: function (data) {
                 if (!data.error) {
                     console.log(2);
-                    var html=$(data.html);
-                    var script=html.find('script').html();
+                    var html = $(data.html);
+                    var script = html.find('script').html();
                     $('body').find('.magic-modal-select-variations').html(script)
                     $('#magic-settings .modal-title').html("Select " + action);
                     $('#magic-body').html(data.html);
@@ -154,29 +154,27 @@ $(document).ready(function () {
             },
             success: function (data) {
                 if (!data.error) {
-                    var html=$(data.html);
-                    var script=html.find('script').html();
+                    var html = $(data.html);
+                    var script = html.find('script').html();
                     $('body').find('.magic-modal-select-variations').html(script)
                     $('#magic-settings').find('.modal-data-items').remove();
                     $('#magic-settings .modal-data').append(data.html);
-                    var defaultV=$('body').find('.tpl-default-variation').val();
-                    $('body').find('#select-unit-item-button').attr('data-value',defaultV);
+                    var defaultV = $('body').find('.tpl-default-variation').val();
+                    $('body').find('#select-unit-item-button').attr('data-value', defaultV);
                 }
             }
         });
     });
     $('[data-toggle="popover"]').popover();
-$('body').on('click','.page-section-item',function () {
-    var id=$(this).data('id');
-    $('body').find('#select-unit-item-button').attr('data-value',id)
-        .attr('data-key',$(this).attr('data-key'))
-        .attr('data-action','layouts').addClass('customize-item');
-    $('#iframepreview').attr('src','/modality/page-sections/modal/'+id);
-});
+    $('body').on('click', '.page-section-item', function () {
+        var id = $(this).data('id');
+        $('body').find('#select-unit-item-button').attr('data-value', id)
+            .attr('data-key', $(this).attr('data-key'))
+            .attr('data-action', 'layouts').addClass('customize-item');
+        $('#iframepreview').attr('src', '/modality/page-sections/modal/' + id);
+    });
     $('body').on('click', '.item', function () {
-        console.log(123,BBbutton)
         if (BBbutton) {
-            console.log(321)
 
             $('body').find('.modal-data-items .btn-primary')
                 .removeAttr('name')
@@ -200,13 +198,12 @@ $('body').on('click','.page-section-item',function () {
 
     $('body').on('click', '.customize-item', function () {
         if (BBcustomize) {
-            console.log($(this));
             var key = $(this).data('key');
             var value = $(this).data('value');
             var action = $(this).data('action');
 
             var url = '/modality/settings-customize-save';
-            if(action == 'layouts') url = '/modality/settings-customize-layouts-save'
+            if (action == 'layouts') url = '/modality/settings-customize-layouts-save'
 
             $.ajax({
                 type: "post",
@@ -221,18 +218,18 @@ $('body').on('click','.page-section-item',function () {
                     'X-CSRF-TOKEN': $("input[name='_token']").val()
                 },
                 success: function (data) {
-                    if(! data.error){
-                        var customize_url = '/admin/uploads/gears/settings/'+value+'.'+key;
-                        if(action == 'layouts') customize_url = '/admin/uploads/layouts/settings/'+value+'.'+key;
+                    if (!data.error) {
+                        var customize_url = '/admin/uploads/gears/settings/' + value + '.' + key;
+                        if (action == 'layouts') customize_url = '/admin/uploads/layouts/settings/' + value + '.' + key;
 
-                        $('body').find('a[data-strcuture="'+key+'"]')
-                            .attr('href',customize_url);
+                        $('body').find('a[data-strcuture="' + key + '"]')
+                            .attr('href', customize_url);
 
-                        $('body').find('input[data-name="'+BBcustomize.data('key')+'"]').attr('value',value+'.'+key).trigger('change');
-                        $('body').find('button[data-key="'+BBcustomize.data('key')+'"]').attr('data-value',value+'.'+key);
+                        $('body').find('input[data-name="' + BBcustomize.data('key') + '"]').attr('value', value + '.' + key).trigger('change');
+                        $('body').find('button[data-key="' + BBcustomize.data('key') + '"]').attr('data-value', value + '.' + key);
 
-                        $('body').find('[data-id="'+BBcustomize.data('key')+'"]')
-                            .attr('value',data.unit.title);
+                        $('body').find('[data-id="' + BBcustomize.data('key') + '"]')
+                            .attr('value', data.unit.title);
 
                         $('body').find('.modal-data-items .btn-primary')
                             .removeAttr('name')
@@ -301,7 +298,7 @@ $('body').on('click','.page-section-item',function () {
         if (!copy) {
             copy = 0
         }
-        data = {'variation_id': variation, 'data_action': data_action,'copy':copy};
+        data = {'variation_id': variation, 'data_action': data_action, 'copy': copy};
         $.ajax({
             type: "post",
             datatype: "json",
@@ -316,25 +313,26 @@ $('body').on('click','.page-section-item',function () {
                     $(input).val(data.value);
                     $(input).attr('data-content', data.content);
                     $('[data-toggle="popover"]').popover();
-                    if(data.copy){
-                        $('input[data-name='+dataKey+']').val(data.slug);
+                    if (data.copy) {
+                        $('input[data-name=' + dataKey + ']').val(data.slug);
                     }
                 }
             }
         });
     }
-    $('body').on('change','.magic-modal-select-variations',function () {
-       var id=$(this).val();
-       var url=$('body').find('#iframe-url').val();
-        $('#select-unit-item-button').attr('data-value',id);
-       $('body').find('.magic-modal-iframe').attr('src',url+id);
+
+    $('body').on('change', '.magic-modal-select-variations', function () {
+        var id = $(this).val();
+        var url = $('body').find('#iframe-url').val();
+        $('#select-unit-item-button').attr('data-value', id);
+        $('body').find('.magic-modal-iframe').attr('src', url + id);
     });
-$('body').on('click','.clean-bb-button',function () {
-   var slug= $(this).data('id');
-   $('body').find('input[data-name='+slug+']').val('');
-   $('body').find('input[data-id='+slug+']').val('Nothing Selected !!!');
-    $('body').find('input[data-id='+slug+']').trigger('input');
-});
+    $('body').on('click', '.clean-bb-button', function () {
+        var slug = $(this).data('id');
+        $('body').find('input[data-name=' + slug + ']').val('');
+        $('body').find('input[data-id=' + slug + ']').val('Nothing Selected !!!');
+        $('body').find('input[data-id=' + slug + ']').trigger('input');
+    });
 
     $('body').on('click', '.BBLive', function (e) {
         e.preventDefault();
@@ -347,7 +345,7 @@ $('body').on('click','.clean-bb-button',function () {
             url: '/modality/live-preview',
             data: {
                 variation: variation,
-                type:type
+                type: type
             },
             headers: {
                 'X-CSRF-TOKEN': $("input[name='_token']").val()
@@ -364,7 +362,7 @@ $('body').on('click','.clean-bb-button',function () {
     });
 
 
-    $('[data-responsiveview]').click(function(){
+    $('[data-responsiveview]').click(function () {
         $('[data-responsiveview]').removeClass('active')
         $(this).addClass('active')
         var getsize = $(this).data('responsiveview')
@@ -372,9 +370,9 @@ $('body').on('click','.clean-bb-button',function () {
         $('#iframepreview').width(getsize)
     })
 
-    $('[data-openresponsiveview="modal"]').click(function(){
-       var data=$('#page-sections-settings-area').find('form').serialize();
-        $('#iframepreview').attr('src','/admin/uploads/layouts/responsive/front_layout_with_3_9_col_2_row.default?'+data);
+    $('[data-openresponsiveview="modal"]').click(function () {
+        var data = $('#page-sections-settings-area').find('form').serialize();
+        $('#iframepreview').attr('src', '/admin/uploads/layouts/responsive/front_layout_with_3_9_col_2_row.default?' + data);
         $('#view-responsives-modal').modal('show')
     });
 

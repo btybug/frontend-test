@@ -2781,7 +2781,7 @@ function BBcreateMiniCms($user)
     if (!\File::isDirectory('multisite')) {
         \File::makeDirectory('multisite');
     }
-    $test = new \App\Mini\Generator();
-    $test->make($user->username);
+    $test = new \Btybug\Mini\Generator();
+    $test->make($user);
 }
 

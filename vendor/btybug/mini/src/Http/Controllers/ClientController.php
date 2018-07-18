@@ -10,6 +10,7 @@ namespace Btybug\Mini\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
+use Btybug\Mini\Generator;
 use Btybug\Mini\Http\Requests\PageCreateRequest;
 use Btybug\Mini\Model\MiniPainter;
 use Btybug\Mini\Services\PagesService;
