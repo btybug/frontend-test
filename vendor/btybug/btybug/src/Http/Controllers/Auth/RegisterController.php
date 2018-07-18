@@ -77,7 +77,6 @@ class RegisterController extends Controller
 
     private function makeMiniCms($user)
     {
-        BBRegisterFrontPages($user->username . ' page', '/' . $user->username, $user->id);
         BBcreateMiniCms($user);
     }
 }

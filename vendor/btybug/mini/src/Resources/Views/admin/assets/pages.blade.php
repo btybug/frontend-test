@@ -31,7 +31,9 @@
             </div>
         </div>
     </div>
+
     @include('resources::assests.magicModal')
+
     <template id="create-page-form-template">
         <form class="form-horizontal" id="create-page-form">
             <div class="form-group">
@@ -57,20 +59,31 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="select" class="control-label col-xs-4">Select</label>
+                <label for="page_status" class="control-label col-xs-4">Page Status</label>
                 <div class="col-xs-8">
-                    <select id="select" name="status" class="select form-control">
+                    <select id="page_status" name="status" class="select form-control">
                         <option value="draft">Draft</option>
                         <option value="published">Published</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label for="select" class="control-label col-xs-4">Membership</label>
+                <label for="membership" class="control-label col-xs-4">Membership</label>
                 <div class="col-xs-8">
-                    <select id="select" name="membership" class="select form-control">
+                    <select id="membership" name="memberships" class="select form-control">
                         <option value="free">Free</option>
                         <option value="pro">Pro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="tag_unit_for_page" class="control-label col-xs-4">Tag Unit To Page</label>
+                <div class="col-xs-8">
+                    <select id="tag_unit_for_page" name="template" class="select form-control">
+                        <option value="mini_profile">Mini Profile</option>
+                        <option value="mini_samuel">Mini Samuel</option>
+                        <option value="mini_urkis">Mini Urkis</option>
+                        <option value="mini_urkis_cv">Mini Urkis CV</option>
                     </select>
                 </div>
             </div>
@@ -82,14 +95,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="page_url" class="control-label col-xs-4"></label>
-                <div class="col-xs-8">
-                    <div class="input-group">
-                        {!! BBbutton2('unit','template','minicms','Select Page Template') !!}
-                    </div>
-                </div>
-            </div>
+
             <div class="form-group row">
                 <div class="col-xs-offset-4 col-xs-8">
                     <button id="siteSubmit" type="submit" class="btn btn-primary">Submit</button>

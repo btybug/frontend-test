@@ -9,6 +9,11 @@
 namespace Btybug\Mini;
 
 
+use Btybug\btybug\Models\Painter\Painter;
+use Btybug\FrontSite\Models\FrontendPage;
+use Btybug\Mini\Model\MiniPages;
+use Btybug\Mini\Repositories\MinicmsPagesRepository;
+
 class Generator
 {
     private $tree = [
@@ -16,17 +21,47 @@ class Generator
         'Resources' => ['Views' => [
             '_partials' => ['sidebar.blade', 'header.blade'],
             'account' => ['settings.blade', 'general.blade'],
-            'market' => ['gears.blade', 'plugins.blade'],
-            'plugins' => ['lists.blade', 'settings.blade'],
+            'btybug' => [
+                'blog.blade',
+                'cv.blade',
+                'jobs.blade',
+                'market.blade'
+            ],
+            'communications' => [
+                'create_message.blade',
+                'messages.blade',
+                'notifications.blade',
+                'reviews.blade',
+                'view_message.blade',
+            ],
+            'extra' => [
+                '_partials' => ['view.blade'],
+                'gears.blade',
+                'plugin_settings.blade',
+                'plugins.blade',
+            ],
             'media' => ['drive.blade', 'settings.blade'],
+            'mysite' => ['pages.blade', 'settings.blade', 'special.blade'],
             'layouts' => ['app.blade'],
-            'pages' => ['lists.blade'],
+            'pages' => [
+                '_partials' => ['view.blade'],
+                'content.blade',
+                'edit.blade',
+                'lists.blade',
+            ],
+            'plugins' => [
+                'lists.blade',
+                'settings.blade',
+            ], 'preferences' => [
+                'lists.blade'
+            ],
             'account.blade',
         ]],
         'Main',
     ];
     private $storage;
     private $root;
+    private $user_id;
     private $name;
 
     public function __construct()
@@ -38,10 +73,13 @@ class Generator
 
     public function make($name)
     {
-        $this->name = $name;
+
+        $this->name = $name->username;
+        $this->user_id = $name->id;
         $this->root = $this->root . DS . $this->name;
         \File::makeDirectory($this->root);
         $this->rekursiveMakeCms($this->tree, $this->root);
+        $this->makePages();
     }
 
     public function rekursiveMakeCms($array, $root, $path = null)
@@ -63,5 +101,37 @@ class Generator
 //            $i++;
 //            $this->rekursiveMakeCms($array,$i,$root);
 //        }
+    }
+
+    public function makePages()
+    {
+        $minicmsPagesRepository = new MinicmsPagesRepository();
+        $corePages = $minicmsPagesRepository->findAllByMultiple(['status' => 'published', 'memberships' => 'free']);
+        $newPages = [];
+
+        foreach ($corePages as $corePage) {
+            if ($corePage->template) {
+                $painters = Painter::whereTag($corePage->template)->get();
+                $teplate = null;
+                if (count($painters)) {
+                    $teplate = $painters[0]->id . '.default';
+                    $newPages[] = [
+                        'title' => $corePage->title,
+                        'url' => '/'.$this->name.'/'.$corePage->url,
+                        'user_id' => 66,
+                        'status' => 'published',
+                        'page_access' => 0,
+                        'slug' => str_slug($corePage->title . $this->user_id),
+                        'type' => 'core',
+                        'page_layout' => $corePage->page_layout,
+                        'template' => $corePage->template
+                    ];
+                }
+            }
+
+        }
+        if (count($newPages)) {
+            FrontendPage::insert($newPages);
+        }
     }
 }
