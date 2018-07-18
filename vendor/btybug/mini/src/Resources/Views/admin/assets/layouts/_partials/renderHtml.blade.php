@@ -136,7 +136,7 @@
 </head>
 
 <body style="transform: scale(0.7);margin-top: -50px;">
-{!! $layout->render() !!}
+{!! $layout->render($variation) !!}
 <!-- ================== BEGIN BASE FOOTER JS ================== -->
 {!! BBgetProfileAssets(false,'js','footerJs') !!}
 <!-- ================== END FOOTER JS ================== -->

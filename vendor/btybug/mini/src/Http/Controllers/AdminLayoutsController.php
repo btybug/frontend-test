@@ -18,28 +18,30 @@ class AdminLayoutsController extends Controller
 {
     public function __construct(ContentLayouts $contentLayouts)
     {
-       $this->contentLayouts=$contentLayouts;
+        $this->contentLayouts = $contentLayouts;
     }
 
-    public function assetsLayouts(Request $request, LayoutsService $layoutsService,$slug = null)
+    public function assetsLayouts(Request $request, LayoutsService $layoutsService, $slug = null)
     {
         $layouts = $this->contentLayouts->whereTag('minicms')->get();
-        $model = $layoutsService->getUnit($layouts,$slug);
+        $model = $layoutsService->getUnit($layouts, $slug);
         return view('multisite::admin.assets.layouts.preview', compact(['layouts', 'model', 'slug']));
     }
 
     public function iframeRander($slug)
     {
         $layout = $this->contentLayouts->find($slug);
-        $html = \View('multisite::admin.assets.layouts._partials.renderHtml')->with('layout', $layout)->render();
+
+        $variation = $layout->variations(false)->find($slug)->toArray()['settings'];
+        $html = \View('multisite::admin.assets.layouts._partials.renderHtml')->with(['layout' => $layout, 'variation' => $variation])->render();
 
         return $html;
     }
 
-    public function assetsLayoutSettings(Request $request, LayoutsService $layoutsService,$slug = null)
+    public function assetsLayoutSettings(Request $request, LayoutsService $layoutsService, $slug = null)
     {
         $layouts = $this->contentLayouts->whereTag('minicms')->get();
-        $model = $layoutsService->getUnit($layouts,$slug);
+        $model = $layoutsService->getUnit($layouts, $slug);
         return view('multisite::admin.assets.layouts.settings', compact(['layouts', 'model', 'slug']));
     }
 }

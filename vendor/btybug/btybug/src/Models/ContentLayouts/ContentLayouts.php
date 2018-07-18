@@ -79,7 +79,6 @@ class ContentLayouts extends BasePainter implements VariationAccess
 
     public function scopeRenderLivePreview(string $slug)
     {
-        dd(2);
         $ui = $model = $this->findByVariation($slug);
 
         if (!$ui) {
@@ -96,7 +95,6 @@ class ContentLayouts extends BasePainter implements VariationAccess
         $dataSettings = url('/admin/uploads/gears/settings-iframe', $slug) . '/settings';
         $data['body'] = $body;
         $data['settings'] = $dataSettings;
-        dd(1);
         return view('uploads::gears.units.preview', compact(['model', "ui", 'data', 'settings', 'variation']));
     }
 
@@ -531,11 +529,12 @@ class ContentLayouts extends BasePainter implements VariationAccess
         return $html;
     }
 
-    public function scopeRender(array $variables = [])
+    public function scopeRender(array $variables = [],$demo=false)
     {
         $slug = $this->folder;
         if ($this->autoinclude) return $this->getAutoInclude()->getRender($variables, "ContentLayouts.$slug");
-        $html = \View::make("ContentLayouts.$slug.$this->layout")->with(['settings' => $variables, '_this' => $this])->render();
+        $layout=($demo)?$this->demo:$this->layout;
+        $html = \View::make("ContentLayouts.$slug.$layout")->with(['settings' => $variables, '_this' => $this])->render();
         return $html;
     }
 
