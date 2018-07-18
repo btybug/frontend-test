@@ -10,7 +10,7 @@ if (document.querySelector("#formJson") !== null) {
 
 }
 
-// var editData = document.querySelector("#formJson") !== null ? JSON.parse(JSON.parse(document.querySelector("#formJson").value).json_data) : {}
+
 var builder = Formio.builder(document.getElementById('builder'), editData, {
   builder: {
     basic: false,
@@ -21,7 +21,7 @@ var builder = Formio.builder(document.getElementById('builder'), editData, {
       weight: 10,
       components: {
         firstName: {
-          title: 'First Name',
+          title: 'First Test',
           key: 'firstName',
           icon: 'fa fa-terminal',
           schema: {
@@ -104,40 +104,15 @@ var builder = Formio.builder(document.getElementById('builder'), editData, {
     jsonElement.innerHTML = '';
     jsonElement.appendChild(document.createTextNode(JSON.stringify(builder.schema, null, 4)));
   });
-
+  console.log(3243124)
   builder.on('deleteComponent', function (event) {
     jsonElement.innerHTML = '';
     jsonElement.appendChild(document.createTextNode(JSON.stringify(builder.schema, null, 4)));
   });
 
   Formio.createForm(formElement, builder.schema).then(onForm);
-  document.querySelector(".component-settings-button-edit").addEventListener("click", function () {
-    let navTabs = $(".nav-tabs")
-    let tabContent = $(".tab-content")
-    let element = `<li class="nav-item" role="presentation"><a class="nav-link add-style"  href="#style">Style</a></li>`
-    navTabs.append(element)
-    let tabPannel = `<div role="tabpanel" class="tab-pane" id="style"><input  type="text" class="form-control" placeholder="Description for this field."> </div>`
-    tabContent.append(tabPannel)
-    document.querySelectorAll(".nav-link").forEach(item => item.addEventListener("click", function () {
-      let styleElement = document.querySelector(".add-style")
-      styleElement.classList.remove("active")
-      styleElement.parentNode.classList.remove("active")
-      $("#style").hide()
-
-    }))
-    document.querySelector(".add-style").addEventListener("click", function () {
-      $(".tab-content > .active").empty()
-      $(".nav-tabs > .active").removeClass("active")
-      $(".nav-tabs > .active > a").removeClass("active")
-      this.classList.add("active")
-      this.parentNode.classList.add("active")
-      $("#style").show()
-
-    })
-    // this.click()
-  })
-
-
+  let btn2 = `<div class="btn btn-xxs btn-danger component-settings-button component-settings-add-style"><i class="glyphicon glyphicon-remove"></i></div>`
+  $(".component-btn-group").append(btn2)
 });
 
 var onForm = function (form) {
@@ -147,6 +122,36 @@ var onForm = function (form) {
   });
 };
 
+
+
+// $("body").on("click", ".component-settings-button-edit", function () {
+//   let navTabs = $(".nav-tabs")
+//   let tabContent = $(".tab-content")
+//   let element = `<li class="nav-item" role="presentation"><a class="nav-link add-style"  href="#style">Style</a></li>`
+//   navTabs.append(element)
+//   let tabPannel = `<div role="tabpanel" class="tab-pane" id="style"><input  type="text" class="form-control" placeholder="Class Name"> <i class="fa fa-plus add-input-style"></i> <i class="fa fa-minus remove-input-style"></i> <input class="form-control mr-2"  class="input-styles" type="text"> </div>`
+//   tabContent.append(tabPannel)
+//   document.querySelectorAll(".nav-link").forEach(item => item.addEventListener("click", function () {
+//     let styleElement = document.querySelector(".add-style")
+//     styleElement.classList.remove("active")
+//     styleElement.parentNode.classList.remove("active")
+//     $("#style").hide()
+
+//   }))
+//   document.querySelector(".add-style").addEventListener("click", function () {
+//     $(".tab-content > .active").empty()
+//     $(".nav-tabs > .active").removeClass("active")
+//     $(".nav-tabs > .active > a").removeClass("active")
+//     this.classList.add("active")
+//     this.parentNode.classList.add("active")
+//     $("#style").show()
+
+//   })
+// })
+
+// $("body").on("click", ".add-input-style", function () {
+//   $("")
+// })
 
 
 document.querySelector(".add-unit").addEventListener("click", function () {
@@ -201,6 +206,90 @@ document.querySelector(".saveForm").addEventListener("click", function () {
 })
 
 
+$("body").on("click", ".component-settings-add-style", function(){
+  console.log(11121)
+})
 
+function objToString(obj) {
+  var str = "";
+  for (var p in obj) {
+    if (obj.hasOwnProperty(p)) {
+      str += p + " " + obj[p] + "\n";
+    }
+  }
+  return str;
+}
+function makeid() {
+  var text = "";
+  var possible =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  for (var i = 0; i < 10; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  return text;
+}
 
-// console.log(JSON.parse(JSON.parse(document.querySelector("#formJson").value).json_data)) 
+function customStyle() {
+  let customCSS = "";
+  _.each(this.component.style, (value, key) => {
+    if (value !== "") {
+      customCSS += `${key}:${value};`;
+    }
+  });
+  return customCSS;
+}
+
+$(document).ready(function() {
+  let cssClass = `custom-${makeid()}`;
+  var css = {
+      [`.${cssClass}`]: ""
+    },
+    head = document.head || document.getElementsByTagName("head")[0],
+    style = document.createElement("style");
+  style.type = "text/css";
+  style.id = "test1";
+
+  count = 0;
+  head.appendChild(style);
+  $("body").on("click", ".btn-up", function() {
+    if (
+      $(".component-preview")
+        .children()[0]
+        .attributes.class.value.indexOf("custom") === -1
+    ) {
+      style.appendChild(document.createTextNode(objToString(css)));
+      $($(".formio-component-customClass").children()[1]).val(cssClass);
+      $(".formio-component-hideLabel")
+        .children()
+        .children()[0]
+        .click();
+      $(".formio-component-hideLabel")
+        .children()
+        .children()[0]
+        .click();
+    }
+    css[`.${cssClass}`] = `{margin: ${count}px}`;
+    count++;
+    $("#test1").html(objToString(css));
+  });
+  $("body").on("click", ".btn-down", function() {
+    if (
+      $(".component-preview")
+        .children()[0]
+        .attributes.class.value.indexOf("custom") === -1
+    ) {
+      style.appendChild(document.createTextNode(objToString(css)));
+      $($(".formio-component-customClass").children()[1]).val(cssClass);
+      $(".formio-component-hideLabel")
+        .children()
+        .children()[0]
+        .click();
+      $(".formio-component-hideLabel")
+        .children()
+        .children()[0]
+        .click();
+    }
+    css[`.${cssClass}`] = `{margin: ${count}px}`;
+    count--;
+    $("#test1").html(objToString(css));
+  });
+});
