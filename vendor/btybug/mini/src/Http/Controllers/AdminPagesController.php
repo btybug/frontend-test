@@ -37,4 +37,11 @@ class AdminPagesController extends Controller
         $data = $request->except('_token');
         return $this->pageRepository->create($data);
     }
+
+    public function getPageEditForl(Request $request)
+    {
+        $model=$this->pageRepository->find($request->get('id'));
+        $html=\View::make('multisite::admin.assets.page_edit_form',compact('model'))->render();
+        return response()->json(['error'=>false,'html'=>$html]);
+    }
 }

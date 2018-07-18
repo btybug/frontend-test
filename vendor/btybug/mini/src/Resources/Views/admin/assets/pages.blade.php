@@ -9,9 +9,9 @@
                 <div class="left-menu">
                     <ul>
                         @foreach($pages as $page)
-                            <li>
+                            <li class="pages-lists" data-id="{!! $page->id !!}">
                                 <span>{!! $page->title !!}</span>
-                                <div class="button">
+                                <div class="button" >
                                     <button class="btn btn-sm btn-success">Disable</button>
                                     <button class="btn btn-sm btn-info">Publish</button>
                                     <button class="btn btn-sm btn-warning"><i class="fa fa-trash"></i></button>
@@ -31,9 +31,6 @@
             </div>
         </div>
     </div>
-
-    @include('resources::assests.magicModal')
-
     <template id="create-page-form-template">
         <form class="form-horizontal" id="create-page-form">
             <div class="form-group">
@@ -161,7 +158,6 @@
 @stop
 
 @section("JS")
-    {!! HTML::script("public/js/UiElements/bb_styles.js?v.5") !!}
     <script>
         $(".create-page").click(function () {
             let form = $('#create-page-form-template').html();
@@ -183,7 +179,28 @@
                         location.reload();
                     }
                 });
-            })
+            });
+        });
+        $(function () {
+            $("body").on("click", ".pages-lists", function () {
+
+                let data = {id:$(this).attr('data-id')};
+                $.ajax({
+                    type: "post",
+                    datatype: "json",
+                    url: '/admin/mini/assets/get-page-edit-form',
+                    data: data,
+                    headers: {
+                        'X-CSRF-TOKEN': $("input[name='_token']").val()
+                    },
+                    success: function (data) {
+                        if(data.error===false){
+                            $(".right-iframe").append(data.html)
+                        }
+                    }
+                });
+            });
+
         })
     </script>
 

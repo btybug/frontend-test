@@ -26,6 +26,7 @@ Route::group(['prefix' => 'assets'], function () {
     Route::get('/plugins', 'AdminController@assetsPlugins', true)->name('mini_admin_assets_plugins');
     Route::get('/forms', 'AdminController@assetsForms', true)->name('mini_admin_assets_forms');
     Route::post('/create-page', 'AdminPagesController@createPage', true)->name('minicms_create_page');
+    Route::post('/get-page-edit-form', 'AdminPagesController@getPageEditForl', true)->name('minicms_page_edit_form_page');
 });
 Route::get('/settings', 'AdminController@getSettings', true)->name('mini_admin_settings');
 
