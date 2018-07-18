@@ -12,11 +12,17 @@
                         @include('multisite::admin.assets.units._partials.buttons')
 
                         <div class="right-iframe">
-                            <iframe class="unit_preview" data-slug="{{$model->slug}}"
-                                    src="{{url('admin/mini/assets/units/render/'.$model->slug.'.default')}}"
-                                    width="100%" style="min-height: 500px;">
+                            <div class="col-md-12">
+                                <a href="#" class="btn btn-info pull-left">Edit</a>
+                            </div>
+                            <div class="col-md-12">
+                                <iframe class="unit_preview" data-slug="{{$model->slug}}"
+                                        src="{{url('admin/mini/assets/units/render/'.$model->slug.'.default')}}"
+                                        width="100%" style="min-height: 500px;">
 
-                            </iframe>
+                                </iframe>
+                            </div>
+
                         </div>
                     </div>
                 @endif

@@ -25,6 +25,11 @@ Route::get('/test-unit/{id?}', function (\Illuminate\Http\Request $request) {
     return view('test-unit', compact('v_id'));
 });
 
+Route::group(['prefix'=>'tags'], function () {
+    Route::get('/', function (){return true;},true)->name('front_site_tags');
+    Route::post('/list', 'TagsController@getTags')->name('front_site_tag_list');
+});
+
 Route::group(['prefix'=>'structure'], function () {
     Route::get('/',function (){
         return view("manage::structure");

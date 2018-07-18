@@ -10,9 +10,15 @@
                 @if($model)
                     <div class="display-area">
                         @include('multisite::admin.assets.units._partials.buttons')
-
                         <div class="right-iframe">
-                            settings
+                            {!! Form::model(null,['url' => route('mini_admin_assets_units_settings_post',$slug)]) !!}
+                            <div class="form-group">
+                                {!! Form::text('tags',null,['class' => 'form-control','id' => 'tagits']) !!}
+                            </div>
+                            <div class="form-group">
+                                {!! Form::submit('save',['class' => 'btn btn-success']) !!}
+                            </div>
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 @endif
@@ -21,8 +27,51 @@
     </div>
 @stop
 @section("JS")
+    {!! HTML::script('public/js/tag-it/tag-it.js') !!}
+
+    <script>
+        $('#tagits').tagit({
+            autocomplete: {
+                delay: 0,
+                minLength: 0
+
+            },
+            tagSource: function () {
+                $.ajax({
+                    url: "{!! route('front_site_tag_list') !!}",
+                    dataType: "json",
+                    method: "post",
+                    data: {},
+                    headers: {
+                        'X-CSRF-TOKEN': $("input[name='_token']").val()
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        return data;
+                    }
+
+                });
+            },
+            // This will make Tag-it submit a single form value, as a comma-delimited field.
+            singleField: true,
+            singleFieldNode: $('.tagitext'),
+            beforeTagAdded: function (event, ui) {
+                if (!ui.duringInitialization) {
+//                    var exis = getExt.indexOf(ui.tagLabel);
+//                    if (exis < 0) {
+//                        $('.tagit-new input').val('');
+//                        //alert('PLease add allow at tag')
+//                        return false;
+//                    }
+                }
+
+            }
+        })
+    </script>
 @stop
 
+@section('CSS')
+    {!! HTML::style('public/css/jquery.tagit.css') !!}
 <style>
     .ui-2_col {
         margin-top: 30px;
@@ -77,6 +126,8 @@
         background: rgba(0, 0, 0, 0.48);
     }
 </style>
+
+@stop
 
 
 {{--

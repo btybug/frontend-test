@@ -11,6 +11,7 @@ namespace Btybug\Mini\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Btybug\btybug\Models\Painter\Painter;
+use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\Mini\Repositories\MinicmsPagesRepository;
 use Btybug\Mini\Services\UnitService;
 use Illuminate\Http\Request;
@@ -20,14 +21,17 @@ class AdminController extends Controller
 
     private $unitService;
     private $painter;
+    private $tagsRepository;
 
     public function __construct(
         UnitService $unitService,
-        Painter $painter
+        Painter $painter,
+        TagsRepository $tagsRepository
     )
     {
         $this->unitService = $unitService;
         $this->painter = $painter;
+        $this->tagsRepository = $tagsRepository;
     }
 
     public function getIndex()
@@ -75,6 +79,21 @@ class AdminController extends Controller
         $model = $this->unitService->getUnit($units, $slug);
 
         return view('multisite::admin.assets.units.settings', compact(['units', 'model', 'slug']));
+    }
+
+    public function postAssetsUnitsSettings(Request $request, $slug)
+    {
+        $tags = explode(',', $request->get('tags'));
+
+        if(count($tags)){
+            foreach ($tags as $tag){
+                $this->tagsRepository->create(['name' => $tag]);
+            }
+        }
+
+        $unit = $this->painter->findByVariation($slug);
+
+        dd($unit);
     }
 
     public function assetsForms()

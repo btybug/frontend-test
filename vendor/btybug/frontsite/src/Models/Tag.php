@@ -16,7 +16,7 @@ class Tag extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'page_id'];
+    protected $fillable = ['name'];
 
     public static function boot()
     {
@@ -27,8 +27,4 @@ class Tag extends Model
         });
     }
 
-    public function pages()
-    {
-        return $this->belongsToMany('Btybug\FrontSite\Models\FrontendPage', 'frontend_pages_tags', 'tags_id', 'frontend_page_id', 'id');
-    }
 }
