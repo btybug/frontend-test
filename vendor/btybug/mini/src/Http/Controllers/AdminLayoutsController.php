@@ -35,4 +35,11 @@ class AdminLayoutsController extends Controller
 
         return $html;
     }
+
+    public function assetsLayoutSettings(Request $request, LayoutsService $layoutsService,$slug = null)
+    {
+        $layouts = $this->contentLayouts->whereTag('minicms')->get();
+        $model = $layoutsService->getUnit($layouts,$slug);
+        return view('multisite::admin.assets.layouts.settings', compact(['layouts', 'model', 'slug']));
+    }
 }

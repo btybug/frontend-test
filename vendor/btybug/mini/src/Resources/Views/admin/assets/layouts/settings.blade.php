@@ -1,15 +1,15 @@
 @extends('btybug::layouts.admin')
 @section('content')
-    {{-- {{$units}}--}}
+    {{-- {{$layouts}}--}}
     <div class="ui-2_col">
         <div class="row">
             <div class="col-md-3 col-xs-12">
-                @include('multisite::admin.assets.units._partials.sidebar')
+                @include('multisite::admin.assets.layouts._partials.sidebar')
             </div>
             <div class="col-md-9 col-xs-12">
                 @if($model)
                     <div class="display-area">
-                        @include('multisite::admin.assets.units._partials.buttons')
+                        @include('multisite::admin.assets.layouts._partials.buttons')
 
                         <div class="right-iframe">
                             settings
@@ -81,5 +81,5 @@
 
 {{--
 public function iframeRander($slug){
-return BBRenderUnits($slug);
+return BBRenderlayouts($slug);
 }--}}
