@@ -1,0 +1,118 @@
+/*****Service Section ****/
+.service-area.section-padding,.reviews-area.section-padding {
+    padding: 120px 0;
+}
+.service-area .section-header {
+    margin: 0 0 65px;
+}
+.service-area .section-header h2 {
+    font-size: 36px;
+    text-transform: uppercase;
+}
+.service-area p.slugan {
+    color: #F4BE0C;
+    font-size: 18px;
+}
+.service-area .single-service {
+    background: #F6F6F6;
+    box-sizing: border-box;
+    padding: 40px;
+    margin-bottom: 30px;
+}
+.service-area .single-service .service-title {
+    margin-bottom: 15px;
+}
+.service-area .single-service h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+.service-area .service-counter {
+    margin-top: 90px;
+}
+.service-area .single-service-counter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.service-area span.service-icon i {
+    background: #F4BE0C;
+    color: #fff;
+    font-size: 24px;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    line-height: 60px;
+    vertical-align: middle;
+}
+.service-area .scicon {
+    margin-right: 5px;
+}
+.service-area .scicon i {
+    font-size: 60px;
+    color: #e0e0e0;
+}
+.service-area .ctext .counter-count {
+    font-size: 60px;
+    font-weight: 600;
+    text-align: center;
+    display: block;
+}
+.service-area .ctext p {
+    color: #F4BE0C;
+    text-transform: uppercase;
+}
+
+/****** Reviews Section *****/
+.reviews-area .section-header {
+    margin: 0 0 65px;
+}
+.reviews-area p.slugan {
+    color: #F4BE0C;
+    font-size: 18px;
+}
+.reviews-area .section-header h2 {
+    font-size: 36px;
+    text-transform: uppercase;
+}
+.reviews-area {
+    background: #031219;
+    color: #b7b6b6;
+    text-align: center;
+}
+.reviews-area header.section-header h2, .reviews .single-review span.clients {
+    color: #fff;
+}
+.reviews-area .review-icon {
+    display: inline-block;
+    margin: 0 0 30px;
+}
+.reviews-area .review-icon i {
+    color: #F4BE0C;
+    font-size: 30px;
+}
+.reviews-area .reviews .single-review span.clients {
+    margin-top: 20px;
+    display: inline-block;
+}
+.reviews-area ol.carousel-indicators {
+    position: relative;
+    margin: 45px 0 0;
+}
+.reviews-area ol.carousel-indicators li {
+    cursor: pointer;
+    height: 6px;
+    background: #595959;
+    width: 20px;
+    margin: 0 5px;
+}
+.reviews-area ol.carousel-indicators li.active {
+    background: #F5BE0C;
+}
