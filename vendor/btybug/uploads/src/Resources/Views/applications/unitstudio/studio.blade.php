@@ -106,9 +106,11 @@ width:20%;
         <input type="text" placeholder="File name" class="form-control">
             <!-- <button class="btn btn-success btn-sm excecte">Excecte</button>
             <button class="btn btn-warning btn-sm">Ace</button>
-            <button class="btn btn-danger btn-sm">Import</button> -->
-            <!-- <button class="btn btn-info btn-sm">Export</button> -->
+            <button class="btn btn-info btn-sm">Export</button> -->
+            <div>
+            <button class="btn btn-danger btn-sm">Import</button>
             <button class="btn btn-info btn-sm">Save</button>
+            </div>
         </div>
     </div>
 </header>
