@@ -116,7 +116,7 @@ class AdminController extends Controller
 
     public function iframeRander($slug)
     {
-        $html = BBRenderUnits($slug);
+        $html = BBRenderUnits($slug,[],null,true);
         $html = \View('multisite::admin.assets.units._partials.renderHtml')->with('html', $html)->render();
 
         return $html;

@@ -372,7 +372,7 @@ abstract class BasePainter implements PainterInterface, VariationAccess
      * @param array $settings
      * @return string
      */
-    public function scopeRender(array $settings)
+    public function scopeRender(array $settings,$demo=false)
     {
         $slug = $this->getSlug();
         $path = $this->getPath();
@@ -381,16 +381,16 @@ abstract class BasePainter implements PainterInterface, VariationAccess
         $actives= \Config::get('units',[]);
         $actives[]=['unit'=>$this,'variation'=>$settings['variation']];
         \Config::set('units',collect($actives));
+
         if ($this->main_file) {
             $tpl = str_replace(".blade.php", "", $this->main_file);
             if (isset($settings['view_name'])) {
                 $tpl = $settings['view_name'];
             }
         } else {
-            $tpl = "tpl";
+            $tpl = (!$demo)?"tpl":'demo';
         }
         $this->path = $this->getPath();
-
         return View::make("$slug::$tpl")->with($settings)->with(['tplPath' => $path, '_this' => $this])->render();
     }
 

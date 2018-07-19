@@ -545,7 +545,7 @@ function BBgetSiteName()
     return $name->val;
 }
 
-function BBRenderUnits($variation_id, $source = [], $data = null)
+function BBRenderUnits($variation_id, $source = [], $data = null,$demo=false)
 {
     $field = null;
     $cheked = null;
@@ -575,8 +575,7 @@ function BBRenderUnits($variation_id, $source = [], $data = null)
                     });
                     $settings = array_merge($settings, $liveSettings);
                 }
-
-                return $unit->render(compact(['variation', 'settings', 'source', 'field', 'cheked', 'data']));
+                return $unit->render(compact(['variation', 'settings', 'source', 'field', 'cheked', 'data']),$demo);
             }
         }
 
