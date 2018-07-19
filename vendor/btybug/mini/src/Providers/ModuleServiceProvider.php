@@ -31,6 +31,11 @@ class ModuleServiceProvider extends ServiceProvider
                     "icon" => "fa fa-cog",
                     "is_core" => "yes"
                 ], [
+                    "title" => "Users",
+                    "custom-link" => "/admin/mini/users",
+                    "icon" => "fa fa-cog",
+                    "is_core" => "yes"
+                ], [
                     "title" => "Settings",
                     "custom-link" => "/admin/mini/settings",
                     "icon" => "fa fa-cog",
