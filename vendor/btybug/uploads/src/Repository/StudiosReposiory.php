@@ -1,15 +1,19 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hook
- * Date: 7/19/2018
- * Time: 9:56 AM
- */
 
 namespace Btybug\Uploads\Repository;
 
+use Btybug\btybug\Repositories\GeneralRepository;
+use Btybug\Uploads\Models\Studios;
 
-class StudiosReposiory
+class StudiosReposiory extends GeneralRepository
 {
+    /**
+     * @return mixed
+     */
+
+    public function model ()
+    {
+        return new Studios();
+    }
 
 }

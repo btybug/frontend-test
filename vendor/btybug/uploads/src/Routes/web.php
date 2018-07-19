@@ -22,11 +22,11 @@ Route::group( ['middleware' => ['admin:Users']],function (){
 
     Route::group(['prefix' => 'application'], function () {
         Route::get('/{id?}', 'ApplicationController@getIndex', true)->name('application_index');
-        Route::get('/form-builder', 'ApplicationController@getFormBuilder', true)->name('application_form');
+        Route::get('/formbuilder/form-build', 'ApplicationController@getFormBuilder', true)->name('application_form');
         Route::post('/save-builder-form', 'ApplicationController@saveBuildedForm', true)->name('application_form_save');
-        Route::get('/edit/{id}', 'ApplicationController@editFormField', true)->name('application_form_edit');
-        Route::get('/delete/{id}', 'ApplicationController@deleteFormField', true)->name('application_form_delete');
-        Route::get('/render-form-view/{id}', 'ApplicationController@renderFormView', true)->name('application_form_view');
+        Route::get('/formbuilder/edit/{id}', 'ApplicationController@editFormField', true)->name('application_form_edit');
+        Route::get('/formbuilder/delete/{id}', 'ApplicationController@deleteFormField', true)->name('application_form_delete');
+        Route::get('/formbuilder/render-form-view/{id}', 'ApplicationController@renderFormView', true)->name('application_form_view');
     });
 
     Route::group(['prefix' => 'modules'], function () {

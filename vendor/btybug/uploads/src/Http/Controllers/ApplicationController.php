@@ -7,6 +7,7 @@ namespace Btybug\Uploads\Http\Controllers;
 
 
 use Btybug\Uploads\Repository\FormBuilderRepository;
+use Btybug\Uploads\Repository\StudiosReposiory;
 use Btybug\Uploads\Services\AppsService;
 use Btybug\btybug\Helpers\helpers;
 use Illuminate\Http\Request;
@@ -16,17 +17,28 @@ use Symfony\Component\Console\Tests\Input\StringInput;
 class ApplicationController extends Controller
 {
     private $formBuilderRepository;
+    private $studioRepository;
 
-    public function __construct(FormBuilderRepository $formBuilderRepository)
+    public function __construct(
+        FormBuilderRepository $formBuilderRepository,
+        StudiosReposiory $studiosReposiory
+    )
     {
         $this->formBuilderRepository = $formBuilderRepository;
+        $this->studioRepository = $studiosReposiory;
     }
 
-    public function getIndex ()
+    public function getIndex ($id = null)
     {
-        $allData = $this->formBuilderRepository->getAll();
+        if ($id && $id == 'formbuilder'){
+            $allData = $this->formBuilderRepository->getAll();
+        }else{
+            $allData = null;
+        }
 
-        return view('uploads::applications.index')->with('allData',$allData);
+        $studiosData = $this->studioRepository->getAll();
+
+        return view('uploads::applications.index')->with(['allData' => $allData,'studiosData' => $studiosData]);
     }
 
     public function getFormBuilder ()
@@ -52,9 +64,9 @@ class ApplicationController extends Controller
                 'json_data' => $data['body'],
             ]);
         }
+        $routeSlug = 'formbuilder';
 
-
-        return \Response::json(['error' => false,'url' => route('application_index')]);
+        return \Response::json(['error' => false,'url' => route('application_index',$routeSlug)]);
     }
 
 
