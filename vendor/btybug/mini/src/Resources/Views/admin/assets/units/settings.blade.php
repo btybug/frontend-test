@@ -13,7 +13,14 @@
                         <div class="right-iframe">
                             {!! Form::model(null,['url' => route('mini_admin_assets_units_settings_post',$slug)]) !!}
                             <div class="form-group">
+                                <label>Select Tags</label>
                                 {!! Form::text('tags',$tags,['class' => 'form-control','id' => 'tagits']) !!}
+                            </div>
+                            <div class="form-group">
+                                <label>Select Memberships</label>
+
+                                {!! Form::select('memberships[]',[],null,['class' => 'form-control memberships-select','multiple' => true]) !!}
+
                             </div>
                             <div class="form-group">
                                 {!! Form::submit('save',['class' => 'btn btn-success']) !!}
@@ -28,8 +35,12 @@
 @stop
 @section("JS")
     {!! HTML::script('public/js/tag-it/tag-it.js') !!}
+    {!! HTML::script('public/js/select2/select2.full.min.js') !!}
 
     <script>
+        $(".memberships-select").select2();
+
+
         $('#tagits').tagit({
             autocomplete: {
                 delay: 0,
@@ -72,7 +83,9 @@
 
 @section('CSS')
     {!! HTML::style('public/css/jquery.tagit.css') !!}
-<style>
+    {!! HTML::style("public/css/select2/select2.min.css") !!}
+
+    <style>
     .ui-2_col {
         margin-top: 30px;
     }
