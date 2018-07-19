@@ -42,8 +42,9 @@
     }
 
     .displayToggle {
-      transform: translateX(0);
-      opacity: 1;
+      transform: translateX(0) !important;
+      opacity: 1 !important;
+      transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s
 
       /* display: block !important; */
     }
@@ -234,7 +235,7 @@ width:20%;
     <div class="col-5 h-100 px-0 d-flex flex-column visualCodeEditorToggle">
         <div class="code-head">
             <button class="btn btn-warning btn-sm">Upload html</button>
-            <button class="btn btn-info btn-sm">Create html</button>
+            <button class="btn btn-info btn-sm createHtml">Create html</button>
         </div>
         <div class="php-code-item">
             PHP Code
@@ -252,7 +253,7 @@ width:20%;
                 <ul class="tree-list"></ul>
             </div>
 
-            <div class="h-50 pt-1 tree-container" style="display: none">
+            <div class="h-50 pt-1 tree-container full-code-editor" style="opacity: 0; transform: translateX(200px);">
                 <div id="full-code-editor"></div>
             </div>
 
@@ -330,7 +331,7 @@ width:20%;
         </div>
     </div>
 </div>
-
+<div id="code-editor"></div>
 
 <script type="template" id="demo-html">
     <div class="jumbotron">
