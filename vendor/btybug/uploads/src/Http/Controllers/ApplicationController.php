@@ -18,6 +18,7 @@ class ApplicationController extends Controller
 {
     private $formBuilderRepository;
     private $studioRepository;
+    private $data = [];
 
     public function __construct(
         FormBuilderRepository $formBuilderRepository,
@@ -28,17 +29,14 @@ class ApplicationController extends Controller
         $this->studioRepository = $studiosReposiory;
     }
 
-    public function getIndex ($id = null)
+    public function getIndex ($slug = null)
     {
-        if ($id && $id == 'formbuilder'){
-            $allData = $this->formBuilderRepository->getAll();
-        }else{
-            $allData = null;
+        if ($slug && $slug == 'formbuilder'){
+            $this->data = $this->formBuilderRepository->getAll();
         }
-
         $studiosData = $this->studioRepository->getAll();
 
-        return view('uploads::applications.index')->with(['allData' => $allData,'studiosData' => $studiosData]);
+        return view('uploads::applications.index')->with(['allData' => $this->data,'studiosData' => $studiosData,'slug' => $slug]);
     }
 
     public function getFormBuilder ()
@@ -88,6 +86,11 @@ class ApplicationController extends Controller
     public function renderFormView ($id = null){
         $editableData = $this->formBuilderRepository->findOrFail($id);
         return view('uploads::applications.formRender')->with('editableData', $editableData);
+    }
+
+    public function getUnitStudio()
+    {
+        return view('uploads::applications.unitstudio.studio');
     }
 
 }
