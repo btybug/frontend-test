@@ -88,14 +88,14 @@
             <div class="form-group">
                 <div class="col-xs-8">
                     <div class="input-group">
-                        {!! BBbutton2('unit','header','frontend_header','Select Default Header') !!}
+                        {!! BBbutton2('unit','header','frontend_header','Select Default Header',['model'=>$header]) !!}
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-xs-8">
                     <div class="input-group">
-                        {!! BBbutton2('layouts','layout','front_pages_layout','Select Default Layout') !!}
+                        {!! BBbutton2('layouts','page_layout','front_pages_layout','Select Default Layout',['model'=>$layout]) !!}
                     </div>
                 </div>
             </div>

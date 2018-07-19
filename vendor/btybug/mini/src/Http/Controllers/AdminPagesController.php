@@ -33,8 +33,9 @@ class AdminPagesController extends Controller
     public function assetsPages()
     {
         $pages = $this->pageRepository->getAll();
-
-        return view('multisite::admin.assets.pages', compact('pages'));
+        $header = Settings::where('section', 'minicms')->where('settingkey', 'default_header')->select('val AS header')->first();
+        $layout = Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS page_layout')->first();
+        return view('multisite::admin.assets.pages', compact('pages','header', 'layout'));
     }
 
     public function createPage(Request $request)
