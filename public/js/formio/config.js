@@ -1,128 +1,128 @@
-var subJSON = document.getElementById('subjson');
-var jsonForSend = null
-var editData = {}
+var subJSON = document.getElementById("subjson");
+var jsonForSend = null;
+var editData = {};
 if (document.querySelector("#formJson") !== null) {
-  let formJsonData = JSON.parse(document.querySelector("#formJson").value)
-  editData = JSON.parse(formJsonData.json_data)
-  console.log(formJsonData)
-  document.querySelector(".form-name").value = formJsonData.title
-  document.querySelector(".form-description").value = formJsonData.description
-
+  let formJsonData = JSON.parse(document.querySelector("#formJson").value);
+  editData = JSON.parse(formJsonData.json_data);
+  console.log(formJsonData);
+  document.querySelector(".form-name").value = formJsonData.title;
+  document.querySelector(".form-description").value = formJsonData.description;
 }
 
-
-var builder = Formio.builder(document.getElementById('builder'), editData, {
+var builder = Formio.builder(document.getElementById("builder"), editData, {
   builder: {
     basic: false,
     advanced: false,
     data: false,
     custom: {
-      title: 'Custom Fields',
+      title: "Custom Fields",
       weight: 10,
       components: {
         firstName: {
-          title: 'First Test',
-          key: 'firstName',
-          icon: 'fa fa-terminal',
+          title: "First Test",
+          key: "firstName",
+          icon: "fa fa-terminal",
           schema: {
-            label: 'First Name',
-            type: 'textfield',
-            key: 'firstName',
+            label: "First Name",
+            type: "textfield",
+            key: "firstName",
             input: true
           }
         },
         lastName: {
-          title: 'Last Name',
-          key: 'lastName',
-          icon: 'fa fa-terminal',
+          title: "Last Name",
+          key: "lastName",
+          icon: "fa fa-terminal",
           schema: {
-            label: 'Last Name',
-            type: 'textfield',
-            key: 'lastName',
+            label: "Last Name",
+            type: "textfield",
+            key: "lastName",
             input: true
           }
         },
         email: {
-          title: 'Email',
-          key: 'email',
-          icon: 'fa fa-at',
+          title: "Email",
+          key: "email",
+          icon: "fa fa-at",
           schema: {
-            label: 'Email',
-            type: 'email',
-            key: 'email',
+            label: "Email",
+            type: "email",
+            key: "email",
             input: true
           }
         },
         phoneNumber: {
-          title: 'Mobile Phone',
-          key: 'mobilePhone',
-          icon: 'fa fa-phone-square',
+          title: "Mobile Phone",
+          key: "mobilePhone",
+          icon: "fa fa-phone-square",
           schema: {
-            label: 'Mobile Phone',
-            type: 'phoneNumber',
-            key: 'mobilePhone',
+            label: "Mobile Phone",
+            type: "phoneNumber",
+            key: "mobilePhone",
             input: true
           }
         }
       }
     },
     layout: {
-      components: {
-      }
+      components: {}
     },
     advanced: {
-      components: {
-      }
+      components: {}
     },
     data: {
-      components: {
-      }
+      components: {}
     },
     basic: {
-      components: {
-      }
+      components: {}
     }
   }
-}).then(function (builder) {
-  var jsonElement = document.getElementById('json'); // Data full
-  var formElement = document.getElementById('formio'); // full form
-  builder.on('saveComponent', function () {
+}).then(function(builder) {
+  var jsonElement = document.getElementById("json"); // Data full
+  var formElement = document.getElementById("formio"); // full form
+  builder.on("saveComponent", function() {
     var schema = builder.schema;
-    console.log(schema)
-    jsonForSend = schema
-    jsonElement.innerHTML = '';
-    formElement.innerHTML = '';
-    jsonElement.appendChild(document.createTextNode(JSON.stringify(schema, null, 4)));
+    console.log(schema);
+    jsonForSend = schema;
+    jsonElement.innerHTML = "";
+    formElement.innerHTML = "";
+    jsonElement.appendChild(
+      document.createTextNode(JSON.stringify(schema, null, 4))
+    );
     Formio.createForm(formElement, schema).then(onForm);
   });
 
-  builder.on('editComponent', function (event) {
-    console.log('editComponent', event);
+  builder.on("editComponent", function(event) {
+    console.log("editComponent", event);
   });
 
-  builder.on('updateComponent', function (event) {
-    jsonElement.innerHTML = '';
-    jsonElement.appendChild(document.createTextNode(JSON.stringify(builder.schema, null, 4)));
+  builder.on("updateComponent", function(event) {
+    jsonElement.innerHTML = "";
+    jsonElement.appendChild(
+      document.createTextNode(JSON.stringify(builder.schema, null, 4))
+    );
   });
-  console.log(3243124)
-  builder.on('deleteComponent', function (event) {
-    jsonElement.innerHTML = '';
-    jsonElement.appendChild(document.createTextNode(JSON.stringify(builder.schema, null, 4)));
+  console.log(3243124);
+  builder.on("deleteComponent", function(event) {
+    jsonElement.innerHTML = "";
+    jsonElement.appendChild(
+      document.createTextNode(JSON.stringify(builder.schema, null, 4))
+    );
   });
 
   Formio.createForm(formElement, builder.schema).then(onForm);
-  let btn2 = `<div class="btn btn-xxs btn-danger component-settings-button component-settings-add-style"><i class="glyphicon glyphicon-remove"></i></div>`
-  $(".component-btn-group").append(btn2)
+  let btn2 = `<div class="btn btn-xxs btn-danger component-settings-button component-settings-add-style"><i class="glyphicon glyphicon-remove"></i></div>`;
+  $(".component-btn-group").append(btn2);
 });
 
-var onForm = function (form) {
-  form.on('change', function () {
-    subJSON.innerHTML = ''; // Subjson result
-    subJSON.appendChild(document.createTextNode(JSON.stringify(form.submission, null, 4)));
+var onForm = function(form) {
+  form.on("change", function() {
+    subJSON.innerHTML = ""; // Subjson result
+    subJSON.appendChild(
+      document.createTextNode(JSON.stringify(form.submission, null, 4))
+    );
   });
 };
-
-
 
 // $("body").on("click", ".component-settings-button-edit", function () {
 //   let navTabs = $(".nav-tabs")
@@ -153,62 +153,67 @@ var onForm = function (form) {
 //   $("")
 // })
 
+document.querySelector(".add-unit").addEventListener("click", function() {
+  let components = document.querySelector(".formcomponents");
+  components.classList.toggle("displayToggle");
+  this.textContent = components.classList.contains("displayToggle")
+    ? "Close"
+    : "Add unit";
+});
 
-document.querySelector(".add-unit").addEventListener("click", function () {
-  let components = document.querySelector(".formcomponents")
-  components.classList.toggle("displayToggle")
-  this.textContent = components.classList.contains("displayToggle") ? "Close" : "Add unit"
-})
+document
+  .querySelector(".add-custom-filed")
+  .addEventListener("click", function() {
+    $(".add-filed-modal").trigger();
+    // let components = document.querySelector(".formcomponents")
+    // components.classList.toggle("displayToggle")
+    // this.textContent = components.classList.contains("displayToggle") ? "Close" : "Add unit"
+  });
 
-document.querySelector(".add-custom-filed").addEventListener("click", function () {
-  $(".add-filed-modal").trigger()
-  // let components = document.querySelector(".formcomponents")
-  // components.classList.toggle("displayToggle")
-  // this.textContent = components.classList.contains("displayToggle") ? "Close" : "Add unit"
-})
-
-document.querySelector(".saveForm").addEventListener("click", function () {
-  let formName = document.querySelector(".form-name").value
-  let formDescription = document.querySelector(".form-description").value
-  console.log(jsonForSend)
+document.querySelector(".saveForm").addEventListener("click", function() {
+  let formName = document.querySelector(".form-name").value;
+  let formDescription = document.querySelector(".form-description").value;
+  console.log(jsonForSend);
   if (formName.trim().length === 0 && formDescription.trim().length === 0) {
-    alert("formName & formDescription filesds is requried")
+    alert("formName & formDescription filesds is requried");
   } else if (formName.trim().length === 0) {
-    alert("formName filed  is requried")
+    alert("formName filed  is requried");
   } else if (formDescription.trim().length === 0) {
-    alert("formDescription filed is requried")
+    alert("formDescription filed is requried");
   } else if (jsonForSend === null || jsonForSend == "undefined") {
-    alert("Data is empty")
+    alert("Data is empty");
   } else {
-    let editDataID = document.querySelector("#formJson") !== null ? JSON.parse(document.querySelector("#formJson").value).id : null
+    let editDataID =
+      document.querySelector("#formJson") !== null
+        ? JSON.parse(document.querySelector("#formJson").value).id
+        : null;
 
     let obj = {
       formName: formName,
       formDescription: formDescription,
       body: JSON.stringify(jsonForSend),
       id: editDataID
-    }
+    };
     $.ajax({
       type: "post",
       datatype: "json",
-      url: '/admin/uploads/application/save-builder-form',
+      url: "/admin/uploads/application/save-builder-form",
       data: obj,
       headers: {
-        'X-CSRF-TOKEN': $("input[name='_token']").val()
+        "X-CSRF-TOKEN": $("input[name='_token']").val()
       },
-      success: function (data) {
+      success: function(data) {
         if (!data.error) {
           window.location.replace(data.url);
         }
       }
     });
   }
-})
+});
 
-
-$("body").on("click", ".component-settings-add-style", function(){
-  console.log(11121)
-})
+$("body").on("click", ".component-settings-add-style", function() {
+  console.log(11121);
+});
 
 function objToString(obj) {
   var str = "";
@@ -292,4 +297,8 @@ $(document).ready(function() {
     count--;
     $("#test1").html(objToString(css));
   });
+});
+
+$("#form-tab").click(function() {
+  $(".visualCodeEditorToggle").css({ display: "none" });
 });

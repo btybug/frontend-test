@@ -81,7 +81,9 @@
     .panel-title {
         height: 56px !important; 
     }
-
+.head-btn>.form-control{
+width:20%;
+}
     
 
     
@@ -100,15 +102,17 @@
 
 <header class="w-100">
     <div class="container-fluid">
-        <div class="head-btn">
-            <button class="btn btn-success btn-sm excecte">Excecte</button>
+        <div class="head-btn d-flex justify-content-between">
+        <input type="text" placeholder="File name" class="form-control">
+            <!-- <button class="btn btn-success btn-sm excecte">Excecte</button>
             <button class="btn btn-warning btn-sm">Ace</button>
-            <button class="btn btn-danger btn-sm">Import</button>
-            <button class="btn btn-info btn-sm">Export</button>
+            <button class="btn btn-danger btn-sm">Import</button> -->
+            <!-- <button class="btn btn-info btn-sm">Export</button> -->
+            <button class="btn btn-info btn-sm">Save</button>
         </div>
     </div>
 </header>
-<div class="row grow w-100">
+<div class="row grow w-100 ">
     <div class="col-7 p-0">
         <div class="h-100 d-flex flex-column">
             <ul class="nav nav-tabs preview-tabs" role="tablist">
@@ -134,7 +138,7 @@
                     <div class="preview-area"></div>
                 </div>
                 <div class="tab-pane fade h-100 w-100" id="code" role="tabpanel">
-                    <div id="full-code-editor"></div>
+                    <div id="code-editor"></div>
                 </div>
                 <div class="tab-pane fade h-100 w-100" id="form" role="tabpanel">
                     <div id="full-form-editor">
@@ -221,7 +225,7 @@
             </div>
         </div>
     </div>
-    <div class="col-5 h-100 px-0 d-flex flex-column">
+    <div class="col-5 h-100 px-0 d-flex flex-column visualCodeEditorToggle">
         <div class="php-code-item">
             PHP Code
             <div class="controls">
@@ -233,13 +237,13 @@
 
         <div class="tree-area h-100">
 
-            <div class="h-50 pt-1 tree-container">
+            <div class="pt-1 tree-container">
                 <!-- Tree List -->
                 <ul class="tree-list"></ul>
             </div>
 
-            <div class="h-50 pt-1 tree-container">
-                <div id="code-editor"></div>
+            <div class="h-50 pt-1 tree-container" style="display: none">
+                <div id="full-code-editor"></div>
             </div>
 
 
@@ -301,6 +305,14 @@
                         <div class="col px-0 d-flex" style="background-color: #373638;">
                             <div id="bb-css-studio" class="bb-css-studio hidable-panel" hidden></div>
                             <div id="php-node-code-editor" class="hidable-panel" hidden></div>
+                            <div id="test3" hidden>
+                                    <button class="btn btn-primary btnStatic" bb-click="btnStaticOpen">Static</button>
+                                    <button class="btn btn-sucsess btnDynamic">Dynamic</button>
+                                    <div class="staticDynamic">
+                                        <div class="contentStatic" hidden> Testttt 3</div>
+                                        <div class="contetnDynamic" hidden> </div>
+                                    </div>
+                                </div>  
                         </div>
                     </div>
                 </div>
@@ -308,6 +320,7 @@
         </div>
     </div>
 </div>
+
 
 <script type="template" id="demo-html">
     <div class="jumbotron">
