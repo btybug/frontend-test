@@ -1,18 +1,18 @@
 @extends('btybug::layouts.mTabs',['index'=>'mini_assets'])
 @section('tab')
     <div class="row">
-        <form class="form-horizontal" id="create-page-form">
+        {!! Form::open(['class'=>'form-horizontal']) !!}
             <div class="form-group">
                 <div class="col-xs-8">
                     <div class="input-group">
-                        {!! BBbutton2('unit','header','frontend_header','Select Default Header') !!}
+                        {!! BBbutton2('unit','header','frontend_header','Select Default Header',['model'=>$header]) !!}
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-xs-8">
                     <div class="input-group">
-                        {!! BBbutton2('layouts','layout','minicms','Select Default Layout') !!}
+                        {!! BBbutton2('layouts','layout','minicms','Select Default Layout',['model'=>$layout]) !!}
                     </div>
                 </div>
             </div>
@@ -22,8 +22,7 @@
                     <button id="siteSubmit" type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </div>
-
-        </form>
+       {!! Form::close() !!}
 
     </div>
     @include('resources::assests.magicModal')
