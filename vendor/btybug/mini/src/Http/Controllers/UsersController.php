@@ -40,7 +40,7 @@ class UsersController extends Controller
 
     public function getIndex()
     {
-        $users = $this->userService->getSiteUsers();
+        $users = $this->userService->getSiteUsers()->paginate(15);
 
         return view('multisite::admin.users.list',compact(['users']));
     }

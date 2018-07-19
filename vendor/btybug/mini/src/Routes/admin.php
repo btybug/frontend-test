@@ -27,6 +27,8 @@ Route::group(['prefix' => 'assets'], function () {
         Route::get('/render/{slug}', 'AdminLayoutsController@iframeRander', true)->name('layout_iframe_render');
     });
 
+
+
     Route::get('/pages', 'AdminPagesController@assetsPages', true)->name('mini_admin_assets_pages');
     Route::get('/plugins', 'AdminController@assetsPlugins', true)->name('mini_admin_assets_plugins');
     Route::get('/forms', 'AdminController@assetsForms', true)->name('mini_admin_assets_forms');
@@ -35,6 +37,11 @@ Route::group(['prefix' => 'assets'], function () {
     Route::get('/general', 'AdminPagesController@assetsGeneral', true)->name('mini_admin_assets_general');
 
 });
+
+Route::group(['prefix' => 'users'], function () {
+    Route::get('/', 'UsersController@getIndex', true)->name('mini_admin_assets_users');
+});
+
 Route::get('/settings', 'AdminController@getSettings', true)->name('mini_admin_settings');
 
 
