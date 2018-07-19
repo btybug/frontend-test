@@ -84,6 +84,10 @@
 .head-btn>.form-control{
 width:20%;
 }
+        .code-head{
+            background-color: #3d3d3d;
+            padding: 4px;
+        }
     
 
     
@@ -228,6 +232,10 @@ width:20%;
         </div>
     </div>
     <div class="col-5 h-100 px-0 d-flex flex-column visualCodeEditorToggle">
+        <div class="code-head">
+            <button class="btn btn-warning btn-sm">Upload html</button>
+            <button class="btn btn-info btn-sm">Create html</button>
+        </div>
         <div class="php-code-item">
             PHP Code
             <div class="controls">
