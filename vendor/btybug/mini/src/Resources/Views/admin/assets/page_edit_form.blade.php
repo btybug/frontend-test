@@ -46,6 +46,7 @@
     </div>
 </div>
 <div class="form-group">
+    <label class="control-label col-xs-4"></label>
     <div class="col-xs-8">
         <div class="input-group">
             {!! BBbutton2('unit','header','frontend_header','Select Default Header',['model'=>$model]) !!}
@@ -53,6 +54,7 @@
     </div>
 </div>
 <div class="form-group">
+    <label  class="control-label col-xs-4"></label>
     <div class="col-xs-8">
         <div class="input-group">
             {!! BBbutton2('layouts','page_layout','front_pages_layout','Select Default Layout',['model'=>$model]) !!}
