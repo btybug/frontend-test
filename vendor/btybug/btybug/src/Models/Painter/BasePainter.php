@@ -388,7 +388,15 @@ abstract class BasePainter implements PainterInterface, VariationAccess
                 $tpl = $settings['view_name'];
             }
         } else {
-            $tpl = (!$demo)?"tpl":'demo';
+            if(!$demo){
+                $tpl='tpl';
+            }else{
+                if($this->example){
+                    $tpl=$this->example;
+                }else{
+                    $tpl='tpl';
+                }
+            }
         }
         $this->path = $this->getPath();
         return View::make("$slug::$tpl")->with($settings)->with(['tplPath' => $path, '_this' => $this])->render();
