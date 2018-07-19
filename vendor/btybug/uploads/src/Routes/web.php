@@ -30,6 +30,10 @@ Route::group( ['middleware' => ['admin:Users']],function (){
         Route::get('/formbuilder/render-form-view/{id}', 'ApplicationController@renderFormView', true)->name('application_form_view');
 
         Route::get('/unitstudio/create', 'ApplicationController@getUnitStudio', true)->name('application_unitstudio_new');
+        Route::get('/unitstudio/edit/{id}', 'ApplicationController@editUnitStudio', true)->name('application_edit_unitStudio');
+        Route::get('/unitstudio/delete/{id}', 'ApplicationController@deleteUnitStudio', true)->name('application_delete_unitStudio');
+        Route::get('/unitstudio/viewRender/{id}', 'ApplicationController@viewRenderUnitStudio', true)->name('application_viewrender_unitstudio');
+        Route::post('/unitstudio/save', 'ApplicationController@saveUnitStudio', true)->name('application_save_unitStudio');
 
     });
 

@@ -8,6 +8,7 @@ namespace Btybug\Uploads\Http\Controllers;
 
 use Btybug\Uploads\Repository\FormBuilderRepository;
 use Btybug\Uploads\Repository\StudiosReposiory;
+use Btybug\Uploads\Repository\UnitStudioRepository;
 use Btybug\Uploads\Services\AppsService;
 use Btybug\btybug\Helpers\helpers;
 use Illuminate\Http\Request;
@@ -18,15 +19,18 @@ class ApplicationController extends Controller
 {
     private $formBuilderRepository;
     private $studioRepository;
+    private $unitStudioRepository;
     private $data = [];
 
     public function __construct(
         FormBuilderRepository $formBuilderRepository,
-        StudiosReposiory $studiosReposiory
+        StudiosReposiory $studiosReposiory,
+        UnitStudioRepository $unitStudioRepository
     )
     {
         $this->formBuilderRepository = $formBuilderRepository;
         $this->studioRepository = $studiosReposiory;
+        $this->unitStudioRepository = $unitStudioRepository;
     }
 
     public function getIndex ($slug = null)
@@ -88,9 +92,40 @@ class ApplicationController extends Controller
         return view('uploads::applications.formRender')->with('editableData', $editableData);
     }
 
+
+    //////////////////////////////////////////// UNITS //////////////////////////////////////////////////////
+
     public function getUnitStudio()
     {
         return view('uploads::applications.unitstudio.studio');
     }
+
+
+    public function saveUnitStudio(Request $request){
+        dd($request);
+    }
+
+
+    public function editUnitStudio($id = null){
+        dd($id);
+    }
+
+
+    public function deleteUnitStudio($id = null){
+        dd($id);
+        if ($id){
+            $this->unitStudioRepository->delete($id);
+        }
+        return back();
+    }
+
+
+    public function viewRenderUnitStudio($id = null)
+    {
+        dd($id);
+        $unitStudiData = $this->unitStudioRepository->findOrFail($id);
+        return view('uploads::applications.unitstudio.studio')->with('unitStudioData',$unitStudiData);
+    }
+
 
 }
