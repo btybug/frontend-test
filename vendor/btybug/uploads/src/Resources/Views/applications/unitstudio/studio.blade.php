@@ -13,6 +13,8 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    {!! Html::style("public/css/form-builder/form-builder.css?m=m") !!}
 
     {!! HTML::script('public/js/jquery-3.2.1.min.js') !!}
 
@@ -27,7 +29,63 @@
 
     {!! HTML::script('public/js/framework/he.js') !!}
     {!! HTML::style('public/js/framework/framework.css?rnd='. rand(999,9999)) !!}
+    {!! HTML::style("public/css/formio/formio.full.min.css") !!}
+    {!! HTML::style("public/css/formio/bootstrap.vertical-tabs.min.css") !!}
+    {!! Html::style("public/css/font-awesome/css/font-awesome.min.css") !!}
+    <style>
+        .formcomponents {
+      float: right;
+      /* display: none; */
+      transform: translateX(+100px);
+      opacity: 0;
+      transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s
+    }
 
+    .displayToggle {
+      transform: translateX(0);
+      opacity: 1;
+
+      /* display: block !important; */
+    }
+
+    .accordion.panel-group {
+      margin-top: auto !important;
+    }
+
+    .panel-default {
+      border-color: #fff;
+    }
+
+    .panel-default>.panel-heading {
+      border-color: #fff;
+      background: #e6e6e6;
+    }
+
+    .builder-group-button {
+      background: none;
+      color: #000
+    }
+
+    #builder {
+        
+        display: flex;
+        flex-direction: row-reverse;
+       
+    }      
+
+    .formcomponents .formcomponent {
+      padding: 15px 20px;
+      background-color: #607d8b;
+    }
+
+    .panel-title {
+        height: 56px !important; 
+    }
+
+    
+
+    
+    </style>
     <title>Document</title>
     <script>
         var ajaxUrl = {
@@ -60,10 +118,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab">
+                        <i class="fas fa-cogs"></i> Options
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" id="code-tab" data-toggle="tab" href="#code" role="tab">
                         <i class="fa fa-code"></i> Full Code
                     </a>
                 </li>
+                
             </ul>
             <div class="tab-content d-flex" style="flex: 1;">
                 <div class="tab-pane fade h-100 w-100 show active" id="preview" role="tabpanel">
@@ -71,6 +135,88 @@
                 </div>
                 <div class="tab-pane fade h-100 w-100" id="code" role="tabpanel">
                     <div id="full-code-editor"></div>
+                </div>
+                <div class="tab-pane fade h-100 w-100" id="form" role="tabpanel">
+                    <div id="full-form-editor">
+                            <div class="form">
+                            <div class="bb-form-header">
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" class="panel-trigger pull-right add-unit" bb-click="openFieldsWindow">Add fields</button>
+                <button type="button" class="panel-trigger pull-right add-custom-filed" bb-click="openStudioWindow"
+                        data-main="global">Add custom filed
+                </button>
+                <button type="button" class="panel-trigger pull-right" bb-click="openLogicModal" data-toggle="modal"
+                        data-target="#logicModal">Logic
+                </button>
+
+                <button type="button" class="panel-trigger pull-right" bb-click="openLayoutWindow">Layout</button>
+                <button type="button" class="panel-trigger pull-right" bb-click="openPanelWindow">Panel</button>
+                <button type="submit" class="panel-trigger pull-right saveForm" bb-click="saveHTML">Save</button>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="margin-top: 60px;">
+    <!-- <div class="text-right" style="margin-bottom: 25px;">
+      <button class="btn btn-primary add-unit"> Add unit</button>
+      <button class="btn btn-primary saveForm"> Save</button>
+    </div> -->
+
+    <div class="row formBuilderShow">
+      <div class="col-sm-12">
+        <h3 class="text-center text-muted" style="display: none">The
+          <a href="https://github.com/formio/formio.js" target="_blank">Form Builder</a> allows you to build a
+          <select class="form-control" id="form-select" style="display: inline-block; width: 150px;">
+            <option value="form">Form</option>
+            <option value="wizard">Wizard</option>
+            <option value="pdf">PDF</option>
+          </select>
+        </h3>
+        <div class="well" style="background-color: #fdfdfd;">
+          <div id="builder"></div>
+        </div>
+      </div>
+      <div class="col-sm-4" style="display: none">
+        <h3 class="text-center text-muted">as JSON Schema</h3>
+        <div class="well jsonviewer">
+          <pre id="json"></pre>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="display: none">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h3 class="text-center text-muted">which
+          <a href="https://github.com/formio/ngFormio" target="_blank">Renders as a Form</a> in your Application</h3>
+        <div id="formio" class="well"></div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="row" style="display: none">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h3 class="text-center text-muted">which creates a Submission JSON</h3>
+        <div class="well jsonviewer">
+          <pre id="subjson"></pre>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+
+
+
+
+
+
+  </div>
+                            
+                            
+                            
+                            </div>
+
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,7 +253,11 @@
         </div>
     </div>
 </div>
-<div class="row w-100">
+<div class="row w-100" style="position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding-left: 15px;">
     <div class="col-12 p-0">
         <div class="style-studio">
             <h4>
@@ -195,6 +345,9 @@
 
 {!! HTML::script('public/js/ace-editor/ace.js') !!}
 {!! HTML::script('public/js/framework/framework.js?rnd='. rand(999,9999)) !!}
+{!! HTML::script("public/js/formio/buttons.js") !!}
+{!! HTML::script("public/js/formio/formio.full.min.js") !!}
+{!! HTML::script("public/js/formio/config.js?v=".rand(999,9999)) !!}
 </body>
 </html>
 
