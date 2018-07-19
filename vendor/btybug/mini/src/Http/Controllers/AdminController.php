@@ -14,6 +14,7 @@ use Btybug\btybug\Models\Painter\Painter;
 use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\Mini\Repositories\MinicmsPagesRepository;
 use Btybug\Mini\Services\UnitService;
+use Btybug\User\Repository\MembershipRepository;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -22,16 +23,19 @@ class AdminController extends Controller
     private $unitService;
     private $painter;
     private $tagsRepository;
+    private $membershipRepository;
 
     public function __construct(
         UnitService $unitService,
         Painter $painter,
-        TagsRepository $tagsRepository
+        TagsRepository $tagsRepository,
+        MembershipRepository $membershipRepository
     )
     {
         $this->unitService = $unitService;
         $this->painter = $painter;
         $this->tagsRepository = $tagsRepository;
+        $this->membershipRepository = $membershipRepository;
     }
 
     public function getIndex()
@@ -78,17 +82,18 @@ class AdminController extends Controller
         $units = $this->painter->whereTag('minicms')->get();
         $model = $this->unitService->getUnit($units, $slug);
         $tags = $model->tags;
-
+        $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
         if (($key = array_search('minicms', $tags)) !== false) {
             unset($tags[$key]);
         }
         $tags = implode(',', $tags);
-        return view('multisite::admin.assets.units.settings', compact(['units', 'model', 'slug','tags']));
+        return view('multisite::admin.assets.units.settings', compact(['units', 'model', 'slug','tags','memberships']));
     }
 
     public function postAssetsUnitsSettings(Request $request, $slug)
     {
         $tags = ($request->get('tags')) ? explode(',', $request->get('tags')):[];
+        $memberships = $request->get('memberships') ?? [];
 
         if(count($tags)){
             foreach ($tags as $tag){
@@ -98,7 +103,7 @@ class AdminController extends Controller
 
         $unit = $this->painter->findByVariation($slug);
         array_push($tags, 'minicms');
-        $unit->setAttributes('tags',$tags)->edit();
+        $unit->setAttributes('tags',$tags)->setAttributes('memberships',$memberships)->edit();
 
         return redirect()->back();
     }

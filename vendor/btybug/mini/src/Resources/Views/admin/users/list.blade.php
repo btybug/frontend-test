@@ -10,7 +10,7 @@
                     <th width="194">Username</th>
                     <th width="162">Status</th>
 
-                    <th width="125">Membership</th>
+                    <th width="125">Mini Cms Membership</th>
                     <th width="204">Joined date</th>
                     <th width="133">Options</th>
                 </tr>

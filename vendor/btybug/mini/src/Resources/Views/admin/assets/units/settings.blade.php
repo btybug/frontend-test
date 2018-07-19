@@ -11,16 +11,14 @@
                     <div class="display-area">
                         @include('multisite::admin.assets.units._partials.buttons')
                         <div class="right-iframe">
-                            {!! Form::model(null,['url' => route('mini_admin_assets_units_settings_post',$slug)]) !!}
+                            {!! Form::model($model,['url' => route('mini_admin_assets_units_settings_post',$slug)]) !!}
                             <div class="form-group">
                                 <label>Select Tags</label>
                                 {!! Form::text('tags',$tags,['class' => 'form-control','id' => 'tagits']) !!}
                             </div>
                             <div class="form-group">
                                 <label>Select Memberships</label>
-
-                                {!! Form::select('memberships[]',[],null,['class' => 'form-control memberships-select','multiple' => true]) !!}
-
+                                {!! Form::select('memberships[]',$memberships,$model->memberships,['class' => 'form-control memberships-select','multiple' => true]) !!}
                             </div>
                             <div class="form-group">
                                 {!! Form::submit('save',['class' => 'btn btn-success']) !!}
