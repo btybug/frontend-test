@@ -951,6 +951,7 @@ width: 150px;
     right: 0;
     top: 100px;
     margin: 0;
+    z-index: 9;
 }
 .ux-tabs__dropdown-item {
     list-style-type: none;
