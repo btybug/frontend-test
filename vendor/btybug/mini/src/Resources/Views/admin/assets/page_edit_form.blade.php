@@ -16,7 +16,7 @@
     <div class="col-xs-8">
         <div class="input-group">
             <div class="input-group-addon">
-                <i class="fa fa-link"></i>
+                {username}
             </div>
             {!! Form::text('url',null,['class'=>'form-control','id'=>'page_url']) !!}
         </div>
@@ -37,12 +37,7 @@
 <div class="form-group">
     <label for="tag_unit_for_page" class="control-label col-xs-4">Tag Unit To Page</label>
     <div class="col-xs-8">
-        {!! Form::select('template',[
-        'mini_profile'=>'mini_profile',
-        'mini_samuel'=>'mini_samuel',
-        'mini_urkis'=>'mini_urkis',
-        'mini_urkis_cv'=>'mini_urkis_cv',
-        ],null,['class'=>'form-control','id'=>'tag_unit_for_page']) !!}
+        {!! Form::text('tags',null,['class' => 'form-control','id' => 'tagits']) !!}
     </div>
 </div>
 <div class="form-group">

@@ -48,7 +48,7 @@
                 <div class="col-xs-8">
                     <div class="input-group">
                         <div class="input-group-addon">
-                            <i class="fa fa-link"></i>
+                            {username}
                         </div>
                         <input id="page_url" name="url" placeholder="about-us" type="text" class="form-control">
                     </div>
@@ -82,7 +82,7 @@
                 <label  class="control-label col-xs-4"></label>
                 <div class="col-xs-8">
                     <div class="input-group">
-                        {!! BBbutton2('unit','header','frontend_header','Select Default Header',['model'=>$header]) !!}
+                        {!! BBbutton2('mini_unit','header','frontend_header','Select Default Header',['model'=>$header]) !!}
                     </div>
                 </div>
             </div>
