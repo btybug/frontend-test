@@ -21,6 +21,7 @@ use Btybug\btybug\Repositories\HookRepository;
 use Btybug\btybug\Repositories\MenuRepository;
 use Btybug\btybug\Services\CmsItemReader;
 use Btybug\Console\Repository\FieldsRepository;
+use Btybug\Mini\Model\MiniSuperPainter;
 use Illuminate\Http\Request;
 use View;
 
@@ -67,6 +68,7 @@ class ModalityController extends Controller
             'templates' => 'getTpls',
             'theme' => 'getTheme',
             'unit' => 'getUnit',//working with tags
+            'mini_unit' => 'getMiniUnit',//working with tags
             'hook' => 'getHook',//working with tags
             'units' => 'getUnits',
             'files' => 'getFiles',
@@ -157,6 +159,19 @@ class ModalityController extends Controller
         $units = Painter::all()->sortByTag($key);
 
         if (!count($units)) return \Response::json(['error' => true]);
+        if (isset($data['multiple']) && $data['multiple'] == true) {
+            $html = View::make('btybug::styles.multiple-units', compact('units', 'data'))->render();
+        } else {
+            $html = View::make('btybug::styles.units', compact('units', 'data'))->render();
+        }
+
+        return \Response::json(['error' => false, 'html' => $html]);
+    }
+    public function getMiniUnit($data)
+    {
+        $key = $data['type'];
+        $units = MiniSuperPainter::all()->sortByTag($key);
+        if (!count($units)) return \Response::json(['error' => true,'message'=>'there is no unit found']);
         if (isset($data['multiple']) && $data['multiple'] == true) {
             $html = View::make('btybug::styles.multiple-units', compact('units', 'data'))->render();
         } else {

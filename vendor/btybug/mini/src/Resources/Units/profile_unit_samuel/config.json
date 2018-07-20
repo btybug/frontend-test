@@ -15,5 +15,5 @@
   "is_core": 0,
   "place": "frontend",
   "tags": ["blog","post","frontend","front_page_content","minicms","mini_samuel"],
-  "path": "resources\/units\/profile_unit_samuel"
+  "path": "vendor\/btybug\/mini\/src\/Resources\/Units\/profile_unit_samuel"
 }

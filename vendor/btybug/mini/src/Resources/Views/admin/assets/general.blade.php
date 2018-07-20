@@ -5,7 +5,7 @@
             <div class="form-group">
                 <div class="col-xs-8">
                     <div class="input-group">
-                        {!! BBbutton2('unit','header','frontend_header','Select Default Header',['model'=>$header]) !!}
+                        {!! BBbutton2('mini_unit','header','frontend_header','Select Default Header',['model'=>$header]) !!}
                     </div>
                 </div>
             </div>

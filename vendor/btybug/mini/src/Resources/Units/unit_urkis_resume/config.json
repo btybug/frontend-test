@@ -15,5 +15,5 @@
   "is_core": 0,
   "place": "frontend",
   "tags": ["blog","post","frontend","front_page_content","minicms","mini_urkis_cv"],
-  "path": "resources\/units\/unit_urkis_resume"
+  "path": "vendor\/btybug\/mini\/src\/Resources\/Units\/unit_urkis_resume"
 }
