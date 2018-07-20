@@ -34,21 +34,6 @@ class ContentLayouts extends BasePainter implements VariationAccess
         $this->config_path = storage_path(config('painter.LAYOUT'));
         parent::__construct();
     }
-    /**
-     * @return mixed
-     */
-    public function setConfigPath($path):void
-    {
-        $this->config_path = $path;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function setStoragePath($path):void
-    {
-        $this->base_path = $path;
-    }
 
     public function getStoragePath()
     {
