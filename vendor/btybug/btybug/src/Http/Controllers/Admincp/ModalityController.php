@@ -175,7 +175,7 @@ class ModalityController extends Controller
         if (isset($data['multiple']) && $data['multiple'] == true) {
             $html = View::make('btybug::styles.multiple-units', compact('units', 'data'))->render();
         } else {
-            $html = View::make('btybug::styles.units', compact('units', 'data'))->render();
+            $html = View::make('btybug::styles.mini_units', compact('units', 'data'))->render();
         }
 
         return \Response::json(['error' => false, 'html' => $html]);
@@ -557,6 +557,18 @@ class ModalityController extends Controller
         $items = $unit->variations()->all();
         $ajax = true;
         $html = View::make('btybug::styles.units', compact(['items', 'ajax', 'key']))->render();
+
+        return \Response::json(['error' => false, 'html' => $html]);
+    }
+    public function postMiniUnitOptions(Request $request)
+    {
+        $id = $request->get('id');
+        $unit = MiniSuperPainter::find($id);
+        $key = $request->key;
+        if (!$unit) return \Response::json(['error' => true]);
+        $items = $unit->variations()->all();
+        $ajax = true;
+        $html = View::make('btybug::styles.mini_units', compact(['items', 'ajax', 'key']))->render();
 
         return \Response::json(['error' => false, 'html' => $html]);
     }

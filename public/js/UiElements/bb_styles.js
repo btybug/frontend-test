@@ -7,6 +7,7 @@ $(document).ready(function () {
         menus: '/admin/backend/menus/options',
         widgets: '/modality/widgets/options',
         units: '/modality/units/options',
+        mini_units: '/modality/mini_units/options',
         page_sections: '/modality/page-sections/options',
         placeholder_section: '/modality/placeholder_section/options',
         main_body_modality: '/modality/main_body_modality/options'

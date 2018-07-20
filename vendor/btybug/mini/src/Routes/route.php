@@ -8,6 +8,7 @@
 Route::get('/', 'ClientController@account');
 Route::get('/settings', 'ClientController@accountSettings')->name('mini_account_settings');
 Route::get('/general', 'ClientController@accountGeneral')->name('mini_account_general');
+Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe', true)->name('mini_settings_iframe');
 
 Route::group(['prefix' => 'media'], function () {
     Route::get('/', 'ClientController@media')->name('mini_media');
