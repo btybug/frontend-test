@@ -12,8 +12,6 @@
                             <li class="pages-lists" data-id="{!! $page->id !!}">
                                 <span>{!! $page->title !!}</span>
                                 <div class="button">
-                                    <button class="btn btn-sm btn-success">Disable</button>
-                                    <button class="btn btn-sm btn-info">Publish</button>
                                     <button class="btn btn-sm btn-warning"><i class="fa fa-trash"></i></button>
                                 </div>
                             </li>
@@ -31,7 +29,7 @@
             </div>
         </div>
     </div>
-    @include('resources::assests.magicModal')
+     @include('resources::assests.magicModal')
     <template id="create-page-form-template">
         <form class="form-horizontal" id="create-page-form">
             <div class="form-group">
@@ -177,67 +175,76 @@
     {!! HTML::script('public/js/tag-it/tag-it.js') !!}
 
     <script>
-        $('#tagits').tagit({
-            autocomplete: {
-                delay: 0,
-                minLength: 0
 
-            },
-            tagSource: function () {
-                $.ajax({
-                    url: "{!! route('front_site_tag_list') !!}",
-                    dataType: "json",
-                    method: "post",
-                    data: {},
-                    headers: {
-                        'X-CSRF-TOKEN': $("input[name='_token']").val()
+        $(function () {
+
+            function tagitinit(form) {
+                form.find('.tagits').tagit({
+                    autocomplete: {
+                        delay: 0,
+                        minLength: 0
+
                     },
-                    success: function (data) {
-                        return data;
-                    }
+                    tagSource: function () {
+                        $.ajax({
+                            url: "{!! route('front_site_tag_list') !!}",
+                            dataType: "json",
+                            method: "post",
+                            data: {},
+                            headers: {
+                                'X-CSRF-TOKEN': $("input[name='_token']").val()
+                            },
+                            success: function (data) {
+                                return data;
+                            }
 
-                });
-            },
-            // This will make Tag-it submit a single form value, as a comma-delimited field.
-            singleField: true,
-            singleFieldNode: $('.tagitext'),
-            beforeTagAdded: function (event, ui) {
-                if (!ui.duringInitialization) {
+                        });
+                    },
+                    // This will make Tag-it submit a single form value, as a comma-delimited field.
+                    singleField: true,
+                    singleFieldNode: $('.tagitext'),
+                    beforeTagAdded: function (event, ui) {
+                        if (!ui.duringInitialization) {
 //                    var exis = getExt.indexOf(ui.tagLabel);
 //                    if (exis < 0) {
 //                        $('.tagit-new input').val('');
 //                        //alert('PLease add allow at tag')
 //                        return false;
 //                    }
-                }
+                        }
 
-            }
-        })
-
-
-        $(".create-page").click(function () {
-            let form = $('#create-page-form-template').html();
-            $(".right-iframe").append(form)
-
-            $("body").on("click", "#siteSubmit", function (e) {
-                e.preventDefault()
-                let data = $('body').find('form#create-page-form').serialize();
-                $.ajax({
-                    type: "post",
-                    datatype: "json",
-                    url: '/admin/mini/assets/create-page',
-                    data: data,
-                    headers: {
-                        'X-CSRF-TOKEN': $("input[name='_token']").val()
-                    },
-                    success: function (data) {
-                        //   window.location.replace(data.url);
-                        location.reload();
                     }
+                })
+            }
+
+
+
+            $(".create-page").click(function () {
+                let form = $($('#create-page-form-template').html());
+
+                $(".right-iframe").html(form);
+                // tagitinit(form)
+
+                $("body").on("click", "#siteSubmit", function (e) {
+                    e.preventDefault()
+                    let data = $('body').find('form#create-page-form').serialize();
+                    $.ajax({
+                        type: "post",
+                        datatype: "json",
+                        url: '/admin/mini/assets/create-page',
+                        data: data,
+                        headers: {
+                            'X-CSRF-TOKEN': $("input[name='_token']").val()
+                        },
+                        success: function (data) {
+                            //   window.location.replace(data.url);
+                            location.reload();
+                        }
+                    });
                 });
             });
-        });
-        $(function () {
+
+
             $("body").on("click", ".pages-lists", function () {
 
                 let data = {id: $(this).attr('data-id')};
