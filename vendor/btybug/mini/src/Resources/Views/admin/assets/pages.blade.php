@@ -77,12 +77,7 @@
             <div class="form-group">
                 <label for="tag_unit_for_page" class="control-label col-xs-4">Tag Unit To Page</label>
                 <div class="col-xs-8">
-                    <select id="tag_unit_for_page" name="template" class="select form-control">
-                        <option value="mini_profile">Mini Profile</option>
-                        <option value="mini_samuel">Mini Samuel</option>
-                        <option value="mini_urkis">Mini Urkis</option>
-                        <option value="mini_urkis_cv">Mini Urkis CV</option>
-                    </select>
+                    {!! Form::text('tags',null,['class' => 'form-control','id' => 'tagits']) !!}
                 </div>
             </div>
             <div class="form-group">
@@ -120,6 +115,8 @@
     </template>
 @stop
 @section('CSS')
+    {!! HTML::style('public/css/jquery.tagit.css') !!}
+
     <style>
         .ui-2_col {
             margin-top: 30px;
@@ -177,7 +174,12 @@
 @section("JS")
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
     {!! HTML::script("public/js/UiElements/bb_styles.js?v.5") !!}
+    {!! HTML::script('public/js/tag-it/tag-it.js') !!}
+
     <script>
+        $(".memberships-select").select2();
+
+
         $(".create-page").click(function () {
             let form = $('#create-page-form-template').html();
             $(".right-iframe").append(form)
