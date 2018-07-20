@@ -1,4 +1,4 @@
-{!! Form::model($model,['class'=>'form-horizontal']) !!}
+{!! Form::model($model,['url'=>route('minicms_edit_page'),'class'=>'form-horizontal']) !!}
 {!! Form::hidden('id') !!}
 <div class="form-group">
     <label for="page_title" class="control-label col-xs-4">Title</label>
@@ -31,7 +31,7 @@
 <div class="form-group">
     <label for="membership" class="control-label col-xs-4">Membership</label>
     <div class="col-xs-8">
-        {!! Form::select('membership',['free'=>'Free','pro'=>'Pro'],null,['class'=>'form-control','id'=>'membership']) !!}
+        {!! Form::select('memberships',['free'=>'Free','pro'=>'Pro'],null,['class'=>'form-control','id'=>'membership']) !!}
     </div>
 </div>
 <div class="form-group">

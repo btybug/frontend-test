@@ -43,6 +43,13 @@ class AdminPagesController extends Controller
         $data = $request->except('_token');
         return $this->pageRepository->create($data);
     }
+    public function editPage(Request $request)
+    {
+        $data = $request->except(['_token','id']);
+        $id = $request->get('id');
+        $this->pageRepository->update($id,$data);
+        return redirect()->back();
+    }
 
     public function getPageEditForl(Request $request)
     {
