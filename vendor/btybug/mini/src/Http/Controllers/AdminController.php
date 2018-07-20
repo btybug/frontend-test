@@ -61,33 +61,15 @@ class AdminController extends Controller
         return view('multisite::admin.assets.units.preview', compact(['units', 'model', 'slug']));
     }
 
-    public function assetsUnitsForm(Request $request, $slug = null)
-    {
-        $units = $this->painter->whereTag('minicms')->get();
-        $model = $this->unitService->getUnit($units, $slug);
-
-        return view('multisite::admin.assets.units.form', compact(['units', 'model', 'slug']));
-    }
-
-    public function assetsUnitsMapping(Request $request, $slug = null)
-    {
-        $units = $this->painter->whereTag('minicms')->get();
-        $model = $this->unitService->getUnit($units, $slug);
-
-        return view('multisite::admin.assets.units.mapping', compact(['units', 'model', 'slug']));
-    }
-
     public function assetsUnitsSettings(Request $request, $slug = null)
     {
-        $units = $this->painter->whereTag('minicms')->get();
+        $units = $this->painter->get();
         $model = $this->unitService->getUnit($units, $slug);
         $tags = $model->tags;
-        $memberships = $this->membershipRepository->pluck('name', 'slug')->toArray();
-        if (($key = array_search('minicms', $tags)) !== false) {
-            unset($tags[$key]);
-        }
+        $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
+
         $tags = implode(',', $tags);
-        return view('multisite::admin.assets.units.settings', compact(['units', 'model', 'slug', 'tags', 'memberships']));
+        return view('multisite::admin.assets.units.settings', compact(['units', 'model', 'slug','tags','memberships']));
     }
 
     public function postAssetsUnitsSettings(Request $request, $slug)
@@ -95,15 +77,14 @@ class AdminController extends Controller
         $tags = ($request->get('tags')) ? explode(',', $request->get('tags')) : [];
         $memberships = $request->get('memberships') ?? [];
 
-        if (count($tags)) {
-            foreach ($tags as $tag) {
-                $this->tagsRepository->create(['name' => $tag]);
+        if(count($tags)){
+            foreach ($tags as $tag){
+                $this->tagsRepository->create(['name' => $tag,'type' => 'minicms']);
             }
         }
 
         $unit = $this->painter->findByVariation($slug);
-        array_push($tags, 'minicms');
-        $unit->setAttributes('tags', $tags)->setAttributes('memberships', $memberships)->edit();
+        $unit->setAttributes('tags',$tags)->setAttributes('memberships',$memberships)->edit();
 
         return redirect()->back();
     }

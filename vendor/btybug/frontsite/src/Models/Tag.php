@@ -21,7 +21,7 @@ class Tag extends Model
     public static function boot()
     {
         self::creating(function ($model) {
-            if (self::where('name', $model->name)->count()) {
+            if (self::where('name', $model->name)->where('type',$model->type)->count()) {
                 return false;
             }
         });
