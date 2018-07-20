@@ -92,6 +92,27 @@ width:20%;
         .tree-container.full-code-editor{
             height: calc(100% - 20px);
         }
+        .assets-area .card{
+            border: none;
+        }
+        .assets-area .card-header{
+            background: #1c1c1c;
+            align-items: center;
+
+        }
+        .assets-area .card-header a{
+            color: white;
+            text-decoration: none;
+        }
+        .assets-area .card-body{
+            background-color: #292929;
+            border-radius: 0;
+            color: white;
+        }
+        .assets-area .inside-panel{
+            width: 90%;
+            margin-left: auto;
+        }
     
 
     
@@ -256,7 +277,7 @@ width:20%;
         <div class="code-head">
             <button class="btn btn-warning btn-sm">Layers</button>
             <button class="btn btn-info btn-sm createHtml">HTML</button>
-            <button class="btn btn-primary btn-sm">Assets</button>
+            <button class="btn btn-primary btn-sm createAssets">Assets</button>
         </div>
         <div class="php-code-item hidden">
             PHP Code
@@ -273,7 +294,112 @@ width:20%;
                 <!-- Tree List -->
                 <ul class="tree-list"></ul>
             </div>
+            <div class="tree-container createAssets-container" style="opacity: 0; transform: translateX(200px);">
+                <div class="assets-area col-12">
+                    <div class="card mb-3">
+                        <div class="d-flex justify-content-between panel card-header">
+                            <a data-toggle="collapse" href="#collapseExampleJs" role="button" aria-expanded="false" aria-controls="collapseExampleJs">
+                                <i class="fas fa-arrow-circle-down"></i> Js
+                            </a>
 
+                            <div class="button">
+                                <button class="btn btn-sm btn-warning"><i class="fas fa-link"></i></button>
+                                <button class="btn btn-sm btn-primary"><i class="fas fa-file"></i></button>
+                            </div>
+                        </div>
+
+                            <div class="collapse" id="collapseExampleJs">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between inside-panel mb-2">
+                                        <div class="assets-item">
+                                            <input type="text" class="form-control w-90">
+                                        </div>
+                                        <div class="delete-opt">
+                                            <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between inside-panel mb-2">
+                                        <div class="assets-item">
+                                            <input type="text" class="form-control w-90">
+                                        </div>
+                                        <div class="delete-opt">
+                                            <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="d-flex justify-content-between panel card-header">
+                            <a data-toggle="collapse" href="#collapseExampleCss" role="button" aria-expanded="false" aria-controls="collapseExampleCss">
+                                <i class="fas fa-arrow-circle-down"></i> Js
+                            </a>
+
+                            <div class="button">
+                                <button class="btn btn-sm btn-warning"><i class="fas fa-link"></i></button>
+                                <button class="btn btn-sm btn-primary"><i class="fas fa-file"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="collapse" id="collapseExampleCss">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between inside-panel mb-2">
+                                    <div class="assets-item">
+                                        <input type="text" class="form-control w-90">
+                                    </div>
+                                    <div class="delete-opt">
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between inside-panel mb-2">
+                                    <div class="assets-item">
+                                        <input type="text" class="form-control w-90">
+                                    </div>
+                                    <div class="delete-opt">
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="d-flex justify-content-between panel card-header">
+                            <a data-toggle="collapse" href="#collapseExampleImages" role="button" aria-expanded="false" aria-controls="collapseExampleImages">
+                                <i class="fas fa-arrow-circle-down"></i> Js
+                            </a>
+
+                            <div class="button">
+                                <button class="btn btn-sm btn-warning"><i class="fas fa-link"></i></button>
+                                <button class="btn btn-sm btn-primary"><i class="fas fa-file"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="collapse" id="collapseExampleImages">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between inside-panel mb-2">
+                                    <div class="assets-item">
+                                        <input type="text" class="form-control w-90">
+                                    </div>
+                                    <div class="delete-opt">
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between inside-panel mb-2">
+                                    <div class="assets-item">
+                                        <input type="text" class="form-control w-90">
+                                    </div>
+                                    <div class="delete-opt">
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
             <div class="tree-container full-code-editor" style="opacity: 0; transform: translateX(200px);">
                 <div id="full-code-editor"></div>
             </div>

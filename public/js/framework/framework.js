@@ -469,6 +469,10 @@ $(function() {
     console.log($(".full-code-editor"));
     $(".full-code-editor").toggleClass("displayToggle");
   });
+    $(".createAssets").click(function() {
+
+        $(".createAssets-container").toggleClass("displayToggle");
+    });
   // Listen to click events
   $("body").on("click", "[bb-click]", function(e) {
     e.preventDefault();
