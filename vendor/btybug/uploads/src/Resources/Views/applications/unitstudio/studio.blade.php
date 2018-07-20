@@ -142,11 +142,6 @@ width:20%;
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="assets-tab" data-toggle="tab" href="#assets" role="tab">
-                        <i class="fa fa-thumb-tack"></i> Assets
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" id="styles-tab" data-toggle="tab" href="#styles" role="tab">
                         <i class="fa fa-css3"></i> Styles
                     </a>
@@ -164,10 +159,6 @@ width:20%;
                 </div>
                 <div class="tab-pane fade h-100 w-100" id="code" role="tabpanel">
                     <div id="code-editor"></div>
-                </div>
-
-                <div class="tab-pane fade h-100 w-100" id="assets" role="tabpanel">
-                    <div id="assets-area">assets</div>
                 </div>
                 <div class="tab-pane fade h-100 w-100" id="styles" role="tabpanel">
                     <div id="styles-area">styles</div>
@@ -265,8 +256,9 @@ width:20%;
         <div class="code-head">
             <button class="btn btn-warning btn-sm">Layers</button>
             <button class="btn btn-info btn-sm createHtml">HTML</button>
+            <button class="btn btn-primary btn-sm">Assets</button>
         </div>
-        <div class="php-code-item">
+        <div class="php-code-item hidden">
             PHP Code
             <div class="controls">
                 <a href="#" bb-click="mainPHPCodeEdit"><i class="fas fa-code"></i></a>
