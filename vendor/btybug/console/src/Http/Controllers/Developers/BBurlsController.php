@@ -10,6 +10,7 @@ namespace Btybug\Console\Http\Controllers\Developers;
 
 use App\Http\Controllers\Controller;
 use Btybug\btybug\Models\Painter\Painter;
+use Btybug\Mini\Model\MiniSuperPainter;
 use Illuminate\Http\Request;
 use Btybug\btybug\Models\ContentLayouts\ContentLayouts;
 use Btybug\btybug\Repositories\HookRepository;
@@ -296,6 +297,14 @@ class BBurlsController extends Controller
             case 'unit':
 
                 $obj = Painter::findByVariation($value);
+                $variation = $obj->variations($copy)->find($value);
+                if($copy){
+                    $variation=$variation->copy()->save();
+                }
+                break;
+                case 'mini_unit':
+
+                $obj = MiniSuperPainter::findByVariation($value);
                 $variation = $obj->variations($copy)->find($value);
                 if($copy){
                     $variation=$variation->copy()->save();

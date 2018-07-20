@@ -44,7 +44,7 @@
     <label class="control-label col-xs-4"></label>
     <div class="col-xs-8">
         <div class="input-group">
-            {!! BBbutton2('unit','header','frontend_header','Select Default Header',['model'=>$model]) !!}
+            {!! BBbutton2('mini_unit','header','header','Select Default Header',['model'=>$model]) !!}
         </div>
     </div>
 </div>
@@ -56,14 +56,14 @@
         </div>
     </div>
 </div>
-<div class="form-group">
-    <label for="page_url" class="control-label col-xs-4"></label>
-    <div class="col-xs-8">
-        <div class="input-group">
-            {!! BBmediaButton('icon',$model) !!}
-        </div>
-    </div>
-</div>
+{{--<div class="form-group">--}}
+    {{--<label for="page_url" class="control-label col-xs-4"></label>--}}
+    {{--<div class="col-xs-8">--}}
+        {{--<div class="input-group">--}}
+            {{--{!! BBmediaButton('icon',$model) !!}--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 <div class="form-group row">
     <div class="col-xs-offset-4 col-xs-8">
