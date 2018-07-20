@@ -138,6 +138,21 @@ width:20%;
                         <i class="fa fa-code"></i> Full Code
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="assets-tab" data-toggle="tab" href="#assets" role="tab">
+                        <i class="fa fa-thumb-tack"></i> Assets
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="styles-tab" data-toggle="tab" href="#styles" role="tab">
+                        <i class="fa fa-css3"></i> Styles
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="functions-tab" data-toggle="tab" href="#functions" role="tab">
+                        <i class="fa fa-code"></i> Functions
+                    </a>
+                </li>
                 
             </ul>
             <div class="tab-content d-flex" style="flex: 1;">
@@ -147,6 +162,17 @@ width:20%;
                 <div class="tab-pane fade h-100 w-100" id="code" role="tabpanel">
                     <div id="code-editor"></div>
                 </div>
+
+                <div class="tab-pane fade h-100 w-100" id="assets" role="tabpanel">
+                    <div id="assets-area">assets</div>
+                </div>
+                <div class="tab-pane fade h-100 w-100" id="styles" role="tabpanel">
+                    <div id="styles-area">styles</div>
+                </div>
+                <div class="tab-pane fade h-100 w-100" id="functions" role="tabpanel">
+                    <div id="functions-area">functions</div>
+                </div>
+
                 <div class="tab-pane fade h-100 w-100" id="form" role="tabpanel">
                     <div id="full-form-editor">
                             <div class="form">
