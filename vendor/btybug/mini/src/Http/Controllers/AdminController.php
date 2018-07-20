@@ -13,7 +13,6 @@ use App\Http\Controllers\Controller;
 use Btybug\btybug\Models\Painter\Painter;
 use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\Mini\Model\MiniSuperPainter;
-use Btybug\Mini\Repositories\MinicmsPagesRepository;
 use Btybug\Mini\Services\UnitService;
 use Btybug\User\Repository\MembershipRepository;
 use Illuminate\Http\Request;
@@ -83,28 +82,28 @@ class AdminController extends Controller
         $units = $this->painter->whereTag('minicms')->get();
         $model = $this->unitService->getUnit($units, $slug);
         $tags = $model->tags;
-        $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
+        $memberships = $this->membershipRepository->pluck('name', 'slug')->toArray();
         if (($key = array_search('minicms', $tags)) !== false) {
             unset($tags[$key]);
         }
         $tags = implode(',', $tags);
-        return view('multisite::admin.assets.units.settings', compact(['units', 'model', 'slug','tags','memberships']));
+        return view('multisite::admin.assets.units.settings', compact(['units', 'model', 'slug', 'tags', 'memberships']));
     }
 
     public function postAssetsUnitsSettings(Request $request, $slug)
     {
-        $tags = ($request->get('tags')) ? explode(',', $request->get('tags')):[];
+        $tags = ($request->get('tags')) ? explode(',', $request->get('tags')) : [];
         $memberships = $request->get('memberships') ?? [];
 
-        if(count($tags)){
-            foreach ($tags as $tag){
+        if (count($tags)) {
+            foreach ($tags as $tag) {
                 $this->tagsRepository->create(['name' => $tag]);
             }
         }
 
         $unit = $this->painter->findByVariation($slug);
         array_push($tags, 'minicms');
-        $unit->setAttributes('tags',$tags)->setAttributes('memberships',$memberships)->edit();
+        $unit->setAttributes('tags', $tags)->setAttributes('memberships', $memberships)->edit();
 
         return redirect()->back();
     }
@@ -122,7 +121,7 @@ class AdminController extends Controller
 
     public function iframeRander($slug)
     {
-        $html = BBRenderUnits($slug,[],null,true);
+        $html = BBRenderUnits($slug, [], null, true);
         $html = \View('multisite::admin.assets.units._partials.renderHtml')->with('html', $html)->render();
 
         return $html;
