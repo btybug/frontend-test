@@ -54,7 +54,7 @@ class MiniSuperPainter extends BasePainter
     public function scopeFindByVariation($id)
     {
         $slug = explode('.', $id);
-        $tpl = Painter::find($slug[0]);
+        $tpl = self::find($slug[0]);
 
         return $tpl;
     }
