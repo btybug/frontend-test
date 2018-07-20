@@ -102,8 +102,19 @@ class AdminController extends Controller
 
     public function iframeRander($slug)
     {
-        $html = BBRenderUnits($slug, [], null, true);
+        $html = render_mini_unit($slug, $this->painter);
+
         $html = \View('multisite::admin.assets.units._partials.renderHtml')->with('html', $html)->render();
+
+        return $html;
+    }
+
+    public function renderWithForm($slug)
+    {
+        $html = render_mini_unit($slug, $this->painter);
+        $unit = $this->painter->findByVariation($slug);
+        $settings = $unit->renderSettings();
+        $html = \View('multisite::admin.assets.units._partials.renderWithForm',compact('html','settings'))->render();
 
         return $html;
     }

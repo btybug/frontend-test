@@ -19,6 +19,7 @@ Route::group(['prefix' => 'assets'], function () {
         Route::get('{id}/settings', 'AdminController@assetsUnitsSettings', true)->name('mini_admin_assets_units_settings');
 
         Route::get('/render/{slug}', 'AdminController@iframeRander', true)->name('unit_iframe_render');
+        Route::get('/render-with-form/{slug}', 'AdminController@renderWithForm', true)->name('unit_iframe_render_with_form');
     });
 
     Route::group(['prefix' => 'layouts'], function () {

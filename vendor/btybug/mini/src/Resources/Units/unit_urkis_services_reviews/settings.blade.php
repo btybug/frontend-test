@@ -1,5 +1,6 @@
 <div class="col-md-12">
-    <h1 style="color:white;">Settings</h1>
+    <label>TEST input</label>
+    {!! Form::text('test',null,['class' => 'form-control']) !!}
 </div>
 
 

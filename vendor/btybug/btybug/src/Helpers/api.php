@@ -601,7 +601,7 @@ function mini_unit_content($settings){
     }
 }
 
-function render_mini_unit($variation_id, $source = [], $data = null) {
+function render_mini_unit($variation_id, $model, $source = [], $data = null) {
     $field = null;
     $cheked = null;
     $slug = explode('.', $variation_id);
@@ -609,7 +609,7 @@ function render_mini_unit($variation_id, $source = [], $data = null) {
         $widget_id = $slug[0];
         $variationID = $slug[1];
 
-        $unit = \Btybug\Mini\Model\MiniPainter::find($widget_id);
+        $unit = $model->find($widget_id);
         if (!is_null($unit)) {
             $variation = $unit->variations(false)->find($variation_id);
             if (!is_null($variation)) {

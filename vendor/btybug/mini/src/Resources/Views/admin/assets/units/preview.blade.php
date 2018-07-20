@@ -26,10 +26,17 @@
             </div>
         </div>
     </div>
+    @include('multisite::admin.assets.units._partials.previewModal')
+
 @stop
 @section("JS")
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
+            $('body').on('click','.preview-modal',function () {
+                $("#preview-modal").modal()
+            });
+
             var url = window.location.href + '/';
             /* $('li.unit_rend').on('click',function (e) {
                  e.preventDefault();

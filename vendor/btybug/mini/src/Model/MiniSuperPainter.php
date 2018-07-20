@@ -94,10 +94,10 @@ class MiniSuperPainter extends BasePainter
             return $is_wrong;
         }
 
-        View::addLocation($path);
-        View::addNamespace("$slug", $path);
+        \View::addLocation($path);
+        \View::addNamespace("$slug", $path);
 
-        return View::make("$slug::settings")->with($variables)->with($data)->render();
+        return \View::make("$slug::settings")->with($variables)->with($data)->render();
     }
 
     /**
@@ -111,8 +111,8 @@ class MiniSuperPainter extends BasePainter
 
         $slug = $this->getSlug();
         $path = $this->getPath();
-        View::addLocation($path);
-        View::addNamespace("$slug", $path);
+        \View::addLocation($path);
+        \View::addNamespace("$slug", $path);
 
         if ($this->autoinclude) {
             return $this->getAutoInclude()->render($variables['variation']->toArray(), "$slug::");
@@ -128,7 +128,7 @@ class MiniSuperPainter extends BasePainter
             $tpl = "tpl";
         }
         $this->path = $path;
-        return View::make("$slug::$tpl")->with($variables)->with(['tplPath' => $path, '_this' => $this])->render();
+        return \View::make("$slug::$tpl")->with($variables)->with(['tplPath' => $path, '_this' => $this])->render();
     }
 
     /**
