@@ -24,34 +24,8 @@ class Painter extends BasePainter
         $this->config_path = storage_path(config('painter.CONFIG'));
         parent::__construct();
     }
-    /**
-     * @return mixed
-     */
-    public function setConfigPath($path):void
-    {
-        $this->config_path = $path;
-    }
 
-    /**
-     * @return mixed
-     */
-    public function setStoragePath($path):void
-    {
-        $this->base_path = $path;
-    }
 
-    public function getStoragePath()
-    {
-        return $this->base_path;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getConfigPath()
-    {
-        return $this->config_path;
-    }
 
     /**
      * @param $id

@@ -55,21 +55,12 @@ abstract class BasePainter implements PainterInterface, VariationAccess
         $this->makeConfigJson();
     }
 
-    /**
-     * @return mixed
-     */
-    abstract function getConfigPath();
 
     /**
      * @param $id
      * @return mixed
      */
     abstract function scopeFindByVariation($id);
-
-    /**
-     * @return mixed
-     */
-    abstract function getStoragePath();
 
     /**
      * @param string $slug
@@ -96,6 +87,29 @@ abstract class BasePainter implements PainterInterface, VariationAccess
         if (isset($this->attributes)) return $this->attributes;
         return false;
     }
+    /**
+     * @return mixed
+     */
+    public function setConfigPath($path):void
+    {
+        $this->config_path = $path;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function setStoragePath($path):void
+    {
+        $this->base_path = $path;
+    }
+    /**
+     * @return mixed
+     */
+    public function getConfigPath()
+    {
+        return $this->config_path;
+    }
+
 
     /**
      * @return $this|mixed
