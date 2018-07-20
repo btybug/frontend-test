@@ -258,7 +258,7 @@
                     },
                     success: function (data) {
                         if (data.error === false) {
-                            $(".right-iframe").append(data.html)
+                            $(".right-iframe").html(data.html)
                         }
                     }
                 });
