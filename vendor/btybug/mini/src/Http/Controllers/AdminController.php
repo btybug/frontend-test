@@ -63,7 +63,7 @@ class AdminController extends Controller
 
     public function assetsUnitsSettings(Request $request, $slug = null)
     {
-        $units = $this->painter->get();
+        $units = $this->painter->all()->get();
         $model = $this->unitService->getUnit($units, $slug);
         $tags = $model->tags;
         $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
