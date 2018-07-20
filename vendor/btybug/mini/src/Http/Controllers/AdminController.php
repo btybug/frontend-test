@@ -12,6 +12,7 @@ namespace Btybug\Mini\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Btybug\btybug\Models\Painter\Painter;
 use Btybug\FrontSite\Repository\TagsRepository;
+use Btybug\Mini\Model\MiniSuperPainter;
 use Btybug\Mini\Repositories\MinicmsPagesRepository;
 use Btybug\Mini\Services\UnitService;
 use Btybug\User\Repository\MembershipRepository;
@@ -27,7 +28,7 @@ class AdminController extends Controller
 
     public function __construct(
         UnitService $unitService,
-        Painter $painter,
+        MiniSuperPainter $painter,
         TagsRepository $tagsRepository,
         MembershipRepository $membershipRepository
     )
@@ -55,7 +56,7 @@ class AdminController extends Controller
 
     public function assetsUnits(Request $request, $slug = null)
     {
-        $units = $this->painter->whereTag('minicms')->get();
+        $units = $this->painter->all()->get();
         $model = $this->unitService->getUnit($units, $slug);
 
         return view('multisite::admin.assets.units.preview', compact(['units', 'model', 'slug']));

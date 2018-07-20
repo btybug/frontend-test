@@ -11,6 +11,7 @@ namespace Btybug\Mini\Services;
 
 use Btybug\btybug\Models\Painter\Painter;
 use Btybug\Console\Repository\FrontPagesRepository;
+use Btybug\Mini\Model\MiniSuperPainter;
 use Illuminate\Http\Request;
 
 class UnitService
@@ -19,7 +20,7 @@ class UnitService
     private $painter;
 
     public function __construct(
-        Painter $painter
+        MiniSuperPainter $painter
     )
     {
         $this->painter = $painter;
@@ -28,7 +29,7 @@ class UnitService
     public function getUnit($units, $slug = null)
     {
         if ($slug) {
-            $this->unitModel = $this->painter->whereTag('minicms')->where('slug', $slug)->first();
+            $this->unitModel = $this->painter->where('slug', $slug)->first();
         } else {
             if (count($units)) {
                 $this->unitModel = array_first($units);

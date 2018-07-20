@@ -407,8 +407,8 @@ abstract class BasePainter implements PainterInterface, VariationAccess
      */
     public function makeConfigJson()
     {
-        if (!\File::exists($this->config_path)) {
-            \File::put($this->config_path, '{}');
+        if (!\File::exists($this->getConfigPath())) {
+            \File::put($this->getConfigPath(), '{}');
             $this->scopeOptimize();
         }
         return true;
@@ -771,7 +771,7 @@ abstract class BasePainter implements PainterInterface, VariationAccess
         foreach ($painters as $painter) {
             $config[$painter->getSlug()] = $painter->getPath();
         }
-        return \File::put($this->config_path, json_encode($config));
+        return \File::put($this->getConfigPath(), json_encode($config));
     }
 
     /**
