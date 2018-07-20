@@ -177,7 +177,42 @@
     {!! HTML::script('public/js/tag-it/tag-it.js') !!}
 
     <script>
-        $(".memberships-select").select2();
+        $('#tagits').tagit({
+            autocomplete: {
+                delay: 0,
+                minLength: 0
+
+            },
+            tagSource: function () {
+                $.ajax({
+                    url: "{!! route('front_site_tag_list') !!}",
+                    dataType: "json",
+                    method: "post",
+                    data: {},
+                    headers: {
+                        'X-CSRF-TOKEN': $("input[name='_token']").val()
+                    },
+                    success: function (data) {
+                        return data;
+                    }
+
+                });
+            },
+            // This will make Tag-it submit a single form value, as a comma-delimited field.
+            singleField: true,
+            singleFieldNode: $('.tagitext'),
+            beforeTagAdded: function (event, ui) {
+                if (!ui.duringInitialization) {
+//                    var exis = getExt.indexOf(ui.tagLabel);
+//                    if (exis < 0) {
+//                        $('.tagit-new input').val('');
+//                        //alert('PLease add allow at tag')
+//                        return false;
+//                    }
+                }
+
+            }
+        })
 
 
         $(".create-page").click(function () {
