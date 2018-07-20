@@ -333,7 +333,7 @@ width:20%;
                     <div class="card mb-3">
                         <div class="d-flex justify-content-between panel card-header">
                             <a data-toggle="collapse" href="#collapseExampleCss" role="button" aria-expanded="false" aria-controls="collapseExampleCss">
-                                <i class="fas fa-arrow-circle-down"></i> Js
+                                <i class="fas fa-arrow-circle-down"></i> CSS
                             </a>
 
                             <div class="button">
@@ -367,7 +367,7 @@ width:20%;
                     <div class="card mb-3">
                         <div class="d-flex justify-content-between panel card-header">
                             <a data-toggle="collapse" href="#collapseExampleImages" role="button" aria-expanded="false" aria-controls="collapseExampleImages">
-                                <i class="fas fa-arrow-circle-down"></i> Js
+                                <i class="fas fa-arrow-circle-down"></i> Images
                             </a>
 
                             <div class="button">
