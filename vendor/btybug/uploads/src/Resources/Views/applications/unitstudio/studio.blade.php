@@ -89,6 +89,9 @@ width:20%;
             background-color: #3d3d3d;
             padding: 4px;
         }
+        .tree-container.full-code-editor{
+            height: calc(100% - 20px);
+        }
     
 
     
@@ -260,8 +263,8 @@ width:20%;
     </div>
     <div class="col-5 h-100 px-0 d-flex flex-column visualCodeEditorToggle">
         <div class="code-head">
-            <button class="btn btn-warning btn-sm">Upload html</button>
-            <button class="btn btn-info btn-sm createHtml">Create html</button>
+            <button class="btn btn-warning btn-sm">Layers</button>
+            <button class="btn btn-info btn-sm createHtml">HTML</button>
         </div>
         <div class="php-code-item">
             PHP Code
@@ -274,12 +277,12 @@ width:20%;
 
         <div class="tree-area h-100">
 
-            <div class="pt-1 tree-container">
+            <div class="tree-container">
                 <!-- Tree List -->
                 <ul class="tree-list"></ul>
             </div>
 
-            <div class="h-50 pt-1 tree-container full-code-editor" style="opacity: 0; transform: translateX(200px);">
+            <div class="tree-container full-code-editor" style="opacity: 0; transform: translateX(200px);">
                 <div id="full-code-editor"></div>
             </div>
 
