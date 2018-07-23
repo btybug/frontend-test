@@ -109,6 +109,7 @@
 			if (strict) {
 				parseError('disallowed character reference');
 			}
+			console.log(decodeMapNumeric[codePoint])
 			return decodeMapNumeric[codePoint];
 		}
 		if (strict && contains(invalidReferenceCodePoints, codePoint)) {
@@ -260,6 +261,7 @@
 				// Decode named character references with trailing `;`, e.g. `&copy;`.
 				reference = $5;
 				if (has(decodeMap, reference)) {
+					console.log(decodeMap[reference])
 					return decodeMap[reference];
 				} else {
 					// Ambiguous ampersand. https://mths.be/notes/ambiguous-ampersands
@@ -290,6 +292,7 @@
 					);
 				}
 				// Note: there is no need to check `has(decodeMapLegacy, reference)`.
+				console.log(decodeMapLegacy[reference] + (next || ''))
 				return decodeMapLegacy[reference] + (next || '');
 			}
 		});

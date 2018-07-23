@@ -138,7 +138,7 @@ width:20%;
             <button class="btn btn-info btn-sm">Export</button> -->
             <div>
             <button class="btn btn-danger btn-sm">Import</button>
-            <button class="btn btn-info btn-sm">Save</button>
+            <button class="btn btn-info btn-sm saving-studio">Save</button>
             </div>
         </div>
     </div>
@@ -304,26 +304,26 @@ width:20%;
 
                             <div class="button">
                                 <button class="btn btn-sm btn-warning"><i class="fas fa-link"></i></button>
-                                <button class="btn btn-sm btn-primary"><i class="fas fa-file"></i></button>
+                                <button class="btn btn-sm btn-primary create-new-asset-input"><i class="fas fa-file"></i></button>
                             </div>
                         </div>
 
-                            <div class="collapse" id="collapseExampleJs">
+                            <div class="collapse studio-js" data-asset="studio-js" id="collapseExampleJs">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between inside-panel mb-2">
                                         <div class="assets-item">
-                                            <input type="text" class="form-control w-90">
+                                            <input type="text" class="form-control w-90 asset-input">
                                         </div>
                                         <div class="delete-opt">
-                                            <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                                            <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between inside-panel mb-2">
                                         <div class="assets-item">
-                                            <input type="text" class="form-control w-90">
+                                            <input type="text" class="form-control w-90 asset-input">
                                         </div>
                                         <div class="delete-opt">
-                                            <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                                            <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -338,26 +338,26 @@ width:20%;
 
                             <div class="button">
                                 <button class="btn btn-sm btn-warning"><i class="fas fa-link"></i></button>
-                                <button class="btn btn-sm btn-primary"><i class="fas fa-file"></i></button>
+                                <button class="btn btn-sm btn-primary create-new-asset-input"><i class="fas fa-file"></i></button>
                             </div>
                         </div>
 
-                        <div class="collapse" id="collapseExampleCss">
+                        <div class="collapse studio-css"  data-asset="studio-css" id="collapseExampleCss">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between inside-panel mb-2">
                                     <div class="assets-item">
-                                        <input type="text" class="form-control w-90">
+                                        <input type="text" class="form-control w-90 asset-input">
                                     </div>
                                     <div class="delete-opt">
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                                        <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-between inside-panel mb-2">
                                     <div class="assets-item">
-                                        <input type="text" class="form-control w-90">
+                                        <input type="text" class="form-control w-90 asset-input">
                                     </div>
                                     <div class="delete-opt">
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                                        <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -372,26 +372,26 @@ width:20%;
 
                             <div class="button">
                                 <button class="btn btn-sm btn-warning"><i class="fas fa-link"></i></button>
-                                <button class="btn btn-sm btn-primary"><i class="fas fa-file"></i></button>
+                                <button class="btn btn-sm btn-primary create-new-asset-input"><i class="fas fa-file"></i></button>
                             </div>
                         </div>
 
-                        <div class="collapse" id="collapseExampleImages">
+                        <div class="collapse" data-asset="studio-images" id="collapseExampleImages">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between inside-panel mb-2">
                                     <div class="assets-item">
-                                        <input type="text" class="form-control w-90">
+                                        <input type="text" class="form-control w-90 asset-input">
                                     </div>
                                     <div class="delete-opt">
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                                        <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-between inside-panel mb-2">
                                     <div class="assets-item">
-                                        <input type="text" class="form-control w-90">
+                                        <input type="text" class="form-control w-90 asset-input">
                                     </div>
                                     <div class="delete-opt">
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                                        <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
                                     </div>
                                 </div>
                             </div>

@@ -420,10 +420,7 @@ $(function() {
         // Reset code wallet & global index
         framework.codeWallet = [];
         framework.globalIndex = 0;
-
         var codeContent = codeEditor.getValue();
-        //   console.log(codeEditor);
-        //   console.log(codeContent);
         var treeList = framework.nodeTreeGenerator(
           $("<wrap>" + codeContent + "</wrap>")
         );
@@ -431,8 +428,8 @@ $(function() {
         $(".tree-list").html(treeList);
 
         // Live render
-        var codeValue =
-          phpCodeEditor.getValue().toString() + "\n" + codeContent.toString();
+        var codeValue = codeEditor.getValue().toString() + "\n";
+        //  + codeContent.toString();
         console.log(codeValue);
         codeValue = codeValue.replace(/<!--\|/g, "");
         codeValue = codeValue.replace(/\|-->/g, "");
@@ -528,10 +525,9 @@ $(function() {
     console.log($(".full-code-editor"));
     $(".full-code-editor").toggleClass("displayToggle");
   });
-    $(".createAssets").click(function() {
-
-        $(".createAssets-container").toggleClass("displayToggle");
-    });
+  $(".createAssets").click(function() {
+    $(".createAssets-container").toggleClass("displayToggle");
+  });
   // Listen to click events
   $("body").on("click", "[bb-click]", function(e) {
     e.preventDefault();

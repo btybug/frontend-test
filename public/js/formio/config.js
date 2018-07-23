@@ -302,3 +302,68 @@ $(document).ready(function() {
 $("#form-tab").click(function() {
   $(".visualCodeEditorToggle").css({ display: "none" });
 });
+
+$("body").on("click", ".create-new-asset-input", function() {
+  let elm = $(`<div class="d-flex justify-content-between inside-panel mb-2">
+  <div class="assets-item">
+      <input type="text" class="form-control w-90 asset-input">
+  </div>
+  <div class="delete-opt">
+      <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
+  </div>
+</div>`);
+  $(
+    $(this)
+      .closest(".card")
+      .children()[1]
+  )
+    .children()
+    .append(elm);
+});
+
+$("body").on("click", ".remove-asset-input", function() {
+  $(this)
+    .parent()
+    .parent()
+    .remove();
+});
+
+$(".saving-studio").click(function() {
+  console.log("tesasf");
+  let data = {
+    inputData: {
+      js: [],
+      css: [],
+      images: []
+    }
+  };
+  document.querySelectorAll(".asset-input").forEach(item => {
+    if (!item.value) {
+      return;
+    }
+    let x = item.closest(".collapse");
+    let type = $(x).attr("data-asset");
+    if (type === "studio-js") {
+      data.inputData.js.push(item.value);
+    } else if (type === "studio-css") {
+      data.inputData.css.push(item.value);
+    } else if (type === "studio-images") {
+      data.inputData.images.push(item.value);
+    }
+  });
+  data.code = codeEditor.getValue();
+  $.ajax({
+    type: "post",
+    datatype: "json",
+    url: "/admin/uploads/application/unitstudio/save",
+    data: JSON.stringify(data),
+    headers: {
+      "X-CSRF-TOKEN": $("input[name='_token']").val()
+    },
+    success: function(data) {
+      if (!data.error) {
+        // window.location.replace(data.url);
+      }
+    }
+  });
+});
