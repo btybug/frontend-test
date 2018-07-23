@@ -119,7 +119,7 @@ class Generator
                     $teplate = $painters[0]->slug . '.default';
                     $newPages[] = [
                         'title' => $corePage->title,
-                        'url' => '/'.$this->name.'/'.$corePage->url,
+                        'url' => '/' . $this->name . '/' . $corePage->url,
                         'user_id' => $this->user_id,
                         'status' => 'published',
                         'page_access' => 0,
@@ -138,7 +138,7 @@ class Generator
         }
     }
 
-    public function makeUnits():void
+    public function makeUnits(): void
     {
         $unitPath = $this->root . DS . 'Resources';
         $unitClass = new MiniSuperPainter();
@@ -148,10 +148,10 @@ class Generator
         foreach ($units as $unit) {
             $paths[] = base_path($unit->path);
         }
-        if(! \File::isDirectory($unitPath.DS.'Units')){
-            \File::makeDirectory($unitPath. DS .'Units',775,true);
+        if (!\File::isDirectory($unitPath . DS . 'Units')) {
+            \File::makeDirectory($unitPath . DS . 'Units', 775, true);
         }
-
-        file_put_contents($unitPath.DS.'Units'.DS.'painter.json',json_encode($paths));
+        dd($unitPath . DS . 'Units' . DS . 'painter.json');
+        file_put_contents($unitPath . DS . 'Units' . DS . 'painter.json', json_encode($paths));
     }
 }
