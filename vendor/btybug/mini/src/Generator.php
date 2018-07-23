@@ -109,7 +109,6 @@ class Generator
     {
         $minicmsPagesRepository = new MinicmsPagesRepository();
         $corePages = $minicmsPagesRepository->findAllByMultiple(['status' => 'published', 'memberships' => 'free']);
-        $corePages
         $newPages = [];
 
         foreach ($corePages as $corePage) {
