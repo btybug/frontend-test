@@ -86,8 +86,6 @@ class Main
 
     public function extraGears()
     {
-//        $units = MiniPainter::optimize();
-
         $units = MiniPainter::all()->get();
         return view('mini::extra.gears', compact('units'))->with('user', $this->user);
 

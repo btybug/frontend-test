@@ -12,6 +12,7 @@ namespace Btybug\Mini;
 use Btybug\btybug\Models\Painter\Painter;
 use Btybug\FrontSite\Models\FrontendPage;
 use Btybug\Mini\Model\MiniPages;
+use Btybug\Mini\Model\MiniSuperPainter;
 use Btybug\Mini\Repositories\MinicmsPagesRepository;
 
 class Generator
@@ -80,6 +81,7 @@ class Generator
         \File::makeDirectory($this->root);
         $this->rekursiveMakeCms($this->tree, $this->root);
         $this->makePages();
+        $this->makeUnits();
     }
 
     public function rekursiveMakeCms($array, $root, $path = null)
@@ -111,7 +113,7 @@ class Generator
 
         foreach ($corePages as $corePage) {
             if ($corePage->template) {
-                $painters = Painter::whereTag($corePage->template)->get();
+                $painters = MiniSuperPainter::whereTag($corePage->template)->get();
                 $teplate = null;
                 if (count($painters)) {
                     $teplate = $painters[0]->slug . '.default';
@@ -134,5 +136,24 @@ class Generator
         if (count($newPages)) {
             FrontendPage::insert($newPages);
         }
+    }
+
+    public function makeUnits():void
+    {
+        $unitPath = $this->root . DS . $this->name .DS . 'Resources';
+
+        $unitClass = new MiniSuperPainter();
+        $units = $unitClass->all()->get();
+        $paths = [];
+
+        foreach ($units as $unit) {
+            $paths[] = base_path($unit->path);
+        }
+        if(! \File::isDirectory($unitPath.DS.'Units')){
+            \File::makeDirectory($unitPath.DS.'Units',775);
+        }
+
+
+        \File::put($unitPath.DS.'Units'.DS.'painter.json',json_encode($paths,true));
     }
 }
