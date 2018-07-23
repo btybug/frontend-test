@@ -37,7 +37,7 @@
 <div class="form-group">
     <label for="tag_unit_for_page" class="control-label col-xs-4">Tag Unit To Page</label>
     <div class="col-xs-8">
-        {!! Form::text('tags',null,['class' => 'form-control','id' => 'tagits']) !!}
+        {!! Form::select('tags',$tags,null,['class' => 'form-control','id' => 'tagits']) !!}
     </div>
 </div>
 <div class="form-group">

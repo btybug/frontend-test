@@ -75,7 +75,7 @@
             <div class="form-group">
                 <label for="tag_unit_for_page" class="control-label col-xs-4">Tag Unit To Page</label>
                 <div class="col-xs-8">
-                    {!! Form::text('tags',null,['class' => 'form-control','id' => 'tagits']) !!}
+                    {!! Form::select('tags',$tags,null,['class' => 'form-control','id' => 'tagits']) !!}
                 </div>
             </div>
             <div class="form-group">
@@ -179,42 +179,42 @@
         $(function () {
 
             function tagitinit(form) {
-                form.find('.tagits').tagit({
-                    autocomplete: {
-                        delay: 0,
-                        minLength: 0
+                {{--form.find('.tagits').tagit({--}}
+                    {{--autocomplete: {--}}
+                        {{--delay: 0,--}}
+                        {{--minLength: 0--}}
 
-                    },
-                    tagSource: function () {
-                        $.ajax({
-                            url: "{!! route('front_site_tag_list') !!}",
-                            dataType: "json",
-                            method: "post",
-                            data: {},
-                            headers: {
-                                'X-CSRF-TOKEN': $("input[name='_token']").val()
-                            },
-                            success: function (data) {
-                                return data;
-                            }
+                    {{--},--}}
+                    {{--tagSource: function () {--}}
+                        {{--$.ajax({--}}
+                            {{--url: "{!! route('front_site_tag_list') !!}",--}}
+                            {{--dataType: "json",--}}
+                            {{--method: "post",--}}
+                            {{--data: {},--}}
+                            {{--headers: {--}}
+                                {{--'X-CSRF-TOKEN': $("input[name='_token']").val()--}}
+                            {{--},--}}
+                            {{--success: function (data) {--}}
+                                {{--return data;--}}
+                            {{--}--}}
 
-                        });
-                    },
-                    // This will make Tag-it submit a single form value, as a comma-delimited field.
-                    singleField: true,
-                    singleFieldNode: $('.tagitext'),
-                    beforeTagAdded: function (event, ui) {
-                        if (!ui.duringInitialization) {
-//                    var exis = getExt.indexOf(ui.tagLabel);
-//                    if (exis < 0) {
-//                        $('.tagit-new input').val('');
-//                        //alert('PLease add allow at tag')
-//                        return false;
-//                    }
-                        }
+                        {{--});--}}
+                    {{--},--}}
+                    {{--// This will make Tag-it submit a single form value, as a comma-delimited field.--}}
+                    {{--singleField: true,--}}
+                    {{--singleFieldNode: $('.tagitext'),--}}
+                    {{--beforeTagAdded: function (event, ui) {--}}
+                        {{--if (!ui.duringInitialization) {--}}
+{{--//                    var exis = getExt.indexOf(ui.tagLabel);--}}
+{{--//                    if (exis < 0) {--}}
+{{--//                        $('.tagit-new input').val('');--}}
+{{--//                        //alert('PLease add allow at tag')--}}
+{{--//                        return false;--}}
+{{--//                    }--}}
+                        {{--}--}}
 
-                    }
-                })
+                    {{--}--}}
+                {{--})--}}
             }
 
 

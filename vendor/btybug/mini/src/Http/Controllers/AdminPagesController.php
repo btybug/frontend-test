@@ -12,6 +12,7 @@ namespace Btybug\Mini\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Btybug\btybug\Models\Settings;
 use Btybug\btybug\Repositories\AdminsettingRepository;
+use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\Mini\Repositories\MinicmsPagesRepository;
 use Illuminate\Http\Request;
 
@@ -23,11 +24,13 @@ class AdminPagesController extends Controller
 
     public function __construct(
         MinicmsPagesRepository $pagesRepository,
-        AdminsettingRepository $settings
+        AdminsettingRepository $settings,
+        TagsRepository $tagsRepository
     )
     {
         $this->pageRepository = $pagesRepository;
         $this->settings = $settings;
+        $this->tagsRepository = $tagsRepository;
     }
 
     public function assetsPages()
@@ -35,7 +38,8 @@ class AdminPagesController extends Controller
         $pages = $this->pageRepository->getAll();
         $header = Settings::where('section', 'minicms')->where('settingkey', 'default_header')->select('val AS header')->first();
         $layout = Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS page_layout')->first();
-        return view('multisite::admin.assets.pages', compact('pages','header', 'layout'));
+        $tags=$this->tagsRepository->pluckByCondition(['type'=>'minicms'],'name','name');
+        return view('multisite::admin.assets.pages', compact('pages','header', 'layout','tags'));
     }
 
     public function createPage(Request $request)
@@ -54,7 +58,8 @@ class AdminPagesController extends Controller
     public function getPageEditForl(Request $request)
     {
         $model = $this->pageRepository->find($request->get('id'));
-        $html = \View::make('multisite::admin.assets.page_edit_form', compact('model'))->render();
+        $tags=$this->tagsRepository->pluckByCondition(['type'=>'minicms'],'name','name');
+        $html = \View::make('multisite::admin.assets.page_edit_form', compact('model','tags'))->render();
         return response()->json(['error' => false, 'html' => $html]);
     }
 
