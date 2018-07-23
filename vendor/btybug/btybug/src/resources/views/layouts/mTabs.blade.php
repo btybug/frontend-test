@@ -51,6 +51,7 @@ $tabs=$section->getTabs($index);
             </div>
         </div>
     </div>
+    @yield('out')
 @stop
 
 @push('css')

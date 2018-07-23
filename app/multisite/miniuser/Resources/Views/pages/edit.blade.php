@@ -68,30 +68,31 @@
                         </div>
                     @endif
 
-                    </div>
-                    <div class="form-group row">
-                        <label for="page_description" class="col-2 col-form-label">Key Words</label>
-                        <div class="col-10">
-                            <input id="key_words" name="key_words"  class="form-control">
-                        </div>
-                    </div>
-                        <div class="form-group row">
-                        <label for="page_description" class="col-2 col-form-label">Page Description</label>
-                        <div class="col-10">
-                            <textarea id="page_description" name="page_description" cols="40" rows="5" class="form-control"></textarea>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <div class="offset-2 col-10">
-                            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
-
                 </div>
+                <div class="form-group row">
+                    <label for="page_description" class="col-2 col-form-label">Key Words</label>
+                    <div class="col-10">
+                        <input id="key_words" name="key_words" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="page_description" class="col-2 col-form-label">Page Description</label>
+                    <div class="col-10">
+                        <textarea id="page_description" name="page_description" cols="40" rows="5"
+                                  class="form-control"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="offset-2 col-10">
+                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+
             </div>
         </div>
+    </div>
 
 
     </div>
@@ -108,10 +109,14 @@
     {!! Form::close() !!}
 
     <input type="hidden" id="page" value="{!! $page->id !!}">
-    @include('resources::assests.magicModal')
+
+@stop
+@section('out')
+    @include('resources::assests.magicModal',['v'=>'b4'])
 @stop
 @section('css')
     {!! Html::style("public/css/fontawesome-iconpicker.min.css") !!}
+    {!! Html::style("public/css/cms.css") !!}
 @stop
 @section('js')
     {!! HTML::script("public/js/UiElements/bb_styles.js?v.5") !!}
