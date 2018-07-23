@@ -11,7 +11,7 @@ var framework = {
 
   // Generate node tree
   nodeTreeGenerator: function(node) {
-    console.log(node);
+    // console.log(node);
     var nodeEl = node[0];
     var output = "";
 
@@ -412,54 +412,113 @@ $(function() {
   phpFullCodeEditor.clearSelection();
 
   // Listen to code change
-
+  var test = true;
   codeEditor.session.on("change", function() {
-    setTimeout(function() {
-      // Reset code wallet & global index
-      framework.codeWallet = [];
-      framework.globalIndex = 0;
+    if (test) {
+      test = false;
+      setTimeout(function() {
+        // Reset code wallet & global index
+        framework.codeWallet = [];
+        framework.globalIndex = 0;
 
-      var codeContent = codeEditor.getValue();
-      //   console.log(codeEditor);
-      //   console.log(codeContent);
-      var treeList = framework.nodeTreeGenerator(
-        $("<wrap>" + codeContent + "</wrap>")
-      );
+        var codeContent = codeEditor.getValue();
+        //   console.log(codeEditor);
+        //   console.log(codeContent);
+        var treeList = framework.nodeTreeGenerator(
+          $("<wrap>" + codeContent + "</wrap>")
+        );
 
-      $(".tree-list").html(treeList);
+        $(".tree-list").html(treeList);
 
-      // Live render
-      var codeValue =
-        phpCodeEditor.getValue().toString() + "\n" + codeContent.toString();
-      codeValue = codeValue.replace(/<!--\|/g, "");
-      codeValue = codeValue.replace(/\|-->/g, "");
+        // Live render
+        var codeValue =
+          phpCodeEditor.getValue().toString() + "\n" + codeContent.toString();
+        console.log(codeValue);
+        codeValue = codeValue.replace(/<!--\|/g, "");
+        codeValue = codeValue.replace(/\|-->/g, "");
 
-      phpFullCodeEditor.setValue(codeValue);
-      phpFullCodeEditor.clearSelection();
+        phpFullCodeEditor.setValue(codeValue);
+        phpFullCodeEditor.clearSelection();
 
-      var data = { html: codeValue };
-      $.ajax({
-        url: $("#renderUrl").val(),
-        type: "POST",
-        data: data,
-        headers: {
-          "X-CSRF-TOKEN": $("input[name='_token']").val()
-        },
-        success: function(data) {
-          if (!data.error) {
-            $(".preview-area").html(data.html);
+        var data = { html: codeValue };
+        test = true;
 
-            // Init CSS Studio
-            $("#bb-css-studio").html("");
+        $.ajax({
+          url: $("#renderUrl").val(),
+          type: "POST",
+          data: data,
+          headers: {
+            "X-CSRF-TOKEN": $("input[name='_token']").val()
+          },
+          success: function(data) {
+            if (!data.error) {
+              $(".preview-area").html(data.html);
 
-            // $('.closeCSSEditor').trigger('click');
-            setTimeout(function() {
-              framework.showElement($(".openCSSEditor"));
-            }, 300);
+              // Init CSS Studio
+              $("#bb-css-studio").html("");
+
+              // $('.closeCSSEditor').trigger('click');
+
+              setTimeout(function() {
+                framework.showElement($(".openCSSEditor"));
+              }, 300);
+            }
           }
-        }
+        });
       });
-    });
+    }
+  });
+
+  phpFullCodeEditor.session.on("change", function() {
+    console.log(test);
+    if (test) {
+      test = false;
+      setTimeout(function() {
+        // Reset code wallet & global index
+        framework.codeWallet = [];
+        framework.globalIndex = 0;
+        var codeContent = phpFullCodeEditor.getValue();
+        var treeList = framework.nodeTreeGenerator(
+          $("<wrap>" + codeContent + "</wrap>")
+        );
+
+        $(".tree-list").html(treeList);
+
+        // Live render
+        var codeValue = phpFullCodeEditor.getValue().toString() + "\n";
+        //  + codeContent.toString();
+        codeValue = codeValue.replace(/<!--\|/g, "");
+        codeValue = codeValue.replace(/\|-->/g, "");
+        console.log(codeValue);
+        codeEditor.setValue(codeValue);
+        codeEditor.clearSelection();
+
+        var data = { html: codeValue };
+        test = true;
+
+        $.ajax({
+          url: $("#renderUrl").val(),
+          type: "POST",
+          data: data,
+          headers: {
+            "X-CSRF-TOKEN": $("input[name='_token']").val()
+          },
+          success: function(data) {
+            if (!data.error) {
+              $(".preview-area").html(data.html);
+
+              // Init CSS Studio
+              $("#bb-css-studio").html("");
+
+              // $('.closeCSSEditor').trigger('click');
+              setTimeout(function() {
+                framework.showElement($(".openCSSEditor"));
+              }, 300);
+            }
+          }
+        });
+      });
+    }
   });
 
   // Apply demo code
