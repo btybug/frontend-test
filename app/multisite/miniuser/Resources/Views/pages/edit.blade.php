@@ -16,41 +16,48 @@
                         </div>
                     </div>
                     @if($page->type!='core')
-                    <div class="form-group row">
-                        <label for="page_name" class="col-2 col-form-label">Page Name</label>
-                        <div class="col-10">
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-adn"></i>
+                        <div class="form-group row">
+                            <label for="page_name" class="col-2 col-form-label">Page Name</label>
+                            <div class="col-10">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-adn"></i>
+                                    </div>
+                                    {!! Form::text('title',null,['class'=>'form-control here','id'=>'page_name']) !!}
                                 </div>
-                                {!! Form::text('title',null,['class'=>'form-control here','id'=>'page_name']) !!}
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        {{Form::label('icon', 'Page Icon',['class' => 'col-sm-2 control-label'])}}
-                        <div class="col-sm-4">
-                            <div class="input-group iconpicker-container">
-                                {{Form::text('icon', null,
-                                ['class' =>$errors->has('icon') ? 'icon icp icp-auto iconpicker-element iconpicker-input form-control  is-invalid' : "icon icp icp-auto iconpicker-element iconpicker-input form-control ",
-                                'placeholder' => 'icon'])}}
-                                <span class="input-group-addon"><i class="fas fa-archive"></i></span>
+                        <div class="form-group row">
+                            {{Form::label('icon', 'Page Icon',['class' => 'col-sm-2 control-label'])}}
+                            <div class="col-sm-4">
+                                <div class="input-group iconpicker-container">
+                                    {{Form::text('icon', null,
+                                    ['class' =>$errors->has('icon') ? 'icon icp icp-auto iconpicker-element iconpicker-input form-control  is-invalid' : "icon icp icp-auto iconpicker-element iconpicker-input form-control ",
+                                    'placeholder' => 'icon'])}}
+                                    <span class="input-group-addon"><i class="fas fa-archive"></i></span>
+                                </div>
+                                @if ($errors->has('icon'))
+                                    <span class="invalid-feedback"><strong>{{ $errors->first('icon') }}</strong></span>
+                                @endif
                             </div>
-                            @if ($errors->has('icon'))
-                                <span class="invalid-feedback"><strong>{{ $errors->first('icon') }}</strong></span>
-                            @endif
                         </div>
-                    </div>
+
+                    @else
+                        <div class="form-group row">
+                            <label for="page_name" class="col-2 col-form-label">Page content</label>
+                            <div class="col-10">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-adn"></i>
+                                    </div>
+                                    {!! dd($page) !!}
+
+                                    {!! BBbutton2('mini_unit','header','header','Select Default Header',['model'=>$header]) !!}
+                                </div>
+                            </div>
+                        </div>
                     @endif
-                    <div class="form-group row">
-                        <label for="select" class="col-2 col-form-label">Tags</label>
-                        <div class="col-10">
-                            <select id="select" name="select" class="custom-select">
-                                <option value="rabbit">Rabbit</option>
-                                <option value="duck">Duck</option>
-                                <option value="fish">Fish</option>
-                            </select>
-                        </div>
+
                     </div>
                     <div class="form-group row">
                         <label for="page_description" class="col-2 col-form-label">Key Words</label>
@@ -89,6 +96,7 @@
 
 
     {!! Form::close() !!}
+    @include('resources::assests.magicModal')
 
     <input type="hidden" id="page" value="{!! $page->id !!}">
 @stop
@@ -96,6 +104,7 @@
     {!! Html::style("public/css/fontawesome-iconpicker.min.css") !!}
 @stop
 @section('js')
+    {!! HTML::script("public/js/UiElements/bb_styles.js?v.5") !!}
     {!! Html::script("public/js/fontawesome-iconpicker.min.js") !!}
 
     <script>
