@@ -170,7 +170,12 @@ class ModalityController extends Controller
     public function getMiniUnit($data)
     {
         $key = $data['type'];
-        $units = MiniSuperPainter::all()->sortByTag($key);
+        if($key == '*'){
+            $units = MiniSuperPainter::all()->get();
+        }else{
+            $units = MiniSuperPainter::all()->sortByTag($key);
+        }
+
         if (!count($units)) return \Response::json(['error' => true,'message'=>'there is no unit found']);
         if (isset($data['multiple']) && $data['multiple'] == true) {
             $html = View::make('btybug::styles.multiple-units', compact('units', 'data'))->render();
