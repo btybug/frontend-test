@@ -102,17 +102,17 @@ class ApplicationController extends Controller
 
 
     public function saveUnitStudio(Request $request){
-        dd($request);
+
     }
 
 
     public function editUnitStudio($id = null){
-        dd($id);
+
     }
 
 
     public function deleteUnitStudio($id = null){
-        dd($id);
+
         if ($id){
             $this->unitStudioRepository->delete($id);
         }
@@ -122,7 +122,6 @@ class ApplicationController extends Controller
 
     public function viewRenderUnitStudio($id = null)
     {
-        dd($id);
         $unitStudiData = $this->unitStudioRepository->findOrFail($id);
         return view('uploads::applications.unitstudio.studio')->with('unitStudioData',$unitStudiData);
     }
