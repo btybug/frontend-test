@@ -112,7 +112,6 @@ class Generator
         $newPages = [];
 
         foreach ($corePages as $corePage) {
-            if ($corePage->template) {
                 $painters = MiniSuperPainter::whereTag($corePage->template)->get();
                 $teplate = null;
                 if (count($painters)) {
@@ -130,7 +129,6 @@ class Generator
                         'template' => $teplate
                     ];
                 }
-            }
 
         }
         if (count($newPages)) {
