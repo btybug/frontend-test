@@ -138,7 +138,7 @@ class Generator
         }
     }
 
-    public function makeUnits(): void
+    public function makeUnits()
     {
         $unitPath = $this->root . DS . 'Resources';
         $unitClass = new MiniSuperPainter();
@@ -151,7 +151,7 @@ class Generator
         if (!\File::isDirectory($unitPath . DS . 'Units')) {
             \File::makeDirectory($unitPath . DS . 'Units');
         }
-        
+
         $content = json_encode($paths);
         file_put_contents($unitPath . DS . 'Units' . DS . 'painter.json', $content);
     }
