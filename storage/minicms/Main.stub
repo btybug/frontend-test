@@ -10,7 +10,7 @@ namespace App\multisite\{username};
 
 
 use Btybug\Mini\Model\MiniPainter;
-use App\multisite\miniuser\Providers\ModuleServiceProvider;
+use App\multisite\{username}\Providers\ModuleServiceProvider;
 use Btybug\FrontSite\Models\FrontendPage;
 use Btybug\User\User;
 use Illuminate\Http\Request;
@@ -86,8 +86,6 @@ class Main
 
     public function extraGears()
     {
-//        $units = MiniPainter::optimize();
-
         $units = MiniPainter::all()->get();
         return view('mini::extra.gears', compact('units'))->with('user', $this->user);
 
