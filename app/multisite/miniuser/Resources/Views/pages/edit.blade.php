@@ -42,6 +42,18 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="page_name" class="col-2 col-form-label">Page content</label>
+                            <div class="col-10">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-adn"></i>
+                                    </div>
+                                    {!! BBbutton2('mini_unit','header','*','Select page content',['model'=>$page->template]) !!}
+                                </div>
+                            </div>
+                        </div>
+
                     @else
                         <div class="form-group row">
                             <label for="page_name" class="col-2 col-form-label">Page content</label>
@@ -50,9 +62,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-adn"></i>
                                     </div>
-                                    {!! dd($page) !!}
-
-                                    {!! BBbutton2('mini_unit','header','header','Select Default Header',['model'=>$header]) !!}
+                                    {!! BBbutton2('mini_unit','header',$page->tags,'Select page content',['model'=>$page->template]) !!}
                                 </div>
                             </div>
                         </div>
@@ -96,9 +106,9 @@
 
 
     {!! Form::close() !!}
-    @include('resources::assests.magicModal')
 
     <input type="hidden" id="page" value="{!! $page->id !!}">
+    @include('resources::assests.magicModal')
 @stop
 @section('css')
     {!! Html::style("public/css/fontawesome-iconpicker.min.css") !!}
