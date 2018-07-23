@@ -49,7 +49,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-adn"></i>
                                     </div>
-                                    {!! BBbutton2('mini_unit','header','*','Select page content',['model'=>$page->template]) !!}
+                                    {!! BBbutton2('mini_unit','template','*','Select page content',['model'=>$page->template]) !!}
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-adn"></i>
                                     </div>
-                                    {!! BBbutton2('mini_unit','header',$page->tags,'Select page content',['model'=>$page->template]) !!}
+                                    {!! BBbutton2('mini_unit','template',$page->tags,'Select page content',['model'=>$page->template]) !!}
                                 </div>
                             </div>
                         </div>
