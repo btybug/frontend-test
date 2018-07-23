@@ -152,7 +152,6 @@ class Generator
             \File::makeDirectory($unitPath. DS .'Units',775,true);
         }
 
-
-        \File::put($unitPath.DS.'Units'.DS.'painter.json',json_encode($paths));
+        file_put_contents($unitPath.DS.'Units'.DS.'painter.json',json_encode($paths));
     }
 }
