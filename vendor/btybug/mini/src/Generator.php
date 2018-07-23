@@ -149,9 +149,10 @@ class Generator
             $paths[] = base_path($unit->path);
         }
         if (!\File::isDirectory($unitPath . DS . 'Units')) {
-            \File::makeDirectory($unitPath . DS . 'Units', 775, true);
+            \File::makeDirectory($unitPath . DS . 'Units');
         }
-        dd($unitPath . DS . 'Units' . DS . 'painter.json');
-        file_put_contents($unitPath . DS . 'Units' . DS . 'painter.json', json_encode($paths));
+        
+        $content = json_encode($paths);
+        file_put_contents($unitPath . DS . 'Units' . DS . 'painter.json', $content);
     }
 }
