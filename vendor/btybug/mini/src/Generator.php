@@ -149,7 +149,7 @@ class Generator
             $paths[] = base_path($unit->path);
         }
         if(! \File::isDirectory($unitPath.DS.'Units')){
-            \File::makeDirectory($unitPath. DS .'Units',775);
+            \File::makeDirectory($unitPath. DS .'Units',775,true);
         }
 
 
