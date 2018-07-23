@@ -109,13 +109,11 @@ class Generator
     {
         $minicmsPagesRepository = new MinicmsPagesRepository();
         $corePages = $minicmsPagesRepository->findAllByMultiple(['status' => 'published', 'memberships' => 'free']);
+        $corePages
         $newPages = [];
 
         foreach ($corePages as $corePage) {
-                $painters = MiniSuperPainter::whereTag($corePage->template)->get();
                 $teplate = null;
-                if (count($painters)) {
-                    $teplate = $painters[0]->slug . '.default';
                     $newPages[] = [
                         'title' => $corePage->title,
                         'url' => '/' . $this->name . '/' . $corePage->url,
@@ -125,12 +123,9 @@ class Generator
                         'slug' => str_slug($corePage->title . $this->user_id),
                         'type' => 'core',
                         'content_type' => 'template',
-                        'page_layout' => 'front_layout_with_2_8_2_col',
-                        'template' => $teplate
+                        'page_layout' => 'front_layout_with_2_8_2_col'
                     ];
                 }
-
-        }
         if (count($newPages)) {
             FrontendPage::insert($newPages);
         }
