@@ -62,6 +62,16 @@ function BBheader()
     }
 }
 
+function BBheaderMini()
+{
+    global  $HEADER;
+    if($HEADER)return BBRenderTpl($HEADER);
+    $tpl = \Btybug\btybug\Models\Settings::where('section', 'minicms')->where('settingkey', 'default_header')->select('val AS header')->first();
+    if ($tpl) {
+        return render_mini_unit($tpl,\Btybug\Mini\Model\MiniPainter::class);
+    }
+}
+
 function BBRenderTpl($variation_id, $on_empty = null)
 {
     $slug = explode('.', $variation_id);
@@ -128,14 +138,21 @@ function BBRenderFrontLayout($page)
 
 function BBRenderMiniFrontLayout($page,$model)
 {
-    if ($page->parent && $page->page_layout_inheritance) {
-        $settings = ($page->parent->page_layout_settings && !is_array($page->parent->page_layout_settings)) ? json_decode($page->parent->page_layout_settings, true) : [];
-        $settings["_page"] = $page;
-        return BBRenderPageMiniSections($page->parent->page_layout, $settings,$model);
-    } else {
+    if($page->page_layout){
+        if ($page->parent && $page->page_layout_inheritance) {
+            $settings = ($page->parent->page_layout_settings && !is_array($page->parent->page_layout_settings)) ? json_decode($page->parent->page_layout_settings, true) : [];
+            $settings["_page"] = $page;
+            return BBRenderPageMiniSections($page->parent->page_layout, $settings,$model);
+        } else {
+            $settings = ($page->page_layout_settings && !is_array($page->page_layout_settings)) ? json_decode($page->page_layout_settings, true) : [];
+            $settings["_page"] = $page;
+            return BBRenderPageMiniSections($page->page_layout, $settings,$model);
+        }
+    }else{
         $settings = ($page->page_layout_settings && !is_array($page->page_layout_settings)) ? json_decode($page->page_layout_settings, true) : [];
         $settings["_page"] = $page;
-        return BBRenderPageMiniSections($page->page_layout, $settings,$model);
+        $layout = \Btybug\btybug\Models\Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS layout')->first();
+        return BBRenderPageMiniSections($layout, $settings,$model);
     }
 }
 

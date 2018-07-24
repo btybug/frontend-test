@@ -110,24 +110,26 @@ class Generator
         $layout = Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS layout')->first();
 
         foreach ($corePages as $corePage) {
-                $teplate = null;
+            if($corePage->status == 'published'){
                 $url = ($corePage->url == null or $corePage->url == '/') ? '/' . $this->name : '/' . $this->name . '/' . $corePage->url;
-
-                    $newPages[] = [
-                        'title' => $corePage->title,
-                        'url' =>  $url,
-                        'user_id' => $this->user_id,
-                        'status' => 'published',
-                        'page_access' => 0,
-                        'slug' => str_slug($corePage->title . $this->user_id),
-                        'type' => 'core',
-                        'render_method' => true,
-                        'content_type' => 'template',
-                        'template' => null,
-                        'module_id' => 'btybug/mini',
-                        'page_layout' => 'front_layout_with_2_8_2_col'
-                    ];
-                }
+                $newPages[] = [
+                    'title' => $corePage->title,
+                    'url' =>  $url,
+                    'user_id' => $this->user_id,
+                    'status' => 'published',
+                    'page_access' => 0,
+                    'slug' => str_slug($corePage->title . $this->user_id),
+                    'type' => 'core',
+                    'render_method' => true,
+                    'content_type' => 'template',
+                    'template' => $corePage->template,
+                    'module_id' => 'btybug/mini',
+                    'page_layout' => $corePage->page_layout,
+                    'header' => $corePage->header,
+                    'header_unit' => $corePage->header_unit,
+                ];
+            }
+        }
         if (count($newPages)) {
             FrontendPage::insert($newPages);
         }
