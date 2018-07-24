@@ -87,7 +87,7 @@
                     </label>
                     <label class="radio-inline" for="radios-1">
                         <input type="radio"  id="radios-1" value="2">
-                        Special
+                        No Header
                     </label>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                     </label>
                     <label class="radio-inline" for="radios-1">
                         <input type="radio"  id="radios-1" value="2">
-                        Special
+                        No Layout
                     </label>
                 </div>
             </div>
