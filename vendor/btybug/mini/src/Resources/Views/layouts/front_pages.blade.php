@@ -7,7 +7,7 @@
             {!! BBheader() !!}
         @endif
     @endif
-    
+
     {!! BBRenderFrontLayout($page) !!}
 
     @if($page->footer)
