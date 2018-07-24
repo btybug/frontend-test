@@ -102,8 +102,7 @@ class ApplicationController extends Controller
 
     public function getUnitStudio()
     {
-        $data = $this->unitStudioRepository->getAll();
-        return view('uploads::applications.unitstudio.studio')->with('allData',$data);
+        return view('uploads::applications.unitstudio.studio');
     }
 
 
