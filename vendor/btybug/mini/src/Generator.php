@@ -10,6 +10,7 @@ namespace Btybug\Mini;
 
 
 use Btybug\btybug\Models\Painter\Painter;
+use Btybug\btybug\Models\Settings;
 use Btybug\FrontSite\Models\FrontendPage;
 use Btybug\Mini\Model\MiniPages;
 use Btybug\Mini\Model\MiniSuperLayouts;
@@ -105,19 +106,24 @@ class Generator
         $minicmsPagesRepository = new MinicmsPagesRepository();
         $corePages = $minicmsPagesRepository->findAllByMultiple(['status' => 'published', 'memberships' => 'free']);
         $newPages = [];
+        $header = Settings::where('section', 'minicms')->where('settingkey', 'default_header')->select('val AS header')->first();
+        $layout = Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS layout')->first();
 
         foreach ($corePages as $corePage) {
                 $teplate = null;
+                $url = ($corePage->url == null or $corePage->url == '/') ? '/' . $this->name : '/' . $this->name . '/' . $corePage->url;
+
                     $newPages[] = [
                         'title' => $corePage->title,
-                        'url' => '/' . $this->name . '/' . $corePage->url,
+                        'url' =>  $url,
                         'user_id' => $this->user_id,
                         'status' => 'published',
                         'page_access' => 0,
                         'slug' => str_slug($corePage->title . $this->user_id),
                         'type' => 'core',
-                        'render_method' => 1,
+                        'render_method' => true,
                         'content_type' => 'template',
+                        'template' => null,
                         'module_id' => 'btybug/mini',
                         'page_layout' => 'front_layout_with_2_8_2_col'
                     ];
