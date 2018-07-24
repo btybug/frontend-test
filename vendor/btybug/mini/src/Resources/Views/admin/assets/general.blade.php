@@ -12,7 +12,7 @@
             <div class="form-group">
                 <div class="col-xs-8">
                     <div class="input-group">
-                        {!! BBbutton2('layouts','layout','layout','Select Default Layout',['model'=>$layout]) !!}
+                        {!! BBbutton2('mini_layouts','layout','layout','Select Default Layout',['model'=>$layout]) !!}
                     </div>
                 </div>
             </div>
