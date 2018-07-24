@@ -473,6 +473,18 @@ class ModalityController extends Controller
         $html = View::make('btybug::styles.page_sections', compact(['items', 'ajax']))->render();
         return \Response::json(['error' => false, 'html' => $html]);
     }
+    public function postMiniPageSectionOptions(Request $request)
+    {
+        $id = $request->get('id');
+        $layout = MiniSuperLayouts::find($id);
+        if (!$layout) {
+            return \Response::json(['error' => true]);
+        }
+        $items = $layout->variations()->all();
+        $ajax = true;
+        $html = View::make('btybug::styles.page_sections', compact(['items', 'ajax']))->render();
+        return \Response::json(['error' => false, 'html' => $html]);
+    }
 
     public function pageSectionPreview($slug)
     {
@@ -621,7 +633,7 @@ class ModalityController extends Controller
         if (!count($layouts)) {
             return \Response::json(['error' => true]);
         }
-        $html = View::make('btybug::styles.page_sections', compact('layouts'))->render();
+        $html = View::make('btybug::styles.page_sections', compact('layouts','data'))->render();
 
         return \Response::json(['error' => false, 'html' => $html]);
     }
@@ -629,11 +641,10 @@ class ModalityController extends Controller
     {
         $tag = $data['type'];
         $layouts = MiniSuperLayouts::all()->get();
-
         if (!count($layouts)) {
             return \Response::json(['error' => true]);
         }
-        $html = View::make('btybug::styles.page_sections', compact('layouts'))->render();
+        $html = View::make('btybug::styles.page_sections', compact('layouts','data'))->render();
 
         return \Response::json(['error' => false, 'html' => $html]);
     }

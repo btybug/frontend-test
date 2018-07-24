@@ -9,6 +9,7 @@ $(document).ready(function () {
         units: '/modality/units/options',
         mini_units: '/modality/mini_units/options',
         page_sections: '/modality/page-sections/options',
+        mini_layouts: '/modality/mini-page-sections/options',
         placeholder_section: '/modality/placeholder_section/options',
         main_body_modality: '/modality/main_body_modality/options'
     };

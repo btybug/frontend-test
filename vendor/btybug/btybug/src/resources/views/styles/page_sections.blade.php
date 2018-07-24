@@ -10,7 +10,7 @@
                                 <i class="fa fa-server" aria-hidden="true"></i>
                             </div>
                             <a href="javascript:void(0)" type="button" data-id="{!! $tpl->slug !!}"
-                               data-action="page_sections" data-key="" class="styles">
+                               data-action="{!! $data['action'] !!}" data-key="" class="styles">
                                 {{--<img src="{!! url('images/form-list.jpg') !!}">--}}
                                 <span>{!! $tpl->title !!}</span></a>
                         </div>

@@ -76,6 +76,7 @@ Route::group(
         Route::post('/modality/units/options', 'Admincp\ModalityController@postUnitOptions');
         Route::post('/modality/mini_units/options', 'Admincp\ModalityController@postMiniUnitOptions');
         Route::post('/modality/page-sections/options', 'Admincp\ModalityController@postPageSectionOptions');
+        Route::post('/modality/mini-page-sections/options', 'Admincp\ModalityController@postMiniPageSectionOptions');
         Route::get('/modality/page-sections/modal/{slug}', 'Admincp\ModalityController@pageSectionPreview');
         Route::post('/modality/placeholder_section/options', 'Admincp\ModalityController@postSectionOptions');
         Route::post('/modality/main_body_modality/options', 'Admincp\ModalityController@postMainBodyOptions');

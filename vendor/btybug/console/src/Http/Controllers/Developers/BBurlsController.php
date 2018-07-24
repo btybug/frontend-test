@@ -10,6 +10,7 @@ namespace Btybug\Console\Http\Controllers\Developers;
 
 use App\Http\Controllers\Controller;
 use Btybug\btybug\Models\Painter\Painter;
+use Btybug\Mini\Model\MiniSuperLayouts;
 use Btybug\Mini\Model\MiniSuperPainter;
 use Illuminate\Http\Request;
 use Btybug\btybug\Models\ContentLayouts\ContentLayouts;
@@ -293,6 +294,10 @@ class BBurlsController extends Controller
             case 'layouts':
                 $obj = ContentLayouts::findByVariation($value);
                 $variation = ContentLayouts::findVariation($value);
+                break;
+                case 'mini_layouts':
+                $obj = MiniSuperLayouts::findByVariation($value);
+                $variation = MiniSuperLayouts::findVariation($value);
                 break;
             case 'unit':
 
