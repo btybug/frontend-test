@@ -35,12 +35,16 @@ class ApplicationController extends Controller
 
     public function getIndex ($slug = null)
     {
+        $studiosData = $this->studioRepository->getAll();
+        $unitdata = $this->unitStudioRepository->getAll();
         if ($slug && $slug == 'formbuilder'){
             $this->data = $this->formBuilderRepository->getAll();
-        }
-        $studiosData = $this->studioRepository->getAll();
+            return view('uploads::applications.index')->with(['allData' => $this->data,'studiosData' => $studiosData,'slug' => $slug]);
 
-        return view('uploads::applications.index')->with(['allData' => $this->data,'studiosData' => $studiosData,'slug' => $slug]);
+        }elseif ($slug && $slug == 'unitstudio'){
+            return view('uploads::applications.index')->with(['unitData' => $unitdata,'slug' => $slug,'studiosData' => $studiosData]);
+        }
+
     }
 
     public function getFormBuilder ()
@@ -97,7 +101,8 @@ class ApplicationController extends Controller
 
     public function getUnitStudio()
     {
-        return view('uploads::applications.unitstudio.studio');
+        $data = $this->unitStudioRepository->getAll();
+        return view('uploads::applications.unitstudio.studio')->with('allData',$data);
     }
 
 
@@ -113,12 +118,13 @@ class ApplicationController extends Controller
 
 
     public function editUnitStudio($id = null){
+        $data = $this->unitStudioRepository->findOrFail($id);
 
+        return \Response::json(['error' => false,'data' => $data]);
     }
 
 
     public function deleteUnitStudio($id = null){
-
         if ($id){
             $this->unitStudioRepository->delete($id);
         }

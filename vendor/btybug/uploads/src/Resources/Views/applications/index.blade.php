@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-9">
                 @if($slug)
-                @include("uploads::applications.".$slug.".list")
+                    @include("uploads::applications.".$slug.".list")
                 @endif
             </div>
         </div>
