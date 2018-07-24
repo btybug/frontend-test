@@ -82,7 +82,7 @@
                 <label  class="control-label col-xs-4"></label>
                 <div class="col-xs-8">
                     <div class="input-group">
-                        {!! BBbutton2('mini_unit','header','header','Select Default Header',['model'=>$header]) !!}
+                        {!! BBbutton2('mini_unit','header_unit','header','Select Default Header',['model'=>$header]) !!}
                     </div>
                 </div>
             </div>

@@ -12,6 +12,18 @@
                 $variation = $obj->variations(false)->find($value);
                 }
                 break;
+                case 'mini_unit':
+                $obj=\Btybug\Mini\Model\MiniSuperPainter::findByVariation($value);
+                if($obj){
+                $variation = $obj->variations(false)->find($value);
+                }
+                break;
+                case 'mini_layouts':
+                $obj=\Btybug\Mini\Model\MiniSuperLayouts::findByVariation($value);
+                if($obj){
+                $variation = $obj->variations(false)->find($value);
+                }
+                break;
             }
         }
 

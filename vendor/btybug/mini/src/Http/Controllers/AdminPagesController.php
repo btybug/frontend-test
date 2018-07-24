@@ -36,10 +36,10 @@ class AdminPagesController extends Controller
     public function assetsPages()
     {
         $pages = $this->pageRepository->getAll();
-        $header = Settings::where('section', 'minicms')->where('settingkey', 'default_header')->select('val AS header')->first();
+        $header = Settings::where('section', 'minicms')->where('settingkey', 'default_header')->select('val AS header_unit')->first();
         $layout = Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS page_layout')->first();
-        $tags=$this->tagsRepository->pluckByCondition(['type'=>'minicms'],'name','name');
-        return view('multisite::admin.assets.pages', compact('pages','header', 'layout','tags'));
+        $tags = $this->tagsRepository->pluckByCondition(['type' => 'minicms'], 'name', 'name');
+        return view('multisite::admin.assets.pages', compact('pages', 'header', 'layout', 'tags'));
     }
 
     public function createPage(Request $request)
@@ -47,19 +47,20 @@ class AdminPagesController extends Controller
         $data = $request->except('_token');
         return $this->pageRepository->create($data);
     }
+
     public function editPage(Request $request)
     {
-        $data = $request->except(['_token','id']);
+        $data = $request->except(['_token', 'id']);
         $id = $request->get('id');
-        $this->pageRepository->update($id,$data);
+        $this->pageRepository->update($id, $data);
         return redirect()->back();
     }
 
     public function getPageEditForl(Request $request)
     {
         $model = $this->pageRepository->find($request->get('id'));
-        $tags=$this->tagsRepository->pluckByCondition(['type'=>'minicms'],'name','name');
-        $html = \View::make('multisite::admin.assets.page_edit_form', compact('model','tags'))->render();
+        $tags = $this->tagsRepository->pluckByCondition(['type' => 'minicms'], 'name', 'name');
+        $html = \View::make('multisite::admin.assets.page_edit_form', compact('model', 'tags'))->render();
         return response()->json(['error' => false, 'html' => $html]);
     }
 
