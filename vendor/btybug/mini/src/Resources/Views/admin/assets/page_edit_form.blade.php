@@ -40,6 +40,33 @@
         {!! Form::select('tags',$tags,null,['class' => 'form-control','id' => 'tagits']) !!}
     </div>
 </div>
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+    <label class="col-md-4 control-label" for="radios">Header</label>
+    <div class="col-md-4">
+        <label class="radio-inline" for="radios-0">
+            <input type="radio"  id="radios-0" value="1" checked="checked">
+           Default
+        </label>
+        <label class="radio-inline" for="radios-1">
+            <input type="radio"  id="radios-1" value="2">
+          Special
+        </label>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-md-4 control-label" for="radios">Layout</label>
+    <div class="col-md-4">
+        <label class="radio-inline" for="radios-0">
+            <input type="radio"  id="radios-0" value="1" checked="checked">
+            Default
+        </label>
+        <label class="radio-inline" for="radios-1">
+            <input type="radio"  id="radios-1" value="2">
+            Special
+        </label>
+    </div>
+</div>
 <div class="form-group">
     <label class="control-label col-xs-4"></label>
     <div class="col-xs-8">
