@@ -106,8 +106,6 @@ class Generator
         $minicmsPagesRepository = new MinicmsPagesRepository();
         $corePages = $minicmsPagesRepository->findAllByMultiple(['status' => 'published', 'memberships' => 'free']);
         $newPages = [];
-        $header = Settings::where('section', 'minicms')->where('settingkey', 'default_header')->select('val AS header')->first();
-        $layout = Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS layout')->first();
 
         foreach ($corePages as $corePage) {
             if($corePage->status == 'published'){
