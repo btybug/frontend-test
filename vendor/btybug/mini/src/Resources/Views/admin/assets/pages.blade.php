@@ -80,14 +80,18 @@
             </div>
             <div class="form-group">
                 <label class="col-md-4 control-label" for="radios">Header</label>
-                <div class="col-md-4">
+                <div class="col-md-8">
                     <label class="radio-inline" for="radios-0">
-                        <input type="radio"  id="radios-0" value="1" checked="checked">
+                        <input type="radio" name="header"  value="0" checked="checked">
                         Default
                     </label>
                     <label class="radio-inline" for="radios-1">
-                        <input type="radio"  id="radios-1" value="2">
+                        <input type="radio"  name="header"  value="1">
                         No Header
+                    </label>
+                    <label class="radio-inline" for="radios-1">
+                        <input type="radio" name="header"  value="2">
+                        Special
                     </label>
                 </div>
             </div>
@@ -95,16 +99,16 @@
                 <label class="col-md-4 control-label" for="radios">Layout</label>
                 <div class="col-md-4">
                     <label class="radio-inline" for="radios-0">
-                        <input type="radio"  id="radios-0" value="1" checked="checked">
+                        <input type="radio" name="layout"   value="0" checked="checked">
                         Default
                     </label>
                     <label class="radio-inline" for="radios-1">
-                        <input type="radio"  id="radios-1" value="2">
-                        No Layout
+                        <input type="radio"  name="layout"  value="1">
+                        Special
                     </label>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group header-bbbutton hide">
                 <label  class="control-label col-xs-4"></label>
                 <div class="col-xs-8">
                     <div class="input-group">
@@ -112,7 +116,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group layout-bbbutton hide">
                 <label  class="control-label col-xs-4"></label>
                 <div class="col-xs-8">
                     <div class="input-group">
@@ -203,6 +207,20 @@
     <script>
 
         $(function () {
+            $('body').on('change','input[name=header]',function () {
+               if($(this).val()==2){
+                   $('body').find('.header-bbbutton').removeClass('hide')
+               }else{
+                   $('body').find('.header-bbbutton').addClass('hide')
+               }
+            });
+            $('body').on('change','input[name=layout]',function () {
+               if($(this).val()==1){
+                   $('body').find('.layout-bbbutton').removeClass('hide')
+               }else{
+                   $('body').find('.layout-bbbutton').addClass('hide')
+               }
+            });
 
             function tagitinit(form) {
                 {{--form.find('.tagits').tagit({--}}
