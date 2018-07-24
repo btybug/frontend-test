@@ -120,7 +120,7 @@ class ApplicationController extends Controller
     public function editUnitStudio($id = null){
         $data = $this->unitStudioRepository->findOrFail($id);
 
-        return \Response::json(['error' => false,'data' => $data]);
+        return view('uploads::applications.unitstudio.studio')->with('allData',$data);
     }
 
 
