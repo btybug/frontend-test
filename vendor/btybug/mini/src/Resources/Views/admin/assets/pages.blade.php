@@ -48,7 +48,7 @@
                 <div class="col-xs-8">
                     <div class="input-group">
                         <div class="input-group-addon">
-                            {username}
+                            {username}/
                         </div>
                         <input id="page_url" name="url" placeholder="about-us" type="text" class="form-control">
                     </div>
