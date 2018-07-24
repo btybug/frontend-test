@@ -14,9 +14,9 @@
     @if(count($unitData))
         @foreach($unitData as $key => $val)
             <tr>
-                <td>{{$val->id}}</td>
-                <td>{{$val->name}}</td>
-                <td>
+                <td class="col-md-1">{{$val->id}}</td>
+                <td class="col-md-6">{{$val->name}}</td>
+                <td class="col-md-2">
                     <a class="pull-right btn btn-danger" href="{{route('application_delete_unitStudio',$val->id)}}"><span
                                 class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                     <a class="pull-right btn btn-warning" href="{{route('application_edit_unitStudio',$val->id)}}"><span
