@@ -29,5 +29,5 @@
 @stop
 @section('JS')
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
-    {!! HTML::script("public/js/UiElements/bb_styles.js?v.5") !!}
+    {!! HTML::script("public/js/UiElements/bb_styles.js?v.".rand(999,99999)) !!}
     @stop
