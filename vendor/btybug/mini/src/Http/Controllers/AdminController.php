@@ -59,18 +59,12 @@ class AdminController extends Controller
         $units = $this->painter->all()->get();
         $model = $this->unitService->getUnit($units, $slug);
 
-        return view('multisite::admin.assets.units.preview', compact(['units', 'model', 'slug']));
-    }
-
-    public function assetsUnitsSettings(Request $request, $slug = null)
-    {
-        $units = $this->painter->all()->get();
-        $model = $this->unitService->getUnit($units, $slug);
         $tags = $model->tags;
         $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
 
         $tags = implode(',', $tags);
-        return view('multisite::admin.assets.units.settings', compact(['units', 'model', 'slug','tags','memberships']));
+
+        return view('multisite::admin.assets.units.preview', compact(['units', 'model', 'slug','tags','memberships']));
     }
 
     public function postAssetsUnitsSettings(Request $request, $slug)
@@ -85,7 +79,7 @@ class AdminController extends Controller
         }
 
         $unit = $this->painter->findByVariation($slug);
-        $unit->setAttributes('tags',$tags)->setAttributes('memberships',$memberships)->edit();
+        $unit->setAttributes('tags',$tags)->setAttributes('memberships',$memberships)->setAttributes('status',$request->get('status'))->edit();
 
         return redirect()->back();
     }
