@@ -116,12 +116,6 @@ Route::group(
                 Route::group(['middleware' => 'frontPermissions'], function () use ($pages) {
                     foreach ($pages as $page) {
                         $key = $page->url;
-                        if($page->id == 164){
-                            if($page->author && !$page->author->isAdmin){
-                                \Config::set('miniunits_config_path',"app" . DS . "multisite" . DS . $page->author->username . DS . "Resources". DS . "Units" . DS . "painter.json");
-                                \Config::set('miniunits_storage_path',["app" . DS . "multisite" . DS . $page->author->username . DS . "Resources". DS . "Units"]);
-                            }
-                        }
                         Route::get($key, function () use ($key) {
                             $home = new Btybug\btybug\Models\Home();
                             return $home->render($key, Request::all());
