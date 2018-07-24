@@ -16,7 +16,7 @@
     <div class="col-xs-8">
         <div class="input-group">
             <div class="input-group-addon">
-                {username}
+                {username}/
             </div>
             {!! Form::text('url',null,['class'=>'form-control','id'=>'page_url']) !!}
         </div>
