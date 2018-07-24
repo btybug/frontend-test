@@ -3,10 +3,55 @@ var jsonForSend = null;
 var editData = {};
 if (document.querySelector("#formJson") !== null) {
   let formJsonData = JSON.parse(document.querySelector("#formJson").value);
-  editData = JSON.parse(formJsonData.json_data);
+  setTimeout(() => {
+    codeEditor.setValue(formJsonData.form_html);
+  }, 1000);
+  function createrInput(value) {
+    let elm = $(`<div class="d-flex justify-content-between inside-panel mb-2">
+  <div class="assets-item">
+    <input type="text" value=${value}  class="form-control w-90 asset-input">
+  </div>
+ <div class="delete-opt">
+    <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
+</div>
+</div>`);
+    return elm;
+  }
   console.log(formJsonData);
-  document.querySelector(".form-name").value = formJsonData.title;
-  document.querySelector(".form-description").value = formJsonData.description;
+  document.querySelectorAll(".asset-input").forEach(item => {
+    console.log();
+    let x = item.closest(".collapse");
+    let type = $(x).attr("data-asset");
+    if (type === "studio-js") {
+      formJsonData.js !== null
+        ? formJsonData.js.forEach(item => {
+            $($(x).children()[0]).append($(createrInput(item)));
+          })
+        : null;
+    } else if (type === "studio-css") {
+      formJsonData.css !== null
+        ? formJsonData.css.forEach(item => {
+            $($(x).children()[0]).append(createrInput(item));
+          })
+        : null;
+    } else if (type === "studio-images") {
+      formJsonData.images !== null
+        ? formJsonData.images.forEach(item => {
+            $($(x).children()[0]).append(createrInput(item));
+          })
+        : null;
+    }
+    item.value === ""
+      ? $(item)
+          .closest(".d-flex")
+          .remove()
+      : null;
+  });
+
+  // editData = JSON.parse(formJsonData.json_data);
+  // console.log(formJsonData);
+  // document.querySelector(".form-name").value = formJsonData.title;
+  // document.querySelector(".form-description").value = formJsonData.description;
 }
 
 var builder = Formio.builder(document.getElementById("builder"), editData, {
@@ -329,15 +374,19 @@ $("body").on("click", ".remove-asset-input", function() {
 });
 
 $(".saving-studio").click(function() {
-  console.log("tesasf");
+  if ($(".studio-name").val()) {
+    alert("Enter file name");
+    return;
+  }
   let data = {
-      name: "",
-      blade: "",
-      css: [],
-      options: "",
-      js: [],
-      images: [],
-      form_json: []
+    name: "",
+    blade: "",
+    css: [],
+    options: "",
+    js: [],
+    images: [],
+    form_json: [],
+    name: $(".studio-name").val()
   };
   document.querySelectorAll(".asset-input").forEach(item => {
     if (!item.value) {

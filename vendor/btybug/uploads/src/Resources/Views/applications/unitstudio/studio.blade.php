@@ -132,7 +132,7 @@ width:20%;
 <header class="w-100">
     <div class="container-fluid">
         <div class="head-btn d-flex justify-content-between">
-        <input type="text" placeholder="File name" class="form-control">
+        <input type="text" placeholder="File name" class="form-control studio-name">
             <!-- <button class="btn btn-success btn-sm excecte">Excecte</button>
             <button class="btn btn-warning btn-sm">Ace</button>
             <button class="btn btn-info btn-sm">Export</button> -->
@@ -320,14 +320,6 @@ width:20%;
                                             <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
                                         </div>
                                     </div>
-                                    <div class="d-flex justify-content-between inside-panel mb-2">
-                                        <div class="assets-item">
-                                            <input type="text" class="form-control w-90 asset-input">
-                                        </div>
-                                        <div class="delete-opt">
-                                            <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                     </div>
@@ -354,14 +346,7 @@ width:20%;
                                         <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-between inside-panel mb-2">
-                                    <div class="assets-item">
-                                        <input type="text" class="form-control w-90 asset-input">
-                                    </div>
-                                    <div class="delete-opt">
-                                        <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -388,14 +373,7 @@ width:20%;
                                         <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-between inside-panel mb-2">
-                                    <div class="assets-item">
-                                        <input type="text" class="form-control w-90 asset-input">
-                                    </div>
-                                    <div class="delete-opt">
-                                        <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
