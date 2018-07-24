@@ -7,7 +7,7 @@ namespace Btybug\Uploads\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
-class unit_studio extends Model
+class UnitStudio extends Model
 {
     /**
      * @var string

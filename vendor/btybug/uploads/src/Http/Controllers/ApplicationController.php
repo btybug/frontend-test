@@ -44,6 +44,7 @@ class ApplicationController extends Controller
         }elseif ($slug && $slug == 'unitstudio'){
             return view('uploads::applications.index')->with(['unitData' => $unitdata,'slug' => $slug,'studiosData' => $studiosData]);
         }
+        return view('uploads::applications.index')->with(['studiosData' => $studiosData,'slug' => $slug]);
 
     }
 

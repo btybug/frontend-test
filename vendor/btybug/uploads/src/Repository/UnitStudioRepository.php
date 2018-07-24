@@ -13,7 +13,7 @@ class UnitStudioRepository extends GeneralRepository
 
     public function model ()
     {
-        return new unit_studio();
+        return new UnitStudio();
     }
 
 }
