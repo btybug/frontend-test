@@ -331,11 +331,13 @@ $("body").on("click", ".remove-asset-input", function() {
 $(".saving-studio").click(function() {
   console.log("tesasf");
   let data = {
-    inputData: {
-      js: [],
+      name: "",
+      blade: "",
       css: [],
-      images: []
-    }
+      options: "",
+      js: [],
+      images: [],
+      form_json: []
   };
   document.querySelectorAll(".asset-input").forEach(item => {
     if (!item.value) {
@@ -344,19 +346,19 @@ $(".saving-studio").click(function() {
     let x = item.closest(".collapse");
     let type = $(x).attr("data-asset");
     if (type === "studio-js") {
-      data.inputData.js.push(item.value);
+      data.js.push(item.value);
     } else if (type === "studio-css") {
-      data.inputData.css.push(item.value);
+      data.css.push(item.value);
     } else if (type === "studio-images") {
-      data.inputData.images.push(item.value);
+      data.images.push(item.value);
     }
   });
-  data.code = codeEditor.getValue();
+  data.form_html = codeEditor.getValue();
   $.ajax({
     type: "post",
     datatype: "json",
     url: "/admin/uploads/application/unitstudio/save",
-    data: JSON.stringify(data),
+    data: data,
     headers: {
       "X-CSRF-TOKEN": $("input[name='_token']").val()
     },

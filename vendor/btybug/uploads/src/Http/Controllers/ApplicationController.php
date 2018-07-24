@@ -102,7 +102,13 @@ class ApplicationController extends Controller
 
 
     public function saveUnitStudio(Request $request){
+        try{
+            $this->unitStudioRepository->create($request->all());
+        }catch (\Exception $exception){
+            return \Response::json(['error' => true,'message' => $exception->getMessage()]);
+        }
 
+       return \Response::json(['error' => false,'message' => 'unit created successfully !!!']);
     }
 
 

@@ -18,4 +18,12 @@ class unit_studio extends Model
      */
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'form_json' => 'json',
+        'css' => 'json',
+        'js' => 'json',
+        'images' => 'json',
+        'options' => 'json'
+    ];
+
 }
