@@ -7,7 +7,6 @@
     <tr>
         <th>ID</th>
         <th>Title</th>
-        <th>Description</th>
         <th>Edit Action</th>
     </tr>
     </thead>
@@ -16,8 +15,7 @@
         @foreach($unitData as $key => $val)
             <tr>
                 <td>{{$val->id}}</td>
-                <td>{{$val->title}}</td>
-                <td>{{$val->description}}</td>
+                <td>{{$val->name}}</td>
                 <td>
                     <a class="pull-right btn btn-danger" href="{{route('application_delete_unitStudio',$val->id)}}"><span
                                 class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
