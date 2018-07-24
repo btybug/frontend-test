@@ -1,5 +1,7 @@
-<?php namespace Btybug\btybug\Models\ContentLayouts;
+<?php namespace Btybug\Mini\Model;
 
+use Btybug\btybug\Models\ContentLayouts\autoinclude;
+use Btybug\btybug\Models\ContentLayouts\ContentLayoutVariations;
 use Btybug\btybug\Models\Painter\BasePainter;
 use Btybug\btybug\Models\Universal\VariationAccess;
 use Btybug\btybug\Repositories\AdminsettingRepository;
@@ -34,6 +36,29 @@ class MiniLayouts extends BasePainter implements VariationAccess
         $this->base_path = config('minilayouts_storage_path');
         parent::__construct();
     }
+
+    public function scopeAll()
+    {
+        $all = [];
+        $path = $this->base_path; // TODO: this should be removed
+        $units = \File::directories(base_path($path));
+
+        if (count($units)) {
+            foreach ($units as $key => $unit) {
+                $full_path = $unit . DS . $this->name_of_json;
+                $obj = new static();
+                $is_true = $obj->validateWithReturn($full_path);
+                $test[$full_path] = $is_true;
+                if ($is_true) {
+                    $all[] = $obj->makeItem($full_path);
+                }
+            }
+        }
+
+        $this->storage = $all;
+        return $this;
+    }
+
 
     public function getStoragePath()
     {
@@ -496,7 +521,7 @@ class MiniLayouts extends BasePainter implements VariationAccess
         if ($this->autoinclude) {
             $html = $this->getAutoInclude()->getRender($settings, "ContentLayouts.$slug");
         } else {
-            $html = \View::make("ContentLayouts.$slug.$layout")->with(['settings' => $settings, '_this' => $this, 'variation' => $variables['variation'],'page' => $page])->render();
+            $html = \View::make("multisite::ContentLayouts.$slug.$layout")->with(['settings' => $settings, '_this' => $this, 'variation' => $variables['variation'],'page' => $page])->render();
         }
         return view($variables['view'], compact(['model', 'settingsHtml', 'json', 'html', 'page', 'settings', 'data', 'variation', 'usedIn', 'variations']));
     }
@@ -510,25 +535,25 @@ class MiniLayouts extends BasePainter implements VariationAccess
         $slug = $this->folder;
         $layout = ($this->example) ? $this->example : $this->layout;
         $variation = issetReturn($variables, 'variation', null);
-        $html = \View::make("ContentLayouts.$slug.$layout")->with(['settings' => $variables, '_this' => $this, 'variation' => $variation])->render();
+        $html = \View::make("multisite::ContentLayouts.$slug.$layout")->with(['settings' => $variables, '_this' => $this, 'variation' => $variation])->render();
         return $html;
     }
 
     public function scopeRender(array $variables = [],$demo=false)
     {
         $slug = $this->folder;
-        if ($this->autoinclude) return $this->getAutoInclude()->getRender($variables, "ContentLayouts.$slug");
+        if ($this->autoinclude) return $this->getAutoInclude()->getRender($variables, "multisite::ContentLayouts.$slug");
         $layout=($demo)?$this->demo:$this->layout;
-        $html = \View::make("ContentLayouts.$slug.$layout")->with(['settings' => $variables, '_this' => $this])->render();
+        $html = \View::make("multisite::ContentLayouts.$slug.$layout")->with(['settings' => $variables, '_this' => $this])->render();
         return $html;
     }
 
     public function scopeRenderPagePanel($page)
     {
         $slug = $this->folder;
-        if ($this->autoinclude) return $this->getAutoInclude()->getRender($page, "ContentLayouts.$slug");
-        if (!\View::exists("ContentLayouts.$slug.$this->panel")) return "View not found";
-        $html = \View::make("ContentLayouts.$slug.$this->panel")->with(['page' => $page, '_this' => $this])->render();
+        if ($this->autoinclude) return $this->getAutoInclude()->getRender($page, "multisite::ContentLayouts.$slug");
+        if (!\View::exists("multisite::ContentLayouts.$slug.$this->panel")) return "View not found";
+        $html = \View::make("multisite::ContentLayouts.$slug.$this->panel")->with(['page' => $page, '_this' => $this])->render();
         return $html;
     }
 

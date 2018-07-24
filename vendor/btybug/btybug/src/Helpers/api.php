@@ -100,6 +100,19 @@ function BBRenderPageSections($layout, $settings = [], $main_view = null)
     return false;
 }
 
+function BBRenderPageMiniSections($layout, $settings = [], $model)
+{
+    if (!$layout) $layout = '';
+    $model = new $model();
+    $content_layout = $model->find($layout);
+
+    if (!is_null($content_layout)) {
+        return $content_layout->render($settings);
+    }
+
+    return false;
+}
+
 function BBRenderFrontLayout($page)
 {
     if ($page->parent && $page->page_layout_inheritance) {
@@ -110,6 +123,19 @@ function BBRenderFrontLayout($page)
         $settings = ($page->page_layout_settings && !is_array($page->page_layout_settings)) ? json_decode($page->page_layout_settings, true) : [];
         $settings["_page"] = $page;
         return BBRenderPageSections($page->page_layout, $settings);
+    }
+}
+
+function BBRenderMiniFrontLayout($page,$model)
+{
+    if ($page->parent && $page->page_layout_inheritance) {
+        $settings = ($page->parent->page_layout_settings && !is_array($page->parent->page_layout_settings)) ? json_decode($page->parent->page_layout_settings, true) : [];
+        $settings["_page"] = $page;
+        return BBRenderPageMiniSections($page->parent->page_layout, $settings,$model);
+    } else {
+        $settings = ($page->page_layout_settings && !is_array($page->page_layout_settings)) ? json_decode($page->page_layout_settings, true) : [];
+        $settings["_page"] = $page;
+        return BBRenderPageMiniSections($page->page_layout, $settings,$model);
     }
 }
 
@@ -583,21 +609,21 @@ function BBRenderUnits($variation_id, $source = [], $data = null,$demo=false)
     }
 }
 
-function mini_unit_content($settings){
+function mini_unit_content($settings,$model){
     $page = \Btybug\btybug\Services\RenderService::getFrontPageByURL();
     $pageModel = ($page) ?? ((\Request::route()->parameter('param')) ? BBgetFrontPage(\Request::route()->parameter('param')) : issetReturn($settings, '_page'));
     if ($pageModel) {
         if ($pageModel->type == 'custom' && isset($settings['live_preview_action'])) {
-            return render_mini_unit(issetReturn($settings, 'main_unit', $pageModel->template), ['_page' => $pageModel]);
+            return render_mini_unit(issetReturn($settings, 'main_unit', $pageModel->template),$model, ['_page' => $pageModel]);
         } else {
             if ($pageModel->content_type == "editor") {
                 echo $pageModel->main_content;
             } else {
-                return render_mini_unit($pageModel->template, ['_page' => $pageModel]);
+                return render_mini_unit($pageModel->template, $model, ['_page' => $pageModel]);
             }
         }
     } else {
-        return render_mini_unit(issetReturn($settings, 'main_unit'));
+        return render_mini_unit(issetReturn($settings, 'main_unit'),$model);
     }
 }
 
@@ -605,10 +631,11 @@ function render_mini_unit($variation_id, $model, $source = [], $data = null) {
     $field = null;
     $cheked = null;
     $slug = explode('.', $variation_id);
+
     if (isset($slug[0]) && isset($slug[1])) {
         $widget_id = $slug[0];
         $variationID = $slug[1];
-
+        $model = new $model();
         $unit = $model->find($widget_id);
         if (!is_null($unit)) {
             $variation = $unit->variations(false)->find($variation_id);

@@ -10,7 +10,10 @@ Route::group(['middleware' => 'frontPermissions'], function () use ($pages) {
     foreach ($pages as $page) {
         $key = $page->url;
         if($page->render_method){
-            Route::get($key, 'FrontPagesController@home');
+            Route::get($key, function () use ($key) {
+                $home = new \Btybug\Mini\Model\FrontPages();
+                return $home->render($key, Request::all());
+            });
         }
 
     }

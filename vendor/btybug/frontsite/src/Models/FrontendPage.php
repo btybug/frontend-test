@@ -8,6 +8,7 @@
 
 namespace Btybug\FrontSite\Models;
 
+use Btybug\User\User;
 use Illuminate\Database\Eloquent\Model;
 use Btybug\btybug\Models\Urlmanager;
 use Btybug\User\Models\Membership;
@@ -242,7 +243,7 @@ class FrontendPage extends Model
      */
     public function author()
     {
-        return $this->belongsTo('Btybug\User\User', 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /**

@@ -8,7 +8,7 @@
         @endif
     @endif
 
-    {!! BBRenderFrontLayout($page) !!}
+    {!! BBRenderMiniFrontLayout($page,\Btybug\Mini\Model\MiniLayouts::class) !!}
 
     @if($page->footer)
         {!! BBfooter() !!}

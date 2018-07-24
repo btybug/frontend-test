@@ -4,7 +4,7 @@
 
         </div>
         <div class="col-md-8">
-            {!! mini_unit_content($settings) !!}
+            {!! mini_unit_content($settings,\Btybug\Mini\Model\MiniPainter::class) !!}
         </div>
         <div class="col-md-2">
 

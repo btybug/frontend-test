@@ -629,11 +629,7 @@ abstract class BasePainter implements PainterInterface, VariationAccess
      */
     protected function validate($path)
     {
-        if (!\File::exists($path)) {
-            //$this->throwError('File does not found ' . $path, 404);
-            return false;
-        }
-        return true;
+        return \File::exists($path);
     }
 
     // validate if file exist and return true or false

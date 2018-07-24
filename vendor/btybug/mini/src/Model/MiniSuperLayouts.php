@@ -1,5 +1,7 @@
-<?php namespace Btybug\btybug\Models\ContentLayouts;
+<?php
+namespace Btybug\Mini\Model;
 
+use Btybug\btybug\Models\ContentLayouts\autoinclude;
 use Btybug\btybug\Models\Painter\BasePainter;
 use Btybug\btybug\Models\Universal\VariationAccess;
 use Btybug\btybug\Repositories\AdminsettingRepository;
@@ -46,6 +48,28 @@ class MiniSuperLayouts extends BasePainter implements VariationAccess
     public function getConfigPath()
     {
         return $this->config_path;
+    }
+
+    public function scopeAll()
+    {
+        $all = [];
+        $path = $this->base_path; // TODO: this should be removed
+        $units = \File::directories(base_path($path));
+
+        if (count($units)) {
+            foreach ($units as $key => $unit) {
+                $full_path = $unit . DS . $this->name_of_json;
+                $obj = new static();
+                $is_true = $obj->validateWithReturn($full_path);
+                $test[$full_path] = $is_true;
+                if ($is_true) {
+                    $all[] = $obj->makeItem($full_path);
+                }
+            }
+        }
+
+        $this->storage = $all;
+        return $this;
     }
 
     public function scopeFindByVariation($id)

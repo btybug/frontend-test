@@ -12,6 +12,7 @@ namespace Btybug\Mini;
 use Btybug\btybug\Models\Painter\Painter;
 use Btybug\FrontSite\Models\FrontendPage;
 use Btybug\Mini\Model\MiniPages;
+use Btybug\Mini\Model\MiniSuperLayouts;
 use Btybug\Mini\Model\MiniSuperPainter;
 use Btybug\Mini\Repositories\MinicmsPagesRepository;
 
@@ -81,6 +82,7 @@ class Generator
         \File::makeDirectory($this->root);
         $this->rekursiveMakeCms($this->tree, $this->root);
         $this->makePages();
+        $this->makeLayouts();
         $this->makeUnits();
     }
 
@@ -96,13 +98,6 @@ class Generator
                 \File::put($root . DS . $path . DS . $value . '.php', $content);
             }
         }
-//        if (isset($array[$i]) && is_array($array[$i])) {
-//            \File::makeDirectory($root . DS . $this->name);
-//            $this->rekursiveMakeCms($array[$i],0,$root . DS . $this->name);
-//
-//            $i++;
-//            $this->rekursiveMakeCms($array,$i,$root);
-//        }
     }
 
     public function makePages()
@@ -140,7 +135,7 @@ class Generator
         $paths = [];
 
         foreach ($units as $unit) {
-            $paths[] = base_path($unit->path);
+            $paths[$unit->slug] = base_path($unit->path);
         }
         if (!\File::isDirectory($unitPath . DS . 'Units')) {
             \File::makeDirectory($unitPath . DS . 'Units');
@@ -148,5 +143,23 @@ class Generator
 
         $content = json_encode($paths);
         file_put_contents($unitPath . DS . 'Units' . DS . 'painter.json', $content);
+    }
+
+    public function makeLayouts()
+    {
+        $unitPath = $this->root . DS . 'Resources' . DS . 'Views';
+        $layoutClass = new MiniSuperLayouts();
+        $layouts = $layoutClass->all()->get();
+        $paths = [];
+
+        foreach ($layouts as $layout) {
+            $paths[$layout->slug] = base_path($layout->path);
+        }
+        if (!\File::isDirectory($unitPath . DS . 'ContentLayouts')) {
+            \File::makeDirectory($unitPath . DS . 'ContentLayouts');
+        }
+
+        $content = json_encode($paths);
+        file_put_contents($unitPath . DS . 'ContentLayouts' . DS . 'layout.json', $content);
     }
 }
