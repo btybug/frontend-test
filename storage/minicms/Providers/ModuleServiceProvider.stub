@@ -33,6 +33,9 @@ class ModuleServiceProvider extends ServiceProvider
     {
         \Config::set('miniunits_config_path',"app" . DS . "multisite" . DS . $username . DS . "Resources". DS . "Units" . DS . "painter.json");
         \Config::set('miniunits_storage_path',"app" . DS . "multisite" . DS . $username . DS . "Resources". DS . "Units");
+
+        \Config::set('minilayouts_config_path',"app" . DS . "multisite" . DS . $username . DS . "Resources". DS . "Views" . DS . "ContentLayouts" . DS . "layout.json");
+        \Config::set('minilayouts_storage_path',"app" . DS . "multisite" . DS . $username . DS . "Resources". DS . "Views" . DS . "ContentLayouts");
     }
 
 
