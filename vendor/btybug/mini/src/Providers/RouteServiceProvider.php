@@ -37,6 +37,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapAdminRoutes();
         $this->mapWebRoutes();
+        $this->mapFrontRoutes();
         //
     }
 
@@ -76,6 +77,20 @@ class RouteServiceProvider extends ServiceProvider
                 'namespace' => $this->namespace,
             ], function ($router) {
                 require __DIR__ . '/../Routes/admin.php';
+            });
+        });
+    }
+    protected function mapFrontRoutes()
+    {
+
+        Route::group([
+            'domain' => (string)env('DOMAIN'),
+            'middleware' => 'web',
+        ], function ($router) {
+            Route::group([
+                'namespace' => $this->namespace,
+            ], function ($router) {
+                require __DIR__ . '/../Routes/front.php';
             });
         });
     }

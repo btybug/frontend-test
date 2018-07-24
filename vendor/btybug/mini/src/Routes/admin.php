@@ -45,3 +45,5 @@ Route::group(['prefix' => 'users'], function () {
 Route::get('/settings', 'AdminController@getSettings', true)->name('mini_admin_settings');
 
 
+
+
