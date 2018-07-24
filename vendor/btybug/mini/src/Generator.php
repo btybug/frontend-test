@@ -121,7 +121,9 @@ class Generator
                         'page_access' => 0,
                         'slug' => str_slug($corePage->title . $this->user_id),
                         'type' => 'core',
+                        'render_method' => 1,
                         'content_type' => 'template',
+                        'module_id' => 'btybug/mini',
                         'page_layout' => 'front_layout_with_2_8_2_col'
                     ];
                 }
