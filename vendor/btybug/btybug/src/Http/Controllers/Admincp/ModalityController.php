@@ -21,6 +21,7 @@ use Btybug\btybug\Repositories\HookRepository;
 use Btybug\btybug\Repositories\MenuRepository;
 use Btybug\btybug\Services\CmsItemReader;
 use Btybug\Console\Repository\FieldsRepository;
+use Btybug\Mini\Model\MiniSuperLayouts;
 use Btybug\Mini\Model\MiniSuperPainter;
 use Illuminate\Http\Request;
 use View;
@@ -69,6 +70,7 @@ class ModalityController extends Controller
             'theme' => 'getTheme',
             'unit' => 'getUnit',//working with tags
             'mini_unit' => 'getMiniUnit',//working with tags
+            'mini_layouts' => 'getMiniLayouts',//working with tags
             'hook' => 'getHook',//working with tags
             'units' => 'getUnits',
             'files' => 'getFiles',
@@ -615,6 +617,18 @@ class ModalityController extends Controller
     {
         $tag = $data['type'];
         $layouts = ContentLayouts::all()->get();
+
+        if (!count($layouts)) {
+            return \Response::json(['error' => true]);
+        }
+        $html = View::make('btybug::styles.page_sections', compact('layouts'))->render();
+
+        return \Response::json(['error' => false, 'html' => $html]);
+    }
+    public function getMiniLayouts($data)
+    {
+        $tag = $data['type'];
+        $layouts = MiniSuperLayouts::all()->get();
 
         if (!count($layouts)) {
             return \Response::json(['error' => true]);
