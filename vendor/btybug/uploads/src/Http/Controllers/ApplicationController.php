@@ -135,7 +135,7 @@ class ApplicationController extends Controller
     public function viewRenderUnitStudio($id = null)
     {
         $unitStudiData = $this->unitStudioRepository->findOrFail($id);
-        return view('uploads::applications.unitstudio.studio')->with('unitStudioData',$unitStudiData);
+        return view('uploads::applications.unitstudio.studio')->with('allData',$unitStudiData);
     }
 
 

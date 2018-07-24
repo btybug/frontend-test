@@ -209,7 +209,9 @@ width:20%;
             </div>
         </div>
     </div>
-
+                                @if(isset($allData))
+                                    <textarea class="hidden" id="formJson">{!! $allData !!}</textarea>
+                                @endif
     <div class="container-fluid" style="margin-top: 60px;">
     <!-- <div class="text-right" style="margin-bottom: 25px;">
       <button class="btn btn-primary add-unit"> Add unit</button>
