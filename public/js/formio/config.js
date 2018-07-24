@@ -17,7 +17,7 @@ if (document.querySelector("#formJson") !== null) {
 </div>`);
     return elm;
   }
-  console.log(formJsonData);
+  $(".studio-name").val(formJsonData.name);
   document.querySelectorAll(".asset-input").forEach(item => {
     console.log();
     let x = item.closest(".collapse");
@@ -374,7 +374,7 @@ $("body").on("click", ".remove-asset-input", function() {
 });
 
 $(".saving-studio").click(function() {
-  if ($(".studio-name").val()) {
+  if (!$(".studio-name").val()) {
     alert("Enter file name");
     return;
   }
@@ -413,7 +413,7 @@ $(".saving-studio").click(function() {
     },
     success: function(data) {
       if (!data.error) {
-        // window.location.replace(data.url);
+        window.location.replace("/admin/uploads/application/unitstudio");
       }
     }
   });
