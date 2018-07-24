@@ -23,7 +23,7 @@
                                 class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                     <a class="pull-right btn btn-warning" href="{{route('application_edit_unitStudio',$val->id)}}"><span
                                 class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                    <a class="pull-right btn btn-info" href="{{route('application_form_view',$val->id)}}"><span
+                    <a class="pull-right btn btn-info" href="{{route('application_viewrender_unitstudio',$val->id)}}"><span
                                 class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
                 </td>
 
