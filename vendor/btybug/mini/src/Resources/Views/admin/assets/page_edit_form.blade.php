@@ -1,3 +1,4 @@
+
 {!! Form::model($model,['url'=>route('minicms_edit_page'),'class'=>'form-horizontal']) !!}
 {!! Form::hidden('id') !!}
 <div class="form-group">
