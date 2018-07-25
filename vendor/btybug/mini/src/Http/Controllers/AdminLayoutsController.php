@@ -11,12 +11,13 @@ namespace Btybug\Mini\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Btybug\btybug\Models\ContentLayouts\ContentLayouts;
+use Btybug\Mini\Model\MiniSuperLayouts;
 use Btybug\Mini\Services\LayoutsService;
 use Illuminate\Http\Request;
 
 class AdminLayoutsController extends Controller
 {
-    public function __construct(ContentLayouts $contentLayouts)
+    public function __construct(MiniSuperLayouts $contentLayouts)
     {
         $this->contentLayouts = $contentLayouts;
     }
