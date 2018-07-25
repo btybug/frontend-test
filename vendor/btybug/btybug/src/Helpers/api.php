@@ -68,7 +68,7 @@ function BBheaderMini()
     if($HEADER)return BBRenderTpl($HEADER);
     $tpl = \Btybug\btybug\Models\Settings::where('section', 'minicms')->where('settingkey', 'default_header')->select('val AS header')->first();
     if ($tpl) {
-        return render_mini_unit($tpl,\Btybug\Mini\Model\MiniPainter::class);
+        return render_mini_unit($tpl->header,\Btybug\Mini\Model\MiniPainter::class);
     }
 }
 
@@ -152,7 +152,9 @@ function BBRenderMiniFrontLayout($page,$model)
         $settings = ($page->page_layout_settings && !is_array($page->page_layout_settings)) ? json_decode($page->page_layout_settings, true) : [];
         $settings["_page"] = $page;
         $layout = \Btybug\btybug\Models\Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS layout')->first();
-        return BBRenderPageMiniSections($layout, $settings,$model);
+        if($layout){
+            return BBRenderPageMiniSections($layout->layout, $settings,$model);
+        }
     }
 }
 

@@ -7,7 +7,7 @@
                 @include('multisite::admin.assets.units._partials.sidebar')
             </div>
             <div class="col-md-3 col-xs-12">
-                {!! Form::model($model,['url' => route('mini_admin_assets_units_settings_post',$slug)]) !!}
+                {!! Form::model($model,['url' => route('mini_admin_assets_units_settings_post',$model->slug)]) !!}
                     <div class="form-group">
                         <label>Select Tags</label>
                         {!! Form::text('tags',$tags,['class' => 'form-control','id' => 'tagits']) !!}

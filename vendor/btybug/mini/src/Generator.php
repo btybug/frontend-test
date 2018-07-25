@@ -125,6 +125,7 @@ class Generator
                     'page_layout' => $corePage->page_layout,
                     'header' => $corePage->header,
                     'header_unit' => $corePage->header_unit,
+                    'tags' => $corePage->tags,
                 ];
             }
         }
@@ -139,9 +140,10 @@ class Generator
         $unitClass = new MiniSuperPainter();
         $units = $unitClass->all()->get();
         $paths = [];
-
         foreach ($units as $unit) {
-            $paths[$unit->slug] = base_path($unit->path);
+            if(isset($unit->status) && $unit->status == 'published'){
+                $paths[$unit->slug] = base_path($unit->path);
+            }
         }
         if (!\File::isDirectory($unitPath . DS . 'Units')) {
             \File::makeDirectory($unitPath . DS . 'Units');

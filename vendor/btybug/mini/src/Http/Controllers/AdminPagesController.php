@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use Btybug\btybug\Models\Settings;
 use Btybug\btybug\Repositories\AdminsettingRepository;
 use Btybug\FrontSite\Repository\TagsRepository;
+use Btybug\Mini\Model\MiniSuperPainter;
 use Btybug\Mini\Repositories\MinicmsPagesRepository;
 use Illuminate\Http\Request;
 
@@ -46,13 +47,19 @@ class AdminPagesController extends Controller
     {
         $data = $request->except('_token');
         $data['page_layout']= ($data['layout']==0)?null:$data['page_layout'];
+        $data['header'] = ($data['header'] === 1) ? 0 : 1;
+        $data['header_unit'] = ($data['header'] === 2) ? $data['header_unit'] : null;
         return $this->pageRepository->create($data);
     }
 
     public function editPage(Request $request)
     {
         $data = $request->except(['_token', 'id']);
+        $x = ($data['header'] == 1) ? 0 : 1;
         $data['page_layout']= ($data['layout']==0)?null:$data['page_layout'];
+        $data['header'] = ($data['header'] == 1) ? 0 : 1;
+        $data['header_unit'] = ($data['header'] == 2) ? $data['header_unit'] : null;
+
         $id = $request->get('id');
         $this->pageRepository->update($id, $data);
         return redirect()->back();
