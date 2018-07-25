@@ -10,7 +10,6 @@ namespace Btybug\Mini\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
-use Btybug\btybug\Models\ContentLayouts\ContentLayouts;
 use Btybug\Mini\Model\MiniSuperLayouts;
 use Btybug\Mini\Services\LayoutsService;
 use Illuminate\Http\Request;
