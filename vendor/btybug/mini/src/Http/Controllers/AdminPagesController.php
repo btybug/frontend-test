@@ -45,12 +45,14 @@ class AdminPagesController extends Controller
     public function createPage(Request $request)
     {
         $data = $request->except('_token');
+        $data['page_layout']= ($data['layout']==0)?null:$data['page_layout'];
         return $this->pageRepository->create($data);
     }
 
     public function editPage(Request $request)
     {
         $data = $request->except(['_token', 'id']);
+        $data['page_layout']= ($data['layout']==0)?null:$data['page_layout'];
         $id = $request->get('id');
         $this->pageRepository->update($id, $data);
         return redirect()->back();
