@@ -67,7 +67,11 @@ var framework = {
       nodeCode = this.codeWallet[index];
     return nodeCode[0].outerHTML;
   },
-
+  hideAllContentElements() {
+    framework.hideElement($(".contetnFiledValue"));
+    framework.hideElement($(".contentFunctions"));
+    framework.hideElement($("#php-node-code-editor"));
+  },
   // Generate inserted code list of content and attributes
   generateInsertedList: function() {
     var nodeCode = phpNodeCodeEditor.getValue(),
@@ -108,13 +112,13 @@ var framework = {
   // Click events
   clickEvents: {
     editPHPCode: function($this) {
+      framework.hideAllContentElements();
       nodeChanger = false;
       nodeCode = null;
       // Get last saved code
       nodeCode = framework.getNodeCodeValue($this);
       phpNodeCodeEditor.setValue(nodeCode);
-      console.log(phpNodeCodeEditor.getValue());
-      console.log(nodeCode);
+
       phpNodeCodeEditor.clearSelection();
 
       $("#current-node-text")
@@ -166,20 +170,37 @@ var framework = {
       framework.hideElement($this);
     },
     btnStaticOpen: function() {
-      // framework.codeWallet[2][0].innerText = "Testtttttt";
+      framework.hideAllContentElements();
       framework.showElement($(".contentStatic"));
+      framework.showElement($(".staticDynamic"));
+      let elm = $(nodeCode);
+      $("#staticInput").val(elm.text());
       framework.showElement($("#php-node-code-editor"));
       framework.showElement($('[bb-click="nodePHPCodeSave"]'));
     },
     btnFieldValueOpen: function() {
-      console.log(jsonForSend);
+      framework.hideAllContentElements();
+
       // framework.codeWallet[2][0].innerText = "Testtttttt";
       framework.showElement($(".contetnFiledValue"));
       let FiledsOptions = jsonForSend.components.map(item => {
         return `<option data-id="${item.id}">${item.label}</option>`;
       });
       $("#formioSelect").append(FiledsOptions.toString());
-      console.log(FiledsOptions);
+      // framework.showElement($("#php-node-code-editor"));
+      // framework.showElement($('[bb-click="nodePHPCodeSave"]'));
+    },
+    btnFunctionOpen: function() {
+      framework.hideAllContentElements();
+
+      // console.log(jsonForSend);
+      // framework.codeWallet[2][0].innerText = "Testtttttt";
+      framework.showElement($(".contentFunctions"));
+      // let FiledsOptions = jsonForSend.components.map(item => {
+      //   return `<option data-id="${item.id}">${item.label}</option>`;
+      // });
+      // $("#formioSelect").append(FiledsOptions.toString());
+      // console.log(FiledsOptions);
       // framework.showElement($("#php-node-code-editor"));
       // framework.showElement($('[bb-click="nodePHPCodeSave"]'));
     },
@@ -390,7 +411,7 @@ $(function() {
   phpNodeCodeEditor = ace.edit("php-node-code-editor");
   phpNodeCodeEditor.setTheme("ace/theme/monokai");
   phpNodeCodeEditor.session.setMode("ace/mode/php");
-  //   phpNodeCodeEditor.setReadOnly(true);
+  phpNodeCodeEditor.setReadOnly(true);
   phpNodeCodeEditor.getSession().setUseWrapMode(true);
   phpNodeCodeEditor.$blockScrolling = Infinity;
 
@@ -457,10 +478,7 @@ $(function() {
   });
 
   phpFullCodeEditor.session.on("change", function() {
-    console.log("t1213");
     if (test) {
-      console.log("123456789");
-
       test = false;
       setTimeout(function() {
         // Reset code wallet & global index
@@ -508,18 +526,82 @@ $(function() {
       });
     }
   });
-  phpNodeCodeEditor.session.on("change", function() {
+  // phpNodeCodeEditor.session.on("change", function() {
+  //   if (nodeChanger) {
+  //     var modifiedCode = phpNodeCodeEditor.getValue(),
+  //       mainCode = codeEditor.getValue(),
+  //       newCode;
+  //     if (nodeCode) {
+  //       newCode = mainCode.replace(nodeCode, modifiedCode);
+  //       nodeCode = modifiedCode;
+  //       codeEditor.setValue(style_html(newCode));
+  //       codeEditor.clearSelection();
+  //       phpFullCodeEditor.setValue(style_html(newCode));
+  //       phpFullCodeEditor.clearSelection();
+  //       setTimeout(function() {
+  //         framework.codeWallet = [];
+
+  //         var codeContent = phpFullCodeEditor.getValue();
+  //         var treeList = framework.nodeTreeGenerator(
+  //           $("<wrap>" + codeContent + "</wrap>")
+  //         );
+
+  //         $(".tree-list").html(treeList);
+  //         framework.globalIndex = 0;
+  //         var codeValue = phpFullCodeEditor.getValue().toString() + "\n";
+  //         codeValue = codeValue.replace(/<!--\|/g, "");
+  //         codeValue = codeValue.replace(/\|-->/g, "");
+  //         var data = { html: codeValue };
+  //         $.ajax({
+  //           url: $("#renderUrl").val(),
+  //           type: "POST",
+  //           data: data,
+  //           headers: {
+  //             "X-CSRF-TOKEN": $("input[name='_token']").val()
+  //           },
+  //           success: function(data) {
+  //             if (!data.error) {
+  //               $(".preview-area").html(data.html);
+  //               // Init CSS Studio
+  //               $("#bb-css-studio").html("");
+  //               // $('.closeCSSEditor').trigger('click');
+  //               setTimeout(function() {
+  //                 framework.showElement($(".openCSSEditor"));
+  //               }, 300);
+  //             }
+  //           }
+  //         });
+  //       });
+  //       // });
+  //     } else {
+  //       nodeCode = framework.currentNodeCode;
+  //     }
+  //   }
+  // });
+
+  $("#staticInput").keyup(function() {
     if (nodeChanger) {
       var modifiedCode = phpNodeCodeEditor.getValue(),
         mainCode = codeEditor.getValue(),
         newCode;
+
       if (nodeCode) {
-        newCode = mainCode.replace(nodeCode, modifiedCode);
-        nodeCode = modifiedCode;
+        var nodeElement = $(modifiedCode);
+        var nodeText = nodeElement.text($(this).val());
+        var nodeString = nodeElement.prop("outerHTML");
+        newCode = mainCode.replace(nodeCode, nodeString);
+        console.log(newCode);
+        console.log(21312312);
+
+        nodeCode = nodeString;
+
         codeEditor.setValue(style_html(newCode));
         codeEditor.clearSelection();
+        phpNodeCodeEditor.setValue(style_html(newCode));
+        phpNodeCodeEditor.clearSelection();
         phpFullCodeEditor.setValue(style_html(newCode));
         phpFullCodeEditor.clearSelection();
+
         setTimeout(function() {
           framework.codeWallet = [];
 
@@ -556,6 +638,7 @@ $(function() {
         });
         // });
       } else {
+        console.log("dasfasdasdfffffffffffffdfasdf");
         nodeCode = framework.currentNodeCode;
       }
     }

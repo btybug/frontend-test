@@ -32,6 +32,7 @@
     {!! HTML::style("public/css/formio/formio.full.min.css") !!}
     {!! HTML::style("public/css/formio/bootstrap.vertical-tabs.min.css") !!}
     {!! Html::style("public/css/font-awesome/css/font-awesome.min.css") !!}
+    
     <style>
         .formcomponents {
       float: right;
@@ -310,8 +311,9 @@ width:20%;
                             </a>
 
                             <div class="button">
-                                <button class="btn btn-sm btn-warning"><i class="fas fa-link"></i></button>
-                                <button class="btn btn-sm btn-primary create-new-asset-input"><i class="fas fa-file"></i></button>
+                                <button class="btn btn-sm btn-warning create-new-asset-input"><i class="fas fa-link"></i></button>
+                                <label class="btn btn-sm btn-primary "> <input type="file" name="myFile" hidden><i class="fas fa-file"> </i></label>
+                                
                             </div>
                         </div>
 
@@ -448,18 +450,32 @@ width:20%;
                         <div class="col px-0 d-flex" style="background-color: #373638;">
                             <div id="bb-css-studio" class="bb-css-studio hidable-panel" hidden></div>
                             <div id="php-node-code-editor" class="hidable-panel" hidden></div>
-                            <div id="test3" hidden>
+                            <div id="test3" hidden style="display: flex; flex-direction: row-reverse;">
+                                    <div class="filedsbuttons">
                                     <button class="btn btn-primary btnStatic" bb-click="btnStaticOpen">Static</button>
                                     <button class="btn btn-sucsess btnFieldValue" bb-click="btnFieldValueOpen">Field Value</button> 
-                                    <button class="btn btn-sucsess btnFunction">Functions</button> 
+                                    <button class="btn btn-sucsess btnFunction" bb-click="btnFunctionOpen">Functions</button> 
+                                    </div>
                                     <div class="staticDynamic">
-                                        <div class="contentStatic" hidden> Testttt 3</div>
+                                        <div class="contentStatic" hidden> <div>
+                                            <input type="text" class="form-control" id="staticInput">
+                                        </div> </div>
                                         <div class="contetnFiledValue" hidden> <div>
                                             
                                             <select class="form-control" value="formioSelect" id="formioSelect">
                                           
                                                 </select>
                                         </div> </div>
+                                        <div class="contentFunctions" hidden> 
+                                            <div>
+                                                <select class="form-control" value="functionsSelect" id="functionsSelect">
+                                                    <option value="1">Function 1</option>
+                                                    <option value="2">Function 2</option>
+                                                    <option value="3">Function 3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>  
                         </div>
@@ -504,11 +520,11 @@ width:20%;
 
     <div id="php-code-editor"></div>
 </script>
+{!! HTML::script("public/js/formio/buttons.js") !!}
 {!! HTML::script("public/js/formio/formio.full.min.js") !!}
-{!! HTML::script("public/js/formio/config.js?v=".rand(999,9999)) !!}
 {!! HTML::script('public/js/ace-editor/ace.js') !!}
 {!! HTML::script('public/js/framework/framework.js?rnd='. rand(999,9999)) !!}
-{!! HTML::script("public/js/formio/buttons.js") !!}
+{!! HTML::script("public/js/formio/config.js?v=".rand(999,9999)) !!}
 
 </body>
 </html>

@@ -2,10 +2,18 @@ var subJSON = document.getElementById("subjson");
 var jsonForSend = null;
 var editData = {};
 if (document.querySelector("#formJson") !== null) {
-  let formJsonData = JSON.parse(document.querySelector("#formJson").value);
-  setTimeout(() => {
-    codeEditor.setValue(formJsonData.form_html);
-  }, 1000);
+  let formJsonData = JSON.parse(
+    document.querySelector("#formJson").textContent
+  );
+  console.log(formJsonData);
+  // editData = JSON.parse(formJsonData.json_data);
+  console.log(editData);
+  editData = formJsonData.form_json;
+  if (formJsonData.form_html) {
+    setTimeout(() => {
+      codeEditor.setValue(formJsonData.form_html);
+    }, 1000);
+  }
   function createrInput(value) {
     let elm = $(`<div class="d-flex justify-content-between inside-panel mb-2">
   <div class="assets-item">
@@ -19,7 +27,6 @@ if (document.querySelector("#formJson") !== null) {
   }
   $(".studio-name").val(formJsonData.name);
   document.querySelectorAll(".asset-input").forEach(item => {
-    console.log();
     let x = item.closest(".collapse");
     let type = $(x).attr("data-asset");
     if (type === "studio-js") {
@@ -47,13 +54,13 @@ if (document.querySelector("#formJson") !== null) {
           .remove()
       : null;
   });
+  console.log(formJsonData.form_json);
 
-  // editData = JSON.parse(formJsonData.json_data);
   // console.log(formJsonData);
   // document.querySelector(".form-name").value = formJsonData.title;
   // document.querySelector(".form-description").value = formJsonData.description;
 }
-
+console.log(editData);
 var builder = Formio.builder(document.getElementById("builder"), editData, {
   builder: {
     basic: false,
@@ -123,6 +130,7 @@ var builder = Formio.builder(document.getElementById("builder"), editData, {
     }
   }
 }).then(function(builder) {
+  console.log(builder);
   var jsonElement = document.getElementById("json"); // Data full
   var formElement = document.getElementById("formio"); // full form
   builder.on("saveComponent", function() {
@@ -374,19 +382,18 @@ $("body").on("click", ".remove-asset-input", function() {
 });
 
 $(".saving-studio").click(function() {
-  let exist = $(this).data('exist');
+  let exist = $(this).data("exist");
   if (!$(".studio-name").val()) {
     alert("Enter file name");
     return;
   }
   let data = {
-    name: "",
-    blade: "",
+    blade: '',
     css: [],
-    options: "",
+    options: '',
     js: [],
     images: [],
-    form_json: [],
+    form_json: jsonForSend,
     name: $(".studio-name").val()
   };
   document.querySelectorAll(".asset-input").forEach(item => {
@@ -404,37 +411,36 @@ $(".saving-studio").click(function() {
     }
   });
   data.form_html = codeEditor.getValue();
-  if (exist){
-      data.exist = exist;
-      $.ajax({
-          type: "post",
-          datatype: "json",
-          url: "/admin/uploads/application/unitstudio/edit/"+exist,
-          data: data,
-          headers: {
-              "X-CSRF-TOKEN": $("input[name='_token']").val()
-          },
-          success: function(data) {
-              if (!data.error) {
-                  window.location.replace("/admin/uploads/application/unitstudio");
-              }
-          }
-      });
-  }else{
-      $.ajax({
-          type: "post",
-          datatype: "json",
-          url: "/admin/uploads/application/unitstudio/save",
-          data: data,
-          headers: {
-              "X-CSRF-TOKEN": $("input[name='_token']").val()
-          },
-          success: function(data) {
-              if (!data.error) {
-                  window.location.replace("/admin/uploads/application/unitstudio");
-              }
-          }
-      });
+  if (exist) {
+    data.exist = exist;
+    $.ajax({
+      type: "post",
+      datatype: "json",
+      url: "/admin/uploads/application/unitstudio/edit/" + exist,
+      data: data,
+      headers: {
+        "X-CSRF-TOKEN": $("input[name='_token']").val()
+      },
+      success: function(data) {
+        if (!data.error) {
+          window.location.replace("/admin/uploads/application/unitstudio");
+        }
+      }
+    });
+  } else {
+    $.ajax({
+      type: "post",
+      datatype: "json",
+      url: "/admin/uploads/application/unitstudio/save",
+      data: data,
+      headers: {
+        "X-CSRF-TOKEN": $("input[name='_token']").val()
+      },
+      success: function(data) {
+        if (!data.error) {
+          window.location.replace("/admin/uploads/application/unitstudio");
+        }
+      }
+    });
   }
-
 });
