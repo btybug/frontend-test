@@ -4,6 +4,7 @@
     <div class="ui-2_col">
         <div class="row">
             <div class="col-md-3 col-xs-12">
+                <a class="btn"><i class="fa fa-plus"></i> add new layout</a>
                 @include('multisite::admin.assets.layouts._partials.sidebar')
             </div>
             <div class="col-md-9 col-xs-12">
