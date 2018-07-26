@@ -123,6 +123,18 @@ class ApplicationController extends Controller
         return view('uploads::applications.unitstudio.studio')->with('allData',$data);
     }
 
+    public function editUnitStudioChanges(Request $request){
+        $id=$request->exist;
+        $data = $request->except('exist');
+        try{
+            $this->unitStudioRepository->update($id,$data);
+        }catch (\Exception $exception){
+            return \Response::json(['error' => true,'message' => $exception->getMessage()]);
+        }
+
+        return \Response::json(['error' => false,'message' => 'unit updated successfully !!!']);
+
+    }
 
     public function deleteUnitStudio($id = null){
         if ($id){

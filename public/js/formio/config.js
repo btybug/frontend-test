@@ -374,6 +374,7 @@ $("body").on("click", ".remove-asset-input", function() {
 });
 
 $(".saving-studio").click(function() {
+  let exist = $(this).data('exist');
   if (!$(".studio-name").val()) {
     alert("Enter file name");
     return;
@@ -403,18 +404,37 @@ $(".saving-studio").click(function() {
     }
   });
   data.form_html = codeEditor.getValue();
-  $.ajax({
-    type: "post",
-    datatype: "json",
-    url: "/admin/uploads/application/unitstudio/save",
-    data: data,
-    headers: {
-      "X-CSRF-TOKEN": $("input[name='_token']").val()
-    },
-    success: function(data) {
-      if (!data.error) {
-        window.location.replace("/admin/uploads/application/unitstudio");
-      }
-    }
-  });
+  if (exist){
+      data.exist = exist;
+      $.ajax({
+          type: "post",
+          datatype: "json",
+          url: "/admin/uploads/application/unitstudio/edit/"+exist,
+          data: data,
+          headers: {
+              "X-CSRF-TOKEN": $("input[name='_token']").val()
+          },
+          success: function(data) {
+              if (!data.error) {
+                  window.location.replace("/admin/uploads/application/unitstudio");
+              }
+          }
+      });
+  }else{
+      $.ajax({
+          type: "post",
+          datatype: "json",
+          url: "/admin/uploads/application/unitstudio/save",
+          data: data,
+          headers: {
+              "X-CSRF-TOKEN": $("input[name='_token']").val()
+          },
+          success: function(data) {
+              if (!data.error) {
+                  window.location.replace("/admin/uploads/application/unitstudio");
+              }
+          }
+      });
+  }
+
 });

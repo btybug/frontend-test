@@ -138,7 +138,12 @@ width:20%;
             <button class="btn btn-info btn-sm">Export</button> -->
             <div>
             <button class="btn btn-danger btn-sm">Import</button>
-            <button class="btn btn-info btn-sm saving-studio">Save</button>
+                @if(isset($allData))
+                    <button class="btn btn-info btn-sm saving-studio" data-exist="{{$allData->id}}">Save</button>
+                @else
+                    <button class="btn btn-info btn-sm saving-studio">Save</button>
+                @endif
+
             </div>
         </div>
     </div>
