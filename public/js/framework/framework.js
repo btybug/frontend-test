@@ -1,4 +1,5 @@
-var codeEditor, phpCodeEditor, phpNodeCodeEditor, phpFullCodeEditor;
+var codeEditor, phpCodeEditor, phpNodeCodeEditor, phpFullCodeEditor, nodeCode;
+var nodeChanger = true;
 
 var framework = {
   globalIndex: 0,
@@ -11,7 +12,6 @@ var framework = {
 
   // Generate node tree
   nodeTreeGenerator: function(node) {
-    // console.log(node);
     var nodeEl = node[0];
     var output = "";
 
@@ -65,7 +65,6 @@ var framework = {
   getNodeCodeValue: function($this) {
     var index = $this.closest("[data-index]").data("index"),
       nodeCode = this.codeWallet[index];
-
     return nodeCode[0].outerHTML;
   },
 
@@ -106,14 +105,16 @@ var framework = {
 
     $(".inserted-code").html(list);
   },
-
   // Click events
   clickEvents: {
     editPHPCode: function($this) {
-      console.log($this, "this");
+      nodeChanger = false;
+      nodeCode = null;
       // Get last saved code
-      var nodeCode = framework.getNodeCodeValue($this);
+      nodeCode = framework.getNodeCodeValue($this);
       phpNodeCodeEditor.setValue(nodeCode);
+      console.log(phpNodeCodeEditor.getValue());
+      console.log(nodeCode);
       phpNodeCodeEditor.clearSelection();
 
       $("#current-node-text")
@@ -124,7 +125,6 @@ var framework = {
             .trim()
         )
         .attr("data-selected-index", $this.closest("li").data("index"));
-
       framework.currentNodeCode = nodeCode;
 
       framework.showElement($(".inserted-code"));
@@ -136,6 +136,7 @@ var framework = {
       $(".openCSSEditor").trigger("click");
 
       framework.generateInsertedList();
+      nodeChanger = true;
     },
     nodePHPCodeSave: function() {
       var nodeCode = framework.currentNodeCode,
@@ -148,8 +149,6 @@ var framework = {
       codeEditor.clearSelection();
     },
     nodePHPCodeLoop: function($this) {
-      console.log($this, "this");
-
       var currentNodeCode = phpNodeCodeEditor.getValue(),
         modifiedCode;
 
@@ -167,13 +166,22 @@ var framework = {
       framework.hideElement($this);
     },
     btnStaticOpen: function() {
-      //   console.log(framework.currentNodeCode);
-      //   console.log(framework.codeWallet[2]);
-      //   console.log(framework);
-      framework.codeWallet[2][0].innerText = "Testtttttt";
+      // framework.codeWallet[2][0].innerText = "Testtttttt";
       framework.showElement($(".contentStatic"));
       framework.showElement($("#php-node-code-editor"));
       framework.showElement($('[bb-click="nodePHPCodeSave"]'));
+    },
+    btnFieldValueOpen: function() {
+      console.log(jsonForSend);
+      // framework.codeWallet[2][0].innerText = "Testtttttt";
+      framework.showElement($(".contetnFiledValue"));
+      let FiledsOptions = jsonForSend.components.map(item => {
+        return `<option data-id="${item.id}">${item.label}</option>`;
+      });
+      $("#formioSelect").append(FiledsOptions.toString());
+      console.log(FiledsOptions);
+      // framework.showElement($("#php-node-code-editor"));
+      // framework.showElement($('[bb-click="nodePHPCodeSave"]'));
     },
     addCode: function() {
       var codeToInsert = "",
@@ -202,8 +210,6 @@ var framework = {
       framework.generateInsertedList();
     },
     removeNodeAttr: function($this) {
-      console.log($this, "this");
-
       var nodeCode = phpNodeCodeEditor.getValue(),
         nodeCodeEl = $(nodeCode),
         modifiedCode;
@@ -218,8 +224,6 @@ var framework = {
       framework.generateInsertedList();
     },
     removeNodeContent: function($this) {
-      console.log($this, "this");
-
       var nodeCode = phpNodeCodeEditor.getValue(),
         nodeCodeEl = $(nodeCode),
         modifiedCode;
@@ -233,14 +237,11 @@ var framework = {
       framework.generateInsertedList();
     },
     handleNodeItemClick: function($this) {
-      console.log($this, "this");
-
       $(".inserted-item").removeClass("active");
       $this.addClass("active");
 
       var itemType = $this.data("item"),
         itemAttr = $this.data("attr");
-      console.log(itemAttr);
       // Hide all panels
       framework.hideElement($(".hidable-panel"));
       framework.hideElement($('[bb-click="nodePHPCodeSave"]'));
@@ -262,8 +263,6 @@ var framework = {
       }
     },
     mainPHPCodeEdit: function($this) {
-      console.log($this, "this");
-
       // Get last saved code
       var lastSavedCode = framework.localGet("mainPHPCode");
       if (lastSavedCode) phpCodeEditor.setValue(lastSavedCode);
@@ -276,8 +275,6 @@ var framework = {
       framework.showElement($("[bb-click=mainPHPCodeSave]"));
     },
     mainPHPCodeDiscard: function($this) {
-      console.log($this, "this");
-
       // Get last saved code
       var lastSavedCode = framework.localGet("mainPHPCode");
 
@@ -297,8 +294,6 @@ var framework = {
       });
     },
     mainPHPCodeSave: function($this) {
-      console.log($this, "this");
-
       // Save code
       var currentCode = phpCodeEditor.getValue();
       framework.localSave("mainPHPCode", currentCode);
@@ -322,8 +317,6 @@ var framework = {
       });
     },
     openCSSEditor: function($this) {
-      console.log($this, "this");
-
       $(".style-studio-container").animate(
         {
           height: 200
@@ -342,8 +335,6 @@ var framework = {
       );
     },
     closeCSSEditor: function($this) {
-      console.log($this, "this");
-
       $(".bb-css-studio").removeClass("no-active");
       $(".style-studio-container").animate(
         {
@@ -430,7 +421,6 @@ $(function() {
         // Live render
         var codeValue = codeEditor.getValue().toString() + "\n";
         //  + codeContent.toString();
-        console.log(codeValue);
         codeValue = codeValue.replace(/<!--\|/g, "");
         codeValue = codeValue.replace(/\|-->/g, "");
 
@@ -467,8 +457,10 @@ $(function() {
   });
 
   phpFullCodeEditor.session.on("change", function() {
-    console.log(test);
+    console.log("t1213");
     if (test) {
+      console.log("123456789");
+
       test = false;
       setTimeout(function() {
         // Reset code wallet & global index
@@ -486,7 +478,6 @@ $(function() {
         //  + codeContent.toString();
         codeValue = codeValue.replace(/<!--\|/g, "");
         codeValue = codeValue.replace(/\|-->/g, "");
-        console.log(codeValue);
         codeEditor.setValue(codeValue);
         codeEditor.clearSelection();
 
@@ -517,12 +508,63 @@ $(function() {
       });
     }
   });
+  phpNodeCodeEditor.session.on("change", function() {
+    if (nodeChanger) {
+      var modifiedCode = phpNodeCodeEditor.getValue(),
+        mainCode = codeEditor.getValue(),
+        newCode;
+      if (nodeCode) {
+        newCode = mainCode.replace(nodeCode, modifiedCode);
+        nodeCode = modifiedCode;
+        codeEditor.setValue(style_html(newCode));
+        codeEditor.clearSelection();
+        phpFullCodeEditor.setValue(style_html(newCode));
+        phpFullCodeEditor.clearSelection();
+        setTimeout(function() {
+          framework.codeWallet = [];
+
+          var codeContent = phpFullCodeEditor.getValue();
+          var treeList = framework.nodeTreeGenerator(
+            $("<wrap>" + codeContent + "</wrap>")
+          );
+
+          $(".tree-list").html(treeList);
+          framework.globalIndex = 0;
+          var codeValue = phpFullCodeEditor.getValue().toString() + "\n";
+          codeValue = codeValue.replace(/<!--\|/g, "");
+          codeValue = codeValue.replace(/\|-->/g, "");
+          var data = { html: codeValue };
+          $.ajax({
+            url: $("#renderUrl").val(),
+            type: "POST",
+            data: data,
+            headers: {
+              "X-CSRF-TOKEN": $("input[name='_token']").val()
+            },
+            success: function(data) {
+              if (!data.error) {
+                $(".preview-area").html(data.html);
+                // Init CSS Studio
+                $("#bb-css-studio").html("");
+                // $('.closeCSSEditor').trigger('click');
+                setTimeout(function() {
+                  framework.showElement($(".openCSSEditor"));
+                }, 300);
+              }
+            }
+          });
+        });
+        // });
+      } else {
+        nodeCode = framework.currentNodeCode;
+      }
+    }
+  });
 
   // Apply demo code
   //   codeEditor.setValue(style_html($("#demo-html").html()));
   //   codeEditor.clearSelection();
   $(".createHtml").click(function() {
-    console.log($(".full-code-editor"));
     $(".full-code-editor").toggleClass("displayToggle");
   });
   $(".createAssets").click(function() {

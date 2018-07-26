@@ -445,10 +445,16 @@ width:20%;
                             <div id="php-node-code-editor" class="hidable-panel" hidden></div>
                             <div id="test3" hidden>
                                     <button class="btn btn-primary btnStatic" bb-click="btnStaticOpen">Static</button>
-                                    <button class="btn btn-sucsess btnDynamic">Dynamic</button>
+                                    <button class="btn btn-sucsess btnFieldValue" bb-click="btnFieldValueOpen">Field Value</button> 
+                                    <button class="btn btn-sucsess btnFunction">Functions</button> 
                                     <div class="staticDynamic">
                                         <div class="contentStatic" hidden> Testttt 3</div>
-                                        <div class="contetnDynamic" hidden> </div>
+                                        <div class="contetnFiledValue" hidden> <div>
+                                            
+                                            <select class="form-control" value="formioSelect" id="formioSelect">
+                                          
+                                                </select>
+                                        </div> </div>
                                     </div>
                                 </div>  
                         </div>
@@ -493,12 +499,12 @@ width:20%;
 
     <div id="php-code-editor"></div>
 </script>
-
+{!! HTML::script("public/js/formio/formio.full.min.js") !!}
+{!! HTML::script("public/js/formio/config.js?v=".rand(999,9999)) !!}
 {!! HTML::script('public/js/ace-editor/ace.js') !!}
 {!! HTML::script('public/js/framework/framework.js?rnd='. rand(999,9999)) !!}
 {!! HTML::script("public/js/formio/buttons.js") !!}
-{!! HTML::script("public/js/formio/formio.full.min.js") !!}
-{!! HTML::script("public/js/formio/config.js?v=".rand(999,9999)) !!}
+
 </body>
 </html>
 
