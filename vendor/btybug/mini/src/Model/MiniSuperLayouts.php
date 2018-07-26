@@ -176,7 +176,6 @@ class MiniSuperLayouts extends BasePainter implements VariationAccess
     public static function renderLivePreview($slug, $settings = [])
     {
         $variation = self::findVariation($slug);
-
         $data['view'] = "uploads::gears.page_sections.live_preview.settings";
         $data['request'] = $settings;
         if ($variation) {
@@ -514,13 +513,13 @@ class MiniSuperLayouts extends BasePainter implements VariationAccess
         $layout = ($this->example) ? $this->example : $this->layout;
         $setting = isset($this->settings['file']) ? $this->settings['file'] : NULL;
         $json = json_encode($settings, true);
-        $settingsHtml = "ContentLayouts.$slug.$setting";
+        $settingsHtml = "multisite::ContentLayouts.$slug.$setting";
         $model = $this;
         $usedIn = (isset($variation['used_in'])) ? BBgetFrontPage($variation['used_in']) : null;
         if ($this->autoinclude) {
             $html = $this->getAutoInclude()->getRender($settings, "ContentLayouts.$slug");
         } else {
-            $html = \View::make("ContentLayouts.$slug.$layout")->with(['settings' => $settings, '_this' => $this, 'variation' => $variables['variation'],'page' => $page])->render();
+            $html = \View::make("multisite::ContentLayouts.$slug.$layout")->with(['settings' => $settings, '_this' => $this, 'variation' => $variables['variation'],'page' => $page])->render();
         }
         return view($variables['view'], compact(['model', 'settingsHtml', 'json', 'html', 'page', 'settings', 'data', 'variation', 'usedIn', 'variations']));
     }

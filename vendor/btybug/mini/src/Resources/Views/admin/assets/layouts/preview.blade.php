@@ -26,6 +26,7 @@
         </div>
     </div>
     <input type="hidden" id="iframle-url" value="{!! url('admin/mini/assets/layouts/render/') !!}">
+    <input type="hidden" id="live-preview-url" value="{!! route('mini_admin_assets_layouts_live') !!}">
 @stop
 @section("JS")
     <script>
@@ -61,7 +62,9 @@
             });
             $('#layout-variations').on('change',function () {
                 let ifUrl=$('#iframle-url').val()+'/'+$(this).val();
+                let livUrl=$('#live-preview-url').val()+'/'+$(this).val();
                 $('iframe.unit_preview').attr('src', ifUrl);
+                $('#live-preview').attr('href', livUrl);
             });
         })
 

@@ -37,10 +37,23 @@ class AdminLayoutsController extends Controller
         return $html;
     }
 
-    public function assetsLayoutSettings(Request $request, LayoutsService $layoutsService, $slug = null)
+//    public function assetsLayoutLive(Request $request, LayoutsService $layoutsService, $slug = null)
+//    {
+//$layouts = $this->contentLayouts->whereTag('minicms')->get();
+//$model = $layoutsService->getUnit($layouts, $slug);
+//return view('multisite::admin.assets.layouts.settings', compact(['layouts', 'model', 'slug']));
+//}
+
+    public function assetsLayoutLive($slug, Request $request)
     {
-        $layouts = $this->contentLayouts->whereTag('minicms')->get();
-        $model = $layoutsService->getUnit($layouts, $slug);
-        return view('multisite::admin.assets.layouts.settings', compact(['layouts', 'model', 'slug']));
+        $settings = $request->all();
+        if ($slug) {
+            $view = $this->contentLayouts->renderLivePreview($slug, $settings);
+
+            return $view ? $view : abort('404');
+        } else {
+            abort('404');
+        }
+
     }
 }

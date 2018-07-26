@@ -25,7 +25,7 @@ Route::group(['prefix' => 'assets'], function () {
     Route::group(['prefix' => 'layouts'], function () {
         Route::get('/', 'AdminLayoutsController@assetsLayouts', true);
         Route::get('/{id?}', 'AdminLayoutsController@assetsLayouts', true)->name('mini_admin_assets_layouts');
-        Route::get('{id}/settings', 'AdminLayoutsController@assetsLayoutSettings', true)->name('mini_admin_assets_layouts_settings');
+        Route::get('live/{id?}', 'AdminLayoutsController@assetsLayoutLive', true)->name('mini_admin_assets_layouts_live');
         Route::get('/render/{slug}', 'AdminLayoutsController@iframeRander', true)->name('layout_iframe_render');
     });
     Route::get('/pages', 'AdminPagesController@assetsPages', true)->name('mini_admin_assets_pages');
