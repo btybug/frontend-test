@@ -12,13 +12,20 @@ namespace Btybug\Mini\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Btybug\Mini\Model\MiniSuperLayouts;
 use Btybug\Mini\Services\LayoutsService;
+use Btybug\User\Repository\MembershipRepository;
 use Illuminate\Http\Request;
 
 class AdminLayoutsController extends Controller
 {
-    public function __construct(MiniSuperLayouts $contentLayouts)
+    private $membershipRepository;
+
+    public function __construct(
+        MiniSuperLayouts $contentLayouts,
+        MembershipRepository $membershipRepository
+    )
     {
         $this->contentLayouts = $contentLayouts;
+        $this->membershipRepository = $membershipRepository;
     }
 
     public function assetsLayouts(Request $request, LayoutsService $layoutsService, $slug = null)
@@ -41,7 +48,10 @@ class AdminLayoutsController extends Controller
     {
         $layouts = $this->contentLayouts->whereTag('minicms')->get();
         $model = $layoutsService->getUnit($layouts, $slug);
-        return view('multisite::admin.assets.layouts.settings', compact(['layouts', 'model', 'slug']));
+        $tags = null;
+        $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
+
+        return view('multisite::admin.assets.layouts.settings', compact(['layouts', 'model', 'slug','tags','memberships']));
     }
 
     public function assetsLayoutLive($slug, Request $request)
