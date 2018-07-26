@@ -66,6 +66,7 @@ class Generator
     private $root;
     private $user_id;
     private $name;
+    const DEFAULT_VALUE = 'default';
 
     public function __construct()
     {
@@ -126,6 +127,8 @@ class Generator
                     'header' => $corePage->header,
                     'header_unit' => $corePage->header_unit,
                     'tags' => $corePage->tags,
+                    'css_type' => self::DEFAULT_VALUE,
+                    'js_type' => self::DEFAULT_VALUE
                 ];
             }
         }
