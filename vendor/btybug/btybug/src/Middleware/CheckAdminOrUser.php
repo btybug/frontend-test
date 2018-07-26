@@ -36,9 +36,10 @@ class CheckAdminOrUser
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->isSuperadmin()){
+        if (Auth::user()->role){
             abort(404);
         }
 
+        return $next($request);
     }
 }
