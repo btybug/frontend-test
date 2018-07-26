@@ -25,16 +25,15 @@ class AdminLayoutsController extends Controller
     {
         $layouts = $this->contentLayouts->whereTag('minicms')->get();
         $model = $layoutsService->getUnit($layouts, $slug);
-        return view('multisite::admin.assets.layouts.preview', compact(['layouts', 'model', 'slug']));
+        $variations=($model)?$model->variations()->all()->pluck('title','id'):collect([]);
+        return view('multisite::admin.assets.layouts.preview', compact(['layouts', 'model', 'slug','variations']));
     }
 
     public function iframeRander($slug)
     {
         $layout = $this->contentLayouts->find($slug);
-
         $variation = $layout->variations(false)->find($slug)->toArray()['settings'];
         $html = \View('multisite::admin.assets.layouts._partials.renderHtml')->with(['layout' => $layout, 'variation' => $variation])->render();
-
         return $html;
     }
 

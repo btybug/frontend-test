@@ -543,7 +543,7 @@ class MiniSuperLayouts extends BasePainter implements VariationAccess
         $slug = $this->folder;
         if ($this->autoinclude) return $this->getAutoInclude()->getRender($variables, "ContentLayouts.$slug");
         $layout=($demo)?$this->demo:$this->layout;
-        $html = \View::make("ContentLayouts.$slug.$layout")->with(['settings' => $variables, '_this' => $this])->render();
+        $html = \View::make("multisite::ContentLayouts.$slug.$layout")->with(['settings' => $variables, '_this' => $this])->render();
         return $html;
     }
 

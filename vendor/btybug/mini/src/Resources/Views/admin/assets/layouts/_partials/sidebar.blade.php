@@ -2,7 +2,7 @@
     <ul>
         @if(count($layouts))
             @foreach($layouts as $key => $val)
-                <li class="unit_rend {{ (@$model->slug == $val->slug)? 'active' : '' }}">
+                <li class="unit_rend {{ ($slug == $val->slug)? 'active' : '' }}">
                     <a href="{!! route('mini_admin_assets_layouts',$val->slug) !!}">{{ $val->title }}</a>
                 </li>
             @endforeach

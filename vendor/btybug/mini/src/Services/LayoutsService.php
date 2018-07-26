@@ -10,6 +10,7 @@ namespace Btybug\Mini\Services;
 
 
 use Btybug\btybug\Models\ContentLayouts\ContentLayouts;
+use Btybug\Mini\Model\MiniSuperLayouts;
 
 class LayoutsService
 {
@@ -17,7 +18,7 @@ class LayoutsService
     private $painter;
 
     public function __construct(
-        ContentLayouts $contentLayouts
+        MiniSuperLayouts $contentLayouts
     )
     {
         $this->contentLayouts = $contentLayouts;

@@ -11,6 +11,7 @@ namespace Btybug\btybug\Models\Universal;
 
 use File;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 class Variations implements \ArrayAccess, \Countable, \IteratorAggregate, Htmlable
@@ -69,6 +70,11 @@ class Variations implements \ArrayAccess, \Countable, \IteratorAggregate, Htmlab
     public function getItems()
     {
         return $this->items;
+    }
+
+    public function pluck($value, $key = null)
+    {
+        return  $this->getItems()->pluck($value, $key );
     }
 
     public function all()

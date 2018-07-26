@@ -9,8 +9,10 @@
             <div class="col-md-9 col-xs-12">
                 @if($model)
                     <div class="display-area">
+                        <div class="col-md-2">
+                            {!! Form::select('variation',$variations,$model->slug.'.default',['class'=>'form-control','id'=>'layout-variations']) !!}
+                        </div>
                         @include('multisite::admin.assets.layouts._partials.buttons')
-
                         <div class="right-iframe">
                             <iframe class="unit_preview" data-slug="{{$model->slug}}"
                                     src="{{url('admin/mini/assets/layouts/render/'.$model->slug.'.default')}}"
@@ -23,6 +25,7 @@
             </div>
         </div>
     </div>
+    <input type="hidden" id="iframle-url" value="{!! url('admin/mini/assets/layouts/render/') !!}">
 @stop
 @section("JS")
     <script>
@@ -55,7 +58,11 @@
                 e.preventDefault();
                 var url = $(this).attr('href');
                 $('iframe.unit_preview').attr('src', url);
-            })
+            });
+            $('#layout-variations').on('change',function () {
+                let ifUrl=$('#iframle-url').val()+'/'+$(this).val();
+                $('iframe.unit_preview').attr('src', ifUrl);
+            });
         })
 
 
