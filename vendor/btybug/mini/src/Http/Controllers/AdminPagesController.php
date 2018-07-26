@@ -47,8 +47,8 @@ class AdminPagesController extends Controller
     {
         $data = $request->except('_token');
         $data['page_layout']= ($data['layout']==0)?null:$data['page_layout'];
-        $data['header'] = ($data['header'] === 1) ? 0 : 1;
-        $data['header_unit'] = ($data['header'] === 2) ? $data['header_unit'] : null;
+        $data['header'] = ($data['header'] == 1) ? 0 : 1;
+        $data['header_unit'] = ($data['header'] == 2) ? $data['header_unit'] : null;
         return $this->pageRepository->create($data);
     }
 
