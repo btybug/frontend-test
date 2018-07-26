@@ -1,5 +1,5 @@
 @php
-    $pages = $page->author->frontPages()->orderBy('sorting')->get();
+    $pages = $page->author->frontPages()->where('status','published')->orderBy('sorting')->get();
 @endphp
 <div id="header" class="header navbar-default">
     <!-- begin navbar-header -->
