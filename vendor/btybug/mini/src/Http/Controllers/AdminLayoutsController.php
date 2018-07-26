@@ -25,8 +25,8 @@ class AdminLayoutsController extends Controller
     {
         $layouts = $this->contentLayouts->whereTag('minicms')->get();
         $model = $layoutsService->getUnit($layouts, $slug);
-        $variations=($model)?$model->variations()->all()->pluck('title','id'):collect([]);
-        return view('multisite::admin.assets.layouts.preview', compact(['layouts', 'model', 'slug','variations']));
+        $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
+        return view('multisite::admin.assets.layouts.preview', compact(['layouts', 'model', 'slug', 'variations']));
     }
 
     public function iframeRander($slug)
@@ -37,12 +37,12 @@ class AdminLayoutsController extends Controller
         return $html;
     }
 
-//    public function assetsLayoutLive(Request $request, LayoutsService $layoutsService, $slug = null)
-//    {
-//$layouts = $this->contentLayouts->whereTag('minicms')->get();
-//$model = $layoutsService->getUnit($layouts, $slug);
-//return view('multisite::admin.assets.layouts.settings', compact(['layouts', 'model', 'slug']));
-//}
+    public function assetsLayoutSettings(Request $request, LayoutsService $layoutsService, $slug = null)
+    {
+        $layouts = $this->contentLayouts->whereTag('minicms')->get();
+        $model = $layoutsService->getUnit($layouts, $slug);
+        return view('multisite::admin.assets.layouts.settings', compact(['layouts', 'model', 'slug']));
+    }
 
     public function assetsLayoutLive($slug, Request $request)
     {
@@ -59,9 +59,9 @@ class AdminLayoutsController extends Controller
 
     public function assetsLayoutsCreateVariation($slug)
     {
-        $layout=$this->contentLayouts->find($slug);
-        if(!$layout) abort(404);
-        $variation=$layout->makeVariation();
-        return redirect()->route('mini_admin_assets_layouts_live',$variation->id);
+        $layout = $this->contentLayouts->find($slug);
+        if (!$layout) abort(404);
+        $variation = $layout->makeVariation();
+        return redirect()->route('mini_admin_assets_layouts_live', $variation->id);
     }
 }
