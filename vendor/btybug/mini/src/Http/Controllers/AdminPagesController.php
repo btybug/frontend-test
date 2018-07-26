@@ -49,11 +49,11 @@ class AdminPagesController extends Controller
         $data['page_layout']= ($data['layout']==0)?null:$data['page_layout'];
         $data['header_unit'] = ($data['header'] == 2) ? $data['header_unit'] : null;
 
-        if($data['header'] == 1 ) {
-            $data['header'] = 0;
-        }else{
-            $data['header'] = 1;
-        }
+//        if($data['header'] == 1 ) {
+//            $data['header'] = 0;
+//        }else{
+//            $data['header'] = 1;
+//        }
         return $this->pageRepository->create($data);
     }
 
@@ -63,11 +63,11 @@ class AdminPagesController extends Controller
 
         $data['page_layout']= ($data['layout']==0)?null:$data['page_layout'];
         $data['header_unit'] = ($data['header'] == 2) ? $data['header_unit'] : null;
-        if($data['header'] == 1 ) {
-            $data['header'] = 0;
-        }else{
-            $data['header'] = 1;
-        }
+//        if($data['header'] == 1 ) {
+//            $data['header'] = 0;
+//        }else{
+//            $data['header'] = 1;
+//        }
         $id = $request->get('id');
         $this->pageRepository->update($id, $data);
         return redirect()->back();

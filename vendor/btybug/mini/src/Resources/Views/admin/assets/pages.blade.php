@@ -82,11 +82,11 @@
                 <label class="col-md-4 control-label" for="radios">Header</label>
                 <div class="col-md-8">
                     <label class="radio-inline" for="radios-0">
-                        <input type="radio" name="header"  value="0" checked="checked">
+                        <input type="radio" name="header"  value="1" checked="checked">
                         Default
                     </label>
                     <label class="radio-inline" for="radios-1">
-                        <input type="radio"  name="header"  value="1">
+                        <input type="radio"  name="header"  value="0">
                         No Header
                     </label>
                     <label class="radio-inline" for="radios-1">

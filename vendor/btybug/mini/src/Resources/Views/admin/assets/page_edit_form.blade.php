@@ -46,11 +46,11 @@
     <label class="col-md-4 control-label" for="radios">Header</label>
     <div class="col-md-8">
         <label class="radio-inline">
-            {!! Form::radio('header',0,1) !!}
+            {!! Form::radio('header',1,1) !!}
             Default
         </label>
         <label class="radio-inline" for="radios-1">
-            {!! Form::radio('header',1) !!}
+            {!! Form::radio('header',0) !!}
             No Header
         </label>
         <label class="radio-inline" for="radios-1">
