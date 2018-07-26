@@ -60,8 +60,8 @@ class AdminLayoutsController extends Controller
     public function assetsLayoutsCreateVariation($slug)
     {
         $layout=$this->contentLayouts->find($slug);
-        dd($layout->makeVariation());
-
-        if(!$layout)return abort(404);
+        if(!$layout) abort(404);
+        $variation=$layout->makeVariation();
+        return redirect()->route('mini_admin_assets_layouts_live',$variation->id);
     }
 }
