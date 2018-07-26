@@ -45,6 +45,9 @@ class Kernel extends HttpKernel
             FormSettingsMiddleware::class
 //            ViewTestMiddleware::class
         ],
+        'adminCheck' => [
+            \Btybug\btybug\Middleware\CheckAdminOrUser::class,
+        ],
         'api' => [
             'throttle:60,1',
             'bindings',
