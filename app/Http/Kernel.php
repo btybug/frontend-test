@@ -3,9 +3,11 @@
 namespace App\Http;
 
 //use App\Http\Middleware\ViewTestMiddleware;
+use Btybug\btybug\Middleware\ConvertEmptyStingsToNullBty;
 use Btybug\btybug\Middleware\FormSettingsMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Btybug\User\Http\Middleware\UserHasPermission;
+use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
 use Laravel\Passport\Http\Middleware\CheckClientCredentials;
 
 class Kernel extends HttpKernel
@@ -21,7 +23,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
-        \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        ConvertEmptyStingsToNullBty::class,
         \App\Http\Middleware\Cors::class,
         FormSettingsMiddleware::class
 //        ViewTestMiddleware::class
@@ -76,5 +78,6 @@ class Kernel extends HttpKernel
         'cors' => \App\Http\Middleware\Cors::class,
         'form' =>   FormSettingsMiddleware::class,
         'client' => CheckClientCredentials::class,
+        'stringToNull' => ConvertEmptyStringsToNull::class
     ];
 }
