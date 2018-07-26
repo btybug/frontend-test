@@ -1457,7 +1457,23 @@ function BBgetLayoutAttr($id, $key)
     if ($section) return $section->{$key};
 
     return false;
+}
 
+function BBgetMiniLayoutAttr($id, $key, $model)
+{
+    $model = new $model();
+    if($id){
+        $section = $model->findByVariation($id);
+    }else{
+        $layout = \Btybug\btybug\Models\Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS layout')->first();
+        if($layout){
+            $section = $model->findByVariation($layout->layout);
+        }
+    }
+
+    if ($section) return $section->{$key};
+
+    return false;
 }
 
 //TODO: move to console module

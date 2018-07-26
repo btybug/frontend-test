@@ -43,6 +43,23 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="page_name" class="col-2 col-form-label">Page layout</label>
+                            <div class="col-10">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-adn"></i>
+                                    </div>
+                                    <div class="col-md-6 form-control">
+                                        {!! BBgetMiniLayoutAttr($page->page_layout,'title',\Btybug\Mini\Model\MiniLayouts::class) !!}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a class="btn btn-primary">Customize</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="page_name" class="col-2 col-form-label">Page content</label>
                             <div class="col-10">
                                 <div class="input-group">
@@ -55,6 +72,23 @@
                         </div>
 
                     @else
+                        <div class="form-group row">
+                            <label for="page_name" class="col-2 col-form-label">Page layout</label>
+                            <div class="col-10">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-adn"></i>
+                                    </div>
+                                    <div class="col-md-6 form-control">
+                                        {!! BBgetMiniLayoutAttr($page->page_layout,'title',\Btybug\Mini\Model\MiniLayouts::class) !!}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a class="btn btn-primary">Customize</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="page_name" class="col-2 col-form-label">Page content</label>
                             <div class="col-10">
