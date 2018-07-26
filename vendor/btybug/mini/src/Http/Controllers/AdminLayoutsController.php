@@ -56,4 +56,9 @@ class AdminLayoutsController extends Controller
         }
 
     }
+
+    public function assetsLayoutsCreateVariation($slug)
+    {
+        dd($slug);
+    }
 }
