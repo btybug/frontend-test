@@ -22,7 +22,7 @@ class AdminLayoutsController extends Controller
     private $tagsRepository;
     private $contentLayouts;
 
-    public function __construct(
+    public function __construct (
         MiniSuperLayouts $contentLayouts,
         MembershipRepository $membershipRepository,
         TagsRepository $tagsRepository
@@ -33,53 +33,55 @@ class AdminLayoutsController extends Controller
         $this->tagsRepository = $tagsRepository;
     }
 
-    public function assetsLayouts(Request $request, LayoutsService $layoutsService, $slug = null)
+    public function assetsLayouts (Request $request, LayoutsService $layoutsService, $slug = null)
     {
         $layouts = $this->contentLayouts->all()->get();
         $model = $layoutsService->getUnit($layouts, $slug);
         $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
+
         return view('multisite::admin.assets.layouts.preview', compact(['layouts', 'model', 'slug', 'variations']));
     }
 
-    public function iframeRander($slug)
+    public function iframeRander ($slug)
     {
         $layout = $this->contentLayouts->find($slug);
         $variation = $layout->variations(false)->find($slug)->toArray()['settings'];
         $html = \View('multisite::admin.assets.layouts._partials.renderHtml')->with(['layout' => $layout, 'variation' => $variation])->render();
+
         return $html;
     }
 
-    public function assetsLayoutSettings(Request $request, LayoutsService $layoutsService, $slug = null)
+    public function assetsLayoutSettings (Request $request, LayoutsService $layoutsService, $slug = null)
     {
         $layouts = $this->contentLayouts->all()->get();
         $model = $layoutsService->getUnit($layouts, $slug);
         $tags = $model->tags;
-        $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
+        $memberships = $this->membershipRepository->pluck('name', 'slug')->toArray();
         $tags = implode(',', $tags);
 
-        return view('multisite::admin.assets.layouts.settings', compact(['layouts', 'model', 'slug','tags','memberships']));
+        return view('multisite::admin.assets.layouts.settings', compact(['layouts', 'model', 'slug', 'tags', 'memberships']));
     }
 
-    public function postAssetsLayoutSettings(Request $request, $slug)
+    public function postAssetsLayoutSettings (Request $request, $slug)
     {
         $tags = ($request->get('tags')) ? explode(',', $request->get('tags')) : [];
         $memberships = $request->get('memberships') ?? [];
 
-        if(count($tags)){
-            foreach ($tags as $tag){
-                $this->tagsRepository->create(['name' => $tag,'type' => 'minicms']);
+        if (count($tags)) {
+            foreach ($tags as $tag) {
+                $this->tagsRepository->create(['name' => $tag, 'type' => 'minicms']);
             }
         }
 
         $layout = $this->contentLayouts->findByVariation($slug);
-        if($layout){
-            $layout->setAttributes('tags',$tags)->setAttributes('memberships',$memberships)->setAttributes('status',$request->get('status'))->edit();
+        if ($layout) {
+            $layout->setAttributes('tags', $tags)->setAttributes('memberships', $memberships)->setAttributes('status', $request->get('status'))->edit();
         }
 
         return redirect()->back();
     }
 
-    public function assetsLayoutLive($slug, Request $request)
+    public function assetsLayoutLive ($slug, Request $request)
     {
         $settings = $request->all();
         if ($slug) {
@@ -92,11 +94,12 @@ class AdminLayoutsController extends Controller
 
     }
 
-    public function assetsLayoutsCreateVariation($slug)
+    public function assetsLayoutsCreateVariation ($slug)
     {
         $layout = $this->contentLayouts->find($slug);
-        if (!$layout) abort(404);
+        if (! $layout) abort(404);
         $variation = $layout->makeVariation();
+
         return redirect()->route('mini_admin_assets_layouts_live', $variation->id);
     }
 }
