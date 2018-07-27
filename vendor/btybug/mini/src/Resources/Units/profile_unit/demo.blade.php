@@ -176,8 +176,10 @@
         </li>
         <li class="dropdown navbar-user">
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="/public/minicms/images/user-13.jpg" alt="" />
-                <span class="d-none d-md-inline">Adam Schwartz</span> <b class="caret"></b>
+                @if(issetReturn($settings,'shoe_avatar'))
+                    <img src="/public/minicms/images/USER-13.jpg" alt="" />
+                @endif
+                <span class="name d-none d-md-inline">{{(issetReturn($settings,'shoe_name'))?Auth::user()->username:null}}</span> <b class="caret"></b>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <a href="javascript:;" class="dropdown-item">Edit Profile</a>
@@ -185,7 +187,7 @@
                 <a href="javascript:;" class="dropdown-item">Calendar</a>
                 <a href="javascript:;" class="dropdown-item">Setting</a>
                 <div class="dropdown-divider"></div>
-                <a href="javascript:;" class="dropdown-item">Log Out</a>
+                <a href="{{route('log_out')}}" class="dropdown-item">Log Out</a>
             </div>
         </li>
     </ul>
@@ -197,9 +199,11 @@
             <div class="row nopadding ident ui-bg-color01">
                 <div class="col-md-4 vc-photo photo nopadding">
                     <div>
-                        <a href="index.html">
-                            <img src="https://neuethemes.net/preview/html/gridus/html/assets/custom/2.2.2/images/layouts/samuel/userpics/userpic01.jpg" alt="">
-                        </a>
+
+                            @if(issetReturn($settings,'shoe_avatar_on_top'))
+                                {{--<img src="/public/minicms/images/{{Auth::user()->avatar}}" alt="">--}}
+                                <img src="https://neuethemes.net/preview/html/gridus/html/assets/custom/2.2.2/images/layouts/samuel/userpics/userpic01.jpg" alt="">
+                            @endif
                     </div>
 
                 </div>
@@ -209,18 +213,26 @@
                         <div class="row nopadding name position">
                             <div class="col-md-10" >
                                 <div class="name-title">
-                                    <h1 class="font-accident-two-extralight">Samuel Anderson</h1>
+                                        @if(issetReturn($settings,'user_fields'))
+                                        <p><h2> {{$settings['user_fields']}}  : {{BBGetUser(Auth::user()->id,$settings['user_fields'])}}</h2></p>
+
+                                        @else
+                                            {{Auth::user()->username}}
+                                        @endif
+
                                 </div>
+
                                 <div class="col-md-10 position-title">
 
                                     <section class="cd-intro">
                                         <h2 class="cd-headline clip is-full-width font-accident-two-light d-flex align-items-center">
-                                            <span>The experienced </span>
-                                            <span class="cd-words-wrapper">
-                           <b class="is-visible">UI/UX Designer</b>
-                           <b>Web Designer</b>
-                           <b>Photographer</b>
-                        </span>
+                                            @if(issetReturn($settings,'profession'))
+                                                <span>The experienced </span>
+                                                <span class="cd-words-wrapper">
+                                                    <b class="is-visible">{{$settings['profession']}}</b>
+
+                                                </span>
+                                            @endif
                                         </h2>
                                     </section>
 
