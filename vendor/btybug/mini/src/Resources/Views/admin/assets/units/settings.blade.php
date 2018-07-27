@@ -21,6 +21,10 @@
                                 {!! Form::select('memberships[]',$memberships,$model->memberships,['class' => 'form-control memberships-select','multiple' => true]) !!}
                             </div>
                             <div class="form-group">
+                                <label>Select status</label>
+                                {!! Form::select('status',['draft' => "Draft",'published' => "Published"],(isset($model->status))?$model->status:null ,['class' => 'form-control']) !!}
+                            </div>
+                            <div class="form-group">
                                 {!! Form::submit('save',['class' => 'btn btn-success']) !!}
                             </div>
                             {!! Form::close() !!}

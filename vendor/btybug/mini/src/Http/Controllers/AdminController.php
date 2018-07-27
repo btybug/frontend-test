@@ -113,4 +113,14 @@ class AdminController extends Controller
 
         return $html;
     }
+    public function assetsUnitsSettings(Request $request, $slug = null)
+    {
+        $units = $this->painter->all()->get();
+        $model = $this->unitService->getUnit($units, $slug);
+        $tags = $model->tags;
+        $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
+
+        $tags = implode(',', $tags);
+        return view('multisite::admin.assets.units.settings', compact(['units', 'model', 'slug','tags','memberships']));
+    }
 }

@@ -6,25 +6,6 @@
             <div class="col-md-3 col-xs-12">
                 @include('multisite::admin.assets.units._partials.sidebar')
             </div>
-            <div class="col-md-3 col-xs-12">
-                {!! Form::model($model,['url' => route('mini_admin_assets_units_settings_post',$model->slug)]) !!}
-                    <div class="form-group">
-                        <label>Select Tags</label>
-                        {!! Form::text('tags',$tags,['class' => 'form-control','id' => 'tagits']) !!}
-                    </div>
-                    <div class="form-group">
-                        <label>Select Memberships</label>
-                        {!! Form::select('memberships[]',$memberships,$model->memberships,['class' => 'form-control memberships-select','multiple' => true]) !!}
-                    </div>
-                    <div class="form-group">
-                        <label>Select status</label>
-                        {!! Form::select('status',['draft' => "Draft",'published' => "Published"],(isset($model->status))?$model->status:null ,['class' => 'form-control']) !!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::submit('save',['class' => 'btn btn-success']) !!}
-                    </div>
-                {!! Form::close() !!}
-            </div>
             <div class="col-md-9 col-xs-12">
                 @if($model)
                     <div class="display-area">
