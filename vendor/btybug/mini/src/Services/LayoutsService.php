@@ -27,7 +27,7 @@ class LayoutsService
     public function getUnit($layouts, $slug = null)
     {
         if ($slug) {
-            $this->layoutModel = $this->contentLayouts->whereTag('minicms')->where('slug', $slug)->first();
+            $this->layoutModel = $this->contentLayouts->where('slug', $slug)->first();
         } else {
             if (count($layouts)) {
                 $this->unitModel = array_first($layouts);

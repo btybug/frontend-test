@@ -32,6 +32,7 @@ Route::group(['prefix' => 'assets'], function () {
         Route::get('/create-variation/{id?}', 'AdminLayoutsController@assetsLayoutsCreateVariation', true)->name('mini_admin_assets_layouts_create_variation');
         Route::get('live/{id?}', 'AdminLayoutsController@assetsLayoutLive', true)->name('mini_admin_assets_layouts_live');
         Route::get('/settings/{id}', 'AdminLayoutsController@assetsLayoutSettings', true)->name('mini_admin_assets_layouts_settings');
+        Route::post('/settings/{id}', 'AdminLayoutsController@postAssetsLayoutSettings')->name('mini_admin_assets_layouts_settings_post');
         Route::get('/render/{slug}', 'AdminLayoutsController@iframeRander', true)->name('layout_iframe_render');
     });
     Route::get('/pages', 'AdminPagesController@assetsPages', true)->name('mini_admin_assets_pages');

@@ -13,7 +13,7 @@
 
                         <div class="right-iframe">
                             <h3>Settings</h3>
-                            {!! Form::model(null) !!}
+                            {!! Form::model($model) !!}
                             <div class="form-group">
                                 <label>Select Tags</label>
                                 {!! Form::text('tags',$tags,['class' => 'form-control','id' => 'tagits']) !!}
