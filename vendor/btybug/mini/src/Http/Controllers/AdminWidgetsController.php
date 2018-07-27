@@ -18,7 +18,7 @@ use Btybug\Mini\Services\UnitService;
 use Btybug\User\Repository\MembershipRepository;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class AdminWidgetsController extends Controller
 {
 
     private $unitService;
@@ -56,7 +56,7 @@ class AdminController extends Controller
 
     public function assetsUnits(Request $request, $slug = null)
     {
-        $units = $this->painter->where('self_type','units')->get();
+        $units = $this->painter->where('self_type','widget')->get();
         $model = $this->unitService->getUnit($units, $slug);
 
         $tags = $model->tags;
@@ -64,7 +64,7 @@ class AdminController extends Controller
 
         $tags = implode(',', $tags);
         $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
-        return view('multisite::admin.assets.units.preview', compact(['units', 'model', 'slug','tags','memberships','variations']));
+        return view('multisite::admin.assets.widgets.preview', compact(['units', 'model', 'slug','tags','memberships','variations']));
     }
 
 
@@ -100,7 +100,7 @@ class AdminController extends Controller
     {
         $html = render_mini_unit($slug, $this->painter);
 
-        $html = \View('multisite::admin.assets.units._partials.renderHtml')->with('html', $html)->render();
+        $html = \View('multisite::admin.assets.widgets._partials.renderHtml')->with('html', $html)->render();
 
         return $html;
     }
@@ -110,19 +110,19 @@ class AdminController extends Controller
         $html = render_mini_unit($slug, $this->painter);
         $unit = $this->painter->findByVariation($slug);
         $settings = $unit->renderSettings();
-        $html = \View('multisite::admin.assets.units._partials.renderWithForm',compact('html','settings'))->render();
+        $html = \View('multisite::admin.assets.widgets._partials.renderWithForm',compact('html','settings'))->render();
 
         return $html;
     }
     public function assetsUnitsSettings(Request $request, $slug = null)
     {
-        $units = $this->painter->all()->get();
+        $units = $this->painter->whwere('self_type','widget')->get();
         $model = $this->unitService->getUnit($units, $slug);
         $tags = $model->tags;
         $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
 
         $tags = implode(',', $tags);
-        return view('multisite::admin.assets.units.settings', compact(['units', 'model', 'slug','tags','memberships']));
+        return view('multisite::admin.assets.widgets.settings', compact(['units', 'model', 'slug','tags','memberships']));
     }
     public function assetsUnitsLive ($slug)
     {

@@ -53,6 +53,9 @@ class ModuleServiceProvider extends ServiceProvider
                     'title' => 'Units',
                     'url' => '/admin/mini/assets/units/{slug}',
                 ],[
+                    'title' => 'Widgets',
+                    'url' => '/admin/mini/assets/widgets/{slug}',
+                ],[
                     'title' => 'Layouts',
                     'url' => '/admin/mini/assets/layouts/{slug}',
                 ], [

@@ -10,7 +10,7 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-Route::group( ['middleware' => ['admin:Users']],function (){
+Route::group(['middleware' => ['admin:Users']], function () {
 
     Route::get('/', 'ModulesController@getChilds', true);
     Route::get('/test/{id?}', 'UnitsNewController@test');

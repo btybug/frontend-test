@@ -1,23 +1,23 @@
 {
-  "title": "btybug header",
+  "title": "Widget",
   "author": "Vahag",
   "site": "http:\/\/bootydev.co.uk",
   "version": "1.0",
   "example": "demo",
-  "self_type": "units",
+  "self_type": "widget",
   "type": "units",
   "description": "profile",
   "have_setting": 1,
   "image": "screenshot.png",
-  "slug": "profile_unit",
-  "folder": "profile_unit",
+  "slug": "widget",
+  "folder": "widget",
   "created_at": 1490088665,
   "is_core": 0,
   "place": "frontend",
   "tags": [
     "header"
   ],
-  "path": "vendor\/btybug\/mini\/src\/Resources\/Units\/profile_unit",
+  "path": "vendor\/btybug\/mini\/src\/Resources\/Units\/widget",
   "memberships": [],
   "status": "published"
 }

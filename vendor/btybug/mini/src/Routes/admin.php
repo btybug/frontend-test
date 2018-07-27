@@ -26,6 +26,20 @@ Route::group(['prefix' => 'assets'], function () {
         Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe', true)->name('minicms_settings_iframe');
     });
 
+    Route::group(['prefix' => 'widgets'], function () {
+        Route::get('/', 'AdminWidgetsController@assetsUnits', true)->name('mini_admin_assets_widgets');
+        Route::group(['prefix' => '{id?}'], function () {
+            Route::get('/', 'AdminWidgetsController@assetsUnits', true)->name('mini_admin_assets_widgets');
+        });
+        Route::post('{id}/settings', 'AdminWidgetsController@postAssetsUnitsSettings', true)->name('mini_admin_assets_widgets_settings_post');
+        Route::get('settings/{id}', 'AdminWidgetsController@assetsUnitsSettings', true)->name('mini_admin_assets_widgets_settings');
+        Route::get('/render/{slug}', 'AdminWidgetsController@iframeRander', true)->name('unit_iframe_render');
+        Route::get('/render-with-form/{slug}', 'AdminWidgetsController@renderWithForm', true)->name('unit_iframe_render_with_form');
+        Route::get('live/{id?}', 'AdminWidgetsController@assetsUnitsLive', true)->name('mini_admin_assets_widgets_live');
+        Route::get('/create-variation/{id?}', 'AdminWidgetsController@assetsLayoutsCreateVariation', true)->name('mini_admin_assets_widgets_create_variation');
+        Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe', true)->name('minicms_settings_iframe');
+    });
+
     Route::group(['prefix' => 'layouts'], function () {
         Route::get('/', 'AdminLayoutsController@assetsLayouts', true);
         Route::get('/{id?}', 'AdminLayoutsController@assetsLayouts', true)->name('mini_admin_assets_layouts');
