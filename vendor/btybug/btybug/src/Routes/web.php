@@ -57,7 +57,7 @@ Route::group(
 
         //        Route::get(BBGetAdminLoginUrl(), '\Btybug\Modules\Users\Http\Controllers\Auth\AuthController@getAdminLogin')->middleware('guest');
         //        Route::post(BBGetAdminLoginUrl(), '\Btybug\Modules\Users\Http\Controllers\Auth\AuthController@postAdminLogin')->middleware('guest');
-        Route::get('logout', '\Btybug\User\Http\Controllers\Auth\LoginController@logout')->middleware('auth');
+        Route::get('logout', '\Btybug\User\Http\Controllers\Auth\LoginController@logout')->middleware('auth')->name('log_out');;
 
         Route::post('/modality/settings-live', 'Admincp\ModalityController@postSettingsLive');
         Route::post('/modality/settings-live-react', 'Admincp\ModalityReactController@postSettingsLive');

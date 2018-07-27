@@ -6,6 +6,8 @@
 <meta content="" name="author"/>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 {!! BBCss("backend")  !!}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 {!! HTML::style("public/css/cms.css?v=".rand(1111,99999)) !!}
 {!! HTML::style("public/css/admin.css?v=".rand(1111,99999)) !!}
 {!! HTML::style("public/js/DataTables/datatables.css") !!}

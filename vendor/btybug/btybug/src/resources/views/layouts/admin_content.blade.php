@@ -23,6 +23,8 @@
 
 {{ csrf_field() }}
 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 {!! HTML::script("public/js/admin.js?v=6.0") !!}
 {!! HTML::script("public/js/BB.js") !!}
