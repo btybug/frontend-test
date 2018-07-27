@@ -214,7 +214,7 @@
                         <div class="col-md-10" >
                             <div class="name-title">
                                 @if(issetReturn($settings,'user_fields'))
-                                    <p><h2> {{$settings['user_fields']}}  : {{BBGetUser(Auth::user()->id,$settings['user_fields'])}}</h2></p>
+                                    <p><h2> {{BBGetUser(Auth::user()->id,$settings['user_fields'])}}</h2></p>
 
                                 @else
                                     {{Auth::user()->username}}
