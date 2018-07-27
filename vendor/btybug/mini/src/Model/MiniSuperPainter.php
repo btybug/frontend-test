@@ -65,16 +65,15 @@ class MiniSuperPainter extends BasePainter
      */
     public function scopeRenderLivePreview(string $slug)
     {
-
         $ui = $model = $this->findByVariation($slug);
         if (!$ui) {
             return false;
         }
         $variation = $ui->variations(false)->find($slug);
         $settings = $variation->settings;
-        $data['body'] = url('/admin/uploads/gears/settings-iframe', $slug);
-        $data['settings'] = url('/admin/uploads/gears/settings-iframe', $slug) . '/settings';
-        return view('uploads::gears.units.preview', compact(['model', "ui", 'data', 'settings', 'variation']));
+        $data['body'] = url('/admin/mini/assets/units/settings-iframe', $slug);
+        $data['settings'] = url('/admin/mini/assets/units/settings-iframe', $slug) . '/settings';
+        return view('multisite::admin.assets.units.live', compact(['model', "ui", 'data', 'settings', 'variation']));
     }
 
     /**

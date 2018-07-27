@@ -21,9 +21,9 @@ Route::group(['prefix' => 'assets'], function () {
         Route::get('/render/{slug}', 'AdminController@iframeRander', true)->name('unit_iframe_render');
         Route::get('/render-with-form/{slug}', 'AdminController@renderWithForm', true)->name('unit_iframe_render_with_form');
 
-        Route::get('live/{id?}', 'AdminLayoutsController@assetsLayoutLive', true)->name('mini_admin_assets_units_live');
+        Route::get('live/{id?}', 'AdminController@assetsUnitsLive', true)->name('mini_admin_assets_units_live');
         Route::get('/create-variation/{id?}', 'AdminLayoutsController@assetsLayoutsCreateVariation', true)->name('mini_admin_assets_units_create_variation');
-
+        Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe', true)->name('minicms_settings_iframe');
     });
 
     Route::group(['prefix' => 'layouts'], function () {
