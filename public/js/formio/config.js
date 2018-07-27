@@ -5,10 +5,12 @@ if (document.querySelector("#formJson") !== null) {
   let formJsonData = JSON.parse(
     document.querySelector("#formJson").textContent
   );
-  console.log(formJsonData);
-  // editData = JSON.parse(formJsonData.json_data);
+  console.log(JSON.parse(formJsonData.form_json));
+  editData = JSON.parse(formJsonData.form_json)
+    ? JSON.parse(formJsonData.form_json)
+    : {};
+  // editData = formJsonData.form_json ? formJsonData.form_json : {};
   console.log(editData);
-  editData = formJsonData.form_json;
   if (formJsonData.form_html) {
     setTimeout(() => {
       codeEditor.setValue(formJsonData.form_html);
@@ -54,13 +56,7 @@ if (document.querySelector("#formJson") !== null) {
           .remove()
       : null;
   });
-  console.log(formJsonData.form_json);
-
-  // console.log(formJsonData);
-  // document.querySelector(".form-name").value = formJsonData.title;
-  // document.querySelector(".form-description").value = formJsonData.description;
 }
-console.log(editData);
 var builder = Formio.builder(document.getElementById("builder"), editData, {
   builder: {
     basic: false,
@@ -129,44 +125,46 @@ var builder = Formio.builder(document.getElementById("builder"), editData, {
       components: {}
     }
   }
-}).then(function(builder) {
-  console.log(builder);
-  var jsonElement = document.getElementById("json"); // Data full
-  var formElement = document.getElementById("formio"); // full form
-  builder.on("saveComponent", function() {
+})
+  .then(function(builder) {
+    console.log(1111);
     var schema = builder.schema;
-    console.log(schema);
+
     jsonForSend = schema;
-    jsonElement.innerHTML = "";
-    formElement.innerHTML = "";
-    jsonElement.appendChild(
-      document.createTextNode(JSON.stringify(schema, null, 4))
-    );
-    Formio.createForm(formElement, schema).then(onForm);
-  });
+    var jsonElement = document.getElementById("json"); // Data full
+    var formElement = document.getElementById("formio"); // full form
+    builder.on("saveComponent", function() {
+      jsonForSend = schema;
+      jsonElement.innerHTML = "";
+      formElement.innerHTML = "";
+      jsonElement.appendChild(
+        document.createTextNode(JSON.stringify(schema, null, 4))
+      );
+      Formio.createForm(formElement, schema).then(onForm);
+    });
 
-  builder.on("editComponent", function(event) {
-    console.log("editComponent", event);
-  });
+    builder.on("editComponent", function(event) {
+      console.log("editComponent", event);
+    });
 
-  builder.on("updateComponent", function(event) {
-    jsonElement.innerHTML = "";
-    jsonElement.appendChild(
-      document.createTextNode(JSON.stringify(builder.schema, null, 4))
-    );
-  });
-  console.log(3243124);
-  builder.on("deleteComponent", function(event) {
-    jsonElement.innerHTML = "";
-    jsonElement.appendChild(
-      document.createTextNode(JSON.stringify(builder.schema, null, 4))
-    );
-  });
+    builder.on("updateComponent", function(event) {
+      jsonElement.innerHTML = "";
+      jsonElement.appendChild(
+        document.createTextNode(JSON.stringify(builder.schema, null, 4))
+      );
+    });
+    builder.on("deleteComponent", function(event) {
+      jsonElement.innerHTML = "";
+      jsonElement.appendChild(
+        document.createTextNode(JSON.stringify(builder.schema, null, 4))
+      );
+    });
 
-  Formio.createForm(formElement, builder.schema).then(onForm);
-  let btn2 = `<div class="btn btn-xxs btn-danger component-settings-button component-settings-add-style"><i class="glyphicon glyphicon-remove"></i></div>`;
-  $(".component-btn-group").append(btn2);
-});
+    Formio.createForm(formElement, builder.schema).then(onForm);
+    let btn2 = `<div class="btn btn-xxs btn-danger component-settings-button component-settings-add-style"><i class="glyphicon glyphicon-remove"></i></div>`;
+    $(".component-btn-group").append(btn2);
+  })
+  .catch(err => console.log(err));
 
 var onForm = function(form) {
   form.on("change", function() {
@@ -226,7 +224,6 @@ document
 document.querySelector(".saveForm").addEventListener("click", function() {
   let formName = document.querySelector(".form-name").value;
   let formDescription = document.querySelector(".form-description").value;
-  console.log(jsonForSend);
   if (formName.trim().length === 0 && formDescription.trim().length === 0) {
     alert("formName & formDescription filesds is requried");
   } else if (formName.trim().length === 0) {
@@ -262,10 +259,6 @@ document.querySelector(".saveForm").addEventListener("click", function() {
       }
     });
   }
-});
-
-$("body").on("click", ".component-settings-add-style", function() {
-  console.log(11121);
 });
 
 function objToString(obj) {
@@ -388,12 +381,12 @@ $(".saving-studio").click(function() {
     return;
   }
   let data = {
-    blade: '',
+    blade: "",
     css: [],
-    options: '',
+    options: "",
     js: [],
     images: [],
-    form_json: jsonForSend,
+    form_json: JSON.stringify(jsonForSend),
     name: $(".studio-name").val()
   };
   document.querySelectorAll(".asset-input").forEach(item => {

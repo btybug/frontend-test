@@ -45,9 +45,8 @@
     .displayToggle {
       transform: translateX(0) !important;
       opacity: 1 !important;
-      transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s
-
-      /* display: block !important; */
+      transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s;
+      display: block !important;
     }
 
     .accordion.panel-group {
@@ -114,6 +113,10 @@ width:20%;
             width: 90%;
             margin-left: auto;
         }
+
+        .nav-tabs  {
+            border-bottom: 0 !important;
+        }
     
 
     
@@ -134,24 +137,8 @@ width:20%;
     <div class="container-fluid">
         <div class="head-btn d-flex justify-content-between">
         <input type="text" placeholder="File name" class="form-control studio-name">
-            <!-- <button class="btn btn-success btn-sm excecte">Excecte</button>
-            <button class="btn btn-warning btn-sm">Ace</button>
-            <button class="btn btn-info btn-sm">Export</button> -->
+            <!-- Hobo2 -->
             <div>
-            <button class="btn btn-danger btn-sm">Import</button>
-                @if(isset($allData))
-                    <button class="btn btn-info btn-sm saving-studio" data-exist="{{$allData->id}}">Save</button>
-                @else
-                    <button class="btn btn-info btn-sm saving-studio">Save</button>
-                @endif
-
-            </div>
-        </div>
-    </div>
-</header>
-<div class="row grow w-100 ">
-    <div class="col-7 p-0">
-        <div class="h-100 d-flex flex-column">
             <ul class="nav nav-tabs preview-tabs" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="preview-tab" data-toggle="tab" href="#preview" role="tab">
@@ -180,6 +167,51 @@ width:20%;
                 </li>
                 
             </ul>
+            </div>
+            <div>
+            <button class="btn btn-danger btn-sm">Import</button>
+                @if(isset($allData))
+                    <button class="btn btn-info btn-sm saving-studio" data-exist="{{$allData->id}}">Save</button>
+                @else
+                    <button class="btn btn-info btn-sm saving-studio">Save</button>
+                @endif
+
+            </div>
+        </div>
+    </div>
+</header>
+<div class="row grow w-100 ">
+    <div class="col-7 p-0">
+        <div class="h-100 d-flex flex-column">
+        <!-- Hobo -->
+            <!-- <ul class="nav nav-tabs preview-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="preview-tab" data-toggle="tab" href="#preview" role="tab">
+                        <i class="fa fa-eye"></i> Preview
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab">
+                        <i class="fas fa-cogs"></i> Options
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="code-tab" data-toggle="tab" href="#code" role="tab">
+                        <i class="fa fa-code"></i> Full Code
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="styles-tab" data-toggle="tab" href="#styles" role="tab">
+                        <i class="fa fa-css3"></i> Styles
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="functions-tab" data-toggle="tab" href="#functions" role="tab">
+                        <i class="fa fa-code"></i> Functions
+                    </a>
+                </li>
+                
+            </ul> -->
             <div class="tab-content d-flex" style="flex: 1;">
                 <div class="tab-pane fade h-100 w-100 show active" id="preview" role="tabpanel">
                     <div class="preview-area"></div>
@@ -283,7 +315,7 @@ width:20%;
     </div>
     <div class="col-5 h-100 px-0 d-flex flex-column visualCodeEditorToggle">
         <div class="code-head">
-            <button class="btn btn-warning btn-sm">Layers</button>
+            <button class="btn btn-warning btn-sm showLayers">Layers</button>
             <button class="btn btn-info btn-sm createHtml">HTML</button>
             <button class="btn btn-primary btn-sm createAssets">Assets</button>
         </div>
@@ -298,11 +330,11 @@ width:20%;
 
         <div class="tree-area h-100">
 
-            <div class="tree-container">
+            <div class="tree-container tree-view-container" style="opacity: 0; transform: translateX(200px); display: none;">
                 <!-- Tree List -->
                 <ul class="tree-list"></ul>
             </div>
-            <div class="tree-container createAssets-container" style="opacity: 0; transform: translateX(200px);">
+            <div class="tree-container createAssets-container" style="opacity: 0; transform: translateX(200px); display: none;">
                 <div class="assets-area col-12">
                     <div class="card mb-3">
                         <div class="d-flex justify-content-between panel card-header">
@@ -387,7 +419,7 @@ width:20%;
 
                 </div>
             </div>
-            <div class="tree-container full-code-editor" style="opacity: 0; transform: translateX(200px);">
+            <div class="tree-container full-code-editor" style="opacity: 0; transform: translateX(200px); display: none;">
                 <div id="full-code-editor"></div>
             </div>
 
@@ -430,10 +462,11 @@ width:20%;
                                         <div class="col px-0 pr-1">
                                             <select class="node-code-position custom-select float-left">
                                                 <option>Content</option>
-                                                <option>title</option>
-                                                <option>alt</option>
-                                                <option>src</option>
-                                                <option>Attribute</option>
+                                                <option>Title</option>
+                                                <option>Alt</option>
+                                                <option>Src</option>
+                                                <option>Attributes</option>
+                                                <option>Class</option>
                                             </select>
                                         </div>
                                         <div class="col px-0 pr-1 custom-attribute" style="max-width: 110px;" hidden>

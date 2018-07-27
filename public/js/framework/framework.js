@@ -1,4 +1,9 @@
-var codeEditor, phpCodeEditor, phpNodeCodeEditor, phpFullCodeEditor, nodeCode;
+var codeEditor,
+  phpCodeEditor,
+  phpNodeCodeEditor,
+  phpFullCodeEditor,
+  nodeCode,
+  selectedAttr;
 var nodeChanger = true;
 
 var framework = {
@@ -65,10 +70,13 @@ var framework = {
   getNodeCodeValue: function($this) {
     var index = $this.closest("[data-index]").data("index"),
       nodeCode = this.codeWallet[index];
+    console.log(this.codeWallet);
+    console.log(index);
     return nodeCode[0].outerHTML;
   },
   hideAllContentElements() {
     framework.hideElement($(".contetnFiledValue"));
+    framework.hideElement($(".contentStatic"));
     framework.hideElement($(".contentFunctions"));
     framework.hideElement($("#php-node-code-editor"));
   },
@@ -170,39 +178,42 @@ var framework = {
       framework.hideElement($this);
     },
     btnStaticOpen: function() {
+      selectedAttr = $(".inserted-item.active").data("attr");
+      selectedAttr == "content" ? "text()" : selectedAttr;
+      console.error(selectedAttr);
       framework.hideAllContentElements();
       framework.showElement($(".contentStatic"));
       framework.showElement($(".staticDynamic"));
       let elm = $(nodeCode);
-      $("#staticInput").val(elm.text());
+      console.log(elm);
+      console.log(selectedAttr);
+      if (selectedAttr === "content") {
+        $("#staticInput").val(elm.text());
+      } else {
+        $("#staticInput").val(elm.attr(selectedAttr));
+      }
+      console.log($("#staticInput"));
       framework.showElement($("#php-node-code-editor"));
       framework.showElement($('[bb-click="nodePHPCodeSave"]'));
     },
     btnFieldValueOpen: function() {
       framework.hideAllContentElements();
-
-      // framework.codeWallet[2][0].innerText = "Testtttttt";
+      var filedsOptions = null;
       framework.showElement($(".contetnFiledValue"));
-      let FiledsOptions = jsonForSend.components.map(item => {
-        return `<option data-id="${item.id}">${item.label}</option>`;
-      });
-      $("#formioSelect").append(FiledsOptions.toString());
-      // framework.showElement($("#php-node-code-editor"));
-      // framework.showElement($('[bb-click="nodePHPCodeSave"]'));
+      console.log(jsonForSend);
+      if (jsonForSend) {
+        filedsOptions = jsonForSend.components.map(item => {
+          return `<option data-id="${item.id}">${item.label}</option>`;
+        });
+      } else {
+        filedsOptions = `<option>Add options from options tab<option>`;
+      }
+
+      $("#formioSelect").append(filedsOptions.toString());
     },
     btnFunctionOpen: function() {
       framework.hideAllContentElements();
-
-      // console.log(jsonForSend);
-      // framework.codeWallet[2][0].innerText = "Testtttttt";
       framework.showElement($(".contentFunctions"));
-      // let FiledsOptions = jsonForSend.components.map(item => {
-      //   return `<option data-id="${item.id}">${item.label}</option>`;
-      // });
-      // $("#formioSelect").append(FiledsOptions.toString());
-      // console.log(FiledsOptions);
-      // framework.showElement($("#php-node-code-editor"));
-      // framework.showElement($('[bb-click="nodePHPCodeSave"]'));
     },
     addCode: function() {
       var codeToInsert = "",
@@ -210,14 +221,24 @@ var framework = {
         nodeCode = phpNodeCodeEditor.getValue(),
         modifiedCode,
         customAttr = $("#custom-attribute").val();
-
       var nodeCodeEl = $(nodeCode);
-      if (whereToInsert === "Attribute") {
+      if (whereToInsert === "Attributes") {
         if (!customAttr) return;
         whereToInsert = customAttr;
       }
-
-      if (whereToInsert === "Content") {
+      let leftValues = document.querySelectorAll(".inserted-item");
+      var hasContent = false;
+      leftValues.forEach(item => {
+        if (item) {
+          if (item.getAttribute("data-attr") === "content") {
+            hasContent = true;
+          }
+        }
+      });
+      if (hasContent && whereToInsert === "Content") {
+        return;
+      }
+      if (whereToInsert === "content") {
         nodeCodeEl.html(codeToInsert);
       } else {
         nodeCodeEl.attr(whereToInsert, codeToInsert);
@@ -241,14 +262,16 @@ var framework = {
 
       phpNodeCodeEditor.setValue(he.decode(modifiedCode));
       phpNodeCodeEditor.clearSelection();
-
+      phpFullCodeEditor.setValue(he.decode(modifiedCode));
+      phpFullCodeEditor.clearSelection();
+      codeEditor.setValue(he.decode(modifiedCode));
+      codeEditor.clearSelection();
       framework.generateInsertedList();
     },
     removeNodeContent: function($this) {
       var nodeCode = phpNodeCodeEditor.getValue(),
         nodeCodeEl = $(nodeCode),
         modifiedCode;
-
       nodeCodeEl.html("");
       modifiedCode = nodeCodeEl[0].outerHTML;
 
@@ -258,6 +281,8 @@ var framework = {
       framework.generateInsertedList();
     },
     handleNodeItemClick: function($this) {
+      framework.hideAllContentElements();
+
       $(".inserted-item").removeClass("active");
       $this.addClass("active");
 
@@ -266,14 +291,16 @@ var framework = {
       // Hide all panels
       framework.hideElement($(".hidable-panel"));
       framework.hideElement($('[bb-click="nodePHPCodeSave"]'));
-
+      console.log(itemAttr);
       // Content & non class attribute
       if (itemAttr === "content") {
         framework.showElement($("#test3"));
       } else if (itemAttr !== "class") {
-        framework.showElement($("#php-node-code-editor"));
+        framework.showElement($("#test3"));
+        // framework.showElement($("#php-node-code-editor"));
         framework.showElement($('[bb-click="nodePHPCodeSave"]'));
       } else {
+        framework.hideElement($("#test3"));
         framework.showElement($("#bb-css-studio"));
 
         cssStudio.init(framework.currentNodeCode, {
@@ -526,58 +553,6 @@ $(function() {
       });
     }
   });
-  // phpNodeCodeEditor.session.on("change", function() {
-  //   if (nodeChanger) {
-  //     var modifiedCode = phpNodeCodeEditor.getValue(),
-  //       mainCode = codeEditor.getValue(),
-  //       newCode;
-  //     if (nodeCode) {
-  //       newCode = mainCode.replace(nodeCode, modifiedCode);
-  //       nodeCode = modifiedCode;
-  //       codeEditor.setValue(style_html(newCode));
-  //       codeEditor.clearSelection();
-  //       phpFullCodeEditor.setValue(style_html(newCode));
-  //       phpFullCodeEditor.clearSelection();
-  //       setTimeout(function() {
-  //         framework.codeWallet = [];
-
-  //         var codeContent = phpFullCodeEditor.getValue();
-  //         var treeList = framework.nodeTreeGenerator(
-  //           $("<wrap>" + codeContent + "</wrap>")
-  //         );
-
-  //         $(".tree-list").html(treeList);
-  //         framework.globalIndex = 0;
-  //         var codeValue = phpFullCodeEditor.getValue().toString() + "\n";
-  //         codeValue = codeValue.replace(/<!--\|/g, "");
-  //         codeValue = codeValue.replace(/\|-->/g, "");
-  //         var data = { html: codeValue };
-  //         $.ajax({
-  //           url: $("#renderUrl").val(),
-  //           type: "POST",
-  //           data: data,
-  //           headers: {
-  //             "X-CSRF-TOKEN": $("input[name='_token']").val()
-  //           },
-  //           success: function(data) {
-  //             if (!data.error) {
-  //               $(".preview-area").html(data.html);
-  //               // Init CSS Studio
-  //               $("#bb-css-studio").html("");
-  //               // $('.closeCSSEditor').trigger('click');
-  //               setTimeout(function() {
-  //                 framework.showElement($(".openCSSEditor"));
-  //               }, 300);
-  //             }
-  //           }
-  //         });
-  //       });
-  //       // });
-  //     } else {
-  //       nodeCode = framework.currentNodeCode;
-  //     }
-  //   }
-  // });
 
   $("#staticInput").keyup(function() {
     if (nodeChanger) {
@@ -587,30 +562,31 @@ $(function() {
 
       if (nodeCode) {
         var nodeElement = $(modifiedCode);
-        var nodeText = nodeElement.text($(this).val());
+        if (selectedAttr === "content") {
+          nodeElement.text($(this).val());
+        } else {
+          nodeElement.attr(selectedAttr, $(this).val());
+        }
         var nodeString = nodeElement.prop("outerHTML");
         newCode = mainCode.replace(nodeCode, nodeString);
-        console.log(newCode);
-        console.log(21312312);
-
         nodeCode = nodeString;
 
         codeEditor.setValue(style_html(newCode));
         codeEditor.clearSelection();
-        phpNodeCodeEditor.setValue(style_html(newCode));
+        phpNodeCodeEditor.setValue(style_html(nodeString));
         phpNodeCodeEditor.clearSelection();
         phpFullCodeEditor.setValue(style_html(newCode));
         phpFullCodeEditor.clearSelection();
 
         setTimeout(function() {
-          framework.codeWallet = [];
+          // framework.codeWallet = [];
 
           var codeContent = phpFullCodeEditor.getValue();
-          var treeList = framework.nodeTreeGenerator(
-            $("<wrap>" + codeContent + "</wrap>")
-          );
+          // var treeList = framework.nodeTreeGenerator(
+          //   $("<wrap>" + codeContent + "</wrap>")
+          // );
 
-          $(".tree-list").html(treeList);
+          // $(".tree-list").html(treeList);
           framework.globalIndex = 0;
           var codeValue = phpFullCodeEditor.getValue().toString() + "\n";
           codeValue = codeValue.replace(/<!--\|/g, "");
@@ -647,10 +623,22 @@ $(function() {
   // Apply demo code
   //   codeEditor.setValue(style_html($("#demo-html").html()));
   //   codeEditor.clearSelection();
+  function remooveRightSlide() {
+    $(".full-code-editor").removeClass("displayToggle");
+    $(".createAssets-container").removeClass("displayToggle");
+    $(".tree-view-container").removeClass("displayToggle");
+  }
+
+  $(".showLayers").click(function() {
+    remooveRightSlide();
+    $(".tree-view-container").toggleClass("displayToggle");
+  });
   $(".createHtml").click(function() {
+    remooveRightSlide();
     $(".full-code-editor").toggleClass("displayToggle");
   });
   $(".createAssets").click(function() {
+    remooveRightSlide();
     $(".createAssets-container").toggleClass("displayToggle");
   });
   // Listen to click events
@@ -663,7 +651,9 @@ $(function() {
 
   // Node code position change event
   $(".node-code-position").change(function() {
-    if ($(this).val() === "Attribute") {
+    // Vagh@ nael
+    console.log($(this).val());
+    if ($(this).val() === "Attributes") {
       framework.showElement($(".custom-attribute"));
     } else {
       framework.hideElement($(".custom-attribute"));
