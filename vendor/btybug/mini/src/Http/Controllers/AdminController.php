@@ -63,9 +63,10 @@ class AdminController extends Controller
         $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
 
         $tags = implode(',', $tags);
-
-        return view('multisite::admin.assets.units.preview', compact(['units', 'model', 'slug','tags','memberships']));
+        $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
+        return view('multisite::admin.assets.units.preview', compact(['units', 'model', 'slug','tags','memberships','variations']));
     }
+
 
     public function postAssetsUnitsSettings(Request $request, $slug)
     {
