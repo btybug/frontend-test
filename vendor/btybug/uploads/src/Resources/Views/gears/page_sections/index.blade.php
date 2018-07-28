@@ -104,7 +104,7 @@
 @stop
 @section('JS')
     {!! HTML::script('public/js/dropzone/js/dropzone.js') !!}
-    {!! BBscript('public/js/custom_plugin.js') !!}
+    {!! BBscript(public_path('public'.DS.'js'.DS.'custom_plugin.js')) !!}
     {!! HTML::script('public/js/bootstrap-select/js/bootstrap-select.min.js') !!}
     {!! HTML::script('public/js/jquery-ui/jquery-ui.js') !!}
     <script>
