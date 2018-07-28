@@ -102,4 +102,15 @@ class AdminLayoutsController extends Controller
 
         return redirect()->route('mini_admin_assets_layouts_live', $variation->id);
     }
+
+    public function postSettings(Request $request)
+    {
+
+        $output = MiniSuperLayouts::savePageSectionSettings($request->slug, $request->itemname, $request->except(['_token', 'itemname']), $request->save);
+
+        return response()->json([
+            'url' => isset($output['id']) ? route('mini_admin_assets_layouts_live',  $output['id']) : false,
+            'html' => isset($output['data']) ? $output['data'] : false
+        ]);
+    }
 }
