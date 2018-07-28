@@ -32,6 +32,17 @@ class UnitsController extends Controller
         $htmlSettings = $ui->renderSettings(compact('settings'));
         $settings_json = json_encode($settings, true);
 
-        return view('uploads::gears.units._partials.unit_preview', compact(['htmlBody', 'htmlSettings', 'settings', 'settings_json', 'id', 'ui']));
+        return view('multisite::admin.assets.units._partials.unit_preview', compact(['htmlBody', 'htmlSettings', 'settings', 'settings_json', 'id', 'ui']));
+    }
+    public function postSettings (Request $request)
+    {
+        $output = MiniSuperPainter::saveSettings($request->id, $request->itemname, $request->except(['_token', 'itemname']), $request->save);
+
+        return response()->json([
+            'error' => $output ? false : true,
+            'url'   => $output ? url('/admin/uploads/gears/settings/' . $output['slug']) : false,
+            'html'  => $output ? $output['html'] : false,
+            'slug'  => $output['slug']
+        ]);
     }
 }
