@@ -164,4 +164,11 @@ class AdminWidgetsController extends Controller
             'slug'  => $output['slug']
         ]);
     }
+    public function assetsCreateWidgetVariation ($slug)
+    {
+        $layout = $this->painter->find($slug);
+        if (! $layout) abort(404);
+        $variation = $layout->makeVariation();
+        return redirect()->route('mini_admin_assets_widgets_live', $variation->id);
+    }
 }

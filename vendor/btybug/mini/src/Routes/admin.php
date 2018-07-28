@@ -19,9 +19,9 @@ Route::group(['prefix' => 'assets'], function () {
         Route::get('/render/{slug}', 'AdminController@iframeRander', true)->name('unit_iframe_render');
         Route::get('/render-with-form/{slug}', 'AdminController@renderWithForm', true)->name('unit_iframe_render_with_form');
         Route::get('live/{id?}', 'AdminController@assetsUnitsLive', true)->name('mini_admin_assets_units_live');
-        Route::get('/create-variation/{id?}', 'AdminLayoutsController@assetsLayoutsCreateVariation', true)->name('mini_admin_assets_units_create_variation');
         Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe', true)->name('minicms_settings_iframe');
         Route::post('/settings/{id}/{save?}', 'UnitsController@postSettings')->name('minicms_settings_save');
+        Route::get('/create-variation/{id?}', 'UnitsController@assetsCreateUnitVariation', true)->name('mini_admin_assets_create_unit_variation');
     });
 
     Route::group(['prefix' => 'widgets'], function () {
@@ -34,9 +34,9 @@ Route::group(['prefix' => 'assets'], function () {
         Route::get('/render/{slug}', 'AdminWidgetsController@iframeRander', true)->name('unit_iframe_render');
         Route::get('/render-with-form/{slug}', 'AdminWidgetsController@renderWithForm', true)->name('unit_iframe_render_with_form');
         Route::get('live/{id?}', 'AdminWidgetsController@assetsUnitsLive', true)->name('mini_admin_assets_widgets_live');
-        Route::get('/create-variation/{id?}', 'AdminWidgetsController@assetsLayoutsCreateVariation', true)->name('mini_admin_assets_widgets_create_variation');
         Route::get('/settings-iframe/{slug}/{settings?}', 'AdminWidgetsController@unitPreviewIframe', true)->name('minicms_settings_iframe');
         Route::post('/settings/{id}/{save?}', 'AdminWidgetsController@postSettings')->name('minicms_widgets_settings_save');
+        Route::get('/create-variation/{id?}', 'AdminWidgetsController@assetsCreateWidgetVariation', true)->name('mini_admin_assets_create_widget_variation');
     });
 
     Route::group(['prefix' => 'layouts'], function () {

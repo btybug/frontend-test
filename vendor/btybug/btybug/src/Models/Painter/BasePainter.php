@@ -269,6 +269,11 @@ abstract class BasePainter implements PainterInterface, VariationAccess
         $this->storage = collect($result);
         return $this;
     }
+    protected function scopeMakeVariation($setteings = [],$slug=null,bool $hidden=false)
+    {
+        $variation = new Variations($this, $hidden);
+        return $variation->createVariation($setteings ,$slug, $hidden);
+    }
 
     /**
      * @param string|null $from

@@ -15,6 +15,11 @@ use Illuminate\Http\Request;
 
 class UnitsController extends Controller
 {
+    protected $miniSuperPainter;
+    public function __construct(MiniSuperPainter $miniSuperPainter)
+    {
+        $this->miniSuperPainter=$miniSuperPainter;
+    }
     public function unitPreviewIframe ($id, $type = null)
     {
         $slug = explode('.', $id);
@@ -44,5 +49,13 @@ class UnitsController extends Controller
             'html'  => $output ? $output['html'] : false,
             'slug'  => $output['slug']
         ]);
+    }
+
+    public function assetsCreateUnitVariation ($slug)
+    {
+        $layout = $this->miniSuperPainter->find($slug);
+        if (! $layout) abort(404);
+        $variation = $layout->makeVariation();
+        return redirect()->route('mini_admin_assets_units_live', $variation->id);
     }
 }
