@@ -40,7 +40,7 @@ class UnitsController extends Controller
 
         return response()->json([
             'error' => $output ? false : true,
-            'url'   => $output ? url('/admin/uploads/gears/settings/' . $output['slug']) : false,
+            'url'   => $output ? url('/admin/mini/assets/units/live/' . $output['slug']) : false,
             'html'  => $output ? $output['html'] : false,
             'slug'  => $output['slug']
         ]);
