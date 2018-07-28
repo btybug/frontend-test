@@ -35,6 +35,11 @@ class AdminLayoutsController extends Controller
 
     public function assetsLayouts (Request $request, LayoutsService $layoutsService, $slug = null)
     {
+        BBAddTab('mini_assets',[
+          'title' => 'Add New Layout',
+          'url' => '#',
+          'item_class'=>'pull-right info'
+          ]);
         $layouts = $this->contentLayouts->all()->get();
         $model = $layoutsService->getUnit($layouts, $slug);
         $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
@@ -113,4 +118,6 @@ class AdminLayoutsController extends Controller
             'html' => isset($output['data']) ? $output['data'] : false
         ]);
     }
+
+
 }

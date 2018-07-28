@@ -2845,4 +2845,15 @@ function BBcreateMiniCms($user)
     $test = new \Btybug\Mini\Generator();
     $test->make($user);
 }
+ function BBAddTab($section,array $tab)
+{
+    $codes = \Config::get('tabs');
+    foreach($codes as $key=>$value){
+        if(isset($value[$section])){
+            $codes[$key][$section][]= $tab;
+            \Config::set('tabs', $codes);
+            continue;
+        }
+    };
 
+}

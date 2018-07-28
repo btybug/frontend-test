@@ -56,6 +56,11 @@ class AdminController extends Controller
 
     public function assetsUnits(Request $request, $slug = null)
     {
+        BBAddTab('mini_assets',[
+            'title' => 'Add New Unit',
+            'url' => '#',
+            'item_class'=>'pull-right info'
+        ]);
         $units = $this->painter->where('self_type','units')->get();
         $model = $this->unitService->getUnit($units, $slug);
 

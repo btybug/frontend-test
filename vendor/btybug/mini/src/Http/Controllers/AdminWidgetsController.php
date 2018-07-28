@@ -56,6 +56,11 @@ class AdminWidgetsController extends Controller
 
     public function assetsUnits(Request $request, $slug = null)
     {
+        BBAddTab('mini_assets',[
+            'title' => 'Add New Widgets',
+            'url' => '#',
+            'item_class'=>'pull-right'
+        ]);
         $units = $this->painter->where('self_type','widget')->get();
         $model = $this->unitService->getUnit($units, $slug);
 
@@ -85,16 +90,7 @@ class AdminWidgetsController extends Controller
         return redirect()->back();
     }
 
-    public function assetsForms()
-    {
-        return view('multisite::admin.assets.forms');
-    }
 
-    public function assetsPlugins()
-    {
-        return view('multisite::admin.assets.plugins');
-
-    }
 
     public function iframeRander($slug)
     {
