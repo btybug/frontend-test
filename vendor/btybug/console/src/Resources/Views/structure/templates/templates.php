@@ -9,14 +9,14 @@
         <div class="bb-add-class-panel">
             <div class="p-2" id="element-edit-panel">
                 <!-- Available Classes -->
-                <div class="bb-type-panel mb-2 bb-css-add-panel">
-                    <input type="text" class="search-classes" placeholder="Search Available Classes"/>
+                <div class="bb-type-panel mb-2 bb-css-add-panel" style="display: none;">
+                    <input type="text"  class="search-classes" placeholder="Search Available Classes"/>
                 </div>
+                <input type="text" value="{activeClasses}" class="form-control elm-class-list" readonly  />
+                <button class="btn btn-danger css-studio-classes css-studio-add-class">Add Class</button>
+                <button class="btn btn-danger css-studio-classes css-studio-custom-class" bbs-click="openClassEditor">Custom Class</button>
 
-                <button class="btn btn-danger">Add Class</button>
-                <button class="btn btn-danger">Custom Class</button>
-
-                <input type="text" class="element-classes"/>
+                <input type="text" class="element-classes" style="display: none;"/>
             </div>
         </div>
 	</div>

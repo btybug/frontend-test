@@ -78,7 +78,7 @@ var framework = {
     framework.hideElement($(".contetnFiledValue"));
     framework.hideElement($(".contentStatic"));
     framework.hideElement($(".contentFunctions"));
-    framework.hideElement($("#php-node-code-editor"));
+    // framework.hideElement($("#php-node-code-editor"));
   },
   // Generate inserted code list of content and attributes
   generateInsertedList: function() {
@@ -301,13 +301,21 @@ var framework = {
         framework.showElement($('[bb-click="nodePHPCodeSave"]'));
       } else {
         framework.hideElement($("#test3"));
+        framework.showElement($("#php-node-code-editor"));
         framework.showElement($("#bb-css-studio"));
+        let classList = $(nodeCode)
+          .attr("class")
+          .split(/\s+/);
 
         cssStudio.init(framework.currentNodeCode, {
           cssOutputSelector: "#bbcc-custom-style",
           parentSelector: ".preview-area",
           singleNode: true
         });
+        setTimeout(function() {
+          console.log($(".bbs-field-selectors").find($(".elm-class-list")));
+        }, 2000);
+        // $(".elm-class-list").val(classList.toString());
       }
     },
     mainPHPCodeEdit: function($this) {

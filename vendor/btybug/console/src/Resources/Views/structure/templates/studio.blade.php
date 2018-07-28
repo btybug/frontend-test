@@ -17,7 +17,7 @@
 {!! HTML::script("public/libs/tagsinput/bootstrap-tagsinput.min.js") !!}
 {!! HTML::script("public/libs/toggle/jquery.toggleinput.js") !!}
 {!! HTML::script("public/libs/minicolors/jquery.minicolors.min.js") !!}
-{!! Html::script("public/css-studio/css-studio.js") !!}
+{!! Html::script("public/css-studio/css-studio.js?v=".rand(999,9999)) !!}
 {!! Html::script("public/js/form-builder/handlebars.js?m=m") !!}
 
 @include('console::structure.templates.templates')

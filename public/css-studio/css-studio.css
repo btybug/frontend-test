@@ -1,5 +1,11 @@
-input, textarea, select, button, meter, progress {
-  color: inherit; }
+input,
+textarea,
+select,
+button,
+meter,
+progress {
+  color: inherit;
+}
 
 ul.bbs-editor-list {
   margin: 0 0 0 190px;
@@ -8,7 +14,8 @@ ul.bbs-editor-list {
   height: 100%;
   background: #1b1b1b;
   overflow-y: auto;
-  padding: 0; }
+  padding: 0;
+}
 
 .bbs-property-group h3 {
   background: #1b1b1b;
@@ -20,19 +27,23 @@ ul.bbs-editor-list {
   margin: 0;
   border-bottom: 1px solid #373638;
   cursor: pointer;
-  user-select: none; }
+  user-select: none;
+}
 
 .bbs-property-group h3:hover {
-  background: #000000; }
+  background: #000000;
+}
 
 .bbs-property-group h3.active {
   font-weight: bold;
-  background: #000000; }
+  background: #000000;
+}
 
 .bbs-property-group h3 i {
   float: right;
   line-height: 25px;
-  color: #474548; }
+  color: #474548;
+}
 
 .bbs-properties-list {
   color: #e6e4e6;
@@ -44,14 +55,16 @@ ul.bbs-editor-list {
   top: 0;
   bottom: 0;
   width: calc(100% - 150px);
-  overflow-y: auto; }
+  overflow-y: auto;
+}
 
 .bbs-property-container {
   padding: 0 5px 10px;
   margin-bottom: 10px;
   display: table;
   float: left;
-  height: 62px; }
+  height: 62px;
+}
 
 .bbs-input {
   width: 100%;
@@ -59,18 +72,21 @@ ul.bbs-editor-list {
   color: #ccc;
   background: #4e4e4e;
   border: 1px solid #676767;
-  outline: none; }
+  outline: none;
+}
 
 .bb-css-studio {
   background-color: #373638;
   flex: 1;
-  position: relative; }
+  position: relative;
+}
 
 .bb-css-studio h4 {
   font-size: 17px;
   color: #e6e4e6;
   padding: 10px;
-  margin: 0; }
+  margin: 0;
+}
 
 .bbs-field-selectors {
   color: #d6d6d6;
@@ -80,7 +96,8 @@ ul.bbs-editor-list {
   width: 200px;
   float: left;
   border-right: 5px solid #585858;
-  margin: 0; }
+  margin: 0;
+}
 
 .bbs-field-selectors li {
   line-height: 25px;
@@ -92,94 +109,115 @@ ul.bbs-editor-list {
   text-indent: 10px;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap; }
+  white-space: nowrap;
+}
 
 .bbs-field-selectors li:hover {
   color: #ffffff;
-  background: #585858; }
+  background: #585858;
+}
 
 .bbs-field-selectors li i {
   cursor: pointer;
   line-height: 30px;
   color: #ababab;
-  display: none; }
+  display: none;
+}
 
 .bbs-field-selectors li:hover i {
-  display: block; }
+  display: block;
+}
 
 .bbs-field-selectors li.active {
-  background: #000000; }
+  background: #000000;
+}
 
 .bb-css-studio > h3 {
   font-size: 13px;
   margin: 0;
   padding: 0 10px 10px;
-  color: #868686; }
+  color: #868686;
+}
 
 .bbs-number-spinner {
   float: left;
   margin-right: 10px;
-  width: 70px; }
-  .bbs-number-spinner .textbox {
-    width: 100% !important; }
+  width: 70px;
+}
+.bbs-number-spinner .textbox {
+  width: 100% !important;
+}
 
 .bbs-color-box {
-  width: 170px; }
+  width: 170px;
+}
 
 .bbs-dropdown-box {
-  width: 130px; }
+  width: 130px;
+}
 
 .bb-add-class-panel {
   position: absolute;
-  width: 200px;
+  width: 210px;
   left: 0;
   background: #1b1b1b;
   height: 100%;
   padding: 2px;
-  top: 0; }
+  top: 0;
+}
 
 .class-list {
-  margin-top: 10px; }
+  margin-top: 10px;
+}
 
 .bootstrap-tagsinput {
   position: absolute;
   bottom: 2px;
-  left: 0; }
+  left: 0;
+}
 
 .class-item {
   cursor: pointer;
-  color: #464646; }
+  color: #464646;
+}
 
 #element-edit-panel .bootstrap-tagsinput {
   min-height: 32px;
   width: 100%;
   border-radius: 0;
   border: none;
-  background: #000; }
+  background: #000;
+}
 
 span.tag {
   background: #e8e61c;
   user-select: none;
-  color: #000000 !important; }
+  color: #000000 !important;
+}
 
 .layout-list {
-  padding: 10px; }
+  padding: 10px;
+}
 
 a.layout-item {
   width: 50%;
   float: left;
   text-align: center;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+}
 
 .form-builder-area {
-  min-height: 50px; }
+  min-height: 50px;
+}
 
 .bb-unit {
   float: left;
-  width: 65px; }
+  width: 65px;
+}
 
 .bb-unit .bbs-dropdown-box {
-  width: 100%; }
+  width: 100%;
+}
 
 .bb-css-studio.no-active:before {
   content: "Select Element First";
@@ -195,7 +233,8 @@ a.layout-item {
   font-weight: bold;
   bottom: 0;
   top: 0;
-  line-height: 250px; }
+  line-height: 250px;
+}
 
 input.search-classes {
   border: none;
@@ -203,6 +242,7 @@ input.search-classes {
   padding: 4px;
   background: #404040;
   outline: none;
-  color: #bfbfbf; }
+  color: #bfbfbf;
+}
 
 /*# sourceMappingURL=css-studio.css.map */

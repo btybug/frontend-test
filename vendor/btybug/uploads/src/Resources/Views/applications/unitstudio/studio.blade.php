@@ -82,6 +82,29 @@
     .panel-title {
         height: 56px !important; 
     }
+    .ace_editor {
+        flex: none !important;
+    }
+
+    .bbs-editor-list {
+        display: none;
+    }
+    .css-studio-classes {
+        position: absolute;
+        bottom: 0;  
+    }
+
+    .css-studio-custom-class {
+        right: 0;
+    }
+
+    .css-studio-add-class {
+        left: 0;
+    }
+
+    .bootstrap-tagsinput {
+        display: none !important;
+    }
 .head-btn>.form-control{
 width:20%;
 }
@@ -481,8 +504,8 @@ width:20%;
                             <div class="inserted-code" hidden></div>
                         </div>
                         <div class="col px-0 d-flex" style="background-color: #373638;">
+                            <div id="php-node-code-editor" class="hidable-panel" hidden style="width: 400px !important"></div>
                             <div id="bb-css-studio" class="bb-css-studio hidable-panel" hidden></div>
-                            <div id="php-node-code-editor" class="hidable-panel" hidden></div>
                             <div id="test3" hidden style="display: flex; flex-direction: row-reverse;">
                                     <div class="filedsbuttons">
                                     <button class="btn btn-primary btnStatic" bb-click="btnStaticOpen">Static</button>
