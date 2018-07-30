@@ -25,6 +25,7 @@
     {!! HTML::style("public/libs/autocomplete/easy-autocomplete.min.css") !!}
     {!! HTML::style("public/libs/autocomplete/easy-autocomplete.themes.min.css") !!}
     {!! HTML::script("public/libs/autocomplete/jquery.easy-autocomplete.min.js") !!}
+    {!! HTML::script("public/js/jquery-ui/jquery-ui.min.js") !!}
 
     {!! HTML::script("public/libs/beautify/beautify-html.js") !!}
 
@@ -34,6 +35,7 @@
     {!! HTML::style("public/css/formio/bootstrap.vertical-tabs.min.css") !!}
     {!! Html::style("public/css/font-awesome/css/font-awesome.min.css") !!}
     {!! Html::style("public/css-studio/bootstrap-tagsinput.css") !!}
+    {!! Html::style("public/js/jquery-ui/jquery-ui.min.css") !!}
     
     <style>
         .formcomponents {
@@ -144,6 +146,10 @@ width:20%;
 
         .nav-tabs  {
             border-bottom: 0 !important;
+        }
+
+        .ui-state-hover {
+            border: 5px dashed red;
         }
     
 
@@ -365,11 +371,11 @@ width:20%;
             </div>
         </div>
 
-        <div class="tree-area h-100">
+        <div class="tree-area h-100" >
 
-            <div class="tree-container tree-view-container" style="opacity: 0; transform: translateX(200px); display: none;">
+            <div class="tree-container tree-view-container" style="opacity: 1; transform: translateX(0); display: block;">
                 <!-- Tree List -->
-                <ul class="tree-list"></ul>
+                <ul class="tree-list sortable-list"></ul>
             </div>
             <div class="tree-container createAssets-container" style="opacity: 0; transform: translateX(200px); display: none;">
                 <div class="assets-area col-12">

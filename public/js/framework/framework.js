@@ -3,8 +3,10 @@ var codeEditor,
   phpNodeCodeEditor,
   phpFullCodeEditor,
   nodeCode,
-  selectedAttr;
+  selectedAttr,
+  fullCode;
 var nodeChanger = true;
+var dropFinshed = false;
 
 var framework = {
   globalIndex: 0,
@@ -142,7 +144,8 @@ var framework = {
     var output = "";
 
     if (nodeEl.tagName !== "WRAP") {
-      output += '<li data-index="' + this.globalIndex + '">';
+      output +=
+        '<li class="item-container" data-index="' + this.globalIndex + '">';
       output +=
         '<div class="node-content">' +
         nodeEl.tagName +
@@ -157,7 +160,7 @@ var framework = {
 
     if (node.children().length > 0) {
       if (nodeEl.tagName !== "WRAP") {
-        output += "<ul>";
+        output += "<ul class='sortable-list'>";
       }
 
       node.children().each(function() {
@@ -261,14 +264,11 @@ var framework = {
       // Get last saved code
       nodeCode = framework.getNodeCodeValue($this);
       let newCodeItem = $(nodeCode).addClass("preview-area-item");
-      // console.log(nodeCode, newCodeItem.prop("outerHTML"));
       let newCode = newCodeChanger.replace(
         nodeCode,
         newCodeItem.prop("outerHTML")
       );
-      // console.log(newCode);
       framework.parseNewCodeToAll(newCode);
-      console.log(newCodeItem);
       phpNodeCodeEditor.setValue(newCodeItem.prop("outerHTML"));
       phpNodeCodeEditor.clearSelection();
       $("#current-node-text")
@@ -307,9 +307,6 @@ var framework = {
       let tag = `<${tagName}></${tagName}>`;
       let code = codeEditor.getValue();
       let newCode = code.concat(tag);
-      console.log(tag);
-      console.log(code);
-      console.log(newCode);
       framework.parseNewCodeToAll(newCode);
     },
     nodePHPCodeLoop: function($this) {
@@ -603,7 +600,62 @@ $(function() {
 
   // Listen to code change
   var test = true;
+  function droppableforSort() {
+    $(".sortable-list").sortable({
+      connectWith: ".sortable-list",
+      stop: function(event, ui) {
+        let prevItemIndex = ui.item.prev().data("index");
+        let currentItemIndex = ui.item.data("index");
+        let prevItemHtml = framework.codeWallet[prevItemIndex];
+        let currentItemHtml = framework.codeWallet[currentItemIndex];
+        console.log(currentItemHtml.prop("outerHTML"));
+        console.log(prevItemHtml.prop("outerHTML"));
+      }
+    });
+    $(".item-container").droppable({
+      accept: ".item-container",
+      classes: {
+        // "ui-droppable-active": "ui-state-active",
+        "ui-droppable-hover": "ui-state-hover"
+      },
+      drop: function(e, ui) {
+        var dropped = ui.draggable;
+        var droppedOn = $(this);
+        let droppedIndex = dropped.data("index");
+        let droppedOnIndex = droppedOn.data("index");
+        let elementToAppend = framework.codeWallet[droppedOnIndex];
+        let element = framework.codeWallet[droppedIndex];
+
+        let noEditFullCode = codeEditor.getValue();
+        let x = elementToAppend.prop("outerHTML");
+        let y = $(x).html($(x).html() + element.prop("outerHTML"));
+        let editFullCode = noEditFullCode.replace(
+          framework.codeWallet[droppedIndex].prop("outerHTML"),
+          ""
+        );
+        let finalEditCode = editFullCode.replace(
+          elementToAppend.prop("outerHTML"),
+          y.prop("outerHTML")
+        );
+        fullCode = finalEditCode;
+        framework.parseNewCodeToAll(finalEditCode);
+        dropFinshed = true;
+      }
+    });
+  }
+
   codeEditor.session.on("change", function() {
+    if (dropFinshed) {
+      // let code = codeEditor.getValue();
+      framework.codeWallet = [];
+      framework.globalIndex = 0;
+      var treeList = framework.nodeTreeGenerator(
+        $("<wrap>" + fullCode + "</wrap>")
+      );
+      $(".tree-list").html(treeList);
+      droppableforSort();
+      dropFinshed = false;
+    }
     if (test) {
       test = false;
       setTimeout(function() {
@@ -616,6 +668,10 @@ $(function() {
         );
 
         $(".tree-list").html(treeList);
+
+        // HObo
+
+        droppableforSort();
 
         // Live render
         var codeValue = codeEditor.getValue().toString() + "\n";
@@ -668,6 +724,13 @@ $(function() {
         );
 
         $(".tree-list").html(treeList);
+        // $(".sortable-list").sortable();
+        // $(".sortable-list").disableSelection();
+        // $(".sortable-list")
+        //   .sortable({
+        //     connectWith: ".sortable-list"
+        //   })
+        //   .disableSelection();
 
         // Live render
         var codeValue = phpFullCodeEditor.getValue().toString() + "\n";
