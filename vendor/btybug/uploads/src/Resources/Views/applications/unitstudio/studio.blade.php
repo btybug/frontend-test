@@ -17,7 +17,7 @@
     {!! Html::style("public/css/form-builder/form-builder.css?m=m") !!}
 
     {!! HTML::script('public/js/jquery-3.2.1.min.js') !!}
-    {!! HTML::script('public/css-studio/bootstrap-tagsinput.min.js') !!}
+    <!-- {!! HTML::script('public/css-studio/bootstrap-tagsinput.min.js') !!} -->
 
     {!! HTML::style("public/libs/jspanel/jspanel.min.css") !!}
     {!! HTML::script("public/libs/jspanel/jspanel.min.js") !!}
@@ -147,7 +147,9 @@ width:20%;
         }
     
 
-    
+    /* .bootstrap-tagsinput {
+        z-index: 9;
+    } */
     </style>
     <title>Document</title>
     <script>
@@ -157,7 +159,6 @@ width:20%;
     </script>
 </head>
 <body class="container-fluid d-flex flex-column h-100 align-items-center px-0">
-<input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput"/>
 
 
 <!-- CSS Output style -->
@@ -344,10 +345,16 @@ width:20%;
         </div>
     </div>
     <div class="col-5 h-100 px-0 d-flex flex-column visualCodeEditorToggle">
-        <div class="code-head">
+        <div class="code-head" style="display: flex">
             <button class="btn btn-warning btn-sm showLayers">Layers</button>
             <button class="btn btn-info btn-sm createHtml">HTML</button>
             <button class="btn btn-primary btn-sm createAssets">Assets</button>
+            <div class="add-custom-layers" style="display: none;">
+            <select name="custom-layer" class="form-control" id="custom-layer" >
+
+            </select>
+            <button bb-click="addHtmlTag"><i class="fa fa-plus"></i></button>
+            </div>
         </div>
         <div class="php-code-item hidden">
             PHP Code

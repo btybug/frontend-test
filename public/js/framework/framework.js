@@ -14,6 +14,127 @@ var framework = {
 
   // Current Node code
   currentNodeCode: "",
+  // All html tags
+  allHtmlTags: [
+    "a",
+    "abbr",
+    "address",
+    "area",
+    "article",
+    "aside",
+    "audio",
+    "b",
+    "base",
+    "bdi",
+    "bdo",
+    "blockquote",
+    "body",
+    "br",
+    "button",
+    "canvas",
+    "caption",
+    "cite",
+    "code",
+    "col",
+    "colgroup",
+    "data",
+    "datalist",
+    "dd",
+    "del",
+    "details",
+    "dfn",
+    "dialog",
+    "div",
+    "dl",
+    "dt",
+    "em",
+    "embed",
+    "fieldset",
+    "figcaption",
+    "figure",
+    "footer",
+    "form",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+    "head",
+    "header",
+    "hgroup",
+    "hr",
+    "html",
+    "i",
+    "iframe",
+    "img",
+    "input",
+    "ins",
+    "kbd",
+    "keygen",
+    "label",
+    "legend",
+    "li",
+    "link",
+    "main",
+    "map",
+    "mark",
+    "math",
+    "menu",
+    "menuitem",
+    "meta",
+    "meter",
+    "nav",
+    "noscript",
+    "object",
+    "ol",
+    "optgroup",
+    "option",
+    "output",
+    "p",
+    "param",
+    "picture",
+    "pre",
+    "progress",
+    "q",
+    "rb",
+    "rp",
+    "rt",
+    "rtc",
+    "ruby",
+    "s",
+    "samp",
+    "script",
+    "section",
+    "select",
+    "slot",
+    "small",
+    "source",
+    "span",
+    "strong",
+    "style",
+    "sub",
+    "summary",
+    "sup",
+    "svg",
+    "table",
+    "tbody",
+    "td",
+    "template",
+    "textarea",
+    "tfoot",
+    "th",
+    "thead",
+    "time",
+    "title",
+    "tr",
+    "track",
+    "u",
+    "ul",
+    "var",
+    "video",
+    "wbr"
+  ],
 
   // Generate node tree
   nodeTreeGenerator: function(node) {
@@ -70,6 +191,13 @@ var framework = {
     phpFullCodeEditor.clearSelection();
     codeEditor.setValue(newCode);
     codeEditor.clearSelection();
+  },
+
+  parseHtmlTagesToOption: function(elm, tags) {
+    let newTags = tags.map(
+      item => `<option data-tag="${item}">${item}</option>`
+    );
+    elm.append(newTags);
   },
 
   // Get node code editor value
@@ -173,6 +301,16 @@ var framework = {
       newCode = mainCode.replace(nodeCode, modifiedCode);
       codeEditor.setValue(style_html(newCode));
       codeEditor.clearSelection();
+    },
+    addHtmlTag: function($this) {
+      let tagName = $this.prev().val();
+      let tag = `<${tagName}></${tagName}>`;
+      let code = codeEditor.getValue();
+      let newCode = code.concat(tag);
+      console.log(tag);
+      console.log(code);
+      console.log(newCode);
+      framework.parseNewCodeToAll(newCode);
     },
     nodePHPCodeLoop: function($this) {
       var currentNodeCode = phpNodeCodeEditor.getValue(),
@@ -430,6 +568,8 @@ var framework = {
 };
 
 $(function() {
+  // Init html elements
+  framework.parseHtmlTagesToOption($("#custom-layer"), framework.allHtmlTags);
   // Init code editors
   codeEditor = ace.edit("code-editor");
   codeEditor.setTheme("ace/theme/monokai");
@@ -634,6 +774,7 @@ $(function() {
   //   codeEditor.setValue(style_html($("#demo-html").html()));
   //   codeEditor.clearSelection();
   function remooveRightSlide() {
+    $(".add-custom-layers").removeClass("displayToggle");
     $(".full-code-editor").removeClass("displayToggle");
     $(".createAssets-container").removeClass("displayToggle");
     $(".tree-view-container").removeClass("displayToggle");
@@ -642,6 +783,7 @@ $(function() {
   $(".showLayers").click(function() {
     remooveRightSlide();
     $(".tree-view-container").toggleClass("displayToggle");
+    $(".add-custom-layers").toggleClass("displayToggle");
   });
   $(".createHtml").click(function() {
     remooveRightSlide();
