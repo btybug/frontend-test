@@ -220,6 +220,7 @@ document
 
 document.querySelector(".saveForm").addEventListener("click", function() {
   let formName = document.querySelector(".form-name").value;
+  let formTarget = document.querySelector(".form_target").value;
   let formDescription = document.querySelector(".form-description").value;
   if (formName.trim().length === 0 && formDescription.trim().length === 0) {
     alert("formName & formDescription filesds is requried");
@@ -238,6 +239,7 @@ document.querySelector(".saveForm").addEventListener("click", function() {
     let obj = {
       formName: formName,
       formDescription: formDescription,
+      formTarget: formTarget,
       body: JSON.stringify(jsonForSend),
       id: editDataID
     };

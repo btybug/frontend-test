@@ -14,8 +14,10 @@ use Btybug\btybug\Models\Painter\Painter;
 use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\Mini\Model\MiniSuperLayouts;
 use Btybug\Mini\Model\MiniSuperPainter;
+use Btybug\Mini\Repositories\FormBuildedForRepository;
 use Btybug\Mini\Services\UnitService;
 use Btybug\User\Repository\MembershipRepository;
+use Btybug\Uploads\Repository\FormBuilderRepository;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -25,18 +27,22 @@ class AdminController extends Controller
     private $painter;
     private $tagsRepository;
     private $membershipRepository;
+    private $formbuilderRepository;
 
     public function __construct(
         UnitService $unitService,
         MiniSuperPainter $painter,
         TagsRepository $tagsRepository,
-        MembershipRepository $membershipRepository
+        MembershipRepository $membershipRepository,
+        FormBuilderRepository $formBuilderRepository
+
     )
     {
         $this->unitService = $unitService;
         $this->painter = $painter;
         $this->tagsRepository = $tagsRepository;
         $this->membershipRepository = $membershipRepository;
+        $this->formbuilderRepository = $formBuilderRepository;
     }
 
     public function getIndex()
@@ -92,7 +98,14 @@ class AdminController extends Controller
 
     public function assetsForms()
     {
-        return view('multisite::admin.assets.forms');
+        $conditions = ['type' => 'user settings'];
+        $user_forms = $this->formbuilderRepository->findAllByMultiple($conditions);
+        return view('multisite::admin.assets.forms')->with('user_forms',$user_forms);
+    }
+
+    public function CreateForms()
+    {
+        return view('multisite::admin.assets.formbuild');
     }
 
     public function assetsPlugins()

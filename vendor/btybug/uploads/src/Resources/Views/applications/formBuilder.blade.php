@@ -2,11 +2,16 @@
 @section ('content')
 <div class="bb-form-header">
         <div class="row">
-            <div class="col-md-4">
-                <label>Form name</label>
-                {!! Form::text('name',null,['class' => 'form-name', 'placeholder' => 'Form Name']) !!}
+            <div class="col-md-2">
+                <label>Form name
+                    {!! Form::text('name',null,['class' => 'form-name', 'placeholder' => 'Form Name']) !!}
+                </label>
+                {!! Form::hidden('target',true,['class' => 'form_target']) !!}
+                <label>Form description
+                    {!! Form::textarea('description',null,['class' => 'form-description', 'placeholder' => 'Form Description']) !!}
+                </label>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <button type="submit" class="form-save pull-right saveForm" bb-click="saveHTML">Save</button>
                 <button type="button" class="panel-trigger pull-right" data-toggle="modal" data-target="#settingsModal">
                     Settings
@@ -17,14 +22,7 @@
     @if(isset($editableData))
         <textarea class="hidden" id="formJson">{!! $editableData !!}</textarea>
     @endif
-    <div class="bb-form-sub-header">
-        <div class="row">
-            <div class="col-md-12">
-                <label>Form description</label>
-                {!! Form::textarea('description',null,['class' => 'form-description', 'placeholder' => 'Form Description']) !!}
-            </div>
-        </div>
-    </div>
+
     <div class="bb-form-header">
         <div class="row">
             <div class="col-md-12">
@@ -42,10 +40,7 @@
         </div>
     </div>
     <div class="container-fluid" style="margin-top: 60px;">
-    <!-- <div class="text-right" style="margin-bottom: 25px;">
-      <button class="btn btn-primary add-unit"> Add unit</button>
-      <button class="btn btn-primary saveForm"> Save</button>
-    </div> -->
+
 
     <div class="row formBuilderShow">
       <div class="col-sm-12">

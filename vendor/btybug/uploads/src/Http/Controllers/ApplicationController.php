@@ -55,25 +55,48 @@ class ApplicationController extends Controller
 
     public function saveBuildedForm (Request $request)
     {
+       if(!$request->formTarget){
+           $data = $request->except('_token');
 
-        $data = $request->except('_token');
+           if (!$request->id){
+               $this->formBuilderRepository->create([
+                   'title' => $data['formName'],
+                   'description' => $data['formDescription'],
+                   'json_data' => $data['body'],
+               ]);
+           }else{
+               $this->formBuilderRepository->update($request->id,[
+                   'title' => $data['formName'],
+                   'description' => $data['formDescription'],
+                   'json_data' => $data['body'],
+               ]);
+           }
+           $routeSlug = 'formbuilder';
 
-        if (!$request->id){
-            $this->formBuilderRepository->create([
-                'title' => $data['formName'],
-                'description' => $data['formDescription'],
-                'json_data' => $data['body'],
-            ]);
-        }else{
-            $this->formBuilderRepository->update($request->id,[
-                'title' => $data['formName'],
-                'description' => $data['formDescription'],
-                'json_data' => $data['body'],
-            ]);
-        }
-        $routeSlug = 'formbuilder';
+           return \Response::json(['error' => false,'url' => route('application_index',$routeSlug)]);
+       }else{
+           $data = $request->except('_token');
 
-        return \Response::json(['error' => false,'url' => route('application_index',$routeSlug)]);
+           if (!$request->id){
+               $this->formBuilderRepository->create([
+                   'title' => $data['formName'],
+                   'description' => $data['formDescription'],
+                   'json_data' => $data['body'],
+                   'type' => 'user settings'
+               ]);
+           }else{
+               $this->formBuilderRepository->update($request->id,[
+                   'title' => $data['formName'],
+                   'description' => $data['formDescription'],
+                   'json_data' => $data['body'],
+               ]);
+           }
+
+
+           return \Response::json(['error' => false,'url' => route('mini_admin_assets_forms')]);
+
+       }
+
     }
 
 
