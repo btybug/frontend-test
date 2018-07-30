@@ -5,12 +5,10 @@ if (document.querySelector("#formJson") !== null) {
   let formJsonData = JSON.parse(
     document.querySelector("#formJson").textContent
   );
-  console.log(JSON.parse(formJsonData.form_json));
   editData = JSON.parse(formJsonData.form_json)
     ? JSON.parse(formJsonData.form_json)
     : {};
   // editData = formJsonData.form_json ? formJsonData.form_json : {};
-  console.log(editData);
   if (formJsonData.form_html) {
     setTimeout(() => {
       codeEditor.setValue(formJsonData.form_html);
@@ -127,7 +125,6 @@ var builder = Formio.builder(document.getElementById("builder"), editData, {
   }
 })
   .then(function(builder) {
-    console.log(1111);
     var schema = builder.schema;
 
     jsonForSend = schema;
@@ -403,6 +400,9 @@ $(".saving-studio").click(function() {
       data.images.push(item.value);
     }
   });
+  let code = codeEditor.getValue();
+  let newCodeChanger = code.replace(/\preview-area-item/g, "");
+  framework.parseNewCodeToAll(newCodeChanger);
   data.form_html = codeEditor.getValue();
   if (exist) {
     data.exist = exist;

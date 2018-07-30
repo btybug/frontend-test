@@ -17,6 +17,7 @@
     {!! Html::style("public/css/form-builder/form-builder.css?m=m") !!}
 
     {!! HTML::script('public/js/jquery-3.2.1.min.js') !!}
+    {!! HTML::script('public/css-studio/bootstrap-tagsinput.min.js') !!}
 
     {!! HTML::style("public/libs/jspanel/jspanel.min.css") !!}
     {!! HTML::script("public/libs/jspanel/jspanel.min.js") !!}
@@ -32,6 +33,7 @@
     {!! HTML::style("public/css/formio/formio.full.min.css") !!}
     {!! HTML::style("public/css/formio/bootstrap.vertical-tabs.min.css") !!}
     {!! Html::style("public/css/font-awesome/css/font-awesome.min.css") !!}
+    {!! Html::style("public/css-studio/bootstrap-tagsinput.css") !!}
     
     <style>
         .formcomponents {
@@ -102,9 +104,12 @@
         left: 0;
     }
 
-    .bootstrap-tagsinput {
-        display: none !important;
+    .preview-area-item {
+        border: 2px dashed red;
     }
+    /* .bootstrap-tagsinput {
+        display: none !important;
+    } */
 .head-btn>.form-control{
 width:20%;
 }
@@ -152,6 +157,8 @@ width:20%;
     </script>
 </head>
 <body class="container-fluid d-flex flex-column h-100 align-items-center px-0">
+<input type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput"/>
+
 
 <!-- CSS Output style -->
 <style id="bbcc-custom-style"></style>

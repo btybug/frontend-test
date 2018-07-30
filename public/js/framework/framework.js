@@ -65,13 +65,17 @@ var framework = {
 
     return templateHTML;
   },
+  parseNewCodeToAll: function(newCode) {
+    phpFullCodeEditor.setValue(newCode);
+    phpFullCodeEditor.clearSelection();
+    codeEditor.setValue(newCode);
+    codeEditor.clearSelection();
+  },
 
   // Get node code editor value
   getNodeCodeValue: function($this) {
     var index = $this.closest("[data-index]").data("index"),
       nodeCode = this.codeWallet[index];
-    console.log(this.codeWallet);
-    console.log(index);
     return nodeCode[0].outerHTML;
   },
   hideAllContentElements() {
@@ -123,12 +127,22 @@ var framework = {
       framework.hideAllContentElements();
       nodeChanger = false;
       nodeCode = null;
+      let code = codeEditor.getValue();
+      let newCodeChanger = code.replace(/\preview-area-item/g, "");
+      framework.parseNewCodeToAll(newCodeChanger);
       // Get last saved code
       nodeCode = framework.getNodeCodeValue($this);
-      phpNodeCodeEditor.setValue(nodeCode);
-
+      let newCodeItem = $(nodeCode).addClass("preview-area-item");
+      // console.log(nodeCode, newCodeItem.prop("outerHTML"));
+      let newCode = newCodeChanger.replace(
+        nodeCode,
+        newCodeItem.prop("outerHTML")
+      );
+      // console.log(newCode);
+      framework.parseNewCodeToAll(newCode);
+      console.log(newCodeItem);
+      phpNodeCodeEditor.setValue(newCodeItem.prop("outerHTML"));
       phpNodeCodeEditor.clearSelection();
-
       $("#current-node-text")
         .text(
           $this
@@ -180,19 +194,15 @@ var framework = {
     btnStaticOpen: function() {
       selectedAttr = $(".inserted-item.active").data("attr");
       selectedAttr == "content" ? "text()" : selectedAttr;
-      console.error(selectedAttr);
       framework.hideAllContentElements();
       framework.showElement($(".contentStatic"));
       framework.showElement($(".staticDynamic"));
       let elm = $(nodeCode);
-      console.log(elm);
-      console.log(selectedAttr);
       if (selectedAttr === "content") {
         $("#staticInput").val(elm.text());
       } else {
         $("#staticInput").val(elm.attr(selectedAttr));
       }
-      console.log($("#staticInput"));
       framework.showElement($("#php-node-code-editor"));
       framework.showElement($('[bb-click="nodePHPCodeSave"]'));
     },
@@ -200,7 +210,6 @@ var framework = {
       framework.hideAllContentElements();
       var filedsOptions = null;
       framework.showElement($(".contetnFiledValue"));
-      console.log(jsonForSend);
       if (jsonForSend) {
         filedsOptions = jsonForSend.components.map(item => {
           return `<option data-id="${item.id}">${item.label}</option>`;
@@ -282,6 +291,7 @@ var framework = {
     },
     handleNodeItemClick: function($this) {
       framework.hideAllContentElements();
+      framework.showElement($("#php-node-code-editor"));
 
       $(".inserted-item").removeClass("active");
       $this.addClass("active");
@@ -291,31 +301,24 @@ var framework = {
       // Hide all panels
       framework.hideElement($(".hidable-panel"));
       framework.hideElement($('[bb-click="nodePHPCodeSave"]'));
-      console.log(itemAttr);
       // Content & non class attribute
       if (itemAttr === "content") {
         framework.showElement($("#test3"));
+        framework.showElement($("#php-node-code-editor"));
       } else if (itemAttr !== "class") {
         framework.showElement($("#test3"));
-        // framework.showElement($("#php-node-code-editor"));
+        framework.showElement($("#php-node-code-editor"));
         framework.showElement($('[bb-click="nodePHPCodeSave"]'));
       } else {
         framework.hideElement($("#test3"));
         framework.showElement($("#php-node-code-editor"));
         framework.showElement($("#bb-css-studio"));
-        let classList = $(nodeCode)
-          .attr("class")
-          .split(/\s+/);
 
         cssStudio.init(framework.currentNodeCode, {
           cssOutputSelector: "#bbcc-custom-style",
           parentSelector: ".preview-area",
           singleNode: true
         });
-        setTimeout(function() {
-          console.log($(".bbs-field-selectors").find($(".elm-class-list")));
-        }, 2000);
-        // $(".elm-class-list").val(classList.toString());
       }
     },
     mainPHPCodeEdit: function($this) {
@@ -622,7 +625,6 @@ $(function() {
         });
         // });
       } else {
-        console.log("dasfasdasdfffffffffffffdfasdf");
         nodeCode = framework.currentNodeCode;
       }
     }
@@ -660,7 +662,6 @@ $(function() {
   // Node code position change event
   $(".node-code-position").change(function() {
     // Vagh@ nael
-    console.log($(this).val());
     if ($(this).val() === "Attributes") {
       framework.showElement($(".custom-attribute"));
     } else {
