@@ -78,8 +78,7 @@ class ApplicationController extends Controller
            return \Response::json(['error' => false,'url' => route('application_index',$routeSlug)]);
        }else{
            $data = $request->except('_token');
-           dd($data);
-           if (!count($request->id)){
+           if (!$request->id){
                $this->formBuilderRepository->create([
                    'title' => $data['formName'],
                    'description' => $data['formDescription'],
