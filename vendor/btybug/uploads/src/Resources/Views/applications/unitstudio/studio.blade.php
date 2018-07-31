@@ -107,7 +107,7 @@
     }
 
     .preview-area-item {
-        border: 2px dashed red;
+        border: 0.5px dashed #face20;
     }
     /* .bootstrap-tagsinput {
         display: none !important;
@@ -149,7 +149,7 @@ width:20%;
         }
 
         .ui-state-hover {
-            border: 5px dashed red;
+            border: 1px dashed red;
         }
     
 
@@ -583,6 +583,7 @@ width:20%;
 <script type="template" id="bbt-controls">
     <div class="controls">
         <i bb-click="editPHPCode" class="fas fa-edit"></i>
+        <i bb-click="removeHtmlElement" class="fas fa-remove"></i>
     </div>
 </script>
 

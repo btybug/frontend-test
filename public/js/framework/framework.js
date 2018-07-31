@@ -264,10 +264,12 @@ var framework = {
       // Get last saved code
       nodeCode = framework.getNodeCodeValue($this);
       let newCodeItem = $(nodeCode).addClass("preview-area-item");
+
       let newCode = newCodeChanger.replace(
         nodeCode,
         newCodeItem.prop("outerHTML")
       );
+      nodeCode = newCodeItem.prop("outerHTML");
       framework.parseNewCodeToAll(newCode);
       phpNodeCodeEditor.setValue(newCodeItem.prop("outerHTML"));
       phpNodeCodeEditor.clearSelection();
@@ -291,6 +293,12 @@ var framework = {
 
       framework.generateInsertedList();
       nodeChanger = true;
+    },
+    removeHtmlElement: function($this) {
+      var nodeCode = framework.getNodeCodeValue($this),
+        mainCode = codeEditor.getValue();
+      let newCode = mainCode.replace(nodeCode, "");
+      framework.parseNewCodeToAll(newCode);
     },
     nodePHPCodeSave: function() {
       var nodeCode = framework.currentNodeCode,
@@ -606,10 +614,36 @@ $(function() {
       stop: function(event, ui) {
         let prevItemIndex = ui.item.prev().data("index");
         let currentItemIndex = ui.item.data("index");
-        let prevItemHtml = framework.codeWallet[prevItemIndex];
-        let currentItemHtml = framework.codeWallet[currentItemIndex];
-        console.log(currentItemHtml.prop("outerHTML"));
-        console.log(prevItemHtml.prop("outerHTML"));
+        if (prevItemIndex) {
+          let prevItemHtml = framework.codeWallet[prevItemIndex];
+          let currentItemHtml = framework.codeWallet[currentItemIndex];
+          let noEditFullCode = codeEditor.getValue();
+          let y =
+            prevItemHtml.prop("outerHTML") + currentItemHtml.prop("outerHTML");
+          let editFullCode = noEditFullCode.replace(
+            framework.codeWallet[currentItemIndex].prop("outerHTML"),
+            ""
+          );
+          let finalEditCode = editFullCode.replace(
+            prevItemHtml.prop("outerHTML"),
+            y
+          );
+          fullCode = finalEditCode;
+          framework.parseNewCodeToAll(finalEditCode);
+          dropFinshed = true;
+        } else {
+          let currentItemHtml = framework.codeWallet[currentItemIndex];
+          let noEditFullCode = codeEditor.getValue();
+
+          let editFullCode = noEditFullCode.replace(
+            framework.codeWallet[currentItemIndex].prop("outerHTML"),
+            ""
+          );
+          let finalEditCode = currentItemHtml.prop("outerHTML") + editFullCode;
+          fullCode = finalEditCode;
+          framework.parseNewCodeToAll(finalEditCode);
+          dropFinshed = true;
+        }
       }
     });
     $(".item-container").droppable({
@@ -773,7 +807,6 @@ $(function() {
       var modifiedCode = phpNodeCodeEditor.getValue(),
         mainCode = codeEditor.getValue(),
         newCode;
-
       if (nodeCode) {
         var nodeElement = $(modifiedCode);
         if (selectedAttr === "content") {
