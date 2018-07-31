@@ -3,12 +3,12 @@
 namespace Btybug\Mini\Repositories;
 
 use Btybug\btybug\Repositories\GeneralRepository;
-use Btybug\Mini\Model\FormBuilderFor;
+use Btybug\Mini\Model\FormBuildedFor;
 
-class FormBuilderForRepository extends GeneralRepository
+class FormBuildedForRepository extends GeneralRepository
 {
     public function model()
     {
-        return new FormBuilderFor;
+        return new FormBuildedFor();
     }
 }
