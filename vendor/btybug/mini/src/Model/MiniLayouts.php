@@ -466,7 +466,7 @@ class MiniLayouts extends BasePainter implements VariationAccess
 
     }
 
-    protected function scopeMakeVariation($setteings = [])
+    protected function scopeMakeVariation($setteings = [],$slug=null,bool $hidden=false)
     {
         $variation = new ContentLayoutVariations();
         return $variation->createVariation($this, $setteings);
