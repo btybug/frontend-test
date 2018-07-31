@@ -70,9 +70,9 @@ class PagesService
         $users = $this->userRepository->findAllByMultiple(['role_id' => 0]);
         foreach ($users as $user) {
             if ($user->frontPages()->where('mini_page_id', $id)->exists()) {
-                return $user->frontPages()->where('mini_page_id', $id)->update(['status', $page->status]);
+                 $user->frontPages()->where('mini_page_id', $id)->update(['status', $page->status]);
             } else {
-                return $this->clonePage($page, $user);
+                 $this->clonePage($page, $user);
             };
         }
     }
