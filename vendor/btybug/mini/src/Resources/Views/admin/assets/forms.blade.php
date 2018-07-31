@@ -23,11 +23,11 @@
                                 <td>{{$val->title}}</td>
                                 <td>{{$val->description}}</td>
                                 <td>
-                                    <a class="pull-right btn btn-danger" href=""><span
+                                    <a class="pull-right btn btn-danger" href="{{route('mini_admin_assets_form_delete',$val->id)}}"><span
                                                 class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                                    <a class="pull-right btn btn-warning" href=""><span
+                                    <a class="pull-right btn btn-warning" href="{{route('mini_admin_assets_form_edit',$val->id)}}"><span
                                                 class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                                    <a class="pull-right btn btn-info" href=""><span
+                                    <a class="pull-right btn btn-info" href="{{route('mini_admin_assets_form_render',$val->id)}}"><span
                                                 class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
                                 </td>
 

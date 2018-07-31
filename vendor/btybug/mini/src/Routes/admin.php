@@ -53,6 +53,9 @@ Route::group(['prefix' => 'assets'], function () {
     Route::get('/plugins', 'AdminController@assetsPlugins', true)->name('mini_admin_assets_plugins');
     Route::get('/forms', 'AdminController@assetsForms', true)->name('mini_admin_assets_forms');
     Route::get('/forms/create', 'AdminController@CreateForms', true)->name('mini_admin_assets_form_build');
+    Route::get('/forms/edit/{id}', 'AdminController@EditForms', true)->name('mini_admin_assets_form_edit');
+    Route::get('/forms/delete/{id}', 'AdminController@DeleteForms', true)->name('mini_admin_assets_form_delete');
+    Route::get('/forms/render/{id}', 'AdminController@RenderForms', true)->name('mini_admin_assets_form_render');
     Route::post('/create-page', 'AdminPagesController@createPage', true)->name('minicms_create_page');
     Route::post('/edit-page', 'AdminPagesController@editPage', true)->name('minicms_edit_page');
     Route::post('/get-page-edit-form', 'AdminPagesController@getPageEditForl', true)->name('minicms_page_edit_form_page');

@@ -14,7 +14,6 @@ use Btybug\btybug\Models\Painter\Painter;
 use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\Mini\Model\MiniSuperLayouts;
 use Btybug\Mini\Model\MiniSuperPainter;
-use Btybug\Mini\Repositories\FormBuildedForRepository;
 use Btybug\Mini\Services\UnitService;
 use Btybug\User\Repository\MembershipRepository;
 use Btybug\Uploads\Repository\FormBuilderRepository;
@@ -34,7 +33,7 @@ class AdminController extends Controller
         MiniSuperPainter $painter,
         TagsRepository $tagsRepository,
         MembershipRepository $membershipRepository,
-        FormBuilderRepository $formBuilderRepository
+        FormBuilderRepository $formbuilderRepository
 
     )
     {
@@ -42,7 +41,7 @@ class AdminController extends Controller
         $this->painter = $painter;
         $this->tagsRepository = $tagsRepository;
         $this->membershipRepository = $membershipRepository;
-        $this->formbuilderRepository = $formBuilderRepository;
+        $this->formbuilderRepository = $formbuilderRepository;
     }
 
     public function getIndex()
@@ -98,7 +97,7 @@ class AdminController extends Controller
 
     public function assetsForms()
     {
-        $conditions = ['type' => 'user settings'];
+        $conditions = ['type' => 'user_settings'];
         $user_forms = $this->formbuilderRepository->findAllByMultiple($conditions);
         return view('multisite::admin.assets.forms')->with('user_forms',$user_forms);
     }
@@ -170,5 +169,24 @@ class AdminController extends Controller
         $settings_json = json_encode($settings, true);
 
         return view('uploads::gears.units._partials.unit_preview', compact(['htmlBody', 'htmlSettings', 'settings', 'settings_json', 'id', 'ui']));
+    }
+
+    public function DeleteForms($id = null){
+        if ($id){
+            $this->formbuilderRepository->delete($id);
+        }
+
+        return back();
+    }
+
+    public function EditForms($id = null){
+        $editableData = $this->formbuilderRepository->findOrFail($id);
+
+        return view('multisite::admin.assets.formbuild')->with('editableData', $editableData);
+    }
+
+    public function RenderForms($id = null){
+        $editableData = $this->formbuilderRepository->findOrFail($id);
+        return view('uploads::applications.formRender')->with('editableData', $editableData);
     }
 }

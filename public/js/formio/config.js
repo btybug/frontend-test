@@ -8,7 +8,10 @@ if (document.querySelector("#formJson") !== null) {
   editData = JSON.parse(formJsonData.form_json)
     ? JSON.parse(formJsonData.form_json)
     : {};
-  // editData = formJsonData.form_json ? formJsonData.form_json : {};
+    console.log(formJsonData.title, formJsonData.description)
+    document.querySelector(".form-name") ? document.querySelector(".form-name").value =   formJsonData.title : null
+    document.querySelector(".form-description") ? document.querySelector(".form-description").value = formJsonData.description : null
+    // editData = formJsonData.form_json ? formJsonData.form_json : {};
   if (formJsonData.form_html) {
     setTimeout(() => {
       codeEditor.setValue(formJsonData.form_html);

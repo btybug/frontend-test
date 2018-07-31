@@ -38,7 +38,8 @@ class ApplicationController extends Controller
         $studiosData = $this->studioRepository->getAll();
         $unitdata = $this->unitStudioRepository->getAll();
         if ($slug && $slug == 'formbuilder'){
-            $this->data = $this->formBuilderRepository->getAll();
+            $conditions = ['type' => null];
+            $this->data = $this->formBuilderRepository->findAllByMultiple($conditions);
             return view('uploads::applications.index')->with(['allData' => $this->data,'studiosData' => $studiosData,'slug' => $slug]);
 
         }elseif ($slug && $slug == 'unitstudio'){
@@ -62,13 +63,13 @@ class ApplicationController extends Controller
                $this->formBuilderRepository->create([
                    'title' => $data['formName'],
                    'description' => $data['formDescription'],
-                   'json_data' => $data['body'],
+                   'form_json' => $data['body'],
                ]);
            }else{
                $this->formBuilderRepository->update($request->id,[
                    'title' => $data['formName'],
                    'description' => $data['formDescription'],
-                   'json_data' => $data['body'],
+                   'form_json' => $data['body'],
                ]);
            }
            $routeSlug = 'formbuilder';
@@ -81,14 +82,14 @@ class ApplicationController extends Controller
                $this->formBuilderRepository->create([
                    'title' => $data['formName'],
                    'description' => $data['formDescription'],
-                   'json_data' => $data['body'],
-                   'type' => 'user settings'
+                   'form_json' => $data['body'],
+                   'type' => 'user_settings'
                ]);
            }else{
                $this->formBuilderRepository->update($request->id,[
                    'title' => $data['formName'],
                    'description' => $data['formDescription'],
-                   'json_data' => $data['body'],
+                   'form_json' => $data['body'],
                ]);
            }
 
