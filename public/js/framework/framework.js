@@ -224,7 +224,7 @@ var framework = {
 
     if (nodeCodeEl.text()) {
       list +=
-        '<div class="inserted-item" data-item="content" data-attr="content" bb-click="handleNodeItemClick"> Content <div class="controls"> <a href="#" bb-click="removeNodeContent"><i class="fas fa-trash"></i></a> </div> </div>';
+        '<div class="inserted-item" data-item="content" data-attr="content" bb-click="handleNodeItemClick"> Content <div class="controls"><input type="checkbox" class="style-checkbox"  > <a href="#" bb-click="removeNodeContent"><i class="fas fa-trash"></i></a> </div> </div>';
     }
 
     if (nodeCode.indexOf("@foreach") !== -1) {
@@ -244,9 +244,9 @@ var framework = {
           this.name +
           '" bb-click="handleNodeItemClick"> Attribute: ' +
           this.name +
-          '<div class="controls"> <a href="#" bb-click="removeNodeAttr" data-attr="' +
+          '<div class="controls"> <input type="checkbox" class="style-checkbox"  > <a href="#" bb-click="removeNodeAttr" data-attr="' +
           this.name +
-          '"><i class="fas fa-trash"></i></a> </div> </div>';
+          '"> <i class="fas fa-trash"></i></a> </div> </div>';
       });
     }
 
@@ -294,6 +294,10 @@ var framework = {
       framework.generateInsertedList();
       nodeChanger = true;
     },
+    // styleCheckboxTrigger: function(e) {
+    //   console.log(e);
+    //   console.log(111);
+    // },
     removeHtmlElement: function($this) {
       var nodeCode = framework.getNodeCodeValue($this),
         mainCode = codeEditor.getValue();
@@ -433,6 +437,8 @@ var framework = {
       framework.generateInsertedList();
     },
     handleNodeItemClick: function($this) {
+      // Hobo
+      console.log($this);
       framework.hideAllContentElements();
       framework.showElement($("#php-node-code-editor"));
 
@@ -875,6 +881,24 @@ $(function() {
     $(".createAssets-container").removeClass("displayToggle");
     $(".tree-view-container").removeClass("displayToggle");
   }
+
+  $("body").on("click", ".style-checkbox", function(e) {
+    e.stopPropagation();
+  });
+  $("body").on("change", ".style-checkbox", function(e) {
+    $("#styles-area").empty();
+    $(".inserted-item").each((index, item) => {
+      let elm = $(item)
+        .find(".style-checkbox:checked")
+        .closest(".inserted-item")
+        .clone();
+      let elmText = elm.text();
+      elm.empty();
+      elm.text(elmText);
+      elm.appendTo("#styles-area");
+      console.log(elm);
+    });
+  });
 
   $(".showLayers").click(function() {
     remooveRightSlide();
