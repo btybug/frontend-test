@@ -15,6 +15,7 @@ use Btybug\btybug\Repositories\AdminsettingRepository;
 use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\Mini\Repositories\MinicmsPagesRepository;
 use Btybug\Mini\Services\PagesService;
+use Btybug\Uploads\Repository\FormBuilderRepository;
 use Illuminate\Http\Request;
 
 
@@ -23,18 +24,21 @@ class AdminPagesController extends Controller
     private $pageRepository;
     private $settings;
     private $pagesService;
+    private $formBuilderRepository;
 
     public function __construct(
         MinicmsPagesRepository $pagesRepository,
         AdminsettingRepository $settings,
         TagsRepository $tagsRepository,
         PagesService $pagesService
+        FormBuilderRepository $formBuilderRepository
     )
     {
         $this->pageRepository = $pagesRepository;
         $this->settings = $settings;
         $this->tagsRepository = $tagsRepository;
         $this->pagesService = $pagesService;
+        $this->formBuilderRepository = $formBuilderRepository;
     }
 
     public function assetsPages()
@@ -76,15 +80,20 @@ class AdminPagesController extends Controller
     {
         $header = Settings::where('section', 'minicms')->where('settingkey', 'default_header')->select('val AS header')->first();
         $layout = Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS layout')->first();
-        return view('multisite::admin.assets.general', compact('header', 'layout'));
+        $settingForm = ['type' => 'user_settings'];
+        $forms = $this->formBuilderRepository->findAllByMultiple($settingForm);
+        $selectedForm = Settings::where('section', 'minicms')->where('settingkey', 'default_user_form_id')->first();
+        return view('multisite::admin.assets.general', compact('header', 'layout','forms','selectedForm'));
     }
 
     public function assetsGeneralSave(Request $request)
     {
         $header = $request->get('header');
         $layout = $request->get('layout');
+        $user_form = $request->get('user_set_form_id');
         $this->settings->createOrUpdate($header, 'minicms', 'default_header');
         $this->settings->createOrUpdate($layout, 'minicms', 'default_layout');
+        $this->settings->createOrUpdate($user_form, 'minicms', 'default_user_form_id');
         return redirect()->back();
     }
 }

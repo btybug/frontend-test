@@ -16,6 +16,21 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group">
+                <label class="col-md-12" for="selectmultiple">Select default user's form</label>
+                <div class="col-md-4">
+                    <select id="selectmultiple" name="user_set_form_id" class="form-control" >
+                        @foreach($forms as $key => $val)
+                            <option value="{{$val->id}}"
+                                    @if($selectedForm->val == $val->id)
+                                        selected
+                                    @endif
+                                            >
+                                {{$val->title}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
 
             <div class="form-group row">
                 <div class="col-xs-offset-4 col-xs-8">

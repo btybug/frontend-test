@@ -15,10 +15,21 @@ use Btybug\Mini\Http\Requests\PageCreateRequest;
 use Btybug\Mini\Model\MiniPainter;
 use Btybug\Mini\Services\PagesService;
 use Btybug\Console\Repository\FrontPagesRepository;
+use Btybug\Uploads\Repository\FormBuilderRepository;
+use Btybug\btybug\Models\Settings;
 use Illuminate\Http\Request;
 
 class ClientController extends MiniController
 {
+    private $formBuilderRepository;
+
+    public function __construct(
+        FormBuilderRepository $formBuilderRepository
+    )
+    {
+        $this->formBuilderRepository = $formBuilderRepository;
+    }
+
     public function account(Request $request)
     {
         $this->ennable($request);
@@ -27,8 +38,10 @@ class ClientController extends MiniController
 
     public function accountSettings(Request $request)
     {
+        $form = $layout = Settings::where('section', 'minicms')->where('settingkey', 'default_user_form_id')->get();
+        $editableData = $this->formBuilderRepository->findOrFail($form[0]->val);
         $this->ennable($request);
-        return $this->cms->accountSettings();
+        return $this->cms->accountSettings()->with(['form' => $form,'editableData' => $editableData]);
     }
 
     public function accountGeneral(Request $request)

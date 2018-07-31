@@ -58,6 +58,7 @@ if (document.querySelector("#formJson") !== null) {
       : null;
   });
 }
+console.log(document.getElementById("builder"))
 var builder = Formio.builder(document.getElementById("builder"), editData, {
   builder: {
     basic: false,
@@ -133,6 +134,8 @@ var builder = Formio.builder(document.getElementById("builder"), editData, {
     jsonForSend = schema;
     var jsonElement = document.getElementById("json"); // Data full
     var formElement = document.getElementById("formio"); // full form
+      console.log(formElement)
+      console.log(jsonElement)
     builder.on("saveComponent", function() {
       jsonForSend = schema;
       jsonElement.innerHTML = "";
