@@ -30,7 +30,7 @@ class AdminPagesController extends Controller
         MinicmsPagesRepository $pagesRepository,
         AdminsettingRepository $settings,
         TagsRepository $tagsRepository,
-        PagesService $pagesService
+        PagesService $pagesService,
         FormBuilderRepository $formBuilderRepository
     )
     {
