@@ -223,7 +223,9 @@ document
 
 document.querySelector(".saveForm").addEventListener("click", function() {
   let formName = document.querySelector(".form-name").value;
-  let formTarget = document.querySelector(".form_target").value;
+  if(document.querySelector(".form_target")){
+      let formTarget = document.querySelector(".form_target").value;
+  }
   let formDescription = document.querySelector(".form-description").value;
   if (formName.trim().length === 0 && formDescription.trim().length === 0) {
     alert("formName & formDescription filesds is requried");
@@ -234,18 +236,28 @@ document.querySelector(".saveForm").addEventListener("click", function() {
   } else if (jsonForSend === null || jsonForSend == "undefined") {
     alert("Data is empty");
   } else {
+    var obj = {}
     let editDataID =
       document.querySelector("#formJson") !== null
         ? JSON.parse(document.querySelector("#formJson").value).id
         : null;
+    if(document.querySelector(".form_target")){
+         obj = {
+            formName: formName,
+            formDescription: formDescription,
+            formTarget: formTarget,
+            body: JSON.stringify(jsonForSend),
+            id: editDataID
+        };
+    }else{
+         obj = {
+            formName: formName,
+            formDescription: formDescription,
+            body: JSON.stringify(jsonForSend),
+            id: editDataID
+        };
+    }
 
-    let obj = {
-      formName: formName,
-      formDescription: formDescription,
-      formTarget: formTarget,
-      body: JSON.stringify(jsonForSend),
-      id: editDataID
-    };
     $.ajax({
       type: "post",
       datatype: "json",

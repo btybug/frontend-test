@@ -6,7 +6,6 @@
                 <label>Form name
                     {!! Form::text('name',null,['class' => 'form-name', 'placeholder' => 'Form Name']) !!}
                 </label>
-                {!! Form::hidden('target',true,['class' => 'form_target']) !!}
                 <label>Form description
                     {!! Form::textarea('description',null,['class' => 'form-description', 'placeholder' => 'Form Description']) !!}
                 </label>

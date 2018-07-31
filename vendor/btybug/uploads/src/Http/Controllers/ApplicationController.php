@@ -56,6 +56,7 @@ class ApplicationController extends Controller
 
     public function saveBuildedForm (Request $request)
     {
+
        if(!$request->formTarget){
            $data = $request->except('_token');
 
@@ -77,8 +78,8 @@ class ApplicationController extends Controller
            return \Response::json(['error' => false,'url' => route('application_index',$routeSlug)]);
        }else{
            $data = $request->except('_token');
-
-           if (!$request->id){
+           dd($data);
+           if (!count($request->id)){
                $this->formBuilderRepository->create([
                    'title' => $data['formName'],
                    'description' => $data['formDescription'],
