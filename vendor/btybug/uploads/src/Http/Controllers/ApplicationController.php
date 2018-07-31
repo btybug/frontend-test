@@ -38,7 +38,7 @@ class ApplicationController extends Controller
         $studiosData = $this->studioRepository->getAll();
         $unitdata = $this->unitStudioRepository->getAll();
         if ($slug && $slug == 'formbuilder'){
-            $conditions = ['type' => ""];
+            $conditions = ['type' => null];
             $this->data = $this->formBuilderRepository->findAllByMultiple($conditions);
             return view('uploads::applications.index')->with(['allData' => $this->data,'studiosData' => $studiosData,'slug' => $slug]);
 
@@ -65,12 +65,14 @@ class ApplicationController extends Controller
                    'title' => $data['formName'],
                    'description' => $data['formDescription'],
                    'form_json' => $data['body'],
+                   'type' => null
                ]);
            }else{
                $this->formBuilderRepository->update($request->id,[
                    'title' => $data['formName'],
                    'description' => $data['formDescription'],
                    'form_json' => $data['body'],
+                   'type' => null
                ]);
            }
            $routeSlug = 'formbuilder';
@@ -90,6 +92,7 @@ class ApplicationController extends Controller
                    'title' => $data['formName'],
                    'description' => $data['formDescription'],
                    'form_json' => $data['body'],
+                   'type' => null
                ]);
            }
 
