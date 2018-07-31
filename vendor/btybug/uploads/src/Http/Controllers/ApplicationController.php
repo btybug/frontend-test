@@ -65,14 +65,12 @@ class ApplicationController extends Controller
                    'title' => $data['formName'],
                    'description' => $data['formDescription'],
                    'form_json' => $data['body'],
-                   'type' => null
                ]);
            }else{
                $this->formBuilderRepository->update($request->id,[
                    'title' => $data['formName'],
                    'description' => $data['formDescription'],
                    'form_json' => $data['body'],
-                   'type' => null
                ]);
            }
            $routeSlug = 'formbuilder';
@@ -92,7 +90,6 @@ class ApplicationController extends Controller
                    'title' => $data['formName'],
                    'description' => $data['formDescription'],
                    'form_json' => $data['body'],
-                   'type' => null
                ]);
            }
 
