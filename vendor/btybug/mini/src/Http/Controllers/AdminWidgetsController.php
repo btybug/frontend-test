@@ -63,10 +63,8 @@ class AdminWidgetsController extends Controller
         ]);
         $units = $this->painter->where('self_type','widget')->get();
         $model = $this->unitService->getUnit($units, $slug);
-
         $tags = $model->tags;
         $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
-
         $tags = implode(',', $tags);
         $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
         return view('multisite::admin.assets.widgets.preview', compact(['units', 'model', 'slug','tags','memberships','variations']));

@@ -15,7 +15,7 @@ class FrontPages
         if (!$page) {
             $page = FrontendPage::where('url', $url)->orWhere('url', "/" . $url)->first();
         }
-
+dd($page,123);
         if ($page) {
             $settings['_page'] = $page;
             $settings['main_content'] = $page->main_content;
