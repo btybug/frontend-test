@@ -39,7 +39,8 @@ class ApplicationController extends Controller
         $unitdata = $this->unitStudioRepository->getAll();
         if ($slug && $slug == 'formbuilder'){
             $conditions = ['type' => null];
-            $this->data = $this->formBuilderRepository->findAllByMultiple($conditions);
+//            findAllByMultiple($conditions);
+            $this->data = $this->formBuilderRepository->getAll();
             return view('uploads::applications.index')->with(['allData' => $this->data,'studiosData' => $studiosData,'slug' => $slug]);
 
         }elseif ($slug && $slug == 'unitstudio'){
