@@ -10,17 +10,26 @@ namespace Btybug\Mini\Services;
 
 
 use Btybug\Console\Repository\FrontPagesRepository;
+use Btybug\Mini\Generator;
+use Btybug\Mini\Repositories\MinicmsPagesRepository;
+use Btybug\User\Repository\UserRepository;
 use Illuminate\Http\Request;
 
 class PagesService
 {
     private $pagesRepositroy;
+    private $minicmsPagesRepository;
+    private $userRepository;
 
     public function __construct(
-        FrontPagesRepository $frontPagesRepository
+        FrontPagesRepository $frontPagesRepository,
+        MinicmsPagesRepository $minicmsPagesRepository,
+        UserRepository $userRepository
     )
     {
         $this->pagesRepositroy = $frontPagesRepository;
+        $this->minicmsPagesRepository = $minicmsPagesRepository;
+        $this->userRepository = $userRepository;
     }
 
     public function editPage(Request $request)
@@ -44,5 +53,54 @@ class PagesService
         }
     }
 
+    public function create($data)
+    {
+        $data['page_layout'] = ($data['layout'] == 0) ? null : $data['page_layout'];
+        $data['header_unit'] = ($data['header'] == 2) ? $data['header_unit'] : null;
+        $page= $this->minicmsPagesRepository->create($data);
+        if($page->status=='published'){
+            $this->pageOptimize($page->id);
+        }
+        return $page;
+    }
+
+    public function pageOptimize(int $id)
+    {
+        $page = $this->minicmsPagesRepository->findOrFail($id);
+        $users = $this->userRepository->findAllByMultiple(['role_id' => 0]);
+        foreach ($users as $user) {
+            if ($user->frontPages()->where('mini_page_id', $id)->exists()) {
+                return $user->frontPages()->where('mini_page_id', $id)->update(['status', $page->status]);
+            } else {
+                return $this->clonePage($page, $user);
+            };
+        }
+    }
+
+    public function clonePage($corePage, $user)
+    {
+        $url = ($corePage->url == null or $corePage->url == '/') ? '/' . $user->username : '/' . $user->username . '/' . $corePage->url;
+        $data = [
+            'title' => $corePage->title,
+            'url' => $url,
+            'user_id' => $user->id,
+            'status' => 'published',
+            'page_access' => 0,
+            'slug' => str_slug($corePage->title . $user->id),
+            'type' => 'core',
+            'render_method' => true,
+            'content_type' => 'template',
+            'template' => $corePage->template,
+            'module_id' => 'btybug/mini',
+            'page_layout' => $corePage->page_layout,
+            'header' => $corePage->header,
+            'header_unit' => $corePage->header_unit,
+            'mini_page_id' => $corePage->id,
+            'tags' => $corePage->tags,
+            'css_type' => Generator::DEFAULT_VALUE,
+            'js_type' => Generator::DEFAULT_VALUE
+        ];
+        return $this->pagesRepositroy->create($data);
+    }
 
 }

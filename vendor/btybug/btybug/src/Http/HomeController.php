@@ -66,7 +66,6 @@ class HomeController extends Controller
         if (!$unit) $unit = Painter::find($slug);
         $file = \File::get($unit->getPath() . DS . $path);
         $response = \Response::make($file);
-
         $response->header('Content-Type', 'application/javascript', false);
         return $response;
     }

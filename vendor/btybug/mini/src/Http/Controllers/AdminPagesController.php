@@ -13,8 +13,8 @@ use App\Http\Controllers\Controller;
 use Btybug\btybug\Models\Settings;
 use Btybug\btybug\Repositories\AdminsettingRepository;
 use Btybug\FrontSite\Repository\TagsRepository;
-use Btybug\Mini\Model\MiniSuperPainter;
 use Btybug\Mini\Repositories\MinicmsPagesRepository;
+use Btybug\Mini\Services\PagesService;
 use Illuminate\Http\Request;
 
 
@@ -22,16 +22,19 @@ class AdminPagesController extends Controller
 {
     private $pageRepository;
     private $settings;
+    private $pagesService;
 
     public function __construct(
         MinicmsPagesRepository $pagesRepository,
         AdminsettingRepository $settings,
-        TagsRepository $tagsRepository
+        TagsRepository $tagsRepository,
+        PagesService $pagesService
     )
     {
         $this->pageRepository = $pagesRepository;
         $this->settings = $settings;
         $this->tagsRepository = $tagsRepository;
+        $this->pagesService = $pagesService;
     }
 
     public function assetsPages()
@@ -46,30 +49,18 @@ class AdminPagesController extends Controller
     public function createPage(Request $request)
     {
         $data = $request->except('_token');
-        $data['page_layout']= ($data['layout']==0)?null:$data['page_layout'];
-        $data['header_unit'] = ($data['header'] == 2) ? $data['header_unit'] : null;
-
-//        if($data['header'] == 1 ) {
-//            $data['header'] = 0;
-//        }else{
-//            $data['header'] = 1;
-//        }
-        return $this->pageRepository->create($data);
+        return  $this->pagesService->create($data);
     }
 
     public function editPage(Request $request)
     {
         $data = $request->except(['_token', 'id']);
 
-        $data['page_layout']= ($data['layout']==0)?null:$data['page_layout'];
+        $data['page_layout'] = ($data['layout'] == 0) ? null : $data['page_layout'];
         $data['header_unit'] = ($data['header'] == 2) ? $data['header_unit'] : null;
-//        if($data['header'] == 1 ) {
-//            $data['header'] = 0;
-//        }else{
-//            $data['header'] = 1;
-//        }
         $id = $request->get('id');
         $this->pageRepository->update($id, $data);
+        $this->pagesService->pageOptimize($id);
         return redirect()->back();
     }
 
