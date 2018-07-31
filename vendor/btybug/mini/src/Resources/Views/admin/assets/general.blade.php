@@ -23,7 +23,7 @@
                         @if(isset($forms))
                             @foreach($forms as $key => $val)
                                 <option value="{{$val->id}}"
-                                        @if($selectedForm->val == $val->id)
+                                        @if($selectedForm && $selectedForm->val == $val->id)
                                             selected
                                         @endif
                                                 >
