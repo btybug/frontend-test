@@ -152,6 +152,7 @@ function BBRenderMiniFrontLayout($page,$model)
         $settings = ($page->page_layout_settings && !is_array($page->page_layout_settings)) ? json_decode($page->page_layout_settings, true) : [];
         $settings["_page"] = $page;
         $layout = \Btybug\btybug\Models\Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS layout')->first();
+        dd($layout);
         if($layout){
             return BBRenderPageMiniSections($layout->layout, $settings,$model);
         }
