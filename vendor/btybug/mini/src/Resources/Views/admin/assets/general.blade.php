@@ -20,7 +20,7 @@
                 <label class="col-md-12" for="selectmultiple">Select default user's form</label>
                 <div class="col-md-4">
                     <select id="selectmultiple" name="user_set_form_id" class="form-control" >
-                        @if(count($forms))
+                        @if(isset($forms))
                             @foreach($forms as $key => $val)
                                 <option value="{{$val->id}}"
                                         @if($selectedForm->val == $val->id)
