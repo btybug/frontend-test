@@ -107,7 +107,7 @@
     </div>
 @stop
 
-@section( 'CSS' )
+@section( 'css' )
     {!! HTML::style("public/css/formio/formio.full.min.css") !!}
     {!! HTML::style("public/css/formio/bootstrap.vertical-tabs.min.css") !!}
     {!! Html::style("public/css/form-builder/form-builder.css?m=m") !!}
@@ -154,7 +154,7 @@
 @stop
 
 
-@section( 'JS' )
+@section( 'js' )
     {!! HTML::script("public/js/formio/buttons.js") !!}
     {!! HTML::script("public/js/formio/formio.full.min.js") !!}
     {!! HTML::script("public/js/formio/config.js?v=".rand(999,9999)) !!}

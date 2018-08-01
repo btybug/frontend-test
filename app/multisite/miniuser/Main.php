@@ -72,7 +72,7 @@ class Main
 
     public function FormRender($editableData)
     {
-        return view('mini::account.formBuilder')->with(['editableData' => $editableData,'user' =>  $this->user]);
+        return view('mini::account.formrender')->with(['editableData' => $editableData,'user' =>  $this->user]);
     }
 
 
