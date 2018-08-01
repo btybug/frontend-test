@@ -17,6 +17,7 @@ use Btybug\Mini\Services\PagesService;
 use Btybug\Console\Repository\FrontPagesRepository;
 use Btybug\Uploads\Repository\FormBuilderRepository;
 use Btybug\btybug\Models\Settings;
+use Auth;
 use Illuminate\Http\Request;
 
 class ClientController extends MiniController
@@ -43,6 +44,15 @@ class ClientController extends MiniController
         $this->ennable($request);
         return $this->cms->accountSettings()->with('user_forms',$user_forms);
     }
+
+    public function accountForms(Request $request)
+    {
+        $conditions = ['type' => 'user_settings','user_id' => Auth::user()->id];
+        $user_forms = $this->formBuilderRepository->findAllByMultiple($conditions);
+        $this->ennable($request);
+        return $this->cms->accountForms()->with('user_forms',$user_forms);
+    }
+
 
     public function accountGeneral(Request $request)
     {
@@ -110,4 +120,56 @@ class ClientController extends MiniController
         $this->ennable($request);
         return $this->cms->extraPluginSettings();
     }
+
+    public function CreateForms(Request $request){
+        $this->ennable($request);
+        return $this->cms->accountFormBuilder();
+    }
+
+    public function FormsSave (Request $request){
+            $data = $request->except('_token');
+            if (!$request->id){
+                $this->formBuilderRepository->create([
+                    'title' => $data['formName'],
+                    'description' => $data['formDescription'],
+                    'form_json' => $data['body'],
+                    'user_id' => Auth::user()->id,
+                    'type' => 'user_settings'
+                ]);
+            }else{
+                $this->formBuilderRepository->update($request->id,[
+                    'title' => $data['formName'],
+                    'description' => $data['formDescription'],
+                    'form_json' => $data['body'],
+                ]);
+            }
+
+            $this->ennable($request);
+            return $this->cms->FormSave();
+    }
+
+
+    public function accountFormsEdit(Request $request,$id = null){
+        $editableData = $this->formBuilderRepository->findOrFail($id);
+        $this->ennable($request);
+        return $this->cms->FormEdit($editableData);
+
+
+
+    }
+
+    public function accountFormsDelete(Request $request,$id = null){
+
+        $this->formBuilderRepository->delete($id);
+        return back();
+    }
+
+    public function accountFormsRender(Request $request,$id = null){
+        $editableData = $this->formBuilderRepository->findOrFail($id);
+        $this->ennable($request);
+        return $this->cms->FormRender($editableData);
+    }
+
+
+
 }

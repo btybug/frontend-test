@@ -48,10 +48,37 @@ class Main
         return view('mini::account.settings')->with('user', $this->user);
 
     }
+    public function accountForms()
+    {
+        return view('mini::account.forms')->with('user', $this->user);
+
+    }
+
+    public function accountFormBuilder()
+    {
+        return view('mini::account.formBuilder')->with('user', $this->user);
+
+    }
+
+    public function FormSave()
+    {
+        return \Response::json(['error' => false,'url' => route('mini_account_forms')]);
+    }
+
+    public function FormEdit($editableData)
+    {
+        return view('mini::account.formBuilder')->with(['editableData' => $editableData,'user' =>  $this->user]);
+    }
+
+    public function FormRender($editableData)
+    {
+        return view('mini::account.formBuilder')->with(['editableData' => $editableData,'user' =>  $this->user]);
+    }
+
 
     public function accountGeneral()
     {
-        return view('mini::account.general')->with('user', $this->user);
+        return view('mini::account.formrender')->with('user', $this->user);
 
     }
 

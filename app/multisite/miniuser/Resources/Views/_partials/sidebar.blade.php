@@ -87,7 +87,7 @@
             </li>
             {{--New added--}}
             <li class="has-sub">
-                <a href="{!! route('mini_account_settings') !!}">
+                <a href="{!! route('mini_account_forms') !!}">
                     <b class="caret"></b>
                     <i class="fa fa-align-justify"></i>
                     <span>Forms</span>

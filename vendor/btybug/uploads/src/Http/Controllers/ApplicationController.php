@@ -56,7 +56,8 @@ class ApplicationController extends Controller
 
     public function saveBuildedForm (Request $request)
     {
-
+        dd($request->all());
+        $miniuser_validator = $request->miniuser_validator ? $request->miniuser_validator: null;
        if(!$request->formTarget){
            $data = $request->except('_token');
 
@@ -65,12 +66,14 @@ class ApplicationController extends Controller
                    'title' => $data['formName'],
                    'description' => $data['formDescription'],
                    'form_json' => $data['body'],
+                   'miniuser_validator' => $miniuser_validator
                ]);
            }else{
                $this->formBuilderRepository->update($request->id,[
                    'title' => $data['formName'],
                    'description' => $data['formDescription'],
                    'form_json' => $data['body'],
+                   'miniuser_validator' => $miniuser_validator
                ]);
            }
            $routeSlug = 'formbuilder';

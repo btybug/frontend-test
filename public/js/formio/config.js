@@ -226,6 +226,7 @@ document
 
 document.querySelector(".saveForm").addEventListener("click", function() {
   let formName = document.querySelector(".form-name").value;
+  var miniuser_validator = document.querySelector(".miniuser_validator").value ? document.querySelector(".miniuser_validator").value : null;
   if(document.querySelector(".form_target")){
        var formTarget = document.querySelector(".form_target").value;
   }
@@ -250,31 +251,50 @@ document.querySelector(".saveForm").addEventListener("click", function() {
             formDescription: formDescription,
             formTarget: formTarget,
             body: JSON.stringify(jsonForSend),
-            id: editDataID
+            id: editDataID,
+            miniuser_validator: miniuser_validator
         };
     }else{
          obj = {
             formName: formName,
             formDescription: formDescription,
             body: JSON.stringify(jsonForSend),
-            id: editDataID
+            id: editDataID,
+            miniuser_validator: miniuser_validator
         };
     }
+    if(!miniuser_validator){
+        $.ajax({
+            type: "post",
+            datatype: "json",
+            url: "/admin/uploads/application/save-builder-form",
+            data: obj,
+            headers: {
+                "X-CSRF-TOKEN": $("input[name='_token']").val()
+            },
+            success: function(data) {
+                if (!data.error) {
+                    window.location.replace(data.url);
+                }
+            }
+        });
+    }else{
+        $.ajax({
+            type: "post",
+            datatype: "json",
+            url: "/my-account/forms/save",
+            data: obj,
+            headers: {
+                "X-CSRF-TOKEN": $("input[name='_token']").val()
+            },
+            success: function(data) {
+                if (!data.error) {
+                    window.location.replace(data.url);
+                }
+            }
+        });
+    }
 
-    $.ajax({
-      type: "post",
-      datatype: "json",
-      url: "/admin/uploads/application/save-builder-form",
-      data: obj,
-      headers: {
-        "X-CSRF-TOKEN": $("input[name='_token']").val()
-      },
-      success: function(data) {
-        if (!data.error) {
-          window.location.replace(data.url);
-        }
-      }
-    });
   }
 });
 
