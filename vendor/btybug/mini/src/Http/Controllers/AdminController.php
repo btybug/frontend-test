@@ -10,13 +10,11 @@ namespace Btybug\Mini\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
-use Btybug\btybug\Models\Painter\Painter;
 use Btybug\FrontSite\Repository\TagsRepository;
-use Btybug\Mini\Model\MiniSuperLayouts;
 use Btybug\Mini\Model\MiniSuperPainter;
 use Btybug\Mini\Services\UnitService;
-use Btybug\User\Repository\MembershipRepository;
 use Btybug\Uploads\Repository\FormBuilderRepository;
+use Btybug\User\Repository\MembershipRepository;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -61,20 +59,20 @@ class AdminController extends Controller
 
     public function assetsUnits(Request $request, $slug = null)
     {
-        BBAddTab('mini_assets',[
+        BBAddTab('mini_assets', [
             'title' => 'Add New Unit',
             'url' => '#',
-            'item_class'=>'pull-right info'
+            'item_class' => 'pull-right info'
         ]);
-        $units = $this->painter->where('self_type','units')->get();
+        $units = $this->painter->where('self_type', 'units')->get();
         $model = $this->unitService->getUnit($units, $slug);
 
         $tags = $model->tags;
-        $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
+        $memberships = $this->membershipRepository->pluck('name', 'slug')->toArray();
 
         $tags = implode(',', $tags);
         $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
-        return view('multisite::admin.assets.units.preview', compact(['units', 'model', 'slug','tags','memberships','variations']));
+        return view('multisite::admin.assets.units.preview', compact(['units', 'model', 'slug', 'tags', 'memberships', 'variations']));
     }
 
 
@@ -83,23 +81,34 @@ class AdminController extends Controller
         $tags = ($request->get('tags')) ? explode(',', $request->get('tags')) : [];
         $memberships = $request->get('memberships') ?? [];
 
-        if(count($tags)){
-            foreach ($tags as $tag){
-                $this->tagsRepository->create(['name' => $tag,'type' => 'minicms']);
+        if (count($tags)) {
+            foreach ($tags as $tag) {
+                $this->tagsRepository->create(['name' => $tag, 'type' => 'minicms']);
             }
         }
 
         $unit = $this->painter->findByVariation($slug);
-        $unit->setAttributes('tags',$tags)->setAttributes('memberships',$memberships)->setAttributes('status',$request->get('status'))->edit();
+        $unit->setAttributes('tags', $tags)->setAttributes('memberships', $memberships)->setAttributes('status', $request->get('status'))->edit();
 
         return redirect()->back();
     }
 
     public function assetsForms()
     {
-        $conditions = ['type' => 'user_settings'];
+        $conditions = ['type' => 'user_settings', 'user_id' => null];
         $user_forms = $this->formbuilderRepository->findAllByMultiple($conditions);
-        return view('multisite::admin.assets.forms')->with('user_forms',$user_forms);
+        return view('multisite::admin.assets.forms')->with('user_forms', $user_forms);
+    }
+
+    public function formPublish($id)
+    {
+        $this->formbuilderRepository->find($id)->update(['is_published'=>1]);
+        return redirect()->back();
+    }
+    public function formUnPublish($id)
+    {
+        $this->formbuilderRepository->find($id)->update(['is_published'=>0]);
+        return redirect()->back();
     }
 
     public function CreateForms()
@@ -127,21 +136,23 @@ class AdminController extends Controller
         $html = render_mini_unit($slug, $this->painter);
         $unit = $this->painter->findByVariation($slug);
         $settings = $unit->renderSettings();
-        $html = \View('multisite::admin.assets.units._partials.renderWithForm',compact('html','settings'))->render();
+        $html = \View('multisite::admin.assets.units._partials.renderWithForm', compact('html', 'settings'))->render();
 
         return $html;
     }
+
     public function assetsUnitsSettings(Request $request, $slug = null)
     {
         $units = $this->painter->all()->get();
         $model = $this->unitService->getUnit($units, $slug);
         $tags = $model->tags;
-        $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
+        $memberships = $this->membershipRepository->pluck('name', 'slug')->toArray();
 
         $tags = implode(',', $tags);
-        return view('multisite::admin.assets.units.settings', compact(['units', 'model', 'slug','tags','memberships']));
+        return view('multisite::admin.assets.units.settings', compact(['units', 'model', 'slug', 'tags', 'memberships']));
     }
-    public function assetsUnitsLive ($slug)
+
+    public function assetsUnitsLive($slug)
     {
         if ($slug) {
             $view = MiniSuperPainter::renderLivePreview($slug, 'frontend');
@@ -151,7 +162,8 @@ class AdminController extends Controller
             abort('404');
         }
     }
-    public function unitPreviewIframe ($id, $type = null)
+
+    public function unitPreviewIframe($id, $type = null)
     {
         $slug = explode('.', $id);
         $ui = MiniSuperPainter::find($slug[0]);
@@ -171,21 +183,24 @@ class AdminController extends Controller
         return view('uploads::gears.units._partials.unit_preview', compact(['htmlBody', 'htmlSettings', 'settings', 'settings_json', 'id', 'ui']));
     }
 
-    public function DeleteForms($id = null){
-        if ($id){
+    public function DeleteForms($id = null)
+    {
+        if ($id) {
             $this->formbuilderRepository->delete($id);
         }
 
         return back();
     }
 
-    public function EditForms($id = null){
+    public function EditForms($id = null)
+    {
         $editableData = $this->formbuilderRepository->findOrFail($id);
 
         return view('multisite::admin.assets.formbuild')->with('editableData', $editableData);
     }
 
-    public function RenderForms($id = null){
+    public function RenderForms($id = null)
+    {
         $editableData = $this->formbuilderRepository->findOrFail($id);
         return view('uploads::applications.formRender')->with('editableData', $editableData);
     }

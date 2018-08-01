@@ -16,24 +16,36 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @if(count($user_forms))
-                        @foreach($user_forms as $key => $val)
-                            <tr>
-                                <td>{{$val->id}}</td>
-                                <td>{{$val->title}}</td>
-                                <td>{{$val->description}}</td>
-                                <td>
-                                    <a class="pull-right btn btn-danger" href="{{route('mini_admin_assets_form_delete',$val->id)}}"><span
+                    @foreach($user_forms as $key => $val)
+                        <tr>
+                            <td>{{$val->id}}</td>
+                            <td>{{$val->title}}</td>
+                            <td>{{$val->description}}</td>
+                            <td>
+                                @if(!$val->is_published)
+                                    <a class="pull-right btn btn-danger"
+                                       href="{{route('mini_admin_assets_form_delete',$val->id)}}"><span
                                                 class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                                    <a class="pull-right btn btn-warning" href="{{route('mini_admin_assets_form_edit',$val->id)}}"><span
-                                                class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                                    <a class="pull-right btn btn-info" href="{{route('mini_admin_assets_form_render',$val->id)}}"><span
-                                                class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                </td>
+                                    <a class="pull-right btn btn-success"
+                                       href="{{route('mini_admin_assets_form_publish',$val->id)}}"><span
+                                                class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
+                                @else
+                                    <a class="pull-right btn btn-danger"
+                                       href="{{route('mini_admin_assets_form_unpublish',$val->id)}}"><span
+                                                class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
+                                    @endif
 
-                            </tr>
-                        @endforeach
-                    @endif
+
+                                <a class="pull-right btn btn-warning"
+                                   href="{{route('mini_admin_assets_form_edit',$val->id)}}"><span
+                                            class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                                <a class="pull-right btn btn-info"
+                                   href="{{route('mini_admin_assets_form_render',$val->id)}}"><span
+                                            class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                            </td>
+
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -106,8 +118,9 @@
         .ui-2_col .left-menu li:hover {
             background: rgba(0, 0, 0, 0.48);
         }
-        button.creat{
-            float:right;
+
+        button.creat {
+            float: right;
             margin: 0px 0px 10px 0px;
         }
     </style>
