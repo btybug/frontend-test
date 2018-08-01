@@ -34,6 +34,12 @@
                                                 class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                                     <a class="pull-right btn btn-info" href="{{route('mini_account_forms_render',$val->id)}}"><span
                                                 class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                    <a class="pull-right btn btn-default" href="{{route('mini_account_forms_render',$val->id)}}"><span
+                                                class="glyphicon glyphicon-duplicate" aria-hidden="true"></span></a>
+                                    <a class="pull-right btn btn-success" href="{{route('mini_account_forms_render',$val->id)}}"><span
+                                                class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a>
+                                    <a class="pull-right btn" href="{{route('mini_account_forms_render',$val->id)}}"><span
+                                                class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
                                 </td>
 
                             </tr>
