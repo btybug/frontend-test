@@ -1,164 +1,116 @@
 @extends('mini::layouts.app')
 @extends( 'btybug::layouts.admin' )
-@section ('content')
+@section('content')
+    <div class="ui-2_col">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <a href="{{route('mini_admin_assets_form_build')}}">
+                    <button type="button" class="btn btn-success creat">Creat New form</button>
+                </a>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Edit Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @if(count($user_forms))
+                        @foreach($user_forms as $key => $val)
+                            <tr>
+                                <td>{{$val->id}}</td>
+                                <td>{{$val->title}}</td>
+                                <td>{{$val->description}}</td>
+                                <td>
+                                    <a class="pull-right btn btn-danger" href="{{route('mini_admin_assets_form_delete',$val->id)}}"><span
+                                                class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                    <a class="pull-right btn btn-warning" href="{{route('mini_admin_assets_form_edit',$val->id)}}"><span
+                                                class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                                    <a class="pull-right btn btn-info" href="{{route('mini_admin_assets_form_render',$val->id)}}"><span
+                                                class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                </td>
 
-            <div class="bb-form-header" style="display: none">
-                <div class="row">
-                    <div class="col-md-4">
-                        <label>Form name</label>
-                        {!! Form::text('name',null,['class' => 'form-name', 'placeholder' => 'Form Name']) !!}
-                    </div>
-                    <div class="col-md-8">
-                        <button type="submit" class="form-save pull-right saveForm" bb-click="saveHTML">Save</button>
-                        <button type="button" class="panel-trigger pull-right" data-toggle="modal" data-target="#settingsModal">
-                            Settings
-                        </button>
-                    </div>
-                </div>
+                            </tr>
+                        @endforeach
+                    @endif
+                    </tbody>
+                </table>
             </div>
-
-            @if(isset($editableData))
-                <textarea class="hidden" id="formJson">{!! $editableData !!}</textarea>
-            @endif
-            <div class="bb-form-sub-header" style="display: none">
-                <div class="row">
-                    <div class="col-md-12">
-                        <label>Form description</label>
-                        {!! Form::textarea('description',null,['class' => 'form-description', 'placeholder' => 'Form Description']) !!}
-                    </div>
-                </div>
-            </div>
-            <div class="bb-form-header" style="display: none">
-                <div class="row">
-                    <div class="col-md-12">
-                        <button type="button" class="panel-trigger pull-right add-unit" bb-click="openFieldsWindow">Add fields</button>
-                        <button type="button" class="panel-trigger pull-right add-custom-filed" bb-click="openStudioWindow"
-                                data-main="global">Styling
-                        </button>
-                        <button type="button" class="panel-trigger pull-right" bb-click="openLogicModal" data-toggle="modal"
-                                data-target="#logicModal">Logic
-                        </button>
-
-                        <button type="button" class="panel-trigger pull-right" bb-click="openLayoutWindow">Layout</button>
-                        <button type="button" class="panel-trigger pull-right" bb-click="openPanelWindow">Panel</button>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid" style="margin-top: 60px;" style="display: none">
-                <!-- <div class="text-right" style="margin-bottom: 25px;">
-                  <button class="btn btn-primary add-unit"> Add unit</button>
-                  <button class="btn btn-primary saveForm"> Save</button>
-                </div> -->
-
-                <div class="row formBuilderShow" style="display: none">
-                    <div class="col-sm-12">
-                        <h3 class="text-center text-muted" style="display: none">The
-                            <a href="https://github.com/formio/formio.js" target="_blank">Form Builder</a> allows you to build a
-                            <select class="form-control" id="form-select" style="display: inline-block; width: 150px;">
-                                <option value="form">Form</option>
-                                <option value="wizard">Wizard</option>
-                                <option value="pdf">PDF</option>
-                            </select>
-                        </h3>
-                        <div class="well" style="background-color: #fdfdfd; display: none">
-                            <div id="builder"></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4" style="display: none">
-                        <h3 class="text-center text-muted">as JSON Schema</h3>
-                        <div class="well jsonviewer">
-                            <pre id="json"></pre>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" >
-                    <div class="col-sm-8 col-sm-offset-2">
-                        {{--<h3 class="text-center text-muted">which--}}
-                            {{--Rendered a Form in your Application</h3>--}}
-                        <div id="formio" class="well"></div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="row" style="display: none">
-                    <div class="col-sm-8 col-sm-offset-2">
-                        {{--<h3 class="text-center text-muted">which creates a Submission JSON</h3>--}}
-                        <div class="well jsonviewer">
-                            <pre id="subjson"></pre>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-
-
-
-
-
-
-
-            </div>
-            </div>
-            </div>
-
-@stop
-
-@section( 'Footer' )
-    <div class="bb-node-action-size"></div>
-    <div class="bb-node-action-menu">
-        <i class="fa fa-arrows-h bb-node-move" bb-click="toggleResize"></i>
-        <i class="fa fa-trash bb-node-delete" bb-click="deleteActiveField"></i>
-        <i class="fa fa-paint-brush bb-node-edit" bb-click="openStudioWindow"></i>
+        </div>
     </div>
+
 @stop
 
-@section( 'CSS' )
-    {!! HTML::style("public/css/formio/formio.full.min.css") !!}
-    {!! HTML::style("public/css/formio/bootstrap.vertical-tabs.min.css") !!}
-    {!! Html::style("public/css/form-builder/form-builder.css?m=m") !!}
+@section("JS")
+    {!! HTML::script('public/js/tag-it/tag-it.js') !!}
+    {!! HTML::script('public/js/select2/select2.full.min.js') !!}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+@stop
+
+@section('CSS')
+    {!! HTML::style('public/css/jquery.tagit.css') !!}
+    {!! HTML::style("public/css/select2/select2.min.css") !!}
 
     <style>
-        .formcomponents {
-            float: right;
-            /* display: none; */
-            transform: translateX(+100px);
-            opacity: 0;
-            transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s
+        .ui-2_col {
+            margin-top: 30px;
         }
 
-        .displayToggle {
-            transform: translateX(0);
-            opacity: 1;
-
-            /* display: block !important; */
+        .ui-2_col .left-menu ul {
+            border-right: 1px solid #c5c5c5;
+            background-color: #3e81a5;
+            padding-top: 20px !important;
+            height: calc(100vh - 154px);
+            overflow-x: auto;
         }
 
-        .accordion panel-group {
-            margin-top: 15px !important;
+        .ui-2_col .left-menu li {
+            background: #0000004f;
+            width: 95%;
+            height: 60px;
+            margin-bottom: 11px;
+            box-shadow: -4px 4px 5px 0 #00000073;
+            margin-left: 11px;
+            cursor: pointer;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            transition: 0.5s ease;
         }
 
-        .panel-default {
-            border-color: #fff;
+        .ui-2_col .left-menu li > a {
+            align-self: center;
+            margin-left: 10px;
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
         }
 
-        .panel-default>.panel-heading {
-            border-color: #fff;
-            background: #e6e6e6;
+        .ui-2_col .left-menu li.active {
+            background: rgba(0, 0, 0, 0.48);
         }
 
-        .builder-group-button {
-            background: none;
-            color: #000
+        .ui-2_col .left-menu .button {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
         }
 
-        .formcomponents .formcomponent {
-            padding: 15px 20px;
-            background-color: #607d8b;
+        .ui-2_col .left-menu .button button {
+            margin-right: 5px;
+        }
+
+        .ui-2_col .left-menu li:hover {
+            background: rgba(0, 0, 0, 0.48);
+        }
+        button.creat{
+            float:right;
+            margin: 0px 0px 10px 0px;
         }
     </style>
-@stop
 
-
-@section( 'js' )
-    {!! HTML::script("public/js/formio/buttons.js") !!}
-    {!! HTML::script("public/js/formio/formio.full.min.js") !!}
-    {!! HTML::script("public/js/formio/config.js?v=".rand(999,9999)) !!}
 @stop

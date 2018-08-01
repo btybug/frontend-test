@@ -81,30 +81,30 @@
             <!-- begin col-8 -->
             <div id="sortable1" class="col-lg-8 droppable1 connectedSortable">
                 <!-- begin panel -->
-               
+
             </div>
             <!-- end col-8 -->
             <!-- begin col-4 -->
             <div id="sortable2" class="col-lg-4 droppable2 connectedSortable">
-               
+
                 <!-- begin panel -->
-               
+
                 <!-- end panel -->
 
                 <!-- begin panel -->
-                
+
                 <!-- end panel -->
 
                 <!-- begin panel -->
-                
+
                 <!-- end panel -->
             </div>
             <!-- end col-4 -->
         </div>
         <ul class="right-side" >
-                    
+
         </ul>
-        
+
         <!-- end row -->
     <!-- end #content -->
 

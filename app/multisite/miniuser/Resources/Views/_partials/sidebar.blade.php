@@ -85,6 +85,14 @@
                     <li><a href="{!! route('mini_extra_plugins') !!}">Plugins <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
                 </ul>
             </li>
+            {{--New added--}}
+            <li class="has-sub">
+                <a href="{!! route('mini_account_settings') !!}">
+                    <b class="caret"></b>
+                    <i class="fa fa-align-justify"></i>
+                    <span>Forms</span>
+                </a>
+            </li>
 
             <li class="has-sub">
                 <a href="javascript:;">

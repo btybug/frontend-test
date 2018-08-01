@@ -38,10 +38,10 @@ class ClientController extends MiniController
 
     public function accountSettings(Request $request)
     {
-        $form = Settings::where('section', 'minicms')->where('settingkey', 'default_user_form_id')->first();
-        $editableData = ($form)?$this->formBuilderRepository->findOrFail($form->val):'{}';
+        $conditions = ['type' => 'user_settings'];
+        $user_forms = $this->formBuilderRepository->findAllByMultiple($conditions);
         $this->ennable($request);
-        return $this->cms->accountSettings()->with(['form' => $form,'editableData' => $editableData]);
+        return $this->cms->accountSettings()->with('user_forms',$user_forms);
     }
 
     public function accountGeneral(Request $request)
