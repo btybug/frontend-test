@@ -226,7 +226,7 @@ document
 
 document.querySelector(".saveForm").addEventListener("click", function() {
   let formName = document.querySelector(".form-name").value;
-  var miniuser_validator = document.querySelector(".miniuser_validator").value ? document.querySelector(".miniuser_validator").value : null;
+  var miniuser_validator = document.querySelector(".miniuser_validator") ? document.querySelector(".miniuser_validator").value : null;
   if(document.querySelector(".form_target")){
        var formTarget = document.querySelector(".form_target").value;
   }

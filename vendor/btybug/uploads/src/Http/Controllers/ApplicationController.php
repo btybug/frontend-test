@@ -56,7 +56,6 @@ class ApplicationController extends Controller
 
     public function saveBuildedForm (Request $request)
     {
-        dd($request->all());
         $miniuser_validator = $request->miniuser_validator ? $request->miniuser_validator: null;
        if(!$request->formTarget){
            $data = $request->except('_token');

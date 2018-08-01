@@ -37,8 +37,8 @@
                     <span>My Account</span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="{!! route('miniuser_account_general') !!}">Settings</a></li>
-                    <li><a href="{!! route('miniuser_account_general') !!}">General</a></li>
+                    <li><a href="{!! route('mini_account_settings') !!}">Settings</a></li>
+                    <li><a href="{!! route('mini_account_general') !!}">General</a></li>
                 </ul>
             </li>
 

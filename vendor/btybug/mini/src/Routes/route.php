@@ -6,14 +6,14 @@
  * Time: 13:27
  */
 Route::get('/', 'ClientController@account');
-Route::get('/settings', 'ClientController@accountSettings')->name('miniuser_account_settings');
-Route::get('/forms', 'ClientController@accountForms')->name('miniuser_account_forms');
-Route::get('/forms/edit/{id}', 'ClientController@accountFormsEdit')->name('miniuser_account_forms_edit');
-Route::get('/forms/render/{id}', 'ClientController@accountFormsRender')->name('miniuser_account_forms_render');
-Route::get('/forms/delete/{id}', 'ClientController@accountFormsDelete')->name('miniuser_account_forms_delete');
-Route::get('/forms/create', 'ClientController@CreateForms', true)->name('miniuser_assets_form_build');
-Route::post('/forms/save', 'ClientController@FormsSave', true)->name('miniuser_admin_assets_form_save');
-Route::get('/general', 'ClientController@accountGeneral')->name('miniuser_account_general');
+Route::get('/settings', 'ClientController@accountSettings')->name('mini_account_settings');
+Route::get('/forms', 'ClientController@accountForms')->name('mini_account_forms');
+Route::get('/forms/edit/{id}', 'ClientController@accountFormsEdit')->name('mini_account_forms_edit');
+Route::get('/forms/render/{id}', 'ClientController@accountFormsRender')->name('mini_account_forms_render');
+Route::get('/forms/delete/{id}', 'ClientController@accountFormsDelete')->name('mini_account_forms_delete');
+Route::get('/forms/create', 'ClientController@CreateForms', true)->name('mini_account_forms_build');
+Route::post('/forms/save', 'ClientController@FormsSave', true)->name('mini_account_forms_save');
+Route::get('/general', 'ClientController@accountGeneral')->name('mini_account_general');
 Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe', true)->name('mini_settings_iframe');
 
 Route::group(['prefix' => 'media'], function () {

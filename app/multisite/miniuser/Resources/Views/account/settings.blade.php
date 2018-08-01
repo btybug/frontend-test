@@ -4,7 +4,7 @@
     <div class="ui-2_col">
         <div class="row">
             <div class="col-md-12 col-xs-12">
-                <a href="{{route('mini_admin_assets_form_build')}}">
+                <a href="{{route('mini_account_forms_build')}}">
                     <button type="button" class="btn btn-success creat">Creat New form</button>
                 </a>
                 <table class="table table-bordered">
@@ -24,11 +24,11 @@
                                 <td>{{$val->title}}</td>
                                 <td>{{$val->description}}</td>
                                 <td>
-                                    <a class="pull-right btn btn-danger" href="{{route('mini_admin_assets_form_delete',$val->id)}}"><span
+                                    <a class="pull-right btn btn-danger" href="{{route('mini_account_forms_delete',$val->id)}}"><span
                                                 class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                                    <a class="pull-right btn btn-warning" href="{{route('mini_admin_assets_form_edit',$val->id)}}"><span
+                                    <a class="pull-right btn btn-warning" href="{{route('mini_account_forms_edit',$val->id)}}"><span
                                                 class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                                    <a class="pull-right btn btn-info" href="{{route('mini_admin_assets_form_render',$val->id)}}"><span
+                                    <a class="pull-right btn btn-info" href="{{route('mini_account_forms_render',$val->id)}}"><span
                                                 class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
                                 </td>
 

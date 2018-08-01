@@ -24,7 +24,7 @@
                             <td>
                                 @if(!$val->is_published)
                                     <a class="pull-right btn btn-danger"
-                                       href="{{route('miniuser_account_forms_delete',$val->id)}}"><span
+                                       href="{{route('mini_admin_assets_form_delete',$val->id)}}"><span
                                                 class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                                     <a class="pull-right btn btn-success"
                                        href="{{route('mini_admin_assets_form_publish',$val->id)}}"><span
@@ -37,10 +37,10 @@
 
 
                                 <a class="pull-right btn btn-warning"
-                                   href="{{route('miniuser_account_forms_edit',$val->id)}}"><span
+                                   href="{{route('mini_admin_assets_form_edit',$val->id)}}"><span
                                             class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                                 <a class="pull-right btn btn-info"
-                                   href="{{route('miniuser_account_forms_render',$val->id)}}"><span
+                                   href="{{route('mini_admin_assets_form_render',$val->id)}}"><span
                                             class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
                             </td>
 

@@ -4,7 +4,7 @@
     <div class="ui-2_col">
         <div class="row">
             <div class="col-md-12 col-xs-12">
-                <a href="{{route('mini_admin_assets_form_build')}}">
+                <a href="{{route('mini_account_forms_build')}}">
                     <button type="button" class="btn btn-success creat">Creat New form</button>
                 </a>
                 <table class="table table-bordered">
