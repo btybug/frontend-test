@@ -62,7 +62,7 @@ class Main
 
     public function FormSave()
     {
-        return \Response::json(['error' => false,'url' => route('mini_account_forms')]);
+        return \Response::json(['error' => false,'url' => route('miniuser_account_forms')]);
     }
 
     public function FormEdit($editableData)
