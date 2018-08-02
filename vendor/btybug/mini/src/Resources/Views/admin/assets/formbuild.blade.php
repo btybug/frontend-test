@@ -2,20 +2,23 @@
 @section ('content')
 <div class="bb-form-header">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-8">
             <label>Form name
             {!! Form::text('name',null,['class' => 'form-name', 'placeholder' => 'Form Name']) !!}
             </label>
             {!! Form::hidden('target',true,['class' => 'form_target']) !!}
             <label>Form description
-            {!! Form::textarea('description',null,['class' => 'form-description', 'placeholder' => 'Form Description']) !!}
+            {!! Form::text('description',null,['class' => 'form-description', 'placeholder' => 'Form Description']) !!}
             </label>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-4">
+
             <button type="submit" class="form-save pull-right saveForm" bb-click="saveHTML">Save</button>
             <button type="button" class="panel-trigger pull-right" data-toggle="modal" data-target="#settingsModal">
                 Settings
             </button>
+            <button type="button" class="panel-trigger pull-right add-unit" bb-click="openFieldsWindow"><i class="fa fa-plus"></i></button>
+
         </div>
     </div>
 </div>
@@ -23,22 +26,22 @@
 <textarea class="hidden" id="formJson">{!! $editableData !!}</textarea>
 @endif
 
-<div class="bb-form-header">
-    <div class="row">
-        <div class="col-md-12">
-            <button type="button" class="panel-trigger pull-right add-unit" bb-click="openFieldsWindow">Add fields</button>
-            <button type="button" class="panel-trigger pull-right add-custom-filed" bb-click="openStudioWindow"
-                    data-main="global">Add custom filed
-            </button>
-            <button type="button" class="panel-trigger pull-right" bb-click="openLogicModal" data-toggle="modal"
-                    data-target="#logicModal">Logic
-            </button>
+{{--<div class="bb-form-header">--}}
+    {{--<div class="row">--}}
+        {{--<div class="col-md-12">--}}
+            {{--<button type="button" class="panel-trigger pull-right add-unit" bb-click="openFieldsWindow">Add fields</button>--}}
+            {{--<button type="button" class="panel-trigger pull-right add-custom-filed" bb-click="openStudioWindow"--}}
+                    {{--data-main="global">Add custom filed--}}
+            {{--</button>--}}
+            {{--<button type="button" class="panel-trigger pull-right" bb-click="openLogicModal" data-toggle="modal"--}}
+                    {{--data-target="#logicModal">Logic--}}
+            {{--</button>--}}
 
-            <button type="button" class="panel-trigger pull-right" bb-click="openLayoutWindow">Layout</button>
-            <button type="button" class="panel-trigger pull-right" bb-click="openPanelWindow">Panel</button>
-        </div>
-    </div>
-</div>
+            {{--<button type="button" class="panel-trigger pull-right" bb-click="openLayoutWindow">Layout</button>--}}
+            {{--<button type="button" class="panel-trigger pull-right" bb-click="openPanelWindow">Panel</button>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</div>--}}
 <div class="container-fluid" style="margin-top: 60px;">
     <!-- <div class="text-right" style="margin-bottom: 25px;">
       <button class="btn btn-primary add-unit"> Add unit</button>

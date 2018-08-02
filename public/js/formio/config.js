@@ -210,9 +210,9 @@ var onForm = function(form) {
 document.querySelector(".add-unit").addEventListener("click", function() {
   let components = document.querySelector(".formcomponents");
   components.classList.toggle("displayToggle");
-  this.textContent = components.classList.contains("displayToggle")
-    ? "Close"
-    : "Add unit";
+  this.innerHTML = components.classList.contains("displayToggle")
+    ? `<i class="fa fa-minus"></i>`
+    : `<i class="fa fa-plus"></i>`;
 });
 
 document
