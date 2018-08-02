@@ -16,6 +16,8 @@ use Btybug\Mini\Services\UnitService;
 use Btybug\Uploads\Repository\FormBuilderRepository;
 use Btybug\User\Repository\MembershipRepository;
 use Illuminate\Http\Request;
+use Btybug\Uploads\Services\AppsService;
+use Btybug\btybug\Helpers\helpers;
 
 class AdminController extends Controller
 {
@@ -203,5 +205,23 @@ class AdminController extends Controller
     {
         $editableData = $this->formbuilderRepository->findOrFail($id);
         return view('uploads::applications.formRender')->with('editableData', $editableData);
+    }
+
+    public function formClone($id = null)
+    {
+        $compearable = ['is_clone' => $id];
+        $clonable = $this->formbuilderRepository->findOrFail($id);
+        $isClone = $this->formbuilderRepository->findOneByMultiple($compearable);
+        if (!$isClone){
+            $arraydata = array();
+            $clonable = json_encode($clonable);
+            $clonable = json_decode($clonable);
+            foreach ($clonable as $key => $val){
+                $arraydata[$key] = $val;
+            }
+            $arraydata['is_clone'] = $id;
+            $created = $this->formbuilderRepository->create($arraydata);
+            return back();
+        }
     }
 }

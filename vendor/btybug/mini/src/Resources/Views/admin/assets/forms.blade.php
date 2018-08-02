@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-12 col-xs-12">
                 <a href="{{route('mini_admin_assets_form_build')}}">
-                    <button type="button" class="btn btn-success creat">Creat New form</button>
+                    <button type="button" class="btn btn-success creat" title="Creat New amazing form">Creat New form</button>
                 </a>
                 <table class="table table-bordered">
                     <thead>
@@ -24,24 +24,31 @@
                             <td>
                                 @if(!$val->is_published)
                                     <a class="pull-right btn btn-danger"
-                                       href="{{route('mini_admin_assets_form_delete',$val->id)}}"><span
+                                       href="{{route('mini_admin_assets_form_delete',$val->id)}}" title="Delete the Form"><span
                                                 class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                                     <a class="pull-right btn btn-success"
-                                       href="{{route('mini_admin_assets_form_publish',$val->id)}}"><span
+                                       href="{{route('mini_admin_assets_form_publish',$val->id)}}" title="Publish the Form"><span
                                                 class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
                                 @else
                                     <a class="pull-right btn btn-danger"
-                                       href="{{route('mini_admin_assets_form_unpublish',$val->id)}}"><span
+                                       href="{{route('mini_admin_assets_form_unpublish',$val->id)}}" title="Unpublish the Form"><span
                                                 class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
-                                    @endif
+                                @endif
 
 
                                 <a class="pull-right btn btn-warning"
-                                   href="{{route('mini_admin_assets_form_edit',$val->id)}}"><span
+                                   href="{{route('mini_admin_assets_form_edit',$val->id)}}" title="Edit the Form"><span
                                             class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                                 <a class="pull-right btn btn-info"
-                                   href="{{route('mini_admin_assets_form_render',$val->id)}}"><span
+                                   href="{{route('mini_admin_assets_form_render',$val->id)}}" title="Render the Form View"><span
                                             class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                <a class="pull-right btn btn-default" href="{{route('mini_admin_assets_form_clone',$val->id)}}" title="Clobne the Form"><span
+                                            class="glyphicon glyphicon-duplicate" aria-hidden="true"></span></a>.
+
+                                {{--<a class="pull-right btn btn-success" href="{{route('mini_account_forms_render',$val->id)}}" title="Show the last view"><span--}}
+                                            {{--class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a>--}}
+                                {{--<a class="pull-right btn" href="{{route('mini_account_forms_render',$val->id)}}" title="Publish the form"><span--}}
+                                            {{--class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>--}}
                             </td>
 
                         </tr>
