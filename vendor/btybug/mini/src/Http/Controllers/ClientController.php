@@ -190,7 +190,7 @@ class ClientController extends MiniController
                     'type' => 'user_settings'
                 ]);
             }else{
-                $this->formBuilderRepository->update($request->id,[
+                $this->formbuilderRepository->update($request->id,[
                     'title' => $data['formName'],
                     'description' => $data['formDescription'],
                     'form_json' => $data['body'],
@@ -204,19 +204,19 @@ class ClientController extends MiniController
 
     public function accountFormsEdit(Request $request,$id = null)
     {
-        $editableData = $this->formBuilderRepository->findOrFail($id);
+        $editableData = $this->formbuilderRepository->findOrFail($id);
         $this->ennable($request);
         return $this->cms->FormEdit($editableData);
     }
 
     public function accountFormsDelete(Request $request,$id = null)
     {
-        $this->formBuilderRepository->delete($id);
+        $this->formbuilderRepository->delete($id);
         return back();
     }
 
     public function accountFormsRender(Request $request,$id = null){
-        $editableData = $this->formBuilderRepository->findOrFail($id);
+        $editableData = $this->formbuilderRepository->findOrFail($id);
         $this->ennable($request);
         return $this->cms->FormRender($editableData);
     }
