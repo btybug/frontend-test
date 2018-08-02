@@ -47,7 +47,14 @@
           <button class="btn btn-primary add-unit"> Add unit</button>
           <button class="btn btn-primary saveForm"> Save</button>
         </div> -->
-
+        <div class="row" >
+            <div class="col-sm-8 col-sm-offset-2">
+                <h3 class="text-center text-muted">which
+                    Rendered a Form in your Application</h3>
+                <div id="formio" class="well"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
         <div class="row formBuilderShow" style="display: none">
             <div class="col-sm-12">
                 <h3 class="text-center text-muted" style="display: none">The
@@ -69,14 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="row" >
-            <div class="col-sm-8 col-sm-offset-2">
-                <h3 class="text-center text-muted">which
-                    Rendered a Form in your Application</h3>
-                <div id="formio" class="well"></div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
+
         <div class="row" style="display: none">
             <div class="col-sm-8 col-sm-offset-2">
                 <h3 class="text-center text-muted">which creates a Submission JSON</h3>
