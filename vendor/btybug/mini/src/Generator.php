@@ -9,10 +9,7 @@
 namespace Btybug\Mini;
 
 
-use Btybug\btybug\Models\Painter\Painter;
-use Btybug\btybug\Models\Settings;
 use Btybug\FrontSite\Models\FrontendPage;
-use Btybug\Mini\Model\MiniPages;
 use Btybug\Mini\Model\MiniSuperLayouts;
 use Btybug\Mini\Model\MiniSuperPainter;
 use Btybug\Mini\Repositories\MinicmsPagesRepository;
@@ -23,7 +20,13 @@ class Generator
         'Providers' => ['ModuleServiceProvider'],
         'Resources' => ['Views' => [
             '_partials' => ['sidebar.blade', 'header.blade'],
-            'account' => ['settings.blade', 'general.blade'],
+            'account' => [
+                'formBuilder.blade',
+                'formrender.blade',
+                'forms.blade',
+                'settings.blade',
+                'general.blade'
+            ],
             'btybug' => [
                 'blog.blade',
                 'cv.blade',
@@ -38,14 +41,25 @@ class Generator
                 'view_message.blade',
             ],
             'extra' => [
-                '_partials' => ['view.blade'],
+                '_partials' => [
+                    'view.blade'
+                    ],
                 'gears.blade',
                 'plugin_settings.blade',
                 'plugins.blade',
             ],
-            'media' => ['drive.blade', 'settings.blade'],
-            'mysite' => ['pages.blade', 'settings.blade', 'special.blade'],
-            'layouts' => ['app.blade'],
+            'media' => [
+                'drive.blade',
+                'settings.blade'
+            ],
+            'mysite' => [
+                'pages.blade',
+                'settings.blade',
+                'special.blade'
+            ],
+            'layouts' => [
+                'app.blade'
+            ],
             'pages' => [
                 '_partials' => ['view.blade'],
                 'content.blade',
@@ -109,11 +123,11 @@ class Generator
         $newPages = [];
 
         foreach ($corePages as $corePage) {
-            if($corePage->status == 'published'){
+            if ($corePage->status == 'published') {
                 $url = ($corePage->url == null or $corePage->url == '/') ? '/' . $this->name : '/' . $this->name . '/' . $corePage->url;
                 $newPages[] = [
                     'title' => $corePage->title,
-                    'url' =>  $url,
+                    'url' => $url,
                     'user_id' => $this->user_id,
                     'status' => 'published',
                     'page_access' => 0,
@@ -144,7 +158,7 @@ class Generator
         $units = $unitClass->all()->get();
         $paths = [];
         foreach ($units as $unit) {
-            if(isset($unit->status) && $unit->status == 'published'){
+            if (isset($unit->status) && $unit->status == 'published') {
                 $paths[$unit->slug] = base_path($unit->path);
             }
         }
