@@ -15,7 +15,7 @@
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 items_links">
                 <a href="{{route('mini_admin_assets_forms')}}" class="ly_items">
                     <h3>Forms</h3>
-                    <h2><i class="fa fa-bug" aria-hidden="true"></i></h2>
+                    <h2><i class="fa fa-align-left" aria-hidden="true"></i></h2>
                 </a>
             </div>
 
@@ -29,7 +29,7 @@
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 items_links">
                 <a href="{{route('mini_admin_assets_plugins')}}" class="ly_items">
                     <h3>Plugins</h3>
-                    <h2><i class="fa fa-bug" aria-hidden="true"></i></h2>
+                    <h2><i class="fa fa-plug" aria-hidden="true"></i></h2>
                 </a>
             </div>
         </div>

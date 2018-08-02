@@ -34,6 +34,8 @@
                                                 class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                                     <a class="pull-right btn btn-info" href="{{route('mini_account_forms_render',$val->id)}}" title="Render Form View"><span
                                                 class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                    <a class="pull-right btn btn-default" href="{{route('mini_account_forms_inputs',$val->id)}}" title="Inputs results"><span
+                                                class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
                                 </td>
 
                             </tr>

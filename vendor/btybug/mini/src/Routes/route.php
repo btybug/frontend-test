@@ -13,6 +13,7 @@ Route::get('/forms/render/{id}', 'ClientController@accountFormsRender')->name('m
 Route::get('/forms/delete/{id}', 'ClientController@accountFormsDelete')->name('mini_account_forms_delete');
 Route::get('/forms/create', 'ClientController@CreateForms', true)->name('mini_account_forms_build');
 Route::post('/forms/save', 'ClientController@FormsSave', true)->name('mini_account_forms_save');
+Route::get('/forms/inputs/{id}', 'ClientController@FormsInputs', true)->name('mini_account_forms_inputs');
 Route::get('/general', 'ClientController@accountGeneral')->name('mini_account_general');
 Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe', true)->name('mini_settings_iframe');
 

@@ -25,6 +25,7 @@ class Generator
                 'formrender.blade',
                 'forms.blade',
                 'settings.blade',
+                'inputs.blade',
                 'general.blade'
             ],
             'btybug' => [

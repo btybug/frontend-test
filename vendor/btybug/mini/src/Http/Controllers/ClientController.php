@@ -149,17 +149,15 @@ class ClientController extends MiniController
     }
 
 
-    public function accountFormsEdit(Request $request,$id = null){
+    public function accountFormsEdit(Request $request,$id = null)
+    {
         $editableData = $this->formBuilderRepository->findOrFail($id);
         $this->ennable($request);
         return $this->cms->FormEdit($editableData);
-
-
-
     }
 
-    public function accountFormsDelete(Request $request,$id = null){
-
+    public function accountFormsDelete(Request $request,$id = null)
+    {
         $this->formBuilderRepository->delete($id);
         return back();
     }
@@ -168,6 +166,12 @@ class ClientController extends MiniController
         $editableData = $this->formBuilderRepository->findOrFail($id);
         $this->ennable($request);
         return $this->cms->FormRender($editableData);
+    }
+
+    public function FormsInputs(Request $request,$id)
+    {
+        $this->ennable($request);
+        return $this->cms->FormInputs($id);
     }
 
 

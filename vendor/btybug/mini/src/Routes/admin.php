@@ -59,6 +59,7 @@ Route::group(['prefix' => 'assets'], function () {
     Route::get('/forms/publish/{id}', 'AdminController@formPublish', true)->name('mini_admin_assets_form_publish');
     Route::get('/forms/clone/{id}', 'AdminController@formClone', true)->name('mini_admin_assets_form_clone');
     Route::get('/forms/un-publish/{id}', 'AdminController@formUnPublish', true)->name('mini_admin_assets_form_unpublish');
+    Route::get('/forms/resinputs/{id}', 'AdminController@resultInput', true)->name('mini_admin_assets_form_result_input');
     Route::post('/create-page', 'AdminPagesController@createPage', true)->name('minicms_create_page');
     Route::post('/edit-page', 'AdminPagesController@editPage', true)->name('minicms_edit_page');
     Route::post('/get-page-edit-form', 'AdminPagesController@getPageEditForl', true)->name('minicms_page_edit_form_page');

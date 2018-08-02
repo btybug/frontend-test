@@ -75,6 +75,11 @@ class Main
         return view('mini::account.formrender')->with(['editableData' => $editableData,'user' =>  $this->user]);
     }
 
+    public function FormInputs($id)
+    {
+        return view('mini::account.inputs')->with(['id' => $id,'user' =>  $this->user]);
+    }
+
 
     public function accountGeneral()
     {

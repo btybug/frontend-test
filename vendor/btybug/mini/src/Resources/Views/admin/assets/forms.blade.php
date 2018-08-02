@@ -36,19 +36,15 @@
                                 @endif
 
 
-                                <a class="pull-right btn btn-warning"
-                                   href="{{route('mini_admin_assets_form_edit',$val->id)}}" title="Edit the Form"><span
+                                <a class="pull-right btn btn-warning" href="{{route('mini_admin_assets_form_edit',$val->id)}}" title="Edit the Form"><span
                                             class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                                <a class="pull-right btn btn-info"
-                                   href="{{route('mini_admin_assets_form_render',$val->id)}}" title="Render the Form View"><span
-                                            class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                <a class="pull-right btn btn-success" href="{{route('mini_admin_assets_form_result_input',$val->id)}}" title="Show result inputs"><span
+                                            class="glyphicon glyphicon-flash" aria-hidden="true"></span></a>
                                 <a class="pull-right btn btn-default" href="{{route('mini_admin_assets_form_clone',$val->id)}}" title="Clobne the Form"><span
-                                            class="glyphicon glyphicon-duplicate" aria-hidden="true"></span></a>.
+                                            class="glyphicon glyphicon-duplicate" aria-hidden="true"></span></a>
+                                <a class="pull-right btn btn-info" href="{{route('mini_admin_assets_form_render',$val->id)}}" title="Render the Form View"><span
+                                            class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
 
-                                {{--<a class="pull-right btn btn-success" href="{{route('mini_account_forms_render',$val->id)}}" title="Show the last view"><span--}}
-                                            {{--class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a>--}}
-                                {{--<a class="pull-right btn" href="{{route('mini_account_forms_render',$val->id)}}" title="Publish the form"><span--}}
-                                            {{--class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>--}}
                             </td>
 
                         </tr>

@@ -226,4 +226,8 @@ class AdminController extends Controller
             return back()->with('message','The clone of this form allready exist');
         }
     }
+
+    public  function resultInput($id = null){
+            return view('multisite::admin.assets.inputresults');
+    }
 }
