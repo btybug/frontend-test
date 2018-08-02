@@ -42,91 +42,39 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="page_name" class="col-2 col-form-label">Page layout</label>
-                            <div class="col-10">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-adn"></i>
-                                    </div>
-                                    <div class="col-md-6 form-control">
-                                        {!! BBgetMiniLayoutAttr($page->page_layout,'title',\Btybug\Mini\Model\MiniLayouts::class) !!}
-                                    </div>
-                                    <div class="col-md-6">
-                                        <a class="btn btn-primary">Customize</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="page_name" class="col-2 col-form-label">Page content</label>
-                            <div class="col-10">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-adn"></i>
-                                    </div>
-                                    {!! BBbutton2('mini_unit','template','*','Select page content',['model'=>$page->template]) !!}
-                                </div>
-                            </div>
-                        </div>
-
-                    @else
-                        <div class="form-group row">
-                            <label for="page_name" class="col-2 col-form-label">Page layout</label>
-                            <div class="col-10">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-adn"></i>
-                                    </div>
-                                    <div class="col-md-6 form-control">
-                                        {!! BBgetMiniLayoutAttr($page->page_layout,'title',\Btybug\Mini\Model\MiniLayouts::class) !!}
-                                    </div>
-                                    <div class="col-md-6">
-                                        <a class="btn btn-primary">Customize</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="page_name" class="col-2 col-form-label">Page content</label>
-                            <div class="col-10">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-adn"></i>
-                                    </div>
-                                    {!! BBbutton2('mini_unit','template',$page->tags,'Select page content',['model'=>$page->template]) !!}
-                                </div>
-                            </div>
-                        </div>
                     @endif
+                        <div class="form-group row">
+                            <label for="page_name" class="col-2 col-form-label">Page layout</label>
+                            <div class="col-10">
+                                <a href="{!! route('mini_page_edit',$page->id) !!}" class="btn btn-primary">Change</a>
+                            </div>
+                        </div>
 
-                </div>
-                <div class="form-group row">
-                    <label for="page_description" class="col-2 col-form-label">Key Words</label>
-                    <div class="col-10">
-                        <input id="key_words" name="key_words" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="page_description" class="col-2 col-form-label">Page Description</label>
-                    <div class="col-10">
+
+                        <div class="form-group row">
+                            <label for="page_description" class="col-2 col-form-label">Key Words</label>
+                            <div class="col-10">
+                                <input id="key_words" name="key_words" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="page_description" class="col-2 col-form-label">Page Description</label>
+                            <div class="col-10">
                         <textarea id="page_description" name="page_description" cols="40" rows="5"
                                   class="form-control"></textarea>
-                    </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="offset-2 col-10">
+                                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+
                 </div>
-
-
-                <div class="form-group row">
-                    <div class="offset-2 col-10">
-                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </div>
 
 
     </div>
