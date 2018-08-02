@@ -9,25 +9,43 @@
 namespace Btybug\Mini\Http\Controllers;
 
 
-use App\Http\Controllers\Controller;
-use Btybug\Mini\Generator;
-use Btybug\Mini\Http\Requests\PageCreateRequest;
+
 use Btybug\Mini\Model\MiniPainter;
 use Btybug\Mini\Services\PagesService;
 use Btybug\Console\Repository\FrontPagesRepository;
 use Btybug\Uploads\Repository\FormBuilderRepository;
-use Btybug\btybug\Models\Settings;
+use Btybug\Mini\Model\MiniSuperPainter;
+use Btybug\Mini\Services\UnitService;
+use Btybug\User\Repository\MembershipRepository;
+use Btybug\FrontSite\Repository\TagsRepository;
+use Btybug\Mini\Services\LayoutsService;
+use Btybug\Mini\Model\MiniSuperLayouts;
 use Auth;
 use Illuminate\Http\Request;
 
 class ClientController extends MiniController
 {
     private $formBuilderRepository;
+    private $unitService;
+    private $painter;
+    private $tagsRepository;
+    private $membershipRepository;
+    private $contentLayouts;
 
     public function __construct(
-        FormBuilderRepository $formBuilderRepository
+        FormBuilderRepository $formBuilderRepository,
+        UnitService $unitService,
+        MiniSuperPainter $painter,
+        TagsRepository $tagsRepository,
+        MembershipRepository $membershipRepository,
+        MiniSuperLayouts $contentLayouts
     )
     {
+        $this->contentLayouts = $contentLayouts;
+        $this->unitService = $unitService;
+        $this->painter = $painter;
+        $this->tagsRepository = $tagsRepository;
+        $this->membershipRepository = $membershipRepository;
         $this->formBuilderRepository = $formBuilderRepository;
     }
 
@@ -96,15 +114,28 @@ class ClientController extends MiniController
         return $this->cms->extraPlugins();
     }
 
-    public function extraWidgets(Request $request)
+    public function extraWidgets(Request $request,$slug = null)
     {
+
+        $units = $this->painter->where('self_type','widget')->get();
+        $model = $this->unitService->getUnit($units, $slug);
+        $tags = $model->tags;
+        $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
+        $tags = implode(',', $tags);
+        $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
+
         $this->ennable($request);
-        return $this->cms->extraWidgets();
+        return $this->cms->extraWidgets($units,$model,$slug,$tags,$memberships,$variations);
     }
-    public function extraLayouts(Request $request)
+
+    public function extraLayouts(Request $request, LayoutsService $layoutsService, $slug = null)
     {
+
+        $layouts = $this->contentLayouts->all()->get();
+        $model = $layoutsService->getUnit($layouts, $slug);
+        $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
         $this->ennable($request);
-        return $this->cms->extraLayouts();
+        return $this->cms->extraLayouts($layouts,$model,$slug,$variations);
     }
 
     public function extraGears(Request $request)

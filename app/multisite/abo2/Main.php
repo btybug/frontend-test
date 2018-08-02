@@ -120,14 +120,26 @@ class Main
         return view('mini::extra.gears', compact('units'))->with('user', $this->user);
 
     }
-    public function extraWidgets()
+    public function extraWidgets($units,$model,$slug,$tags,$memberships,$variations)
     {
-        return view('mini::extra.widgets')->with('user', $this->user);
+        BBAddTab('mini_my_site_extra_units',[
+            'title' => 'Add New Widgets',
+            'url' => '#',
+            'item_class'=>'pull-right'
+        ]);
+        $user = $this->user;
+        return view('mini::extra.widgets', compact(['units', 'model', 'slug','tags','memberships','variations','user']));
 
     }
-    public function extraLayouts()
+    public function extraLayouts($layouts,$model,$slug,$variations)
     {
-        return view('mini::extra.layouts')->with('user', $this->user);
+        BBAddTab('mini_assets',[
+            'title' => 'Add New Layout',
+            'url' => '#',
+            'item_class'=>'pull-right info'
+        ]);
+        $user = $this->user;
+        return view('mini::extra.layouts', compact(['layouts', 'model', 'slug','variations','user']));
 
     }
 
