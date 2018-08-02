@@ -32,6 +32,8 @@ Route::group(['prefix' => 'extra'], function () {
     });
 
     Route::get('/units', 'ClientController@extraGears')->name('mini_extra_gears');
+    Route::get('/widgets', 'ClientController@extraWidgets')->name('mini_extra_widgets');
+    Route::get('/layouts', 'ClientController@extraLayouts')->name('mini_extra_layouts');
     Route::get('/units-optimize', 'ClientController@extraGearsOptimize')->name('mini_extra_gears_optimize');
 });
 

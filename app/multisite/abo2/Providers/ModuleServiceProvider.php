@@ -64,6 +64,21 @@ class ModuleServiceProvider extends ServiceProvider
                 ],
                 'layout' => 'mini::layouts.app'
             ],
+            'mini_my_site_extra_units' => [
+                [
+                    'title' => 'Units',
+                    'url' => '/my-account/extra/units',
+                ],
+                [
+                    'title' => 'Widget',
+                    'url' => '/my-account/extra/widgets',
+                ],
+                [
+                    'title' => 'layouts',
+                    'url' => '/my-account/extra/layouts',
+                ],
+                'layout' => 'mini::layouts.app'
+            ],
         ];
         \Eventy::action('my.tab', $tubs);
     }

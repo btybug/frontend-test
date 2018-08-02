@@ -96,6 +96,17 @@ class ClientController extends MiniController
         return $this->cms->extraPlugins();
     }
 
+    public function extraWidgets(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->extraWidgets();
+    }
+    public function extraLayouts(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->extraLayouts();
+    }
+
     public function extraGears(Request $request)
     {
         $this->ennable($request);

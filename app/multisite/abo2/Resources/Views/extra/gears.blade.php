@@ -1,5 +1,6 @@
 @extends('mini::layouts.app')
-@section('content')
+@extends('mini::layouts.mTabs',['index'=>'mini_my_site_extra_units'])
+@section('tab')
     <div class="col-md-12">
         <h2>Unit List</h2>
         <div class="m-15 text-right">

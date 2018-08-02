@@ -120,6 +120,16 @@ class Main
         return view('mini::extra.gears', compact('units'))->with('user', $this->user);
 
     }
+    public function extraWidgets()
+    {
+        return view('mini::extra.widgets')->with('user', $this->user);
+
+    }
+    public function extraLayouts()
+    {
+        return view('mini::extra.layouts')->with('user', $this->user);
+
+    }
 
     public function pageEdit()
     {
