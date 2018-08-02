@@ -60,7 +60,7 @@ class ClientController extends MiniController
     public function accountSettings(Request $request)
     {
         $conditions = ['type' => 'user_settings'];
-        $user_forms = $this->formBuilderRepository->findAllByMultiple($conditions);
+        $user_forms = $this->formbuilderRepository->findAllByMultiple($conditions);
         $this->ennable($request);
         return $this->cms->accountSettings()->with('user_forms',$user_forms);
     }
@@ -68,7 +68,7 @@ class ClientController extends MiniController
     public function accountForms(Request $request)
     {
         $conditions = ['type' => 'user_settings','user_id' => Auth::user()->id];
-        $user_forms = $this->formBuilderRepository->findAllByMultiple($conditions);
+        $user_forms = $this->formbuilderRepository->findAllByMultiple($conditions);
         $this->ennable($request);
         return $this->cms->accountForms()->with('user_forms',$user_forms);
     }
