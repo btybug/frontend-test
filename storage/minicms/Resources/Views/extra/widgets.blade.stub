@@ -5,7 +5,7 @@
     <div class="ui-2_col">
         <div class="row">
             <div class="col-md-3 col-xs-12">
-                @include('multisite::admin.assets.units._partials.sidebar')
+                @include('multisite::admin.assets.widgets._partials.sidebar')
             </div>
             <div class="col-md-9 col-xs-12">
                 @if($model)
@@ -13,7 +13,7 @@
                         <div class="col-md-2">
                             {!! Form::select('variation',$variations,$model->slug.'.default',['class'=>'form-control','id'=>'layout-variations']) !!}
                         </div>
-                        @include('multisite::admin.assets.units._partials.buttons')
+                        @include('multisite::admin.assets.widgets._partials.buttons')
 
                         <div class="right-iframe">
                             <div class="col-md-12">
@@ -30,12 +30,12 @@
             </div>
         </div>
     </div>
-    @include('multisite::admin.assets.units._partials.previewModal')
+    @include('multisite::admin.assets.widgets._partials.previewModal')
     <input type="hidden" id="iframle-url" value="{!! url('admin/mini/assets/units/render/') !!}">
     <input type="hidden" id="live-preview-url" value="{!! route('mini_admin_assets_units_live') !!}">
 
 @stop
-@section("JS")
+@section("js")
     {!! HTML::script('public/js/tag-it/tag-it.js') !!}
     {!! HTML::script('public/js/select2/select2.full.min.js') !!}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -95,7 +95,7 @@
     </script>
 @stop
 
-@section('CSS')
+@section('css')
     {!! HTML::style('public/css/jquery.tagit.css') !!}
     {!! HTML::style("public/css/select2/select2.min.css") !!}
 
@@ -155,10 +155,3 @@
     </style>
 
 @stop
-
-
-
-{{--
-public function iframeRander($slug){
-return BBRenderUnits($slug);
-}--}}

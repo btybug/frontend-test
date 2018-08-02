@@ -46,6 +46,8 @@ class Generator
                     'view.blade'
                     ],
                 'gears.blade',
+                'layouts.blade',
+                'widgets.blade',
                 'plugin_settings.blade',
                 'plugins.blade',
             ],
@@ -59,7 +61,8 @@ class Generator
                 'special.blade'
             ],
             'layouts' => [
-                'app.blade'
+                'app.blade',
+                'mTabs.blade'
             ],
             'pages' => [
                 '_partials' => ['view.blade'],
