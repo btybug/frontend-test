@@ -195,7 +195,7 @@ class MiniSuperLayouts extends BasePainter implements VariationAccess
     {
         $variation = self::findVariation($slug);
         $data['page'] = $page;
-        $data['view'] = "uploads::gears.page_sections.live_preview.page_settings";
+        $data['view'] = "multisite::page_settings";
         $data['request'] = $settings;
         if ($variation) {
             $data['variation'] = $variation;
