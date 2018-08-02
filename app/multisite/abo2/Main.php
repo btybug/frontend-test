@@ -6,11 +6,11 @@
  * Time: 16:09
  */
 
-namespace App\multisite\{username};
+namespace App\multisite\abo2;
 
 
 use Btybug\Mini\Model\MiniPainter;
-use App\multisite\{username}\Providers\ModuleServiceProvider;
+use App\multisite\abo2\Providers\ModuleServiceProvider;
 use Btybug\FrontSite\Models\FrontendPage;
 use Btybug\User\User;
 use Illuminate\Http\Request;

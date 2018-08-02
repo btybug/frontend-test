@@ -1,4 +1,8 @@
 @extends('mini::layouts.app')
 @section('content')
-    {{$id}}
+   market
 @stop
+@section('js')
+
+@endsection
+
