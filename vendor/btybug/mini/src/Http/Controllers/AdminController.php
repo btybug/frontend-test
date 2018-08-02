@@ -221,7 +221,9 @@ class AdminController extends Controller
             }
             $arraydata['is_clone'] = $id;
             $created = $this->formbuilderRepository->create($arraydata);
-            return back();
+            return back()->with('message','The clone has been created');
+        }else{
+            return back()->with('message','The clone of this form allready exist');
         }
     }
 }
