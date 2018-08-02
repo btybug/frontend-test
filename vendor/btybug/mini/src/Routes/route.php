@@ -47,6 +47,7 @@ Route::group(['prefix' => 'my-site'], function () {
         Route::get('/edit/{id}', 'MySiteController@pageEdit')->name('mini_page_edit');
         Route::get('/edit/{id}/content', 'MySiteController@pageEditContent')->name('mini_page_edit_content');
         Route::get('/edit/{id}/live', 'LivePreviewController@getIngex')->name('mini_page_edit');
+        Route::post('/edit/{page_id}/{slug}/{save?}', 'LivePreviewController@postPageSectionSettings')->name('mini_page_save_layout');
     });
     Route::group(['prefix' => 'settings'], function () {
         Route::get('/', 'MySiteController@settings')->name('mini_my_site_settings');

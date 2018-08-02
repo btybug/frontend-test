@@ -514,7 +514,7 @@ class MiniSuperLayouts extends BasePainter implements VariationAccess
         $model = $this;
         $usedIn = (isset($variation['used_in'])) ? BBgetFrontPage($variation['used_in']) : null;
         if ($this->autoinclude) {
-            $html = $this->getAutoInclude()->getRender($settings, "ContentLayouts.$slug");
+            $html = $this->getAutoInclude()->getRender($settings, "multisite::ContentLayouts.$slug");
         } else {
             $html = \View::make("multisite::ContentLayouts.$slug.$layout")->with(['settings' => $settings, '_this' => $this, 'variation' => $variables['variation'],'page' => $page])->render();
         }
@@ -530,25 +530,25 @@ class MiniSuperLayouts extends BasePainter implements VariationAccess
         $slug = $this->folder;
         $layout = ($this->example) ? $this->example : $this->layout;
         $variation = issetReturn($variables, 'variation', null);
-        $html = \View::make("ContentLayouts.$slug.$layout")->with(['settings' => $variables, '_this' => $this, 'variation' => $variation])->render();
+        $html = \View::make("multisite::ContentLayouts.$slug.$layout")->with(['settings' => $variables, '_this' => $this, 'variation' => $variation])->render();
         return $html;
     }
 
     public function scopeRender(array $variables = [],$demo=false)
     {
         $slug = $this->folder;
-        if ($this->autoinclude) return $this->getAutoInclude()->getRender($variables, "ContentLayouts.$slug");
+        if ($this->autoinclude) return $this->getAutoInclude()->getRender($variables, "multisite::ContentLayouts.$slug");
         $layout=($demo)?$this->demo:$this->layout;
-        $html = \View::make("multisite::ContentLayouts.$slug.$layout")->with(['settings' => $variables, '_this' => $this])->render();
+        $html = \View::make("multisite::multisite::ContentLayouts.$slug.$layout")->with(['settings' => $variables, '_this' => $this])->render();
         return $html;
     }
 
     public function scopeRenderPagePanel($page)
     {
         $slug = $this->folder;
-        if ($this->autoinclude) return $this->getAutoInclude()->getRender($page, "ContentLayouts.$slug");
-        if (!\View::exists("ContentLayouts.$slug.$this->panel")) return "View not found";
-        $html = \View::make("ContentLayouts.$slug.$this->panel")->with(['page' => $page, '_this' => $this])->render();
+        if ($this->autoinclude) return $this->getAutoInclude()->getRender($page, "multisite::ContentLayouts.$slug");
+        if (!\View::exists("multisite::ContentLayouts.$slug.$this->panel")) return "View not found";
+        $html = \View::make("multisite::ContentLayouts.$slug.$this->panel")->with(['page' => $page, '_this' => $this])->render();
         return $html;
     }
 

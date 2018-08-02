@@ -48,4 +48,23 @@ class LivePreviewController extends MiniController
             abort('404');
         }
     }
+    public function postPageSectionSettings(Request $request,$page_id,FrontPagesRepository $repository)
+    {
+        if($request->save){
+            $slug = explode('.', $request->slug);
+            $page=$repository->find($page_id);
+            if(! $request->inherit){
+                $page->page_layout=$slug[0];
+                $page->page_layout_settings=json_encode($request->all(),true);
+            }
+            $page->page_layout_inheritance = $request->inherit;
+
+            $page->save();
+        }
+        $output = MiniSuperLayouts::savePageSectionSettings($request->slug, $request->itemname, $request->except(['_token', 'itemname']), null);
+        return response()->json([
+            'url' => ($request->save) ? url()->previous() : false,
+            'html' => isset($output['data']) ? $output['data'] : false
+        ]);
+    }
 }

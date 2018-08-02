@@ -77,7 +77,8 @@
                         <img src="{!! url('/public/images/loader.gif') !!}"
                              style="position: relative;left: 40%;width: 100px;top: 70px;" id="loader-img" class="hide"/>
                         <div class="right" id="right-settings-main-box-bty">
-                            {!! Form::model($settings,['id'=>'add_custome_page','url'=>url('admin/uploads/layouts/page-settings',[$page->id,$model->slug])]) !!}
+                            {{--url('admin/uploads/layouts/page-settings'--}}
+                            {!! Form::model($settings,['id'=>'add_custome_page','url'=>route('mini_page_save_layout',[$page->id,$model->slug])]) !!}
                             <h3 id="main-box-title"></h3>
                             @include($settingsHtml)
                             {!! Form::close() !!}
