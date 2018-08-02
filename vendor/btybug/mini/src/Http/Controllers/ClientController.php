@@ -9,11 +9,10 @@
 namespace Btybug\Mini\Http\Controllers;
 
 
-
+use Btybug\Uploads\Repository\FormBuilderRepository;
 use Btybug\Mini\Model\MiniPainter;
 use Btybug\Mini\Services\PagesService;
 use Btybug\Console\Repository\FrontPagesRepository;
-use Btybug\Uploads\Repository\FormBuilderRepository;
 use Btybug\Mini\Model\MiniSuperPainter;
 use Btybug\Mini\Services\UnitService;
 use Btybug\User\Repository\MembershipRepository;
@@ -23,6 +22,7 @@ use Btybug\Mini\Model\MiniSuperLayouts;
 use Auth;
 use Illuminate\Http\Request;
 
+
 class ClientController extends MiniController
 {
     private $formBuilderRepository;
@@ -31,6 +31,7 @@ class ClientController extends MiniController
     private $tagsRepository;
     private $membershipRepository;
     private $contentLayouts;
+    private $formbuilderRepository;
 
     public function __construct(
         FormBuilderRepository $formBuilderRepository,
@@ -38,7 +39,8 @@ class ClientController extends MiniController
         MiniSuperPainter $painter,
         TagsRepository $tagsRepository,
         MembershipRepository $membershipRepository,
-        MiniSuperLayouts $contentLayouts
+        MiniSuperLayouts $contentLayouts,
+        FormBuilderRepository $formbuilderRepository
     )
     {
         $this->contentLayouts = $contentLayouts;
@@ -46,7 +48,7 @@ class ClientController extends MiniController
         $this->painter = $painter;
         $this->tagsRepository = $tagsRepository;
         $this->membershipRepository = $membershipRepository;
-        $this->formBuilderRepository = $formBuilderRepository;
+        $this->formbuilderRepository = $formbuilderRepository;
     }
 
     public function account(Request $request)
@@ -138,10 +140,19 @@ class ClientController extends MiniController
         return $this->cms->extraLayouts($layouts,$model,$slug,$variations);
     }
 
-    public function extraGears(Request $request)
+    public function extraGears(Request $request, $slug = null)
     {
+        $units = $this->painter->where('self_type', 'units')->get();
+        $model = $this->unitService->getUnit($units, $slug);
+
+        $tags = $model->tags;
+        $memberships = $this->membershipRepository->pluck('name', 'slug')->toArray();
+
+        $tags = implode(',', $tags);
+        $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
+
         $this->ennable($request);
-        return $this->cms->extraGears();
+        return $this->cms->extraGears($units,$model,$slug,$tags,$memberships,$variations);
     }
 
     public function editUserPage(Request $request, $id, PagesService $service, FrontPagesRepository $repository)

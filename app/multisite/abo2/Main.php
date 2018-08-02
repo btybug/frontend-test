@@ -114,10 +114,15 @@ class Main
         return view('mini::extra.plugin_settings')->with('user', $this->user);
     }
 
-    public function extraGears()
+    public function extraGears($units,$model,$slug,$tags,$memberships,$variations)
     {
+        BBAddTab('mini_my_site_extra_units', [
+            'title' => 'Add New Unit',
+            'url' => '#',
+            'item_class' => 'pull-right info'
+        ]);
         $units = MiniPainter::all()->get();
-        return view('mini::extra.gears', compact('units'))->with('user', $this->user);
+        return view('mini::extra.gears', compact('units','model','slug','tags','memberships','variations'))->with('user', $this->user);
 
     }
     public function extraWidgets($units,$model,$slug,$tags,$memberships,$variations)
