@@ -97,7 +97,7 @@
                     <li><a href="{!! route('mini_communications_reviews') !!}">Reviews <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
                 </ul>
             </li>
-            
+
 
             <!-- end sidebar minify button -->
         </ul>
