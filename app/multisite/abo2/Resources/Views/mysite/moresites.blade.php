@@ -1,5 +1,6 @@
 @extends('mini::layouts.app')
 @section('content')
+
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
         <div class="well">
             <div class="media">
@@ -46,5 +47,21 @@
                 </div>
             </div>
         </div>
+    <br>
 
+
+
+@stop
+@section('css')
+    <style>
+        body{padding-top:30px;}
+
+        .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+
+        small {
+            display: block;
+            line-height: 1.428571429;
+            color: #999;
+        }
+    </style>
 @stop
