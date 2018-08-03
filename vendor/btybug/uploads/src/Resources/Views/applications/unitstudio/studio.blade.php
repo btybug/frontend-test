@@ -217,7 +217,7 @@ width:20%;
         </div>
     </div>
 </header>
-<div class="w-100 text-center">
+<div class="w-100 text-right">
 <div class="code-head" >
             <button class="btn btn-warning btn-sm showLayers">Layers</button>
             <button class="btn btn-info btn-sm createHtml">HTML</button>
