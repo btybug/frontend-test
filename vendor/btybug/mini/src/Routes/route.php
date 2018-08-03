@@ -7,7 +7,7 @@
  */
 Route::get('/', 'ClientController@account');
 Route::get('/settings', 'ClientController@accountSettings')->name('mini_account_settings');
-Route::get('/forms', 'ClientController@accountForms')->name('mini_account_forms');
+Route::get('/extra/forms', 'ClientController@accountForms')->name('mini_account_forms');
 Route::get('/forms/edit/{id}', 'ClientController@accountFormsEdit')->name('mini_account_forms_edit');
 Route::get('/forms/render/{id}', 'ClientController@accountFormsRender')->name('mini_account_forms_render');
 Route::get('/forms/delete/{id}', 'ClientController@accountFormsDelete')->name('mini_account_forms_delete');
