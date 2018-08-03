@@ -18,12 +18,10 @@
                             Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
                             dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
                             Aliquam in felis sit amet augue.</p>
-                        <div class="col-md-4">
-                           <button class="btn btn-default">More</button>
-                        </div>
-                        <div class="col-md-4">
-                            <button class="btn btn-default">Activate</button>
-                        </div>
+
+                            <p class="col-md-4"><button class="btn btn-default btn-block">More</button></p>
+                            <p class="col-md-4"><button class="btn btn-default btn-block">Activate</button></p>
+
                     </div>
                 </div>
             </div>
