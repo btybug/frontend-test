@@ -14,18 +14,16 @@
                     </a>
                     <div class="media-body">
                         <h2 class="media-heading">CV</h2>
-                        <div class="col-md-4 pull-right">
-                            <p><button class="col-md-4 btn btn-default">More</button></p>
-                            <p><button class="col-md-4 btn btn-default">Activate</button></p>
-                        </div>
                         <p class="col-md-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
                             Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
                             dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
                             Aliquam in felis sit amet augue.</p>
-                        <ul class="list-inline list-unstyled">
-
-
-                        </ul>
+                        <div class="col-md-4">
+                           <button class="btn btn-default">More</button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-default">Activate</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,7 +49,7 @@
                 @endif
 
             </div>
-            
+
         </div>
     </div>
     @include('multisite::admin.assets.units._partials.previewModal')
