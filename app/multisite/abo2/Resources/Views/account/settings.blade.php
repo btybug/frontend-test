@@ -16,7 +16,7 @@
         </div>
     </div>
     @if(isset($form))
-        <textarea class="hidden" id="formJson">{!! $form !!}</textarea>
+        <textarea class="hidden" style="display: none" id="formJson">{!! $form !!}</textarea>
     @endif
     <div class="bb-form-sub-header" style="display: none">
         <div class="row">
