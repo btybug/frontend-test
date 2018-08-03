@@ -2,7 +2,7 @@
 @php
 $tabs=$section->getTabs($index);
 @endphp
-@extends($section->layout)
+{{--@extends($section->layout)--}}
 @section('content')
     @yield('parag')
     <div class="col-md-12">
@@ -33,6 +33,7 @@ $tabs=$section->getTabs($index);
                             }
                             ?>
                             <li role="presentation"
+                                id="tab"
                                 class="{!! $value["item_class"] or null !!} @if(Request::getPathInfo()==$value['url'] || (Request::getPathInfo().'/'.$param)==$value['url']) active @endif ">
 
                                 <a href='{!! url($value["url"])!!}'>

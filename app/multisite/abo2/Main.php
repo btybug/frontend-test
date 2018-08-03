@@ -229,4 +229,17 @@ class Main
     {
         return view('mini::btybug.blog')->with('user', $this->user);
     }
+
+    public function btybug()
+    {
+        return view('mini::mysite.btybug')->with('user', $this->user);
+    }
+    public function pagesFunction()
+    {
+        return view('mini::mysite.btybug_pages')->with('user', $this->user);
+    }
+    public function settingsFunction()
+    {
+        return view('mini::mysite.btybug_settings')->with('user', $this->user);
+    }
 }

@@ -53,6 +53,12 @@ Route::group(['prefix' => 'my-site'], function () {
         Route::get('/', 'MySiteController@settings')->name('mini_my_site_settings');
         Route::get('/special', 'MySiteController@specialSettings')->name('mini_my_site_special_settings');
     });
+    Route::group(['prefix' => 'btybug'], function () {
+        Route::get('/', 'MySiteController@pagesFunction')->name('mini_my_site_btybug');
+        Route::get('/special', 'MySiteController@specialSettings')->name('mini_my_site_special_settings');
+        Route::get('/pages', 'MySiteController@pagesFunction')->name('mini_my_site_btybug_pages');
+        Route::get('/settings', 'MySiteController@settingsFunction')->name('mini_my_site_btybug_settings');
+    });
 });
 
 Route::group(['prefix' => 'communications'], function () {

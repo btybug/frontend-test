@@ -67,7 +67,7 @@ class ModuleServiceProvider extends ServiceProvider
             'mini_my_site_extra_units' => [
                 [
                     'title' => 'Units',
-                    'url' => '/my-account/extra/units',
+                    'url' => '/my-account/extra/gear',
                 ],
                 [
                     'title' => 'Widget',
@@ -76,6 +76,17 @@ class ModuleServiceProvider extends ServiceProvider
                 [
                     'title' => 'layouts',
                     'url' => '/my-account/extra/layouts',
+                ],
+                'layout' => 'mini::layouts.app'
+            ],
+            'mini_my_site_btybug' => [
+                [
+                    'title' => 'Pages',
+                    'url' => '/my-account/my-site/btybug/pages',
+                ],
+                [
+                    'title' => 'Settings',
+                    'url' => '/my-account/my-site/btybug/settings',
                 ],
                 'layout' => 'mini::layouts.app'
             ],

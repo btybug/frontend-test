@@ -99,4 +99,18 @@ class MySiteController extends MiniController
 
         return $this->cms->responseJson(false, 'successfully requested', ['html' => $html]);
     }
+
+
+    public  function btybug(Request $request){
+        $this->ennable($request);
+        return $this->cms->btybug();
+    }
+    public  function pagesFunction(Request $request){
+        $this->ennable($request);
+        return $this->cms->pagesFunction();
+    }
+    public  function settingsFunction(Request $request){
+        $this->ennable($request);
+        return $this->cms->settingsFunction();
+    }
 }
