@@ -75,25 +75,4 @@ class AdminPagesController extends Controller
         $html = \View::make('multisite::admin.assets.page_edit_form', compact('model', 'tags'))->render();
         return response()->json(['error' => false, 'html' => $html]);
     }
-
-    public function assetsGeneral()
-    {
-        $header = Settings::where('section', 'minicms')->where('settingkey', 'default_header')->select('val AS header')->first();
-        $layout = Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS layout')->first();
-        $settingForm = ['type' => 'user_settings'];
-        $forms = $this->formBuilderRepository->findAllByMultiple($settingForm);
-        $selectedForm = Settings::where('section', 'minicms')->where('settingkey', 'default_user_form_id')->first();
-        return view('multisite::admin.assets.general', compact('header', 'layout','forms','selectedForm'));
-    }
-
-    public function assetsGeneralSave(Request $request)
-    {
-        $header = $request->get('header');
-        $layout = $request->get('layout');
-        $user_form = $request->get('user_set_form_id');
-        $this->settings->createOrUpdate($header, 'minicms', 'default_header');
-        $this->settings->createOrUpdate($layout, 'minicms', 'default_layout');
-        $this->settings->createOrUpdate($user_form, 'minicms', 'default_user_form_id');
-        return redirect()->back();
-    }
 }

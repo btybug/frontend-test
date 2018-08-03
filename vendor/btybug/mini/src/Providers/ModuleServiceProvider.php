@@ -46,10 +46,7 @@ class ModuleServiceProvider extends ServiceProvider
 
         $tubs = [
             'mini_assets' => [
-                [
-                    'title' => 'General',
-                    'url' => '/admin/mini/assets/general',
-                ],[
+               [
                     'title' => 'Units',
                     'url' => '/admin/mini/assets/units/{slug}',
                 ],[
@@ -69,6 +66,12 @@ class ModuleServiceProvider extends ServiceProvider
                     'url' => '/admin/mini/assets/plugins',
                 ],
 
+            ] ,
+            'mini_settings' => [
+                [
+                    'title' => 'General',
+                    'url' => '/admin/mini/settings',
+                ]
             ]
         ];
         \Eventy::action('my.tab', $tubs);

@@ -10,6 +10,7 @@ namespace Btybug\Mini\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
+use Btybug\btybug\Repositories\AdminsettingRepository;
 use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\Mini\Model\MiniSuperPainter;
 use Btybug\Mini\Services\UnitService;
@@ -18,12 +19,15 @@ use Btybug\User\Repository\MembershipRepository;
 use Illuminate\Http\Request;
 use Btybug\Uploads\Services\AppsService;
 use Btybug\btybug\Helpers\helpers;
+use Btybug\btybug\Models\Settings;
+
 
 class AdminController extends Controller
 {
 
     private $unitService;
     private $painter;
+    private $settings;
     private $tagsRepository;
     private $membershipRepository;
     private $formbuilderRepository;
@@ -33,7 +37,8 @@ class AdminController extends Controller
         MiniSuperPainter $painter,
         TagsRepository $tagsRepository,
         MembershipRepository $membershipRepository,
-        FormBuilderRepository $formbuilderRepository
+        FormBuilderRepository $formbuilderRepository,
+        AdminsettingRepository $settings
 
     )
     {
@@ -42,6 +47,7 @@ class AdminController extends Controller
         $this->tagsRepository = $tagsRepository;
         $this->membershipRepository = $membershipRepository;
         $this->formbuilderRepository = $formbuilderRepository;
+        $this->settings=$settings;
     }
 
     public function getIndex()
@@ -51,7 +57,22 @@ class AdminController extends Controller
 
     public function getSettings()
     {
-        return view('multisite::admin.settings');
+        $header = Settings::where('section', 'minicms')->where('settingkey', 'default_header')->select('val AS header')->first();
+        $layout = Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS layout')->first();
+        $settingForm = ['type' => 'user_settings'];
+        $forms = $this->formbuilderRepository->findAllByMultiple($settingForm);
+        $selectedForm = Settings::where('section', 'minicms')->where('settingkey', 'default_user_form_id')->first();
+        return view('multisite::admin.settings', compact('header', 'layout','forms','selectedForm'));
+    }
+    public function generalSave(Request $request)
+    {
+        $header = $request->get('header');
+        $layout = $request->get('layout');
+        $user_form = $request->get('user_set_form_id');
+        $this->settings->createOrUpdate($header, 'minicms', 'default_header');
+        $this->settings->createOrUpdate($layout, 'minicms', 'default_layout');
+        $this->settings->createOrUpdate($user_form, 'minicms', 'default_user_form_id');
+        return redirect()->back();
     }
 
     public function getAssets()
