@@ -8,19 +8,27 @@
                 @include('multisite::admin.assets.units._partials.sidebar')
             </div>
             <div class="well">
+
                 <div class="media">
                     <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placekitten.com/150/150">
+                        <div class="media-left">
+                                <img class="media-object" src="http://placekitten.com/150/150">
+
+                        </div>
                     </a>
                     <div class="media-body">
-                        <h2 class="media-heading">CV</h2>
-                        <p class="col-md-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                            Aliquam in felis sit amet augue.</p>
+                        <div class="col-md-6">
+                            <p>Author:</p>
+                            <p>details:</p>
+                            <br><br>
+                            <p>Site:</p>
+                            <br><br>
+                            <p>Tags:</p>
+                        </div>
 
-                            <p class="col-md-4"><button class="btn btn-default btn-block">More</button></p>
-                            <p class="col-md-4"><button class="btn btn-default btn-block">Activate</button></p>
+
+                            <p class="col-md-4 pull-right"><button class="btn btn-default btn-block">More</button></p>
+                            <p class="col-md-4 pull-right"><button class="btn btn-default btn-block">Activate</button></p>
 
                     </div>
                 </div>
