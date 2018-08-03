@@ -82,8 +82,6 @@
                 </a>
                 <ul class="sub-menu">
                     <li><a href="{!! route('mini_my_site_btybug') !!}">Bty bug <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
-                    <li><a href="{!! route('mini_my_site_pages') !!}">Pages <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
-                    <li><a href="{!! route('mini_my_site_settings') !!}">Settings <i class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
                 </ul>
             </li>
             <li class="has-sub">

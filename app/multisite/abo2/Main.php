@@ -236,7 +236,8 @@ class Main
     }
     public function pagesFunction()
     {
-        return view('mini::mysite.btybug_pages')->with('user', $this->user);
+        $pages = $this->user->frontPages()->orderBy('sorting')->get();
+        return view('mini::mysite.btybug_pages')->with(['user' => $this->user, 'pages' => $pages]);
     }
     public function settingsFunction()
     {
