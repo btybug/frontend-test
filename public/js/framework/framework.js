@@ -4,9 +4,11 @@ var codeEditor,
   phpFullCodeEditor,
   nodeCode,
   selectedAttr,
+  functionSelectedItem,
   fullCode;
 var nodeChanger = true;
 var dropFinshed = false;
+var connectCheckr = false;
 
 var framework = {
   globalIndex: 0,
@@ -444,10 +446,15 @@ var framework = {
         // case "Full Code":
         //   break;
         case "Functions":
+          $(".visualCodeEditorToggle").show();
           framework.showElement($(".function-tab"));
           $(".buttons-layers").hide();
           $(".footer-editor").hide();
           $(".jsPanel").removeClass("displayToggle");
+          setTimeout(function() {
+            $("#preview").addClass("active show");
+          }, 500);
+
           break;
         // case "Styles":
         //   break;
@@ -457,9 +464,14 @@ var framework = {
           $(".visualCodeEditorToggle").show();
           // $(".content-width").removeClass("col-12");
           $(".buttons-layers").show();
+          $(".visualCodeEditorToggle").hide();
+          framework.hideElement($(".function-tab"));
+
           break;
 
         default:
+          framework.hideElement($(".function-tab"));
+
           $(".buttons-layers").hide();
           $(".footer-editor").hide();
           $(".jsPanel").removeClass("displayToggle");
@@ -470,6 +482,76 @@ var framework = {
           // $(".content-width").addClass("col-12");
           break;
       }
+    },
+    functionInputValueChanger: function($this) {
+      console.log();
+      if ($this.prev().attr("readonly")) {
+        $this.prev().attr("readonly", false);
+        $this.html(`<i class="fa fa-save"></i>`);
+      } else {
+        $this.prev().attr("readonly", true);
+        $this.html(`<i class="fa fa-edit"></i>`);
+      }
+    },
+    functionInputValueRemover: function($this) {
+      $this.parent().remove();
+    },
+    functionSelectInput: function($this) {
+      $(".function-tab-item-options").empty();
+      $(".function-section-selecters").html(
+        `<i class="far fa-check-circle"></i>`
+      );
+      $this.html(`<i class="fas fa-check-circle"></i>`);
+      framework.showElement($(".function-tab-options"));
+    },
+    addFunctionSectionItem: function() {
+      let elm = `<div> <input  value="${Date.now()}" readonly> <button bb-click="functionInputValueChanger" class="btn btn-alert"><i class="fa fa-edit"></i></button><button bb-click="functionInputValueRemover" class="btn btn-alert"><i class="fa fa-remove"></i></button><button bb-click="functionSelectInput" class="btn btn-alert function-section-selecters"><i class="far fa-check-circle"></i></button> <div>`;
+      $(".function-tab-item-section").prepend(elm);
+    },
+    functionSelectOptionInput: function($this) {
+      $(".function-options-selecters").html(
+        `<i class="far fa-check-circle"></i>`
+      );
+      $this.html(`<i class="fas fa-check-circle"></i>`);
+      framework.showElement($(".function-tab-connections"));
+      $(".function-tab-item-connections").empty();
+      // 222
+      let html = `<p>${$this
+        .prev()
+        .prev()
+        .prev()
+        .val()} ${
+        functionSelectedItem
+          ? `Connected to ${functionSelectedItem}`
+          : "not connected"
+      }  </p> <button class="btn btn-primary" bb-click="functionConnectSelecter">${
+        functionSelectedItem ? "Change conection" : "Connect"
+      }</button>
+        ${
+          functionSelectedItem
+            ? ""
+            : `<ol>
+          <li>Click on connect</li>
+          <li>Select one of the layers</li>
+          <li>Select attribute</li>
+          <li>Click to add</li>
+        <ol>`
+        }
+      `;
+      $(".function-tab-item-connections").append(html);
+    },
+    functionConnectSelecter: function() {
+      connectCheckr = true;
+      var treeList = framework.nodeTreeGenerator(
+        $("<wrap>" + codeEditor.getValue() + "</wrap>")
+      );
+      $(".tree-list-functions").html(treeList);
+    },
+    functionConnectItemSelecter: function($this) {},
+    addFunctionOptionsItem: function($this) {
+      let elm = `<div> <input  value="${Date.now()}" readonly> <button bb-click="functionInputValueChanger" class="btn btn-alert"><i class="fa fa-edit"></i></button><button bb-click="functionInputValueRemover" class="btn btn-alert"><i class="fa fa-remove"></i></button><button bb-click="functionSelectOptionInput" class="btn btn-alert function-options-selecters"><i class="far fa-check-circle"></i></button> <div>`;
+      $(".function-tab-item-options").prepend(elm);
+      0;
     },
     handleNodeItemClick: function($this) {
       // Hobo
@@ -1001,17 +1083,21 @@ $(function() {
       .removeClass("w-100 h-100");
   });
 
+  $("body").on("click", ".tree-list-functions", function(e) {
+    functionSelectedItem = e.target.textContent.trim();
+    $(".function-options-selecters").click();
+    $(".tree-list-functions").empty();
+  });
+
   // Listen to click events
   $("body").on("click", "[bb-click]", function(e) {
     e.preventDefault();
-
     var clickEvent = $(this).attr("bb-click");
     framework.clickEvents[clickEvent]($(this));
   });
 
   // Node code position change event
   $(".node-code-position").change(function() {
-    // Vagh@ nael
     if ($(this).val() === "Attributes") {
       framework.showElement($(".custom-attribute"));
     } else {

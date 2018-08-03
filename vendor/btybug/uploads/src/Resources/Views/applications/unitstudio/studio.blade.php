@@ -178,6 +178,14 @@ width:20%;
     border: 1px solid red;
     background-color: #face20
     }
+
+    #functions {
+        display: none !important;
+    }
+    .tree-list-functions {
+        margin-top: 20px;
+        background-color: lightgreen;
+    }
     </style>
     <title>Document</title>
     <script>
@@ -432,16 +440,23 @@ width:20%;
 </div>
 <div id="code-editor"></div>
 <div class="function-tab w-100" hidden>
+    <div class="tree-list-functions" bb-click="functionConnectItemSelecter" style="width: 300px; position: fixed; right: 0; top: 0" ></div>
     <ul style="display: flex">
         <li class="function-tab-item">
             <p>Section</p>
-            <button class="btn btn-primary"><i class="fa fa-plus"></i></button>
+            <div class="function-tab-item-section"></div>
+            <button bb-click="addFunctionSectionItem" class="btn btn-primary"><i class="fa fa-plus"></i></button>
         </li>
-        <li class="function-tab-item">
+        <li class="function-tab-item function-tab-options" hidden>
+
             <p>Options</p>
+        <div class="function-tab-item-options"></div>
+
+            <button bb-click="addFunctionOptionsItem" class="btn btn-primary"><i class="fa fa-plus"></i></button>
         </li>
-        <li class="function-tab-item">
+        <li class="function-tab-item function-tab-connections" hidden>
             <p>Conection</p>
+            <div class="function-tab-item-connections"></div>
         </li>
     </ul>
 
