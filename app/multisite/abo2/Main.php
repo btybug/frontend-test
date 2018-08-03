@@ -49,9 +49,10 @@ class Main
     public function accountSettings()
     {
         $selectedForm = Settings::where('section', 'minicms')->where('settingkey', 'user_details_form_id')->first();
+
         $form=null;
         if($selectedForm){
-        $form= $this->formbuilderRepository->findOrFail($selectedForm->id);
+        $form= $this->formbuilderRepository->findOrFail($selectedForm->val);
         }
         return view('mini::account.settings',compact('form'))->with('user', $this->user);
 
