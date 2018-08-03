@@ -7,10 +7,10 @@
             <div class="col-md-3 col-xs-12">
                 @include('multisite::admin.assets.units._partials.sidebar')
             </div>
-            <div class="well">
+            <div class="well col-md-9">
 
             </div>
-            <div class="well">
+            <div class="well col-md-9">
 
                 <div class="media">
                     <a class="pull-left" href="#">
@@ -38,7 +38,7 @@
             </div>
             <div class="well col-md-9">
 
-                    <div class="col-md-5"><h4>Variations</h4></div>
+                    <div class="col-md-4"><h4>Variations</h4></div>
                     <div class="col-md-4 pull-right">
                         <button class="btn btn-default btn-sm">Creat New +</button>&nbsp;
                         <button class="btn btn-default btn-sm" >Detail</button>&nbsp;
