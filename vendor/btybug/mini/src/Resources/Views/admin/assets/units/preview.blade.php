@@ -8,9 +8,9 @@
                 @include('multisite::admin.assets.units._partials.sidebar')
             </div>
             <div class="well col-md-9">
-                <div class="col-md-4"><h6>Profile Unit</h6></div>
+                <div class="col-md-4">{{$model->slug}}</div>
                 <div class="col-md-4 pull-right">
-                    <button class="btn btn-default btn-sm">Delete</button></div>
+                    <a href="{{route('mini_admin_delete_units',$model->id)}}"><button class="btn btn-default btn-sm">Delete</button></a></div>
             </div>
             <div class="well col-md-9">
 
@@ -23,28 +23,26 @@
                     </a>
                     <div class="media-body">
                         <div class="col-md-6">
-                            <p>Author:</p>
-                            <p>details:</p>
+                            <p>Author: {{$model->author}}</p>
+                            <p>Details: {{$model->description}}</p>
                             <br><br>
                             <p>Site:</p>
                             <br><br>
                             <p>Tags:</p>
                         </div>
+                        <div class="right_sect">
 
-
-                            <p class="col-md-4 pull-right"><button class="btn btn-default btn-block">More</button></p>
-                            <p class="col-md-4 pull-right"><button class="btn btn-default btn-block">Activate</button></p>
-
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="well col-md-9">
 
-                    <div class="col-md-4"><h4>Variations</h4></div>
+                    <div class="col-md-4">Variations</div>
                     <div class="col-md-4 pull-right">
-                        <button class="btn btn-default btn-sm">Creat New +</button>&nbsp;
-                        <button class="btn btn-default btn-sm" >Detail</button>&nbsp;
-                        <button class="btn btn-default btn-sm">List</button></div>
+                        <a href="{!! route('mini_admin_assets_create_unit_variation',$model->slug) !!}" class="btn btn-md btn-default">Create Variation</a>&nbsp;
+                        <button class="btn btn-default btn-md" >Detail</button>&nbsp;
+                        <button class="btn btn-default btn-md">List</button></div>
 
 
             </div>
@@ -142,6 +140,11 @@
     {!! HTML::style("public/css/select2/select2.min.css") !!}
 
     <style>
+        .right_sect {
+            border-left: 6px solid lightgrey;
+            height: 200px;
+            margin-left: 650px;
+        }
         .ui-2_col {
             margin-top: 30px;
         }

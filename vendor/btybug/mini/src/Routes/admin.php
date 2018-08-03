@@ -10,6 +10,8 @@ Route::group(['prefix' => 'assets'], function () {
     Route::get('/', 'AdminController@getAssets', true)->name('mini_admin_assets');
 
     Route::group(['prefix' => 'units'], function () {
+        Route::get('/delete/{id}', 'AdminController@deleteUnit', true)->name('mini_admin_delete_units');
+
         Route::get('/', 'AdminController@assetsUnits', true)->name('mini_admin_assets_units');
         Route::group(['prefix' => '{id?}'], function () {
             Route::get('/', 'AdminController@assetsUnits', true)->name('mini_admin_assets_units');

@@ -17,6 +17,7 @@ use Btybug\Mini\Services\UnitService;
 use Btybug\Uploads\Repository\FormBuilderRepository;
 use Btybug\User\Repository\MembershipRepository;
 use Illuminate\Http\Request;
+use Btybug\Uploads\Repository\UnitsRepository;
 use Btybug\Uploads\Services\AppsService;
 use Btybug\btybug\Helpers\helpers;
 use Btybug\btybug\Models\Settings;
@@ -31,6 +32,7 @@ class AdminController extends Controller
     private $tagsRepository;
     private $membershipRepository;
     private $formbuilderRepository;
+    private $unitsRepositorie;
 
     public function __construct(
         UnitService $unitService,
@@ -38,7 +40,8 @@ class AdminController extends Controller
         TagsRepository $tagsRepository,
         MembershipRepository $membershipRepository,
         FormBuilderRepository $formbuilderRepository,
-        AdminsettingRepository $settings
+        AdminsettingRepository $settings,
+        UnitsRepository $unitsRepository
 
     )
     {
@@ -48,6 +51,7 @@ class AdminController extends Controller
         $this->membershipRepository = $membershipRepository;
         $this->formbuilderRepository = $formbuilderRepository;
         $this->settings=$settings;
+        $this->unitsRepositorie = $unitsRepository;
     }
 
     public function getIndex()
@@ -83,6 +87,13 @@ class AdminController extends Controller
         return view('multisite::admin.assets.index');
     }
 
+    public function deleteUnit($id = null)
+    {
+        //($id);
+        $this->unitsRepositorie->delete($id);
+
+        return back();
+    }
     public function assetsUnits(Request $request, $slug = null)
     {
         $units = $this->painter->where('self_type', 'units')->get();
