@@ -62,7 +62,8 @@ class AdminController extends Controller
         $settingForm = ['type' => 'user_settings'];
         $forms = $this->formbuilderRepository->findAllByMultiple($settingForm);
         $selectedForm = Settings::where('section', 'minicms')->where('settingkey', 'default_user_form_id')->first();
-        return view('multisite::admin.settings', compact('header', 'layout','forms','selectedForm'));
+        $selectedForm2 = Settings::where('section', 'minicms')->where('settingkey', 'user_details_form_id')->first();
+        return view('multisite::admin.settings', compact('header', 'layout','forms','selectedForm','selectedForm2'));
     }
     public function generalSave(Request $request)
     {
