@@ -217,6 +217,19 @@ width:20%;
         </div>
     </div>
 </header>
+<div class="w-100 text-center">
+<div class="code-head" >
+            <button class="btn btn-warning btn-sm showLayers">Layers</button>
+            <button class="btn btn-info btn-sm createHtml">HTML</button>
+            <button class="btn btn-primary btn-sm createAssets">Assets</button>
+            <div class="add-custom-layers" style="display: none;">
+            <select name="custom-layer" class="form-control" id="custom-layer" >
+
+            </select>
+            <button bb-click="addHtmlTag"><i class="fa fa-plus"></i></button>
+            </div>
+        </div>
+</div>
 <div class="row grow w-100 ">
     <div class="col-7 p-0 content-width">
         <div class="h-100 d-flex flex-column">
