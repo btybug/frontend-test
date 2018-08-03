@@ -162,6 +162,22 @@ width:20%;
     .jsPanel-btn-minimize {
         display: none !important;
     }
+    ul{
+        list-style: none
+    }
+
+    .function-tab-item {
+        width: 200px;
+        height: 200px;
+    }
+
+    .function-tab {
+        position: fixed;
+    bottom: 0;
+    left: 0;
+    border: 1px solid red;
+    background-color: #face20
+    }
     </style>
     <title>Document</title>
     <script>
@@ -241,35 +257,6 @@ width:20%;
 <div class="row grow w-100 ">
     <div class="col-12 p-0 content-width">
         <div class="h-100 d-flex flex-column">
-        <!-- Hobo -->
-            <!-- <ul class="nav nav-tabs preview-tabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="preview-tab" data-toggle="tab" href="#preview" role="tab">
-                        <i class="fa fa-eye"></i> Preview
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab">
-                        <i class="fas fa-cogs"></i> Options
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="code-tab" data-toggle="tab" href="#code" role="tab">
-                        <i class="fa fa-code"></i> Full Code
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="styles-tab" data-toggle="tab" href="#styles" role="tab">
-                        <i class="fa fa-css3"></i> Styles
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="functions-tab" data-toggle="tab" href="#functions" role="tab">
-                        <i class="fa fa-code"></i> Functions
-                    </a>
-                </li>
-                
-            </ul> -->
             <div class="tab-content d-flex" style="flex: 1;">
                 <div class="tab-pane fade h-100 w-100 show active" id="preview" role="tabpanel">
                     <div class="preview-area"></div>
@@ -309,11 +296,6 @@ width:20%;
                                     <textarea class="hidden" id="formJson">{!! $allData !!}</textarea>
                                 @endif
     <div class="container-fluid" style="margin-top: 60px;">
-    <!-- <div class="text-right" style="margin-bottom: 25px;">
-      <button class="btn btn-primary add-unit"> Add unit</button>
-      <button class="btn btn-primary saveForm"> Save</button>
-    </div> -->
-
     <div class="row formBuilderShow">
       <div class="col-sm-12">
         <h3 class="text-center text-muted" style="display: none">The
@@ -353,16 +335,8 @@ width:20%;
       <div class="clearfix"></div>
     </div>
 
-
-
-
-
-
-
   </div>
-                            
-                            
-                            
+           
                             </div>
 
 
@@ -371,29 +345,6 @@ width:20%;
             </div>
         </div>
     </div>
-    <!-- <div class="col-5 h-100 px-0 d-flex flex-column visualCodeEditorToggle">
-        <div class="code-head" style="display: flex">
-            <button class="btn btn-warning btn-sm showLayers">Layers</button>
-            <button class="btn btn-info btn-sm createHtml">HTML</button>
-            <button class="btn btn-primary btn-sm createAssets">Assets</button>
-            <div class="add-custom-layers" style="display: none;">
-            <select name="custom-layer" class="form-control" id="custom-layer" >
-
-            </select>
-            <button bb-click="addHtmlTag"><i class="fa fa-plus"></i></button>
-            </div>
-        </div>
-        <div class="php-code-item hidden">
-            PHP Code
-            <div class="controls">
-                <a href="#" bb-click="mainPHPCodeEdit"><i class="fas fa-code"></i></a>
-                <a href="#" class="outline-btn" bb-click="mainPHPCodeDiscard" hidden>Discard</a>
-                <a href="#" class="outline-btn" bb-click="mainPHPCodeSave" hidden>Save</a>
-            </div>
-        </div>
-
-       
-    </div> -->
 </div>
 <div class="row w-100 footer-editor" style="position: fixed;
     bottom: 0;
@@ -480,7 +431,21 @@ width:20%;
     </div>
 </div>
 <div id="code-editor"></div>
+<div class="function-tab w-100" hidden>
+    <ul style="display: flex">
+        <li class="function-tab-item">
+            <p>Section</p>
+            <button class="btn btn-primary"><i class="fa fa-plus"></i></button>
+        </li>
+        <li class="function-tab-item">
+            <p>Options</p>
+        </li>
+        <li class="function-tab-item">
+            <p>Conection</p>
+        </li>
+    </ul>
 
+</div>
 <div id="containerForJsPanel"></div>
 <script type="template" id="demo-html">
     <div class="jumbotron">

@@ -443,8 +443,12 @@ var framework = {
         //   break;
         // case "Full Code":
         //   break;
-        // case "Functions":
-        //   break;
+        case "Functions":
+          framework.showElement($(".function-tab"));
+          $(".buttons-layers").hide();
+          $(".footer-editor").hide();
+          $(".jsPanel").removeClass("displayToggle");
+          break;
         // case "Styles":
         //   break;
         case "Preview":
