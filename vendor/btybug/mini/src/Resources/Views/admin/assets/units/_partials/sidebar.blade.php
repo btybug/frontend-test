@@ -1,5 +1,17 @@
 <div class="left-menu">
     <ul>
+        <li class="" style="padding-top: 14px;">
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <input id="text" name="text" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+        </li>
         @if(isset($units) && count($units))
             @foreach($units as $key => $val)
                 <li class="unit_rend {{ (@$model->slug == $val->slug)? 'active' : '' }}">
@@ -14,8 +26,14 @@
                 </li>
             @endforeach
         @endif
+        <li  style="    padding: 24px;
+    padding-left: 115px;">
+            <i class="fa fa-plus">Add Unit</i>
+        </li>
     </ul>
+
 </div>
+
 
 <style>
     .ui-2_col {
