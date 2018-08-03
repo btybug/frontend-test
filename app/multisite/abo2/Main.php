@@ -9,10 +9,11 @@
 namespace App\multisite\abo2;
 
 
+use Btybug\btybug\Models\Settings;
 use Btybug\Mini\Model\MiniPainter;
 use App\multisite\abo2\Providers\ModuleServiceProvider;
 use Btybug\FrontSite\Models\FrontendPage;
-use Btybug\Mini\Repositories\FormBuildedForRepository;
+use Btybug\Uploads\Repository\FormBuilderRepository;
 use Btybug\User\User;
 use Illuminate\Http\Request;
 
@@ -45,10 +46,11 @@ class Main
     ////////////////////////////Account Settings /////////////////////////
     public function accountSettings()
     {
-        $formbuilderRepository=new FormBuildedForRepository();
+        $formbuilderRepository=new FormBuilderRepository();
         $settingForm = ['type' => 'user_settings'];
         $forms = $formbuilderRepository->findAllByMultiple($settingForm);
-        return view('mini::account.settings',compact('forms'))->with('user', $this->user);
+        $selectedForm = Settings::where('section', 'minicms')->where('settingkey', 'default_user_form_id')->first();
+        return view('mini::account.settings',compact('forms','selectedForm'))->with('user', $this->user);
 
     }
     public function accountSettingsTab1()
