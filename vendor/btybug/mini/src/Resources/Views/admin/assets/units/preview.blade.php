@@ -7,7 +7,29 @@
             <div class="col-md-3 col-xs-12">
                 @include('multisite::admin.assets.units._partials.sidebar')
             </div>
-            {{--<div class="col-md-9 col-xs-12">
+            <div class="well">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="http://placekitten.com/150/150">
+                    </a>
+                    <div class="media-body">
+                        <h2 class="media-heading">CV</h2>
+                        <div class="col-md-4 pull-right">
+                            <p><button class="col-md-4 btn btn-default">More</button></p>
+                            <p><button class="col-md-4 btn btn-default">Activate</button></p>
+                        </div>
+                        <p class="col-md-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                            Aliquam in felis sit amet augue.</p>
+                        <ul class="list-inline list-unstyled">
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 col-xs-12">
                 @if($model)
                     <div class="display-area">
                         <div class="col-md-2">
@@ -28,54 +50,8 @@
                     </div>
                 @endif
 
-            </div>--}}
-
-            <div class="well">
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placekitten.com/150/150">
-                    </a>
-                    <div class="media-body">
-                        <h2 class="media-heading">CV</h2>
-                        <div class="col-md-4 pull-right">
-                            <p><button class="col-md-4 btn btn-default">More</button></p>
-                            <p><button class="col-md-4 btn btn-default">Activate</button></p>
-                        </div>
-                        <p class="col-md-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                            Aliquam in felis sit amet augue.</p>
-                        <ul class="list-inline list-unstyled">
-
-
-                        </ul>
-                    </div>
-                </div>
             </div>
-            <br>
-            <div class="well">
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placekitten.com/150/150">
-                    </a>
-                    <div class="media-body">
-                        <h2 class="media-heading">CV</h2>
-                        <div class="col-md-4 pull-right">
-                            <p><button class="col-md-4 btn btn-default">More</button></p>
-                            <p><button class="col-md-4 btn btn-default">Activate</button></p>
-                        </div>
-                        <p class="col-md-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                            Aliquam in felis sit amet augue.</p>
-                        <ul class="list-inline list-unstyled">
-
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <br>
+            
         </div>
     </div>
     @include('multisite::admin.assets.units._partials.previewModal')
