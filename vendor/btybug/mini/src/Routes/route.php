@@ -18,7 +18,7 @@ Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIf
 
 Route::group(['prefix' => 'settings'], function () {
     Route::get('/', 'ClientController@accountSettings')->name('mini_account_settings');
-    Route::get('/tab1', 'ClientController@accountSettingsTab1')->name('mini_account_settings_tab1');
+    Route::get('/user-account', 'ClientController@accountSettingsTab1')->name('mini_account_settings_tab1');
     Route::get('/tab2', 'ClientController@accountSettingsTab2')->name('mini_account_settings_tab2');
     Route::get('/tab3', 'ClientController@accountSettingsTab3')->name('mini_account_settings_tab3');
     Route::get('/tab4', 'ClientController@accountSettingsTab4')->name('mini_account_settings_tab4');

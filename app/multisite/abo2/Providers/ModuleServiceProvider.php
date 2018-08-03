@@ -92,12 +92,12 @@ class ModuleServiceProvider extends ServiceProvider
             ],
             'mini_my_account_settings' => [
                 [
-                    'title' => 'tab1',
-                    'url' => '/my-account/settings/tab1',
+                    'title' => 'My details',
+                    'url' => '/my-account/settings',
                 ],
                 [
-                    'title' => 'tab2',
-                    'url' => '/my-account/settings/tab2',
+                    'title' => 'user account',
+                    'url' => '/my-account/settings/user-account',
                 ],
                 [
                     'title' => 'tab3',
