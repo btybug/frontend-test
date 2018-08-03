@@ -9,6 +9,9 @@
             </div>
             <div class="well">
 
+            </div>
+            <div class="well">
+
                 <div class="media">
                     <a class="pull-left" href="#">
                         <div class="media-left">
@@ -33,6 +36,16 @@
                     </div>
                 </div>
             </div>
+            <div class="well col-md-9">
+
+                    <div class="col-md-5"><h4>Variations</h4></div>
+                    <div class="col-md-4 pull-right">
+                        <button class="btn btn-default btn-sm">Creat New +</button>&nbsp;
+                        <button class="btn btn-default btn-sm" >Detail</button>&nbsp;
+                        <button class="btn btn-default btn-sm">List</button></div>
+
+
+            </div>
             <div class="col-md-9 col-xs-12">
                 @if($model)
                     <div class="display-area">
@@ -53,7 +66,6 @@
                         </div>
                     </div>
                 @endif
-
             </div>
 
         </div>
