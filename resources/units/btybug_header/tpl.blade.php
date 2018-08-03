@@ -195,7 +195,10 @@
             @else
                 <div>
                     <a href="{!! url('login') !!}" >
-                        Login/Registre
+                        Login
+                    </a>/
+                    <a href="{!! url('register') !!}" >
+                        Registre
                     </a>
                 </div>
             @endif
