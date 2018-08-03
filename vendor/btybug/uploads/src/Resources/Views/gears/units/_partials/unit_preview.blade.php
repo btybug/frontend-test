@@ -193,7 +193,7 @@
 </div>
 {!! BBextraHtml() !!}
 
-<button data-settingaction="save" class="hide" id="settings_savebtn"></button>
+<button data-settingaction="save" class="hide" style="display: none;"  id="settings_savebtn"></button>
 <input type="hidden" id="hidden_data" value='{!!$settings_json!!}'>
 
 <!-- ================== BEGIN BASE FOOTER JS ================== -->
