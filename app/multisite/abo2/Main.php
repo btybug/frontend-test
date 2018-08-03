@@ -41,12 +41,33 @@ class Main
         return view('mini::pages.lists')->with(['user' => $this->user, 'pages' => $this->user->frontPages]);
     }
 
-
+    ////////////////////////////Account Settings /////////////////////////
     public function accountSettings()
     {
         return view('mini::account.settings')->with('user', $this->user);
 
     }
+    public function accountSettingsTab1()
+    {
+        return view('mini::account._partials.tab1')->with('user', $this->user);
+
+    }
+    public function accountSettingsTab2()
+    {
+        return view('mini::account._partials.tab2')->with('user', $this->user);
+
+    }
+    public function accountSettingsTab3()
+    {
+        return view('mini::account._partials.tab3')->with('user', $this->user);
+
+    }
+    public function accountSettingsTab4()
+    {
+        return view('mini::account._partials.tab4')->with('user', $this->user);
+
+    }
+    ///////////////////////////////////////////////////////////////////////////
     public function accountForms()
     {
         return view('mini::account.forms')->with('user', $this->user);

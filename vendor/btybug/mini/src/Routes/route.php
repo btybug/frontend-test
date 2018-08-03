@@ -6,7 +6,6 @@
  * Time: 13:27
  */
 Route::get('/', 'ClientController@account');
-Route::get('/settings', 'ClientController@accountSettings')->name('mini_account_settings');
 Route::get('/extra/forms', 'ClientController@accountForms')->name('mini_account_forms');
 Route::get('/extra/forms/edit/{id}', 'ClientController@accountFormsEdit')->name('mini_account_forms_edit');
 Route::get('/extra/forms/render/{id}', 'ClientController@accountFormsRender')->name('mini_account_forms_render');
@@ -17,6 +16,13 @@ Route::get('/extra/forms/inputs/{id}', 'ClientController@FormsInputs', true)->na
 Route::get('/general', 'ClientController@accountGeneral')->name('mini_account_general');
 Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe', true)->name('mini_settings_iframe');
 
+Route::group(['prefix' => 'settings'], function () {
+    Route::get('/', 'ClientController@accountSettings')->name('mini_account_settings');
+    Route::get('/tab1', 'ClientController@accountSettingsTab1')->name('mini_account_settings_tab1');
+    Route::get('/tab2', 'ClientController@accountSettingsTab2')->name('mini_account_settings_tab2');
+    Route::get('/tab3', 'ClientController@accountSettingsTab3')->name('mini_account_settings_tab3');
+    Route::get('/tab4', 'ClientController@accountSettingsTab4')->name('mini_account_settings_tab4');
+});
 Route::group(['prefix' => 'media'], function () {
     Route::get('/', 'ClientController@media')->name('mini_media');
     Route::get('/settings', 'ClientController@mediaSettings')->name('mini_media_settings');

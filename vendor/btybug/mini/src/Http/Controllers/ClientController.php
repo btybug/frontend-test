@@ -56,15 +56,33 @@ class ClientController extends MiniController
         $this->ennable($request);
         return $this->cms->run();
     }
-
+    ////////////////////////////Account Settings /////////////////////////
     public function accountSettings(Request $request)
     {
-        $conditions = ['type' => 'user_settings'];
-        $user_forms = $this->formbuilderRepository->findAllByMultiple($conditions);
         $this->ennable($request);
-        return $this->cms->accountSettings()->with('user_forms',$user_forms);
+        return $this->cms->accountSettings();
     }
-
+    public function accountSettingsTab1(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->accountSettingsTab1();
+    }
+    public function accountSettingsTab2(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->accountSettingsTab2();
+    }
+    public function accountSettingsTab3(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->accountSettingsTab3();
+    }
+    public function accountSettingsTab4(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->accountSettingsTab4();
+    }
+    ///////////////////////////////////////////////////////////////////////////
     public function accountForms(Request $request)
     {
         $conditions = ['type' => 'user_settings','user_id' => Auth::user()->id];

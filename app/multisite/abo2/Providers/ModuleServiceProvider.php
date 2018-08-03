@@ -90,6 +90,25 @@ class ModuleServiceProvider extends ServiceProvider
                 ],
                 'layout' => 'mini::layouts.app'
             ],
+            'mini_my_account_settings' => [
+                [
+                    'title' => 'tab1',
+                    'url' => '/my-account/settings/tab1',
+                ],
+                [
+                    'title' => 'tab2',
+                    'url' => '/my-account/settings/tab2',
+                ],
+                [
+                    'title' => 'tab3',
+                    'url' => '/my-account/settings/tab3',
+                ],
+                [
+                    'title' => 'tab4',
+                    'url' => '/my-account/settings/tab4',
+                ],
+                'layout' => 'mini::layouts.app'
+            ],
         ];
         \Eventy::action('my.tab', $tubs);
     }
