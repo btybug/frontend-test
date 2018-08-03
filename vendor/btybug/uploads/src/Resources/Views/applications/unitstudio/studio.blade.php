@@ -178,27 +178,27 @@ width:20%;
             <div>
             <ul class="nav nav-tabs preview-tabs" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="preview-tab" data-toggle="tab" href="#preview" role="tab">
+                    <a class="nav-link active" id="preview-tab" data-toggle="tab" bb-click="tabsItemClick" href="#preview" role="tab">
                         <i class="fa fa-eye"></i> Preview
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab">
+                    <a class="nav-link" id="form-tab" data-toggle="tab" bb-click="tabsItemClick" href="#form" role="tab">
                         <i class="fas fa-cogs"></i> Options
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="code-tab" data-toggle="tab" href="#code" role="tab">
+                    <a class="nav-link" id="code-tab" data-toggle="tab" bb-click="tabsItemClick" href="#code" role="tab">
                         <i class="fa fa-code"></i> Full Code
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="styles-tab" data-toggle="tab" href="#styles" role="tab">
+                    <a class="nav-link" id="styles-tab" data-toggle="tab" bb-click="tabsItemClick" href="#styles" role="tab">
                         <i class="fa fa-css3"></i> Styles
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="functions-tab" data-toggle="tab" href="#functions" role="tab">
+                    <a class="nav-link" id="functions-tab" data-toggle="tab" bb-click="tabsItemClick" href="#functions" role="tab">
                         <i class="fa fa-code"></i> Functions
                     </a>
                 </li>
@@ -477,7 +477,7 @@ width:20%;
         </div>
     </div>
 </div>
-<div class="row w-100" style="position: fixed;
+<div class="row w-100 footer-editor" style="position: fixed;
     bottom: 0;
     right: 0;
     left: 0;

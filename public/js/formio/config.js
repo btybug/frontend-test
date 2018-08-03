@@ -1,6 +1,52 @@
 var subJSON = document.getElementById("subjson");
 var jsonForSend = null;
 var editData = {};
+function treeListGenerator(name, id) {
+  return `<div data-elemtent-id="${id}"><p>${name}</p><button class="edit-form-elelemnt"><i class="fa fa-edit"></i></button><button class="edit-form-remove"><i class="fa fa-remove"></i></button>`;
+}
+
+$("body").on("click", ".edit-form-elelemnt", function() {
+  let id = $(this)
+    .closest("[data-elemtent-id]")
+    .data("elemtent-id");
+  let elm = null;
+  $(".component-btn-group").each((index, item) => {
+    let classNames = $(item)
+      .parent()
+      .attr("class");
+    console.log(classNames);
+    let realElement = classNames.includes(id);
+    if (realElement) {
+      console.log(
+        $(item)
+          .children()[1]
+          .click()
+      );
+    }
+  });
+});
+
+$("body").on("click", ".edit-form-remove", function() {
+  let id = $(this)
+    .closest("[data-elemtent-id]")
+    .data("elemtent-id");
+  let elm = null;
+  $(".component-btn-group").each((index, item) => {
+    let classNames = $(item)
+      .parent()
+      .attr("class");
+    console.log(classNames);
+    let realElement = classNames.includes(id);
+    if (realElement) {
+      console.log(
+        $(item)
+          .children()[0]
+          .click()
+      );
+    }
+  });
+});
+
 if (document.querySelector("#formJson") !== null) {
   let formJsonData = JSON.parse(
     document.querySelector("#formJson").textContent
@@ -8,10 +54,15 @@ if (document.querySelector("#formJson") !== null) {
   editData = JSON.parse(formJsonData.form_json)
     ? JSON.parse(formJsonData.form_json)
     : {};
-    console.log(formJsonData.title, formJsonData.description)
-    document.querySelector(".form-name") ? document.querySelector(".form-name").value =   formJsonData.title : null
-    document.querySelector(".form-description") ? document.querySelector(".form-description").value = formJsonData.description : null
-    // editData = formJsonData.form_json ? formJsonData.form_json : {};
+  console.log(formJsonData.title, formJsonData.description);
+  document.querySelector(".form-name")
+    ? (document.querySelector(".form-name").value = formJsonData.title)
+    : null;
+  document.querySelector(".form-description")
+    ? (document.querySelector(".form-description").value =
+        formJsonData.description)
+    : null;
+  // editData = formJsonData.form_json ? formJsonData.form_json : {};
   if (formJsonData.form_html) {
     setTimeout(() => {
       codeEditor.setValue(formJsonData.form_html);
@@ -58,7 +109,7 @@ if (document.querySelector("#formJson") !== null) {
       : null;
   });
 }
-console.log(document.getElementById("builder"))
+console.log(document.getElementById("builder"));
 var builder = Formio.builder(document.getElementById("builder"), editData, {
   builder: {
     basic: false,
@@ -134,19 +185,31 @@ var builder = Formio.builder(document.getElementById("builder"), editData, {
     jsonForSend = schema;
     var jsonElement = document.getElementById("json"); // Data full
     var formElement = document.getElementById("formio"); // full form
-      console.log(formElement)
-      console.log(jsonElement)
     builder.on("saveComponent", function() {
+      let elementToAppend = $(".form-builder");
+      $(".tree-elements-list") ? $(".tree-elements-list").remove() : null;
       jsonForSend = schema;
+
       jsonElement.innerHTML = "";
       formElement.innerHTML = "";
       jsonElement.appendChild(
         document.createTextNode(JSON.stringify(schema, null, 4))
       );
-      Formio.createForm(formElement, schema).then(onForm);
+      Formio.createForm(formElement, schema).then(res => {
+        elementToAppend;
+        console.log(res);
+        let elements = res.components.map(item =>
+          treeListGenerator(item.name, item.key)
+        );
+        elementToAppend.append(
+          `<div class="tree-elements-list">${elements}</div>`
+        );
+        onForm(res);
+      });
     });
 
     builder.on("editComponent", function(event) {
+      console.log(event);
       console.log("editComponent", event);
     });
 
@@ -162,15 +225,18 @@ var builder = Formio.builder(document.getElementById("builder"), editData, {
         document.createTextNode(JSON.stringify(builder.schema, null, 4))
       );
     });
-
     Formio.createForm(formElement, builder.schema).then(onForm);
-    let btn2 = `<div class="btn btn-xxs btn-danger component-settings-button component-settings-add-style"><i class="glyphicon glyphicon-remove"></i></div>`;
-    $(".component-btn-group").append(btn2);
+    // let btn2 = `<div class="btn btn-xxs btn-danger component-settings-button component-settings-add-style"><i class="glyphicon glyphicon-remove"></i></div>`;
+    // $(".component-btn-group").append(btn2);
   })
   .catch(err => console.log(err));
 
 var onForm = function(form) {
   form.on("change", function() {
+    // let treeElements = jsonForSend.components.forEach(
+    //   item => console.log(item.id)
+    //   // treeListGenerator(item.label, item.id)
+    // );
     subJSON.innerHTML = ""; // Subjson result
     subJSON.appendChild(
       document.createTextNode(JSON.stringify(form.submission, null, 4))
@@ -215,20 +281,22 @@ document.querySelector(".add-unit").addEventListener("click", function() {
     : `<i class="fa fa-plus"></i>`;
 });
 
-document
-  .querySelector(".add-custom-filed")
-  .addEventListener("click", function() {
-    $(".add-filed-modal").trigger();
-    // let components = document.querySelector(".formcomponents")
-    // components.classList.toggle("displayToggle")
-    // this.textContent = components.classList.contains("displayToggle") ? "Close" : "Add unit"
-  });
+// document
+//   .querySelector(".add-custom-filed")
+//   .addEventListener("click", function() {
+//     $(".add-filed-modal").trigger();
+//     // let components = document.querySelector(".formcomponents")
+//     // components.classList.toggle("displayToggle")
+//     // this.textContent = components.classList.contains("displayToggle") ? "Close" : "Add unit"
+//   });
 
 document.querySelector(".saveForm").addEventListener("click", function() {
   let formName = document.querySelector(".form-name").value;
-  var miniuser_validator = document.querySelector(".miniuser_validator") ? document.querySelector(".miniuser_validator").value : null;
-  if(document.querySelector(".form_target")){
-       var formTarget = document.querySelector(".form_target").value;
+  var miniuser_validator = document.querySelector(".miniuser_validator")
+    ? document.querySelector(".miniuser_validator").value
+    : null;
+  if (document.querySelector(".form_target")) {
+    var formTarget = document.querySelector(".form_target").value;
   }
   let formDescription = document.querySelector(".form-description").value;
   if (formName.trim().length === 0 && formDescription.trim().length === 0) {
@@ -245,56 +313,55 @@ document.querySelector(".saveForm").addEventListener("click", function() {
       document.querySelector("#formJson") !== null
         ? JSON.parse(document.querySelector("#formJson").value).id
         : null;
-    if(document.querySelector(".form_target")){
-         obj = {
-            formName: formName,
-            formDescription: formDescription,
-            formTarget: formTarget,
-            body: JSON.stringify(jsonForSend),
-            id: editDataID,
-            miniuser_validator: miniuser_validator
-        };
-    }else{
-         obj = {
-            formName: formName,
-            formDescription: formDescription,
-            body: JSON.stringify(jsonForSend),
-            id: editDataID,
-            miniuser_validator: miniuser_validator
-        };
+    if (document.querySelector(".form_target")) {
+      obj = {
+        formName: formName,
+        formDescription: formDescription,
+        formTarget: formTarget,
+        body: JSON.stringify(jsonForSend),
+        id: editDataID,
+        miniuser_validator: miniuser_validator
+      };
+    } else {
+      obj = {
+        formName: formName,
+        formDescription: formDescription,
+        body: JSON.stringify(jsonForSend),
+        id: editDataID,
+        miniuser_validator: miniuser_validator
+      };
     }
-    if(!miniuser_validator){
-        $.ajax({
-            type: "post",
-            datatype: "json",
-            url: "/admin/uploads/application/save-builder-form",
-            data: obj,
-            headers: {
-                "X-CSRF-TOKEN": $("input[name='_token']").val()
-            },
-            success: function(data) {
-                if (!data.error) {
-                    window.location.replace(data.url);
-                }
-            }
-        });
-    }else{
-        $.ajax({
-            type: "post",
-            datatype: "json",
-            url: "/my-account/forms/save",
-            data: obj,
-            headers: {
-                "X-CSRF-TOKEN": $("input[name='_token']").val()
-            },
-            success: function(data) {
-                if (!data.error) {
-                    window.location.replace(data.url);
-                }
-            }
-        });
+    if (!miniuser_validator) {
+      $.ajax({
+        type: "post",
+        datatype: "json",
+        url: "/admin/uploads/application/save-builder-form",
+        data: obj,
+        headers: {
+          "X-CSRF-TOKEN": $("input[name='_token']").val()
+        },
+        success: function(data) {
+          if (!data.error) {
+            window.location.replace(data.url);
+          }
+        }
+      });
+    } else {
+      $.ajax({
+        type: "post",
+        datatype: "json",
+        url: "/my-account/forms/save",
+        data: obj,
+        headers: {
+          "X-CSRF-TOKEN": $("input[name='_token']").val()
+        },
+        success: function(data) {
+          if (!data.error) {
+            window.location.replace(data.url);
+          }
+        }
+      });
     }
-
   }
 });
 

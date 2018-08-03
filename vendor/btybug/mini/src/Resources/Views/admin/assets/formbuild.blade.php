@@ -58,7 +58,7 @@
                     <option value="pdf">PDF</option>
                 </select>
             </h3>
-            <div class="well" style="background-color: #fdfdfd;">
+            <div class="well form-builder" style="background-color: #fdfdfd;">
                 <div id="builder"></div>
             </div>
         </div>

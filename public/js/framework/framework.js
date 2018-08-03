@@ -436,6 +436,33 @@ var framework = {
 
       framework.generateInsertedList();
     },
+    tabsItemClick: function($this) {
+      switch ($this.text().trim()) {
+        // case "Options":
+
+        //   break;
+        // case "Full Code":
+        //   break;
+        // case "Functions":
+        //   break;
+        // case "Styles":
+        //   break;
+        case "Preview":
+          console.log("rev");
+          $(".footer-editor").show();
+          $(".visualCodeEditorToggle").show();
+          break;
+
+        default:
+          console.log("deafult");
+          $(".footer-editor").hide();
+          $(".visualCodeEditorToggle").attr(
+            "style",
+            "display: none !important"
+          );
+          break;
+      }
+    },
     handleNodeItemClick: function($this) {
       // Hobo
       console.log($this);
