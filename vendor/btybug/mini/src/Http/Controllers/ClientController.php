@@ -85,8 +85,7 @@ class ClientController extends MiniController
     ///////////////////////////////////////////////////////////////////////////
     public function accountForms(Request $request)
     {
-        $conditions = ['type' => 'user_settings','user_id' => Auth::user()->id];
-        $user_forms = $this->formbuilderRepository->findAllByMultiple($conditions);
+        $user_forms = $this->formbuilderRepository->getAll();
         $this->ennable($request);
         return $this->cms->accountForms()->with('user_forms',$user_forms);
     }
