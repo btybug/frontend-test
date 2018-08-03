@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-    {{--@include('multisite::admin.assets.units._partials.previewModal')--}}
+    @include('multisite::admin.assets.units._partials.previewModal')
     <input type="hidden" id="iframle-url" value="{!! url('admin/mini/assets/units/render/') !!}">
     <input type="hidden" id="live-preview-url" value="{!! route('mini_admin_assets_units_live') !!}">
 
