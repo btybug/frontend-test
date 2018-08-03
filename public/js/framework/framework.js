@@ -451,6 +451,8 @@ var framework = {
           console.log("rev");
           $(".footer-editor").show();
           $(".visualCodeEditorToggle").show();
+          $(".content-width").removeClass("col-12");
+
           break;
 
         default:
@@ -460,6 +462,7 @@ var framework = {
             "style",
             "display: none !important"
           );
+          $(".content-width").addClass("col-12");
           break;
       }
     },

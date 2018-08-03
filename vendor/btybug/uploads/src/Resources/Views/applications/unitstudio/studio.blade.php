@@ -218,7 +218,7 @@ width:20%;
     </div>
 </header>
 <div class="row grow w-100 ">
-    <div class="col-7 p-0">
+    <div class="col-7 p-0 content-width">
         <div class="h-100 d-flex flex-column">
         <!-- Hobo -->
             <!-- <ul class="nav nav-tabs preview-tabs" role="tablist">
