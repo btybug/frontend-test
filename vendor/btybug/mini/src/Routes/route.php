@@ -44,7 +44,11 @@ Route::group(['prefix' => 'extra'], function () {
 });
 
 Route::group(['prefix' => 'my-site'], function () {
-    Route::group(['prefix' => 'btybug'], function () {
+    Route::group(['prefix' => 'more-sites'], function () {
+        Route::get('/', 'MySiteController@moreSites')->name('mini_my_site_more_sites');
+
+    });
+        Route::group(['prefix' => 'btybug'], function () {
         Route::get('/', 'MySiteController@pagesFunction')->name('mini_my_site_btybug');
         Route::group(['prefix' => 'pages'], function () {
             Route::get('/special', 'MySiteController@specialSettings')->name('mini_my_site_special_settings');

@@ -67,7 +67,7 @@ class Main
         return view('mini::account._partials.tab4')->with('user', $this->user);
 
     }
-    ///////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////// Forms /////////////////////////////////
     public function accountForms()
     {
         return view('mini::account.forms')->with('user', $this->user);
@@ -99,7 +99,7 @@ class Main
     {
         return view('mini::account.inputs')->with(['id' => $id,'user' =>  $this->user]);
     }
-
+    /////////////////////////////////////////////////////////////////////////////////
     public function accountGeneral()
     {
         return view('mini::account.formrender')->with('user', $this->user);
@@ -123,7 +123,7 @@ class Main
         return view('mini::preferences.lists')->with('user', $this->user);
 
     }
-
+    ////////////////////////////////////////// Extra /////////////////////////////////////
     public function extraPlugins()
     {
         return view('mini::extra.plugins')->with('user', $this->user);
@@ -168,7 +168,7 @@ class Main
         return view('mini::extra.layouts', compact(['layouts', 'model', 'slug','variations','user']));
 
     }
-
+    ////////////////////////////////////// Pages /////////////////////////////////////////////////
     public function pageEdit()
     {
         $id = $this->request->id;
@@ -187,11 +187,8 @@ class Main
 
     }
 
-    public function mySitePages()
-    {
-        $pages = $this->user->frontPages()->orderBy('sorting')->get();
-        return view('mini::mysite.pages')->with(['user' => $this->user, 'pages' => $pages]);
-    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     public function mySiteSettings()
@@ -250,6 +247,12 @@ class Main
     {
         return view('mini::btybug.blog')->with('user', $this->user);
     }
+    //////////////////////////////////////////////////// MySite ///////////////////////////////////////////////////////
+    public function mySitePages()
+    {
+        $pages = $this->user->frontPages()->orderBy('sorting')->get();
+        return view('mini::mysite.pages')->with(['user' => $this->user, 'pages' => $pages]);
+    }
 
     public function btybug()
     {
@@ -264,4 +267,9 @@ class Main
     {
         return view('mini::mysite.btybug_settings')->with('user', $this->user);
     }
+    public  function moreSites()
+    {
+        return view('mini::mysite.moresites')->with('user', $this->user);
+    }
+
 }

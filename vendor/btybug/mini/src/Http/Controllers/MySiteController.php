@@ -39,7 +39,7 @@ class MySiteController extends MiniController
         $this->ennable($request);
         return $this->cms->mySiteSpecialSettings();
     }
-
+/////////////////////////////////////////////////////Pages/////////////////////////////////////////////////////////////
     public function pages(Request $request)
     {
         $this->ennable($request);
@@ -99,8 +99,7 @@ class MySiteController extends MiniController
 
         return $this->cms->responseJson(false, 'successfully requested', ['html' => $html]);
     }
-
-
+    ///////////////////////////////////////////////// Bty Bug //////////////////////////////////////////////////
     public  function btybug(Request $request){
         $this->ennable($request);
         return $this->cms->btybug();
@@ -113,4 +112,11 @@ class MySiteController extends MiniController
         $this->ennable($request);
         return $this->cms->settingsFunction();
     }
+    //////////////////////////////////////////////////// More Sites //////////////////////////////////////////////
+    public  function moreSites(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->moreSites();
+    }
+
 }
