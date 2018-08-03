@@ -451,18 +451,19 @@ var framework = {
           console.log("rev");
           $(".footer-editor").show();
           $(".visualCodeEditorToggle").show();
-          $(".content-width").removeClass("col-12");
-
+          // $(".content-width").removeClass("col-12");
+          $(".buttons-layers").show();
           break;
 
         default:
-          console.log("deafult");
+          $(".buttons-layers").hide();
           $(".footer-editor").hide();
+          $(".jsPanel").removeClass("displayToggle");
           $(".visualCodeEditorToggle").attr(
             "style",
             "display: none !important"
           );
-          $(".content-width").addClass("col-12");
+          // $(".content-width").addClass("col-12");
           break;
       }
     },
@@ -972,6 +973,28 @@ $(function() {
     $(this)
       .closest(".jsPanel")
       .removeClass("displayToggle");
+  });
+
+  $("body").on("click", ".jsPanel-btn-maximize", function(e) {
+    e.preventDefault();
+    $(this)
+      .closest(".jsPanel")
+      .find(".jsPanel-content")
+      .css({ height: "100%" });
+    $(this)
+      .closest(".jsPanel")
+      .addClass("w-100 h-100");
+  });
+
+  $("body").on("click", ".jsPanel-btn-normalize", function(e) {
+    e.preventDefault();
+    // $(this)
+    //   .closest(".jsPanel")
+    //   .find(".jsPanel-content")
+    //   .css({ height: "100%" });
+    $(this)
+      .closest(".jsPanel")
+      .removeClass("w-100 h-100");
   });
 
   // Listen to click events

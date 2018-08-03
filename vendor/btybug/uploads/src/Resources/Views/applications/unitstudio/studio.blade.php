@@ -159,6 +159,9 @@ width:20%;
     .jsPanel {
         display: none;
     }
+    .jsPanel-btn-minimize {
+        display: none !important;
+    }
     </style>
     <title>Document</title>
     <script>
@@ -220,7 +223,7 @@ width:20%;
         </div>
     </div>
 </header>
-<div class="w-100 text-right">
+<div class="w-100 text-right buttons-layers">
     
 
 <div class="code-head" >
