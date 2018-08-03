@@ -40,7 +40,7 @@
 @yield('css')
 @stack('CSS')
 <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
-
+{!! getFooterJs() !!}
 
 <!-- ================== BEGIN BASE JS ================== -->
 @if($page->js_type == 'default')
