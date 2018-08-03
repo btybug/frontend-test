@@ -8,7 +8,9 @@
                 @include('multisite::admin.assets.units._partials.sidebar')
             </div>
             <div class="well col-md-9">
-
+                <div class="col-md-4"><h6>Profile Unit</h6></div>
+                <div class="col-md-4 pull-right">
+                    <button class="btn btn-default btn-sm">Delete</button></div>
             </div>
             <div class="well col-md-9">
 
