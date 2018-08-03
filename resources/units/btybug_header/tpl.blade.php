@@ -178,18 +178,27 @@
             </ul>
         </li>
         <li class="dropdown navbar-user">
-            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="/public/minicms/images/user-13.jpg" alt="" />
-                <span class="d-none d-md-inline">Adam Schwartz</span> <b class="caret"></b>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right">
-                <a href="javascript:;" class="dropdown-item">Edit Profile</a>
-                <a href="javascript:;" class="dropdown-item"><span class="badge badge-danger pull-right">2</span> Inbox</a>
-                <a href="javascript:;" class="dropdown-item">Calendar</a>
-                <a href="javascript:;" class="dropdown-item">Setting</a>
-                <div class="dropdown-divider"></div>
-                <a href="javascript:;" class="dropdown-item">Log Out</a>
-            </div>
+            @if(Auth::check())
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="/public/minicms/images/user-13.jpg" alt=""/>
+                    <span class="d-none d-md-inline">{!! Auth::user()->username !!}</span> <b class="caret"></b>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="javascript:;" class="dropdown-item">Edit Profile</a>
+                    <a href="javascript:;" class="dropdown-item"><span class="badge badge-danger pull-right">2</span>
+                        Inbox</a>
+                    <a href="javascript:;" class="dropdown-item">Calendar</a>
+                    <a href="javascript:;" class="dropdown-item">Setting</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="javascript:;" class="dropdown-item">Log Out</a>
+                </div>
+            @else
+                <div>
+                    <a href="{!! url('login') !!}" >
+                        Login/Registre
+                    </a>
+                </div>
+            @endif
         </li>
     </ul>
     <!-- end header navigation right -->
