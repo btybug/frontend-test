@@ -36,7 +36,7 @@
         <div class="form-group">
             <label class="col-md-12" for="selectmultiple">Select User Details Form</label>
             <div class="col-md-4">
-                <select id="selectmultiple" name="user_details_form_id" class="form-control" >
+                <select  name="user_details_form_id" class="form-control" >
                     @if(isset($forms))
                         @foreach($forms as $key => $val)
                             <option value="{{$val->id}}"

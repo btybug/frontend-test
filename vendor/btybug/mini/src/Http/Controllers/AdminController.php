@@ -69,9 +69,11 @@ class AdminController extends Controller
         $header = $request->get('header');
         $layout = $request->get('layout');
         $user_form = $request->get('user_set_form_id');
+        $user_details_form = $request->get('user_details_form_id');
         $this->settings->createOrUpdate($header, 'minicms', 'default_header');
         $this->settings->createOrUpdate($layout, 'minicms', 'default_layout');
         $this->settings->createOrUpdate($user_form, 'minicms', 'default_user_form_id');
+        $this->settings->createOrUpdate($user_details_form, 'minicms', 'user_details_form_id');
         return redirect()->back();
     }
 

@@ -6,13 +6,7 @@
  * Time: 13:27
  */
 Route::get('/', 'ClientController@account');
-Route::get('/extra/forms', 'ClientController@accountForms')->name('mini_account_forms');
-Route::get('/extra/forms/edit/{id}', 'ClientController@accountFormsEdit')->name('mini_account_forms_edit');
-Route::get('/extra/forms/render/{id}', 'ClientController@accountFormsRender')->name('mini_account_forms_render');
-Route::get('/extra/forms/delete/{id}', 'ClientController@accountFormsDelete')->name('mini_account_forms_delete');
-Route::get('/extra/forms/create', 'ClientController@CreateForms', true)->name('mini_account_forms_build');
-Route::post('/extra/forms/save', 'ClientController@FormsSave', true)->name('mini_account_forms_save');
-Route::get('/extra/forms/inputs/{id}', 'ClientController@FormsInputs', true)->name('mini_account_forms_inputs');
+
 Route::get('/general', 'ClientController@accountGeneral')->name('mini_account_general');
 Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe', true)->name('mini_settings_iframe');
 
@@ -31,7 +25,13 @@ Route::group(['prefix' => 'preferences'], function () {
     Route::get('/', 'ClientController@preferences')->name('mini_preferences');
 });
 Route::group(['prefix' => 'extra'], function () {
-
+    Route::get('/forms', 'ClientController@accountForms')->name('mini_account_forms');
+    Route::get('/forms/edit/{id}', 'ClientController@accountFormsEdit')->name('mini_account_forms_edit');
+    Route::get('/forms/render/{id}', 'ClientController@accountFormsRender')->name('mini_account_forms_render');
+    Route::get('/forms/delete/{id}', 'ClientController@accountFormsDelete')->name('mini_account_forms_delete');
+    Route::get('/forms/create', 'ClientController@CreateForms', true)->name('mini_account_forms_build');
+    Route::post('/forms/save', 'ClientController@FormsSave', true)->name('mini_account_forms_save');
+    Route::get('/forms/inputs/{id}', 'ClientController@FormsInputs', true)->name('mini_account_forms_inputs');
     Route::group(['prefix' => 'plugins'], function () {
         Route::get('/', 'PluginsController@getList')->name('mini_extra_plugins');
         Route::get('/settings', 'PluginsController@getSettings')->name('mini_extra_plugin_settings');

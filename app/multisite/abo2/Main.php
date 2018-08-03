@@ -21,12 +21,14 @@ class Main
 {
     private $user;
     private $request;
+    private $formbuilderRepository;
 
     public function __construct(User $user, Request $request)
     {
         app()->register(ModuleServiceProvider::class);
         $this->user = $user;
         $this->request = $request;
+        $this->formbuilderRepository=new FormBuilderRepository();
     }
  public function run()
     {
@@ -46,11 +48,12 @@ class Main
     ////////////////////////////Account Settings /////////////////////////
     public function accountSettings()
     {
-        $formbuilderRepository=new FormBuilderRepository();
-        $settingForm = ['type' => 'user_settings'];
-        $forms = $formbuilderRepository->findAllByMultiple($settingForm);
-        $selectedForm = Settings::where('section', 'minicms')->where('settingkey', 'default_user_form_id')->first();
-        return view('mini::account.settings',compact('forms','selectedForm'))->with('user', $this->user);
+        $selectedForm = Settings::where('section', 'minicms')->where('settingkey', 'user_details_form_id')->first();
+        $form=null;
+        if($selectedForm){
+        $form= $this->formbuilderRepository->findOrFail($selectedForm->id);
+        }
+        return view('mini::account.settings',compact('form'))->with('user', $this->user);
 
     }
     public function accountSettingsTab1()

@@ -71,7 +71,7 @@ Route::group(['prefix' => 'users'], function () {
 });
 Route::group(['prefix' => 'settings'], function () {
     Route::get('/', 'AdminController@getSettings', true)->name('mini_admin_settings');
-    Route::post('/general', 'AdminController@generalSave', true)->name('mini_admin_assets_general_save');
+    Route::post('/', 'AdminController@generalSave');
 });
 
 
