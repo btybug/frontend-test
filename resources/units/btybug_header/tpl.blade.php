@@ -184,13 +184,13 @@
                     <span class="d-none d-md-inline">{!! Auth::user()->username !!}</span> <b class="caret"></b>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a href="javascript:;" class="dropdown-item">Edit Profile</a>
+                    <a href="{!! url('my-account') !!}" class="dropdown-item">Edit Profile</a>
                     <a href="javascript:;" class="dropdown-item"><span class="badge badge-danger pull-right">2</span>
                         Inbox</a>
                     <a href="javascript:;" class="dropdown-item">Calendar</a>
                     <a href="javascript:;" class="dropdown-item">Setting</a>
                     <div class="dropdown-divider"></div>
-                    <a href="javascript:;" class="dropdown-item">Log Out</a>
+                    <a href="{!! url('logout') !!}" class="dropdown-item">Log Out</a>
                 </div>
             @else
                 <div>
