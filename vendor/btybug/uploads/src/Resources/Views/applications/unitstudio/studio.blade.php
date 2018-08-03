@@ -47,9 +47,9 @@
     }
 
     .displayToggle {
-      transform: translateX(0) !important;
-      opacity: 1 !important;
-      transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s;
+      /* transform: translateX(0) !important; */
+      /* opacity: 1 !important; */
+      /* transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s; */
       display: block !important;
     }
 
@@ -156,6 +156,9 @@ width:20%;
     /* .bootstrap-tagsinput {
         z-index: 9;
     } */
+    .jsPanel {
+        display: none;
+    }
     </style>
     <title>Document</title>
     <script>
@@ -218,6 +221,8 @@ width:20%;
     </div>
 </header>
 <div class="w-100 text-right">
+    
+
 <div class="code-head" >
             <button class="btn btn-warning btn-sm showLayers">Layers</button>
             <button class="btn btn-info btn-sm createHtml">HTML</button>
@@ -231,7 +236,7 @@ width:20%;
         </div>
 </div>
 <div class="row grow w-100 ">
-    <div class="col-7 p-0 content-width">
+    <div class="col-12 p-0 content-width">
         <div class="h-100 d-flex flex-column">
         <!-- Hobo -->
             <!-- <ul class="nav nav-tabs preview-tabs" role="tablist">
@@ -363,7 +368,7 @@ width:20%;
             </div>
         </div>
     </div>
-    <div class="col-5 h-100 px-0 d-flex flex-column visualCodeEditorToggle">
+    <!-- <div class="col-5 h-100 px-0 d-flex flex-column visualCodeEditorToggle">
         <div class="code-head" style="display: flex">
             <button class="btn btn-warning btn-sm showLayers">Layers</button>
             <button class="btn btn-info btn-sm createHtml">HTML</button>
@@ -384,111 +389,8 @@ width:20%;
             </div>
         </div>
 
-        <div class="tree-area h-100" >
-
-            <div class="tree-container tree-view-container" style="opacity: 1; transform: translateX(0); display: block;">
-                <!-- Tree List -->
-                <ul class="tree-list sortable-list"></ul>
-            </div>
-            <div class="tree-container createAssets-container" style="opacity: 0; transform: translateX(200px); display: none;">
-                <div class="assets-area col-12">
-                    <div class="card mb-3">
-                        <div class="d-flex justify-content-between panel card-header">
-                            <a data-toggle="collapse" href="#collapseExampleJs" role="button" aria-expanded="false" aria-controls="collapseExampleJs">
-                                <i class="fas fa-arrow-circle-down"></i> Js
-                            </a>
-
-                            <div class="button">
-                                <button class="btn btn-sm btn-warning create-new-asset-input"><i class="fas fa-link"></i></button>
-                                <label class="btn btn-sm btn-primary "> <input type="file" name="myFile" hidden><i class="fas fa-file"> </i></label>
-                                
-                            </div>
-                        </div>
-
-                            <div class="collapse studio-js" data-asset="studio-js" id="collapseExampleJs">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between inside-panel mb-2">
-                                        <div class="assets-item">
-                                            <input type="text" class="form-control w-90 asset-input">
-                                        </div>
-                                        <div class="delete-opt">
-                                            <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-
-                    <div class="card mb-3">
-                        <div class="d-flex justify-content-between panel card-header">
-                            <a data-toggle="collapse" href="#collapseExampleCss" role="button" aria-expanded="false" aria-controls="collapseExampleCss">
-                                <i class="fas fa-arrow-circle-down"></i> CSS
-                            </a>
-
-                            <div class="button">
-                                <button class="btn btn-sm btn-warning"><i class="fas fa-link"></i></button>
-                                <button class="btn btn-sm btn-primary create-new-asset-input"><i class="fas fa-file"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="collapse studio-css"  data-asset="studio-css" id="collapseExampleCss">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between inside-panel mb-2">
-                                    <div class="assets-item">
-                                        <input type="text" class="form-control w-90 asset-input">
-                                    </div>
-                                    <div class="delete-opt">
-                                        <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card mb-3">
-                        <div class="d-flex justify-content-between panel card-header">
-                            <a data-toggle="collapse" href="#collapseExampleImages" role="button" aria-expanded="false" aria-controls="collapseExampleImages">
-                                <i class="fas fa-arrow-circle-down"></i> Images
-                            </a>
-
-                            <div class="button">
-                                <button class="btn btn-sm btn-warning"><i class="fas fa-link"></i></button>
-                                <button class="btn btn-sm btn-primary create-new-asset-input"><i class="fas fa-file"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="collapse" data-asset="studio-images" id="collapseExampleImages">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between inside-panel mb-2">
-                                    <div class="assets-item">
-                                        <input type="text" class="form-control w-90 asset-input">
-                                    </div>
-                                    <div class="delete-opt">
-                                        <button class="btn btn-sm btn-danger remove-asset-input"><i class="fas fa-times"></i></button>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="tree-container full-code-editor" style="opacity: 0; transform: translateX(200px); display: none;">
-                <div id="full-code-editor"></div>
-            </div>
-
-
-            <!-- Main PHP Editor -->
-            <div class="code-editor-area h-100" hidden>
-                <div class="code-editor-bar">
-                    <input type="text" id="search-code" placeholder="Search code">
-                </div>
-                <div id="php-code-editor"></div>
-            </div>
-        </div>
-    </div>
+       
+    </div> -->
 </div>
 <div class="row w-100 footer-editor" style="position: fixed;
     bottom: 0;
@@ -576,6 +478,7 @@ width:20%;
 </div>
 <div id="code-editor"></div>
 
+<div id="containerForJsPanel"></div>
 <script type="template" id="demo-html">
     <div class="jumbotron">
         <h1 class="display-4">Hello, world!</h1>
@@ -610,6 +513,8 @@ width:20%;
 
     <div id="php-code-editor"></div>
 </script>
+{!! HTML::script("public/js/framework/jsPanelCreater.js") !!}
+
 {!! HTML::script("public/js/formio/buttons.js") !!}
 {!! HTML::script("public/js/formio/formio.full.min.js") !!}
 {!! HTML::script('public/js/ace-editor/ace.js') !!}

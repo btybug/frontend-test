@@ -610,6 +610,7 @@ var framework = {
 
 $(function() {
   // Init html elements
+
   framework.parseHtmlTagesToOption($("#custom-layer"), framework.allHtmlTags);
   // Init code editors
   codeEditor = ace.edit("code-editor");
@@ -618,14 +619,14 @@ $(function() {
   codeEditor.getSession().setUseWrapMode(true);
   codeEditor.$blockScrolling = Infinity;
 
-  phpCodeEditor = ace.edit("php-code-editor");
-  phpCodeEditor.setTheme("ace/theme/monokai");
-  phpCodeEditor.session.setMode("ace/mode/php");
-  phpCodeEditor.getSession().setUseWrapMode(true);
-  phpCodeEditor.$blockScrolling = Infinity;
-  //   phpCodeEditor.setValue("<?php \n\t// Write your code here\n\t\n ?>");
-  //   phpCodeEditor.selection.moveTo(2, 1);
-  phpCodeEditor.clearSelection();
+  // phpCodeEditor = ace.edit("php-code-editor");
+  // phpCodeEditor.setTheme("ace/theme/monokai");
+  // phpCodeEditor.session.setMode("ace/mode/php");
+  // phpCodeEditor.getSession().setUseWrapMode(true);
+  // phpCodeEditor.$blockScrolling = Infinity;
+  // //   phpCodeEditor.setValue("<?php \n\t// Write your code here\n\t\n ?>");
+  // //   phpCodeEditor.selection.moveTo(2, 1);
+  // phpCodeEditor.clearSelection();
 
   phpNodeCodeEditor = ace.edit("php-node-code-editor");
   phpNodeCodeEditor.setTheme("ace/theme/monokai");
@@ -931,9 +932,9 @@ $(function() {
   });
 
   $(".showLayers").click(function() {
-    remooveRightSlide();
-    $(".tree-view-container").toggleClass("displayToggle");
-    $(".add-custom-layers").toggleClass("displayToggle");
+    // remooveRightSlide();
+    // $(".tree-view-container").toggleClass("displayToggle");
+    // $(".add-custom-layers").toggleClass("displayToggle");
   });
   $(".createHtml").click(function() {
     remooveRightSlide();
@@ -943,6 +944,36 @@ $(function() {
     remooveRightSlide();
     $(".createAssets-container").toggleClass("displayToggle");
   });
+
+  $(".showLayers, .createHtml, .createAssets").click(function() {
+    switch (
+      $(this)
+        .text()
+        .trim()
+    ) {
+      case "Layers":
+        $("#jsPanel-1").addClass("displayToggle");
+        break;
+      case "HTML":
+        $("#jsPanel-2").addClass("displayToggle");
+
+        break;
+      case "Assets":
+        $("#jsPanel-3").addClass("displayToggle");
+
+        break;
+      default:
+        break;
+    }
+  });
+
+  $("body").on("click", ".jsPanel-btn-close", function(e) {
+    e.preventDefault();
+    $(this)
+      .closest(".jsPanel")
+      .removeClass("displayToggle");
+  });
+
   // Listen to click events
   $("body").on("click", "[bb-click]", function(e) {
     e.preventDefault();
