@@ -1,7 +1,7 @@
 <div class="my-account-right-col">
     <div class="heading">
         <ol class="breadcrumb pull-right">
-            <li class="breadcrumb-item"><a href="{{ url('/my-account/my-site/pages/edit', $page->id) }}">Edit</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('mini_page_edit_view', $page->id) }}">Edit</a></li>
             <li class="breadcrumb-item active">settings</li>
             <li class="breadcrumb-item active"><a target="_blank" href="{{ url($page->url) }}">preview</a></li>
         </ol>

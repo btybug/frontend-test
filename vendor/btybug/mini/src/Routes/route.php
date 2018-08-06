@@ -49,6 +49,7 @@ Route::group(['prefix' => 'my-site'], function () {
 
     });
         Route::group(['prefix' => 'btybug'], function () {
+
         Route::get('/', 'MySiteController@pagesFunction')->name('mini_my_site_btybug');
         Route::group(['prefix' => 'pages'], function () {
             Route::get('/special', 'MySiteController@specialSettings')->name('mini_my_site_special_settings');
@@ -57,7 +58,7 @@ Route::group(['prefix' => 'my-site'], function () {
             Route::post('/sorting', 'MySiteController@sorting')->name('mini_page_sorting');
             Route::post('/show-page', 'MySiteController@showPage')->name('mini_page_show');
             Route::post('/edit/{id}', 'MySiteController@editUserPage')->name('mini_user_page_edit');
-            Route::get('/edit/{id}', 'MySiteController@pageEdit')->name('mini_page_edit');
+            Route::get('/edit/{id}', 'MySiteController@pageEdit')->name('mini_page_edit_view');
             Route::get('/edit/{id}/content', 'MySiteController@pageEditContent')->name('mini_page_edit_content');
             Route::get('/edit/{id}/live', 'LivePreviewController@getIngex')->name('mini_page_edit');
             Route::post('/edit/{page_id}/{slug}/{save?}', 'LivePreviewController@postPageSectionSettings')->name('mini_page_save_layout');
