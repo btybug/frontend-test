@@ -181,6 +181,41 @@ var framework = {
     return output;
   },
 
+  nodeTreeGeneratorForFunctions: function(node) {
+    var nodeEl = node[0];
+    var output = "";
+
+    if (nodeEl.tagName !== "WRAP") {
+      output +=
+        '<li class="item-container" data-index="' + this.globalIndex + '">';
+      output += '<div class="node-content">' + nodeEl.tagName + "</div>";
+    }
+
+    this.codeWallet.push(node);
+
+    // Increase index
+    this.globalIndex++;
+
+    if (node.children().length > 0) {
+      if (nodeEl.tagName !== "WRAP") {
+        output += "<ul class='sortable-list'>";
+      }
+
+      node.children().each(function() {
+        output += framework.nodeTreeGeneratorForFunctions($(this));
+      });
+
+      if (nodeEl.tagName !== "WRAP") {
+        output += "</ul>";
+      }
+    }
+
+    if (nodeEl.tagName !== "WRAP") {
+      output += "</li>";
+    }
+
+    return output;
+  },
   // Parse templates
   parseTemplate: function(template, variables) {
     var templateHTML = $("#bbt-" + template).html();
@@ -296,10 +331,6 @@ var framework = {
       framework.generateInsertedList();
       nodeChanger = true;
     },
-    // styleCheckboxTrigger: function(e) {
-    //   console.log(e);
-    //   console.log(111);
-    // },
     removeHtmlElement: function($this) {
       var nodeCode = framework.getNodeCodeValue($this),
         mainCode = codeEditor.getValue();
@@ -459,7 +490,6 @@ var framework = {
         // case "Styles":
         //   break;
         case "Preview":
-          console.log("rev");
           $(".footer-editor").show();
           $(".visualCodeEditorToggle").show();
           // $(".content-width").removeClass("col-12");
@@ -484,7 +514,6 @@ var framework = {
       }
     },
     functionInputValueChanger: function($this) {
-      console.log();
       if ($this.prev().attr("readonly")) {
         $this.prev().attr("readonly", false);
         $this.html(`<i class="fa fa-save"></i>`);
@@ -542,7 +571,7 @@ var framework = {
     },
     functionConnectSelecter: function() {
       connectCheckr = true;
-      var treeList = framework.nodeTreeGenerator(
+      var treeList = framework.nodeTreeGeneratorForFunctions(
         $("<wrap>" + codeEditor.getValue() + "</wrap>")
       );
       $(".tree-list-functions").html(treeList);
@@ -555,7 +584,6 @@ var framework = {
     },
     handleNodeItemClick: function($this) {
       // Hobo
-      console.log($this);
       framework.hideAllContentElements();
       framework.showElement($("#php-node-code-editor"));
 
@@ -1014,15 +1042,9 @@ $(function() {
       elm.empty();
       elm.text(elmText);
       elm.appendTo("#styles-area");
-      console.log(elm);
     });
   });
 
-  $(".showLayers").click(function() {
-    // remooveRightSlide();
-    // $(".tree-view-container").toggleClass("displayToggle");
-    // $(".add-custom-layers").toggleClass("displayToggle");
-  });
   $(".createHtml").click(function() {
     remooveRightSlide();
     $(".full-code-editor").toggleClass("displayToggle");
@@ -1074,21 +1096,42 @@ $(function() {
 
   $("body").on("click", ".jsPanel-btn-normalize", function(e) {
     e.preventDefault();
-    // $(this)
-    //   .closest(".jsPanel")
-    //   .find(".jsPanel-content")
-    //   .css({ height: "100%" });
     $(this)
       .closest(".jsPanel")
       .removeClass("w-100 h-100");
   });
 
   $("body").on("click", ".tree-list-functions", function(e) {
-    functionSelectedItem = e.target.textContent.trim();
+    let currentElement = e.target;
+    let attributes =
+      framework.codeWallet[
+        currentElement.closest("[data-index]").getAttribute("data-index")
+      ][0].attributes;
+    var list = "";
+    if (attributes.length) {
+      $.each(attributes, function() {
+        list += `<div class="functions-attributes" data-element="${
+          e.target.textContent
+        }"         
+          data-item="attribute" data-attr="${this.name}" > Attribute: ${
+          this.name
+        }</div>`;
+      });
+    } else {
+      list += "<div>This element don't have any attributes</div>";
+    }
+
+    $(currentElement).append(
+      `<div class="main-function-attributes">${list}</div>`
+    );
+  });
+
+  $("body").on("click", ".functions-attributes", function(e) {
+    functionSelectedItem =
+      e.target.getAttribute("data-element") + ">" + e.target.textContent.trim();
     $(".function-options-selecters").click();
     $(".tree-list-functions").empty();
   });
-
   // Listen to click events
   $("body").on("click", "[bb-click]", function(e) {
     e.preventDefault();
