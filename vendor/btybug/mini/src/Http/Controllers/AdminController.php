@@ -19,6 +19,7 @@ use Btybug\User\Repository\MembershipRepository;
 use Illuminate\Http\Request;
 use Btybug\Uploads\Repository\UnitsRepository;
 use Btybug\Uploads\Services\AppsService;
+use File;
 use Btybug\btybug\Helpers\helpers;
 use Btybug\btybug\Models\Settings;
 
@@ -87,22 +88,25 @@ class AdminController extends Controller
         return view('multisite::admin.assets.index');
     }
 
-    public function deleteUnit($id = null)
+    public function deleteUnit($path = null)
     {
-        //($id);
-        $this->unitsRepositorie->delete($id);
-
-        return back();
+        $path = base64_decode($path);
+        File::deleteDirectory($path);
+        return redirect()->route('mini_admin_assets_units');
     }
     public function assetsUnits(Request $request, $slug = null)
     {
         $units = $this->painter->where('self_type', 'units')->get();
-        $model = $this->unitService->getUnit($units, $slug);
-
-        $tags = $model->tags;
+        $model = $this->unitService->getUnit($units, $slug) ? $this->unitService->getUnit($units, $slug): null;
+        if ($model){
+            $tags = $model->tags;
+            $tags = implode(',', $tags);
+        }else{
+            $tags = null;
+        }
         $memberships = $this->membershipRepository->pluck('name', 'slug')->toArray();
 
-        $tags = implode(',', $tags);
+
         $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
         return view('multisite::admin.assets.units.preview', compact(['units', 'model', 'slug', 'tags', 'memberships', 'variations']));
     }
