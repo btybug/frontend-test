@@ -44,11 +44,11 @@
                                         </div>
                                         <div class="publish-check">
                                             <div class="checkbox-publish">
-                                                <input type="checkbox" id="check-free">
+                                                <input type="radio" id="check-free" name="free-pro">
                                                 <label for="check-free">Free</label>
                                             </div>
                                             <div class="checkbox-publish">
-                                                <input type="checkbox" id="check-pro">
+                                                <input type="radio" id="check-pro" name="free-pro">
                                                 <label for="check-pro">Pro</label>
                                             </div>
                                         </div>
@@ -383,13 +383,13 @@
             margin-bottom: 10px;
         }
 
-        .right-main-all .profile > .content .publish .publish-check input[type="checkbox"] {
+        .right-main-all .profile > .content .publish .publish-check input[type="radio"] {
             display: none;
             cursor: pointer;
         }
 
-        .right-main-all .profile > .content .publish .publish-check input[type="checkbox"]:focus,
-        .right-main-all .profile > .content .publish .publish-check input[type="checkbox"]:active {
+        .right-main-all .profile > .content .publish .publish-check input[type="radio"]:focus,
+        .right-main-all .profile > .content .publish .publish-check input[type="radio"]:active {
             outline: none;
         }
 
@@ -427,7 +427,7 @@
             color: #fff;
         }
 
-        .right-main-all .profile > .content .publish .publish-check input[type="checkbox"]:checked + label:before {
+        .right-main-all .profile > .content .publish .publish-check input[type="radio"]:checked + label:before {
             -moz-box-shadow: inset 0 0 0 10px #f0ad4e;
             -webkit-box-shadow: inset 0 0 0 10px #f0ad4e;
             box-shadow: inset 0 0 0 10px #f0ad4e;
@@ -439,7 +439,7 @@
             border-radius: 3px;
         }
 
-        .right-main-all .profile > .content .publish .publish-check label:hover:after, .right-main-all .profile > .content .publish .publish-check input[type="checkbox"]:checked + label:after {
+        .right-main-all .profile > .content .publish .publish-check label:hover:after, .right-main-all .profile > .content .publish .publish-check input[type="radio"]:checked + label:after {
             content: "\2713";
             line-height: 18px;
             font-size: 14px;
@@ -449,7 +449,7 @@
             color: #c7c7c7;
         }
 
-        .right-main-all .profile > .content .publish .publish-check input[type="checkbox"]:checked + label:after, .right-main-all .profile > .content .publish .publish-check input[type="checkbox"]:checked + label:hover:after {
+        .right-main-all .profile > .content .publish .publish-check input[type="radio"]:checked + label:after, .right-main-all .profile > .content .publish .publish-check input[type="radio"]:checked + label:hover:after {
             color: #fff;
         }
 
