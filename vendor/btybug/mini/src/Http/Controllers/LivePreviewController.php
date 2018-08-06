@@ -22,8 +22,7 @@ class LivePreviewController extends MiniController
     {
         $this->ennable($request);
         $page = $this->user->frontPages()->find($id);
-        $layout = $request->get('layout', $page->page_layout);
-
+        $layout = $page->page_layout;
         if (!$layout){
             $layout = Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS page_layout')->first()->page_layout;
         }
@@ -39,8 +38,8 @@ class LivePreviewController extends MiniController
             }
         }
         $page->page_layout_inheritance = $inherit;
-        $settings = ($request->get('layout')) ? [] : (@json_decode($page->page_layout_settings, true)) ? json_decode($page->page_layout_settings, true) : [];
-        $settings['main_unit'] = $page->template;
+        $settings =(@json_decode($page->page_layout_settings, true)) ? json_decode($page->page_layout_settings, true) : [];
+        $settings['main_unit'] = $request->get('main_unit',$page->template);
         if ($slug) {
             $view = MiniSuperLayouts::renderPageLivePreview($slug, $settings, $page);
             return $view ? $view : abort('404');

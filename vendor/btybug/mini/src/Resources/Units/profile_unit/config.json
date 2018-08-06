@@ -15,7 +15,7 @@
   "is_core": 0,
   "place": "frontend",
   "tags": [
-    "header"
+    "header","user_unit"
   ],
   "path": "vendor\/btybug\/mini\/src\/Resources\/Units\/profile_unit",
   "memberships": [],

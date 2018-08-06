@@ -31,7 +31,6 @@
             {!! Html::style($path) !!}
         @endforeach
     @endif
-    {!! HTML::style('public-x/custom/css/'.str_replace(' ','-',$page->slug).'.css') !!}
     @yield('css')
     @stack('CSS')
 </head>
@@ -89,7 +88,6 @@
             {!! Html::script($path) !!}
         @endforeach
     @endif
-    {!! HTML::script('public-x/custom/js/'.str_replace(' ','-',$page->slug).'.js') !!}
 
     @yield('js')
 </div>

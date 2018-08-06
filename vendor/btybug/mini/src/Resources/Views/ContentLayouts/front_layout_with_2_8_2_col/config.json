@@ -1,1 +1,40 @@
-{"title":"Layout 2-8-2 col","author":"Vahag","self_type":"page_sections","type":"general","version":1,"descrition":"Base Layout","layout":"main","panel":"panel","css":["style.css","setting-body.css"],"js":["js.js"],"settings":{"file":"settings","css":["style.css"],"js":["js.js"]},"folder":"front_layout_with_2_8_2_col","active":false,"tags":["ccccccccc"],"slug":"front_layout_with_2_8_2_col","created_at":1493719963,"is_core":0,"place":"frontend","path":"vendor\/btybug\/mini\/src\/Resources\/Views\/ContentLayouts\/front_layout_with_2_8_2_col","memberships":["free"],"status":"published"}
+{
+  "title": "Layout 2-8-2 col",
+  "author": "Vahag",
+  "self_type": "page_sections",
+  "type": "general",
+  "version": 1,
+  "descrition": "Base Layout",
+  "layout": "main",
+  "panel": "panel",
+  "css": [
+    "style.css",
+    "setting-body.css"
+  ],
+  "js": [
+    "js.js"
+  ],
+  "settings": {
+    "file": "settings",
+    "css": [
+      "style.css"
+    ],
+    "js": [
+      "js.js"
+    ]
+  },
+  "folder": "front_layout_with_2_8_2_col",
+  "active": false,
+  "tags": [
+    "ccccccccc"
+  ],
+  "slug": "front_layout_with_2_8_2_col",
+  "created_at": 1493719963,
+  "is_core": 0,
+  "place": "frontend",
+  "path": "vendor\/btybug\/mini\/src\/Resources\/Views\/ContentLayouts\/front_layout_with_2_8_2_col",
+  "memberships": [
+    "free"
+  ],
+  "status": "published"
+}

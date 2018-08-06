@@ -23,7 +23,6 @@
     {!! HTML::style('public/css/cms.css?v=1') !!}
 
 
-    {!! HTML::style('public-x/custom/css/'.uniqid().'.css') !!}
 {!! BBJs() !!}
     {!! HTML::script("public/js/tinymice/tinymce.min.js") !!}
     @yield('CSS')
@@ -42,7 +41,7 @@
         </div>
         <div class="col-xs-3 p-t-10">
             <div class="form-group">
-                {!! BBbutton2('mini_unit','ls_unit',"frontend","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar']) !!}
+                {!! BBbutton2('mini_unit','main_unit',"user_unit","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','id'=>'chage-content']) !!}
                 {{--{!! Form::select('layout',--}}
                     {{--[null=>'Select Layout']+\Btybug\Mini\Model\MiniSuperLayouts::all()->get()->pluck('title','slug')->toArray()--}}
                 {{--,null,['class'=>'form-control bb-layout ','id' => 'bb-select-layout']) !!}--}}
@@ -116,8 +115,6 @@
 
 {!! HTML::script("public/js/jquery-ui/jquery-ui.min.js") !!}
 {!! HTML::script('public/js/UiElements/page-sections.js') !!}
-{!! HTML::script('public-x/custom/js/'.uniqid().'.js') !!}
-
 @yield('JS')
 @stack('javascript')
 </html>

@@ -41,7 +41,6 @@ class MiniPainter extends BasePainter
                 }
             }
         }
-
         $this->storage = $all;
         return $this;
     }

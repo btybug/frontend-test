@@ -7,7 +7,7 @@
             <div class="col-md-3 col-xs-12">
                 @include('multisite::admin.assets.units._partials.sidebar')
             </div>
-            @if(count($model))
+            @if(is_object($model) && $model instanceof \Btybug\btybug\Models\Painter\PainterInterface)
             <div class="col-md-9 col-xs-12">
                 <div class="right-main-all">
                     <div class="profile">
