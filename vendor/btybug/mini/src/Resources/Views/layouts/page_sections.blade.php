@@ -23,6 +23,7 @@
     {!! HTML::style('public/css/cms.css?v=1') !!}
 
 
+    {!! HTML::style('public-x/custom/css/'.uniqid().'.css') !!}
 {!! BBJs() !!}
     {!! HTML::script("public/js/tinymice/tinymce.min.js") !!}
     @yield('CSS')
@@ -115,6 +116,8 @@
 
 {!! HTML::script("public/js/jquery-ui/jquery-ui.min.js") !!}
 {!! HTML::script('public/js/UiElements/page-sections.js') !!}
+{!! HTML::script('public-x/custom/js/'.uniqid().'.js') !!}
+
 @yield('JS')
 @stack('javascript')
 </html>

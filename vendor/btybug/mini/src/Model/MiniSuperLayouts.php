@@ -4,7 +4,6 @@ namespace Btybug\Mini\Model;
 use Btybug\btybug\Models\ContentLayouts\autoinclude;
 use Btybug\btybug\Models\Painter\BasePainter;
 use Btybug\btybug\Models\Universal\VariationAccess;
-use Btybug\btybug\Models\Universal\Variations;
 use Btybug\btybug\Repositories\AdminsettingRepository;
 use Btybug\btybug\Repositories\HookRepository;
 use Btybug\FrontSite\Models\FrontendPage;

@@ -1,5 +1,7 @@
 <div>
-dfghdfghdfghdfg
+    @if(has_setting($settings,'12_area_unit'))
+        {!! BBRenderUnits($settings['12_area_unit']) !!}
+    @endif
 </div>
 <div class="main">
     <div class="row">
