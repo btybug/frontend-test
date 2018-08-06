@@ -32,7 +32,7 @@ class MiniPainter extends BasePainter
         $units = json_decode(\File::get($path. DS . 'painter.json'),true);
         if (count($units)) {
             foreach ($units as $key => $unit) {
-                $full_path = $unit . DS . $this->name_of_json;
+                $full_path = base_path($unit . DS . $this->name_of_json);
                 $obj = new static();
                 $is_true = $obj->validateWithReturn($full_path);
                 $test[$full_path] = $is_true;

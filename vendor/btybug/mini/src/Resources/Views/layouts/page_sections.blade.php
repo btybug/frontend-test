@@ -104,9 +104,9 @@
 
         @yield('content')
     </div>
-    <div id="page-sections-settings-area">
-        @yield('settings')
-    </div>
+    {{--<div id="page-sections-settings-area">--}}
+        {{--@yield('settings')--}}
+    {{--</div>--}}
 </div>
 
 <input name="token" type="hidden" value="{{ csrf_token() }}" id="token"/>

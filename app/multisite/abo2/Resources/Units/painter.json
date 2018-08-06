@@ -1,6 +1,6 @@
 {
-  "profile_unit": "C:\\xampp\\htdocs\\albombugs\\multisite\\vendor\/btybug\/mini\/src\/Resources\/Units\/profile_unit",
-  "profile_unit_samuel": "C:\\xampp\\htdocs\\albombugs\\multisite\\vendor\/btybug\/mini\/src\/Resources\/Units\/profile_unit_samuel",
-  "unit_urkis_resume": "C:\\xampp\\htdocs\\albombugs\\multisite\\vendor\/btybug\/mini\/src\/Resources\/Units\/unit_urkis_resume",
-  "widget": "C:\\xampp\\htdocs\\albombugs\\multisite\\vendor\/btybug\/mini\/src\/Resources\/Units\/widget"
+  "profile_unit": "vendor\/btybug\/mini\/src\/Resources\/Units\/profile_unit",
+  "profile_unit_samuel": "vendor\/btybug\/mini\/src\/Resources\/Units\/profile_unit_samuel",
+  "unit_urkis_resume": "vendor\/btybug\/mini\/src\/Resources\/Units\/unit_urkis_resume",
+  "widget": "vendor\/btybug\/mini\/src\/Resources\/Units\/widget"
 }
