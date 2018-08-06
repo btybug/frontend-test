@@ -167,25 +167,62 @@ width:20%;
     }
 
     .function-tab-item {
-        width: 200px;
-        height: 200px;
+        /*width: 200px;*/
+        /*height: 200px;*/
+        padding: 0;
+        border: 1px solid #000;
     }
 
     .function-tab {
         position: fixed;
     bottom: 0;
     left: 0;
-    border: 1px solid red;
-    background-color: #face20
+        height: 200px;
+    background-color: #a9a9a9;
+        border-top: 2px solid #000;
+        overflow: auto;
     }
 
     #functions {
         display: none !important;
     }
     .tree-list-functions {
-        margin-top: 20px;
-        background-color: lightgreen;
+        background-color: #5d5d5d;
+        z-index: 1;
+        /*height: calc(100% - 200px);*/
+        /*overflow: auto;*/
     }
+        .tree-list-functions.list-height {
+            height: calc(100% - 200px);
+            overflow: auto;
+            padding: 0;
+        }
+
+        .function-tab-item-section .buttons,.function-tab-item-options .buttons{
+            display: flex;
+        }
+        .function-tab-item-section .buttons>button,.function-tab-item-options .buttons>button{
+            flex: auto;
+            border-radius: 0;
+        }
+        .function-tab-item-section input,.function-tab-item-options input{
+            border-radius: 0;
+        }
+        .function-tab-item-section >div,.function-tab-item-options >div{
+            margin-bottom:7px;
+        }
+        .function-tab-item>p{
+            background-color: #000;
+            color: white;
+            padding: 10px 15px;
+            margin: 0;
+        }
+        .function-tab-item-connections>ol{
+            padding-left:20px;
+        }
+        .function-tab button {
+            border-radius: 0;
+        }
     </style>
     <title>Document</title>
     <script>
@@ -440,21 +477,21 @@ width:20%;
 </div>
 <div id="code-editor"></div>
 <div class="function-tab w-100" hidden>
-    <div class="tree-list-functions" bb-click="functionConnectItemSelecter" style="width: 300px; position: fixed; right: 0; top: 0" ></div>
-    <ul style="display: flex">
-        <li class="function-tab-item">
+    <ul class="tree-list-functions" bb-click="functionConnectItemSelecter" style="width: 300px; position: fixed; right: 0; top: 0" ></ul>
+    <ul class="row m-0 p-0">
+        <li class=" col-sm-3 function-tab-item">
             <p>Section</p>
             <div class="function-tab-item-section"></div>
-            <button bb-click="addFunctionSectionItem" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+            <button bb-click="addFunctionSectionItem" class="btn btn-primary btn-block"><i class="fa fa-plus"></i></button>
         </li>
-        <li class="function-tab-item function-tab-options" hidden>
+        <li class=" col-sm-3 function-tab-item function-tab-options" hidden>
 
             <p>Options</p>
         <div class="function-tab-item-options"></div>
 
-            <button bb-click="addFunctionOptionsItem" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+            <button bb-click="addFunctionOptionsItem" class="btn btn-primary btn-block"><i class="fa fa-plus"></i></button>
         </li>
-        <li class="function-tab-item function-tab-connections" hidden>
+        <li class=" col-sm-6 function-tab-item function-tab-connections" hidden>
             <p>Conection</p>
             <div class="function-tab-item-connections"></div>
         </li>

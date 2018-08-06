@@ -534,7 +534,7 @@ var framework = {
       framework.showElement($(".function-tab-options"));
     },
     addFunctionSectionItem: function() {
-      let elm = `<div> <input  value="${Date.now()}" readonly> <button bb-click="functionInputValueChanger" class="btn btn-alert"><i class="fa fa-edit"></i></button><button bb-click="functionInputValueRemover" class="btn btn-alert"><i class="fa fa-remove"></i></button><button bb-click="functionSelectInput" class="btn btn-alert function-section-selecters"><i class="far fa-check-circle"></i></button> <div>`;
+      let elm = `<div> <input class="form-control"  value="${Date.now()}" readonly><div class="buttons"><button bb-click="functionInputValueChanger" class="btn btn-alert btn-warning"><i class="fa fa-edit"></i></button><button bb-click="functionInputValueRemover" class="btn btn-danger btn-alert"><i class="fa fa-remove"></i></button><button bb-click="functionSelectInput" class="btn btn-alert function-section-selecters btn-success"><i class="fa fa-check-circle"></i></button></div>  <div>`;
       $(".function-tab-item-section").prepend(elm);
     },
     functionSelectOptionInput: function($this) {
@@ -545,17 +545,13 @@ var framework = {
       framework.showElement($(".function-tab-connections"));
       $(".function-tab-item-connections").empty();
       // 222
-      let html = `<p>${$this
-        .prev()
-        .prev()
-        .prev()
-        .val()} ${
+      let html = `<div class="d-flex justify-content-between align-items-center p-3 font-weight-bold"><p>${$this.parent().parent().children()[0].value} ${
         functionSelectedItem
           ? `Connected to ${functionSelectedItem}`
           : "not connected"
       }  </p> <button class="btn btn-primary" bb-click="functionConnectSelecter">${
         functionSelectedItem ? "Change conection" : "Connect"
-      }</button>
+      }</button></div>
         ${
           functionSelectedItem
             ? ""
@@ -574,11 +570,11 @@ var framework = {
       var treeList = framework.nodeTreeGeneratorForFunctions(
         $("<wrap>" + codeEditor.getValue() + "</wrap>")
       );
-      $(".tree-list-functions").html(treeList);
+      $(".tree-list-functions").html(treeList).addClass('list-height')
     },
     functionConnectItemSelecter: function($this) {},
     addFunctionOptionsItem: function($this) {
-      let elm = `<div> <input  value="${Date.now()}" readonly> <button bb-click="functionInputValueChanger" class="btn btn-alert"><i class="fa fa-edit"></i></button><button bb-click="functionInputValueRemover" class="btn btn-alert"><i class="fa fa-remove"></i></button><button bb-click="functionSelectOptionInput" class="btn btn-alert function-options-selecters"><i class="far fa-check-circle"></i></button> <div>`;
+      let elm = `<div> <input  value="${Date.now()}" class="form-control" readonly><div class="buttons"> <button bb-click="functionInputValueChanger" class="btn btn-alert btn-warning"><i class="fa fa-edit"></i></button><button bb-click="functionInputValueRemover" class="btn btn-alert btn-danger"><i class="fa fa-remove"></i></button><button bb-click="functionSelectOptionInput" class="btn btn-alert function-options-selecters btn-success"><i class="fa fa-check-circle"></i></button> </div><div>`;
       $(".function-tab-item-options").prepend(elm);
       0;
     },
@@ -1103,27 +1099,30 @@ $(function() {
 
   $("body").on("click", ".tree-list-functions", function(e) {
     let currentElement = e.target;
-    let attributes =
-      framework.codeWallet[
-        currentElement.closest("[data-index]").getAttribute("data-index")
-      ][0].attributes;
-    var list = "";
-    if (attributes.length) {
-      $.each(attributes, function() {
-        list += `<div class="functions-attributes" data-element="${
-          e.target.textContent
-        }"         
+    if($(currentElement).hasClass("node-content")){
+        let attributes =
+            framework.codeWallet[
+                currentElement.closest("[data-index]").getAttribute("data-index")
+                ][0].attributes;
+        var list = "";
+        if (attributes.length) {
+            $.each(attributes, function() {
+                list += `<div class="functions-attributes" data-element="${
+                    e.target.textContent
+                    }"         
           data-item="attribute" data-attr="${this.name}" > Attribute: ${
-          this.name
-        }</div>`;
-      });
-    } else {
-      list += "<div>This element don't have any attributes</div>";
+                    this.name
+                    }</div>`;
+            });
+        } else {
+            list += "<div>This element don't have any attributes</div>";
+        }
+        $(currentElement).children().remove()
+        $(currentElement).append(
+            `<div class="main-function-attributes">${list}</div>`
+        );
     }
 
-    $(currentElement).append(
-      `<div class="main-function-attributes">${list}</div>`
-    );
   });
 
   $("body").on("click", ".functions-attributes", function(e) {
