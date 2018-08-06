@@ -42,16 +42,17 @@
         </div>
         <div class="col-xs-3 p-t-10">
             <div class="form-group">
-                {!! Form::select('layout',
-                    [null=>'Select Layout']+\Btybug\Mini\Model\MiniSuperLayouts::all()->get()->pluck('title','slug')->toArray()
-                ,null,['class'=>'form-control bb-layout ','id' => 'bb-select-layout']) !!}
+                {!! BBbutton2('mini_unit','ls_unit',"frontend","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar']) !!}
+                {{--{!! Form::select('layout',--}}
+                    {{--[null=>'Select Layout']+\Btybug\Mini\Model\MiniSuperLayouts::all()->get()->pluck('title','slug')->toArray()--}}
+                {{--,null,['class'=>'form-control bb-layout ','id' => 'bb-select-layout']) !!}--}}
             </div>
         </div>
-        <div class="col-xs-2  p-t-10">
-            {!! Form::select('variations',
-                [null=>'Select Variation']+$variations->pluck('title','id')->toArray(),null,
-            ['class'=>'form-control bb-layout ','id' => 'bb-select-variation']) !!}
-        </div>
+        {{--<div class="col-xs-2  p-t-10">--}}
+            {{--{!! Form::select('variations',--}}
+                {{--[null=>'Select Variation']+$variations->pluck('title','id')->toArray(),null,--}}
+            {{--['class'=>'form-control bb-layout ','id' => 'bb-select-variation']) !!}--}}
+        {{--</div>--}}
         <div class="col-xs-4 text-right  p-t-10">
             <button class="btn btn-info" data-openresponsiveview="modal" data-viewtoolbar="reponsive" data-settingaction="responsive">Responsive</button>
             <button class="btn btn-danger" data-settingaction="console">Console</button>

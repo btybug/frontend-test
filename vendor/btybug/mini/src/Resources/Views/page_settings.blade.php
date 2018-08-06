@@ -1,6 +1,5 @@
 @extends("multisite::layouts.page_sections")
 @section('content')
-
     <div class="center-block" id="widget_container">
         {!! $html !!}
     </div>
@@ -14,6 +13,8 @@
 
 @if(! $page->page_layout_inheritance)
 @section('settings')
+
+
     <div class="settings-bottom ">
         <div class="head">
             <span id="current-node-text">SELECT ELEMENT</span>

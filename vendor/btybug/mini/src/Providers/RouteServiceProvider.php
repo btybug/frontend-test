@@ -72,7 +72,7 @@ class RouteServiceProvider extends ServiceProvider
             'middleware' => 'web',
         ], function ($router) {
             Route::group([
-                'middleware' => ['admin:Users'],
+                'middleware' => ['auth'],
                 'prefix' => 'admin/mini',
                 'namespace' => $this->namespace,
             ], function ($router) {
