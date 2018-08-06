@@ -33,11 +33,26 @@
                                         </div>
                                         <div>
                                             <p><span>Site:</span>{{$model->site}}</p>
-                                            <p><span>Tags:</span>
-                                                @foreach($model->tags as $key => $value)
-                                                    {{$value}},
-                                                @endforeach
-                                            </p>
+                                            <div class="tagss">
+                                                <p><span>Tags:</span>
+
+                                                    {!! Form::model($model,['url' => route('mini_admin_assets_units_settings_post',$slug)]) !!}
+
+                                                    {!! Form::text('tags',$tags,['class' => 'form-control','id' => 'tagits']) !!}
+
+
+                                                </p>
+                                            </div>
+                                            <div class="memberships">
+                                                <p><span>Memberships:</span>
+
+                                                    {!! Form::select('memberships[]',$memberships,$model->memberships,['class' => 'form-control memberships-select','multiple' => true]) !!}
+
+
+
+                                                </p>
+                                            </div>
+
                                         </div>
 
                                     </div>
@@ -496,6 +511,14 @@
         }
         .right-main-all .previews .welll>.row{
             display: flex;
+        }
+        .right-main-all .info .tagss {
+            display: flex;
+            align-items: center;
+        }
+        .memberships{
+            display: flex;
+            align-items: center;
         }
         .right-main-all .previews .welll .preview{
             padding-left: 25px;
