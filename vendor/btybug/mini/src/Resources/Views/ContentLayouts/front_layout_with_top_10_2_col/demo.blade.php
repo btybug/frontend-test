@@ -9,7 +9,9 @@
             {!! mini_unit_content($settings,\Btybug\Mini\Model\MiniPainter::class) !!}
         </div>
         <div class="col-md-2 col-xs-12">
-
+            @if(has_setting($settings,'sidebar_area'))
+                {!! BBRenderUnits($settings['sidebar_area']) !!}
+            @endif
         </div>
     </div>
 </div>

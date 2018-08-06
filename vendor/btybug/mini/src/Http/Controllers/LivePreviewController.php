@@ -54,6 +54,7 @@ class LivePreviewController extends MiniController
             $page=$repository->find($page_id);
             if(! $request->inherit){
                 $page->page_layout=$slug[0];
+                dd($request->all());
                 $page->page_layout_settings=json_encode($request->all(),true);
             }
             $page->page_layout_inheritance = $request->inherit;
