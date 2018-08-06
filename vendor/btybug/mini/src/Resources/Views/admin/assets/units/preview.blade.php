@@ -7,14 +7,15 @@
             <div class="col-md-3 col-xs-12">
                 @include('multisite::admin.assets.units._partials.sidebar')
             </div>
+            @if(count($model))
             <div class="col-md-9 col-xs-12">
                 <div class="right-main-all">
                     <div class="profile">
                         <div class="head">
                             <span>
-                                Profile Unite
+                               {{$model->title}}
                             </span>
-                            <button class="btn btn-sm btn-danger">Delete</button>
+                            <a href="{{route('mini_admin_delete_units',$model->id)}}"><button class="btn btn-sm btn-danger">Delete</button></a>
                         </div>
                         <div class="content">
                             <div class="row">
@@ -27,12 +28,16 @@
                                 <div class="col-md-7">
                                     <div class="info">
                                         <div>
-                                            <p><span>Author:</span>Lorem</p>
-                                            <p><span>Details:</span>Lorem</p>
+                                            <p><span>Author:</span>{{$model->author}}</p>
+                                            <p><span>Details:</span>{{$model->description}}</p>
                                         </div>
                                         <div>
-                                            <p><span>Site:</span>Lorem</p>
-                                            <p><span>Tags:</span>Lorem,Lorem</p>
+                                            <p><span>Site:</span>{{$model->site}}</p>
+                                            <p><span>Tags:</span>
+                                                @foreach($model->tags as $key => $value)
+                                                    {{$value}},
+                                                @endforeach
+                                            </p>
                                         </div>
 
                                     </div>
@@ -63,7 +68,7 @@
                             Variations
                         </div>
                         <div class="buttons">
-                            <button class="btn btn-sm btn-warning">Create new <i class="fa fa-plus"></i></button>
+                            <a href="{!! route('mini_admin_assets_create_unit_variation',$model->slug) !!}"><button class="btn btn-sm btn-warning">Create new <i class="fa fa-plus"></i></button></a>
                             <button class="btn btn-sm btn-warning">Detail</button>
                             <button class="btn btn-sm btn-warning">List</button>
                         </div>
@@ -73,8 +78,13 @@
                             <div class="row">
                                 <div class="col-md-4 col-xs-12">
                                     <div class="preview">
-                                        <img src="http://factinteres.ru/wp-content/uploads/2016/09/IMG-Worlds-of-Adventure-1-945x776.jpg"
-                                             alt="">
+                                        <div class="left-iframe">
+                                        <iframe class="unit_preview" data-slug="{{$model->slug}}"
+                                                src="{{url('admin/mini/assets/units/render/'.$model->slug.'.default')}}"
+                                                width="100%" style="min-height: 500px;">
+
+                                        </iframe>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-5 col-xs-12">
@@ -114,7 +124,8 @@
                     </div>
                 </div>
             </div>
-            <div class="well col-md-9">
+            @endif
+          {{--  <div class="well col-md-9">
                 <div class="col-md-4">{{$model->title}}</div>
                 <div class="col-md-4 pull-right">
                     <a href="{{route('mini_admin_delete_units',$model->id)}}">
@@ -159,8 +170,8 @@
                 </div>
 
 
-            </div>
-            <div class="col-md-9 col-xs-12">
+            </div>--}}
+            {{--<div class="col-md-9 col-xs-12">
                 @if($model)
                     <div class="display-area">
                         <div class="col-md-2">
@@ -180,7 +191,7 @@
                         </div>
                     </div>
                 @endif
-            </div>
+            </div>--}}
 
         </div>
     </div>
@@ -488,6 +499,8 @@
         }
         .right-main-all .previews .welll .preview{
             padding-left: 25px;
+            height: 200px;
+            overflow: hidden;
         }
         .right-main-all .previews .welll .preview img{
             width: 100%;
