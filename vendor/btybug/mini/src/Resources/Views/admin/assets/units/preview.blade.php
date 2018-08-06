@@ -8,7 +8,7 @@
                 @include('multisite::admin.assets.units._partials.sidebar')
             </div>
             <div class="well col-md-9">
-                <div class="col-md-4">{{$model->slug}}</div>
+                <div class="col-md-4">{{$model->title}}</div>
                 <div class="col-md-4 pull-right">
                     <a href="{{route('mini_admin_delete_units',$model->id)}}"><button class="btn btn-default btn-sm">Delete</button></a></div>
             </div>
@@ -26,9 +26,12 @@
                             <p>Author: {{$model->author}}</p>
                             <p>Details: {{$model->description}}</p>
                             <br><br>
-                            <p>Site:</p>
+                            <p>Site: {{$model->site}}</p>
                             <br><br>
-                            <p>Tags:</p>
+                            <p>Tags:
+                                @foreach($model->tags as $key => $value)
+                                    {{$value}},
+                                @endforeach</p>
                         </div>
                         <div class="right_sect">
 
