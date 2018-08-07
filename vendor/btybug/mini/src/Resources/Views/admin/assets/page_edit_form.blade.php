@@ -57,7 +57,7 @@
         </label>
         <label class="radio-inline" for="radios-1">
             {!! Form::radio('header',0) !!}
-            No Header
+            No Navbar
         </label>
         <label class="radio-inline" for="radios-1">
             {!! Form::radio('header',2) !!}
