@@ -15,9 +15,10 @@
   "is_core": 0,
   "place": "frontend",
   "tags": [
-    "header","user_unit"
+    "header",
+    "user_unit"
   ],
   "path": "vendor\/btybug\/mini\/src\/Resources\/Units\/profile_unit",
-  "memberships":"Free",
+  "memberships": "Free",
   "status": "published"
 }

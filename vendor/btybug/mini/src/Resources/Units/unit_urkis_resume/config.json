@@ -14,7 +14,10 @@
   "created_at": 1490088665,
   "is_core": 0,
   "place": "frontend",
-  "tags": ["resume","user_unit"],
+  "tags": [
+    "resume",
+    "user_unit"
+  ],
   "path": "vendor\/btybug\/mini\/src\/Resources\/Units\/unit_urkis_resume",
   "memberships": "Free",
   "status": null

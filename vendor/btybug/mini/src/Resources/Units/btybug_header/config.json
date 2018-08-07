@@ -14,7 +14,11 @@
   "created_at": 1490088665,
   "is_core": 0,
   "place": "frontend",
-  "tags": ["headerr","frontend","frontend_header"],
+  "tags": [
+    "headerr",
+    "frontend",
+    "frontend_header"
+  ],
   "path": "vendor\/btybug\/mini\/src\/Resources\/Units\/btybug_header",
   "memberships": "Free",
   "status": null
