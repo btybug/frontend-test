@@ -78,23 +78,23 @@
                     {!! Form::select('tags',$tags,null,['class' => 'form-control','id' => 'tagits']) !!}
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="radios">Header</label>
-                <div class="col-md-8">
-                    <label class="radio-inline" for="radios-0">
-                        <input type="radio" name="header"  value="1" checked="checked">
-                        Default
-                    </label>
-                    <label class="radio-inline" for="radios-1">
-                        <input type="radio"  name="header"  value="0">
-                        No Header
-                    </label>
-                    <label class="radio-inline" for="radios-1">
-                        <input type="radio" name="header"  value="2">
-                        Special
-                    </label>
-                </div>
-            </div>
+            {{--<div class="form-group">--}}
+                {{--<label class="col-md-4 control-label" for="radios">Header</label>--}}
+                {{--<div class="col-md-8">--}}
+                    {{--<label class="radio-inline" for="radios-0">--}}
+                        {{--<input type="radio" name="header"  value="1" checked="checked">--}}
+                        {{--Default--}}
+                    {{--</label>--}}
+                    {{--<label class="radio-inline" for="radios-1">--}}
+                        {{--<input type="radio"  name="header"  value="0">--}}
+                        {{--No Header--}}
+                    {{--</label>--}}
+                    {{--<label class="radio-inline" for="radios-1">--}}
+                        {{--<input type="radio" name="header"  value="2">--}}
+                        {{--Special--}}
+                    {{--</label>--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <div class="form-group">
                 <label class="col-md-4 control-label" for="radios">Layout</label>
                 <div class="col-md-4">
@@ -108,14 +108,14 @@
                     </label>
                 </div>
             </div>
-            <div class="form-group header-bbbutton hide">
-                <label  class="control-label col-xs-4"></label>
-                <div class="col-xs-8">
-                    <div class="input-group">
-                        {!! BBbutton2('mini_unit','header_unit','header','Select Default Header',['model'=>$header]) !!}
-                    </div>
-                </div>
-            </div>
+            {{--<div class="form-group header-bbbutton hide">--}}
+                {{--<label  class="control-label col-xs-4"></label>--}}
+                {{--<div class="col-xs-8">--}}
+                    {{--<div class="input-group">--}}
+                        {{--{!! BBbutton2('mini_unit','header_unit','header','Select Default Header',['model'=>$header]) !!}--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <div class="form-group layout-bbbutton hide">
                 <label  class="control-label col-xs-4"></label>
                 <div class="col-xs-8">
@@ -207,13 +207,13 @@
     <script>
 
         $(function () {
-            $('body').on('change','input[name=header]',function () {
-               if($(this).val()==2){
-                   $('body').find('.header-bbbutton').removeClass('hide')
-               }else{
-                   $('body').find('.header-bbbutton').addClass('hide')
-               }
-            });
+            // $('body').on('change','input[name=header]',function () {
+            //    if($(this).val()==2){
+            //        $('body').find('.header-bbbutton').removeClass('hide')
+            //    }else{
+            //        $('body').find('.header-bbbutton').addClass('hide')
+            //    }
+            // });
             $('body').on('change','input[name=layout]',function () {
                if($(this).val()==1){
                    $('body').find('.layout-bbbutton').removeClass('hide')
