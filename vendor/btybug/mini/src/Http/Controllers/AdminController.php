@@ -100,6 +100,7 @@ class AdminController extends Controller
         $model = $this->unitService->getUnit($units, $slug) ?? null;
         if ($model){
             $tags = $model->tags;
+            $tags = implode(',',$tags);
         }else{
             $tags = null;
         }
