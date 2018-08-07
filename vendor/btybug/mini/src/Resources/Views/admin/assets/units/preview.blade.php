@@ -8,205 +8,144 @@
                 @include('multisite::admin.assets.units._partials.sidebar')
             </div>
             @if(is_object($model) && $model instanceof \Btybug\btybug\Models\Painter\PainterInterface)
-            <div class="col-md-9 col-xs-12">
-                <div class="right-main-all">
-                    <div class="profile">
-                        <div class="head">
+                <div class="col-md-9 col-xs-12">
+                    <div class="right-main-all">
+                        <form action="">
+                            <div class="profile">
+                                <div class="head">
                             <span>
                                {{$model->title}}
                             </span>
-                            <a href="{{route('mini_admin_delete_units',$model->id)}}"><button class="btn btn-sm btn-danger">Delete</button></a>
-                        </div>
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="image">
-                                        <img src="http://factinteres.ru/wp-content/uploads/2016/09/IMG-Worlds-of-Adventure-1-945x776.jpg"
-                                             alt="">
-                                    </div>
+                                    <a href="{{route('mini_admin_delete_units',$model->id)}}">
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </a>
                                 </div>
-                                <div class="col-md-7">
-                                    <div class="info">
-                                        <div>
-                                            <p><span>Author:</span>{{$model->author}}</p>
-                                            <p><span>Details:</span>{{$model->description}}</p>
-                                        </div>
-                                        <div>
-                                            <p><span>Site:</span>{{$model->site}}</p>
-                                            <div class="tagss">
-                                                <p><span>Tags:</span>
-
-                                                    {!! Form::model($model,['url' => route('mini_admin_assets_units_settings_post',$slug)]) !!}
-
-                                                    {!! Form::text('tags',$tags,['class' => 'form-control','id' => 'tagits']) !!}
-
-
-                                                </p>
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="image">
+                                                <img src="http://factinteres.ru/wp-content/uploads/2016/09/IMG-Worlds-of-Adventure-1-945x776.jpg"
+                                                     alt="">
                                             </div>
-                                            <div class="memberships">
-                                                <p><span>Memberships:</span>
-
-                                                    {!! Form::select('memberships[]',$memberships,$model->memberships,['class' => 'form-control memberships-select','multiple' => true]) !!}
-
-
-
-                                                </p>
-                                            </div>
-
                                         </div>
+                                        <div class="col-md-7">
+                                            <div class="info">
+                                                <div>
+                                                    <p><span>Author:</span>{{$model->author}}</p>
+                                                    <p><span>Details:</span>{{$model->description}}</p>
+                                                </div>
+                                                <div>
+                                                    <p><span>Site:</span>{{$model->site}}</p>
+                                                    <div class="tagss">
+                                                        <p>
+                                                            <span>Tags:</span>
+                                                        </p>
+                                                        <p>
+                                                            <input type="text" name="tags" class="onChange" id="tagits"
+                                                                  value="{{$tags}}">
+                                                        </p>
+                                                    </div>
 
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="publish">
-                                        <div class="head">
-                                            Publish To
-                                        </div>
-                                        <div class="publish-check">
-                                            <div class="checkbox-publish">
-                                                <input type="radio" id="check-free" name="free-pro">
-                                                <label for="check-free">Free</label>
+
+                                                </div>
+
                                             </div>
-                                            <div class="checkbox-publish">
-                                                <input type="radio" id="check-pro" name="free-pro">
-                                                <label for="check-pro">Pro</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="publish">
+                                                <div class="head">
+                                                    Publish To
+                                                </div>
+                                                <div class="publish-check">
+                                                    <div class="checkbox-publish">
+                                                        <input type="radio" id="check-free" name="free-pro">
+                                                        <label for="check-free">Free</label>
+                                                    </div>
+                                                    <div class="checkbox-publish">
+                                                        <input type="radio" id="check-pro" name="free-pro">
+                                                        <label for="check-pro">Pro</label>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                    </div>
-                    <div class="variations">
-                        <div class="title">
-                            Variations
-                        </div>
-                        <div class="buttons">
-                            <a href="{!! route('mini_admin_assets_create_unit_variation',$model->slug) !!}"><button class="btn btn-sm btn-warning">Create new <i class="fa fa-plus"></i></button></a>
-                            <button class="btn btn-sm btn-warning">Detail</button>
-                            <button class="btn btn-sm btn-warning">List</button>
-                        </div>
-                    </div>
-                    <div class="previews">
-                        <div class="welll">
-                            <div class="row">
-                                <div class="col-md-4 col-xs-12">
-                                    <div class="preview">
-                                        <div class="left-iframe">
-                                        <iframe class="unit_preview" data-slug="{{$model->slug}}"
-                                                src="{{url('admin/mini/assets/units/render/'.$model->slug.'.default')}}"
-                                                width="100%" style="min-height: 500px;">
-
-                                        </iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 col-xs-12">
-                                    <div class="title">
-                                        Default
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-xs-12">
-                                    <div class="buttons">
-                                        <button class="btn btn-md btn-warning">Edit</button>
-                                        <button class="btn btn-md btn-danger">Delete</button>
-                                    </div>
+                        </form>
+                        <div class="variations">
+                            <div class="title">
+                                Variations
+                            </div>
+                            <div class="buttons">
+                                <a href="{!! route('mini_admin_assets_create_unit_variation',$model->slug) !!}">
+                                    <button class="btn btn-sm btn-warning">Create new <i class="fa fa-plus"></i>
+                                    </button>
+                                </a>
+                                <div class="grid-list">
+                                <button class="btn btn-sm btn-warning onGridButton"><i class="fa fa-bars"></i>Detail</button>
+                                <button class="btn btn-sm btn-warning onListButton active"><i class="fa fa-th"></i>List</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="welll">
+                        <div class="previews">
                             <div class="row">
-                                <div class="col-md-4 col-xs-12">
-                                    <div class="preview">
-                                        <img src="http://factinteres.ru/wp-content/uploads/2016/09/IMG-Worlds-of-Adventure-1-945x776.jpg"
-                                             alt="">
+                                <div class="col-sm-12">
+                                    <div class="welll">
+                                        <div class="row">
+                                            <div class="col-md-4 col-xs-12">
+                                                <div class="preview">
+                                                    <div class="left-iframe">
+                                                        <iframe class="unit_preview" data-slug="{{$model->slug}}"
+                                                                src="{{url('admin/mini/assets/units/render/'.$model->slug.'.default')}}"
+                                                                width="100%" style="min-height: 500px;">
+
+                                                        </iframe>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 col-xs-12">
+                                                <div class="title">
+                                                    Default
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-xs-12">
+                                                <div class="buttons">
+                                                    <button class="btn btn-md btn-warning">Edit</button>
+                                                    <button class="btn btn-md btn-danger">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-5 col-xs-12">
-                                    <div class="title">
-                                        Variation 2
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-xs-12">
-                                    <div class="buttons">
-                                        <button class="btn btn-md btn-warning">Edit</button>
-                                        <button class="btn btn-md btn-danger">Delete</button>
+                                <div class="col-sm-12">
+                                    <div class="welll">
+                                        <div class="row">
+                                            <div class="col-md-4 col-xs-12">
+                                                <div class="preview">
+                                                    <img src="http://factinteres.ru/wp-content/uploads/2016/09/IMG-Worlds-of-Adventure-1-945x776.jpg"
+                                                         alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 col-xs-12">
+                                                <div class="title">
+                                                    Variation 2
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-xs-12">
+                                                <div class="buttons">
+                                                    <button class="btn btn-md btn-warning">Edit</button>
+                                                    <button class="btn btn-md btn-danger">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             @endif
-          {{--  <div class="well col-md-9">
-                <div class="col-md-4">{{$model->title}}</div>
-                <div class="col-md-4 pull-right">
-                    <a href="{{route('mini_admin_delete_units',$model->id)}}">
-                        <button class="btn btn-default btn-sm">Delete</button>
-                    </a></div>
-            </div>
-            <div class="well col-md-9">
 
-                <div class="media">
-                    <a class="pull-left" href="#">
-                        <div class="media-left">
-                            <img class="media-object" src="http://placekitten.com/150/150">
-
-                        </div>
-                    </a>
-                    <div class="media-body">
-                        <div class="col-md-6">
-                            <p>Author: {{$model->author}}</p>
-                            <p>Details: {{$model->description}}</p>
-                            <br><br>
-                            <p>Site: {{$model->site}}</p>
-                            <br><br>
-                            <p>Tags:
-                                @foreach($model->tags as $key => $value)
-                                    {{$value}},
-                                @endforeach</p>
-                        </div>
-                        <div class="right_sect">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="well col-md-9">
-
-                <div class="col-md-4">Variations</div>
-                <div class="col-md-4 pull-right">
-                    <a href="{!! route('mini_admin_assets_create_unit_variation',$model->slug) !!}"
-                       class="btn btn-md btn-default">Create Variation</a>&nbsp;
-                    <button class="btn btn-default btn-md">Detail</button>&nbsp;
-                    <button class="btn btn-default btn-md">List</button>
-                </div>
-
-
-            </div>--}}
-            {{--<div class="col-md-9 col-xs-12">
-                @if($model)
-                    <div class="display-area">
-                        <div class="col-md-2">
-                            {!! Form::select('variation',$variations,$model->slug.'.default',['class'=>'form-control','id'=>'layout-variations']) !!}
-                        </div>
-                        @include('multisite::admin.assets.units._partials.buttons')
-
-                        <div class="right-iframe">
-                            <div class="col-md-12">
-                                <iframe class="unit_preview" data-slug="{{$model->slug}}"
-                                        src="{{url('admin/mini/assets/units/render/'.$model->slug.'.default')}}"
-                                        width="100%" style="min-height: 500px;">
-
-                                </iframe>
-                            </div>
-
-                        </div>
-                    </div>
-                @endif
-            </div>--}}
 
         </div>
     </div>
@@ -221,6 +160,18 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
+            $('body').on('click','.variations .grid-list button',function() {
+                if ($(this).hasClass('onGridButton')) {
+                    $('.previews>.row>div').removeClass('col-sm-12 list').addClass('col-sm-6 grid');
+                    $(this).parent().children().removeClass('active');
+                    $(this).addClass('active');
+                }
+                else if($(this).hasClass('onListButton')) {
+                    $('.previews>.row>div').removeClass('col-sm-6 grid').addClass('col-sm-12 list');
+                    $(this).parent().children().removeClass('active');
+                    $(this).addClass('active');
+                }
+            });
             $('body').on('click', '.preview-modal', function () {
                 $("#preview-modal").modal()
             });
@@ -485,7 +436,7 @@
             align-items: center;
             padding: 8px 15px;
             background-color: #b177a7;
-            margin-bottom:20px;
+            margin-bottom: 20px;
         }
 
         .right-main-all .variations > .title {
@@ -500,54 +451,90 @@
             letter-spacing: 1px;
         }
 
-        .right-main-all .variations > .buttons > button:first-of-type {
-            margin-right: 40px;
-        }
-        .right-main-all .previews .welll{
-            margin-bottom:15px;
-            box-shadow: 0 1px 2px #949494;
-            padding:15px 0;
-
-        }
-        .right-main-all .previews .welll>.row{
+        .right-main-all .variations > .buttons  {
             display: flex;
         }
+        .right-main-all .variations > .buttons >a {
+            margin-right: 40px;
+        }
+        .right-main-all .variations > .buttons .grid-list button i {
+            margin-right: 5px;
+        }
+        .right-main-all .previews .welll {
+            margin-bottom: 15px;
+            box-shadow: 0 1px 2px #949494;
+            padding: 15px 0;
+
+        }
+
+        .right-main-all .previews .welll > .row {
+            display: flex;
+        }
+
         .right-main-all .info .tagss {
             display: flex;
             align-items: center;
         }
-        .memberships{
+
+        .memberships {
             display: flex;
             align-items: center;
         }
-        .right-main-all .previews .welll .preview{
+
+        .right-main-all .previews .welll .preview {
             padding-left: 25px;
             height: 200px;
             overflow: hidden;
         }
-        .right-main-all .previews .welll .preview img{
+
+        .right-main-all .previews .welll .preview img {
             width: 100%;
             object-fit: cover;
-            height: 160px;
+            height: 100%;
         }
-        .right-main-all .previews .welll .title{
+
+        .right-main-all .previews .welll .title {
             height: 100%;
             display: flex;
             align-items: center;
             font-weight: bold;
             font-size: 18px;
         }
-        .right-main-all .previews .welll .buttons{
+
+        .right-main-all .previews .welll .buttons {
             display: flex;
             flex-direction: column;
             height: 100%;
             justify-content: flex-end;
         }
-        .right-main-all .previews .welll .buttons button{
+
+        .right-main-all .previews .welll .buttons button {
             border-radius: 0;
         }
-        .right-main-all .previews .welll .buttons button:first-of-type{
-            margin-bottom:10px;
+
+        .right-main-all .previews .welll .buttons button:first-of-type {
+            margin-bottom: 10px;
+        }
+        .right-main-all .previews .grid .welll{
+            padding: 0;
+        }
+        .right-main-all .previews .grid .welll>.row{
+            flex-direction: column;
+        }
+        .right-main-all .previews .grid .welll>.row>div{
+            width: 100%;
+        }
+        .right-main-all .previews .grid .welll .preview{
+            width: 100%;
+            padding: 0;
+        }
+        .right-main-all .previews .grid .welll .title{
+            padding: 10px;
+            text-align: center;
+            display: block;
+        }
+        .right-main-all .previews .grid .welll .buttons button:first-of-type{
+            margin: 0;
         }
     </style>
 
