@@ -2,13 +2,13 @@
 @section('tab')
     <div class="row">
         {!! Form::open(['class'=>'form-horizontal']) !!}
-        <div class="form-group">
-            <div class="col-xs-8">
-                <div class="input-group">
-                    {!! BBbutton2('mini_unit','header','header','Select Default Header',['model'=>$header]) !!}
-                </div>
-            </div>
-        </div>
+        {{--<div class="form-group">--}}
+            {{--<div class="col-xs-8">--}}
+                {{--<div class="input-group">--}}
+                    {{--{!! BBbutton2('mini_unit','header','header','Select Default Header',['model'=>$header]) !!}--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
         <div class="form-group">
             <div class="col-xs-8">
                 <div class="input-group">

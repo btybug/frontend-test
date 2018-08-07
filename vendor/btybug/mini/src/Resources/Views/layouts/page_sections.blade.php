@@ -113,7 +113,6 @@
 
 </body>
 {!! HTML::script("public/css/bootstrap/3.3.7/js/bootstrap.min.js") !!}
-
 {!! HTML::script("public/js/jquery-ui/jquery-ui.min.js") !!}
 {!! HTML::script('public/js/UiElements/page-sections.js') !!}
 {!! HTML::script('public-x/custom/js/'.uniqid().'.js') !!}
