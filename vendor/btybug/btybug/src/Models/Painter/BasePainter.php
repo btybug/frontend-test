@@ -617,7 +617,6 @@ abstract class BasePainter implements PainterInterface, VariationAccess
     {
         $config = $this->getRegisters();
         $slug = explode('.', $slug)[0];
-
         if (!isset($config[$slug])) {
             return null;
             //$this->throwError("Not Registered Item $slug !!!", 404);

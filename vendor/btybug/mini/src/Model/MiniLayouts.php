@@ -35,6 +35,7 @@ class MiniLayouts extends BasePainter implements VariationAccess
         $this->config_path = config('minilayouts_config_path');
         $this->base_path = config('minilayouts_storage_path');
         parent::__construct();
+
     }
 
     public function scopeAll()
@@ -85,6 +86,27 @@ class MiniLayouts extends BasePainter implements VariationAccess
     {
         $path = $this->getItemConfigJsonPath($slug);
         return $this->makeItem($path);
+    }
+
+    protected function getItemConfigJsonPath($slug)
+    {
+        $config = $this->getRegisters();
+        $slug = explode('.', $slug)[0];
+        if (!isset($config[$slug])) {
+            return null;
+            //$this->throwError("Not Registered Item $slug !!!", 404);
+        }
+
+        return $this->makePath($config[$slug]);
+    }
+
+    private function getRegisters()
+    {
+        $get_content = @json_decode(\File::get(base_path($this->config_path)), true);
+        if ($get_content) {
+            return $get_content;
+        }
+        return [];
     }
 
     public function scopeRenderLivePreview(string $slug)

@@ -115,7 +115,6 @@ function BBRenderPageMiniSections($layout, $settings = [], $model)
     if (!$layout) $layout = '';
     $model = new $model();
     $content_layout = $model->find($layout);
-
     if (!is_null($content_layout)) {
         return $content_layout->render($settings);
     }
@@ -149,11 +148,14 @@ function BBRenderMiniFrontLayout($page,$model)
             return BBRenderPageMiniSections($page->page_layout, $settings,$model);
         }
     }else{
-        $settings = ($page->page_layout_settings && !is_array($page->page_layout_settings)) ? json_decode($page->page_layout_settings, true) : [];
+//        $settings = ($page->page_layout_settings && !is_array($page->page_layout_settings)) ? json_decode($page->page_layout_settings, true) : [];
+        $model = new $model();
+        $layout = \Btybug\btybug\Models\Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->first();
+        $variation=$model->findVariation($layout->val);
+        $settings=$variation->settings;
         $settings["_page"] = $page;
-        $layout = \Btybug\btybug\Models\Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS layout')->first();
         if($layout){
-            return BBRenderPageMiniSections($layout->layout, $settings,$model);
+            return BBRenderPageMiniSections($layout->val, $settings,$model);
         }
     }
 }

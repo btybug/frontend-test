@@ -1,6 +1,6 @@
 <div>
     @if(has_setting($settings,'12_area_unit'))
-        {!! BBRenderUnits($settings['12_area_unit']) !!}
+        {!! render_mini_unit($settings['12_area_unit'],\Btybug\Mini\Model\MiniPainter::class) !!}
     @endif
 </div>
     <div class="main">
@@ -10,10 +10,9 @@
             </div>
             <div class="col-md-2 col-xs-12">
                     @if(has_setting($settings,'sidebar_area'))
-                        {!! BBRenderUnits($settings['sidebar_area']) !!}
+                        {!! render_mini_unit($settings['sidebar_area'],\Btybug\Mini\Model\MiniPainter::class) !!}
                     @endif
             </div>
         </div>
     </div>
-
 {!! BBstyle($_this->path.DS.'css'.DS.'style.css') !!}
