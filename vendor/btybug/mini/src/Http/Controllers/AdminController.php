@@ -187,9 +187,9 @@ class AdminController extends Controller
 
     public function assetsUnitsLive($slug)
     {
+
         if ($slug) {
             $view = MiniSuperPainter::renderLivePreview($slug, 'frontend');
-
             return $view ? $view : abort('404');
         } else {
             abort('404');

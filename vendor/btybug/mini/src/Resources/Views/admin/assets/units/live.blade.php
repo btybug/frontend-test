@@ -14,5 +14,4 @@
 @section('JS')
     {!! HTML::script("public/js/UiElements/ui-preview-setting.js?v=999") !!}
     {!! HTML::script("public/js/UiElements/ui-settings.js") !!}
-
 @stop
