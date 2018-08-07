@@ -55,11 +55,12 @@
                                                 <div class="head">
                                                     Publish To
                                                 </div>
+
                                                 <div class="publish-check">
                                                     @foreach($memberships as $value)
                                                             <div class="checkbox-publish">
                                                                 <input type="radio" id="{{$value}}" class="onChange" name="membership" value="{{$value}}"
-                                                                        @if($model->memberships == $value)
+                                                                        @if($model->memberships === $value)
                                                                         checked
                                                                         @endif
                                                                 >

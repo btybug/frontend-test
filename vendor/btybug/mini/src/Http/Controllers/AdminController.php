@@ -101,9 +101,11 @@ class AdminController extends Controller
 
         if ($model){
             $tags = $model->tags;
+            $tags = implode(',',$tags);
         }else{
             $tags = null;
         }
+
         $memberships = $this->membershipRepository->pluck('name', 'slug')->toArray();
         $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
         return view('multisite::admin.assets.units.preview', compact(['units', 'model', 'slug', 'tags', 'memberships', 'variations']));
