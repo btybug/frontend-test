@@ -24,8 +24,11 @@
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="image">
-                                                <img src="http://factinteres.ru/wp-content/uploads/2016/09/IMG-Worlds-of-Adventure-1-945x776.jpg"
-                                                     alt="">
+                                                <iframe class="unit_preview" data-slug="{{$model->slug}}"
+                                                        src="{{url('admin/mini/assets/units/render/'.$model->slug.'.default')}}"
+                                                        width="100%" style="min-height: 500px;">
+
+                                                </iframe>
                                             </div>
                                         </div>
                                         <div class="col-md-7">
@@ -103,13 +106,8 @@
                                         <div class="row">
                                             <div class="col-md-4 col-xs-12">
                                                 <div class="preview">
-                                                    <div class="left-iframe">
-                                                        <iframe class="unit_preview" data-slug="{{$model->slug}}"
-                                                                src="{{url('admin/mini/assets/units/render/'.$model->slug.'.default')}}"
-                                                                width="100%" style="min-height: 500px;">
-
-                                                        </iframe>
-                                                    </div>
+                                                    <img src="http://factinteres.ru/wp-content/uploads/2016/09/IMG-Worlds-of-Adventure-1-945x776.jpg"
+                                                         alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-5 col-xs-12">
@@ -355,6 +353,8 @@
         .right-main-all .profile > .content .image {
             padding: 15px;
             padding-right: 0;
+            overflow: hidden;
+            height: 200px;
 
         }
 
