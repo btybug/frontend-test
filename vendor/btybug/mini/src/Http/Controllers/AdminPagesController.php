@@ -53,7 +53,7 @@ class AdminPagesController extends Controller
     public function createPage(Request $request)
     {
         $data = $request->except('_token');
-        return  $this->pagesService->create($data);
+        return $this->pagesService->create($data);
     }
 
     public function editPage(Request $request)

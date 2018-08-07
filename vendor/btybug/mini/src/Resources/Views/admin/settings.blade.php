@@ -19,7 +19,7 @@
         <div class="form-group">
             <label class="col-md-12" for="selectmultiple">Select default user's form</label>
             <div class="col-md-4">
-                <select id="selectmultiple" name="user_set_form_id" class="form-control" >
+                <select id="selectmultiple" name="user_set_form_id" class="form-control">
                     @if(isset($forms))
                         @foreach($forms as $key => $val)
                             <option value="{{$val->id}}"
@@ -36,7 +36,7 @@
         <div class="form-group">
             <label class="col-md-12" for="selectmultiple">Select User Details Form</label>
             <div class="col-md-4">
-                <select  name="user_details_form_id" class="form-control" >
+                <select name="user_details_form_id" class="form-control">
                     @if(isset($forms))
                         @foreach($forms as $key => $val)
                             <option value="{{$val->id}}"
@@ -62,6 +62,7 @@
     @include('resources::assests.magicModal')
 @stop
 @section('JS')
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            crossorigin="anonymous"></script>
     {!! HTML::script("public/js/UiElements/bb_styles.js?v.".rand(999,99999)) !!}
 @stop
