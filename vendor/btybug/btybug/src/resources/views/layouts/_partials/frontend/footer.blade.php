@@ -9,5 +9,5 @@
 <!-- ================== END FOOTER JS ================== -->
 
 <!-- ================== BEGIN FOOTER PAGE LEVEL JS ================== -->
-{{--{!! getFooterJs() !!}--}}
+{!! getFooterJs() !!}
 <!-- ================== END FOOTER PAGE LEVEL JS ================== -->

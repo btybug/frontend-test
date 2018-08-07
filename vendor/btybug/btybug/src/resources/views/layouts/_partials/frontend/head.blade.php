@@ -40,7 +40,7 @@
 @yield('css')
 @stack('CSS')
 <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
-{!! getFooterJs() !!}
+
 
 <!-- ================== BEGIN BASE JS ================== -->
 <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
