@@ -98,15 +98,13 @@ class AdminController extends Controller
     {
         $units = $this->painter->where('self_type', 'units')->get();
         $model = $this->unitService->getUnit($units, $slug) ? $this->unitService->getUnit($units, $slug): null;
+
         if ($model){
             $tags = $model->tags;
-            $tags = implode(',', $tags);
         }else{
             $tags = null;
         }
         $memberships = $this->membershipRepository->pluck('name', 'slug')->toArray();
-
-
         $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
         return view('multisite::admin.assets.units.preview', compact(['units', 'model', 'slug', 'tags', 'memberships', 'variations']));
     }
@@ -115,16 +113,15 @@ class AdminController extends Controller
     public function postAssetsUnitsSettings(Request $request, $slug)
     {
         $tags = ($request->get('tags')) ? explode(',', $request->get('tags')) : [];
-        $memberships = $request->get('memberships') ?? [];
 
-        if (count($tags)) {
+        $memberships = $request->membership ? $request->membership : null;
+
             foreach ($tags as $tag) {
                 $this->tagsRepository->create(['name' => $tag, 'type' => 'minicms']);
             }
-        }
-
-        $unit = $this->painter->findByVariation($slug);
-        $unit->setAttributes('tags', $tags)->setAttributes('memberships', $memberships)->setAttributes('status', $request->get('status'))->edit();
+        $unit = $this->painter->find($slug);
+        $tag = implode(',',$tags);
+        $unit->setAttributes('tags', $tag)->setAttributes('memberships', $memberships)->setAttributes('status', $request->get('status'))->edit();
 
         return redirect()->back();
     }

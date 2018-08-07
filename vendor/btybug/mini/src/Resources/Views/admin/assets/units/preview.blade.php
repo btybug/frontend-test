@@ -10,7 +10,7 @@
             @if(is_object($model) && $model instanceof \Btybug\btybug\Models\Painter\PainterInterface)
                 <div class="col-md-9 col-xs-12">
                     <div class="right-main-all">
-                        <form action="">
+                        <form action="{{route('mini_admin_assets_units_settings_post',$model->slug)}}" method="post" id="form">
                             <div class="profile">
                                 <div class="head">
                             <span>
@@ -41,8 +41,7 @@
                                                             <span>Tags:</span>
                                                         </p>
                                                         <p>
-                                                            <input type="text" name="tags" class="onChange" id="tagits"
-                                                                  value="{{$tags}}">
+                                                            <input type="text" name="tags" class="onChange" id="tagits" value="{{$tags}}">
                                                         </p>
                                                     </div>
 
@@ -57,20 +56,23 @@
                                                     Publish To
                                                 </div>
                                                 <div class="publish-check">
-                                                    <div class="checkbox-publish">
-                                                        <input type="radio" id="check-free" name="free-pro">
-                                                        <label for="check-free">Free</label>
-                                                    </div>
-                                                    <div class="checkbox-publish">
-                                                        <input type="radio" id="check-pro" name="free-pro">
-                                                        <label for="check-pro">Pro</label>
-                                                    </div>
+                                                    @foreach($memberships as $value)
+                                                            <div class="checkbox-publish">
+                                                                <input type="radio" id="{{$value}}" class="onChange" name="membership" value="{{$value}}"
+                                                                        @if($model->memberships == $value)
+                                                                        checked
+                                                                        @endif
+                                                                >
+                                                                <label for="{{$value}}">{{$value}}</label>
+                                                            </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <button type="submit" class="btn-submit-ajax hidden"></button>
                         </form>
                         <div class="variations">
                             <div class="title">
@@ -223,6 +225,33 @@
                 $('#live-preview').attr('href', livUrl);
             });
         });
+    </script>
+    <script>
+                $(document).ready(function () {
+                    $('.onChange').on('change',function (e) {
+                        e.preventDefault();
+                        $(".btn-submit-ajax").click();
+                    })
+                });
+
+                $(".btn-submit-ajax").click(function(e) {
+                    e.preventDefault();
+                    var form = $('#form');
+                    var url = form.attr('action');
+
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: form.serialize(),
+                        headers: {
+                            'X-CSRF-TOKEN': $("input[name='_token']").val()
+                        },
+                        success: function(data)
+                        {
+
+                        }
+                    });
+                });
     </script>
 @stop
 

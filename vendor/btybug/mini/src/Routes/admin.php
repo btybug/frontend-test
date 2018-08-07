@@ -16,7 +16,7 @@ Route::group(['prefix' => 'assets'], function () {
         Route::group(['prefix' => '{id?}'], function () {
             Route::get('/', 'AdminController@assetsUnits', true)->name('mini_admin_assets_units');
         });
-        Route::post('{id}/settings', 'AdminController@postAssetsUnitsSettings', true)->name('mini_admin_assets_units_settings_post');
+        Route::post('settings/{id}', 'AdminController@postAssetsUnitsSettings', true)->name('mini_admin_assets_units_settings_post');
         Route::get('settings/{id}', 'AdminController@assetsUnitsSettings', true)->name('mini_admin_assets_units_settings');
         Route::get('/render/{slug}', 'AdminController@iframeRander', true)->name('unit_iframe_render');
         Route::get('/render-with-form/{slug}', 'AdminController@renderWithForm', true)->name('unit_iframe_render_with_form');

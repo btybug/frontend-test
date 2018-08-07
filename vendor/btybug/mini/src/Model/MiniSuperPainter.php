@@ -47,6 +47,7 @@ class MiniSuperPainter extends BasePainter
         return $this;
     }
 
+
     /**
      * @param $id
      * @return mixed
