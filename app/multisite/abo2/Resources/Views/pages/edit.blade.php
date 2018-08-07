@@ -46,7 +46,7 @@
                         <div class="form-group row">
                             <label for="page_name" class="col-2 col-form-label">Page layout</label>
                             <div class="col-10">
-                                {!! BBbutton2('mini_unit','template',"user_unit","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','id'=>'chage-content']) !!}
+                                {!! BBbutton2('mini_unit','template',"user_unit","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','id'=>'chage-content','model'=>$page]) !!}
                                 {{--<a href="{!! route('mini_page_edit',$page->id) !!}" class="btn btn-primary">Change</a>--}}
                             </div>
                         </div>
