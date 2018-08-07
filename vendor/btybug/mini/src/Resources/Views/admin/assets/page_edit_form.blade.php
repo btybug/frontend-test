@@ -41,6 +41,12 @@
         {!! Form::select('tags',$tags,null,['class' => 'form-control','id' => 'tagits']) !!}
     </div>
 </div>
+<div class="form-group">
+    <label for="tag_unit_for_page" class="control-label col-xs-4">Page Template</label>
+    <div class="col-xs-8">
+        {!! BBbutton2('mini_unit','template',"user_unit","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$model]) !!}
+    </div>
+</div>
 <!-- Multiple Radios (inline) -->
 <div class="form-group">
     <label class="col-md-4 control-label" for="radios">User Navbar</label>

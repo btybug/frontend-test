@@ -74,7 +74,8 @@ class PagesService
                     [
                         'status' => $page->status,
                         'header' => $page->header,
-                        'header_unit' => $page->header_unit
+                        'header_unit' => $page->header_unit,
+                        'template' => $page->template
                     ]);
             } else {
                 $this->clonePage($page, $user);
