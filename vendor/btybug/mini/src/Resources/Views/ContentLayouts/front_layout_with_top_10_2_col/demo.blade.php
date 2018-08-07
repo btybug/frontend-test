@@ -1,8 +1,4 @@
-<div>
-    @if(has_setting($settings,'12_area_unit'))
-        {!! render_mini_unit($settings['12_area_unit'],\Btybug\Mini\Model\MiniPainter::class) !!}
-    @endif
-</div>
+
 <div class="main">
     <div class="row nopadding">
         <div class="col-md-10 col-xs-12">

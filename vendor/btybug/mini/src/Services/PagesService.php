@@ -57,8 +57,8 @@ class PagesService
     {
         $data['page_layout'] = ($data['layout'] == 0) ? null : $data['page_layout'];
 //        $data['header_unit'] = ($data['header'] == 2) ? $data['header_unit'] : null;
-        $page= $this->minicmsPagesRepository->create($data);
-        if($page->status=='published'){
+        $page = $this->minicmsPagesRepository->create($data);
+        if ($page->status == 'published') {
             $this->pageOptimize($page->id);
         }
         return $page;
@@ -70,9 +70,14 @@ class PagesService
         $users = $this->userRepository->findAllByMultiple(['role_id' => 0]);
         foreach ($users as $user) {
             if ($user->frontPages()->where('mini_page_id', $id)->exists()) {
-                 $user->frontPages()->where('mini_page_id', $id)->update(['status'=>$page->status]);
+                $user->frontPages()->where('mini_page_id', $id)->update(
+                    [
+                        'status' => $page->status,
+                        'header' => $page->header,
+                        'header_unit' => $page->header_unit
+                    ]);
             } else {
-                 $this->clonePage($page, $user);
+                $this->clonePage($page, $user);
             };
         }
     }
@@ -93,7 +98,7 @@ class PagesService
             'template' => $corePage->template,
             'module_id' => 'btybug/mini',
             'page_layout' => $corePage->page_layout,
-//            'header' => $corePage->header,
+            'header' => $corePage->header,
             'header_unit' => $corePage->header_unit,
             'mini_page_id' => $corePage->id,
             'tags' => $corePage->tags,

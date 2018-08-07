@@ -42,23 +42,23 @@
     </div>
 </div>
 <!-- Multiple Radios (inline) -->
-{{--<div class="form-group">--}}
-    {{--<label class="col-md-4 control-label" for="radios">Header</label>--}}
-    {{--<div class="col-md-8">--}}
-        {{--<label class="radio-inline">--}}
-            {{--{!! Form::radio('header',1,1) !!}--}}
-            {{--Default--}}
-        {{--</label>--}}
-        {{--<label class="radio-inline" for="radios-1">--}}
-            {{--{!! Form::radio('header',0) !!}--}}
-            {{--No Header--}}
-        {{--</label>--}}
-        {{--<label class="radio-inline" for="radios-1">--}}
-            {{--{!! Form::radio('header',2) !!}--}}
-            {{--Special--}}
-        {{--</label>--}}
-    {{--</div>--}}
-{{--</div>--}}
+<div class="form-group">
+    <label class="col-md-4 control-label" for="radios">User Navbar</label>
+    <div class="col-md-8">
+        <label class="radio-inline">
+            {!! Form::radio('header',1,1) !!}
+            Default
+        </label>
+        <label class="radio-inline" for="radios-1">
+            {!! Form::radio('header',0) !!}
+            No Header
+        </label>
+        <label class="radio-inline" for="radios-1">
+            {!! Form::radio('header',2) !!}
+            Special
+        </label>
+    </div>
+</div>
 <div class="form-group">
     <label class="col-md-4 control-label" for="radios">Layout</label>
     <div class="col-md-4">
@@ -72,14 +72,14 @@
         </label>
     </div>
 </div>
-{{--<div class="form-group header-bbbutton @if($model->header!=2) hide @endif">--}}
-    {{--<label class="control-label col-xs-4"></label>--}}
-    {{--<div class="col-xs-8">--}}
-        {{--<div class="input-group">--}}
-            {{--{!! BBbutton2('mini_unit','header_unit','header','Select Default Header',['model'=>$model]) !!}--}}
-        {{--</div>--}}
-    {{--</div>--}}
-{{--</div>--}}
+<div class="form-group header-bbbutton @if($model->header!=2) hide @endif">
+    <label class="control-label col-xs-4"></label>
+    <div class="col-xs-8">
+        <div class="input-group">
+            {!! BBbutton2('mini_unit','header_unit','header','Select Default Header',['model'=>$model]) !!}
+        </div>
+    </div>
+</div>
 <div class="form-group layout-bbbutton @if($model->layout!=1) hide @endif">
     <label  class="control-label col-xs-4"></label>
     <div class="col-xs-8">
