@@ -48,7 +48,6 @@
                                                                         {{$tags}}
                                                                     @endif
                                                                     ">
-                                                            {{dd($tags)}}
                                                         </p>
                                                     </div>
 
