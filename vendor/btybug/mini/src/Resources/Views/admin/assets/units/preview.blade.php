@@ -41,7 +41,7 @@
                                                             <span>Tags:</span>
                                                         </p>
                                                         <p>
-                                                            <input type="text" name="tags" class="onChange" id="tagits" value="{{$tags}}">
+                                                            <input type="text" name="tags" class="onChange" id="tagits" value="{{implode(',',$tags)}}">
                                                         </p>
                                                     </div>
 

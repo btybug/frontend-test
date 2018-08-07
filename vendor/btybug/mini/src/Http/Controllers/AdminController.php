@@ -101,7 +101,6 @@ class AdminController extends Controller
 
         if ($model){
             $tags = $model->tags;
-            $tags = implode(',',$tags);
         }else{
             $tags = null;
         }
