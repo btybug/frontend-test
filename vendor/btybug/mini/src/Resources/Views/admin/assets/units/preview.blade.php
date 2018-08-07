@@ -41,7 +41,6 @@
                                                             <span>Tags:</span>
                                                         </p>
                                                         <p>
-                                                            {{dd($tags)}}
                                                             <input type="text" name="tags" class="onChange" id="tagits" value="{{$tags}}">
                                                         </p>
                                                     </div>

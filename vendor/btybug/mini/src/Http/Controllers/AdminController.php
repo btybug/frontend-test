@@ -98,7 +98,6 @@ class AdminController extends Controller
     {
         $units = $this->painter->where('self_type', 'units')->get();
         $model = $this->unitService->getUnit($units, $slug) ?? null;
-        dd($model);
         if ($model){
             $tags = $model->tags;
         }else{
