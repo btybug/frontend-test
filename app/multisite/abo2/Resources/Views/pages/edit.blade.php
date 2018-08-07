@@ -46,7 +46,8 @@
                         <div class="form-group row">
                             <label for="page_name" class="col-2 col-form-label">Page layout</label>
                             <div class="col-10">
-                                <a href="{!! route('mini_page_edit',$page->id) !!}" class="btn btn-primary">Change</a>
+                                {!! BBbutton2('mini_unit','main_unit',"user_unit","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','id'=>'chage-content']) !!}
+                                {{--<a href="{!! route('mini_page_edit',$page->id) !!}" class="btn btn-primary">Change</a>--}}
                             </div>
                         </div>
 
@@ -92,9 +93,6 @@
 
     <input type="hidden" id="page" value="{!! $page->id !!}">
 
-@stop
-@section('out')
-    @include('resources::assests.magicModal',['v'=>'b4'])
 @stop
 @section('css')
     {!! Html::style("public/css/fontawesome-iconpicker.min.css") !!}

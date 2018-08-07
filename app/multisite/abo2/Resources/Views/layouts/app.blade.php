@@ -53,7 +53,7 @@
         @yield('content')
     </div>
 </div>
-@include('resources::assests.magicModal')
+@include('resources::assests.magicModal',['v'=>'b4'])
 
 <!-- ================== BEGIN FOOTER BASE JS ================== -->
 <script src="{!!url('public/minicms/jquery.slimscroll.min.js')!!}"></script>

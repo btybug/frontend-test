@@ -45,7 +45,7 @@
 @if(isset($v) && $v=='b4')
 
     <div class="modal fade bigfullModal" id="magic-settings" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-full" role="document">
+        <div class="modal-dialog modal-full  modal-lg mw-100" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="row">
