@@ -45,11 +45,11 @@ class ModuleServiceProvider extends ServiceProvider
             'mini_user_page_edit' => [
                 [
                     'title' => 'General',
-                    'url' => '/my-account/my-site/pages/edit/{id}',
+                    'url' => '/my-account/my-site/btybug/pages/edit/{id}',
                 ],
                 [
                     'title' => 'Content',
-                    'url' => '/my-account/my-site/pages/edit/{id}/content',
+                    'url' => '/my-account/my-site/btybug/pages/edit/{id}/content',
                 ],
                 'layout' => 'mini::layouts.app'
             ],

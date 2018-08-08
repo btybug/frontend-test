@@ -1,5 +1,8 @@
 @extends('btybug::layouts.mTabs',['index'=>'mini_user_page_edit'])
 @section('tab')
+    <div class="pull-right">
+        <button class="btn btn-info">Page Preview</button>
+    </div>
     {!! Form::model($page,['url' => route('mini_user_page_edit',$id), 'id' => 'page_settings_form','files' => true]) !!}
 
     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 p-20">
@@ -8,13 +11,15 @@
                 <div class="panel-heading">General Settings</div>
                 <div class="panel-body">
 
-                    <div class="form-group">
-                        <label for="select" class="control-label col-xs-4">Status</label>
-                        <div class="col-xs-8">
-                            {!! Form::select('status',['draft'=>'Draft','published'=>'Published'],old('status'),['class'=>'select form-control']) !!}
-
+                    <div class="form-group row">
+                        <label for="page_name" class="col-2 col-form-label">Statuse</label>
+                        <div class="col-10">
+                            <div class="input-group">
+                                {!! Form::select('status',['draft'=>'Draft','published'=>'Published'],old('status'),['class'=>'select form-control']) !!}
+                            </div>
                         </div>
                     </div>
+
                     @if($page->type!='core')
                         <div class="form-group row">
                             <label for="page_name" class="col-2 col-form-label">Page Name</label>
@@ -43,35 +48,46 @@
                         </div>
 
                     @endif
+                    @if($page->mini_page_id)
                         <div class="form-group row">
-                            <label for="page_name" class="col-2 col-form-label">Page layout</label>
+                            <label for="page_name" class="col-2 col-form-label">Page Template</label>
+                            <div class="col-10">
+                                <div class="input-group">
+                                    {!! Form::text(null,BBgetMiniUnitAttr($page->template,'title'),['class'=>'form-control','readonly']) !!}
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="form-group row">
+                            <label for="page_name" class="col-2 col-form-label">Page Template</label>
                             <div class="col-10">
                                 {!! BBbutton2('mini_unit','template',"user_unit","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','id'=>'chage-content','model'=>$page]) !!}
                                 {{--<a href="{!! route('mini_page_edit',$page->id) !!}" class="btn btn-primary">Change</a>--}}
                             </div>
                         </div>
+                    @endif
 
 
-                        <div class="form-group row">
-                            <label for="page_description" class="col-2 col-form-label">Key Words</label>
-                            <div class="col-10">
-                                <input id="key_words" name="key_words" class="form-control">
-                            </div>
+                    <div class="form-group row">
+                        <label for="page_description" class="col-2 col-form-label">Key Words</label>
+                        <div class="col-10">
+                            <input id="key_words" name="key_words" class="form-control">
                         </div>
-                        <div class="form-group row">
-                            <label for="page_description" class="col-2 col-form-label">Page Description</label>
-                            <div class="col-10">
+                    </div>
+                    <div class="form-group row">
+                        <label for="page_description" class="col-2 col-form-label">Page Description</label>
+                        <div class="col-10">
                         <textarea id="page_description" name="page_description" cols="40" rows="5"
                                   class="form-control"></textarea>
-                            </div>
                         </div>
+                    </div>
 
 
-                        <div class="form-group row">
-                            <div class="offset-2 col-10">
-                                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                            </div>
+                    <div class="form-group row">
+                        <div class="offset-2 col-10">
+                            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
                         </div>
+                    </div>
 
                 </div>
             </div>

@@ -1452,6 +1452,13 @@ function BBgetUnitAttr($id, $key)
     return false;
 
 }
+function BBgetMiniUnitAttr($id, $key,$model=\Btybug\Mini\Model\MiniSuperPainter::class)
+{
+    $section = $model::findByVariation($id);
+    if ($section) return $section->{$key};
+    return false;
+
+}
 
 function BBgetLayoutAttr($id, $key)
 {
