@@ -53,7 +53,11 @@
                             <label for="page_name" class="col-2 col-form-label">Page Template</label>
                             <div class="col-10">
                                 <div class="input-group">
-                                    {!! Form::text(null,BBgetMiniUnitAttr($page->template,'title'),['class'=>'form-control','readonly']) !!}
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        {!! Form::text(null,BBgetMiniUnitAttr($page->template,'title'),['class'=>'form-control','readonly']) !!}
+                                        {!! Form::select('variations',[null=>'Select Variation'],null,['class'=>'form-control']) !!}
+                                        <button type="button" class="btn btn-secondary">Customize</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
