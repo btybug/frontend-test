@@ -216,6 +216,7 @@ var framework = {
 
     return output;
   },
+
   makePreviewElement: function($this) {
     let elm = $this;
     var realElm = null;
@@ -223,6 +224,11 @@ var framework = {
       let temp = $this.prop("outerHTML");
       temp = $(temp);
       temp[0].removeAttribute("dnd-placeholder");
+      if (temp[0].classList.length === 1) {
+        temp.removeAttr("class");
+      } else {
+        temp.removeClass("ui-droppable");
+      }
       realElm = $this;
       framework.codeWallet.forEach((item, index) => {
         if (item.prop("outerHTML") === temp.prop("outerHTML")) {
@@ -234,8 +240,11 @@ var framework = {
         .querySelector(".preview-area")
         .querySelectorAll("*")
         .forEach(item => {
+          let newItem = $(item).prop("outerHTML");
+          newItem = removeDnDAtrbutes($(newItem));
+
           if (
-            $(item)
+            $(newItem)
               .prop("outerHTML")
               .trim() === elm.prop("outerHTML")
           ) {
@@ -279,7 +288,6 @@ var framework = {
 
   // Get node code editor value
   getNodeCodeValue: function($this) {
-    console.log($this);
     var index = Number($this.closest("[data-index]").attr("data-index")),
       nodeCode = this.codeWallet[index];
     return nodeCode[0].outerHTML;
@@ -296,8 +304,6 @@ var framework = {
       nodeCodeEl = $(nodeCode),
       list = "",
       firstContainerEl;
-    console.log(nodeCodeEl);
-    console.log(nodeCode);
     if (nodeCodeEl.text()) {
       list +=
         '<div class="inserted-item" data-item="content" data-attr="content" bb-click="handleNodeItemClick"> Content <div class="controls"><input type="checkbox" class="style-checkbox"  > <a href="#" bb-click="removeNodeContent"><i class="fas fa-trash"></i></a> </div> </div>';
@@ -337,19 +343,12 @@ var framework = {
       let code = codeEditor.getValue();
       // Get last saved code
       nodeCode = framework.getNodeCodeValue($this);
-      console.log(nodeCode);
-      // framework.makePreviewElement($(nodeCode));
+      framework.makePreviewElement($(nodeCode));
       phpNodeCodeEditor.setValue(nodeCode);
       phpNodeCodeEditor.clearSelection();
       $("#current-node-text")
-        .text(
-          $this
-            .closest(".node-content")
-            .text()
-            .trim()
-        )
+        .text($(nodeCode)[0].nodeName)
         .attr("data-selected-index", $this.closest("li").data("index"));
-      console.log(nodeCode);
       framework.currentNodeCode = nodeCode;
 
       framework.showElement($(".inserted-code"));
@@ -895,7 +894,7 @@ $(function() {
         droppableforSort();
 
         // Live render
-        var codeValue = codeEditor.getValue().toString() + "\n";
+        var codeValue = codeEditor.getValue().toString();
         //  + codeContent.toString();
         codeValue = codeValue.replace(/<!--\|/g, "");
         codeValue = codeValue.replace(/\|-->/g, "");
@@ -927,12 +926,36 @@ $(function() {
 
               // Init CSS Studio
               $("#bb-css-studio").html("");
-              // $("[dnd-placeholder]").droppable({
-              //   drop: function(event, ui) {
-              //     console.log(event);
-              //     console.log(ui);
-              //   }
-              // });
+              $("[dnd-placeholder]").droppable({
+                greedy: true,
+                classes: {
+                  // "ui-droppable-active": "ui-state-active",
+                  "ui-droppable-hover": "ui-state-hover"
+                },
+                drop: function(event, ui) {
+                  let remAttrElement = removeDnDAtrbutes($(this));
+                  remAttrElement = $(remAttrElement);
+                  let htmlElement = remAttrElement.prop("outerHTML");
+                  let code = codeEditor.getValue();
+                  // if (remAttrElement.children().length) {
+                  remAttrElement.append(
+                    `<${ui.draggable.text()}>Text</${ui.draggable.text()}>`
+                  );
+                  var newCode = code.replace(
+                    htmlElement,
+                    remAttrElement.prop("outerHTML")
+                  );
+                  // } else {
+                  //   var newHtmlElement =
+                  //     htmlElement +
+                  //     `<${ui.draggable.text()}>Text</${ui.draggable.text()}>`;
+                  //   var newCode = code.replace(htmlElement, newHtmlElement);
+                  // }
+
+                  codeEditor.setValue(newCode);
+                  codeEditor.clearSelection();
+                }
+              });
               // $('.closeCSSEditor').trigger('click');
 
               setTimeout(function() {
@@ -1112,27 +1135,30 @@ $(function() {
     $(".createAssets-container").toggleClass("displayToggle");
   });
 
-  $(".showLayers, .createHtml, .createAssets").click(function() {
-    switch (
-      $(this)
-        .text()
-        .trim()
-    ) {
-      case "Layers":
-        $("#jsPanel-1").addClass("displayToggle");
-        break;
-      case "HTML":
-        $("#jsPanel-2").addClass("displayToggle");
-
-        break;
-      case "Assets":
-        $("#jsPanel-3").addClass("displayToggle");
-
-        break;
-      default:
-        break;
+  $(".showLayers, .createHtml, .createAssets, .add-html-items").click(
+    function() {
+      switch (
+        $(this)
+          .text()
+          .trim()
+      ) {
+        case "Layers":
+          $("#jsPanel-2").addClass("displayToggle");
+          break;
+        case "HTML":
+          $("#jsPanel-1").addClass("displayToggle");
+          break;
+        case "Assets":
+          $("#jsPanel-3").addClass("displayToggle");
+          break;
+        case "Add item":
+          $("#jsPanel-4").addClass("displayToggle");
+          break;
+        default:
+          break;
+      }
     }
-  });
+  );
 
   $("body").on("click", ".jsPanel-btn-close", function(e) {
     e.preventDefault();
@@ -1238,23 +1264,71 @@ $(function() {
   });
 });
 
-$(".dnd-test").draggable({
-  stop: function(event, ui) {
-    console.log(event);
-    console.log(ui);
-  }
-});
-
-function classAddRecus(data, index = 0) {
-  $(data[index]).attr("dnd-placeholder", index);
+function classAddRecus(data, index = 0, elementIndex = 1) {
+  $(data[index]).attr("dnd-placeholder", elementIndex);
 
   if ($(data[index]).children().length) {
-    classAddRecus($(data[index]).children(), 0);
+    classAddRecus($(data[index]).children(), 0, (elementIndex += 1));
   }
   index++;
   if ($(data[index]).length) {
-    classAddRecus(data, index);
+    classAddRecus(data, index, (elementIndex += 1));
   } else {
     return;
   }
 }
+
+function removeDnDAtrbutes($this, index = 0) {
+  $this = $($this);
+  let temp = $this.prop("outerHTML");
+  temp = $(temp);
+  temp[0].removeAttribute("dnd-placeholder");
+
+  if (temp[0].classList.length === 1) {
+    temp.removeAttr("class");
+  } else {
+    temp.removeClass("ui-droppable ui-droppable-active");
+    if (temp[0].classList.length === 1) {
+      temp.removeAttr("class");
+    }
+  }
+  temp.find("*").removeAttr("dnd-placeholder");
+  $.each(temp.find("*"), function(index, item) {
+    item = $(item);
+    // item.removeAttr("class");
+
+    if (item[0].classList.length === 1) {
+      item.removeAttr("class");
+    } else {
+      item.removeClass("ui-droppable ui-droppable-active");
+      if (item[0].classList.length === 0) {
+        item.removeAttr("class");
+      }
+    }
+  });
+
+  return temp.prop("outerHTML");
+}
+
+let htmlElments = framework.allHtmlTags.map(
+  item => `<p class="dnd-html-item">${item}</p>`
+);
+
+jsPanel.create({
+  theme: "primary",
+  container: "#containerForJsPanel",
+  headerTitle: "Html items",
+  position: "center-top 0 58",
+  contentSize: { width: "450px", height: "auto" },
+  content: htmlElments.join(""),
+  callback: function() {
+    this.content.style.padding = "20px";
+  },
+  onbeforeclose: function() {
+    return false;
+  }
+});
+
+$(".dnd-html-item").draggable({
+  revert: true
+});

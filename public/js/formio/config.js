@@ -14,14 +14,8 @@ $("body").on("click", ".edit-form-elelemnt", function() {
     let classNames = $(item)
       .parent()
       .attr("class");
-    console.log(classNames);
     let realElement = classNames.includes(id);
     if (realElement) {
-      console.log(
-        $(item)
-          .children()[1]
-          .click()
-      );
     }
   });
 });
@@ -35,14 +29,8 @@ $("body").on("click", ".edit-form-remove", function() {
     let classNames = $(item)
       .parent()
       .attr("class");
-    console.log(classNames);
     let realElement = classNames.includes(id);
     if (realElement) {
-      console.log(
-        $(item)
-          .children()[0]
-          .click()
-      );
     }
   });
 });
@@ -54,7 +42,6 @@ if (document.querySelector("#formJson") !== null) {
   editData = JSON.parse(formJsonData.form_json)
     ? JSON.parse(formJsonData.form_json)
     : {};
-  console.log(formJsonData.title, formJsonData.description);
   document.querySelector(".form-name")
     ? (document.querySelector(".form-name").value = formJsonData.title)
     : null;
@@ -109,7 +96,6 @@ if (document.querySelector("#formJson") !== null) {
       : null;
   });
 }
-console.log(document.getElementById("builder"));
 var builder = Formio.builder(document.getElementById("builder"), editData, {
   builder: {
     basic: false,

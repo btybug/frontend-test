@@ -226,8 +226,9 @@ width:20%;
         .preview-area-selected{
             position: absolute;
             border: 1px dashed red;
-            z-index: 99999;
+            z-index: 10;
             display: none;
+            pointer-events: none
         }
         .dnd-test{
             color: white; 
@@ -235,6 +236,16 @@ width:20%;
             background: red;
             z-index: 9999;
             display: inline-block;
+        }
+        .dnd-html-item {
+            display: inline-block;
+            padding: 5px;
+            background-color: #face20;
+            margin: 5px;
+            border-radius: 15%;
+        }
+        .preview-area-selected-edit{
+            pointer-events: auto !important;
         }
     </style>
     <title>Document</title>
@@ -303,7 +314,7 @@ width:20%;
     <button bb-click="editPHPCode" class="preview-area-selected-edit"><i class="fa fa-edit"></i></button>
 </div>
 <div class="code-head" >
-            <p class="dnd-test">Test for drag</p>
+            <button class="btn btn-warning btn-sm add-html-items">Add item</button>
             <button class="btn btn-warning btn-sm showLayers">Layers</button>
             <button class="btn btn-info btn-sm createHtml">HTML</button>
             <button class="btn btn-primary btn-sm createAssets">Assets</button>
