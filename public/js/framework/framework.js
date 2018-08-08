@@ -216,6 +216,43 @@ var framework = {
 
     return output;
   },
+  makePreviewElement: function($this) {
+    let elm = $this;
+    var realElm = null;
+    if (elm.width()) {
+      let temp = $this.prop("outerHTML");
+      temp = $(temp);
+      temp[0].removeAttribute("dnd-placeholder");
+      realElm = $this;
+      framework.codeWallet.forEach((item, index) => {
+        if (item.prop("outerHTML") === temp.prop("outerHTML")) {
+          $(".preview-area-selected").attr("data-index", index);
+        }
+      });
+    } else {
+      document
+        .querySelector(".preview-area")
+        .querySelectorAll("*")
+        .forEach(item => {
+          if (
+            $(item)
+              .prop("outerHTML")
+              .trim() === elm.prop("outerHTML")
+          ) {
+            realElm = $(item);
+          }
+        });
+    }
+    let elmPostionData = {
+      top: realElm.offset().top,
+      left: realElm.offset().left,
+      width: realElm.width(),
+      height: realElm.height() < "25" ? "30px" : realElm.height()
+    };
+    $(".preview-area-selected")
+      .css(elmPostionData)
+      .addClass("displayToggle");
+  },
   // Parse templates
   parseTemplate: function(template, variables) {
     var templateHTML = $("#bbt-" + template).html();
@@ -242,7 +279,8 @@ var framework = {
 
   // Get node code editor value
   getNodeCodeValue: function($this) {
-    var index = $this.closest("[data-index]").data("index"),
+    console.log($this);
+    var index = Number($this.closest("[data-index]").attr("data-index")),
       nodeCode = this.codeWallet[index];
     return nodeCode[0].outerHTML;
   },
@@ -258,7 +296,8 @@ var framework = {
       nodeCodeEl = $(nodeCode),
       list = "",
       firstContainerEl;
-
+    console.log(nodeCodeEl);
+    console.log(nodeCode);
     if (nodeCodeEl.text()) {
       list +=
         '<div class="inserted-item" data-item="content" data-attr="content" bb-click="handleNodeItemClick"> Content <div class="controls"><input type="checkbox" class="style-checkbox"  > <a href="#" bb-click="removeNodeContent"><i class="fas fa-trash"></i></a> </div> </div>';
@@ -296,19 +335,11 @@ var framework = {
       nodeChanger = false;
       nodeCode = null;
       let code = codeEditor.getValue();
-      let newCodeChanger = code.replace(/\preview-area-item/g, "");
-      framework.parseNewCodeToAll(newCodeChanger);
       // Get last saved code
       nodeCode = framework.getNodeCodeValue($this);
-      let newCodeItem = $(nodeCode).addClass("preview-area-item");
-
-      let newCode = newCodeChanger.replace(
-        nodeCode,
-        newCodeItem.prop("outerHTML")
-      );
-      nodeCode = newCodeItem.prop("outerHTML");
-      framework.parseNewCodeToAll(newCode);
-      phpNodeCodeEditor.setValue(newCodeItem.prop("outerHTML"));
+      console.log(nodeCode);
+      // framework.makePreviewElement($(nodeCode));
+      phpNodeCodeEditor.setValue(nodeCode);
       phpNodeCodeEditor.clearSelection();
       $("#current-node-text")
         .text(
@@ -318,6 +349,7 @@ var framework = {
             .trim()
         )
         .attr("data-selected-index", $this.closest("li").data("index"));
+      console.log(nodeCode);
       framework.currentNodeCode = nodeCode;
 
       framework.showElement($(".inserted-code"));
@@ -545,7 +577,12 @@ var framework = {
       framework.showElement($(".function-tab-connections"));
       $(".function-tab-item-connections").empty();
       // 222
-      let html = `<div class="d-flex justify-content-between align-items-center p-3 font-weight-bold"><p>${$this.parent().parent().children()[0].value} ${
+      let html = `<div class="d-flex justify-content-between align-items-center p-3 font-weight-bold"><p>${
+        $this
+          .parent()
+          .parent()
+          .children()[0].value
+      } ${
         functionSelectedItem
           ? `Connected to ${functionSelectedItem}`
           : "not connected"
@@ -570,7 +607,9 @@ var framework = {
       var treeList = framework.nodeTreeGeneratorForFunctions(
         $("<wrap>" + codeEditor.getValue() + "</wrap>")
       );
-      $(".tree-list-functions").html(treeList).addClass('list-height')
+      $(".tree-list-functions")
+        .html(treeList)
+        .addClass("list-height");
     },
     functionConnectItemSelecter: function($this) {},
     addFunctionOptionsItem: function($this) {
@@ -860,11 +899,19 @@ $(function() {
         //  + codeContent.toString();
         codeValue = codeValue.replace(/<!--\|/g, "");
         codeValue = codeValue.replace(/\|-->/g, "");
+        let newCodeValue = $(codeValue);
+        var tempppp = "";
+        classAddRecus(newCodeValue);
 
+        $.each(newCodeValue, function(key, value) {
+          if ($(newCodeValue[key]).prop("outerHTML") !== undefined) {
+            tempppp += $(newCodeValue[key]).prop("outerHTML");
+          }
+        });
         phpFullCodeEditor.setValue(codeValue);
         phpFullCodeEditor.clearSelection();
 
-        var data = { html: codeValue };
+        var data = { html: tempppp };
         test = true;
 
         $.ajax({
@@ -880,7 +927,12 @@ $(function() {
 
               // Init CSS Studio
               $("#bb-css-studio").html("");
-
+              // $("[dnd-placeholder]").droppable({
+              //   drop: function(event, ui) {
+              //     console.log(event);
+              //     console.log(ui);
+              //   }
+              // });
               // $('.closeCSSEditor').trigger('click');
 
               setTimeout(function() {
@@ -1013,6 +1065,16 @@ $(function() {
       }
     }
   });
+  // Make edit on element
+  $("body").on("click", ".preview-area", function(e) {
+    if (!$(e.target).hasClass("preview-area")) {
+      framework.makePreviewElement($(e.target));
+    } else {
+      $(".preview-area-selected")
+        .attr("style", "")
+        .removeClass("displayToggle");
+    }
+  });
 
   // Apply demo code
   //   codeEditor.setValue(style_html($("#demo-html").html()));
@@ -1099,30 +1161,31 @@ $(function() {
 
   $("body").on("click", ".tree-list-functions", function(e) {
     let currentElement = e.target;
-    if($(currentElement).hasClass("node-content")){
-        let attributes =
-            framework.codeWallet[
-                currentElement.closest("[data-index]").getAttribute("data-index")
-                ][0].attributes;
-        var list = "";
-        if (attributes.length) {
-            $.each(attributes, function() {
-                list += `<div class="functions-attributes" data-element="${
-                    e.target.textContent
-                    }"         
+    if ($(currentElement).hasClass("node-content")) {
+      let attributes =
+        framework.codeWallet[
+          currentElement.closest("[data-index]").getAttribute("data-index")
+        ][0].attributes;
+      var list = "";
+      if (attributes.length) {
+        $.each(attributes, function() {
+          list += `<div class="functions-attributes" data-element="${
+            e.target.textContent
+          }"         
           data-item="attribute" data-attr="${this.name}" > Attribute: ${
-                    this.name
-                    }</div>`;
-            });
-        } else {
-            list += "<div>This element don't have any attributes</div>";
-        }
-        $(currentElement).children().remove()
-        $(currentElement).append(
-            `<div class="main-function-attributes">${list}</div>`
-        );
+            this.name
+          }</div>`;
+        });
+      } else {
+        list += "<div>This element don't have any attributes</div>";
+      }
+      $(currentElement)
+        .children()
+        .remove();
+      $(currentElement).append(
+        `<div class="main-function-attributes">${list}</div>`
+      );
     }
-
   });
 
   $("body").on("click", ".functions-attributes", function(e) {
@@ -1174,3 +1237,24 @@ $(function() {
     theme: "square"
   });
 });
+
+$(".dnd-test").draggable({
+  stop: function(event, ui) {
+    console.log(event);
+    console.log(ui);
+  }
+});
+
+function classAddRecus(data, index = 0) {
+  $(data[index]).attr("dnd-placeholder", index);
+
+  if ($(data[index]).children().length) {
+    classAddRecus($(data[index]).children(), 0);
+  }
+  index++;
+  if ($(data[index]).length) {
+    classAddRecus(data, index);
+  } else {
+    return;
+  }
+}

@@ -223,6 +223,19 @@ width:20%;
         .function-tab button {
             border-radius: 0;
         }
+        .preview-area-selected{
+            position: absolute;
+            border: 1px dashed red;
+            z-index: 99999;
+            display: none;
+        }
+        .dnd-test{
+            color: white; 
+            font-size: 25px;
+            background: red;
+            z-index: 9999;
+            display: inline-block;
+        }
     </style>
     <title>Document</title>
     <script>
@@ -286,8 +299,11 @@ width:20%;
 </header>
 <div class="w-100 text-right buttons-layers">
     
-
+<div class="preview-area-selected">
+    <button bb-click="editPHPCode" class="preview-area-selected-edit"><i class="fa fa-edit"></i></button>
+</div>
 <div class="code-head" >
+            <p class="dnd-test">Test for drag</p>
             <button class="btn btn-warning btn-sm showLayers">Layers</button>
             <button class="btn btn-info btn-sm createHtml">HTML</button>
             <button class="btn btn-primary btn-sm createAssets">Assets</button>
