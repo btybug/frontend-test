@@ -58,4 +58,16 @@ class UnitsController extends Controller
         $variation = $layout->makeVariation();
         return redirect()->route('mini_admin_assets_units_live', $variation->id);
     }
+    public function UnitsVariationDelete($id = null)
+    {
+        dd($id);
+    }
+    public function UnitsVariationEdit($slug = null)
+    {
+        dd($slug);
+        /*$variationname = substr($slug, strpos($slug, ".") + 1);
+        $layout = $this->miniSuperPainter->find($slug);
+        $variation = $this->miniSuperPainter->find($slug);
+        $units = $this->painter->where('self_type', 'units')->get();*/
+    }
 }

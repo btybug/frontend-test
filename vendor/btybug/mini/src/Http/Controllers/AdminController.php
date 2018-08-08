@@ -219,7 +219,6 @@ class AdminController extends Controller
         if ($id) {
             $this->formbuilderRepository->delete($id);
         }
-
         return back();
     }
 
