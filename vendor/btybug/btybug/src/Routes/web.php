@@ -113,7 +113,7 @@ Route::group(
         if (\Illuminate\Support\Facades\Schema::hasTable('frontend_pages')) {
             $url = \Request::server('REQUEST_URI'); //$_SERVER['REQUEST_URI'];
             if (!starts_with($url, '/admin') && !starts_with($url, '/my-account')) {
-                $pages = Btybug\FrontSite\Models\FrontendPage::all();
+                $pages = Btybug\FrontSite\Models\FrontendPage::where('module_id',null)->get();;
                 Route::group(['middleware' => 'frontPermissions'], function () use ($pages) {
                     foreach ($pages as $page) {
                         $key = $page->url;
