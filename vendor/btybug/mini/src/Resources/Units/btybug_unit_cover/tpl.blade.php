@@ -1,5 +1,7 @@
 @php
     $pages = $page->author->frontPages()->where('status','published')->orderBy('sorting')->get();
+$currentUrl=\Request::server('REQUEST_URI');
+
 @endphp
 <div id="top-navigation" class="container-fluid nopadding profile">
     <div class="row nopadding ident ui-bg-color01">
@@ -96,7 +98,7 @@
                                 </div>
                                 <ul class="ux-tabs__headers">
                                     @foreach($pages as $page)
-                                        <li class="ux-tabs__header active">
+                                        <li class="ux-tabs__header @if($currentUrl==$page->url) active @endif">
                                             <a href="{!! url($page->url) !!}"
                                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
                                                 <i class="{{ $page->icon }}"></i>
