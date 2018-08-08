@@ -1,5 +1,5 @@
 <?php
- $HEADER=null;
+$HEADER = null;
 /**
  * Created by PhpStorm.
  * User: menq
@@ -54,8 +54,8 @@ function BBCheckRegistrationEnabled()
 
 function BBheader()
 {
-    global  $HEADER;
-    if($HEADER)return BBRenderTpl($HEADER);
+    global $HEADER;
+    if ($HEADER) return BBRenderTpl($HEADER);
     $tpl = \Btybug\btybug\Models\Settings::where('section', 'setting_system')->where('settingkey', 'header_tpl')->first();
     if ($tpl and !empty($tpl->val)) {
         return BBRenderTpl($tpl->val);
@@ -64,11 +64,11 @@ function BBheader()
 
 function BBheaderMini()
 {
-    global  $HEADER;
-    if($HEADER)return BBRenderTpl($HEADER);
+    global $HEADER;
+    if ($HEADER) return BBRenderTpl($HEADER);
     $tpl = \Btybug\btybug\Models\Settings::where('section', 'minicms')->where('settingkey', 'default_header')->select('val AS header')->first();
     if ($tpl) {
-        return render_mini_unit($tpl->header,\Btybug\Mini\Model\MiniPainter::class);
+        return render_mini_unit($tpl->header, \Btybug\Mini\Model\MiniPainter::class);
     }
 }
 
@@ -135,27 +135,27 @@ function BBRenderFrontLayout($page)
     }
 }
 
-function BBRenderMiniFrontLayout($page,$model)
+function BBRenderMiniFrontLayout($page, $model)
 {
-    if($page->page_layout){
+    if ($page->page_layout) {
         if ($page->parent && $page->page_layout_inheritance) {
             $settings = ($page->parent->page_layout_settings && !is_array($page->parent->page_layout_settings)) ? json_decode($page->parent->page_layout_settings, true) : [];
             $settings["_page"] = $page;
-            return BBRenderPageMiniSections($page->parent->page_layout, $settings,$model);
+            return BBRenderPageMiniSections($page->parent->page_layout, $settings, $model);
         } else {
             $settings = ($page->page_layout_settings && !is_array($page->page_layout_settings)) ? json_decode($page->page_layout_settings, true) : [];
             $settings["_page"] = $page;
-            return BBRenderPageMiniSections($page->page_layout, $settings,$model);
+            return BBRenderPageMiniSections($page->page_layout, $settings, $model);
         }
-    }else{
+    } else {
 //        $settings = ($page->page_layout_settings && !is_array($page->page_layout_settings)) ? json_decode($page->page_layout_settings, true) : [];
         $model = new $model();
         $layout = \Btybug\btybug\Models\Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->first();
-        $variation=$model->findVariation($layout->val);
-        $settings=$variation->settings;
+        $variation = $model->findVariation($layout->val);
+        $settings = $variation->settings;
         $settings["_page"] = $page;
-        if($layout){
-            return BBRenderPageMiniSections($layout->val, $settings,$model);
+        if ($layout) {
+            return BBRenderPageMiniSections($layout->val, $settings, $model);
         }
     }
 }
@@ -592,7 +592,7 @@ function BBgetSiteName()
     return $name->val;
 }
 
-function BBRenderUnits($variation_id, $source = [], $data = null,$demo=false)
+function BBRenderUnits($variation_id, $source = [], $data = null, $demo = false)
 {
     $field = null;
     $cheked = null;
@@ -622,7 +622,7 @@ function BBRenderUnits($variation_id, $source = [], $data = null,$demo=false)
                     });
                     $settings = array_merge($settings, $liveSettings);
                 }
-                return $unit->render(compact(['variation', 'settings', 'source', 'field', 'cheked', 'data']),$demo);
+                return $unit->render(compact(['variation', 'settings', 'source', 'field', 'cheked', 'data']), $demo);
             }
         }
 
@@ -630,12 +630,13 @@ function BBRenderUnits($variation_id, $source = [], $data = null,$demo=false)
     }
 }
 
-function mini_unit_content($settings,$model){
+function mini_unit_content($settings, $model)
+{
     $page = \Btybug\btybug\Services\RenderService::getFrontPageByURL();
     $pageModel = ($page) ?? ((\Request::route()->parameter('param')) ? BBgetFrontPage(\Request::route()->parameter('param')) : issetReturn($settings, '_page'));
     if ($pageModel) {
         if ($pageModel->type == 'custom' && isset($settings['live_preview_action'])) {
-            return render_mini_unit(issetReturn($settings, 'main_unit', $pageModel->template),$model, ['_page' => $pageModel]);
+            return render_mini_unit(issetReturn($settings, 'main_unit', $pageModel->template), $model, ['_page' => $pageModel]);
         } else {
             if ($pageModel->content_type == "editor") {
                 echo $pageModel->main_content;
@@ -644,11 +645,12 @@ function mini_unit_content($settings,$model){
             }
         }
     } else {
-        return render_mini_unit(issetReturn($settings, 'main_unit'),$model);
+        return render_mini_unit(issetReturn($settings, 'main_unit'), $model);
     }
 }
 
-function render_mini_unit($variation_id, $model, $source = [], $data = null) {
+function render_mini_unit($variation_id, $model, $source = [], $data = null)
+{
     $field = null;
     $cheked = null;
 //    dd($variation_id);
@@ -785,18 +787,12 @@ function hierarchyMiniUserPagesListFull($data, $parent = true, $icon = true, $id
                     $output .= '<div class="lsitingbutton bb-menu-item-title" style="background: #00c7e0;  !important">';
                     break;
             }
-            if($item->type !== 'custom')
-            {
+            if ($item->type !== 'custom') {
                 $output .= '<span class="listingtitle">' . $item->title . ' - ' . $title . '</span>';
-            }else{
-            $output .= '<span class="listingtitle">' . $item->title . ' - ' . $title . '<a href="'.route('mini_my_site_btybug_pages_delete',$item->id).'"><i class="fa fa-times fa-lg" style="float: right;color: red;                             "></i></a></span>';
+            } else {
+                $output .= '<span class="listingtitle">' . $item->title . ' - ' . $title . '<a href="' . route('mini_my_site_btybug_pages_delete', $item->id) . '"  style="cursor: pointer;"   class="delete-button pull-right trashBtn"><i class="fa fa-trash"></i></a></span>';
             }
             $settings = json_decode($item->settings, true);
-//            $output .= '<a href="' . url('/my-account/my-site/pages/edit', $item->id) . '" class="pull-right"><i class="fa fa-edit"></i></a>';
-
-            if ($item->parent_id) {
-                $output .= '<a data-href="' . url('/my-account/my-site/pages/delete') . '" data-key="' . $item->id . '" data-type="Page ' . $item->title . '" style="cursor: pointer;"  class="delete-button pull-right trashBtn"><i class="fa fa-trash"></i></a>';
-            }
             $output .= '</div>';
             $output .= '</div>';
             /* Actions */
@@ -1457,7 +1453,8 @@ function BBgetUnitAttr($id, $key)
     return false;
 
 }
-function BBgetMiniUnitAttr($id, $key,$model=\Btybug\Mini\Model\MiniSuperPainter::class)
+
+function BBgetMiniUnitAttr($id, $key, $model = \Btybug\Mini\Model\MiniSuperPainter::class)
 {
     $section = $model::findByVariation($id);
     if ($section) return $section->{$key};
@@ -1476,11 +1473,11 @@ function BBgetLayoutAttr($id, $key)
 function BBgetMiniLayoutAttr($id, $key, $model)
 {
     $model = new $model();
-    if($id){
+    if ($id) {
         $section = $model->findByVariation($id);
-    }else{
+    } else {
         $layout = \Btybug\btybug\Models\Settings::where('section', 'minicms')->where('settingkey', 'default_layout')->select('val AS layout')->first();
-        if($layout){
+        if ($layout) {
             $section = $model->findByVariation($layout->layout);
         }
     }
@@ -1572,13 +1569,13 @@ function BBrenderPageContent($settings)
 
 function BBstyle($path, $unit = null)
 {
-    if(!File::isDirectory(public_path('cache'.DS.'css'))){
-        File::makeDirectory(public_path('cache'.DS.'css'),0775,true);
+    if (!File::isDirectory(public_path('cache' . DS . 'css'))) {
+        File::makeDirectory(public_path('cache' . DS . 'css'), 0775, true);
     }
 
     if (File::exists($path)) {
-        $flag=false;
-        $Uflag=false;
+        $flag = false;
+        $Uflag = false;
         $actives = \Config::get('units_css', []);
         $contentMD5 = md5(File::get($path));
 
@@ -1586,11 +1583,11 @@ function BBstyle($path, $unit = null)
             $exploaded = explode(DS, $path);
             $name = explode('.', ($exploaded[count($exploaded) - 1]))[0];
             checker:{
-                if (File::exists(public_path('cache' . DS . 'css' . DS . $name . '.css')) && !compare_with_profile('css',$contentMD5)) {
-                    if(md5(File::get(public_path('cache' . DS . 'css' . DS . $name . '.css')))!=$contentMD5){
-                        $flag=true;
+                if (File::exists(public_path('cache' . DS . 'css' . DS . $name . '.css')) && !compare_with_profile('css', $contentMD5)) {
+                    if (md5(File::get(public_path('cache' . DS . 'css' . DS . $name . '.css'))) != $contentMD5) {
+                        $flag = true;
                         if ($unit && !$Uflag) {
-                            $Uflag=true;
+                            $Uflag = true;
                             $key = $unit->getSlug();
                             if (!File::exists(public_path('cache' . DS . 'css' . DS . $name . ".$key.css"))) {
                                 $name = $name . ".$key.css";
@@ -1604,37 +1601,39 @@ function BBstyle($path, $unit = null)
                             }
                         }
                     }
-                }else{
-                    $flag=true;
+                } else {
+                    $flag = true;
                 }
             }
             $actives[$contentMD5] = url('public/cache/css/' . $name . ".css");
-            if($flag){
-            File::copy($path, public_path('cache' . DS . 'css' . DS . $name . ".css"));
+            if ($flag) {
+                File::copy($path, public_path('cache' . DS . 'css' . DS . $name . ".css"));
             }
         }
         \Config::set('units_css', $actives);
     }
 }
-function getCss(){
+
+function getCss()
+{
     $actives = \Config::get('units_css', []);
-    $html='';
-    foreach ($actives as $key=>$active){
-        $html.=Html::style($active);
+    $html = '';
+    foreach ($actives as $key => $active) {
+        $html .= Html::style($active);
     }
     return $html;
 }
 
-function BBscript($path, $unit = null,$position='footer')
+function BBscript($path, $unit = null, $position = 'footer')
 {
 
-    if(!File::isDirectory(public_path('cache'.DS.'js'))){
-        File::makeDirectory(public_path('cache'.DS.'js'),0775,true);
+    if (!File::isDirectory(public_path('cache' . DS . 'js'))) {
+        File::makeDirectory(public_path('cache' . DS . 'js'), 0775, true);
     }
 
     if (File::exists($path)) {
-        $flag=false;
-        $Uflag=false;
+        $flag = false;
+        $Uflag = false;
         $actives = \Config::get("units_js.$position", []);
         $contentMD5 = md5(File::get($path));
         if (!isset($actives[$contentMD5])) {
@@ -1642,11 +1641,11 @@ function BBscript($path, $unit = null,$position='footer')
             $exploaded = explode(DS, $path);
             $name = explode('.', ($exploaded[count($exploaded) - 1]))[0];
             checker:{
-                if (File::exists(public_path('cache' . DS . 'js' . DS . $name . '.js')) && !compare_with_profile('js',$contentMD5)) {
-                    if(md5(File::get(public_path('cache' . DS . 'js' . DS . $name . '.js')))!=$contentMD5){
-                        $flag=true;
+                if (File::exists(public_path('cache' . DS . 'js' . DS . $name . '.js')) && !compare_with_profile('js', $contentMD5)) {
+                    if (md5(File::get(public_path('cache' . DS . 'js' . DS . $name . '.js'))) != $contentMD5) {
+                        $flag = true;
                         if ($unit && !$Uflag) {
-                            $Uflag=true;
+                            $Uflag = true;
                             $key = $unit->getSlug();
                             if (!File::exists(public_path('cache' . DS . 'js' . DS . $name . ".$key.js"))) {
                                 $name = $name . ".$key.js";
@@ -1660,30 +1659,35 @@ function BBscript($path, $unit = null,$position='footer')
                             }
                         }
                     }
-                }else{
-                    $flag=true;
+                } else {
+                    $flag = true;
                 }
             }
             $actives[$contentMD5] = url('public/cache/js/' . $name . ".js");
-            if($flag){
+            if ($flag) {
                 File::copy($path, public_path('cache' . DS . 'js' . DS . $name . ".js"));
             }
         }
         \Config::set("units_js.$position", $actives);
     }
 }
-function getFooterJs(){
+
+function getFooterJs()
+{
     $actives = \Config::get('units_js.footer', []);
-    $html='';
-    foreach ($actives as $key=>$active){
-        $html.=Html::script($active);
+    $html = '';
+    foreach ($actives as $key => $active) {
+        $html .= Html::script($active);
     }
     return $html;
-}function getHeaderJs(){
+}
+
+function getHeaderJs()
+{
     $actives = \Config::get('units_js.header', []);
-    $html='';
-    foreach ($actives as $key=>$active){
-        $html.=Html::script($active);
+    $html = '';
+    foreach ($actives as $key => $active) {
+        $html .= Html::script($active);
     }
     return $html;
 }
@@ -1700,11 +1704,11 @@ function compare_with_profile($type, $hash)
     $profile = $profileRepository->findOneByMultiple(['id' => $id, 'type' => $type]);
     $assets = $profile->files;
     $file_ides = [];
-    if($type=='css'){
+    if ($type == 'css') {
 
-    $friles = (isset($assets['headerCss'])) ? $assets['headerCss'] : [];
+        $friles = (isset($assets['headerCss'])) ? $assets['headerCss'] : [];
 
-    }else{
+    } else {
         $friles = (isset($assets['headerJs'])) ? $assets['headerJs'] : [];
         $friles2 = (isset($assets['headerCss'])) ? $assets['headerCss'] : [];
         foreach ($friles2 as $file) {
@@ -1715,7 +1719,7 @@ function compare_with_profile($type, $hash)
     foreach ($friles as $file) {
         $file_ides[] = $file['id'];
     }
-    return \Btybug\Framework\Models\Versions::whereIn('id',$file_ides)->where('content',$hash)->exists();
+    return \Btybug\Framework\Models\Versions::whereIn('id', $file_ides)->where('content', $hash)->exists();
 
 }
 
@@ -2698,7 +2702,6 @@ function BBmargeJs()
 }
 
 
-
 function BBpageAssetsOptimise()
 {
     $home = new \Btybug\btybug\Models\Home();
@@ -2859,12 +2862,13 @@ function BBcreateMiniCms($user)
     $test = new \Btybug\Mini\Generator();
     $test->make($user);
 }
- function BBAddTab($section,array $tab)
+
+function BBAddTab($section, array $tab)
 {
     $codes = \Config::get('tabs');
-    foreach($codes as $key=>$value){
-        if(isset($value[$section])){
-            $codes[$key][$section][]= $tab;
+    foreach ($codes as $key => $value) {
+        if (isset($value[$section])) {
+            $codes[$key][$section][] = $tab;
             \Config::set('tabs', $codes);
             continue;
         }
