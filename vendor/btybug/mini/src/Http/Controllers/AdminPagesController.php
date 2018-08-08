@@ -53,13 +53,15 @@ class AdminPagesController extends Controller
     public function createPage(Request $request)
     {
         $data = $request->except('_token');
+
         return $this->pagesService->create($data);
     }
 
     public function editPage(Request $request)
     {
         $data = $request->except(['_token', 'id']);
-
+        $v=\Validator::make($data,['template'=>'required']);
+        if($v->fails())return redirect()->back()->withErrors(['messages'=>$v->messages()]);
         $data['page_layout'] = ($data['layout'] == 0) ? null : $data['page_layout'];
         $data['header_unit'] = ($data['header'] == 2) ? $data['header_unit'] : null;
         $id = $request->get('id');
