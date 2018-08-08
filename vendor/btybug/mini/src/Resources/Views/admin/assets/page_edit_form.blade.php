@@ -32,7 +32,7 @@
 <div class="form-group to-membership @if($model->status!='published') hide @endif">
     <label for="membership" class="control-label col-xs-4 ">To Membership</label>
     <div class="col-xs-8">
-        {!! Form::select('memberships',['free'=>'Free','pro'=>'Pro'],null,['class'=>'form-control','id'=>'membership']) !!}
+        {!! Form::text('memberships',null,['class'=>'onChange tagits']) !!}
     </div>
 </div>
 <div class="form-group">
