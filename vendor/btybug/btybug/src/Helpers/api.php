@@ -789,7 +789,7 @@ function hierarchyMiniUserPagesListFull($data, $parent = true, $icon = true, $id
             {
                 $output .= '<span class="listingtitle">' . $item->title . ' - ' . $title . '</span>';
             }else{
-            $output .= '<span class="listingtitle">' . $item->title . ' - ' . $title . '<a href="./pages/deletepage/'.$item->id.'"><i class="fa fa-times fa-lg" style="float: right;color: red;                             "></i></a></span>';
+            $output .= '<span class="listingtitle">' . $item->title . ' - ' . $title . '<a href="'.route('mini_my_site_btybug_pages_delete',$item->id).'"><i class="fa fa-times fa-lg" style="float: right;color: red;                             "></i></a></span>';
             }
             $settings = json_decode($item->settings, true);
 //            $output .= '<a href="' . url('/my-account/my-site/pages/edit', $item->id) . '" class="pull-right"><i class="fa fa-edit"></i></a>';
