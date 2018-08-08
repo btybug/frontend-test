@@ -785,7 +785,12 @@ function hierarchyMiniUserPagesListFull($data, $parent = true, $icon = true, $id
                     $output .= '<div class="lsitingbutton bb-menu-item-title" style="background: #00c7e0;  !important">';
                     break;
             }
-            $output .= '<span class="listingtitle">' . $item->title . ' - ' . $title . '</span>';
+            if($item->type !== 'custom')
+            {
+                $output .= '<span class="listingtitle">' . $item->title . ' - ' . $title . '</span>';
+            }else{
+            $output .= '<span class="listingtitle">' . $item->title . ' - ' . $title . '<a href="./pages/deletepage/'.$item->id.'"><i class="fa fa-times fa-lg" style="float: right;color: red;                             "></i></a></span>';
+            }
             $settings = json_decode($item->settings, true);
 //            $output .= '<a href="' . url('/my-account/my-site/pages/edit', $item->id) . '" class="pull-right"><i class="fa fa-edit"></i></a>';
 

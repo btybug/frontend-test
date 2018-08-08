@@ -281,5 +281,13 @@ class Main
     {
         return view('mini::mysite.moresites')->with('user', $this->user);
     }
+    public  function pagesDelete()
+    {
+        $id = $this->request->id;
+
+        FrontendPage::where('id',$id)->delete();
+        $pages = $this->user->frontPages()->orderBy('sorting')->get();
+        return view('mini::mysite.btybug_pages')->with(['user' => $this->user, 'pages' => $pages]);
+    }
 
 }

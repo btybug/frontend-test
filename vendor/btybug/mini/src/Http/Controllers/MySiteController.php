@@ -119,4 +119,10 @@ class MySiteController extends MiniController
         return $this->cms->moreSites();
     }
 
+    public function pagesDelete(Request $request,$id = null)
+    {
+        $this->ennable($request);
+        return $this->cms->pagesDelete($id);
+    }
+
 }
