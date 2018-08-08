@@ -55,7 +55,7 @@
                                 <div class="input-group">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         {!! Form::text(null,BBgetMiniUnitAttr($page->template,'title'),['class'=>'form-control','readonly']) !!}
-                                        {!! Form::select('variations',[null=>'Select Variation'],null,['class'=>'form-control']) !!}
+                                        {!! Form::select('variations',$variations,null,['class'=>'form-control']) !!}
                                         <button type="button" class="btn btn-secondary">Customize</button>
                                     </div>
                                 </div>

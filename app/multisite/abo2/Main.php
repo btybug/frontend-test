@@ -183,7 +183,9 @@ class Main
     {
         $id = $this->request->id;
         $page = FrontendPage::find($id);
-        return view('mini::pages.edit', compact('page', 'id'))->with('user', $this->user);
+        $unit=MiniPainter::findByVariation($page->template);
+        $variations=($unit)?$unit->variations()->all()->getItems()->pluck('title','id'):[];
+        return view('mini::pages.edit', compact('page', 'id','variations'))->with('user', $this->user);
 
     }
 
