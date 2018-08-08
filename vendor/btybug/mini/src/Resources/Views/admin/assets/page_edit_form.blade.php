@@ -29,16 +29,10 @@
         {!! Form::select('status',['draft'=>'Draft','published'=>'Published'],null,['class'=>'form-control','id'=>'page_status']) !!}
     </div>
 </div>
-<div class="form-group">
-    <label for="membership" class="control-label col-xs-4">Membership</label>
+<div class="form-group to-membership @if($model->status!='published') hide @endif">
+    <label for="membership" class="control-label col-xs-4 ">To Membership</label>
     <div class="col-xs-8">
         {!! Form::select('memberships',['free'=>'Free','pro'=>'Pro'],null,['class'=>'form-control','id'=>'membership']) !!}
-    </div>
-</div>
-<div class="form-group">
-    <label for="tag_unit_for_page" class="control-label col-xs-4">Tag Unit To Page</label>
-    <div class="col-xs-8">
-        {!! Form::select('tags',$tags,null,['class' => 'form-control','id' => 'tagits']) !!}
     </div>
 </div>
 <div class="form-group">
@@ -49,7 +43,7 @@
 </div>
 <!-- Multiple Radios (inline) -->
 <div class="form-group">
-    <label class="col-md-4 control-label" for="radios">User Navbar</label>
+    <label class="col-md-4 control-label" for="radios">User Cover</label>
     <div class="col-md-8">
         <label class="radio-inline">
             {!! Form::radio('header',1,1) !!}
@@ -82,7 +76,7 @@
     <label class="control-label col-xs-4"></label>
     <div class="col-xs-8">
         <div class="input-group">
-            {!! BBbutton2('mini_unit','header_unit','header','Select Default Header',['model'=>$model]) !!}
+            {!! BBbutton2('mini_unit','header_unit','header','Select Default User Cover',['model'=>$model]) !!}
         </div>
     </div>
 </div>

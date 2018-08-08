@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-4 control-label" for="radios">User Navbar</label>
+                <label class="col-md-4 control-label" for="radios">User Cover</label>
                 <div class="col-md-8">
                     <label class="radio-inline" for="radios-0">
                         <input type="radio" name="header"  value="1" checked="checked">
@@ -112,7 +112,7 @@
                 <label  class="control-label col-xs-4"></label>
                 <div class="col-xs-8">
                     <div class="input-group">
-                        {!! BBbutton2('mini_unit','header_unit','header','Select Default Header',['model'=>$header]) !!}
+                        {!! BBbutton2('mini_unit','header_unit','header','Select Default User Cover',['model'=>$header]) !!}
                     </div>
                 </div>
             </div>
@@ -221,6 +221,14 @@
                    $('body').find('.layout-bbbutton').addClass('hide')
                }
             });
+               $('body').on('change','#page_status',function () {
+                   console.log($(this).val())
+               if($(this).val()=='published'){
+                   $('body').find('.to-membership').removeClass('hide')
+               }else{
+                   $('body').find('.to-membership').addClass('hide')
+               }
+            });
 
             function tagitinit(form) {
                 {{--form.find('.tagits').tagit({--}}
@@ -308,7 +316,7 @@
                 });
             });
 
-        })
+        });
     </script>
 
 @stop
