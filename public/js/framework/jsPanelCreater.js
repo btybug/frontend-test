@@ -130,3 +130,51 @@ jsPanel.create({
     return false;
   }
 });
+
+$(".showLayers, .createHtml, .createAssets, .add-html-items").click(function() {
+  switch (
+    $(this)
+      .text()
+      .trim()
+  ) {
+    case "Layers":
+      $("#jsPanel-2").addClass("displayToggle");
+      break;
+    case "HTML":
+      $("#jsPanel-1").addClass("displayToggle");
+      break;
+    case "Assets":
+      $("#jsPanel-3").addClass("displayToggle");
+      break;
+    case "Add item":
+      $("#jsPanel-4").addClass("displayToggle");
+      break;
+    default:
+      break;
+  }
+});
+
+$("body").on("click", ".jsPanel-btn-close", function(e) {
+  e.preventDefault();
+  $(this)
+    .closest(".jsPanel")
+    .removeClass("displayToggle");
+});
+
+$("body").on("click", ".jsPanel-btn-maximize", function(e) {
+  e.preventDefault();
+  $(this)
+    .closest(".jsPanel")
+    .find(".jsPanel-content")
+    .css({ height: "100%" });
+  $(this)
+    .closest(".jsPanel")
+    .addClass("w-100 h-100");
+});
+
+$("body").on("click", ".jsPanel-btn-normalize", function(e) {
+  e.preventDefault();
+  $(this)
+    .closest(".jsPanel")
+    .removeClass("w-100 h-100");
+});

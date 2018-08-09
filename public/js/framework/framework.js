@@ -768,15 +768,6 @@ $(function() {
   codeEditor.getSession().setUseWrapMode(true);
   codeEditor.$blockScrolling = Infinity;
 
-  // phpCodeEditor = ace.edit("php-code-editor");
-  // phpCodeEditor.setTheme("ace/theme/monokai");
-  // phpCodeEditor.session.setMode("ace/mode/php");
-  // phpCodeEditor.getSession().setUseWrapMode(true);
-  // phpCodeEditor.$blockScrolling = Infinity;
-  // //   phpCodeEditor.setValue("<?php \n\t// Write your code here\n\t\n ?>");
-  // //   phpCodeEditor.selection.moveTo(2, 1);
-  // phpCodeEditor.clearSelection();
-
   phpNodeCodeEditor = ace.edit("php-node-code-editor");
   phpNodeCodeEditor.setTheme("ace/theme/monokai");
   phpNodeCodeEditor.session.setMode("ace/mode/php");
@@ -895,7 +886,7 @@ $(function() {
 
         // Live render
         var codeValue = codeEditor.getValue().toString();
-        //  + codeContent.toString();
+
         codeValue = codeValue.replace(/<!--\|/g, "");
         codeValue = codeValue.replace(/\|-->/g, "");
         let newCodeValue = $(codeValue);
@@ -929,7 +920,6 @@ $(function() {
               $("[dnd-placeholder]").droppable({
                 greedy: true,
                 classes: {
-                  // "ui-droppable-active": "ui-state-active",
                   "ui-droppable-hover": "ui-state-hover"
                 },
                 drop: function(event, ui) {
@@ -937,26 +927,20 @@ $(function() {
                   remAttrElement = $(remAttrElement);
                   let htmlElement = remAttrElement.prop("outerHTML");
                   let code = codeEditor.getValue();
-                  // if (remAttrElement.children().length) {
+
                   remAttrElement.append(
                     `<${ui.draggable.text()}>Text</${ui.draggable.text()}>`
                   );
+
                   var newCode = code.replace(
                     htmlElement,
                     remAttrElement.prop("outerHTML")
                   );
-                  // } else {
-                  //   var newHtmlElement =
-                  //     htmlElement +
-                  //     `<${ui.draggable.text()}>Text</${ui.draggable.text()}>`;
-                  //   var newCode = code.replace(htmlElement, newHtmlElement);
-                  // }
 
                   codeEditor.setValue(newCode);
                   codeEditor.clearSelection();
                 }
               });
-              // $('.closeCSSEditor').trigger('click');
 
               setTimeout(function() {
                 framework.showElement($(".openCSSEditor"));
@@ -981,13 +965,6 @@ $(function() {
         );
 
         $(".tree-list").html(treeList);
-        // $(".sortable-list").sortable();
-        // $(".sortable-list").disableSelection();
-        // $(".sortable-list")
-        //   .sortable({
-        //     connectWith: ".sortable-list"
-        //   })
-        //   .disableSelection();
 
         // Live render
         var codeValue = phpFullCodeEditor.getValue().toString() + "\n";
@@ -1049,14 +1026,6 @@ $(function() {
         phpFullCodeEditor.clearSelection();
 
         setTimeout(function() {
-          // framework.codeWallet = [];
-
-          var codeContent = phpFullCodeEditor.getValue();
-          // var treeList = framework.nodeTreeGenerator(
-          //   $("<wrap>" + codeContent + "</wrap>")
-          // );
-
-          // $(".tree-list").html(treeList);
           framework.globalIndex = 0;
           var codeValue = phpFullCodeEditor.getValue().toString() + "\n";
           codeValue = codeValue.replace(/<!--\|/g, "");
@@ -1102,16 +1071,11 @@ $(function() {
   // Apply demo code
   //   codeEditor.setValue(style_html($("#demo-html").html()));
   //   codeEditor.clearSelection();
-  function remooveRightSlide() {
-    $(".add-custom-layers").removeClass("displayToggle");
-    $(".full-code-editor").removeClass("displayToggle");
-    $(".createAssets-container").removeClass("displayToggle");
-    $(".tree-view-container").removeClass("displayToggle");
-  }
 
   $("body").on("click", ".style-checkbox", function(e) {
     e.stopPropagation();
   });
+
   $("body").on("change", ".style-checkbox", function(e) {
     $("#styles-area").empty();
     $(".inserted-item").each((index, item) => {
@@ -1124,65 +1088,6 @@ $(function() {
       elm.text(elmText);
       elm.appendTo("#styles-area");
     });
-  });
-
-  $(".createHtml").click(function() {
-    remooveRightSlide();
-    $(".full-code-editor").toggleClass("displayToggle");
-  });
-  $(".createAssets").click(function() {
-    remooveRightSlide();
-    $(".createAssets-container").toggleClass("displayToggle");
-  });
-
-  $(".showLayers, .createHtml, .createAssets, .add-html-items").click(
-    function() {
-      switch (
-        $(this)
-          .text()
-          .trim()
-      ) {
-        case "Layers":
-          $("#jsPanel-2").addClass("displayToggle");
-          break;
-        case "HTML":
-          $("#jsPanel-1").addClass("displayToggle");
-          break;
-        case "Assets":
-          $("#jsPanel-3").addClass("displayToggle");
-          break;
-        case "Add item":
-          $("#jsPanel-4").addClass("displayToggle");
-          break;
-        default:
-          break;
-      }
-    }
-  );
-
-  $("body").on("click", ".jsPanel-btn-close", function(e) {
-    e.preventDefault();
-    $(this)
-      .closest(".jsPanel")
-      .removeClass("displayToggle");
-  });
-
-  $("body").on("click", ".jsPanel-btn-maximize", function(e) {
-    e.preventDefault();
-    $(this)
-      .closest(".jsPanel")
-      .find(".jsPanel-content")
-      .css({ height: "100%" });
-    $(this)
-      .closest(".jsPanel")
-      .addClass("w-100 h-100");
-  });
-
-  $("body").on("click", ".jsPanel-btn-normalize", function(e) {
-    e.preventDefault();
-    $(this)
-      .closest(".jsPanel")
-      .removeClass("w-100 h-100");
   });
 
   $("body").on("click", ".tree-list-functions", function(e) {
