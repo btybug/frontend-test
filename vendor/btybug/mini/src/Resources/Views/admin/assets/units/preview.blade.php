@@ -311,7 +311,7 @@
     {!! HTML::style("public/css/select2/select2.min.css") !!}
 
     <style>
-        .buttons > button{
+        .buttons > .btn-md{
             width: -webkit-fill-available;
         }
         .right_sect {
