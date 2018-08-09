@@ -244,6 +244,24 @@ class ClientController extends MiniController
         return $this->cms->FormInputs($id);
     }
 
+    public function CreateGearVariation($slug = null)
+    {
+        $layout = $this->painter->find($slug);
+        if (! $layout) abort(404);
+        $variation = $layout->makeVariation();
+        return redirect()->route('mini_extra_gears_live', $variation->id);
+    }
+
+    public function assetsUnitsLive($slug = null)
+    {
+        if ($slug) {
+            $view = MiniSuperPainter::renderLivePreview($slug, 'frontend');
+            return $view ? $view : abort('404');
+        } else {
+            abort('404');
+        }
+    }
+
 
 
 }

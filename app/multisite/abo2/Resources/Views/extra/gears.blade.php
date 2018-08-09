@@ -63,7 +63,7 @@
                                 Variations
                             </div>
                             <div class="buttons">
-                                <a href="{!! route('mini_admin_assets_create_unit_variation',$model->slug) !!}">
+                                <a href="{!! route('mini_extra_gears_create_unit_variation',$model->slug) !!}">
                                     <button class="btn btn-sm btn-warning">Create new <i class="fa fa-plus"></i>
                                     </button>
                                 </a>
