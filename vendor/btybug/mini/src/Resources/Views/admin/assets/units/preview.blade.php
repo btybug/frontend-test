@@ -311,6 +311,9 @@
     {!! HTML::style("public/css/select2/select2.min.css") !!}
 
     <style>
+        .buttons > button{
+            width: -webkit-fill-available;
+        }
         .right_sect {
             border-left: 6px solid lightgrey;
             height: 200px;
