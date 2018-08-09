@@ -43,7 +43,7 @@
                                                         <p>
                                                             <span>Tags:</span>
                                                         </p>
-                                                        <p>
+                                                        <p class="hidden tags">
                                                             <input type="text" name="tags" class="onChange" id="tagits" value="
                                                                     @if(is_array($tags))
                                                                         {{implode(',',$tags)}}
@@ -59,7 +59,10 @@
                                         <div class="col-md-2">
                                             <div class="publish">
                                                 <div class="[ form-group ]">
-                                                    <input type="checkbox" name="fancy-checkbox-warning" id="fancy-checkbox-warning" autocomplete="off" />
+                                                    <input type="checkbox" name="published" id="fancy-checkbox-warning" class="onChange" autocomplete="off" value="Published"
+                                                            @if($model->status == 'Published')
+                                                                checked
+                                                            @endif/>
                                                     <div class="[ btn-group ]">
                                                         <label for="fancy-checkbox-warning" class="[ btn btn-warning ]">
                                                             <span class="[ glyphicon glyphicon-ok ]"></span>
@@ -71,10 +74,11 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="publish-check hidden">
+                                                <div class="publish-check">
                                                     @foreach($memberships as $value)
-                                                            <div class="checkbox-publish">
-                                                                <input type="radio" id="{{$value}}" class="onChange" name="membership" value="{{$value}}"
+                                                            <div class="checkbox-publish onChange">
+                                                                <input type="radio" id="{{$value}}"
+                                                                       name="membership" value="{{$value}}"
                                                                         @if($model->memberships === $value)
                                                                         checked
                                                                         @endif
@@ -262,14 +266,21 @@
                     $('.onChange').on('change',function (e) {
                         e.preventDefault();
                         $(".btn-submit-ajax").click();
-                    })
+                    });
+
+                    if($('input[name=published]').is(':checked')) {
+                        $('.tags').removeClass('hidden');
+                    }else {
+                        $('.tags').addClass('hidden');
+                    }
+                    
                     $('.form-group').click(function () {
-                        if($('input[name=fancy-checkbox-warning]').is(':checked')) {
-                            // alert('asdfg');
-                            $('.publish-check').removeClass('hidden')
+                        if($('input[name=published]').is(':checked')) {
+                            $('.tags').removeClass('hidden');
                         }else {
-                            $('.publish-check').addClass('hidden');
+                            $('.tags').addClass('hidden');
                         }
+
                     })
 
                 });
