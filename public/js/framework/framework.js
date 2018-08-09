@@ -791,7 +791,6 @@ $(function() {
       stop: function(event, ui) {
         console.log(dropFinshed);
         if (!dropFinshed) {
-          console.log(111);
           let prevItemIndex = ui.item.prev().data("index");
           let currentItemIndex = ui.item.data("index");
           if (prevItemIndex) {
@@ -940,11 +939,19 @@ $(function() {
                   let htmlElement = remAttrElement.prop("outerHTML");
 
                   let code = codeEditor.getValue();
-                  console.log();
-
-                  remAttrElement.append(
-                    `<${ui.draggable.text()}>Text</${ui.draggable.text()}>`
-                  );
+                  if (
+                    ui.draggable
+                      .parent()
+                      .parent()
+                      .hasClass("components-tab")
+                  ) {
+                    remAttrElement.append(ui.draggable.next().html());
+                  } else {
+                    remAttrElement.append(
+                      `<${ui.draggable.text()}>Text</${ui.draggable.text()}>`
+                    );
+                  }
+                  console.log(remAttrElement.html());
                   // console.log(remAttrElement.prop("outerHTML"));
 
                   if ($(htmlElement).html() === $(code).html()) {
@@ -1239,13 +1246,40 @@ let htmlElments = framework.allHtmlTags.map(
   item => `<p class="dnd-html-item">${item}</p>`
 );
 
+let htmlJsPanel = `<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#elements" role="tab" aria-controls="home" aria-selected="true">HTML Elements</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#fields" role="tab" aria-controls="profile" aria-selected="false">Fields</a>
+</li>
+</ul>
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="elements">
+  ${htmlElments.join("")}
+</div>
+<div role="tabpanel" class="tab-pane components-tab" id="fields">
+  <div><p class="dnd-html-item">Jumporton</p> <span class="fileds-components" style="display: none">
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>Bootstrap Tutorial</h1> 
+    <p>Bootstrap is the most popular HTML, CSS...</p> 
+  </div>
+</div>
+  </span> </div> 
+</div>
+</div>
+`;
+
+let htmlJsPanelContent = ``;
+
 jsPanel.create({
   theme: "primary",
   container: "#containerForJsPanel",
   headerTitle: "Html items",
   position: "center-top 0 58",
   contentSize: { width: "450px", height: "auto" },
-  content: htmlElments.join(""),
+  content: htmlJsPanel,
   callback: function() {
     this.content.style.padding = "20px";
   },
