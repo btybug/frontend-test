@@ -36,8 +36,13 @@ Route::group(['prefix' => 'extra'], function () {
         Route::get('/', 'PluginsController@getList')->name('mini_extra_plugins');
         Route::get('/settings', 'PluginsController@getSettings')->name('mini_extra_plugin_settings');
     });
+Route::group(['prefix' => 'gear'], function () {
+        Route::get('/', 'ClientController@extraGears')->name('mini_extra_gears');
+Route::group(['prefix' => '{id?}'], function () {
+        Route::get('/', 'ClientController@extraGears')->name('mini_extra_gears');
 
-    Route::get('/gear', 'ClientController@extraGears')->name('mini_extra_gears');
+    });
+});
     Route::get('/widgets', 'ClientController@extraWidgets')->name('mini_extra_widgets');
     Route::get('/layouts', 'ClientController@extraLayouts')->name('mini_extra_layouts');
     Route::get('/units-optimize', 'ClientController@extraGearsOptimize')->name('mini_extra_gears_optimize');

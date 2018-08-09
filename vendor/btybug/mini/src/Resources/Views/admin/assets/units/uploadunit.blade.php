@@ -7,11 +7,14 @@
                     <div class="col-md-3 col-xs-12">
                         @include('multisite::admin.assets.units._partials.sidebar')
                     </div>
+                    @if(isset($message))
+                        {{$message}}
+                    @endif
                     <div class="col-md-6" style="margin-left: 10%">
                         <form method="get" action="{{route('mini_admin_assets_units_add_upload')}}" enctype="multipart/form-data" id="form">
                             <div class="form-group files color">
                                 <label>Upload Unit File </label>
-                                <input type="file" class="form-control" multiple="">
+                                <input type="file" class="form-control" name="zip" >
                             </div>
                             <button type="submit" class="btn btn-success btn-lg btn-block">Upload</button>
                         </form>

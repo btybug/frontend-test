@@ -15,8 +15,8 @@ Route::group(['prefix' => 'assets'], function () {
         Route::get('/', 'AdminController@assetsUnits', true)->name('mini_admin_assets_units');
         Route::get('/add', 'UnitsController@assetsUnitsAdd', true)->name('mini_admin_assets_units_add');
         Route::get('/add/upload', 'UnitsController@assetsUnitsAddupload', true)->name('mini_admin_assets_units_add_upload');
-        Route::group(['prefix' => '{id?}'], function () {
-            Route::get('/', 'AdminController@assetsUnits', true)->name('mini_admin_assets_units');
+    Route::group(['prefix' => '{id?}'], function () {
+        Route::get('/', 'AdminController@assetsUnits', true)->name('mini_admin_assets_units');
         });
         Route::get('variationdelete/{id}', 'UnitsController@UnitsVariationDelete', true)->name('mini_admin_assets_units_variation_delete');
         Route::get('variationedit/{slug}', 'UnitsController@UnitsVariationEdit', true)->name('mini_admin_assets_units_variation_edit');

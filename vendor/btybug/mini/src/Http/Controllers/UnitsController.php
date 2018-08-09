@@ -12,6 +12,10 @@ namespace Btybug\Mini\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Btybug\Mini\Model\MiniSuperPainter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Validation\Rules\In;
+use Storage;
+use ZanySoft\Zip\Zip;
 
 class UnitsController extends Controller
 {
@@ -77,6 +81,20 @@ class UnitsController extends Controller
     }
 
     public function assetsUnitsAddupload(Request $request){
-        dd($request);
+        //$name = $request->zip;
+        $file = Input::file('zip');
+        $foo = \File::extension($file);
+        if ($foo === 'zip'){
+            if ($file->isValid()) {
+                $filename = 'unit'.$foo;
+                Storage::disk('zip')->put($filename, $file);
+                dd($filename);
+            }
+
+        }else{
+            return back()->with('message','Please upload .ZIP archived file');
+        }
+
+
     }
 }
