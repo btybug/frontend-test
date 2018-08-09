@@ -26,8 +26,7 @@
                 </li>
             @endforeach
         @endif
-        {{--<a href="{{route('mini_admin_assets_units_add')}}">--}}
-        <a href="#">
+        <a href="{{route('mini_admin_assets_units_add')}}">
         <li  style="    padding: 24px;
     padding-left: 115px;">
             <i class="fa fa-plus">Add Unit</i>
