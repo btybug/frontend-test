@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+   alert(123645);
     var window_width = $(window).width();
     $(window).on('resize', function(){
 
