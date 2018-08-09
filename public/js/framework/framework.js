@@ -789,57 +789,66 @@ $(function() {
     $(".sortable-list").sortable({
       connectWith: ".sortable-list",
       stop: function(event, ui) {
-        let prevItemIndex = ui.item.prev().data("index");
-        let currentItemIndex = ui.item.data("index");
-        if (prevItemIndex) {
-          let prevItemHtml = framework.codeWallet[prevItemIndex];
-          let currentItemHtml = framework.codeWallet[currentItemIndex];
-          let noEditFullCode = codeEditor.getValue();
-          let y =
-            prevItemHtml.prop("outerHTML") + currentItemHtml.prop("outerHTML");
-          let editFullCode = noEditFullCode.replace(
-            framework.codeWallet[currentItemIndex].prop("outerHTML"),
-            ""
-          );
-          let finalEditCode = editFullCode.replace(
-            prevItemHtml.prop("outerHTML"),
-            y
-          );
-          fullCode = finalEditCode;
-          framework.parseNewCodeToAll(finalEditCode);
-          dropFinshed = true;
-        } else {
-          let currentItemHtml = framework.codeWallet[currentItemIndex];
-          let noEditFullCode = codeEditor.getValue();
+        console.log(dropFinshed);
+        if (!dropFinshed) {
+          console.log(111);
+          let prevItemIndex = ui.item.prev().data("index");
+          let currentItemIndex = ui.item.data("index");
+          if (prevItemIndex) {
+            let prevItemHtml = framework.codeWallet[prevItemIndex];
+            let currentItemHtml = framework.codeWallet[currentItemIndex];
+            let noEditFullCode = codeEditor.getValue();
+            let y =
+              prevItemHtml.prop("outerHTML") +
+              currentItemHtml.prop("outerHTML");
+            let editFullCode = noEditFullCode.replace(
+              framework.codeWallet[currentItemIndex].prop("outerHTML"),
+              ""
+            );
+            let finalEditCode = editFullCode.replace(
+              prevItemHtml.prop("outerHTML"),
+              y
+            );
+            fullCode = finalEditCode;
+            framework.parseNewCodeToAll(finalEditCode);
+          } else {
+            let currentItemHtml = framework.codeWallet[currentItemIndex];
+            let noEditFullCode = codeEditor.getValue();
 
-          let editFullCode = noEditFullCode.replace(
-            framework.codeWallet[currentItemIndex].prop("outerHTML"),
-            ""
-          );
-          let finalEditCode = currentItemHtml.prop("outerHTML") + editFullCode;
-          fullCode = finalEditCode;
-          framework.parseNewCodeToAll(finalEditCode);
+            let editFullCode = noEditFullCode.replace(
+              framework.codeWallet[currentItemIndex].prop("outerHTML"),
+              ""
+            );
+            let finalEditCode =
+              currentItemHtml.prop("outerHTML") + editFullCode;
+            fullCode = finalEditCode;
+            framework.parseNewCodeToAll(finalEditCode);
+          }
           dropFinshed = true;
         }
       }
     });
     $(".item-container").droppable({
       accept: ".item-container",
+      greedy: true,
       classes: {
         // "ui-droppable-active": "ui-state-active",
         "ui-droppable-hover": "ui-state-hover"
       },
       drop: function(e, ui) {
-        var dropped = ui.draggable;
-        var droppedOn = $(this);
+        console.log("Drop");
+        let dropped = ui.draggable;
+        let droppedOn = $(this);
         let droppedIndex = dropped.data("index");
         let droppedOnIndex = droppedOn.data("index");
         let elementToAppend = framework.codeWallet[droppedOnIndex];
         let element = framework.codeWallet[droppedIndex];
-
         let noEditFullCode = codeEditor.getValue();
         let x = elementToAppend.prop("outerHTML");
         let y = $(x).html($(x).html() + element.prop("outerHTML"));
+        console.log(x);
+        console.log("+++++++++++");
+        console.log(y.prop("outerHTML"));
         let editFullCode = noEditFullCode.replace(
           framework.codeWallet[droppedIndex].prop("outerHTML"),
           ""
@@ -848,6 +857,7 @@ $(function() {
           elementToAppend.prop("outerHTML"),
           y.prop("outerHTML")
         );
+        console.log(finalEditCode);
         fullCode = finalEditCode;
         framework.parseNewCodeToAll(finalEditCode);
         dropFinshed = true;
@@ -928,19 +938,27 @@ $(function() {
                   let remAttrElement = removeDnDAtrbutes($(this));
                   remAttrElement = $(remAttrElement);
                   let htmlElement = remAttrElement.prop("outerHTML");
+
                   let code = codeEditor.getValue();
+                  console.log();
 
                   remAttrElement.append(
                     `<${ui.draggable.text()}>Text</${ui.draggable.text()}>`
                   );
+                  // console.log(remAttrElement.prop("outerHTML"));
 
-                  var newCode = code.replace(
-                    htmlElement,
-                    remAttrElement.prop("outerHTML")
-                  );
+                  if ($(htmlElement).html() === $(code).html()) {
+                    console.log(1);
+                    codeEditor.setValue(remAttrElement.prop("outerHTML"));
+                  } else {
+                    var newCode = code.replace(
+                      htmlElement,
+                      remAttrElement.prop("outerHTML")
+                    );
 
-                  codeEditor.setValue(newCode);
-                  codeEditor.clearSelection();
+                    codeEditor.setValue(newCode);
+                    codeEditor.clearSelection();
+                  }
                 }
               });
 
@@ -969,7 +987,7 @@ $(function() {
         $(".tree-list").html(treeList);
 
         // Live render
-        var codeValue = phpFullCodeEditor.getValue().toString() + "\n";
+        var codeValue = phpFullCodeEditor.getValue().toString();
         //  + codeContent.toString();
         codeValue = codeValue.replace(/<!--\|/g, "");
         codeValue = codeValue.replace(/\|-->/g, "");
@@ -1029,7 +1047,7 @@ $(function() {
 
         setTimeout(function() {
           framework.globalIndex = 0;
-          var codeValue = phpFullCodeEditor.getValue().toString() + "\n";
+          var codeValue = phpFullCodeEditor.getValue().toString();
           codeValue = codeValue.replace(/<!--\|/g, "");
           codeValue = codeValue.replace(/\|-->/g, "");
           var data = { html: codeValue };
