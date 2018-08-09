@@ -918,7 +918,7 @@ list-style: none;
     padding: 0;
     position: relative;
 }
-.ux-tabs__header {
+#header .ux-tabs__header {
     display: inline-block;
     padding: 5px;
     margin: 0;
