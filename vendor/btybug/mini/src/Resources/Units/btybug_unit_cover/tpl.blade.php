@@ -1,6 +1,6 @@
 @php
     $pages = $page->author->frontPages()->where('status','published')->orderBy('sorting')->get();
-$currentUrl=\Request::server('REQUEST_URI');
+    $currentUrl=\Request::server('REQUEST_URI');
 
 @endphp
 <div id="top-navigation" class="container-fluid nopadding profile">
@@ -130,8 +130,5 @@ $currentUrl=\Request::server('REQUEST_URI');
         </div>
     </div>
 </div>
-
-
-
 {!! BBstyle($_this->path.DS.'css'.DS.'style.css',$_this) !!}
 {!! BBscript($_this->path.DS.'js'.DS.'custom.js',$_this) !!}
