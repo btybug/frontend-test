@@ -16,9 +16,6 @@
                                     <span>
                                        {{$model->title}}
                                     </span>
-                                    <a href="{{route('mini_admin_delete_units',$model->id)}}">
-                                        <button class="btn btn-sm btn-danger">Delete</button>
-                                    </a>
                                 </div>
                                 <div class="content-profile">
                                     <div class="row">
@@ -53,26 +50,6 @@
                                                                     ">
                                                         </p>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="publish">
-                                                <div class="head">
-                                                    Publish To
-                                                </div>
-
-                                                <div class="publish-check">
-                                                    @foreach($memberships as $value)
-                                                        <div class="checkbox-publish">
-                                                            <input type="radio" id="{{$value}}" class="onChange" name="membership" value="{{$value}}"
-                                                                   @if($model->memberships === $value)
-                                                                   checked
-                                                                    @endif
-                                                            >
-                                                            <label for="{{$value}}">{{$value}}</label>
-                                                        </div>
-                                                    @endforeach
                                                 </div>
                                             </div>
                                         </div>
