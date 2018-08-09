@@ -39,7 +39,9 @@ Route::group(['prefix' => 'extra'], function () {
 Route::group(['prefix' => 'gear'], function () {
         Route::get('/', 'ClientController@extraGears')->name('mini_extra_gears');
         Route::get('/create-variation/{id?}', 'ClientController@CreateGearVariation', true)->name('mini_extra_gears_create_unit_variation');
-    Route::get('live/{id?}', 'ClientController@assetsUnitsLive', true)->name('mini_extra_gears_live');
+        Route::get('live/{id?}', 'ClientController@assetsUnitsLive', true)->name('mini_extra_gears_live');
+        Route::get('/settings-iframe/{slug}/{settings?}', 'ClientController@unitPreviewIframe', true)->name('mini_extra_gears_settings_iframe');
+
 
 
     Route::group(['prefix' => '{id?}'], function () {
