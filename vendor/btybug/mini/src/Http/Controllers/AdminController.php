@@ -111,7 +111,6 @@ class AdminController extends Controller
 
     public function postAssetsUnitsSettings(Request $request, $slug)
     {
-        dd($request);
         $published = $request->get('published')?? null;
         $tags = ($request->get('tags')) ? explode(',', $request->get('tags')) : [];
 
