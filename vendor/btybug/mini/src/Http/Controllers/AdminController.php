@@ -111,6 +111,8 @@ class AdminController extends Controller
 
     public function postAssetsUnitsSettings(Request $request, $slug)
     {
+        dd($request);
+        $published = $request->get('published')?? null;
         $tags = ($request->get('tags')) ? explode(',', $request->get('tags')) : [];
 
         $memberships = $request->membership ? $request->membership : null;
@@ -119,7 +121,7 @@ class AdminController extends Controller
                 $this->tagsRepository->create(['name' => $tag, 'type' => 'minicms']);
             }
         $unit = $this->painter->find($slug);
-        $unit->setAttributes('tags', $tags)->setAttributes('memberships', $memberships)->setAttributes('status', $request->get('status'))->edit();
+        $unit->setAttributes('tags', $tags)->setAttributes('memberships', $memberships)->setAttributes('status', $published)->edit();
 
         return redirect()->back();
     }

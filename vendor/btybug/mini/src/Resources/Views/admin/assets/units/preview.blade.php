@@ -273,7 +273,7 @@
                     }else {
                         $('.tags').addClass('hidden');
                     }
-                    
+
                     $('.form-group').click(function () {
                         if($('input[name=published]').is(':checked')) {
                             $('.tags').removeClass('hidden');
