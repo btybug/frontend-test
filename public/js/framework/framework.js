@@ -918,9 +918,11 @@ $(function() {
               // Init CSS Studio
               $("#bb-css-studio").html("");
               $("[dnd-placeholder]").droppable({
+                accept: ".dnd-html-item",
                 greedy: true,
                 classes: {
-                  "ui-droppable-hover": "ui-state-hover"
+                  // "ui-droppable": "highlight",
+                  "ui-droppable-hover": "ankap-mi-ban"
                 },
                 drop: function(event, ui) {
                   let remAttrElement = removeDnDAtrbutes($(this));
