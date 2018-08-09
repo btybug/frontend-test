@@ -9,7 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+dd(123456);
 Route::get('/', function () {
     return view('welcome');
 });
