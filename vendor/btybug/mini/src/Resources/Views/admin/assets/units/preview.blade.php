@@ -17,7 +17,7 @@
                                {{$model->title}}
                             </span>
                                     <a href="{{route('mini_admin_delete_units',$model->id)}}">
-                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                        <button class="btn btn-sm btn-danger unit_delete">Delete</button>
                                     </a>
                                 </div>
                                 <div class="content">
@@ -245,6 +245,11 @@
     </script>
     <script>
                 $(document).ready(function () {
+                    $('.unit_delete').click(function () {
+                        if (!confirm("Are you shure want to delete")){
+                            return false;
+                        }
+                    });
                     $('.onChange').on('change',function (e) {
                         e.preventDefault();
                         $(".btn-submit-ajax").click();
