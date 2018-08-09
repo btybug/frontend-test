@@ -43,7 +43,7 @@
                                                         <p>
                                                             <span>Tags:</span>
                                                         </p>
-                                                        <p class="hidden tags">
+                                                        <p class="tags">
                                                             <input type="text" name="tags" class="onChange" id="tagits" value="
                                                                     @if(is_array($tags))
                                                                         {{implode(',',$tags)}}
@@ -74,7 +74,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="publish-check">
+                                                <div class="publish-check hidden">
                                                     @foreach($memberships as $value)
                                                             <div class="checkbox-publish onChange">
                                                                 <input type="radio" id="{{$value}}"
@@ -269,16 +269,16 @@
                     });
 
                     if($('input[name=published]').is(':checked')) {
-                        $('.tags').removeClass('hidden');
+                        $('.publish-check').removeClass('hidden');
                     }else {
-                        $('.tags').addClass('hidden');
+                        $('.publish-check').addClass('hidden');
                     }
 
                     $('.form-group').click(function () {
                         if($('input[name=published]').is(':checked')) {
-                            $('.tags').removeClass('hidden');
+                            $('.publish-check').removeClass('hidden');
                         }else {
-                            $('.tags').addClass('hidden');
+                            $('.publish-check').addClass('hidden');
                         }
 
                     })
