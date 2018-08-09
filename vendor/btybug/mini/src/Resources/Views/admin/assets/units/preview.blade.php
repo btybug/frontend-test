@@ -159,31 +159,6 @@
                                         @endforeach
                                     @endif
                                 @endforeach
-                                {{--<div class="col-sm-12">
-                                    <div class="welll">
-                                        <div class="row">
-                                            <div class="col-md-4 col-xs-12">
-                                                <div class="preview">
-                                                    <img src="http://factinteres.ru/wp-content/uploads/2016/09/IMG-Worlds-of-Adventure-1-945x776.jpg"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <div class="title">
-                                                    Variation 2
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-xs-12">
-                                                <div class="buttons">
-                                                    <a href="{!! route('mini_admin_assets_units_live',$model->slug.'.id') !!}">
-                                                    <button class="btn btn-md btn-warning">Edit</button>
-                                                    </a>
-                                                    <button class="btn btn-md btn-danger">Delete</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>--}}
                             </div>
                         </div>
                     </div>

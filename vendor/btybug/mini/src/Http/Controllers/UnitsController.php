@@ -70,4 +70,13 @@ class UnitsController extends Controller
         $variation = $this->miniSuperPainter->find($slug);
         $units = $this->painter->where('self_type', 'units')->get();*/
     }
+    public function assetsUnitsAdd()
+    {
+        $units = $this->miniSuperPainter->where('self_type', 'units')->get();
+        return view('multisite::admin.assets.units.uploadunit',compact('units'));
+    }
+
+    public function assetsUnitsAddupload(Request $request){
+        dd($request);
+    }
 }
