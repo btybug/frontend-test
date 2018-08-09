@@ -58,11 +58,20 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="publish">
-                                                <div class="head">
-                                                    Publish To
+                                                <div class="[ form-group ]">
+                                                    <input type="checkbox" name="fancy-checkbox-warning" id="fancy-checkbox-warning" autocomplete="off" />
+                                                    <div class="[ btn-group ]">
+                                                        <label for="fancy-checkbox-warning" class="[ btn btn-warning ]">
+                                                            <span class="[ glyphicon glyphicon-ok ]"></span>
+                                                            <span> </span>
+                                                        </label>
+                                                        <label for="fancy-checkbox-warning" class="[ btn btn-default active ]">
+                                                            Publish to
+                                                        </label>
+                                                    </div>
                                                 </div>
 
-                                                <div class="publish-check">
+                                                <div class="publish-check hidden">
                                                     @foreach($memberships as $value)
                                                             <div class="checkbox-publish">
                                                                 <input type="radio" id="{{$value}}" class="onChange" name="membership" value="{{$value}}"
@@ -254,6 +263,15 @@
                         e.preventDefault();
                         $(".btn-submit-ajax").click();
                     })
+                    $('.form-group').click(function () {
+                        if($('input[name=fancy-checkbox-warning]').is(':checked')) {
+                            // alert('asdfg');
+                            $('.publish-check').removeClass('hidden')
+                        }else {
+                            $('.publish-check').addClass('hidden');
+                        }
+                    })
+
                 });
 
                 $(".btn-submit-ajax").click(function(e) {
@@ -588,6 +606,50 @@
         }
         .right-main-all .previews .grid .welll .buttons button:first-of-type{
             margin: 0;
+        }
+
+
+
+        .publish-check{
+            margin-top: 55px;
+        }
+        .btn btn-default{
+            text-decoration-color: white;
+        }
+        .form-group{
+            position: absolute;
+            padding: 0px 15px 0px -1px;
+        }
+        .btn-group{
+            position: absolute;
+            display: inline-flex;
+            vertical-align: middle;
+            width: 86px;
+            margin-left: -10px;
+        }
+        .form-group input[type="checkbox"] {
+            display: none;
+        }
+
+        .form-group input[type="checkbox"] + .btn-group > label span {
+            width: 20px;
+        }
+
+        .form-group input[type="checkbox"] + .btn-group > label span:first-child {
+            display: none;
+        }
+        .form-group input[type="checkbox"] + .btn-group > label span:last-child {
+            display: inline-block;
+        }
+        .form-group input[type="checkbox"] + .btn-group > label:last-child  {
+            color: #0b4c6a;
+        }
+
+        .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+            display: inline-block;
+        }
+        .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+            display: none;
         }
     </style>
 
