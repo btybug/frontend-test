@@ -1619,7 +1619,7 @@ function getCss()
     $actives = \Config::get('units_css', []);
     $html = '';
     foreach ($actives as $key => $active) {
-        $html .= Html::style($active);
+        $html .= Html::style($active.'?v='.rand(999,9999));
     }
     return $html;
 }
