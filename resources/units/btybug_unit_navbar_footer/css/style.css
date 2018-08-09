@@ -1,0 +1,394 @@
+
+.profiles-navbar {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    color: white;
+}
+
+.profiles-navbar a {
+    text-decoration: none;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -ms-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+
+.profiles-navbar i {
+    font-size: 26px;
+}
+
+.profile-footer .left {
+    display: none;
+    flex: auto;
+    /*padding: 10px 0px 10px 15px;*/
+    border-right: 2px solid #fff;
+    background-color: #262626;
+    padding-left: 15px;
+}
+
+.profile-footer .left .create .name {
+    margin: 0 67px 0 25px;
+    font-size: 24px;
+}
+
+.profile-footer .left .logo-name {
+    font-size: 27px;
+    margin: 0 28px 0 20px;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+.profile-footer .left .logo-name.bg_dark {
+    background-color: #303030;
+}
+
+.profile-footer .left .logo-name .name {
+    font-size: 27px;
+    margin: 0 28px 0 20px;
+}
+
+.profile-footer .left .logo-name img {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+}
+
+.profile-footer .left .icons a {
+    margin-right: 30px;
+    display: block;
+    color: white;
+}
+
+.profile-footer .left .icons a.message {
+    position: relative;
+}
+
+.profile-footer .left .icons a.message span {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    padding: 0;
+    background-color: #ed6556;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 15px;
+    color: #000;
+    border: 2px solid #303030;
+}
+
+.profile-footer .left .icons i {
+    font-size: 32px;
+}
+
+.profile-footer .right {
+    background-color: #262626;
+}
+
+.profile-footer .right .image {
+    margin: 0 12px;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.profile-footer .right .image img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-footer .right .icon {
+    padding: 0 15px;
+    align-self: stretch;
+    border-right: 2px solid rgba(255, 255, 255, 0.16);
+    cursor: pointer;
+    box-shadow: -4px 1px 7px -2px #635e5e;
+}
+
+.profile-footer .right .icon i {
+    font-size: 42px;
+}
+
+.profile-footer .right .name-user {
+    background-color: #434343;
+    align-self: stretch;
+    padding: 0 40px;
+    font-size: 22px;
+    border-radius: 0 0 0 8px;
+    display: none;
+}
+
+.profile-footer .border-none {
+    border: none;
+}
+
+.profile-footer .right.show {
+    background-color: #434343;
+    position: relative;
+}
+
+.profile-footer .right .dropdown-menu {
+    background-color: #434343;
+    border-radius: 3px 3px 0 0;
+    border: 2px solid #434343;
+    border-bottom: 2px solid #000;
+    right: -5px !important;
+    left: 5px !important;
+}
+
+.profile-footer .right .dropdown-menu .dropdown-item {
+    font-size: 19px;
+    color: white;
+    padding: .85rem 2.5rem;
+}
+
+.profile-footer .right .dropdown-menu .dropdown-item:hover, .profile-footer .right .dropdown-menu .dropdown-item:focus {
+    background: none;
+    font-weight: bold;
+}
+
+.profiles-navbar .footerTabs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profiles-navbar .footerTabs {
+    display: none;
+}
+
+.profiles-navbar .footerTabs > ul {
+    background-color: #3f3f3f;
+    box-shadow: 0 -2px 3px -1px #0000006b;
+    border-radius: 0;
+    border: none;
+}
+
+.profiles-navbar .footerTabs > ul li {
+    margin: 0;
+}
+
+.profiles-navbar .footerTabs > ul li a {
+    border-radius: 0;
+    font-size: 22px;
+    position: relative;
+    color: white;
+    padding: 0.5rem 2rem;
+    border: none;
+    opacity: 0.7;
+}
+
+.profiles-navbar .footerTabs > ul li a:hover::after, .profiles-navbar .footerTabs > ul li a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #a9574e;
+    opacity: 1;
+
+}
+
+.profiles-navbar .footerTabs > ul li a.active {
+    background: none;
+    color: white;
+    border: none;
+    opacity: 1;
+}
+
+.profiles-navbar .footerTabs > ul li a:hover {
+    background: none;
+    border: none;
+    opacity: 1;
+}
+
+.profiles-navbar .footerTabs > ul li a i {
+    font-size: 30px;
+    transition: 0.5s ease;
+    opacity: 1;
+}
+
+.profiles-navbar .footerTabs > ul li a.active i, .profiles-navbar .footerTabs > ul li a:hover i {
+    color: #a9574e;
+}
+
+.profiles-navbar .footerTabs .tab-content {
+    background-color: #303030;
+    padding: 30px 10px;
+    min-height: 132px;
+}
+
+.profiles-navbar .footerTabs .tab-content .tab-pane ul li a {
+    padding: 0 40px;
+    color: white;
+    font-size: 20px;
+}
+
+.profiles-navbar .footerTabs .tab-content .tab-pane ul li a span i {
+    font-size: 40px;
+}
+
+/*favorite*/
+.profiles-navbar .profile-favorite ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profiles-navbar .profile-favorite {
+    /*display: none;*/
+}
+
+.profiles-navbar .profile-favorite > ul {
+    background-color: #3f3f3f;
+    box-shadow: 0 -2px 3px -1px #0000006b;
+    border-radius: 0;
+    border: none;
+}
+
+.profiles-navbar .profile-favorite > ul li {
+    margin: 0;
+}
+
+.profiles-navbar .profile-favorite > ul li a {
+    border-radius: 0;
+    font-size: 22px;
+    position: relative;
+    color: white;
+    padding: 0.5rem 2rem;
+    border: none;
+    opacity: 0.7;
+}
+
+.profiles-navbar .profile-favorite > ul li a:hover::after, .profiles-navbar .profile-favorite > ul li a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #a9574e;
+    opacity: 1;
+
+}
+
+.profiles-navbar .profile-favorite > ul li a.active {
+    background: none;
+    color: white;
+    border: none;
+    opacity: 1;
+}
+
+.profiles-navbar .profile-favorite > ul li a:hover {
+    background: none;
+    border: none;
+    opacity: 1;
+}
+
+.profiles-navbar .profile-favorite > ul li a i {
+    font-size: 30px;
+    transition: 0.5s ease;
+    opacity: 1;
+}
+
+.profiles-navbar .profile-favorite > ul li a.active i, .profiles-navbar .profile-favorite > ul li a:hover i {
+    color: #a9574e;
+}
+
+.profiles-navbar .profile-favorite .tab-content {
+    background-color: #303030;
+    padding: 30px 10px;
+    min-height: 132px;
+}
+
+.profiles-navbar .profile-favorite > ul li.search {
+    align-self: center;
+    margin-left: auto;
+    margin-right: 22px;
+}
+
+.profiles-navbar .profile-favorite > ul li.search input::placeholder {
+    font-size: 18px;
+    text-align: center;
+    opacity: 0.6;
+    color: white;
+}
+
+.profiles-navbar .profile-favorite > ul li.search input:-ms-input-placeholder {
+    font-size: 18px;
+    text-align: center;
+    opacity: 0.6;
+    color: white;
+}
+
+.profiles-navbar .profile-favorite > ul li.search input:-ms-input-placeholder {
+    font-size: 18px;
+    text-align: center;
+    opacity: 0.6;
+    color: white;
+}
+
+.profiles-navbar .profile-favorite > ul li.search input:focus {
+    box-shadow: none;
+}
+
+.profiles-navbar .profile-favorite > ul li.search input {
+    padding: .375rem 3rem;
+    border-radius: 1rem;
+    background-color: #ffffff1f;
+    border: none;
+    color: #ffffff1f;
+    outline: none;
+    font-size: 18px;
+}
+
+.profiles-navbar .profile-favorite .tab-content {
+
+}
+
+.profiles-navbar .profile-favorite .tab-content .favorite-users {
+    flex: auto;
+
+}
+.profiles-navbar .profile-favorite .tab-content .favorite-carousel .item img {
+    width: 69px;
+    height: 69px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+.profiles-navbar .profile-favorite .tab-content .favorite-carousel .item .name {
+    font-size: 15px;
+    background-color: #3f3f3f;
+    border-radius: 20px;
+    padding: 8px 25px;
+}
+.profiles-navbar .profile-favorite .tab-content {
+
+}
+
+.profiles-navbar .profile-favorite .tab-content .favorite-icon {
+    width: 59px;
+    height: 59px;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+    background: #66312c;
+    background: -moz-linear-gradient(top, #66312c 0%, #b65349 50%, #b65349 100%);
+    background: -webkit-linear-gradient(top, #66312c 0%, #b65349 50%, #b65349 100%);
+    background: linear-gradient(to bottom, #66312c 0%, #b65349 50%, #b65349 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66312c', endColorstr='#b65349', GradientType=0);
+    cursor: pointer;
+    margin-right: 30px;
+}
+
