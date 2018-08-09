@@ -1677,7 +1677,7 @@ function getFooterJs()
     $actives = \Config::get('units_js.footer', []);
     $html = '';
     foreach ($actives as $key => $active) {
-        $html .= Html::script($active);
+        $html .= Html::script($active.'?v='.rand(999,9999));
     }
     return $html;
 }
@@ -1687,7 +1687,7 @@ function getHeaderJs()
     $actives = \Config::get('units_js.header', []);
     $html = '';
     foreach ($actives as $key => $active) {
-        $html .= Html::script($active);
+        $html .= Html::script($active.'?v='.rand(999,9999));
     }
     return $html;
 }
