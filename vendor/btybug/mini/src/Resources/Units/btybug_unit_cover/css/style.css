@@ -31,7 +31,7 @@ section {
     /*overflow: hidden;*/
 }
 
-.cd-words-wrapper {
+.profile .cd-words-wrapper {
     display: inline-block;
     position: relative;
     text-align: left;
@@ -41,7 +41,7 @@ section {
     font-size: 25px;
 }
 
-.hvr-sweep-to-bottom {
+.profile .hvr-sweep-to-bottom {
     display: inline-block;
     vertical-align: middle;
     box-shadow: 0 0 1px transparent;
@@ -80,15 +80,15 @@ section {
     }
 }
 
-.ux-tabs {
+.profile .ux-tabs {
     /*background-color: #3a72a7;*/
 }
-.ux-tabs__headers {
+.profile .ux-tabs__headers {
     margin: 0;
     padding: 0;
     position: relative;
 }
-.ux-tabs__header {
+.profile .ux-tabs__header {
     display: inline-block;
     padding: 5px;
     margin: 0;
@@ -98,12 +98,12 @@ section {
     width: 235px;
     height: 95px;
 }
-.ux-tabs__headers:after{
+.profile .ux-tabs__headers:after{
     content: '';
     display: table;
     clear: both;
 }
-.ux-tabs__dropdown {
+.profile .ux-tabs__dropdown {
     background-color: #3a72a7;
     cursor: pointer;
     color: white;
@@ -113,7 +113,7 @@ section {
     position: relative;
     height: 95px;
 }
-.ux-tabs__dropdown-items {
+.profile .ux-tabs__dropdown-items {
     position: absolute;
     padding: 0;
     display: none;
@@ -122,25 +122,25 @@ section {
     margin: 0;
     z-index: 9;
 }
-.ux-tabs__dropdown-item {
+.profile .ux-tabs__dropdown-item {
     list-style-type: none;
     margin: 0;
     padding: 5px;
     background: #3a72a7cc;
     border-bottom: 1px solid #fff;
 }
-.ux-tabs__dropdown-item a{
+.profile .ux-tabs__dropdown-item a{
     padding:25px !important;
 }
 
-.ux-u-d-block {
+.profile .ux-u-d-block {
     display: block;
 }
 
-.ux-u-d-none {
+.profile .ux-u-d-none {
     display: none;
 }
-.ux-tabs__dropdown>i{
+.profile .ux-tabs__dropdown>i{
     padding: 1.2px;
 }
 
@@ -332,12 +332,12 @@ section {
 }
 /*Responsive*/
 @media (max-width: 1200px) {
-    .ux-tabs__dropdown .more{
+    .profile .ux-tabs__dropdown .more{
         display: none;
     }
 }
 @media (max-width: 767px) {
-    .ux-tabs__dropdown .more{
+    .profile .ux-tabs__dropdown .more{
         display: none;
     }
     .profile .profile-top{
