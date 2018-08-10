@@ -11,11 +11,13 @@ namespace Btybug\Mini\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Btybug\Mini\Model\MiniSuperPainter;
+use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Validation\Rules\In;
 use Storage;
-use ZanySoft\Zip\Zip;
+use ZipArchive;
+use File;
 
 class UnitsController extends Controller
 {
@@ -81,15 +83,20 @@ class UnitsController extends Controller
     }
 
     public function assetsUnitsAddupload(Request $request){
-        //$name = $request->zip;
-        $file = Input::file('zip');
-        $foo = \File::extension($file);
+        $file = $request->file;
+        $foo = $file->getClientOriginalExtension();
         if ($foo === 'zip'){
-            if ($file->isValid()) {
-                $filename = 'unit'.$foo;
-                Storage::disk('zip')->put($filename, $file);
-                dd($filename);
-            }
+                $filenamenoext = 'unit'.uniqid();
+                $filenamewithext = $filenamenoext.'.'.$foo;
+                $newfolder = $filenamenoext;
+                File::makeDirectory(storage_path('zip').DS.$newfolder, 0777, true, true);
+                $newFile = $file->move(storage_path('zip').DS.$newfolder,$filenamewithext);
+                ZipArchive::open($newFile);
+                ZipArchive::exextractTo(storage_path('zip').DS.$newfolder);
+                ZipArchive::close();
+
+
+
 
         }else{
             return back()->with('message','Please upload .ZIP archived file');

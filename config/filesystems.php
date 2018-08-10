@@ -14,7 +14,7 @@ return [
     */
 
     'default' => env('FILESYSTEM_DRIVER', 'local'),
-
+    'zip' => env('FILESYSTEM_ZIP', 'zip'),
     /*
     |--------------------------------------------------------------------------
     | Default Cloud Filesystem Disk
@@ -54,7 +54,12 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
-
+        'zip' => [
+            'driver' => 'local',
+            'root' => storage_path('zip'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_KEY'),

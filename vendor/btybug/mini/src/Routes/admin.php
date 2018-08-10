@@ -14,7 +14,7 @@ Route::group(['prefix' => 'assets'], function () {
 
         Route::get('/', 'AdminController@assetsUnits', true)->name('mini_admin_assets_units');
         Route::get('/add', 'UnitsController@assetsUnitsAdd', true)->name('mini_admin_assets_units_add');
-        Route::get('/add/upload', 'UnitsController@assetsUnitsAddupload', true)->name('mini_admin_assets_units_add_upload');
+        Route::post('/add/upload', 'UnitsController@assetsUnitsAddupload', true)->name('mini_admin_assets_units_add_upload');
     Route::group(['prefix' => '{id?}'], function () {
         Route::get('/', 'AdminController@assetsUnits', true)->name('mini_admin_assets_units');
         });
