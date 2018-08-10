@@ -1702,7 +1702,7 @@ function compare_with_profile($type, $hash)
 
     $profileRepository = new \Btybug\Uploads\Repository\VersionProfilesRepository();
     $profile = $profileRepository->findOneByMultiple(['id' => $id, 'type' => $type]);
-    dd($profile);
+    dd($profile->files);
     $assets = $profile->files;
     $file_ides = [];
     if ($type == 'css') {
