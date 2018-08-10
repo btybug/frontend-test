@@ -37,7 +37,7 @@ Route::group(['prefix' => 'extra'], function () {
         Route::get('/settings', 'PluginsController@getSettings')->name('mini_extra_plugin_settings');
     });
 Route::group(['prefix' => 'gear'], function () {
-        Route::get('/', 'ClientController@extraGears')->name('mini_extra_gears');
+        Route::get('/{slug?}', 'ClientController@extraGears')->name('mini_extra_gears');
         Route::get('/create-variation/{id?}', 'ClientController@CreateGearVariation', true)->name('mini_extra_gears_create_unit_variation');
         Route::get('live/{id?}', 'ClientController@assetsUnitsLive', true)->name('mini_extra_gears_live');
         Route::get('preview/{id?}', 'ClientController@assetsUnitsPreview', true)->name('mini_extra_gears_preview');
@@ -45,11 +45,6 @@ Route::group(['prefix' => 'gear'], function () {
         Route::get('/settings-iframe/{slug}/{settings?}', 'ClientController@unitPreviewIframeUser', true)->name('mini_extra_gears_settings_iframe');
 
 
-
-    Route::group(['prefix' => '{id?}'], function () {
-        Route::get('/', 'ClientController@extraGears')->name('mini_extra_gears');
-
-    });
 });
     Route::get('/widgets', 'ClientController@extraWidgets')->name('mini_extra_widgets');
     Route::get('/layouts', 'ClientController@extraLayouts')->name('mini_extra_layouts');

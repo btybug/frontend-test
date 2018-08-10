@@ -141,7 +141,6 @@ class ClientController extends MiniController
 
     public function extraWidgets(Request $request, $slug = null)
     {
-
         $units = $this->painter->where('self_type', 'widget')->get();
         $model = $this->unitService->getUnit($units, $slug);
         $tags = $model->tags;
@@ -165,16 +164,13 @@ class ClientController extends MiniController
 
     public function extraGears(Request $request, $slug = null)
     {
-        $units = $this->painter->where('self_type', 'units')->get();
-        $model = $this->unitService->getUnit($units, $slug);
-
+        $this->ennable($request);
+        $units = MiniPainter::where('self_type', 'units')->get();
+        $model = $this->unitService->getUserUnit($units, $slug);
         $tags = $model->tags;
         $memberships = $this->membershipRepository->pluck('name', 'slug')->toArray();
-
         $tags = implode(',', $tags);
-        $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
-
-        $this->ennable($request);
+        $variations = ($slug) ? $model->makeUserVariationPath($slug, $this->user)->variations()->all()->pluck('title', 'id') : collect([]);
         return $this->cms->extraGears($units, $model, $slug, $tags, $memberships, $variations);
     }
 
@@ -251,7 +247,7 @@ class ClientController extends MiniController
     {
         $this->ennable($request);
         if ($slug) {
-            $view = MiniSuperPainter::renderLivePreviewUser($slug);
+            $view = MiniPainter::renderLivePreviewUser($slug, $this->user);
             return $view ? $view : abort('404');
         } else {
             abort('404');
@@ -260,13 +256,14 @@ class ClientController extends MiniController
 
     public function assetsUnitsPreviewSave(Request $request)
     {
-        $output = MiniSuperPainter::saveSettings($request->id, $request->itemname, $request->except(['_token', 'itemname']), $request->save);
+        $this->ennable($request);
+        $output = MiniPainter::makeUserVariationPath($request->id, $this->user)->saveSettings($request->id, $request->itemname, $request->except(['_token', 'itemname']), $request->save);
 
         return response()->json([
             'error' => $output ? false : true,
-            'url'   => $output ? route('mini_extra_gears_preview',$output['slug']) : false,
-            'html'  => $output ? $output['html'] : false,
-            'slug'  => $output['slug']
+            'url' => $output ? route('mini_extra_gears_preview', $output['slug']) : false,
+            'html' => $output ? $output['html'] : false,
+            'slug' => $output['slug']
         ]);
     }
 
@@ -276,12 +273,14 @@ class ClientController extends MiniController
         return $this->cms->FormInputs($id);
     }
 
-    public function CreateGearVariation($slug = null)
+    public function CreateGearVariation(Request $request,$slug)
     {
-        $layout = $this->painter->find($slug);
+        $this->ennable($request);
+
+        $layout = MiniPainter::find($request->id);
         if (!$layout) abort(404);
-        $variation = $layout->makeVariation();
-        return redirect()->route('mini_extra_gears_live', $variation->id);
+        $variation = $layout->makeUserVariationPath($request->id, $this->user)->makeVariation();
+        return redirect()->route('mini_extra_gears_preview', $variation->id);
     }
 
 
@@ -316,10 +315,13 @@ class ClientController extends MiniController
         $ui->setSaveUrl(route('minicms_settings_save', $id));
         return view('multisite::admin.assets.units._partials.unit_preview', compact(['htmlBody', 'htmlSettings', 'settings', 'settings_json', 'id', 'ui']));
     }
-    public function unitPreviewIframeUser($id, $type = null)
+
+    public function unitPreviewIframeUser($id, $type = null, Request $request)
     {
+        $this->ennable($request);
         $slug = explode('.', $id);
-        $ui = MiniSuperPainter::find($slug[0]);
+        $ui = MiniPainter::find($slug[0]);
+        $ui->makeUserVariationPath($id, $this->user);
         $variation = $ui->variations(false)->find($id);
         $settings = [];
         $extra_data = 'some string';

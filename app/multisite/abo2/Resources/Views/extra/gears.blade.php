@@ -77,7 +77,7 @@
                             <div class="row">
                                 @foreach($units as $val)
                                     @if($val->slug == $model->slug)
-                                        @foreach($val->variations()->all() as  $v)
+                                        @foreach($val->makeUserVariationPath($val->slug, $user)->variations()->all() as  $v)
                                             @if($v->title !== 'default')
                                                 <div class="col-sm-12">
                                                     <div class="welll">
@@ -85,7 +85,7 @@
                                                             <div class="col-md-4 col-xs-12">
                                                                 <div class="preview">
                                                                     <iframe class="unit_preview" data-slug="}"
-                                                                            src="{{route('mini_admin_assets_units_live',$v->id )}}"
+                                                                            src="{{route('mini_extra_gears_settings_iframe',$v->id )}}"
                                                                             width="100%" style="min-height: 500px;">
                                                                     </iframe>
                                                                 </div>
