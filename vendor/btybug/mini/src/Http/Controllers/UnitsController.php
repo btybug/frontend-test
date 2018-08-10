@@ -89,19 +89,46 @@ class UnitsController extends Controller
                 $filenamenoext = 'unit'.uniqid();
                 $filenamewithext = $filenamenoext.'.'.$foo;
                 $newfolder = $filenamenoext;
-                File::makeDirectory(storage_path('zip').DS.$newfolder, 0777, true, true);
-                $newFile = $file->move(storage_path('zip').DS.$newfolder,$filenamewithext);
-                ZipArchive::open($newFile);
-                ZipArchive::exextractTo(storage_path('zip').DS.$newfolder);
-                ZipArchive::close();
+                $storagePath = storage_path('zip').DS.$newfolder;
+                File::makeDirectory($storagePath, 0777, true, true);
+                $newFile = $file->move($storagePath,$filenamewithext);
+                 $zip = new ZipArchive();
+                 $zip->open($newFile);
+                 $zip->extractTo($storagePath);
+                 $zip->close();
+                    $json = File::get($storagePath.DS.'config.json');
+                    $json = json_decode($json);
+                    $slug = $json->slug;
+                    $exist_folder = scandir(public_path('../vendor/btybug/mini/src/Resources/Units'));
+                    if (in_array($slug,$exist_folder))
+                    {
+                        $slug = $slug.'.'.uniqid();
+                        $json->slug = $slug;
+                        $json->folder = $slug;
+                        $path = explode('/',$json->path);
+                        $k = count($path)-1;
+                        $path[$k] = $slug;
+                        $path = implode('/',$path);
+                        $json->path = $path;
+                        $json->title = $slug;
 
+                    }
 
+                        $publicPath = public_path('../vendor/btybug/mini/src/Resources/Units').DS.$slug;
+                        $json = json_encode($json);
+                        File::put($storagePath.DS.'config.json',$json);
+                        File::makeDirectory($publicPath);
+                        File::copyDirectory($storagePath,$publicPath);
+                        File::deleteDirectory($storagePath);
+                        File::delete($publicPath.DS.$filenamewithext);
+                        File::delete(storage_path('app').DS.'minipainter.json');
 
-
+                return back()->with('message','Unit uploaded successfully');
         }else{
-            return back()->with('message','Please upload .ZIP archived file');
+                return back()->with('message','Please upload .ZIP archived file');
         }
 
 
     }
+
 }
