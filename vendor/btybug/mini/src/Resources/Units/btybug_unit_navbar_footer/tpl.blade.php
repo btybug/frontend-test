@@ -231,4 +231,5 @@
 
 
 {!! BBscript($_this->path.DS.'js'.DS.'owl.carousel.min.js',$_this) !!}
+{!! BBscript($_this->path.DS.'js'.DS.'jquery-sortable.js',$_this) !!}
 {!! BBscript($_this->path.DS.'js'.DS.'custom.js',$_this) !!}

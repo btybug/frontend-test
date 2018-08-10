@@ -243,4 +243,5 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 {!! BBscript($_this->path.DS.'js'.DS.'owl.carousel.min.js',$_this) !!}
+{!! BBscript($_this->path.DS.'js'.DS.'jquery-sortable.js',$_this) !!}
 {!! BBscript($_this->path.DS.'js'.DS.'custom.js',$_this) !!}

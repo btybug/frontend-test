@@ -441,6 +441,25 @@
 .profiles-navbar .profile-favorite .tab-content .favorite-carousel .owl-stage{
     display: flex;
 }
+/*tabs sotrable*/
+body.dragging, body.dragging * {
+    cursor: move !important;
+}
+
+.dragged {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 2000;
+}
+
+#myTab> li.placeholder {
+    position: relative;
+    /** More li styles **/
+}
+#myTab >li.placeholder:before {
+    position: absolute;
+    /** Define arrowhead **/
+}
 /*Responsive*/
 @media (max-width: 900px) {
     .profile-footer .left{

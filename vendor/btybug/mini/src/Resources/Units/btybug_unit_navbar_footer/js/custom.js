@@ -78,7 +78,9 @@ $(document).ready(function () {
         autoWidth:true,
         items:2,
         nav:true,
-        dots: false,
-
-    })
+        dots: false
+    });
+    // tabs sortable
+    $("#myTab").sortable();
+    $("#myTabFavorite").sortable();
 });
