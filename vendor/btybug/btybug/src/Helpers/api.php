@@ -1702,23 +1702,24 @@ function compare_with_profile($type, $hash)
 
     $profileRepository = new \Btybug\Uploads\Repository\VersionProfilesRepository();
     $profile = $profileRepository->findOneByMultiple(['id' => $id, 'type' => $type]);
-    $assets = $profile->files;
-    $file_ides = [];
-    if ($type == 'css') {
-        $friles = (isset($assets['headerCss'])) ? $assets['headerCss'] : [];
-    } else {
-        $friles = (isset($assets['headerJs'])) ? $assets['headerJs'] : [];
-        $friles2 = (isset($assets['headerCss'])) ? $assets['headerCss'] : [];
-        foreach ($friles2 as $file) {
+    if(is_object($profile)){
+        $assets = $profile->files;
+        $file_ides = [];
+        if ($type == 'css') {
+            $friles = (isset($assets['headerCss'])) ? $assets['headerCss'] : [];
+        } else {
+            $friles = (isset($assets['headerJs'])) ? $assets['headerJs'] : [];
+            $friles2 = (isset($assets['headerCss'])) ? $assets['headerCss'] : [];
+            foreach ($friles2 as $file) {
+                $file_ides[] = $file['id'];
+            }
+        }
+
+        foreach ($friles as $file) {
             $file_ides[] = $file['id'];
         }
+        return \Btybug\Framework\Models\Versions::whereIn('id', $file_ides)->where('content', $hash)->exists();
     }
-
-    foreach ($friles as $file) {
-        $file_ides[] = $file['id'];
-    }
-    return \Btybug\Framework\Models\Versions::whereIn('id', $file_ides)->where('content', $hash)->exists();
-
 }
 
 
