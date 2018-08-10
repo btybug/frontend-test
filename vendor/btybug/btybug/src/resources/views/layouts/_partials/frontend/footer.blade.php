@@ -1,6 +1,6 @@
 <!-- ================== BEGIN BASE FOOTER JS ================== -->
 @if($page->js_type == 'default')
-    {!! dd(1) !!}
+    {!! dd(BBgetProfileAssets(false,'js','footerJs')) !!}
     {!! BBgetProfileAssets(false,'js','footerJs') !!}
 @elseif($page->js_type == 'cms')
     {!! dd(2) !!}
