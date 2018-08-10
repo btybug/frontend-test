@@ -1,0 +1,12 @@
+{
+  "title": "default",
+  "id": "btybug_unit_navbar_footer.default",
+  "settings": {
+    "shoe_name": "1",
+    "shoe_avatar": "1",
+    "shoe_avatar_on_top": "1",
+    "shoe_name_on_top": "1",
+    "user_fields": "id",
+    "profession": "Designer"
+  }
+}

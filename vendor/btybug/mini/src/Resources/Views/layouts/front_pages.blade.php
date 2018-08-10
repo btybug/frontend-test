@@ -1,6 +1,6 @@
 @extends("btybug::layouts.frontend")
 @section('contents')
-    {!! render_mini_unit('btybug_header.default',\Btybug\Mini\Model\MiniPainter::class) !!}
+
     @if($page->header)
         @if($page->header_unit)
             {!! render_mini_unit($page->header_unit,\Btybug\Mini\Model\MiniPainter::class) !!}
@@ -10,7 +10,8 @@
     @endif
     {!! BBRenderMiniFrontLayout($page,\Btybug\Mini\Model\MiniLayouts::class) !!}
 
-    @if($page->footer)
-        {!! BBfooter() !!}
-    @endif
+    {!! render_mini_unit('btybug_unit_navbar_footer.default',\Btybug\Mini\Model\MiniSuperPainter::class) !!}
+    {{--@if($page->footer)--}}
+        {{--{!! BBfooter() !!}--}}
+    {{--@endif--}}
 @stop
