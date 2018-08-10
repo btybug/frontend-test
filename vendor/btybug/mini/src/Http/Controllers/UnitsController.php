@@ -112,6 +112,7 @@ class UnitsController extends Controller
                         $json->path = $path;
                         $json->title = $slug;
 
+                        
                     }
 
                         $publicPath = public_path('../vendor/btybug/mini/src/Resources/Units').DS.$slug;
