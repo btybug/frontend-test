@@ -1619,7 +1619,7 @@ function getCss()
     $actives = \Config::get('units_css', []);
     $html = '';
     foreach ($actives as $key => $active) {
-        $html .= Html::style($active.'?v='.rand(999,9999));
+        $html .= Html::style($active . '?v=' . rand(999, 9999));
     }
     return $html;
 }
@@ -1677,7 +1677,7 @@ function getFooterJs()
     $actives = \Config::get('units_js.footer', []);
     $html = '';
     foreach ($actives as $key => $active) {
-        $html .= Html::script($active.'?v='.rand(999,9999));
+        $html .= Html::script($active . '?v=' . rand(999, 9999));
     }
     return $html;
 }
@@ -1687,7 +1687,7 @@ function getHeaderJs()
     $actives = \Config::get('units_js.header', []);
     $html = '';
     foreach ($actives as $key => $active) {
-        $html .= Html::script($active.'?v='.rand(999,9999));
+        $html .= Html::script($active . '?v=' . rand(999, 9999));
     }
     return $html;
 }
@@ -2762,7 +2762,8 @@ function BBgetProfileAssets($id, $type = 'js', $section = 'headerJs')
             foreach ($assets[$section] as $item) {
                 $path = str_after($item['path'], 'public_html');
                 $path = str_after($path, 'public');
-                if (!starts_with($path, '/resources')) $path = 'public' . DS . $path;
+                if (!starts_with($path, '/resources')) $path = 'public'.$path;
+                $path = str_replace('\\', '/', $path);
                 if ($type == 'js') {
                     if ($item['type'] == 'link') {
                         $result .= Html::script($item['path']) . "\r\n";

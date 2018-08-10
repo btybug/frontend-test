@@ -242,7 +242,7 @@ class ClientController extends MiniController
     {
         $this->ennable($request);
         if ($slug) {
-            $view = MiniSuperPainter::renderLivePreview($slug, 'frontend');
+            $view = MiniSuperPainter::renderLivePreview($slug);
             return $view ? $view : abort('404');
         } else {
             abort('404');
