@@ -40,29 +40,124 @@
         </ul>
         <div class="tab-content" id="myTabFavoriteContent">
             <div class="tab-pane fade show active" id="socialfav" role="tabpanel" aria-labelledby="socialfav-tab">
-                <div class="d-flex justify-content-between ">
-                    <div class="favorite-users">
-                        <div class="favorite-carousel owl-carousel owl-theme">
-                            <div class="item text-center">
-
-                                <img src="/public/images/favorite-user.png" alt="">
-                                <span class="name">Trevor Hansen</span>
-                            </div>
-                            <div class="item text-center">
-                                <img src="/public/images/favorite-user.png" alt="">
-                                <span class="name">Trevor Hansen</span>
-                            </div>
-                            <div class="item text-center">
-                                <img src="/public/images/favorite-user.png" alt="">
-                                <span class="name">Trevor Hansen</span>
-                            </div>
-                            <div class="item text-center">
-                                <img src="/public/images/favorite-user.png" alt="">
-                                <span class="name">Trevor Hansen</span>
+                <div class="row ">
+                    <!--<div class="d-flex justify-content-between ">-->
+                    <div class="col-11">
+                        <div class="favorite-users">
+                            <div class="favorite-carousel owl-carousel owl-theme">
+                                <div class="item text-center">
+                                    <img src="/public/images/fav-user-img.png" alt="">
+                                    <div class="name d-flex align-items-center">
+                                        <span>Trevor Hansens</span>
+                                        <span class="icon">
+                                       <i class="fas fa-times"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="item text-center">
+                                    <img src="/public/images/fav-user-img.png" alt="">
+                                    <div class="name d-flex align-items-center">
+                                        <span>Trevor Hansens</span>
+                                        <span class="icon">
+                                       <i class="fas fa-times"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="item text-center">
+                                    <img src="/public/images/fav-user-img.png" alt="">
+                                    <div class="name d-flex align-items-center">
+                                        <span>Trevor Hansens</span>
+                                        <span class="icon">
+                                       <i class="fas fa-times"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="item text-center">
+                                    <img src="/public/images/fav-user-img.png" alt="">
+                                    <div class="name d-flex align-items-center">
+                                        <span>Trevor Hansens</span>
+                                        <span class="icon">
+                                       <i class="fas fa-times"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="item text-center">
+                                    <img src="/public/images/fav-user-img.png" alt="">
+                                    <div class="name d-flex align-items-center">
+                                        <span>Trevor Hansens</span>
+                                        <span class="icon">
+                                       <i class="fas fa-times"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="item text-center">
+                                    <img src="/public/images/fav-user-img.png" alt="">
+                                    <div class="name d-flex align-items-center">
+                                        <span>Trevor Hansens</span>
+                                        <span class="icon">
+                                       <i class="fas fa-times"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="item text-center">
+                                    <img src="/public/images/fav-user-img.png" alt="">
+                                    <div class="name d-flex align-items-center">
+                                        <span>Trevor Hansens</span>
+                                        <span class="icon">
+                                       <i class="fas fa-times"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="item text-center">
+                                    <img src="/public/images/fav-user-img.png" alt="">
+                                    <div class="name d-flex align-items-center">
+                                        <span>Trevor Hansens</span>
+                                        <span class="icon">
+                                       <i class="fas fa-times"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="item text-center">
+                                    <img src="/public/images/fav-user-img.png" alt="">
+                                    <div class="name d-flex align-items-center">
+                                        <span>Trevor Hansens</span>
+                                        <span class="icon">
+                                       <i class="fas fa-times"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="item text-center">
+                                    <img src="/public/images/fav-user-img.png" alt="">
+                                    <div class="name d-flex align-items-center">
+                                        <span>Trevor Hansens</span>
+                                        <span class="icon">
+                                       <i class="fas fa-times"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="item text-center">
+                                    <img src="/public/images/fav-user-img.png" alt="">
+                                    <div class="name d-flex align-items-center">
+                                        <span>Trevor Hansens</span>
+                                        <span class="icon">
+                                       <i class="fas fa-times"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="item text-center">
+                                    <img src="/public/images/fav-user-img.png" alt="">
+                                    <div class="name d-flex align-items-center">
+                                        <span>Trevor Hansens</span>
+                                        <span class="icon">
+                                       <i class="fas fa-times"></i>
+                                    </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="favorite-icon">
+
+                    <div class="favorite-icon col-1">
                         <div class="heart-icon">
                             <span><i class="fas fa-heartbeat"></i></span>
                         </div>
@@ -77,17 +172,14 @@
 
     <div class="profile-footer d-flex justify-content-end">
         <div class="left justify-content-between align-items-center">
-            <div class="main">
-                <div class="create d-flex align-items-center">
-                    <span class="add-icon"><i class="fas fa-plus"></i></span>
-                    <span class="name">Create</span>
-                    <span class="heart"><i class="far fa-heart"></i></span>
-                </div>
+            <div class="create d-flex align-items-center">
+                <span class="add-icon"><i class="fas fa-plus"></i></span>
+                <span class="name">Create</span>
+                <span class="heart"><i class="far fa-heart"></i></span>
             </div>
             <div class="logo-name">
                 <div>
-
-                    <img src="/public/images/footer-logo-new.png" alt="logo">
+                    <img src="/public/images/profile-footer-logo.png" alt="logo">
                     <span class="name">BTYBUG</span>
                     <span class="icon"><i class="fas fa-angle-up"></i></span>
                 </div>
@@ -116,7 +208,7 @@
             <span class="name-user align-items-center justify-content-center">Johan Juw</span>
             <div class="image" id="click-image" data-toggle="dropdown">
                 <a href="" id="dropdownFooterLink"  aria-haspopup="true" aria-expanded="false">
-                    <img src="/public/images/footer-user-mini.png" alt="user">
+                    <img src="/public/images/profile-footer-user.png" alt="user">
                 </a>
 
             </div>

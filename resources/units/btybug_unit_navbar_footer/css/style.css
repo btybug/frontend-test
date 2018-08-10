@@ -28,7 +28,19 @@
     background-color: #262626;
     padding-left: 15px;
 }
-
+.profile-footer .left .create{
+    align-self: stretch;
+}
+.profile-footer .left .create .heart{
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+}
+.profile-footer .left .create .heart.bg_dark{
+    background-color: #303030;
+}
 .profile-footer .left .create .name {
     margin: 0 67px 0 25px;
     font-size: 24px;
@@ -246,7 +258,7 @@
 }
 
 .profiles-navbar .profile-favorite {
-    /*display: none;*/
+    display: none;
 }
 
 .profiles-navbar .profile-favorite > ul {
@@ -352,31 +364,43 @@
     font-size: 18px;
 }
 
-.profiles-navbar .profile-favorite .tab-content {
-
-}
-
 .profiles-navbar .profile-favorite .tab-content .favorite-users {
-    flex: auto;
-
+    position: relative;
 }
 .profiles-navbar .profile-favorite .tab-content .favorite-carousel .item img {
     width: 69px;
     height: 69px;
     object-fit: cover;
     margin: 0 auto;
+    margin-bottom: 12px;
 }
 .profiles-navbar .profile-favorite .tab-content .favorite-carousel .item .name {
     font-size: 15px;
     background-color: #3f3f3f;
     border-radius: 20px;
-    padding: 8px 25px;
+    padding: 8px 15px;
+    white-space: nowrap;
 }
-.profiles-navbar .profile-favorite .tab-content {
-
+.profiles-navbar .profile-favorite .tab-content .favorite-carousel .item .name .icon{
+    width: 19px;
+    height: 19px;
+    background-color: #a24d44;
+    border-radius: 50%;
+    margin-left: 8px;
+    display: none;
+    align-items: center;
+    justify-content: center;
 }
-
-.profiles-navbar .profile-favorite .tab-content .favorite-icon {
+.profiles-navbar .profile-favorite .tab-content .favorite-carousel .item .name .icon i{
+    font-size: 15px;
+}
+.profiles-navbar .profile-favorite .tab-content .favorite-icon .heart-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.profiles-navbar .profile-favorite .tab-content .favorite-icon span{
     width: 59px;
     height: 59px;
     display: flex;
@@ -391,4 +415,70 @@
     cursor: pointer;
     margin-right: 30px;
 }
-
+.profiles-navbar .profile-favorite .tab-content .favorite-carousel .owl-nav{
+    position: absolute;
+    display: flex;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+.profiles-navbar .profile-favorite .tab-content .favorite-carousel .owl-next{
+    position: absolute;
+    right: 0;
+}
+.profiles-navbar .profile-favorite .tab-content .favorite-carousel button {
+    font-size: 68px;
+    line-height: 78px;
+    outline: none;
+}
+.profiles-navbar .profile-favorite .tab-content .favorite-carousel button:hover {
+    background: none;
+}
+.profiles-navbar .profile-favorite .tab-content .favorite-carousel .owl-item .item{
+    margin: 10px 0;
+    padding: 0 20px;
+}
+.profiles-navbar .profile-favorite .tab-content .favorite-carousel .owl-stage{
+    display: flex;
+}
+/*Responsive*/
+@media (max-width: 900px) {
+    .profile-footer .left{
+        display: flex;
+    }
+    .profile-footer .right .icon,.profile-footer .left .create .name,.profile-footer .left .logo-name .name,.profile-footer .left .logo-name .icon,.profile-footer .left .icons a.message,.profile-footer .left .icons a.bell{
+        display: none !important;
+    }
+    .profile-footer .left{
+        border-right: none;
+        justify-content: space-around !important;
+    }
+    .profile-footer .left>div{
+        flex: auto;
+        justify-content: center;
+    }
+    .profile-footer .left .create>span{
+        flex: auto;
+    }
+    .profile-footer .left .logo-name{
+        padding: 0;
+        margin: 0;
+    }
+    .profile-footer .left .create .heart{
+        justify-content: center;
+    }
+    .profiles-navbar .profile-favorite .tab-content .favorite-icon span{
+        margin-right:0;
+        width: 35px;
+        height: 35px
+    }
+    .profiles-navbar .profile-favorite .tab-content .favorite-icon span i{
+        font-size: 18px;
+    }
+    .profiles-navbar .profile-favorite > ul li.search{
+        margin-right:15px;
+    }
+    .profiles-navbar .profile-favorite > ul li.search input{
+        padding: .375rem 1rem;
+    }
+}
