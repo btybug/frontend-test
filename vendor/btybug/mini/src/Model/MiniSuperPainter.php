@@ -12,6 +12,8 @@ use Btybug\btybug\Models\Painter\BasePainter;
 
 class MiniSuperPainter extends BasePainter
 {
+    protected $saveUrl;
+
     public function __construct()
     {
 
@@ -19,6 +21,17 @@ class MiniSuperPainter extends BasePainter
         $this->config_path = storage_path('app' . DS . 'minipainter.json');
         parent::__construct();
 
+    }
+
+    public function setSaveUrl($url)
+    {
+        $this->saveUrl = $url;
+        return $this;
+    }
+
+    public function getSaveUrl()
+    {
+        return $this->saveUrl;
     }
 
     public function getPath()
@@ -74,6 +87,19 @@ class MiniSuperPainter extends BasePainter
         $settings = $variation->settings;
         $data['body'] = url('/admin/mini/assets/units/settings-iframe', $slug);
         $data['settings'] = url('/admin/mini/assets/units/settings-iframe', $slug) . '/settings';
+        return view('multisite::admin.assets.units.live', compact(['model', "ui", 'data', 'settings', 'variation']));
+    }
+
+    public function scopeRenderLivePreviewUser(string $slug)
+    {
+        $ui = $model = $this->findByVariation($slug);
+        if (!$ui) {
+            return false;
+        }
+        $variation = $ui->variations(false)->find($slug);
+        $settings = $variation->settings;
+        $data['body'] = url('/my-account/extra/gear/settings-iframe', $slug);
+        $data['settings'] = url('/my-account/extra/gear/settings-iframe', $slug) . '/settings';
         return view('multisite::admin.assets.units.live', compact(['model', "ui", 'data', 'settings', 'variation']));
     }
 

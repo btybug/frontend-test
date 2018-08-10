@@ -9,17 +9,17 @@
 namespace Btybug\Mini\Http\Controllers;
 
 
-use Btybug\Uploads\Repository\FormBuilderRepository;
-use Btybug\Mini\Model\MiniPainter;
-use Btybug\Mini\Services\PagesService;
-use Btybug\Console\Repository\FrontPagesRepository;
-use Btybug\Mini\Model\MiniSuperPainter;
-use Btybug\Mini\Services\UnitService;
-use Btybug\User\Repository\MembershipRepository;
-use Btybug\FrontSite\Repository\TagsRepository;
-use Btybug\Mini\Services\LayoutsService;
-use Btybug\Mini\Model\MiniSuperLayouts;
 use Auth;
+use Btybug\Console\Repository\FrontPagesRepository;
+use Btybug\FrontSite\Repository\TagsRepository;
+use Btybug\Mini\Model\MiniPainter;
+use Btybug\Mini\Model\MiniSuperLayouts;
+use Btybug\Mini\Model\MiniSuperPainter;
+use Btybug\Mini\Services\LayoutsService;
+use Btybug\Mini\Services\PagesService;
+use Btybug\Mini\Services\UnitService;
+use Btybug\Uploads\Repository\FormBuilderRepository;
+use Btybug\User\Repository\MembershipRepository;
 use Illuminate\Http\Request;
 
 
@@ -56,38 +56,44 @@ class ClientController extends MiniController
         $this->ennable($request);
         return $this->cms->run();
     }
+
     ////////////////////////////Account Settings /////////////////////////
     public function accountSettings(Request $request)
     {
         $this->ennable($request);
         return $this->cms->accountSettings();
     }
+
     public function accountSettingsTab1(Request $request)
     {
         $this->ennable($request);
         return $this->cms->accountSettingsTab1();
     }
+
     public function accountSettingsTab2(Request $request)
     {
         $this->ennable($request);
         return $this->cms->accountSettingsTab2();
     }
+
     public function accountSettingsTab3(Request $request)
     {
         $this->ennable($request);
         return $this->cms->accountSettingsTab3();
     }
+
     public function accountSettingsTab4(Request $request)
     {
         $this->ennable($request);
         return $this->cms->accountSettingsTab4();
     }
+
     ///////////////////////////////////////////////////////////////////////////
     public function accountForms(Request $request)
     {
         $user_forms = $this->formbuilderRepository->getAll();
         $this->ennable($request);
-        return $this->cms->accountForms()->with('user_forms',$user_forms);
+        return $this->cms->accountForms()->with('user_forms', $user_forms);
     }
 
 
@@ -133,18 +139,18 @@ class ClientController extends MiniController
         return $this->cms->extraPlugins();
     }
 
-    public function extraWidgets(Request $request,$slug = null)
+    public function extraWidgets(Request $request, $slug = null)
     {
 
-        $units = $this->painter->where('self_type','widget')->get();
+        $units = $this->painter->where('self_type', 'widget')->get();
         $model = $this->unitService->getUnit($units, $slug);
         $tags = $model->tags;
-        $memberships = $this->membershipRepository->pluck('name','slug')->toArray();
+        $memberships = $this->membershipRepository->pluck('name', 'slug')->toArray();
         $tags = implode(',', $tags);
         $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
 
         $this->ennable($request);
-        return $this->cms->extraWidgets($units,$model,$slug,$tags,$memberships,$variations);
+        return $this->cms->extraWidgets($units, $model, $slug, $tags, $memberships, $variations);
     }
 
     public function extraLayouts(Request $request, LayoutsService $layoutsService, $slug = null)
@@ -154,7 +160,7 @@ class ClientController extends MiniController
         $model = $layoutsService->getUnit($layouts, $slug);
         $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
         $this->ennable($request);
-        return $this->cms->extraLayouts($layouts,$model,$slug,$variations);
+        return $this->cms->extraLayouts($layouts, $model, $slug, $variations);
     }
 
     public function extraGears(Request $request, $slug = null)
@@ -169,7 +175,7 @@ class ClientController extends MiniController
         $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
 
         $this->ennable($request);
-        return $this->cms->extraGears($units,$model,$slug,$tags,$memberships,$variations);
+        return $this->cms->extraGears($units, $model, $slug, $tags, $memberships, $variations);
     }
 
     public function editUserPage(Request $request, $id, PagesService $service, FrontPagesRepository $repository)
@@ -191,65 +197,80 @@ class ClientController extends MiniController
         return $this->cms->extraPluginSettings();
     }
 
-    public function CreateForms(Request $request){
+    public function CreateForms(Request $request)
+    {
         $this->ennable($request);
         return $this->cms->accountFormBuilder();
     }
 
-    public function FormsSave (Request $request){
-            $data = $request->except('_token');
-            if (!$request->id){
-                $this->formBuilderRepository->create([
-                    'title' => $data['formName'],
-                    'description' => $data['formDescription'],
-                    'form_json' => $data['body'],
-                    'user_id' => Auth::user()->id,
-                    'type' => 'user_settings'
-                ]);
-            }else{
-                $this->formbuilderRepository->update($request->id,[
-                    'title' => $data['formName'],
-                    'description' => $data['formDescription'],
-                    'form_json' => $data['body'],
-                ]);
-            }
+    public function FormsSave(Request $request)
+    {
+        $data = $request->except('_token');
+        if (!$request->id) {
+            $this->formBuilderRepository->create([
+                'title' => $data['formName'],
+                'description' => $data['formDescription'],
+                'form_json' => $data['body'],
+                'user_id' => Auth::user()->id,
+                'type' => 'user_settings'
+            ]);
+        } else {
+            $this->formbuilderRepository->update($request->id, [
+                'title' => $data['formName'],
+                'description' => $data['formDescription'],
+                'form_json' => $data['body'],
+            ]);
+        }
 
-            $this->ennable($request);
-            return $this->cms->FormSave();
+        $this->ennable($request);
+        return $this->cms->FormSave();
     }
 
 
-    public function accountFormsEdit(Request $request,$id = null)
+    public function accountFormsEdit(Request $request, $id = null)
     {
         $editableData = $this->formbuilderRepository->findOrFail($id);
         $this->ennable($request);
         return $this->cms->FormEdit($editableData);
     }
 
-    public function accountFormsDelete(Request $request,$id = null)
+    public function accountFormsDelete(Request $request, $id = null)
     {
         $this->formbuilderRepository->delete($id);
         return back();
     }
 
-    public function accountFormsRender(Request $request,$id = null){
+    public function accountFormsRender(Request $request, $id = null)
+    {
         $editableData = $this->formbuilderRepository->findOrFail($id);
         $this->ennable($request);
         return $this->cms->FormRender($editableData);
     }
 
-    public function assetsUnitsPreview(Request $request,$slug)
+    public function assetsUnitsPreview(Request $request, $slug)
     {
         $this->ennable($request);
         if ($slug) {
-            $view = MiniSuperPainter::renderLivePreview($slug);
+            $view = MiniSuperPainter::renderLivePreviewUser($slug);
             return $view ? $view : abort('404');
         } else {
             abort('404');
         }
     }
 
-    public function FormsInputs(Request $request,$id)
+    public function assetsUnitsPreviewSave(Request $request)
+    {
+        $output = MiniSuperPainter::saveSettings($request->id, $request->itemname, $request->except(['_token', 'itemname']), $request->save);
+
+        return response()->json([
+            'error' => $output ? false : true,
+            'url'   => $output ? route('mini_extra_gears_preview',$output['slug']) : false,
+            'html'  => $output ? $output['html'] : false,
+            'slug'  => $output['slug']
+        ]);
+    }
+
+    public function FormsInputs(Request $request, $id)
     {
         $this->ennable($request);
         return $this->cms->FormInputs($id);
@@ -258,7 +279,7 @@ class ClientController extends MiniController
     public function CreateGearVariation($slug = null)
     {
         $layout = $this->painter->find($slug);
-        if (! $layout) abort(404);
+        if (!$layout) abort(404);
         $variation = $layout->makeVariation();
         return redirect()->route('mini_extra_gears_live', $variation->id);
     }
@@ -276,7 +297,7 @@ class ClientController extends MiniController
         }
     }
 
-    public function unitPreviewIframe ($id, $type = null)
+    public function unitPreviewIframe($id, $type = null)
     {
         $slug = explode('.', $id);
         $ui = MiniSuperPainter::find($slug[0]);
@@ -292,10 +313,28 @@ class ClientController extends MiniController
         $htmlBody = $ui->renderLive(['settings' => $settings, 'source' => $extra_data, 'cheked' => 1, 'field' => null]);
         $htmlSettings = $ui->renderSettings(compact('settings'));
         $settings_json = json_encode($settings, true);
-
+        $ui->setSaveUrl(route('minicms_settings_save', $id));
         return view('multisite::admin.assets.units._partials.unit_preview', compact(['htmlBody', 'htmlSettings', 'settings', 'settings_json', 'id', 'ui']));
     }
-
+    public function unitPreviewIframeUser($id, $type = null)
+    {
+        $slug = explode('.', $id);
+        $ui = MiniSuperPainter::find($slug[0]);
+        $variation = $ui->variations(false)->find($id);
+        $settings = [];
+        $extra_data = 'some string';
+        if (count($variation->settings) > 0) {
+            $settings = $variation->settings;
+        }
+        if ($ui->main_type == 'data_source') {
+            $extra_data = BBGiveMe('array', 3);
+        }
+        $htmlBody = $ui->renderLive(['settings' => $settings, 'source' => $extra_data, 'cheked' => 1, 'field' => null]);
+        $htmlSettings = $ui->renderSettings(compact('settings'));
+        $settings_json = json_encode($settings, true);
+        $ui->setSaveUrl(route('minicms_settings_save_user', $id));
+        return view('multisite::admin.assets.units._partials.unit_preview', compact(['htmlBody', 'htmlSettings', 'settings', 'settings_json', 'id', 'ui']));
+    }
 
 
 }
