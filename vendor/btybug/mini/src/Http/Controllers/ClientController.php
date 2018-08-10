@@ -238,6 +238,17 @@ class ClientController extends MiniController
         return $this->cms->FormRender($editableData);
     }
 
+    public function assetsUnitsPreview(Request $request,$slug)
+    {
+        $this->ennable($request);
+        if ($slug) {
+            $view = MiniSuperPainter::renderLivePreview($slug, 'frontend');
+            return $view ? $view : abort('404');
+        } else {
+            abort('404');
+        }
+    }
+
     public function FormsInputs(Request $request,$id)
     {
         $this->ennable($request);

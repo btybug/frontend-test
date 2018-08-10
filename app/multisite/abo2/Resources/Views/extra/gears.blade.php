@@ -97,7 +97,7 @@
                                                             </div>
                                                             <div class="col-md-3 col-xs-12">
                                                                 <div class="buttons">
-                                                                    <a href="{!! route('mini_admin_assets_units_live',$v->id) !!}">
+                                                                    <a href="{!! route('mini_extra_gears_preview',$v->id) !!}">
                                                                         <button class="btn btn-md btn-warning">Edit</button>
                                                                     </a>
                                                                     <button class="btn btn-md btn-danger">Delete</button>
