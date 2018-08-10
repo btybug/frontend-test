@@ -203,7 +203,6 @@
 <!-- ================== BEGIN FOOTER PAGE LEVEL JS ================== -->
 {!! getFooterJs() !!}
 <!-- ================== END FOOTER PAGE LEVEL JS ================== -->
-{!! Html::script('https://cdnjs.cloudflare.com/ajax/libs/webui-popover/2.1.15/jquery.webui-popover.min.js') !!}
 {!! HTML::script("public/js/UiElements/bb_styles.js?v=".rand('1111','9999')) !!}
 {!! HTML::script("public/js/UiElements/ui-preview-setting.js?v=".rand('1111','9999')) !!}
 {!! HTML::script("public/js/UiElements/ui-settings.js?v=".rand('1111','9999')) !!}
