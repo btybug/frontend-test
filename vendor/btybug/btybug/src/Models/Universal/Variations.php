@@ -73,22 +73,29 @@ class Variations implements \ArrayAccess, \Countable, \IteratorAggregate, Htmlab
 
     public function all()
     {
-        $vars = File::allFiles($this->path);
         $array = array();
-        foreach ($vars as $var) {
-            if (File::extension($var) == 'json') {
-                $data = json_decode(File::get($var), true);
-                if (isset($data['hidden']) && $this->hidden) continue;
-                $all = new $this($this->model);
-                $all->id = File::name($var);
-                $all->path = $this->path . '/' . File::name($var) . '.json';
-                $all->file = $var;
-                $all->attributes = $data instanceof Collection ? $data : Collection::make($data);
-                $all->original = $all->attributes;
-                $all->updated_at = File::lastModified($var);
-                $array[$data['id']] = $all;
+
+        $paths=$this->path;
+        foreach ($paths as $path){
+            if(File::isDirectory($path)){
+                $vars = File::allFiles($path);
+                foreach ($vars as $var) {
+                    if (File::extension($var) == 'json') {
+                        $data = json_decode(File::get($var), true);
+                        if (isset($data['hidden']) && $this->hidden) continue;
+                        $all = new $this($this->model);
+                        $all->id = File::name($var);
+                        $all->path = $path . '/' . File::name($var) . '.json';
+                        $all->file = $var;
+                        $all->attributes = $data instanceof Collection ? $data : Collection::make($data);
+                        $all->original = $all->attributes;
+                        $all->updated_at = File::lastModified($var);
+                        $array[$data['id']] = $all;
+                    }
+                }
             }
         }
+
         $this->items = collect($array);
         return $this;
     }
@@ -119,7 +126,7 @@ class Variations implements \ArrayAccess, \Countable, \IteratorAggregate, Htmlab
     {
         $rand_id = ($slug) ? $slug : uniqid();
         $id = $this->model->getSlug() . '.' . $rand_id;
-        $path = $this->path . DS . $id . '.json';
+        $path = $this->path[0] . DS . $id . '.json';
         $this->path = $path;
         $variation_title = 'New variation_' . $rand_id;
         $settings = [];

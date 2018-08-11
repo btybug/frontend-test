@@ -39,10 +39,7 @@ class MiniPainter extends BasePainter
         return $this->fakePath;
     }
 
-    public function getVariationsPath()
-    {
-        return $this->fakePath;
-    }
+
 
     public function scopeSaveSettings(string $slug, string $title = NULL, array $data, $isSave = NULL)
     {
@@ -103,7 +100,7 @@ class MiniPainter extends BasePainter
         $tpl = $explode[0];
         $path=app_path('multisite' . DS . $user->username . DS .'Resources'.DS.'Units' . DS . $tpl);
         if(!\File::isDirectory($path))\File::makeDirectory($path);
-        $this->setFakePath($path);
+        $this->setVariationsPath($path);
         return $this;
     }
 

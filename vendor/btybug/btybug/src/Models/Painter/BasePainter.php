@@ -26,6 +26,10 @@ abstract class BasePainter implements PainterInterface, VariationAccess
     /**
      * @var
      */
+    protected $variationsPath=[];
+    /**
+     * @var
+     */
     protected $base_path;
     /**
      * @var array
@@ -769,7 +773,13 @@ abstract class BasePainter implements PainterInterface, VariationAccess
      */
     public function getVariationsPath()
     {
-        return $this->getPath() . DS . 'variations';
+        $this->variationsPath[]=$this->getPath() . DS . 'variations';
+        return $this->variationsPath;
+    }
+
+    public function setVariationsPath($path)
+    {
+        $this->variationsPath[]=$path;
     }
     /**
      * @return bool|mixed|string
