@@ -19,8 +19,6 @@ use View;
 
 abstract class BasePainter implements PainterInterface, VariationAccess
 {
-
-
     /**
      * @var
      */
@@ -149,7 +147,6 @@ abstract class BasePainter implements PainterInterface, VariationAccess
      */
     public function scopeVariations(bool $hidden = true)
     {
-
         return new Variations($this, $hidden);
     }
 
@@ -290,11 +287,9 @@ abstract class BasePainter implements PainterInterface, VariationAccess
             $this->scopeAll();
         }
         $arr = $this->storage;
-
         $carbon = new \Carbon\Carbon();
         $format = 'Y-m-d';
         $filtered = [];
-
         if (!$from || !$to) {
             foreach ($arr as $unit) {
                 if (!$from) {
@@ -308,12 +303,9 @@ abstract class BasePainter implements PainterInterface, VariationAccess
         } else {
             $dateFrom = $carbon::parse($from)->format($format); // at first change datepicker format
             $dateTo = $carbon::parse($to)->format($format);
-
             $dateFrom = $carbon::createFromFormat($format, $dateFrom); // and parse string to date object
             $dateTo = $carbon::createFromFormat($format, $dateTo);
-
             $filtered = array_filter($arr, function ($value) use ($dateFrom, $dateTo, $carbon, $format) {
-
                 if (array_key_exists('created_at', $value->toArray())) {
                     $dateInArray = BBgetDateFormat($value->created_at, "Y-m-d");
                     return $carbon::createFromFormat($format, $dateInArray)->between($dateFrom, $dateTo);
@@ -321,7 +313,6 @@ abstract class BasePainter implements PainterInterface, VariationAccess
                 return false;
             });
         }
-
         $this->storage = collect($filtered);
         return $this;
     }
@@ -400,7 +391,6 @@ abstract class BasePainter implements PainterInterface, VariationAccess
         $actives= \Config::get('units',[]);
         $actives[]=['unit'=>$this,'variation'=>$settings['variation']];
         \Config::set('units',collect($actives));
-
         if ($this->main_file) {
             $tpl = str_replace(".blade.php", "", $this->main_file);
             if (isset($settings['view_name'])) {
@@ -501,18 +491,13 @@ abstract class BasePainter implements PainterInterface, VariationAccess
     {
         $full_path = $this->makePath($unit_path);
         $this->validate($full_path);
-
         $get_content = json_decode(\File::get($full_path), true);
         $this->validateSlugWithPath($get_content);
-
         $slug = $get_content["slug"];
         $path = $get_content["path"];
-
         $push_into_config = $this->getRegisters();
         $push_into_config[$slug] = $path;
-
         return \File::put($this->config_path, json_encode($push_into_config));
-
     }
 
     /**
@@ -523,13 +508,10 @@ abstract class BasePainter implements PainterInterface, VariationAccess
     public function scopeDelete()
     {
         $path = $this->makePathForRemove($this->attributes["path"]);
-
         if (\File::exists($path)) {
             $arr = json_decode(\File::get($this->config_path), true);
             unset($arr[$this->slug]);
-
             \File::put($this->config_path, json_encode($arr));
-
             return \File::deleteDirectory($path);
         }
         $this->throwError('Unit Does not found');
@@ -560,7 +542,6 @@ abstract class BasePainter implements PainterInterface, VariationAccess
         }
         throw new Exception("Method $name does not exist");
     }
-
     /**
      * @param $name
      * @return bool
@@ -569,7 +550,6 @@ abstract class BasePainter implements PainterInterface, VariationAccess
     {
         return isset($this->toArray()[$name]);
     }
-
     /**
      * @param $name
      * @param $arguments
@@ -585,7 +565,6 @@ abstract class BasePainter implements PainterInterface, VariationAccess
             throw new \Error("Method $name does not exist");
         }
     }
-
     // make a path
 
     /**
@@ -619,9 +598,7 @@ abstract class BasePainter implements PainterInterface, VariationAccess
         $slug = explode('.', $slug)[0];
         if (!isset($config[$slug])) {
             return null;
-            //$this->throwError("Not Registered Item $slug !!!", 404);
         }
-
         return $this->makePath($config[$slug]);
     }
 
@@ -787,7 +764,6 @@ abstract class BasePainter implements PainterInterface, VariationAccess
         }
         return \File::put($this->getConfigPath(), json_encode($config));
     }
-
     /**
      * @return string
      */
@@ -795,7 +771,6 @@ abstract class BasePainter implements PainterInterface, VariationAccess
     {
         return $this->getPath() . DS . 'variations';
     }
-
     /**
      * @return bool|mixed|string
      */

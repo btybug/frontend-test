@@ -118,7 +118,6 @@ class MiniPainter extends BasePainter
         return $this->saveUrl;
     }
 
-
     public function scopeAll()
     {
         $all = [];
