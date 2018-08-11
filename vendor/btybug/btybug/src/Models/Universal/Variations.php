@@ -5,9 +5,7 @@
  * Date: 16.12.2017
  * Time: 20:07
  */
-
 namespace Btybug\btybug\Models\Universal;
-
 
 use File;
 use Illuminate\Contracts\Support\Htmlable;
@@ -25,21 +23,19 @@ class Variations implements \ArrayAccess, \Countable, \IteratorAggregate, Htmlab
 
     public function __construct($obj, $hidden = true)
     {
-
-        $this->view = $obj->getViewFile();
         $this->model = $obj;
-        $this->path = $obj->getVariationsPath();
+        $this->view = $this->model->getViewFile();
+        $this->path = $this->model->getVariationsPath();
         $this->hidden = $hidden;
-
     }
 
     public function render(array $additionalSettings = [])
     {
         $slug = $this->model->getSlug();
-        $tpl = $this->view;
         $path = $this->model->getPath();
-        \View::addLocation($this->model->getPath());
-        \View::addNamespace($slug, $this->model->getPath());
+        $tpl = $this->view;
+        \View::addLocation($path);
+        \View::addNamespace($slug,$path);
         $variables = $this->mixer($additionalSettings);
         return \View::make("$slug::$tpl")->with('settings', $variables)->with('variation', $this)->with(['tplPath' => $path, '_this' => $this->model])->render();
     }
@@ -51,13 +47,11 @@ class Variations implements \ArrayAccess, \Countable, \IteratorAggregate, Htmlab
             array_filter($settings, function ($value) {
                 return $value !== '';
             });
-
             array_filter($liveSettings, function ($value) {
                 return $value !== '';
             });
             $settings = array_merge($settings, $liveSettings);
         }
-
         return $settings;
     }
 
@@ -102,7 +96,6 @@ class Variations implements \ArrayAccess, \Countable, \IteratorAggregate, Htmlab
     public function default()
     {
         foreach ($this->all()->items as $variation) {
-
             if (strtolower($variation->title) == 'default') {
                 return $variation;
             }
@@ -127,9 +120,7 @@ class Variations implements \ArrayAccess, \Countable, \IteratorAggregate, Htmlab
         $rand_id = ($slug) ? $slug : uniqid();
         $id = $this->model->getSlug() . '.' . $rand_id;
         $path = $this->path . DS . $id . '.json';
-
         $this->path = $path;
-
         $variation_title = 'New variation_' . $rand_id;
         $settings = [];
         $arr = [];
@@ -143,12 +134,10 @@ class Variations implements \ArrayAccess, \Countable, \IteratorAggregate, Htmlab
         if ($hidden) $arr['hidden'] = 1;
         $arr['title'] = $array['title'];
         $arr['settings'] = $settings;
-
         if (isset($array["used_in"])) {
             $arr['used_in'] = $array["used_in"];
         }
         $this->attributes = collect($arr);
-
         return $this;
     }
 
@@ -303,5 +292,4 @@ class Variations implements \ArrayAccess, \Countable, \IteratorAggregate, Htmlab
     {
         return $this->model;
     }
-
 }
