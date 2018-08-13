@@ -30,6 +30,118 @@
         </div>
     </div>
      @include('resources::assests.magicModal')
+
+    <template id="create-page-form-template">
+        <form class="form-horizontal" id="create-page-form">
+            <div class="form-group">
+                <label for="page_title" class="control-label col-xs-4">Title</label>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-bullhorn"></i>
+                        </div>
+                        <input id="page_title" name="title" placeholder="About us" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="page_url" class="control-label col-xs-4">Url</label>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            {username}/
+                        </div>
+                        <input id="page_url" name="url" placeholder="about-us" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="page_status" class="control-label col-xs-4">Page Status</label>
+                <div class="col-xs-8">
+                    <select id="page_status" name="status" class="select form-control">
+                        <option value="draft">Draft</option>
+                        <option value="published">Published</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="membership" class="control-label col-xs-4">Membership</label>
+                <div class="col-xs-8">
+                    <select id="membership" name="memberships" class="select form-control">
+                        <option value="free">Free</option>
+                        <option value="pro">Pro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="tag_unit_for_page" class="control-label col-xs-4">Tag Unit To Page</label>
+                <div class="col-xs-8">
+                    {!! Form::select('tags',$tags,null,['class' => 'form-control','id' => 'tagits']) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="radios">User Cover</label>
+                <div class="col-md-8">
+                    <label class="radio-inline" for="radios-0">
+                        <input type="radio" name="header"  value="1" checked="checked">
+                        Default
+                    </label>
+                    <label class="radio-inline" for="radios-1">
+                        <input type="radio"  name="header"  value="0">
+                        No Header
+                    </label>
+                    <label class="radio-inline" for="radios-1">
+                        <input type="radio" name="header"  value="2">
+                        Special
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="radios">Layout</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="radios-0">
+                        <input type="radio" name="layout"   value="0" checked="checked">
+                        Default
+                    </label>
+                    <label class="radio-inline" for="radios-1">
+                        <input type="radio"  name="layout"  value="1">
+                        Special
+                    </label>
+                </div>
+            </div>
+            <div class="form-group header-bbbutton hide">
+                <label  class="control-label col-xs-4"></label>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        {!! BBbutton2('mini_unit','header_unit','header','Select Default User Cover',['model'=>$header]) !!}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group layout-bbbutton hide">
+                <label  class="control-label col-xs-4"></label>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        {!! BBbutton2('mini_layouts','page_layout','front_pages_layout','Select Default Layout',['model'=>$layout]) !!}
+                    </div>
+                </div>
+            </div>
+            {{--<div class="form-group">--}}
+            {{--<label for="page_url" class="control-label col-xs-4"></label>--}}
+            {{--<div class="col-xs-8">--}}
+            {{--<div class="input-group">--}}
+            {{--{!! BBmediaButton('icon') !!}--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+
+            <div class="form-group row">
+                <div class="col-xs-offset-4 col-xs-8">
+                    <button id="siteSubmit" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </form>
+    </template>
 @stop
 @section('CSS')
     {!! HTML::style('public/css/jquery.tagit.css') !!}
