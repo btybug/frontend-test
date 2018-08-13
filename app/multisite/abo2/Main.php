@@ -292,4 +292,9 @@ class Main
         return view('mini::mysite.btybug_pages')->with(['user' => $this->user, 'pages' => $pages]);
     }
 
+    public function getFavourites()
+    {
+        return view('mini::account.favourites')->with(['user' => $this->user]);
+    }
+
 }

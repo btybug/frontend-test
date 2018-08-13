@@ -62,7 +62,7 @@
                         <div class="col-5">
                             <ul class="links">
                                 <li><a href="{!! url('my-account') !!}"><i class="fas fa-user"></i><span>Account</span></a></li>
-                                <li><a href=""><i class="far fa-heart"></i><span>Favorite</span></a></li>
+                                <li><a href="{!! url('my-account/favourites') !!}"><i class="far fa-heart"></i><span>Favorite</span></a></li>
                                 <li><a href="{!! url('my-account/media') !!}"><i class="fab fa-hubspot"></i><span>Media</span></a></li>
                             </ul>
                         </div>

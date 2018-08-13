@@ -272,6 +272,11 @@ class ClientController extends MiniController
         $this->ennable($request);
         return $this->cms->FormInputs($id);
     }
+    public function getFavourites(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->getFavourites();
+    }
 
     public function CreateGearVariation(Request $request,$slug)
     {

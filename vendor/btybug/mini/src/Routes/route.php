@@ -17,10 +17,14 @@ Route::group(['prefix' => 'settings'], function () {
     Route::get('/tab3', 'ClientController@accountSettingsTab3')->name('mini_account_settings_tab3');
     Route::get('/tab4', 'ClientController@accountSettingsTab4')->name('mini_account_settings_tab4');
 });
+Route::group(['prefix' => 'favourites'], function () {
+    Route::get('/', 'ClientController@getFavourites')->name('mini_favourites');
+});
 Route::group(['prefix' => 'media'], function () {
     Route::get('/', 'ClientController@media')->name('mini_media');
     Route::get('/settings', 'ClientController@mediaSettings')->name('mini_media_settings');
 });
+
 Route::group(['prefix' => 'preferences'], function () {
     Route::get('/', 'ClientController@preferences')->name('mini_preferences');
 });
