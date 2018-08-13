@@ -98,6 +98,7 @@ class MiniPainter extends BasePainter
     {
         $explode = explode('.', $slug);
         $tpl = $explode[0];
+        if(empty($tpl))return $this;
         $path=app_path('multisite' . DS . $user->username . DS .'Resources'.DS.'Units' . DS . $tpl);
         if(!\File::isDirectory($path))\File::makeDirectory($path);
         $this->setVariationsPath($path);
