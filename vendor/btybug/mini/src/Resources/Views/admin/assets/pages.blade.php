@@ -12,7 +12,7 @@
                             <li class="pages-lists" data-id="{!! $page->id !!}">
                                 <span>{!! $page->title !!}</span>
                                 <div class="button">
-                                    <button class="btn btn-sm btn-warning"><i class="fa fa-trash"></i></button>
+                                    <a href="{{route('mini_admin_assets_page_delete',$page->id)}}"><button class="btn btn-sm btn-warning"><i class="fa fa-trash"></i></button></a>
                                 </div>
                             </li>
                         @endforeach

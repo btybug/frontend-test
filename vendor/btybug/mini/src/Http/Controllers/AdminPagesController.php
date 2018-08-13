@@ -60,8 +60,8 @@ class AdminPagesController extends Controller
     public function editPage(Request $request)
     {
         $data = $request->except(['_token', 'id']);
-        $v=\Validator::make($data,['template'=>'required']);
-        if($v->fails())return redirect()->back()->withErrors(['messages'=>$v->messages()]);
+        //$v=\Validator::make($data,['template'=>'required']);
+        //if($v->fails())return redirect()->back()->withErrors(['messages'=>$v->messages()]);
         $data['page_layout'] = ($data['layout'] == 0) ? null : $data['page_layout'];
         $data['header_unit'] = ($data['header'] == 2) ? $data['header_unit'] : null;
         $id = $request->get('id');
@@ -76,5 +76,18 @@ class AdminPagesController extends Controller
         $tags = $this->tagsRepository->pluckByCondition(['type' => 'minicms'], 'name', 'name');
         $html = \View::make('multisite::admin.assets.page_edit_form', compact('model', 'tags'))->render();
         return response()->json(['error' => false, 'html' => $html]);
+    }
+
+    public function assetsPageDelete($id = null)
+    {
+
+        $model = $this->pageRepository->find($id);
+        if ($model->status == 'draft') {
+            $this->pageRepository->delete($id);
+                return back()->with('message', 'The page was deleted successfuly');
+            } else {
+                return back()->with('message', 'Unable to delet this page');
+        }
+
     }
 }
