@@ -52,10 +52,10 @@
     <!-- begin #content -->
     <div id="content" class="content">
         @yield('content')
+</div>
+</div>
+@yield('footer')
 
-    @yield('footer')
-</div>
-</div>
 @include('resources::assests.magicModal',['v'=>'b4'])
 
 <!-- ================== BEGIN FOOTER BASE JS ================== -->
