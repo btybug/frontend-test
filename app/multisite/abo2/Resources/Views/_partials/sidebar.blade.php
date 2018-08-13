@@ -39,6 +39,7 @@
                 <ul class="sub-menu">
                     <li><a href="{!! route('mini_account_settings') !!}">Settings</a></li>
                     <li><a href="{!! route('mini_account_general') !!}">General</a></li>
+                    <li><a href="{!! route('mini_favourites') !!}">Favourites</a></li>
                 </ul>
             </li>
 
