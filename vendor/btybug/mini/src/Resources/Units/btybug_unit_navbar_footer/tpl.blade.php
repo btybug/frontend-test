@@ -251,7 +251,7 @@
             </div>
             <div class="icons d-flex">
                 <a href="#" class="user-mobile"><span class="user-mobile-icon d-flex justify-content-center align-items-center"><i class="far fa-user"></i></span></a>
-                <a href="" class="message">
+                <a href="{!! url('/my-account/communications/messages') !!}" class="message">
 
                     <span class="count d-flex justify-content-center align-items-center">3</span>
                 </a>
