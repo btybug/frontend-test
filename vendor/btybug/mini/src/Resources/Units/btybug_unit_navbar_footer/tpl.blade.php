@@ -1,15 +1,36 @@
 
 <div class="d-flex flex-column profiles-navbar">
     <div class="footerTabs">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="social-tab" data-toggle="tab" href="#social" role="tab" aria-controls="social" aria-selected="true"><span class="mr-4"><i class="fas fa-user"></i></span>Social</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="business-tab" data-toggle="tab" href="#business" role="tab" aria-controls="business" aria-selected="false"><span class="mr-4"><i class="fas fa-briefcase"></i></span>Business</a>
-            </li>
 
-        </ul>
+        <div class=" nav nav-tabs " id="myTab" role="tablist">
+            <div class="col-xl-5 col-sm-12 pl-0">
+                <div class="footertabs-carousel owl-carousel owl-theme">
+                    <div class="nav-item">
+                        <a class="nav-link active" id="social-tab" data-toggle="tab" href="#social" role="tab"
+                           aria-controls="social" aria-selected="true"><span class="mr-4"><i
+                                        class="fas fa-user"></i></span>Social</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" id="business-tab" data-toggle="tab" href="#business" role="tab"
+                           aria-controls="business" aria-selected="false"><span class="mr-4"><i
+                                        class="fas fa-briefcase"></i></span>Business</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" id="business3-tab" data-toggle="tab" href="#business3" role="tab"
+                           aria-controls="business3" aria-selected="false"><span class="mr-4"><i
+                                        class="fas fa-briefcase"></i></span>Item3</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" id="business4-tab" data-toggle="tab" href="#business4" role="tab"
+                           aria-controls="business" aria-selected="false"><span class="mr-4"><i
+                                        class="fas fa-briefcase"></i></span>Item4</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="social" role="tabpanel" aria-labelledby="social-tab">
                 <ul class="d-flex flex-wrap ">
@@ -18,30 +39,47 @@
                             Home
                         </a>
                     </li>
-                    <li><a href="#" class="d-flex flex-column justify-content-center align-items-center"><span><i class="fas fa-user-friends"></i></span>Members</a></li>
-                    <li><a href="#" class="d-flex flex-column justify-content-center align-items-center"><span><i class="far fa-clone"></i></span>About</a></li>
+                    <li><a href="#" class="d-flex flex-column justify-content-center align-items-center"><span><i
+                                        class="fas fa-user-friends"></i></span>Members</a></li>
+                    <li><a href="#" class="d-flex flex-column justify-content-center align-items-center"><span><i
+                                        class="far fa-clone"></i></span>About</a></li>
                 </ul>
             </div>
             <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">2</div>
+            <div class="tab-pane fade" id="business3" role="tabpanel" aria-labelledby="business3-tab">3</div>
+            <div class="tab-pane fade" id="business4" role="tabpanel" aria-labelledby="business4-tab">4</div>
         </div>
     </div>
     <div class="profile-favorite">
-        <ul class="nav nav-tabs" id="myTabFavorite" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="socialfav-tab" data-toggle="tab" href="#socialfav" role="tab" aria-controls="socialfav" aria-selected="true"><span class="mr-4"><i class="fas fa-user"></i></span>Social</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="businessfav-tab" data-toggle="tab" href="#businessfav" role="tab" aria-controls="businessfav" aria-selected="false"><span class="mr-4"><i class="fas fa-briefcase"></i></span>Business</a>
-            </li>
-            <li class="search">
+        <div class="nav nav-tabs" id="myTabFavorite" role="tablist">
+            <div class="col-xl-5 col-sm-12 pl-0">
+                <div class="favoritetabs-carousel owl-carousel owl-theme">
+                    <div class="nav-item">
+                        <a class="nav-link active" id="socialfav-tab" data-toggle="tab" href="#socialfav" role="tab"
+                           aria-controls="socialfav" aria-selected="true"><span class="mr-4"><i class="fas fa-user"></i></span>Social</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" id="businessfav-tab" data-toggle="tab" href="#businessfav" role="tab"
+                           aria-controls="businessfav" aria-selected="false"><span class="mr-4"><i class="fas fa-briefcase"></i></span>Business</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" id="businessfav3-tab" data-toggle="tab" href="#businessfav3" role="tab"
+                           aria-controls="businessfav" aria-selected="false"><span class="mr-4"><i class="fas fa-briefcase"></i></span>Item3</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" id="businessfav4-tab" data-toggle="tab" href="#businessfav4" role="tab"
+                           aria-controls="businessfav" aria-selected="false"><span class="mr-4"><i class="fas fa-briefcase"></i></span>Item4</a>
+                    </div>
+                </div>
+            </div>
+            <div class="search">
                 <input type="search" class="form-control" placeholder="Search">
-            </li>
+            </div>
 
-        </ul>
+        </div>
         <div class="tab-content" id="myTabFavoriteContent">
             <div class="tab-pane fade show active" id="socialfav" role="tabpanel" aria-labelledby="socialfav-tab">
                 <div class="row ">
-                    <!--<div class="d-flex justify-content-between ">-->
                     <div class="col-11">
                         <div class="favorite-users">
                             <div class="favorite-carousel owl-carousel owl-theme">
@@ -167,6 +205,8 @@
 
             </div>
             <div class="tab-pane fade" id="businessfav" role="tabpanel" aria-labelledby="businessfav-tab">2</div>
+            <div class="tab-pane fade" id="businessfav3" role="tabpanel" aria-labelledby="businessfav3-tab">33</div>
+            <div class="tab-pane fade" id="businessfav4" role="tabpanel" aria-labelledby="businessfav4-tab">44</div>
         </div>
     </div>
 
@@ -231,5 +271,4 @@
 
 
 {!! BBscript($_this->path.DS.'js'.DS.'owl.carousel.min.js',$_this) !!}
-{!! BBscript($_this->path.DS.'js'.DS.'jquery-sortable.js',$_this) !!}
 {!! BBscript($_this->path.DS.'js'.DS.'custom.js',$_this) !!}

@@ -72,15 +72,43 @@ $(document).ready(function () {
         }
     });
     $('.favorite-carousel').owlCarousel({
-
         margin:10,
         // loop:true,
         autoWidth:true,
         items:2,
         nav:true,
-        dots: false
+        dots: false,
+
     });
-    // tabs sortable
-    $("#myTab").sortable();
-    $("#myTabFavorite").sortable();
+
+    $('.footertabs-carousel').owlCarousel({
+        responsiveClass:true,
+        items:3,
+        nav:false,
+        dots: false,
+    });
+    $('.favoritetabs-carousel').owlCarousel({
+        responsiveClass:true,
+        items:3,
+        nav:false,
+        dots: false,
+    });
+
+    $('.footerTabs .nav-item a').on('click',function () {
+        $('.footerTabs .nav-item a').each(function(i,elem) {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass('active');
+                return false;
+            }
+        });
+    });
+    $('.profile-favorite .nav-item a').on('click',function () {
+        $('.profile-favorite .nav-item a').each(function(i,elem) {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass('active');
+                return false;
+            }
+        });
+    });
+
 });

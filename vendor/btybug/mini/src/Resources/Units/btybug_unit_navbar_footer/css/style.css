@@ -178,18 +178,18 @@
     display: none;
 }
 
-.profiles-navbar .footerTabs > ul {
+.profiles-navbar .footerTabs > .nav-tabs {
     background-color: #3f3f3f;
     box-shadow: 0 -2px 3px -1px #0000006b;
     border-radius: 0;
     border: none;
 }
 
-.profiles-navbar .footerTabs > ul li {
+.profiles-navbar .footerTabs > .nav-tabs .nav-item {
     margin: 0;
 }
 
-.profiles-navbar .footerTabs > ul li a {
+.profiles-navbar .footerTabs > .nav-tabs .nav-item a {
     border-radius: 0;
     font-size: 22px;
     position: relative;
@@ -197,9 +197,11 @@
     padding: 0.5rem 2rem;
     border: none;
     opacity: 0.7;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
-.profiles-navbar .footerTabs > ul li a:hover::after, .profiles-navbar .footerTabs > ul li a.active::after {
+.profiles-navbar .footerTabs > .nav-tabs .nav-item a:hover::after, .profiles-navbar .footerTabs > .nav-tabs .nav-item a.active::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -211,26 +213,26 @@
 
 }
 
-.profiles-navbar .footerTabs > ul li a.active {
+.profiles-navbar .footerTabs > .nav-tabs .nav-item a.active {
     background: none;
     color: white;
     border: none;
     opacity: 1;
 }
 
-.profiles-navbar .footerTabs > ul li a:hover {
+.profiles-navbar .footerTabs > .nav-tabs .nav-item a:hover {
     background: none;
     border: none;
     opacity: 1;
 }
 
-.profiles-navbar .footerTabs > ul li a i {
+.profiles-navbar .footerTabs > .nav-tabs .nav-item a i {
     font-size: 30px;
     transition: 0.5s ease;
     opacity: 1;
 }
 
-.profiles-navbar .footerTabs > ul li a.active i, .profiles-navbar .footerTabs > ul li a:hover i {
+.profiles-navbar .footerTabs > .nav-tabs .nav-item a.active i, .profiles-navbar .footerTabs > .nav-tabs .nav-item a:hover i {
     color: #a9574e;
 }
 
@@ -261,18 +263,18 @@
     display: none;
 }
 
-.profiles-navbar .profile-favorite > ul {
+.profiles-navbar .profile-favorite > .nav-tabs {
     background-color: #3f3f3f;
     box-shadow: 0 -2px 3px -1px #0000006b;
     border-radius: 0;
     border: none;
 }
 
-.profiles-navbar .profile-favorite > ul li {
+.profiles-navbar .profile-favorite > .nav-tabs  .nav-item {
     margin: 0;
 }
 
-.profiles-navbar .profile-favorite > ul li a {
+.profiles-navbar .profile-favorite > .nav-tabs .nav-item a {
     border-radius: 0;
     font-size: 22px;
     position: relative;
@@ -280,9 +282,11 @@
     padding: 0.5rem 2rem;
     border: none;
     opacity: 0.7;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
-.profiles-navbar .profile-favorite > ul li a:hover::after, .profiles-navbar .profile-favorite > ul li a.active::after {
+.profiles-navbar .profile-favorite > .nav-tabs .nav-item a:hover::after, .profiles-navbar .profile-favorite > .nav-tabs .nav-item a.active::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -294,26 +298,26 @@
 
 }
 
-.profiles-navbar .profile-favorite > ul li a.active {
+.profiles-navbar .profile-favorite > .nav-tabs .nav-item a.active {
     background: none;
     color: white;
     border: none;
     opacity: 1;
 }
 
-.profiles-navbar .profile-favorite > ul li a:hover {
+.profiles-navbar .profile-favorite > .nav-tabs .nav-item a:hover {
     background: none;
     border: none;
     opacity: 1;
 }
 
-.profiles-navbar .profile-favorite > ul li a i {
+.profiles-navbar .profile-favorite > .nav-tabs .nav-item a i {
     font-size: 30px;
     transition: 0.5s ease;
     opacity: 1;
 }
 
-.profiles-navbar .profile-favorite > ul li a.active i, .profiles-navbar .profile-favorite > ul li a:hover i {
+.profiles-navbar .profile-favorite > .nav-tabs .nav-item a.active i, .profiles-navbar .profile-favorite > .nav-tabs .nav-item a:hover i {
     color: #a9574e;
 }
 
@@ -323,38 +327,38 @@
     min-height: 132px;
 }
 
-.profiles-navbar .profile-favorite > ul li.search {
+.profiles-navbar .profile-favorite > .nav-tabs .search {
     align-self: center;
     margin-left: auto;
     margin-right: 22px;
 }
 
-.profiles-navbar .profile-favorite > ul li.search input::placeholder {
+.profiles-navbar .profile-favorite > .nav-tabs .search input::placeholder {
     font-size: 18px;
     text-align: center;
     opacity: 0.6;
     color: white;
 }
 
-.profiles-navbar .profile-favorite > ul li.search input:-ms-input-placeholder {
+.profiles-navbar .profile-favorite > .nav-tabs .search input:-ms-input-placeholder {
     font-size: 18px;
     text-align: center;
     opacity: 0.6;
     color: white;
 }
 
-.profiles-navbar .profile-favorite > ul li.search input:-ms-input-placeholder {
+.profiles-navbar .profile-favorite > .nav-tabs .search input:-ms-input-placeholder {
     font-size: 18px;
     text-align: center;
     opacity: 0.6;
     color: white;
 }
 
-.profiles-navbar .profile-favorite > ul li.search input:focus {
+.profiles-navbar .profile-favorite > .nav-tabs .search input:focus {
     box-shadow: none;
 }
 
-.profiles-navbar .profile-favorite > ul li.search input {
+.profiles-navbar .profile-favorite > .nav-tabs .search input {
     padding: .375rem 3rem;
     border-radius: 1rem;
     background-color: #ffffff1f;
@@ -441,24 +445,6 @@
 .profiles-navbar .profile-favorite .tab-content .favorite-carousel .owl-stage{
     display: flex;
 }
-body.dragging, body.dragging * {
-    cursor: move !important;
-}
-
-.dragged {
-    position: absolute;
-    opacity: 0.5;
-    z-index: 2000;
-}
-
-#myTab> li.placeholder {
-    position: relative;
-    /** More li styles **/
-}
-#myTab >li.placeholder:before {
-    position: absolute;
-    /** Define arrowhead **/
-}
 /*Responsive*/
 @media (max-width: 900px) {
     .profile-footer .left{
@@ -498,5 +484,20 @@ body.dragging, body.dragging * {
     }
     .profiles-navbar .profile-favorite > ul li.search input{
         padding: .375rem 1rem;
+    }
+}
+@media (max-width: 500px) {
+    .profiles-navbar .footerTabs > .nav-tabs .nav-item a,.profiles-navbar .profile-favorite > .nav-tabs .nav-item a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .profiles-navbar .footerTabs > .nav-tabs .nav-item a span,.profiles-navbar .profile-favorite > .nav-tabs .nav-item a span{
+        margin:0 !important;
+    }
+    .profiles-navbar .profile-favorite > .nav-tabs .search{
+        width: 100%;
+        margin: 10px 15px;
     }
 }
