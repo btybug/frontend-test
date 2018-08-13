@@ -1,3 +1,4 @@
+@include('mini::_partials.footer')
 <!doctype html>
 <html lang="en">
 <head>
@@ -38,7 +39,7 @@
     <!-- ================== BEGIN HEADER PAGE LEVEL JS ================== -->
 @yield('header_js')
 <!-- ================== END HEADER PAGE LEVEL JS ================== -->
-
+    {!! getCss() !!}
     <title>Document</title>
 </head>
 <body>
@@ -52,8 +53,7 @@
     <div id="content" class="content">
         @yield('content')
 
-    {{--@include('mini::_partials.footer')
-    @yield('footer')--}}
+    @yield('footer')
 </div>
 </div>
 @include('resources::assests.magicModal',['v'=>'b4'])
@@ -72,5 +72,9 @@
 <!-- ================== END PAGE LEVEL JS ================== -->
 
 @stack('javascript')
+
+<!-- ================== BEGIN FOOTER PAGE LEVEL JS ================== -->
+{!! getFooterJs() !!}
+<!-- ================== END FOOTER PAGE LEVEL JS ================== -->
 </body>
 </html>
