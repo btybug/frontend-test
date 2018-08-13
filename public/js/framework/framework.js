@@ -789,7 +789,6 @@ $(function() {
     $(".sortable-list").sortable({
       connectWith: ".sortable-list",
       stop: function(event, ui) {
-        console.log(dropFinshed);
         if (!dropFinshed) {
           let prevItemIndex = ui.item.prev().data("index");
           let currentItemIndex = ui.item.data("index");
@@ -869,10 +868,12 @@ $(function() {
       // let code = codeEditor.getValue();
       framework.codeWallet = [];
       framework.globalIndex = 0;
-      var treeList = framework.nodeTreeGenerator(
-        $("<wrap>" + fullCode + "</wrap>")
-      );
-      $(".tree-list").html(treeList);
+      generateDOMTree();
+
+      // var treeList = framework.nodeTreeGenerator(
+      //   $("<wrap>" + fullCode + "</wrap>")
+      // );
+      // $(".tree-list").html(treeList);
       droppableforSort();
       dropFinshed = false;
     }
@@ -883,11 +884,13 @@ $(function() {
         framework.codeWallet = [];
         framework.globalIndex = 0;
         var codeContent = codeEditor.getValue();
-        var treeList = framework.nodeTreeGenerator(
-          $("<wrap>" + codeContent + "</wrap>")
-        );
+        generateDOMTree();
 
-        $(".tree-list").html(treeList);
+        // var treeList = framework.nodeTreeGenerator(
+        //   $("<wrap>" + codeContent + "</wrap>")
+        // );
+
+        // $(".tree-list").html(treeList);
 
         // HObo
 
@@ -987,11 +990,11 @@ $(function() {
         framework.codeWallet = [];
         framework.globalIndex = 0;
         var codeContent = phpFullCodeEditor.getValue();
-        var treeList = framework.nodeTreeGenerator(
-          $("<wrap>" + codeContent + "</wrap>")
-        );
-
-        $(".tree-list").html(treeList);
+        // var treeList = framework.nodeTreeGenerator(
+        //   $("<wrap>" + codeContent + "</wrap>")
+        // );
+        generateDOMTree();
+        // $(".tree-list").html(treeList);
 
         // Live render
         var codeValue = phpFullCodeEditor.getValue().toString();
@@ -1291,3 +1294,346 @@ jsPanel.create({
 $(".dnd-html-item").draggable({
   revert: true
 });
+
+function generateDOMTree() {
+  DOMCounter = 0;
+
+  var code = codeEditor.getValue();
+  var tempDiv = document.createElement("div");
+  tempDiv.innerHTML = codeEditor.getValue();
+  code = tempDiv;
+  // Protect grouped elements
+  // code.find("[grouped]").each(function() {
+  //   $(this)
+  //     .find("*")
+  //     .each(function() {
+  //       $(this).attr("protected", true);
+  //     });
+  // });
+
+  // Remove placeholder
+  // code.find(".bb-placeholder-area").removeClass("bb-placeholder-area");
+
+  // Generate tree
+  // bb-main-wrapper
+  var DOMTree = DOMtoJSON(code);
+  var layersTree = $("#tree-container");
+  // Clean tree if exists
+  if ($.jstree.reference(layersTree)) {
+    layersTree.jstree(true).settings.core.data = DOMTree;
+    layersTree.jstree(true).refresh();
+    return;
+  }
+
+  layersTree
+    .jstree({
+      core: {
+        animation: 0,
+        check_callback: true,
+        themes: { stripes: true },
+        data: DOMTree
+      },
+      plugins: ["wholerow", "noclose", "dnd"],
+      dnd: {
+        // is_draggable: function(node) {
+        //   console.log(node);
+        //   // console.log("is_draggable called: ", node[0]);
+        //   // if (node[0].type != "MY-DRAGGABLE-TYPE") {
+        //   //   alert("this type is not draggable");
+        //   //   return false;
+        //   // }
+        //   return true;
+        // }
+        // drop_finish: function(node) {
+        //   console.log(node);
+        // }
+        // copy: function(node) {
+        //   console.log(node);
+        // },
+        // open_timeout: function(node) {
+        //   console.log(node);
+        // },
+        // is_draggable: function(node) {
+        //   console.log(node);
+        //   return true;
+        // },
+        // check_while_dragging: function(node) {
+        //   console.log(node);
+        // },
+        // always_copy: function(node) {
+        //   console.log(node);
+        // },
+        // inside_pos: function(node) {
+        //   console.log(node);
+        // },
+        // drag_selection: function(node) {
+        //   console.log(node);
+        // },
+        // touch: function(node) {
+        //   console.log(node);
+        // },
+        // large_drop_target: function(node) {
+        //   console.log(node);
+        // },
+        // large_drag_target: function(node) {
+        //   console.log(node);
+        // },
+        // use_html5: function(node) {
+        //   console.log(node);
+        // }
+      }
+    })
+    .bind("move_node.jstree", function(e, data) {
+      console.log(data);
+      console.log(data.old_parent == data.parent);
+      console.log(data.old_parent);
+      console.log(data.parent);
+      let parentId = parseInt(data.parent.match(/(\d+)$/)[0]);
+      let nodeId = parseInt(data.node.id.match(/(\d+)$/)[0]);
+      if (parentId !== 0) {
+        let code = codeEditor.getValue();
+        let elementToAppend = removeDnDAtrbutesInLayers(
+          framework.codeWallet[parentId - 1]
+        );
+        let elementNode = removeDnDAtrbutesInLayers(
+          framework.codeWallet[nodeId - 1]
+        );
+        if (data.old_parent !== data.parent) {
+          let elementToAppendHtml = elementToAppend.outerHTML.replace(
+            elementNode.outerHTML,
+            ""
+          );
+          let newElementToAppend = elementToAppend.outerHTML.replace(
+            elementNode.outerHTML,
+            ""
+          );
+          newElementToAppend = $(newElementToAppend)[0];
+          newElementToAppend.appendChild(elementNode);
+          let elementToAppendNewHtml = newElementToAppend.outerHTML;
+          let newCode = code.replace(elementNode.outerHTML, "");
+          let finalCode = newCode.replace(
+            elementToAppendHtml,
+            elementToAppendNewHtml
+          );
+          framework.parseNewCodeToAll(finalCode);
+        } else {
+          let newCode = "";
+          let firstIndex = code.indexOf(elementToAppend.outerHTML);
+          let secondIndex = code.indexOf(elementNode.outerHTML);
+          let oldElementIndex = parseInt(
+            $($(`#${data.parent}`).children()[3])
+              .children()
+              .each(function(index, item) {
+                let indexElm = parseInt(item.id.match(/(\d+)$/)[0]);
+                let elm = removeDnDAtrbutesInLayers(
+                  framework.codeWallet[indexElm - 1]
+                );
+                let elmHtml = elm.outerHTML;
+                newCode += elmHtml + "\n";
+              })
+          );
+          if (parentId === 1) {
+            framework.parseNewCodeToAll(newCode);
+          } else {
+            let newHtml = $(elementToAppend.outerHTML).empty();
+            newHtml.append(newCode);
+            // elementToAppend.innerHTML = newCode;
+            console.log(elementToAppend.outerHTML);
+            console.log(newHtml[0].outerHTML);
+            let finalCode = code.replace(
+              elementToAppend.outerHTML,
+              newHtml[0].outerHTML
+            );
+            framework.parseNewCodeToAll(finalCode);
+          }
+        }
+      } else {
+        console.log(111);
+      }
+    })
+
+    .on("select_node.jstree", function(e, data) {
+      console.log(e, data);
+
+      // // Activate node
+      // var domNode = code.find('[data-bb-id="' + data.node.original.bbID + '"]');
+      // activateNode(domNode);
+      // Node breadcrumb
+      // generateNodeBreadCrumb(data);
+    });
+}
+
+function removeDnDAtrbutesInLayers($this) {
+  $this = $($this);
+  let temp = $this.prop("outerHTML");
+  temp = $(temp);
+  temp[0].removeAttribute("data-bb-id");
+  temp.find("*").removeAttr("data-bb-id");
+  return temp[0];
+}
+
+function DOMtoJSON(node) {
+  node = node || this;
+
+  // DOM Counter
+  DOMCounter++;
+  framework.codeWallet.push(node);
+  $(node).attr("data-bb-id", DOMCounter);
+
+  var obj = {
+    nodeType: node.nodeType,
+    id: "j-node-" + DOMCounter
+  };
+  if (node.tagName) {
+    obj.tagName = node.tagName.toLowerCase();
+  }
+
+  if (node.nodeName) {
+    obj.nodeName = node.nodeName;
+  }
+
+  if (node.nodeValue) {
+    obj.nodeValue = node.nodeValue;
+  }
+
+  var attrs = node.attributes;
+  var nodeClass = "",
+    nodeID = "";
+  if (attrs) {
+    var length = attrs.length;
+    var arr = (obj.attributes = new Array(length));
+    for (var i = 0; i < length; i++) {
+      var attr = attrs[i];
+      arr[i] = [attr.nodeName, attr.nodeValue];
+
+      if (attr.nodeName === "class") nodeClass = attr.nodeValue;
+      if (attr.nodeName === "id") nodeID = attr.nodeValue;
+    }
+  }
+
+  var nodeIcon = "fa-eye";
+  var nodeGroup = getNodeGroup(node);
+
+  obj.icon = "fa " + nodeIcon;
+
+  var nodeGroupID = nodeGroup + " #" + DOMCounter;
+
+  // Add lock icon to protected elements
+  if (typeof node.hasAttribute === "function") {
+    if (node.hasAttribute("protected")) {
+      nodeGroupID =
+        '<i class="fa fa-lock mr-1"></i> ' + nodeGroup + " #" + DOMCounter;
+    }
+    var nodeGroupType = nodeGroup.toLowerCase().replace(" ", "-");
+
+    if (nodeGroup !== "NODE") {
+      nodeGroupID +=
+        '<a href="#" class="bb-node-btn bb-node-edit" data-type="' +
+        nodeGroupType +
+        '" data-id="' +
+        DOMCounter +
+        '"><i class="fa fa-pencil"></i></a>';
+    }
+    if (nodeGroup !== "Wrapper" && !node.hasAttribute("protected")) {
+      nodeGroupID +=
+        '<a href="#" class="bb-node-btn bb-node-delete" data-id="' +
+        DOMCounter +
+        '"><i class="fa fa-trash"></i></a>';
+    }
+
+    if (
+      nodeGroup === "Wrapper" ||
+      nodeGroup === "Container" ||
+      nodeGroup === "Row"
+    ) {
+      nodeGroupID +=
+        '<a href="#" class="bb-node-btn bb-add-section" data-type="' +
+        nodeGroup +
+        '" data-id="' +
+        DOMCounter +
+        '"><i class="fa fa-plus"></i></a>';
+    }
+    nodeGroupID =
+      '<span class="bb-node-' +
+      nodeGroup.toLowerCase() +
+      '">' +
+      nodeGroupID +
+      "</span>";
+
+    obj.text = nodeGroupID;
+
+    obj.bbID = DOMCounter;
+    obj.state = {
+      opened: true
+    };
+    // Check if children loop required
+    var childNodes = node.childNodes;
+    var childrenLoop = true;
+
+    if (!childNodes || childNodes.length === 0) {
+      $(node).addClass("bb-placeholder-area");
+      childrenLoop = false;
+    }
+
+    if (nodeGroup === "Field") childrenLoop = false;
+    // if(node.attributes["bb-group"]) childrenLoop = false;
+
+    if (childrenLoop) {
+      var cleanNodes = [];
+      for (i = 0; i < childNodes.length; i++) {
+        if (childNodes[i].nodeName !== "#text") {
+          cleanNodes.push(childNodes[i]);
+        }
+      }
+
+      length = cleanNodes.length;
+      obj.children = [];
+      for (let i = 0; i < length; i++) {
+        var children = DOMtoJSON(cleanNodes[i]);
+        obj.children.push(children);
+      }
+    }
+    return obj;
+  }
+}
+
+function getNodeGroup(node) {
+  var nodeTag;
+  if (node && node.tagName) {
+    var nodeTag = node.tagName.toLowerCase();
+  }
+
+  var nodeGroup = nodeTag;
+
+  if ($.inArray(nodeTag, ["button"]) !== -1) nodeGroup = "Button";
+  if (
+    $.inArray(nodeTag, ["h1", "h2", "h3", "h4", "h5", "h6", "span", "p"]) !== -1
+  )
+    nodeGroup = "Text";
+
+  if ($.inArray(nodeTag, ["input"]) !== -1) {
+    if (node.attributes.type) {
+      var inputType = node.attributes.type.nodeValue;
+      if ($.inArray(inputType, ["submit", "reset", "button"]) !== -1)
+        nodeGroup = "Button";
+    }
+  }
+
+  if (
+    node &&
+    node.attributes &&
+    node.attributes.class &&
+    node.attributes.class.nodeValue
+  ) {
+    var nodeClasses = node.attributes.class.nodeValue;
+    if (nodeClasses.indexOf("row") !== -1) nodeGroup = "Row";
+    if (nodeClasses.indexOf("col-") !== -1) nodeGroup = "Column";
+    if (nodeClasses.indexOf("container") !== -1) nodeGroup = "Container";
+    if (nodeClasses.indexOf("main-wrapper") !== -1) nodeGroup = "Wrapper";
+  }
+
+  if (node && node.attributes && node.attributes["data-field-id"])
+    nodeGroup = "Field";
+
+  return nodeGroup;
+}

@@ -21,7 +21,7 @@ jsPanel.create({
   headerTitle: "my panel #1",
   position: "center-top 0 58",
   contentSize: { width: "auto", height: "auto" },
-  content: `    <div class="tree-container tree-view-container" style="opacity: 1; transform: translateX(0); display: block;">
+  content: `    <div id="tree-container" class="tree-container tree-view-container" style="opacity: 1; transform: translateX(0); display: block;">
               <ul class="tree-list sortable-list"></ul>
           </div>`,
   callback: function() {

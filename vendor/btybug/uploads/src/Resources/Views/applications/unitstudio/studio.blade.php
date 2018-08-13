@@ -21,6 +21,7 @@
 
     {!! HTML::style("public/libs/jspanel/jspanel.min.css") !!}
     {!! HTML::script("public/libs/jspanel/jspanel.min.js") !!}
+    {!! HTML::script("public/js/framework/jstree.min.js") !!}
 
     {!! HTML::style("public/libs/autocomplete/easy-autocomplete.min.css") !!}
     {!! HTML::style("public/libs/autocomplete/easy-autocomplete.themes.min.css") !!}
@@ -37,6 +38,7 @@
     {!! Html::style("public/css/font-awesome/css/font-awesome.min.css") !!}
     {!! Html::style("public/css-studio/bootstrap-tagsinput.css") !!}
     {!! Html::style("public/js/jquery-ui/jquery-ui.min.css") !!}
+    {!! Html::style("public/js/framework/jstreemin.css") !!}
     
     <style>
   
