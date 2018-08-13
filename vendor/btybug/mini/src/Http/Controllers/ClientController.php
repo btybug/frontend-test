@@ -141,14 +141,14 @@ class ClientController extends MiniController
 
     public function extraWidgets(Request $request, $slug = null)
     {
-        $units = $this->painter->where('self_type', 'widget')->get();
-        $model = $this->unitService->getUnit($units, $slug);
+        $this->ennable($request);
+        $units = MiniPainter::where('self_type', 'widget')->get();
+        $model = $this->unitService->getUserUnit($units, $slug);
         $tags = $model->tags;
         $memberships = $this->membershipRepository->pluck('name', 'slug')->toArray();
         $tags = implode(',', $tags);
-        $variations = ($model) ? $model->variations()->all()->pluck('title', 'id') : collect([]);
+        $variations = ($model) ? $model->makeUserVariationPath($slug, $this->user)->variations()->all()->pluck('title', 'id') : collect([]);
 
-        $this->ennable($request);
         return $this->cms->extraWidgets($units, $model, $slug, $tags, $memberships, $variations);
     }
 
