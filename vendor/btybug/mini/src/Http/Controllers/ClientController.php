@@ -276,7 +276,6 @@ class ClientController extends MiniController
     public function CreateGearVariation(Request $request,$slug)
     {
         $this->ennable($request);
-
         $layout = MiniPainter::find($request->id);
         if (!$layout) abort(404);
         $variation = $layout->makeUserVariationPath($request->id, $this->user)->makeVariation();

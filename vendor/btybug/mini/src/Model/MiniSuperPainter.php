@@ -30,6 +30,46 @@ class MiniSuperPainter extends BasePainter
         return base_path($this->path);
     }
 
+    public function scopeSaveSettings(string $slug, string $title = NULL, array $data, $isSave = NULL)
+    {
+        if ($isSave && $isSave == 'save') {
+            $unit = $this->find($slug);
+            $existingVariation = $this->variations(false)->find($slug);
+            $dataToInsert = [
+                'title' => $title,
+                'settings' => $data
+            ];
+            if (!$existingVariation) {
+                $unit->variations(false)->createVariation($dataToInsert);
+            } else {
+                $existingVariation->title = $title;
+                $existingVariation->settings = $dataToInsert['settings'];
+                $variation = $existingVariation;
+            }
+            if (!$variation->settings) {
+                $variation->setAttributes('settings', []);
+            }
+            $settings = [];
+            if (count($variation->settings) > 0) {
+                $settings = $variation->settings;
+            }
+
+            if ($variation->save()) {
+                return [
+                    'html' => $unit->renderLive(['settings' => $settings, 'source' => BBGiveMe('array', 5), 'cheked' => 1]),
+                    'slug' => $variation->id
+                ];
+            }
+        } else {
+            return [
+                'html' => $this->findByVariation($slug)->renderLive(['settings' => $data]),
+                'slug' => $slug
+            ];
+        }
+        return false;
+    }
+
+
     public function scopeAll()
     {
         $all = [];
