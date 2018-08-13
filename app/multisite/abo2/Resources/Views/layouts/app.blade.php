@@ -51,7 +51,9 @@
     <!-- begin #content -->
     <div id="content" class="content">
         @yield('content')
-    </div>
+
+    {{--@include('mini::_partials.footer')
+    @yield('footer')--}}
 </div>
 @include('resources::assests.magicModal',['v'=>'b4'])
 

@@ -2,7 +2,7 @@
 @section('tab')
     <div class="ui-2_col">
         <div class="settings-button">
-            <button class="btn btn-md btn-warning create-page">Create Page</button>
+           <button class="btn btn-md btn-warning create-page">Create Page</button>
         </div>
         <div class="row">
             <div class="col-md-3 col-xs-12">
