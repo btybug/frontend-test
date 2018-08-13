@@ -55,6 +55,7 @@
     {{--@include('mini::_partials.footer')
     @yield('footer')--}}
 </div>
+</div>
 @include('resources::assests.magicModal',['v'=>'b4'])
 
 <!-- ================== BEGIN FOOTER BASE JS ================== -->
