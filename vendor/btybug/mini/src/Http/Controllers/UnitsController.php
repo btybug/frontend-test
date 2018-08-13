@@ -96,35 +96,80 @@ class UnitsController extends Controller
                  $zip->open($newFile);
                  $zip->extractTo($storagePath);
                  $zip->close();
-                    $json = File::get($storagePath.DS.'config.json');
-                    $json = json_decode($json);
-                    $slug = $json->slug;
-                    $exist_folder = scandir(public_path('../vendor/btybug/mini/src/Resources/Units'));
-                    if (in_array($slug,$exist_folder))
-                    {
-                        $slug = $slug.'.'.uniqid();
-                        $json->slug = $slug;
-                        $json->folder = $slug;
-                        $path = explode('/',$json->path);
-                        $k = count($path)-1;
-                        $path[$k] = $slug;
-                        $path = implode('/',$path);
-                        $json->path = $path;
-                        $json->title = $slug;
 
-                        
-                    }
+
+                    $json = File::get($storagePath.DS.'config.json');
+                    if ($json)
+                    {
+                        $json = json_decode($json);
+                        $slug = $json->slug;
+                        $exist_folder = scandir(public_path('../vendor/btybug/mini/src/Resources/Units'));
+                        if (in_array($slug,$exist_folder))
+                        {
+                            $slug = $slug.'_'.uniqid();
+                            $json->slug = $slug;
+                            $json->folder = $slug;
+                            $path = explode('/',$json->path);
+                            $k = count($path)-1;
+                            $path[$k] = $slug;
+                            $path = implode('/',$path);
+                            $json->path = $path;
+                            $json->title = $slug;
+
+
+                        }
+
+                        //////////////////  Checking Variations existing and names ////////////////////////
+                        $variation = File::allFiles($storagePath.DS.'variations');
+                        $filenames = array();
+                        $isvariations = array();
+                        $sameName = array();
+                        if ($variation)
+                        {
+                            foreach ($variation as $item)
+                            {
+                                $file = $item->getFilename();
+                                $file =  explode('.',$file);
+                                $sameName[] = in_array($filenamenoext,$file)?? null;
+                                $file = in_array('default',$file)?? null;
+                                $isvariations[] = $file;
+                                $filenames[] = $item->getFilename();
+                            }
+                            if (!in_array(true,$sameName)){
+                                foreach ($filenames as $val)
+                                {
+                                    $val_arr = explode('.',$val);
+                                    if (in_array('default',$val_arr))
+                                    {
+                                        File::move($storagePath.DS.'variations'.DS.$val,$storagePath.DS.'variations'.DS.$slug.'.default.json');
+                                    }else{
+                                        File::move($storagePath.DS.'variations'.DS.$val,$storagePath.DS.'variations'.DS.$slug.'.json');
+                                    }
+
+                                }
+                            }
+                        }else{
+                            $variation_content = '{"title":"default","id":"'.$slug.'.default.json'.'","settings":[]}';
+                            File::put($storagePath.DS.'variations'.DS.$slug.'.default.json',$variation_content);
+                        }
+                        ////////////////////////////////////////////////////////////////////////////////////
 
                         $publicPath = public_path('../vendor/btybug/mini/src/Resources/Units').DS.$slug;
                         $json = json_encode($json);
                         File::put($storagePath.DS.'config.json',$json);
                         File::makeDirectory($publicPath);
+                        File::delete(storage_path('zip').DS.$newfolder.DS.$filenamewithext);
                         File::copyDirectory($storagePath,$publicPath);
                         File::deleteDirectory($storagePath);
-                        File::delete($publicPath.DS.$filenamewithext);
                         File::delete(storage_path('app').DS.'minipainter.json');
 
-                return back()->with('message','Unit uploaded successfully');
+                        return back()->with('message','Unit uploaded successfully');
+
+                    }else{
+
+                        return back()->with('message','Please upload valid Unit archive.');
+                    }
+
         }else{
                 return back()->with('message','Please upload .ZIP archived file');
         }
