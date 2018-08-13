@@ -25,7 +25,7 @@
     flex: auto;
     /*padding: 10px 0px 10px 15px;*/
     border-right: 2px solid #fff;
-    background-color: #262626;
+    background-color: #272727;
     padding-left: 15px;
 }
 .profile-footer .left .create{
@@ -37,6 +37,10 @@
     align-items: center;
     padding: 15px;
     cursor: pointer;
+    margin-left:15px;
+}
+.profile-footer .left .create .add-icon i{
+    color: #d0543a;
 }
 .profile-footer .left .create .heart.bg_dark{
     background-color: #303030;
@@ -57,18 +61,30 @@
 }
 
 .profile-footer .left .logo-name.bg_dark {
-    background-color: #303030;
+    background: #d44043;
+    background: -moz-linear-gradient(left, #d44043 1%, #dd743a 100%);
+    background: -webkit-linear-gradient(left, #d44043 1%,#dd743a 100%);
+    background: linear-gradient(to right, #d44043 1%,#dd743a 100%);
+    border-radius: 50%;
 }
-
+.profile-footer .left .logo-name.bg_dark .white-logo{
+    display: block;
+}
+.profile-footer .left .logo-name.bg_dark .black-logo{
+    display: none;
+}
 .profile-footer .left .logo-name .name {
     font-size: 27px;
     margin: 0 28px 0 20px;
 }
 
 .profile-footer .left .logo-name img {
-    height: 40px;
-    width: 40px;
+    height: 51px;
+    width: 46px;
     object-fit: cover;
+}
+.profile-footer .left .logo-name img.white-logo {
+    display: none;
 }
 
 .profile-footer .left .icons a {
@@ -82,17 +98,16 @@
 }
 
 .profile-footer .left .icons a.message span {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    padding: 0;
-    background-color: #ed6556;
+    background: #d44043;
+    background: -moz-linear-gradient(left, #d44043 1%, #dd743a 100%);
+    background: -webkit-linear-gradient(left, #d44043 1%,#dd743a 100%);
+    background: linear-gradient(to right, #d44043 1%,#dd743a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d44043', endColorstr='#dd743a',GradientType=1 );
     border-radius: 50%;
-    width: 22px;
-    height: 22px;
-    font-size: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 22px;
     color: #000;
-    border: 2px solid #303030;
 }
 
 .profile-footer .left .icons i {
@@ -100,7 +115,11 @@
 }
 
 .profile-footer .right {
-    background-color: #262626;
+    background: #d44043;
+    background: -moz-linear-gradient(left, #d44043 1%, #dd743a 100%);
+    background: -webkit-linear-gradient(left, #d44043 1%,#dd743a 100%);
+    background: linear-gradient(to right, #d44043 1%,#dd743a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d44043', endColorstr='#dd743a',GradientType=1 );
 }
 
 .profile-footer .right .image {
@@ -109,21 +128,20 @@
     display: flex;
     align-items: center;
     padding: 10px 0;
+    margin-left:0;
 }
 
 .profile-footer .right .image img {
     height: 60px;
     width: 60px;
     object-fit: cover;
-    border-radius: 50%;
 }
 
 .profile-footer .right .icon {
-    padding: 0 15px;
+    padding: 0 10px;
     align-self: stretch;
-    border-right: 2px solid rgba(255, 255, 255, 0.16);
+    border-left: 2px solid #fff;
     cursor: pointer;
-    box-shadow: -4px 1px 7px -2px #635e5e;
 }
 
 .profile-footer .right .icon i {
@@ -176,70 +194,86 @@
 
 .profiles-navbar .footerTabs {
     display: none;
+    box-shadow: 0 -2px 3px -1px #0000006b;
 }
 
-.profiles-navbar .footerTabs > .nav-tabs {
+.profiles-navbar .footerTabs .nav-tabs.left {
     background-color: #3f3f3f;
-    box-shadow: 0 -2px 3px -1px #0000006b;
     border-radius: 0;
     border: none;
-}
+}.profiles-navbar .footerTabs .nav-tabs.left>div:first-of-type {
+     flex: auto;
+     margin: 0;
+ }
 
-.profiles-navbar .footerTabs > .nav-tabs .nav-item {
+.profiles-navbar .footerTabs .nav-tabs.left .nav-item {
     margin: 0;
+    padding: 0;
 }
 
-.profiles-navbar .footerTabs > .nav-tabs .nav-item a {
+.profiles-navbar .footerTabs .nav-tabs.left .nav-item a {
     border-radius: 0;
     font-size: 22px;
     position: relative;
     color: white;
-    padding: 0.5rem 2rem;
+    padding: 16px 0;
     border: none;
     opacity: 0.7;
     display: flex;
     flex-wrap: nowrap;
+    justify-content: center;
+    background-color: #505050;
+    border-left: 1px solid #000;
 }
 
-.profiles-navbar .footerTabs > .nav-tabs .nav-item a:hover::after, .profiles-navbar .footerTabs > .nav-tabs .nav-item a.active::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background-color: #a9574e;
-    opacity: 1;
 
-}
 
-.profiles-navbar .footerTabs > .nav-tabs .nav-item a.active {
-    background: none;
+.profiles-navbar .footerTabs .nav-tabs.left .nav-item a.active {
+    background: #3a5fa3;
+    background: -moz-linear-gradient(-45deg, #3a5fa3 0%, #30a9bb 100%);
+    background: -webkit-linear-gradient(-45deg, #3a5fa3 0%,#30a9bb 100%);
+    background: linear-gradient(135deg, #3a5fa3 0%,#30a9bb 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a5fa3', endColorstr='#30a9bb',GradientType=1 );
     color: white;
     border: none;
     opacity: 1;
 }
 
-.profiles-navbar .footerTabs > .nav-tabs .nav-item a:hover {
-    background: none;
+.profiles-navbar .footerTabs .nav-tabs.left .nav-item a:hover {
+    background: #3a5fa3;
+    background: -moz-linear-gradient(-45deg, #3a5fa3 0%, #30a9bb 100%);
+    background: -webkit-linear-gradient(-45deg, #3a5fa3 0%,#30a9bb 100%);
+    background: linear-gradient(135deg, #3a5fa3 0%,#30a9bb 100%);
     border: none;
     opacity: 1;
 }
 
-.profiles-navbar .footerTabs > .nav-tabs .nav-item a i {
+.profiles-navbar .footerTabs .nav-tabs.left .nav-item a i {
     font-size: 30px;
     transition: 0.5s ease;
     opacity: 1;
 }
-
-.profiles-navbar .footerTabs > .nav-tabs .nav-item a.active i, .profiles-navbar .footerTabs > .nav-tabs .nav-item a:hover i {
-    color: #a9574e;
+.profiles-navbar .footerTabs .nav-tabs.left .search{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #3f3f3f;
 }
-
+.profiles-navbar .footerTabs .nav-tabs.left .search a{
+    font-size: 22px;
+    color: white;
+    padding: 16px 50px 16px 80px;
+    opacity: 0.7;
+}
+.profiles-navbar .footerTabs .nav-tabs.left .search a span{
+    margin-right: 15px;
+}
 .profiles-navbar .footerTabs .tab-content {
     background-color: #303030;
-    padding: 30px 10px;
-    min-height: 132px;
+    padding: 30px;
+    height: 295px;
+    overflow: auto;
 }
 
 .profiles-navbar .footerTabs .tab-content .tab-pane ul li a {
@@ -251,7 +285,68 @@
 .profiles-navbar .footerTabs .tab-content .tab-pane ul li a span i {
     font-size: 40px;
 }
+.profiles-navbar .footerTabs .tab-content .tab-pane ul li.active a span i,.profiles-navbar .footerTabs .tab-content .tab-pane ul li:hover a span i {
+    color: #329ab6;
+}
 
+.profiles-navbar .footerTabs .user-footer .head{
+    background: #d44043;
+    background: -moz-linear-gradient(left, #d44043 1%, #dd743a 100%);
+    background: -webkit-linear-gradient(left, #d44043 1%,#dd743a 100%);
+    background: linear-gradient(to right, #d44043 1%,#dd743a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d44043', endColorstr='#dd743a',GradientType=1 );
+    height:66px;
+}
+.profiles-navbar .footerTabs .user-footer .user-name{
+    font-size: 24px;
+    margin-left: 15px;
+}
+.profiles-navbar .footerTabs .user-footer .log_out{
+    border-left: 2px solid;
+    line-height: 50px;
+    text-align: center;
+}
+.profiles-navbar .footerTabs .user-footer .log_out a{
+    font-size: 22px;
+    color: white;
+}
+.profiles-navbar .footerTabs .user-footer .user-img-links{
+    background-color: #303030;
+    margin: 0;
+    padding: 30px 0;
+    height: 295px;
+    overflow: auto;
+}
+.profiles-navbar .footerTabs .user-footer .user-img-links .img{
+
+}
+.profiles-navbar .footerTabs .user-footer .user-img-links .img img{
+    width: 100%;
+    border: 2px solid #fff;
+    height: 235px;
+    object-fit: cover;
+}
+.profiles-navbar .footerTabs .user-footer .user-img-links .links{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px 0;
+}
+
+.profiles-navbar .footerTabs .user-footer .user-img-links .links li a{
+    font-size: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.profiles-navbar .footerTabs .user-footer .user-img-links .links li a i{
+    margin: 0 22px 0 10px;
+    font-size: 35px;
+}
+.profiles-navbar .footerTabs .user-footer .user-img-links .links li a span{
+    opacity: 0.7;
+}
 /*favorite*/
 .profiles-navbar .profile-favorite ul {
     list-style: none;
@@ -445,12 +540,15 @@
 .profiles-navbar .profile-favorite .tab-content .favorite-carousel .owl-stage{
     display: flex;
 }
+.profile-footer .left .icons .user-mobile{
+    display: none;
+}
 /*Responsive*/
 @media (max-width: 900px) {
     .profile-footer .left{
         display: flex;
     }
-    .profile-footer .right .icon,.profile-footer .left .create .name,.profile-footer .left .logo-name .name,.profile-footer .left .logo-name .icon,.profile-footer .left .icons a.message,.profile-footer .left .icons a.bell{
+    .profile-footer .right {
         display: none !important;
     }
     .profile-footer .left{
@@ -467,6 +565,12 @@
     .profile-footer .left .logo-name{
         padding: 0;
         margin: 0;
+    }
+    .profile-footer .left .icons{
+        justify-content: space-between;
+    }
+    .profile-footer .left .icons .user-mobile{
+        display: block;
     }
     .profile-footer .left .create .heart{
         justify-content: center;
@@ -486,6 +590,27 @@
         padding: .375rem 1rem;
     }
 }
+@media (max-width: 768px) {
+    .profiles-navbar .footerTabs{
+        flex: auto;
+    }
+    .profiles-navbar .footerTabs>.row{
+        height: calc(100vh - 56px);
+        flex-direction: column;
+        flex: auto;
+    }
+    .profiles-navbar .footerTabs>.row>div:first-of-type{
+        flex: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .profiles-navbar .footerTabs .tab-content{
+        flex: auto;
+    }
+    .profiles-navbar .profile-footer {
+        margin-top: auto;
+    }
+}
 @media (max-width: 500px) {
     .profiles-navbar .footerTabs > .nav-tabs .nav-item a,.profiles-navbar .profile-favorite > .nav-tabs .nav-item a {
         display: flex;
@@ -501,3 +626,5 @@
         margin: 10px 15px;
     }
 }
+
+
