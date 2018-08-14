@@ -42,51 +42,10 @@ $(document).ready(function () {
             $(this).removeClass('bg_dark');
         }
     });
-    var favoriteicon = $('.profiles-navbar .profile-favorite .tab-content .favorite-carousel .item .name .icon');
-    $('body').on('click', '.profiles-navbar .profile-favorite .favorite-icon span', function () {
 
-        if ($(favoriteicon).is(":hidden")) {
-
-            $(favoriteicon).addClass('d-flex');
-            $(this).find('i').toggleClass('fas fa-heartbeat fas fa-check');
-        } else {
-            $(favoriteicon).removeClass('d-flex');
-            $(this).find('i').toggleClass('fas fa-check fas fa-heartbeat');
-        }
-    });
-    $('.favorite-carousel').owlCarousel({
-        margin:10,
-        // loop:true,
-        autoWidth:true,
-        items:2,
-        nav:true,
-        dots: false,
-
-    });
-
-    // $('.footertabs-carousel').owlCarousel({
-    //     responsiveClass:true,
-    //     items:3,
-    //     nav:false,
-    //     dots: false,
-    // });
-    $('.favoritetabs-carousel').owlCarousel({
-        responsiveClass:true,
-        items:3,
-        nav:false,
-        dots: false,
-    });
 
     $('.footerTabs .nav-item a').on('click',function () {
         $('.footerTabs .nav-item a').each(function(i,elem) {
-            if ($(this).hasClass("active")) {
-                $(this).removeClass('active');
-                return false;
-            }
-        });
-    });
-    $('.profile-favorite .nav-item a').on('click',function () {
-        $('.profile-favorite .nav-item a').each(function(i,elem) {
             if ($(this).hasClass("active")) {
                 $(this).removeClass('active');
                 return false;

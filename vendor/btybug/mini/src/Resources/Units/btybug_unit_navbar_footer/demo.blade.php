@@ -2,7 +2,7 @@
 <div class="d-flex flex-column profiles-navbar">
     <div class="footerTabs">
         <div class="row">
-            <div class="col-md-9 p-0 order-2 order-md-1">
+            <div class="col-md-12 col-lg-9 pr-0 order-2 order-md-2 order-lg-1">
                 <div class=" nav nav-tabs left " id="myTab" role="tablist">
                     <div class=" row">
                         <div class="nav-item col-3">
@@ -47,19 +47,19 @@
                     <div class="tab-pane fade" id="business4" role="tabpanel" aria-labelledby="business4-tab">4</div>
                 </div>
             </div>
-            <div class="col-md-3 p-0 order-1 order-md-2">
+            <div class="col-md-12 col-lg-3 pl-0 order-1 order-md-1">
                 <div class="user-footer">
                     <ul class="head row align-items-center">
                         <li class="col-8"><span class="user-name">Rania Dewel</span></li>
                         <li class="log_out col-4"><a href="">Log out</a></li>
                     </ul>
                     <div class="user-img-links row">
-                        <div class="col-7 pl-0">
+                        <div class="col-md-7 col-lg-12 col-xl-7 col-7 pl-0">
                             <div class="img">
                                 <img src="/public/images/girl-cover.jpg" alt="girl">
                             </div>
                         </div>
-                        <div class="col-5">
+                        <div class="col-md-5 col-lg-12 col-xl-5 col-5">
                             <ul class="links">
                                 <li><a href=""><i class="fas fa-user"></i><span>Account</span></a></li>
                                 <li><a href=""><i class="far fa-heart"></i><span>Favorite</span></a></li>
@@ -71,169 +71,6 @@
             </div>
         </div>
 
-
-    </div>
-    <div class="profile-favorite">
-        <div class="nav nav-tabs" id="myTabFavorite" role="tablist">
-            <div class="col-xl-5 col-sm-12 pl-0">
-                <div class="favoritetabs-carousel owl-carousel owl-theme">
-                    <div class="nav-item">
-                        <a class="nav-link active" id="socialfav-tab" data-toggle="tab" href="#socialfav" role="tab"
-                           aria-controls="socialfav" aria-selected="true"><span class="mr-4"><i class="fas fa-user"></i></span>Social</a>
-                    </div>
-                    <div class="nav-item">
-                        <a class="nav-link" id="businessfav-tab" data-toggle="tab" href="#businessfav" role="tab"
-                           aria-controls="businessfav" aria-selected="false"><span class="mr-4"><i
-                                        class="fas fa-briefcase"></i></span>Business</a>
-                    </div>
-                    <div class="nav-item">
-                        <a class="nav-link" id="businessfav3-tab" data-toggle="tab" href="#businessfav3" role="tab"
-                           aria-controls="businessfav" aria-selected="false"><span class="mr-4"><i
-                                        class="fas fa-briefcase"></i></span>Item3</a>
-                    </div>
-                    <div class="nav-item">
-                        <a class="nav-link" id="businessfav4-tab" data-toggle="tab" href="#businessfav4" role="tab"
-                           aria-controls="businessfav" aria-selected="false"><span class="mr-4"><i
-                                        class="fas fa-briefcase"></i></span>Item4</a>
-                    </div>
-                </div>
-            </div>
-            <div class="search">
-                <input type="search" class="form-control" placeholder="Search">
-            </div>
-
-        </div>
-        <div class="tab-content" id="myTabFavoriteContent">
-            <div class="tab-pane fade show active" id="socialfav" role="tabpanel" aria-labelledby="socialfav-tab">
-                <div class="row ">
-                    <div class="col-11">
-                        <div class="favorite-users">
-                            <div class="favorite-carousel owl-carousel owl-theme">
-                                <div class="item text-center">
-                                    <img src="/public/images/fav-user-img.png" alt="">
-                                    <div class="name d-flex align-items-center">
-                                        <span>Trevor Hansens</span>
-                                        <span class="icon">
-                                       <i class="fas fa-times"></i>
-                                    </span>
-                                    </div>
-                                </div>
-                                <div class="item text-center">
-                                    <img src="/public/images/fav-user-img.png" alt="">
-                                    <div class="name d-flex align-items-center">
-                                        <span>Trevor Hansens</span>
-                                        <span class="icon">
-                                       <i class="fas fa-times"></i>
-                                    </span>
-                                    </div>
-                                </div>
-                                <div class="item text-center">
-                                    <img src="/public/images/fav-user-img.png" alt="">
-                                    <div class="name d-flex align-items-center">
-                                        <span>Trevor Hansens</span>
-                                        <span class="icon">
-                                       <i class="fas fa-times"></i>
-                                    </span>
-                                    </div>
-                                </div>
-                                <div class="item text-center">
-                                    <img src="/public/images/fav-user-img.png" alt="">
-                                    <div class="name d-flex align-items-center">
-                                        <span>Trevor Hansens</span>
-                                        <span class="icon">
-                                       <i class="fas fa-times"></i>
-                                    </span>
-                                    </div>
-                                </div>
-                                <div class="item text-center">
-                                    <img src="/public/images/fav-user-img.png" alt="">
-                                    <div class="name d-flex align-items-center">
-                                        <span>Trevor Hansens</span>
-                                        <span class="icon">
-                                       <i class="fas fa-times"></i>
-                                    </span>
-                                    </div>
-                                </div>
-                                <div class="item text-center">
-                                    <img src="/public/images/fav-user-img.png" alt="">
-                                    <div class="name d-flex align-items-center">
-                                        <span>Trevor Hansens</span>
-                                        <span class="icon">
-                                       <i class="fas fa-times"></i>
-                                    </span>
-                                    </div>
-                                </div>
-                                <div class="item text-center">
-                                    <img src="/public/images/fav-user-img.png" alt="">
-                                    <div class="name d-flex align-items-center">
-                                        <span>Trevor Hansens</span>
-                                        <span class="icon">
-                                       <i class="fas fa-times"></i>
-                                    </span>
-                                    </div>
-                                </div>
-                                <div class="item text-center">
-                                    <img src="/public/images/fav-user-img.png" alt="">
-                                    <div class="name d-flex align-items-center">
-                                        <span>Trevor Hansens</span>
-                                        <span class="icon">
-                                       <i class="fas fa-times"></i>
-                                    </span>
-                                    </div>
-                                </div>
-                                <div class="item text-center">
-                                    <img src="/public/images/fav-user-img.png" alt="">
-                                    <div class="name d-flex align-items-center">
-                                        <span>Trevor Hansens</span>
-                                        <span class="icon">
-                                       <i class="fas fa-times"></i>
-                                    </span>
-                                    </div>
-                                </div>
-                                <div class="item text-center">
-                                    <img src="/public/images/fav-user-img.png" alt="">
-                                    <div class="name d-flex align-items-center">
-                                        <span>Trevor Hansens</span>
-                                        <span class="icon">
-                                       <i class="fas fa-times"></i>
-                                    </span>
-                                    </div>
-                                </div>
-                                <div class="item text-center">
-                                    <img src="/public/images/fav-user-img.png" alt="">
-                                    <div class="name d-flex align-items-center">
-                                        <span>Trevor Hansens</span>
-                                        <span class="icon">
-                                       <i class="fas fa-times"></i>
-                                    </span>
-                                    </div>
-                                </div>
-                                <div class="item text-center">
-                                    <img src="/public/images/favorite-user.png" alt="">
-                                    <div class="name d-flex align-items-center">
-                                        <span>Trevor Hansens</span>
-                                        <span class="icon">
-                                       <i class="fas fa-times"></i>
-                                    </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="favorite-icon col-1">
-                        <div class="heart-icon">
-                            <span><i class="fas fa-heartbeat"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="tab-pane fade" id="businessfav" role="tabpanel" aria-labelledby="businessfav-tab">2</div>
-            <div class="tab-pane fade" id="businessfav3" role="tabpanel" aria-labelledby="businessfav3-tab">33</div>
-            <div class="tab-pane fade" id="businessfav4" role="tabpanel" aria-labelledby="businessfav4-tab">44</div>
-        </div>
     </div>
 
     <div class="profile-footer d-flex justify-content-end">
