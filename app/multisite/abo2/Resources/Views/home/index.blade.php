@@ -1,3 +1,4 @@
+@include('mini::_partials.footer')
 
         <!doctype html>
 <html lang="en">
@@ -203,7 +204,7 @@
         </div>
     </div>
 </div>
-
+@yield('footer')
 {{--<div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">--}}
     {{--<!-- begin #content -->--}}
     {{--<div id="content" class="content">--}}
