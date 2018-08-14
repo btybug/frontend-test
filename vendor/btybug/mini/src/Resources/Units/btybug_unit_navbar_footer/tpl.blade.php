@@ -90,7 +90,7 @@
 
     </div>
     <div class="profile-footer d-flex justify-content-end">
-        <div class="left justify-content-between align-items-center">
+        <div class="left justify-content-between align-items-center d-flex">
             <div class="create d-flex align-items-center">
                 <span class="add-icon"><i class="fas fa-plus"></i></span>
                 <span class="heart"><i class="fas fa-search"></i></span>
