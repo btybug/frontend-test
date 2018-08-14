@@ -120,7 +120,10 @@ class AdminController extends Controller
                 $this->tagsRepository->create(['name' => $tag, 'type' => 'minicms']);
             }
         $unit = $this->painter->find($slug);
+
         $unit->setAttributes('tags', $tags)->setAttributes('memberships', $memberships)->setAttributes('status', $published)->edit();
+
+        $unit->setAttributes('tags', $tags)->setAttributes('memberships', $memberships)->setAttributes('status', $request->get('status'))->edit();
 
         return redirect()->back();
     }

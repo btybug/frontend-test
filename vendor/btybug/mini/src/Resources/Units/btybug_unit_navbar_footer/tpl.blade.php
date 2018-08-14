@@ -42,7 +42,25 @@
                         </ul>
                     </div>
                     <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">2</div>
-                    <div class="tab-pane fade" id="business3" role="tabpanel" aria-labelledby="business3-tab">3</div>
+                    {{--<div class="tab-pane fade" id="business3" role="tabpanel" aria-labelledby="business3-tab">
+                        <ul class="d-flex flex-wrap ">
+                            <li class="active"><a href="{!! route('mini_account_forms') !!}" class="d-flex flex-column justify-content-center align-items-center">
+                                    <span><i class="fa fa-align-left"></i></span>
+                                    <span class="name">Forms</span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="{!! route('mini_extra_gears') !!}" class="d-flex flex-column justify-content-center align-items-center">
+                                    <span><i class="fa fa-columns"></i></span>
+                                    <span class="name">Gear</span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="{!! route('mini_extra_plugins') !!}" class="d-flex flex-column justify-content-center align-items-center">
+                                    <span><i class="fa fa-plug"></i></span>
+                                    <span class="name">Plugins</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>--}}
                     <div class="tab-pane fade" id="business4" role="tabpanel" aria-labelledby="business4-tab">4</div>
                 </div>
             </div>

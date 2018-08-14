@@ -653,7 +653,6 @@ function render_mini_unit($variation_id, $model, $source = [], $data = null)
 {
     $field = null;
     $cheked = null;
-//    dd($variation_id);
     $slug = explode('.', $variation_id);
     if (isset($slug[0]) && isset($slug[1])) {
         $widget_id = $slug[0];
