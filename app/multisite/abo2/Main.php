@@ -297,4 +297,9 @@ class Main
         return view('mini::account.favourites')->with(['user' => $this->user]);
     }
 
+    public function home()
+    {
+        return view('mini::home.index')->with(['user' => $this->user]);
+    }
+
 }

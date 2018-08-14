@@ -38,6 +38,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapAdminRoutes();
         $this->mapWebRoutes();
         $this->mapFrontRoutes();
+        $this->mapFrontHome();
         //
     }
 
@@ -91,6 +92,21 @@ class RouteServiceProvider extends ServiceProvider
                 'namespace' => $this->namespace,
             ], function ($router) {
                 require __DIR__ . '/../Routes/front.php';
+            });
+        });
+    }
+    protected function mapFrontHome()
+    {
+        Route::group([
+            'domain' => (string)env('DOMAIN'),
+            'middleware' => ['web','adminCheck']
+        ], function ($router) {
+            Route::group([
+                'middleware' => ['auth'],
+                'prefix' => 'home',
+                'namespace' => $this->namespace,
+            ], function ($router) {
+                require __DIR__ . '/../Routes/home.php';
             });
         });
     }

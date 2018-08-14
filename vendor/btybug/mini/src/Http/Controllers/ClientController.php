@@ -272,13 +272,14 @@ class ClientController extends MiniController
         $this->ennable($request);
         return $this->cms->FormInputs($id);
     }
+
     public function getFavourites(Request $request)
     {
         $this->ennable($request);
         return $this->cms->getFavourites();
     }
 
-    public function CreateGearVariation(Request $request,$slug)
+    public function CreateGearVariation(Request $request, $slug)
     {
         $this->ennable($request);
         $layout = MiniPainter::find($request->id);
@@ -342,5 +343,9 @@ class ClientController extends MiniController
         return view('multisite::admin.assets.units._partials.unit_preview', compact(['htmlBody', 'htmlSettings', 'settings', 'settings_json', 'id', 'ui']));
     }
 
-
+    public function home(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->home();
+    }
 }
