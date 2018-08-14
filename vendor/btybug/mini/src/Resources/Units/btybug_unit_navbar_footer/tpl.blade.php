@@ -67,8 +67,12 @@
             <div class="col-md-12 col-lg-3 pl-0 order-1 order-md-1">
                 <div class="user-footer">
                     <ul class="head row align-items-center">
-                        <li class="col-8"><span class="user-name">Rania Dewel</span></li>
-                        <li class="log_out col-4"><a href="{!! url('logout') !!}">Log out</a></li>
+                        <li class="col-8"><span class="user-name">
+                                @if(Auth::check())
+                                    {{Auth::user()->username}}
+                                @endif
+                                </span></li>
+                        <li class="log_out col-4"><a href="{{ url('logout')}}">Log out</a></li>
                     </ul>
                     <div class="user-img-links row">
                         <div class="col-md-7 col-lg-12 col-xl-7 col-7 pl-0">
