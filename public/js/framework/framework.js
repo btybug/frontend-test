@@ -218,21 +218,18 @@ var framework = {
   },
 
   makePreviewElement: function($this) {
-    let elm = $this;
+    console.log($this);
+    var elm = $this;
     var realElm = null;
     if (elm.width()) {
-      let temp = $this.prop("outerHTML");
-      temp = $(temp);
-      temp[0].removeAttribute("dnd-placeholder");
-      if (temp[0].classList.length === 1) {
-        temp.removeAttr("class");
-      } else {
-        temp.removeClass("ui-droppable");
-      }
+      let temp = removeDnDAtrbutesInLayers($($this));
       realElm = $this;
       framework.codeWallet.forEach((item, index) => {
-        if (item.prop("outerHTML") === temp.prop("outerHTML")) {
-          $(".preview-area-selected").attr("data-index", index);
+        let newItem = removeDnDAtrbutesInLayers(item);
+        if (newItem.outerHTML === temp.outerHTML) {
+          console.log(index);
+          let id = "j-node-" + index;
+          $(".preview-area-selected").attr("id", `j-node-${index}`);
         }
       });
     } else {
@@ -241,8 +238,7 @@ var framework = {
         .querySelectorAll("*")
         .forEach(item => {
           let newItem = $(item).prop("outerHTML");
-          newItem = removeDnDAtrbutes($(newItem));
-
+          newItem = removeDnDAtrbutesInLayers($(newItem));
           if (
             $(newItem)
               .prop("outerHTML")
@@ -288,9 +284,26 @@ var framework = {
 
   // Get node code editor value
   getNodeCodeValue: function($this) {
-    var index = Number($this.closest("[data-index]").attr("data-index")),
-      nodeCode = this.codeWallet[index];
-    return nodeCode[0].outerHTML;
+    try {
+      var index =
+        parseInt(
+          $this
+            .closest("li")
+            .attr("id")
+            .match(/(\d+)$/)[0]
+        ) - 1;
+    } catch (error) {
+      var index = parseInt(
+        $(".preview-area-selected")
+          .attr("id")
+          .match(/(\d+)$/)[0]
+      );
+    }
+    console.log(index);
+    var nodeCode = framework.codeWallet[index];
+    let editCode = removeDnDAtrbutesInLayers(nodeCode);
+    console.log(editCode);
+    return editCode.outerHTML;
   },
   hideAllContentElements() {
     framework.hideElement($(".contetnFiledValue"));
@@ -344,6 +357,7 @@ var framework = {
       // Get last saved code
       nodeCode = framework.getNodeCodeValue($this);
       framework.makePreviewElement($(nodeCode));
+      console.log(nodeCode);
       phpNodeCodeEditor.setValue(nodeCode);
       phpNodeCodeEditor.clearSelection();
       $("#current-node-text")
@@ -361,6 +375,12 @@ var framework = {
 
       framework.generateInsertedList();
       nodeChanger = true;
+    },
+    removePHPCode: function($this) {
+      let code = codeEditor.getValue();
+      let nodeCode = framework.getNodeCodeValue($this);
+      let newCode = code.replace(nodeCode, "");
+      framework.parseNewCodeToAll(newCode);
     },
     removeHtmlElement: function($this) {
       var nodeCode = framework.getNodeCodeValue($this),
@@ -834,7 +854,6 @@ $(function() {
         "ui-droppable-hover": "ui-state-hover"
       },
       drop: function(e, ui) {
-        console.log("Drop");
         let dropped = ui.draggable;
         let droppedOn = $(this);
         let droppedIndex = dropped.data("index");
@@ -844,9 +863,7 @@ $(function() {
         let noEditFullCode = codeEditor.getValue();
         let x = elementToAppend.prop("outerHTML");
         let y = $(x).html($(x).html() + element.prop("outerHTML"));
-        console.log(x);
-        console.log("+++++++++++");
-        console.log(y.prop("outerHTML"));
+
         let editFullCode = noEditFullCode.replace(
           framework.codeWallet[droppedIndex].prop("outerHTML"),
           ""
@@ -855,7 +872,6 @@ $(function() {
           elementToAppend.prop("outerHTML"),
           y.prop("outerHTML")
         );
-        console.log(finalEditCode);
         fullCode = finalEditCode;
         framework.parseNewCodeToAll(finalEditCode);
         dropFinshed = true;
@@ -954,11 +970,8 @@ $(function() {
                       `<${ui.draggable.text()}>Text</${ui.draggable.text()}>`
                     );
                   }
-                  console.log(remAttrElement.html());
-                  // console.log(remAttrElement.prop("outerHTML"));
 
                   if ($(htmlElement).html() === $(code).html()) {
-                    console.log(1);
                     codeEditor.setValue(remAttrElement.prop("outerHTML"));
                   } else {
                     var newCode = code.replace(
@@ -1333,65 +1346,15 @@ function generateDOMTree() {
         themes: { stripes: true },
         data: DOMTree
       },
-      plugins: ["wholerow", "noclose", "dnd"],
-      dnd: {
-        // is_draggable: function(node) {
-        //   console.log(node);
-        //   // console.log("is_draggable called: ", node[0]);
-        //   // if (node[0].type != "MY-DRAGGABLE-TYPE") {
-        //   //   alert("this type is not draggable");
-        //   //   return false;
-        //   // }
-        //   return true;
-        // }
-        // drop_finish: function(node) {
-        //   console.log(node);
-        // }
-        // copy: function(node) {
-        //   console.log(node);
-        // },
-        // open_timeout: function(node) {
-        //   console.log(node);
-        // },
-        // is_draggable: function(node) {
-        //   console.log(node);
-        //   return true;
-        // },
-        // check_while_dragging: function(node) {
-        //   console.log(node);
-        // },
-        // always_copy: function(node) {
-        //   console.log(node);
-        // },
-        // inside_pos: function(node) {
-        //   console.log(node);
-        // },
-        // drag_selection: function(node) {
-        //   console.log(node);
-        // },
-        // touch: function(node) {
-        //   console.log(node);
-        // },
-        // large_drop_target: function(node) {
-        //   console.log(node);
-        // },
-        // large_drag_target: function(node) {
-        //   console.log(node);
-        // },
-        // use_html5: function(node) {
-        //   console.log(node);
-        // }
-      }
+      plugins: ["wholerow", "noclose", "dnd"]
     })
     .bind("move_node.jstree", function(e, data) {
-      console.log(data);
-      console.log(data.old_parent == data.parent);
-      console.log(data.old_parent);
-      console.log(data.parent);
-      let parentId = parseInt(data.parent.match(/(\d+)$/)[0]);
+      let parentId =
+        data.parent !== "#" ? parseInt(data.parent.match(/(\d+)$/)[0]) : 0;
       let nodeId = parseInt(data.node.id.match(/(\d+)$/)[0]);
+      let code = codeEditor.getValue();
+
       if (parentId !== 0) {
-        let code = codeEditor.getValue();
         let elementToAppend = removeDnDAtrbutesInLayers(
           framework.codeWallet[parentId - 1]
         );
@@ -1399,23 +1362,29 @@ function generateDOMTree() {
           framework.codeWallet[nodeId - 1]
         );
         if (data.old_parent !== data.parent) {
-          let elementToAppendHtml = elementToAppend.outerHTML.replace(
-            elementNode.outerHTML,
-            ""
-          );
-          let newElementToAppend = elementToAppend.outerHTML.replace(
-            elementNode.outerHTML,
-            ""
-          );
-          newElementToAppend = $(newElementToAppend)[0];
-          newElementToAppend.appendChild(elementNode);
-          let elementToAppendNewHtml = newElementToAppend.outerHTML;
-          let newCode = code.replace(elementNode.outerHTML, "");
-          let finalCode = newCode.replace(
-            elementToAppendHtml,
-            elementToAppendNewHtml
-          );
-          framework.parseNewCodeToAll(finalCode);
+          if (data.parent === "j-node-1") {
+            framework.parseNewCodeToAll(code);
+          } else {
+            let elementToAppendHtml = elementToAppend.outerHTML.replace(
+              elementNode.outerHTML,
+              ""
+            );
+            let newElementToAppend = elementToAppend.outerHTML.replace(
+              elementNode.outerHTML,
+              ""
+            );
+
+            newElementToAppend = $(newElementToAppend)[0];
+            newElementToAppend.appendChild(elementNode);
+            let elementToAppendNewHtml = newElementToAppend.outerHTML;
+            let newCode = code.replace(elementNode.outerHTML, "");
+
+            let finalCode = newCode.replace(
+              elementToAppendHtml,
+              elementToAppendNewHtml
+            );
+            framework.parseNewCodeToAll(finalCode);
+          }
         } else {
           let newCode = "";
           let firstIndex = code.indexOf(elementToAppend.outerHTML);
@@ -1438,8 +1407,7 @@ function generateDOMTree() {
             let newHtml = $(elementToAppend.outerHTML).empty();
             newHtml.append(newCode);
             // elementToAppend.innerHTML = newCode;
-            console.log(elementToAppend.outerHTML);
-            console.log(newHtml[0].outerHTML);
+
             let finalCode = code.replace(
               elementToAppend.outerHTML,
               newHtml[0].outerHTML
@@ -1448,13 +1416,11 @@ function generateDOMTree() {
           }
         }
       } else {
-        console.log(111);
+        framework.parseNewCodeToAll(code);
       }
     })
 
     .on("select_node.jstree", function(e, data) {
-      console.log(e, data);
-
       // // Activate node
       // var domNode = code.find('[data-bb-id="' + data.node.original.bbID + '"]');
       // activateNode(domNode);
@@ -1467,8 +1433,31 @@ function removeDnDAtrbutesInLayers($this) {
   $this = $($this);
   let temp = $this.prop("outerHTML");
   temp = $(temp);
+  temp[0].removeAttribute("dnd-placeholder");
   temp[0].removeAttribute("data-bb-id");
+  if (temp[0].classList.length === 1) {
+    temp.removeAttr("class");
+  } else {
+    temp.removeClass("bb-placeholder-area");
+    temp.removeClass("ui-droppable");
+    if (temp[0].classList.length === 1) {
+      temp.removeAttr("class");
+    }
+  }
   temp.find("*").removeAttr("data-bb-id");
+  temp.find("*").removeAttr("dnd-placeholder");
+  $.each(temp.find("*"), function(index, item) {
+    item = $(item);
+    if (item[0].classList.length === 1) {
+      item.removeAttr("class");
+    } else {
+      item.removeClass("bb-placeholder-area");
+      item.removeClass("ui-droppable");
+      if (item[0].classList.length === 0) {
+        item.removeAttr("class");
+      }
+    }
+  });
   return temp[0];
 }
 
@@ -1528,7 +1517,7 @@ function DOMtoJSON(node) {
 
     if (nodeGroup !== "NODE") {
       nodeGroupID +=
-        '<a href="#" class="bb-node-btn bb-node-edit" data-type="' +
+        '<a href="#" bb-click="editPHPCode" class="bb-node-btn bb-node-edit" data-type="' +
         nodeGroupType +
         '" data-id="' +
         DOMCounter +
@@ -1536,7 +1525,7 @@ function DOMtoJSON(node) {
     }
     if (nodeGroup !== "Wrapper" && !node.hasAttribute("protected")) {
       nodeGroupID +=
-        '<a href="#" class="bb-node-btn bb-node-delete" data-id="' +
+        '<a href="#" bb-click="removePHPCode" class="bb-node-btn bb-node-delete" data-id="' +
         DOMCounter +
         '"><i class="fa fa-trash"></i></a>';
     }
