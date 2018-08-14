@@ -122,7 +122,7 @@
 
             </div>
             <div class="image" id="click-image">
-                <a href="javscript:void(0);">
+                <a href="{!! url('/home') !!}">
                     <img src="/public/images/girl-cover.jpg" alt="user">
                 </a>
 
