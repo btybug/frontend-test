@@ -42,7 +42,7 @@
                         </ul>
                     </div>
                     <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">2</div>
-                    {{--<div class="tab-pane fade" id="business3" role="tabpanel" aria-labelledby="business3-tab">
+                    <div class="tab-pane fade" id="business3" role="tabpanel" aria-labelledby="business3-tab">
                         <ul class="d-flex flex-wrap ">
                             <li class="active"><a href="{!! route('mini_account_forms') !!}" class="d-flex flex-column justify-content-center align-items-center">
                                     <span><i class="fa fa-align-left"></i></span>
@@ -60,7 +60,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>--}}
+                    </div>
                     <div class="tab-pane fade" id="business4" role="tabpanel" aria-labelledby="business4-tab">4</div>
                 </div>
             </div>
