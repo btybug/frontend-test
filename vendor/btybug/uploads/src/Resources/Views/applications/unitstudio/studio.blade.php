@@ -27,6 +27,7 @@
     {!! HTML::style("public/libs/autocomplete/easy-autocomplete.themes.min.css") !!}
     {!! HTML::script("public/libs/autocomplete/jquery.easy-autocomplete.min.js") !!}
     {!! HTML::script("public/js/jquery-ui/jquery-ui.min.js") !!}
+    {!! HTML::script("https://ilikenwf.github.io/jquery.mjs.nestedSortable.js") !!}
 
     {!! HTML::script("public/libs/beautify/beautify-html.js") !!}
 

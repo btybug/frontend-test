@@ -218,7 +218,6 @@ var framework = {
   },
 
   makePreviewElement: function($this) {
-    console.log($this);
     var elm = $this;
     var realElm = null;
     if (elm.width()) {
@@ -227,7 +226,6 @@ var framework = {
       framework.codeWallet.forEach((item, index) => {
         let newItem = removeDnDAtrbutesInLayers(item);
         if (newItem.outerHTML === temp.outerHTML) {
-          console.log(index);
           let id = "j-node-" + index;
           $(".preview-area-selected").attr("id", `j-node-${index}`);
         }
@@ -299,10 +297,8 @@ var framework = {
           .match(/(\d+)$/)[0]
       );
     }
-    console.log(index);
     var nodeCode = framework.codeWallet[index];
     let editCode = removeDnDAtrbutesInLayers(nodeCode);
-    console.log(editCode);
     return editCode.outerHTML;
   },
   hideAllContentElements() {
@@ -357,7 +353,6 @@ var framework = {
       // Get last saved code
       nodeCode = framework.getNodeCodeValue($this);
       framework.makePreviewElement($(nodeCode));
-      console.log(nodeCode);
       phpNodeCodeEditor.setValue(nodeCode);
       phpNodeCodeEditor.clearSelection();
       $("#current-node-text")
@@ -902,18 +897,12 @@ $(function() {
         var codeContent = codeEditor.getValue();
         generateDOMTree();
 
-        // var treeList = framework.nodeTreeGenerator(
-        //   $("<wrap>" + codeContent + "</wrap>")
-        // );
-
-        // $(".tree-list").html(treeList);
-
         // HObo
 
         droppableforSort();
 
         // Live render
-        var codeValue = codeEditor.getValue().toString();
+        var codeValue = codeEditor.getValue();
 
         codeValue = codeValue.replace(/<!--\|/g, "");
         codeValue = codeValue.replace(/\|-->/g, "");
@@ -930,8 +919,7 @@ $(function() {
         phpFullCodeEditor.clearSelection();
 
         var data = { html: tempppp };
-        test = true;
-
+        // test = true;
         $.ajax({
           url: $("#renderUrl").val(),
           type: "POST",
@@ -953,7 +941,7 @@ $(function() {
                   "ui-droppable-hover": "ankap-mi-ban"
                 },
                 drop: function(event, ui) {
-                  let remAttrElement = removeDnDAtrbutes($(this));
+                  let remAttrElement = removeDnDAtrbutesInLayers($(this));
                   remAttrElement = $(remAttrElement);
                   let htmlElement = remAttrElement.prop("outerHTML");
 
@@ -979,9 +967,21 @@ $(function() {
                       remAttrElement.prop("outerHTML")
                     );
 
-                    codeEditor.setValue(newCode);
-                    codeEditor.clearSelection();
+                    test = true;
+
+                    framework.parseNewCodeToAll(newCode);
                   }
+                }
+              });
+
+              $("[dnd-placeholder]").sortable({
+                connectWith: "[dnd-placeholder]",
+                delay: 150, //delay for drag vs click
+                revert: 0,
+                stop: function(e, ui) {
+                  let newHtml = removeDnDAtrbutesInLayers($(".preview-area"));
+                  framework.parseNewCodeToAll(newHtml.outerHTML);
+                  test = true;
                 }
               });
 
@@ -1014,10 +1014,20 @@ $(function() {
         //  + codeContent.toString();
         codeValue = codeValue.replace(/<!--\|/g, "");
         codeValue = codeValue.replace(/\|-->/g, "");
+        let newCodeValue = $(codeValue);
+        var tempppp = "";
+        classAddRecus(newCodeValue);
+
+        $.each(newCodeValue, function(key, value) {
+          if ($(newCodeValue[key]).prop("outerHTML") !== undefined) {
+            tempppp += $(newCodeValue[key]).prop("outerHTML");
+          }
+        });
+
+        var data = { html: tempppp };
         codeEditor.setValue(codeValue);
         codeEditor.clearSelection();
 
-        var data = { html: codeValue };
         test = true;
 
         $.ajax({
@@ -1030,7 +1040,59 @@ $(function() {
           success: function(data) {
             if (!data.error) {
               $(".preview-area").html(data.html);
+              $("[dnd-placeholder]").sortable({
+                connectWith: "[dnd-placeholder]",
+                delay: 150, //delay for drag vs click
+                revert: 0,
+                stop: function(e, ui) {
+                  let newHtml = removeDnDAtrbutesInLayers($(".preview-area"));
+                  framework.parseNewCodeToAll(newHtml.outerHTML);
+                  test = true;
+                }
+              });
+              $("[dnd-placeholder]").droppable({
+                accept: ".dnd-html-item",
+                greedy: true,
+                classes: {
+                  // "ui-droppable": "highlight",
+                  "ui-droppable-hover": "ankap-mi-ban"
+                },
+                drop: function(event, ui) {
+                  let remAttrElement = removeDnDAtrbutesInLayers($(this));
+                  remAttrElement = $(remAttrElement);
+                  let htmlElement = remAttrElement.prop("outerHTML");
+                  console.log(htmlElement);
+                  console.log(remAttrElement);
+                  let code = codeEditor.getValue();
+                  if (
+                    ui.draggable
+                      .parent()
+                      .parent()
+                      .hasClass("components-tab")
+                  ) {
+                    remAttrElement.append(ui.draggable.next().html());
+                  } else {
+                    remAttrElement.append(
+                      `<${ui.draggable.text()}>Text</${ui.draggable.text()}>`
+                    );
+                  }
 
+                  if ($(htmlElement).html() === $(code).html()) {
+                    codeEditor.setValue(remAttrElement.prop("outerHTML"));
+                  } else {
+                    var newCode = code.replace(
+                      htmlElement,
+                      remAttrElement.prop("outerHTML")
+                    );
+                    console.log(newCode);
+                    // codeEditor.setValue(newCode);
+                    // codeEditor.clearSelection();
+                    test = true;
+
+                    framework.parseNewCodeToAll(newCode);
+                  }
+                }
+              });
               // Init CSS Studio
               $("#bb-css-studio").html("");
 
@@ -1435,17 +1497,19 @@ function removeDnDAtrbutesInLayers($this) {
   temp = $(temp);
   temp[0].removeAttribute("dnd-placeholder");
   temp[0].removeAttribute("data-bb-id");
-  if (temp[0].classList.length === 1) {
+  temp[0].removeAttribute("style");
+
+  temp.removeClass(
+    "ui-sortable-handle ui-sortable bb-placeholder-area ui-droppable"
+  );
+  console.log(temp[0].classList.length);
+  if (temp[0].classList.length === 0) {
     temp.removeAttr("class");
-  } else {
-    temp.removeClass("bb-placeholder-area");
-    temp.removeClass("ui-droppable");
-    if (temp[0].classList.length === 1) {
-      temp.removeAttr("class");
-    }
   }
+
   temp.find("*").removeAttr("data-bb-id");
   temp.find("*").removeAttr("dnd-placeholder");
+  temp.find("*").removeAttr("style");
   $.each(temp.find("*"), function(index, item) {
     item = $(item);
     if (item[0].classList.length === 1) {
@@ -1453,6 +1517,7 @@ function removeDnDAtrbutesInLayers($this) {
     } else {
       item.removeClass("bb-placeholder-area");
       item.removeClass("ui-droppable");
+      item.removeClass("ui-sortable-handle ui-sortable");
       if (item[0].classList.length === 0) {
         item.removeAttr("class");
       }
@@ -1463,7 +1528,6 @@ function removeDnDAtrbutesInLayers($this) {
 
 function DOMtoJSON(node) {
   node = node || this;
-
   // DOM Counter
   DOMCounter++;
   framework.codeWallet.push(node);
@@ -1564,7 +1628,9 @@ function DOMtoJSON(node) {
       childrenLoop = false;
     }
 
+    console.log(nodeGroup);
     if (nodeGroup === "Field") childrenLoop = false;
+    if (nodeGroup === "Jumbotron") childrenLoop = false;
     // if(node.attributes["bb-group"]) childrenLoop = false;
 
     if (childrenLoop) {
@@ -1619,6 +1685,7 @@ function getNodeGroup(node) {
     if (nodeClasses.indexOf("col-") !== -1) nodeGroup = "Column";
     if (nodeClasses.indexOf("container") !== -1) nodeGroup = "Container";
     if (nodeClasses.indexOf("main-wrapper") !== -1) nodeGroup = "Wrapper";
+    if (nodeClasses.indexOf("jumbotron") !== -1) nodeGroup = "Jumbotron";
   }
 
   if (node && node.attributes && node.attributes["data-field-id"])

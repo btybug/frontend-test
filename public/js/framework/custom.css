@@ -274,3 +274,7 @@ ul {
 .ui-droppable {
   position: relative;
 }
+
+.dnd-html-item {
+  cursor: pointer;
+}
