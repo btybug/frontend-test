@@ -10,13 +10,15 @@
     <!-- ================== BEGIN PAGE BASE STYLE ================== -->
     <link rel="stylesheet" href="{!!url('public/minicms/plugins/jquery-ui/jquery-ui.min.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/plugins/bootstrap/4/bootstrap.min.css')!!}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-          integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="{!!url('public/minicms/plugins/animate/animate.min.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/css/style.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/css/style-responsive.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/css/default.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/btybug.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/minicms/css/newTabs.css')!!}">
+
     <!-- ================== END PAGE BASE STYLE ================== -->
 
     <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
