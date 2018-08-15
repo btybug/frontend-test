@@ -12,14 +12,6 @@
                         <span class="icon"><i class="far fa-clipboard"></i></span>
                         <span class="name">Board</span></a>
                 </li>
-                {{--<li class="list-inline-item active">
-                    <span class="left-icon"><i class="fas fa-caret-left"></i></span>
-                        <span class="icon"><i class="fas fa-clipboard-list"></i></span>
-                        <span class="name">{!! $item->title !!}</span>
-                         <span class="del"><i class="fas fa-times"></i></span>
-                    <span class="right-icon"><i class="fas fa-caret-right"></i></span>
-
-                </li>--}}
                 {!! hierarchyMiniUserPagesListFull($pages) !!}
                 <li class="list-inline-item add"><a href="">
                         <span class="icon"><i class="fas fa-plus"></i></span>
@@ -27,7 +19,7 @@
                 </li>
             </ul>
         </div>
-        <input type="hidden" name="_token" >
+        <input type="hidden" name="_token" value="{{csrf_token()}}">
         <div class="content-pages container-fluid">
             <div class="row">
                 <div class="col-md-2 pl-0">
@@ -59,9 +51,7 @@
                             </div>
                         </div>
                         <div class="content-preview d-flex justify-content-center align-items-center">
-                            <div>
-                                Select Content
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -71,31 +61,34 @@
 @stop
 @section('js')
     <script>
-        $('.delete_page').on('click',function () {
+        $('.delete_page').on('click',function (e) {
+            e.preventDefault();
             var id = $(this).data('id');
+            var token = $("input[name='_token']").val();
             $.ajax({
                 url: '{!! route('mini_my_site_btybug_pages_delete') !!}',
                 dataType: 'json',
                 type: 'POST',
                 data: {id: id},
                 headers: {
-                    'X-CSRF-TOKEN': $("input[name='_token']").val()
+                    'X-CSRF-TOKEN': token
                 },
                 success: function(data){
                     if(! data.error){
-                        console.log(data)
                     }
                 }
             });
+            location.reload();
         });
     </script>
    {{-- {!! HTML::script('public/js/create_pages.js') !!}
     {!! HTML::script('public/js/admin_pages.js') !!}
-    {!! HTML::script('public/js/menus.js') !!}
+    {!! HTML::script('public/js/menus.js') !!}--}}
     <script>
         $(document).ready(function () {
             $("body").on('click','.show-page',function () {
                 var id = $(this).data('id');
+                alert(id);
                 $.ajax({
                     url: '{!! route('mini_page_show') !!}',
                     dataType: 'json',
@@ -107,7 +100,7 @@
                     success: function(data){
                         if(! data.error){
                             console.log(data)
-                            $(".view-box").html(data.response.html);
+                            $(".content-preview").html(data.response.html);
                         }
                     }
                 });
@@ -146,7 +139,7 @@
                 });
             $(".bb-menu-area").disableSelection();
         });
-    </script>--}}
+    </script>
     <script>
         $('#nav-pages-tab').addClass('active');
     </script>

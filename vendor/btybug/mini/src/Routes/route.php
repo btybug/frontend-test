@@ -66,7 +66,7 @@ Route::group(['prefix' => 'my-site'], function () {
         Route::group(['prefix' => 'pages'], function () {
             Route::get('/special', 'MySiteController@specialSettings')->name('mini_my_site_special_settings');
             Route::get('/', 'MySiteController@pagesFunction')->name('mini_my_site_btybug_pages');
-            Route::post('/deletepage/{id?}', 'MySiteController@pagesDelete')->name('mini_my_site_btybug_pages_delete');
+            Route::post('/deletepage', 'MySiteController@pagesDelete')->name('mini_my_site_btybug_pages_delete');
             Route::post('/create', 'MySiteController@pagesCreate')->name('mini_page_create');
             Route::post('/sorting', 'MySiteController@sorting')->name('mini_page_sorting');
             Route::post('/show-page', 'MySiteController@showPage')->name('mini_page_show');

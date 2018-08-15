@@ -766,7 +766,7 @@ function hierarchyMiniUserPagesListFull($data, $parent = true, $icon = true, $id
         foreach ($data as $item) {
             $children = $item->childs;
             $output .= '<li class="show-page list-inline-item " data-id="' . $item->id . '" id="' . $item->id . '" data-type="' . $item->type . '">';
-            $output .= '<a href="">
+            $output .= '<a href="#">
                                     <span class="left-icon"><i class="fas fa-caret-left"></i></span>
                                     <span class="icon"><i class="fas fa-clipboard-list"></i></span>
                                     <span class="name">'.$item->title.'</span>';
