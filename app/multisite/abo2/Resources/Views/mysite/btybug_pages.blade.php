@@ -27,6 +27,7 @@
                 </li>
             </ul>
         </div>
+        <input type="hidden" name="_token" >
         <div class="content-pages container-fluid">
             <div class="row">
                 <div class="col-md-2 pl-0">
@@ -70,7 +71,7 @@
 @stop
 @section('js')
     <script>
-        $("body").on('click','.delete_page',function () {
+        $('.delete_page').on('click',function () {
             var id = $(this).data('id');
             $.ajax({
                 url: '{!! route('mini_my_site_btybug_pages_delete') !!}',
