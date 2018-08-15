@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
           integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="{!!url('public/minicms/plugins/animate/animate.min.css')!!}">
-    <link rel="stylesheet" href="{!!url('public/minicms/css/style.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/minicms/css/tabsStyle.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/css/style-responsive.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/css/default.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/btybug.css')!!}">
@@ -45,14 +45,17 @@
     <title>Document</title>
 </head>
 <body>
+
 <div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">
     <!-- begin #sidebar -->
-    @include('mini::_partials.header')
     @include('mini::_partials.sidebar')
+
     <div class="sidebar-bg"></div>
     <!-- end #sidebar -->
     <!-- begin #content -->
     <div id="content" class="content">
+        @include('mini::_partials.navigation')
+
         @yield('content')
 </div>
 </div>
@@ -78,5 +81,7 @@
 <!-- ================== BEGIN FOOTER PAGE LEVEL JS ================== -->
 {!! getFooterJs() !!}
 <!-- ================== END FOOTER PAGE LEVEL JS ================== -->
+
+
 </body>
 </html>

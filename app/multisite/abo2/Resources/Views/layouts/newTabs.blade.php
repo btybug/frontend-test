@@ -2,6 +2,7 @@
 @php
     $tabs=$section->getTabs($index);
 @endphp
+@extends('mini::layouts.app')
 @section('content')
     <div class="pages-manage d-flex flex-column">
         <div class="head d-flex">
