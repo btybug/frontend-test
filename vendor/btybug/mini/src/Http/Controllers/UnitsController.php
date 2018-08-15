@@ -30,6 +30,7 @@ class UnitsController extends Controller
     {
         $slug = explode('.', $id);
         $ui = MiniSuperPainter::find($slug[0]);
+        $ui->setSaveUrl(route('minicms_settings_save',$id,'save'));
         $variation = $ui->variations(false)->find($id);
         $settings = [];
         $extra_data = 'some string';

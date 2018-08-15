@@ -12,7 +12,7 @@ use Btybug\btybug\Models\Painter\BasePainter;
 
 class MiniSuperPainter extends BasePainter
 {
-
+protected $saveUrl;
 
     public function __construct()
     {
@@ -69,7 +69,16 @@ class MiniSuperPainter extends BasePainter
         return false;
     }
 
+    public function setSaveUrl($url)
+    {
+        $this->saveUrl = $url;
+        return $this;
+    }
 
+    public function getSaveUrl()
+    {
+        return $this->saveUrl;
+    }
     public function scopeAll()
     {
         $all = [];
