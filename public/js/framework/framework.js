@@ -221,10 +221,10 @@ var framework = {
     var elm = $this;
     var realElm = null;
     if (elm.width()) {
-      let temp = removeDnDAtrbutesInLayers($($this));
+      let temp = framework.removeDnDAtrbutesInLayers($($this));
       realElm = $this;
       framework.codeWallet.forEach((item, index) => {
-        let newItem = removeDnDAtrbutesInLayers(item);
+        let newItem = framework.removeDnDAtrbutesInLayers(item);
         if (newItem.outerHTML === temp.outerHTML) {
           let id = "j-node-" + index;
           $(".preview-area-selected").attr("id", `j-node-${index}`);
@@ -236,7 +236,7 @@ var framework = {
         .querySelectorAll("*")
         .forEach(item => {
           let newItem = $(item).prop("outerHTML");
-          newItem = removeDnDAtrbutesInLayers($(newItem));
+          newItem = framework.removeDnDAtrbutesInLayers($(newItem));
           if (
             $(newItem)
               .prop("outerHTML")
@@ -255,6 +255,365 @@ var framework = {
     $(".preview-area-selected")
       .css(elmPostionData)
       .addClass("displayToggle");
+  },
+  classAddRecus: function(data, index = 0, elementIndex = 1) {
+    $(data[index]).attr("dnd-placeholder", elementIndex);
+
+    if ($(data[index]).children().length) {
+      framework.classAddRecus(
+        $(data[index]).children(),
+        0,
+        (elementIndex += 1)
+      );
+    }
+    index++;
+    if ($(data[index]).length) {
+      framework.classAddRecus(data, index, (elementIndex += 1));
+    } else {
+      return;
+    }
+  },
+
+  removeDnDAtrbutes: function($this, index = 0) {
+    $this = $($this);
+    let temp = $this.prop("outerHTML");
+    temp = $(temp);
+    temp[0].removeAttribute("dnd-placeholder");
+
+    if (temp[0].classList.length === 1) {
+      temp.removeAttr("class");
+    } else {
+      temp.removeClass("ui-droppable ui-droppable-active");
+      if (temp[0].classList.length === 1) {
+        temp.removeAttr("class");
+      }
+    }
+    temp.find("*").removeAttr("dnd-placeholder");
+    $.each(temp.find("*"), function(index, item) {
+      item = $(item);
+      // item.removeAttr("class");
+
+      if (item[0].classList.length === 1) {
+        item.removeAttr("class");
+      } else {
+        item.removeClass("ui-droppable ui-droppable-active");
+        if (item[0].classList.length === 0) {
+          item.removeAttr("class");
+        }
+      }
+    });
+
+    return temp.prop("outerHTML");
+  },
+  removeDnDAtrbutesInLayers: function($this) {
+    $this = $($this);
+    let temp = $this.prop("outerHTML");
+    temp = $(temp);
+    temp[0].removeAttribute("dnd-placeholder");
+    temp[0].removeAttribute("data-bb-id");
+    temp[0].removeAttribute("style");
+
+    temp.removeClass(
+      "ui-sortable-handle ui-sortable bb-placeholder-area ui-droppable"
+    );
+    if (temp[0].classList.length === 0) {
+      temp.removeAttr("class");
+    }
+
+    temp.find("*").removeAttr("data-bb-id");
+    temp.find("*").removeAttr("dnd-placeholder");
+    temp.find("*").removeAttr("style");
+    $.each(temp.find("*"), function(index, item) {
+      item = $(item);
+      if (item[0].classList.length === 1) {
+        item.removeAttr("class");
+      } else {
+        item.removeClass("bb-placeholder-area");
+        item.removeClass("ui-droppable");
+        item.removeClass("ui-sortable-handle ui-sortable");
+        if (item[0].classList.length === 0) {
+          item.removeAttr("class");
+        }
+      }
+    });
+    return temp[0];
+  },
+
+  DOMtoJSON: function(node) {
+    node = node || this;
+    // DOM Counter
+    DOMCounter++;
+    framework.codeWallet.push(node);
+    $(node).attr("data-bb-id", DOMCounter);
+
+    var obj = {
+      nodeType: node.nodeType,
+      id: "j-node-" + DOMCounter
+    };
+    if (node.tagName) {
+      obj.tagName = node.tagName.toLowerCase();
+    }
+
+    if (node.nodeName) {
+      obj.nodeName = node.nodeName;
+    }
+
+    if (node.nodeValue) {
+      obj.nodeValue = node.nodeValue;
+    }
+
+    var attrs = node.attributes;
+    var nodeClass = "",
+      nodeID = "";
+    if (attrs) {
+      var length = attrs.length;
+      var arr = (obj.attributes = new Array(length));
+      for (var i = 0; i < length; i++) {
+        var attr = attrs[i];
+        arr[i] = [attr.nodeName, attr.nodeValue];
+
+        if (attr.nodeName === "class") nodeClass = attr.nodeValue;
+        if (attr.nodeName === "id") nodeID = attr.nodeValue;
+      }
+    }
+
+    var nodeIcon = "fa-eye";
+    var nodeGroup = framework.getNodeGroup(node);
+
+    obj.icon = "fa " + nodeIcon;
+
+    var nodeGroupID = nodeGroup + " #" + DOMCounter;
+
+    // Add lock icon to protected elements
+    if (typeof node.hasAttribute === "function") {
+      if (node.hasAttribute("protected")) {
+        nodeGroupID =
+          '<i class="fa fa-lock mr-1"></i> ' + nodeGroup + " #" + DOMCounter;
+      }
+      var nodeGroupType = nodeGroup.toLowerCase().replace(" ", "-");
+
+      if (nodeGroup !== "NODE") {
+        nodeGroupID +=
+          '<a href="#" bb-click="editPHPCode" class="bb-node-btn bb-node-edit" data-type="' +
+          nodeGroupType +
+          '" data-id="' +
+          DOMCounter +
+          '"><i class="fa fa-pencil"></i></a>';
+      }
+      if (nodeGroup !== "Wrapper" && !node.hasAttribute("protected")) {
+        nodeGroupID +=
+          '<a href="#" bb-click="removePHPCode" class="bb-node-btn bb-node-delete" data-id="' +
+          DOMCounter +
+          '"><i class="fa fa-trash"></i></a>';
+      }
+
+      if (
+        nodeGroup === "Wrapper" ||
+        nodeGroup === "Container" ||
+        nodeGroup === "Row"
+      ) {
+        nodeGroupID +=
+          '<a href="#" class="bb-node-btn bb-add-section" data-type="' +
+          nodeGroup +
+          '" data-id="' +
+          DOMCounter +
+          '"><i class="fa fa-plus"></i></a>';
+      }
+      nodeGroupID =
+        '<span class="bb-node-' +
+        nodeGroup.toLowerCase() +
+        '">' +
+        nodeGroupID +
+        "</span>";
+
+      obj.text = nodeGroupID;
+
+      obj.bbID = DOMCounter;
+      obj.state = {
+        opened: true
+      };
+      // Check if children loop required
+      var childNodes = node.childNodes;
+      var childrenLoop = true;
+
+      if (!childNodes || childNodes.length === 0) {
+        $(node).addClass("bb-placeholder-area");
+        childrenLoop = false;
+      }
+
+      if (nodeGroup === "Field") childrenLoop = false;
+      if (nodeGroup === "Jumbotron") childrenLoop = false;
+      // if(node.attributes["bb-group"]) childrenLoop = false;
+
+      if (childrenLoop) {
+        var cleanNodes = [];
+        for (i = 0; i < childNodes.length; i++) {
+          if (childNodes[i].nodeName !== "#text") {
+            cleanNodes.push(childNodes[i]);
+          }
+        }
+
+        length = cleanNodes.length;
+        obj.children = [];
+        for (let i = 0; i < length; i++) {
+          var children = framework.DOMtoJSON(cleanNodes[i]);
+          obj.children.push(children);
+        }
+      }
+      return obj;
+    }
+  },
+
+  getNodeGroup: function(node) {
+    var nodeTag;
+    if (node && node.tagName) {
+      var nodeTag = node.tagName.toLowerCase();
+    }
+
+    var nodeGroup = nodeTag;
+
+    if ($.inArray(nodeTag, ["button"]) !== -1) nodeGroup = "Button";
+    if (
+      $.inArray(nodeTag, ["h1", "h2", "h3", "h4", "h5", "h6", "span", "p"]) !==
+      -1
+    )
+      nodeGroup = "Text";
+
+    if ($.inArray(nodeTag, ["input"]) !== -1) {
+      if (node.attributes.type) {
+        var inputType = node.attributes.type.nodeValue;
+        if ($.inArray(inputType, ["submit", "reset", "button"]) !== -1)
+          nodeGroup = "Button";
+      }
+    }
+
+    if (
+      node &&
+      node.attributes &&
+      node.attributes.class &&
+      node.attributes.class.nodeValue
+    ) {
+      var nodeClasses = node.attributes.class.nodeValue;
+      if (nodeClasses.indexOf("row") !== -1) nodeGroup = "Row";
+      if (nodeClasses.indexOf("col-") !== -1) nodeGroup = "Column";
+      if (nodeClasses.indexOf("container") !== -1) nodeGroup = "Container";
+      if (nodeClasses.indexOf("main-wrapper") !== -1) nodeGroup = "Wrapper";
+      if (nodeClasses.indexOf("jumbotron") !== -1) nodeGroup = "Jumbotron";
+    }
+
+    if (node && node.attributes && node.attributes["data-field-id"])
+      nodeGroup = "Field";
+
+    return nodeGroup;
+  },
+  generateDOMTree: function() {
+    DOMCounter = 0;
+
+    var code = codeEditor.getValue();
+    var tempDiv = document.createElement("div");
+    tempDiv.innerHTML = codeEditor.getValue();
+    code = tempDiv;
+
+    // Generate tree
+    // bb-main-wrapper
+    var DOMTree = framework.DOMtoJSON(code);
+    var layersTree = $("#tree-container");
+    // Clean tree if exists
+    if ($.jstree.reference(layersTree)) {
+      layersTree.jstree(true).settings.core.data = DOMTree;
+      layersTree.jstree(true).refresh();
+      return;
+    }
+
+    layersTree
+      .jstree({
+        core: {
+          animation: 0,
+          check_callback: true,
+          themes: { stripes: true },
+          data: DOMTree
+        },
+        plugins: ["wholerow", "noclose", "dnd"]
+      })
+      .bind("move_node.jstree", function(e, data) {
+        let parentId =
+          data.parent !== "#" ? parseInt(data.parent.match(/(\d+)$/)[0]) : 0;
+        let nodeId = parseInt(data.node.id.match(/(\d+)$/)[0]);
+        let code = codeEditor.getValue();
+
+        if (parentId !== 0) {
+          let elementToAppend = framework.removeDnDAtrbutesInLayers(
+            framework.codeWallet[parentId - 1]
+          );
+          let elementNode = framework.removeDnDAtrbutesInLayers(
+            framework.codeWallet[nodeId - 1]
+          );
+          if (data.old_parent !== data.parent) {
+            if (data.parent === "j-node-1") {
+              framework.parseNewCodeToAll(code);
+            } else {
+              let elementToAppendHtml = elementToAppend.outerHTML.replace(
+                elementNode.outerHTML,
+                ""
+              );
+              let newElementToAppend = elementToAppend.outerHTML.replace(
+                elementNode.outerHTML,
+                ""
+              );
+
+              newElementToAppend = $(newElementToAppend)[0];
+              newElementToAppend.appendChild(elementNode);
+              let elementToAppendNewHtml = newElementToAppend.outerHTML;
+              let newCode = code.replace(elementNode.outerHTML, "");
+
+              let finalCode = newCode.replace(
+                elementToAppendHtml,
+                elementToAppendNewHtml
+              );
+              framework.parseNewCodeToAll(finalCode);
+            }
+          } else {
+            let newCode = "";
+            let firstIndex = code.indexOf(elementToAppend.outerHTML);
+            let secondIndex = code.indexOf(elementNode.outerHTML);
+            let oldElementIndex = parseInt(
+              $($(`#${data.parent}`).children()[3])
+                .children()
+                .each(function(index, item) {
+                  let indexElm = parseInt(item.id.match(/(\d+)$/)[0]);
+                  let elm = framework.removeDnDAtrbutesInLayers(
+                    framework.codeWallet[indexElm - 1]
+                  );
+                  let elmHtml = elm.outerHTML;
+                  newCode += elmHtml + "\n";
+                })
+            );
+            if (parentId === 1) {
+              framework.parseNewCodeToAll(newCode);
+            } else {
+              let newHtml = $(elementToAppend.outerHTML).empty();
+              newHtml.append(newCode);
+              // elementToAppend.innerHTML = newCode;
+
+              let finalCode = code.replace(
+                elementToAppend.outerHTML,
+                newHtml[0].outerHTML
+              );
+              framework.parseNewCodeToAll(finalCode);
+            }
+          }
+        } else {
+          framework.parseNewCodeToAll(code);
+        }
+      })
+
+      .on("select_node.jstree", function(e, data) {
+        // // Activate node
+        // var domNode = code.find('[data-bb-id="' + data.node.original.bbID + '"]');
+        // activateNode(domNode);
+        // Node breadcrumb
+        // generateNodeBreadCrumb(data);
+      });
   },
   // Parse templates
   parseTemplate: function(template, variables) {
@@ -298,7 +657,7 @@ var framework = {
       );
     }
     var nodeCode = framework.codeWallet[index];
-    let editCode = removeDnDAtrbutesInLayers(nodeCode);
+    let editCode = framework.removeDnDAtrbutesInLayers(nodeCode);
     return editCode.outerHTML;
   },
   hideAllContentElements() {
@@ -879,7 +1238,7 @@ $(function() {
       // let code = codeEditor.getValue();
       framework.codeWallet = [];
       framework.globalIndex = 0;
-      generateDOMTree();
+      framework.generateDOMTree();
 
       // var treeList = framework.nodeTreeGenerator(
       //   $("<wrap>" + fullCode + "</wrap>")
@@ -895,7 +1254,7 @@ $(function() {
         framework.codeWallet = [];
         framework.globalIndex = 0;
         var codeContent = codeEditor.getValue();
-        generateDOMTree();
+        framework.generateDOMTree();
 
         // HObo
 
@@ -908,7 +1267,7 @@ $(function() {
         codeValue = codeValue.replace(/\|-->/g, "");
         let newCodeValue = $(codeValue);
         var tempppp = "";
-        classAddRecus(newCodeValue);
+        framework.classAddRecus(newCodeValue);
 
         $.each(newCodeValue, function(key, value) {
           if ($(newCodeValue[key]).prop("outerHTML") !== undefined) {
@@ -941,7 +1300,9 @@ $(function() {
                   "ui-droppable-hover": "ankap-mi-ban"
                 },
                 drop: function(event, ui) {
-                  let remAttrElement = removeDnDAtrbutesInLayers($(this));
+                  let remAttrElement = framework.removeDnDAtrbutesInLayers(
+                    $(this)
+                  );
                   remAttrElement = $(remAttrElement);
                   let htmlElement = remAttrElement.prop("outerHTML");
 
@@ -985,7 +1346,8 @@ $(function() {
                 stop: function(e, ui) {
                   let newHtml = "";
                   $.each($(".preview-area").children(), function(index, item) {
-                    newHtml += removeDnDAtrbutesInLayers(item).outerHTML;
+                    newHtml += framework.removeDnDAtrbutesInLayers(item)
+                      .outerHTML;
                   });
                   framework.parseNewCodeToAll(newHtml);
                   test = true;
@@ -1010,12 +1372,7 @@ $(function() {
         framework.codeWallet = [];
         framework.globalIndex = 0;
         var codeContent = phpFullCodeEditor.getValue();
-        // var treeList = framework.nodeTreeGenerator(
-        //   $("<wrap>" + codeContent + "</wrap>")
-        // );
-        generateDOMTree();
-        // $(".tree-list").html(treeList);
-
+        framework.generateDOMTree();
         // Live render
         var codeValue = phpFullCodeEditor.getValue().toString();
         //  + codeContent.toString();
@@ -1023,7 +1380,7 @@ $(function() {
         codeValue = codeValue.replace(/\|-->/g, "");
         let newCodeValue = $(codeValue);
         var tempppp = "";
-        classAddRecus(newCodeValue);
+        framework.classAddRecus(newCodeValue);
 
         $.each(newCodeValue, function(key, value) {
           if ($(newCodeValue[key]).prop("outerHTML") !== undefined) {
@@ -1058,7 +1415,8 @@ $(function() {
                 stop: function(e, ui) {
                   let newHtml = "";
                   $.each($(".preview-area").children(), function(index, item) {
-                    newHtml += removeDnDAtrbutesInLayers(item).outerHTML;
+                    newHtml += framework.removeDnDAtrbutesInLayers(item)
+                      .outerHTML;
                   });
                   framework.parseNewCodeToAll(newHtml);
                   test = true;
@@ -1073,7 +1431,9 @@ $(function() {
                   "ui-droppable-hover": "ankap-mi-ban"
                 },
                 drop: function(event, ui) {
-                  let remAttrElement = removeDnDAtrbutesInLayers($(this));
+                  let remAttrElement = framework.removeDnDAtrbutesInLayers(
+                    $(this)
+                  );
                   remAttrElement = $(remAttrElement);
                   let htmlElement = remAttrElement.prop("outerHTML");
                   let code = codeEditor.getValue();
@@ -1174,7 +1534,15 @@ $(function() {
       }
     }
   });
-  // Make edit on element
+
+  // Listen to click events
+  $("body").on("click", "[bb-click]", function(e) {
+    e.preventDefault();
+    var clickEvent = $(this).attr("bb-click");
+    framework.clickEvents[clickEvent]($(this));
+  });
+
+  // Make preview on selected element
   $("body").on("click", ".preview-area", function(e) {
     if (!$(e.target).hasClass("preview-area")) {
       framework.makePreviewElement($(e.target));
@@ -1185,35 +1553,13 @@ $(function() {
     }
   });
 
-  // Apply demo code
-  //   codeEditor.setValue(style_html($("#demo-html").html()));
-  //   codeEditor.clearSelection();
-
-  $("body").on("click", ".style-checkbox", function(e) {
-    e.stopPropagation();
-  });
-
-  $("body").on("change", ".style-checkbox", function(e) {
-    $("#styles-area").empty();
-    $(".inserted-item").each((index, item) => {
-      let elm = $(item)
-        .find(".style-checkbox:checked")
-        .closest(".inserted-item")
-        .clone();
-      let elmText = elm.text();
-      elm.empty();
-      elm.text(elmText);
-      elm.appendTo("#styles-area");
-    });
-  });
-
   $("body").on("click", ".tree-list-functions", function(e) {
     let currentElement = e.target;
     if ($(currentElement).hasClass("node-content")) {
       let attributes =
         framework.codeWallet[
           currentElement.closest("[data-index]").getAttribute("data-index")
-        ][0].attributes;
+        ].attributes;
       var list = "";
       if (attributes.length) {
         $.each(attributes, function() {
@@ -1241,12 +1587,6 @@ $(function() {
       e.target.getAttribute("data-element") + ">" + e.target.textContent.trim();
     $(".function-options-selecters").click();
     $(".tree-list-functions").empty();
-  });
-  // Listen to click events
-  $("body").on("click", "[bb-click]", function(e) {
-    e.preventDefault();
-    var clickEvent = $(this).attr("bb-click");
-    framework.clickEvents[clickEvent]($(this));
   });
 
   // Node code position change event
@@ -1286,52 +1626,6 @@ $(function() {
   });
 });
 
-function classAddRecus(data, index = 0, elementIndex = 1) {
-  $(data[index]).attr("dnd-placeholder", elementIndex);
-
-  if ($(data[index]).children().length) {
-    classAddRecus($(data[index]).children(), 0, (elementIndex += 1));
-  }
-  index++;
-  if ($(data[index]).length) {
-    classAddRecus(data, index, (elementIndex += 1));
-  } else {
-    return;
-  }
-}
-
-function removeDnDAtrbutes($this, index = 0) {
-  $this = $($this);
-  let temp = $this.prop("outerHTML");
-  temp = $(temp);
-  temp[0].removeAttribute("dnd-placeholder");
-
-  if (temp[0].classList.length === 1) {
-    temp.removeAttr("class");
-  } else {
-    temp.removeClass("ui-droppable ui-droppable-active");
-    if (temp[0].classList.length === 1) {
-      temp.removeAttr("class");
-    }
-  }
-  temp.find("*").removeAttr("dnd-placeholder");
-  $.each(temp.find("*"), function(index, item) {
-    item = $(item);
-    // item.removeAttr("class");
-
-    if (item[0].classList.length === 1) {
-      item.removeAttr("class");
-    } else {
-      item.removeClass("ui-droppable ui-droppable-active");
-      if (item[0].classList.length === 0) {
-        item.removeAttr("class");
-      }
-    }
-  });
-
-  return temp.prop("outerHTML");
-}
-
 let htmlElments = framework.allHtmlTags.map(
   item => `<p class="dnd-html-item">${item}</p>`
 );
@@ -1361,8 +1655,6 @@ let htmlJsPanel = `<ul class="nav nav-tabs" role="tablist">
 </div>
 `;
 
-let htmlJsPanelContent = ``;
-
 jsPanel.create({
   theme: "primary",
   container: "#containerForJsPanel",
@@ -1381,325 +1673,3 @@ jsPanel.create({
 $(".dnd-html-item").draggable({
   revert: true
 });
-
-function generateDOMTree() {
-  DOMCounter = 0;
-
-  var code = codeEditor.getValue();
-  var tempDiv = document.createElement("div");
-  tempDiv.innerHTML = codeEditor.getValue();
-  code = tempDiv;
-  // Protect grouped elements
-  // code.find("[grouped]").each(function() {
-  //   $(this)
-  //     .find("*")
-  //     .each(function() {
-  //       $(this).attr("protected", true);
-  //     });
-  // });
-
-  // Remove placeholder
-  // code.find(".bb-placeholder-area").removeClass("bb-placeholder-area");
-
-  // Generate tree
-  // bb-main-wrapper
-  var DOMTree = DOMtoJSON(code);
-  var layersTree = $("#tree-container");
-  // Clean tree if exists
-  if ($.jstree.reference(layersTree)) {
-    layersTree.jstree(true).settings.core.data = DOMTree;
-    layersTree.jstree(true).refresh();
-    return;
-  }
-
-  layersTree
-    .jstree({
-      core: {
-        animation: 0,
-        check_callback: true,
-        themes: { stripes: true },
-        data: DOMTree
-      },
-      plugins: ["wholerow", "noclose", "dnd"]
-    })
-    .bind("move_node.jstree", function(e, data) {
-      let parentId =
-        data.parent !== "#" ? parseInt(data.parent.match(/(\d+)$/)[0]) : 0;
-      let nodeId = parseInt(data.node.id.match(/(\d+)$/)[0]);
-      let code = codeEditor.getValue();
-
-      if (parentId !== 0) {
-        let elementToAppend = removeDnDAtrbutesInLayers(
-          framework.codeWallet[parentId - 1]
-        );
-        let elementNode = removeDnDAtrbutesInLayers(
-          framework.codeWallet[nodeId - 1]
-        );
-        if (data.old_parent !== data.parent) {
-          if (data.parent === "j-node-1") {
-            framework.parseNewCodeToAll(code);
-          } else {
-            let elementToAppendHtml = elementToAppend.outerHTML.replace(
-              elementNode.outerHTML,
-              ""
-            );
-            let newElementToAppend = elementToAppend.outerHTML.replace(
-              elementNode.outerHTML,
-              ""
-            );
-
-            newElementToAppend = $(newElementToAppend)[0];
-            newElementToAppend.appendChild(elementNode);
-            let elementToAppendNewHtml = newElementToAppend.outerHTML;
-            let newCode = code.replace(elementNode.outerHTML, "");
-
-            let finalCode = newCode.replace(
-              elementToAppendHtml,
-              elementToAppendNewHtml
-            );
-            framework.parseNewCodeToAll(finalCode);
-          }
-        } else {
-          let newCode = "";
-          let firstIndex = code.indexOf(elementToAppend.outerHTML);
-          let secondIndex = code.indexOf(elementNode.outerHTML);
-          let oldElementIndex = parseInt(
-            $($(`#${data.parent}`).children()[3])
-              .children()
-              .each(function(index, item) {
-                let indexElm = parseInt(item.id.match(/(\d+)$/)[0]);
-                let elm = removeDnDAtrbutesInLayers(
-                  framework.codeWallet[indexElm - 1]
-                );
-                let elmHtml = elm.outerHTML;
-                newCode += elmHtml + "\n";
-              })
-          );
-          if (parentId === 1) {
-            framework.parseNewCodeToAll(newCode);
-          } else {
-            let newHtml = $(elementToAppend.outerHTML).empty();
-            newHtml.append(newCode);
-            // elementToAppend.innerHTML = newCode;
-
-            let finalCode = code.replace(
-              elementToAppend.outerHTML,
-              newHtml[0].outerHTML
-            );
-            framework.parseNewCodeToAll(finalCode);
-          }
-        }
-      } else {
-        framework.parseNewCodeToAll(code);
-      }
-    })
-
-    .on("select_node.jstree", function(e, data) {
-      // // Activate node
-      // var domNode = code.find('[data-bb-id="' + data.node.original.bbID + '"]');
-      // activateNode(domNode);
-      // Node breadcrumb
-      // generateNodeBreadCrumb(data);
-    });
-}
-
-function removeDnDAtrbutesInLayers($this) {
-  $this = $($this);
-  let temp = $this.prop("outerHTML");
-  temp = $(temp);
-  temp[0].removeAttribute("dnd-placeholder");
-  temp[0].removeAttribute("data-bb-id");
-  temp[0].removeAttribute("style");
-
-  temp.removeClass(
-    "ui-sortable-handle ui-sortable bb-placeholder-area ui-droppable"
-  );
-  if (temp[0].classList.length === 0) {
-    temp.removeAttr("class");
-  }
-
-  temp.find("*").removeAttr("data-bb-id");
-  temp.find("*").removeAttr("dnd-placeholder");
-  temp.find("*").removeAttr("style");
-  $.each(temp.find("*"), function(index, item) {
-    item = $(item);
-    if (item[0].classList.length === 1) {
-      item.removeAttr("class");
-    } else {
-      item.removeClass("bb-placeholder-area");
-      item.removeClass("ui-droppable");
-      item.removeClass("ui-sortable-handle ui-sortable");
-      if (item[0].classList.length === 0) {
-        item.removeAttr("class");
-      }
-    }
-  });
-  return temp[0];
-}
-
-function DOMtoJSON(node) {
-  node = node || this;
-  // DOM Counter
-  DOMCounter++;
-  framework.codeWallet.push(node);
-  $(node).attr("data-bb-id", DOMCounter);
-
-  var obj = {
-    nodeType: node.nodeType,
-    id: "j-node-" + DOMCounter
-  };
-  if (node.tagName) {
-    obj.tagName = node.tagName.toLowerCase();
-  }
-
-  if (node.nodeName) {
-    obj.nodeName = node.nodeName;
-  }
-
-  if (node.nodeValue) {
-    obj.nodeValue = node.nodeValue;
-  }
-
-  var attrs = node.attributes;
-  var nodeClass = "",
-    nodeID = "";
-  if (attrs) {
-    var length = attrs.length;
-    var arr = (obj.attributes = new Array(length));
-    for (var i = 0; i < length; i++) {
-      var attr = attrs[i];
-      arr[i] = [attr.nodeName, attr.nodeValue];
-
-      if (attr.nodeName === "class") nodeClass = attr.nodeValue;
-      if (attr.nodeName === "id") nodeID = attr.nodeValue;
-    }
-  }
-
-  var nodeIcon = "fa-eye";
-  var nodeGroup = getNodeGroup(node);
-
-  obj.icon = "fa " + nodeIcon;
-
-  var nodeGroupID = nodeGroup + " #" + DOMCounter;
-
-  // Add lock icon to protected elements
-  if (typeof node.hasAttribute === "function") {
-    if (node.hasAttribute("protected")) {
-      nodeGroupID =
-        '<i class="fa fa-lock mr-1"></i> ' + nodeGroup + " #" + DOMCounter;
-    }
-    var nodeGroupType = nodeGroup.toLowerCase().replace(" ", "-");
-
-    if (nodeGroup !== "NODE") {
-      nodeGroupID +=
-        '<a href="#" bb-click="editPHPCode" class="bb-node-btn bb-node-edit" data-type="' +
-        nodeGroupType +
-        '" data-id="' +
-        DOMCounter +
-        '"><i class="fa fa-pencil"></i></a>';
-    }
-    if (nodeGroup !== "Wrapper" && !node.hasAttribute("protected")) {
-      nodeGroupID +=
-        '<a href="#" bb-click="removePHPCode" class="bb-node-btn bb-node-delete" data-id="' +
-        DOMCounter +
-        '"><i class="fa fa-trash"></i></a>';
-    }
-
-    if (
-      nodeGroup === "Wrapper" ||
-      nodeGroup === "Container" ||
-      nodeGroup === "Row"
-    ) {
-      nodeGroupID +=
-        '<a href="#" class="bb-node-btn bb-add-section" data-type="' +
-        nodeGroup +
-        '" data-id="' +
-        DOMCounter +
-        '"><i class="fa fa-plus"></i></a>';
-    }
-    nodeGroupID =
-      '<span class="bb-node-' +
-      nodeGroup.toLowerCase() +
-      '">' +
-      nodeGroupID +
-      "</span>";
-
-    obj.text = nodeGroupID;
-
-    obj.bbID = DOMCounter;
-    obj.state = {
-      opened: true
-    };
-    // Check if children loop required
-    var childNodes = node.childNodes;
-    var childrenLoop = true;
-
-    if (!childNodes || childNodes.length === 0) {
-      $(node).addClass("bb-placeholder-area");
-      childrenLoop = false;
-    }
-
-    if (nodeGroup === "Field") childrenLoop = false;
-    if (nodeGroup === "Jumbotron") childrenLoop = false;
-    // if(node.attributes["bb-group"]) childrenLoop = false;
-
-    if (childrenLoop) {
-      var cleanNodes = [];
-      for (i = 0; i < childNodes.length; i++) {
-        if (childNodes[i].nodeName !== "#text") {
-          cleanNodes.push(childNodes[i]);
-        }
-      }
-
-      length = cleanNodes.length;
-      obj.children = [];
-      for (let i = 0; i < length; i++) {
-        var children = DOMtoJSON(cleanNodes[i]);
-        obj.children.push(children);
-      }
-    }
-    return obj;
-  }
-}
-
-function getNodeGroup(node) {
-  var nodeTag;
-  if (node && node.tagName) {
-    var nodeTag = node.tagName.toLowerCase();
-  }
-
-  var nodeGroup = nodeTag;
-
-  if ($.inArray(nodeTag, ["button"]) !== -1) nodeGroup = "Button";
-  if (
-    $.inArray(nodeTag, ["h1", "h2", "h3", "h4", "h5", "h6", "span", "p"]) !== -1
-  )
-    nodeGroup = "Text";
-
-  if ($.inArray(nodeTag, ["input"]) !== -1) {
-    if (node.attributes.type) {
-      var inputType = node.attributes.type.nodeValue;
-      if ($.inArray(inputType, ["submit", "reset", "button"]) !== -1)
-        nodeGroup = "Button";
-    }
-  }
-
-  if (
-    node &&
-    node.attributes &&
-    node.attributes.class &&
-    node.attributes.class.nodeValue
-  ) {
-    var nodeClasses = node.attributes.class.nodeValue;
-    if (nodeClasses.indexOf("row") !== -1) nodeGroup = "Row";
-    if (nodeClasses.indexOf("col-") !== -1) nodeGroup = "Column";
-    if (nodeClasses.indexOf("container") !== -1) nodeGroup = "Container";
-    if (nodeClasses.indexOf("main-wrapper") !== -1) nodeGroup = "Wrapper";
-    if (nodeClasses.indexOf("jumbotron") !== -1) nodeGroup = "Jumbotron";
-  }
-
-  if (node && node.attributes && node.attributes["data-field-id"])
-    nodeGroup = "Field";
-
-  return nodeGroup;
-}
