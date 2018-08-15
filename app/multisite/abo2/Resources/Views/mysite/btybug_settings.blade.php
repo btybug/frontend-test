@@ -1,4 +1,4 @@
-@extends('mini::layouts.app')
+@extends('mini::layouts.tabsApp')
 @extends('mini::layouts.newTabs',['index'=>'mini_my_site_btybug'])
 @section('tab')
     <div class="tab-pane fade" id="nav-settings" role="tabpanel" aria-labelledby="nav-settings-tab">

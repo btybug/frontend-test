@@ -1,4 +1,4 @@
-@extends('mini::layouts.app')
+@extends('mini::layouts.tabsApp')
 @extends('mini::layouts.newTabs',['index'=>'mini_my_site_btybug'])
 @section('tab')
     <div class="tab-pane fade show active" id="nav-pages" role="tabpanel" aria-labelledby="nav-pages-tab">
@@ -12,16 +12,21 @@
                         <span class="icon"><i class="far fa-clipboard"></i></span>
                         <span class="name">Board</span></a>
                 </li>
+                {{--{{dd($pages)}}--}}
+                @foreach($pages as $item)
                 <li class="list-inline-item active">
                     <span class="left-icon"><i class="fas fa-caret-left"></i></span>
                     <a href="">
                         <span class="icon"><i class="fas fa-clipboard-list"></i></span>
-                        <span class="name">Page 1</span>
-                        <span class="del"><i class="fas fa-times"></i></span>
+                        <span class="name">{!! $item->title !!}</span>
+                        @if($item->type != 'core')
+                            <a href="{{route('mini_my_site_btybug_pages_delete',$item->title)}}"><span class="del"><i class="fas fa-times"></i></span></a>
+                        @endif
                     </a>
                     <span class="right-icon"><i class="fas fa-caret-right"></i></span>
 
                 </li>
+                @endforeach
                 <li class="list-inline-item add"><a href="">
                         <span class="icon"><i class="fas fa-plus"></i></span>
                         <span class="name">New Page</span></a>

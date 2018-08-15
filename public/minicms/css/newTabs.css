@@ -69,6 +69,7 @@
 
 .pages-manage .head .right {
     flex: auto;
+    background-color: #fff;
 }
 
 .pages-manage .head .right .right-tooltip .tooltip {
@@ -206,7 +207,7 @@
     background-color: #e7e7e7;
     margin: 0 auto;
     padding: 15px 30px;
-    border: 1px solid #c5c5c5;
+    /*border: 1px solid #c5c5c5;*/
     display: block;
 }
 

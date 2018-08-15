@@ -48,8 +48,13 @@
                                 $param = null;
                             }
                             ?>
-                                <a class="nav-item nav-link @if(Request::getPathInfo()==$value['url'] || (Request::getPathInfo().'/'.$param)==$value['url']) active @endif " id="nav-pages-tab"                                             href="{!! url($value["url"])!!}"><i
-                                                    class="far fa-sticky-note"></i><span>{!!$value['title']!!}</span></a>
+                                <a class="nav-item nav-link @if(Request::getPathInfo()==$value['url'] || (Request::getPathInfo().'/'.$param)==$value['url']) active @endif " id="nav-pages-tab"                                              href="{!! url($value["url"])!!}">
+                                    @if($value['title'] == 'Settings')
+                                    <i class="fas fa-cog"></i>
+                                    @elseif($value['title'] == 'Pages')
+                                        <i class="far fa-sticky-note"></i>
+                                    @endif
+                                            <span>{!!$value['title']!!}</span></a>
                         @endforeach
 
                     </div>
@@ -77,7 +82,7 @@
 
 @stop
 @push('js')
-    {!! HTML::style('public/minicms/js/tabs/newTabs.js?v=0.1') !!}
+    {!! HTML::script('public/minicms/js/tabs/newTabs.js') !!}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
