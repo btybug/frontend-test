@@ -166,6 +166,7 @@
 
 .pages-manage .page-manage-content .head-content ul li a .icon {
     padding-right: 15px;
+    padding-left: 8px;
 }
 
 .pages-manage .page-manage-content .head-content ul li.active {
@@ -180,6 +181,16 @@
 
 .pages-manage .page-manage-content .head-content ul li.active .right-icon {
     margin-left: 6px;
+    color: white;
+}
+
+.pages-manage .page-manage-content .head-content ul li .right-icon {
+    margin-left: 15px;
+    color: white;
+}
+
+.pages-manage .page-manage-content .head-content ul li .del {
+    margin-left: 15px;
     color: white;
 }
 
@@ -207,7 +218,7 @@
     background-color: #e7e7e7;
     margin: 0 auto;
     padding: 15px 30px;
-    /*border: 1px solid #c5c5c5;*/
+    border: 1px solid #c5c5c5;
     display: block;
 }
 

@@ -762,49 +762,20 @@ function hierarchyAdminPagesListFull($data, $parent = true, $icon = true, $id = 
 function hierarchyMiniUserPagesListFull($data, $parent = true, $icon = true, $id = 0)
 {
     $output = '';
-    // Loop through items
     if ($data) {
         foreach ($data as $item) {
             $children = $item->childs;
-            $output .= '<li class="Item show-page" data-id="' . $item->id . '" id="' . $item->id . '" data-type="' . $item->type . '">';
-            $title = 'core';
-            $output .= '<div class="listinginfo bb-menu-item">';
-            switch ($item->type) {
-                case  "custom" :
-                    $title = 'custom';
-                    $output .= '<div class="lsitingbutton bb-menu-item-title" style="background: #36e0a0; !important">';
-                    break;
-                case  "a_special" :
-                    $title = 'special custom';
-                    $output .= '<div class="lsitingbutton bb-menu-item-title" style="background: #ffea00; !important">';
-                    break;
-                case  "plugin" :
-                    $title = 'plugin';
-                    $output .= '<div class="lsitingbutton bb-menu-item-title" style="background: #e0223c;  !important">';
-                    break;
-                default:
-                    $output .= '<div class="lsitingbutton bb-menu-item-title" style="background: #00c7e0;  !important">';
-                    break;
+            $output .= '<li class="show-page list-inline-item " data-id="' . $item->id . '" id="' . $item->id . '" data-type="' . $item->type . '">';
+            $output .= '<a href="">
+                                    <span class="left-icon"><i class="fas fa-caret-left"></i></span>
+                                    <span class="icon"><i class="fas fa-clipboard-list"></i></span>
+                                    <span class="name">'.$item->title.'</span>';
+            if ($item->type == 'custom')
+            {
+                $output .= '<span class="del"><i class="fas fa-times delete_page" data-id="' . $item->id . '"></i></span>';
             }
-            if ($item->type !== 'custom') {
-                $output .= '<span class="listingtitle">' . $item->title . ' - ' . $title . '</span>';
-            } else {
-                $output .= '<span class="listingtitle">' . $item->title . ' - ' . $title . '<a href="' . route('mini_my_site_btybug_pages_delete', $item->id) . '"  style="cursor: pointer;"   class="delete-button pull-right trashBtn"><i class="fa fa-trash"></i></a></span>';
-            }
+            $output .='<span class="right-icon"><i class="fas fa-caret-right"></i></span></a>';
             $settings = json_decode($item->settings, true);
-            $output .= '</div>';
-            $output .= '</div>';
-            /* Actions */
-            /* Actions END */
-            if (count($children)) {
-                $output .= '<ol>';
-                $output .= hierarchyMiniUserPagesListFull($children, false, $icon, 0);
-                $output .= '</ol>';
-            }
-
-//        $output .= '</li>';
-            // If this is the top parent
-            $output .= '</li>';
         }
     }
 

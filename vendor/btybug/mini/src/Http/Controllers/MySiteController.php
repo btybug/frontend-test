@@ -138,6 +138,7 @@ class MySiteController extends MiniController
 
     public function pagesDelete(Request $request,$id = null)
     {
+        dd('sdfgvsd');
         $this->ennable($request);
         return $this->cms->pagesDelete($id);
     }

@@ -12,21 +12,15 @@
                         <span class="icon"><i class="far fa-clipboard"></i></span>
                         <span class="name">Board</span></a>
                 </li>
-                {{--{{dd($pages)}}--}}
-                @foreach($pages as $item)
-                <li class="list-inline-item active">
+                {{--<li class="list-inline-item active">
                     <span class="left-icon"><i class="fas fa-caret-left"></i></span>
-                    <a href="">
                         <span class="icon"><i class="fas fa-clipboard-list"></i></span>
                         <span class="name">{!! $item->title !!}</span>
-                        @if($item->type != 'core')
-                            <a href="{{route('mini_my_site_btybug_pages_delete',$item->title)}}"><span class="del"><i class="fas fa-times"></i></span></a>
-                        @endif
-                    </a>
+                         <span class="del"><i class="fas fa-times"></i></span>
                     <span class="right-icon"><i class="fas fa-caret-right"></i></span>
 
-                </li>
-                @endforeach
+                </li>--}}
+                {!! hierarchyMiniUserPagesListFull($pages) !!}
                 <li class="list-inline-item add"><a href="">
                         <span class="icon"><i class="fas fa-plus"></i></span>
                         <span class="name">New Page</span></a>
@@ -73,24 +67,27 @@
             </div>
         </div>
     </div>
-    @include('btybug::_partials.delete_modal')
 @stop
-
-@section('css')
-    {{--{!! HTML::style('public/css/create_pages.css') !!}
-    {!! HTML::style('public/css/tool-css.css?v=0.23') !!}
-    {!! HTML::style('public/css/page.css?v=0.15') !!}
-    {!! HTML::style('public/css/admin_pages.css') !!}
-    {!! HTML::style('public/minicms/main.css?v='.rand(111,999)) !!}
-    <style>
-        .show-page{
-            cursor:pointer;
-        }
-    </style>--}}
-@stop
-
-
 @section('js')
+    <script>
+        $("body").on('click','.delete_page',function () {
+            var id = $(this).data('id');
+            $.ajax({
+                url: '{!! route('mini_my_site_btybug_pages_delete') !!}',
+                dataType: 'json',
+                type: 'POST',
+                data: {id: id},
+                headers: {
+                    'X-CSRF-TOKEN': $("input[name='_token']").val()
+                },
+                success: function(data){
+                    if(! data.error){
+                        console.log(data)
+                    }
+                }
+            });
+        });
+    </script>
    {{-- {!! HTML::script('public/js/create_pages.js') !!}
     {!! HTML::script('public/js/admin_pages.js') !!}
     {!! HTML::script('public/js/menus.js') !!}
