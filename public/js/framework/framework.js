@@ -978,9 +978,16 @@ $(function() {
                 connectWith: "[dnd-placeholder]",
                 delay: 150, //delay for drag vs click
                 revert: 0,
+                cursor: "move",
+                helper: "clone",
+                tolerance: "pointer",
+                placeholder: "ui-sortable-placeholder",
                 stop: function(e, ui) {
-                  let newHtml = removeDnDAtrbutesInLayers($(".preview-area"));
-                  framework.parseNewCodeToAll(newHtml.outerHTML);
+                  let newHtml = "";
+                  $.each($(".preview-area").children(), function(index, item) {
+                    newHtml += removeDnDAtrbutesInLayers(item).outerHTML;
+                  });
+                  framework.parseNewCodeToAll(newHtml);
                   test = true;
                 }
               });
@@ -1044,15 +1051,23 @@ $(function() {
                 connectWith: "[dnd-placeholder]",
                 delay: 150, //delay for drag vs click
                 revert: 0,
+                cursor: "move",
+                helper: "clone",
+                tolerance: "pointer",
+                placeholder: "ui-sortable-placeholder",
                 stop: function(e, ui) {
-                  let newHtml = removeDnDAtrbutesInLayers($(".preview-area"));
-                  framework.parseNewCodeToAll(newHtml.outerHTML);
+                  let newHtml = "";
+                  $.each($(".preview-area").children(), function(index, item) {
+                    newHtml += removeDnDAtrbutesInLayers(item).outerHTML;
+                  });
+                  framework.parseNewCodeToAll(newHtml);
                   test = true;
                 }
               });
               $("[dnd-placeholder]").droppable({
                 accept: ".dnd-html-item",
                 greedy: true,
+
                 classes: {
                   // "ui-droppable": "highlight",
                   "ui-droppable-hover": "ankap-mi-ban"
@@ -1061,8 +1076,6 @@ $(function() {
                   let remAttrElement = removeDnDAtrbutesInLayers($(this));
                   remAttrElement = $(remAttrElement);
                   let htmlElement = remAttrElement.prop("outerHTML");
-                  console.log(htmlElement);
-                  console.log(remAttrElement);
                   let code = codeEditor.getValue();
                   if (
                     ui.draggable
@@ -1084,7 +1097,6 @@ $(function() {
                       htmlElement,
                       remAttrElement.prop("outerHTML")
                     );
-                    console.log(newCode);
                     // codeEditor.setValue(newCode);
                     // codeEditor.clearSelection();
                     test = true;
@@ -1502,7 +1514,6 @@ function removeDnDAtrbutesInLayers($this) {
   temp.removeClass(
     "ui-sortable-handle ui-sortable bb-placeholder-area ui-droppable"
   );
-  console.log(temp[0].classList.length);
   if (temp[0].classList.length === 0) {
     temp.removeAttr("class");
   }
@@ -1628,7 +1639,6 @@ function DOMtoJSON(node) {
       childrenLoop = false;
     }
 
-    console.log(nodeGroup);
     if (nodeGroup === "Field") childrenLoop = false;
     if (nodeGroup === "Jumbotron") childrenLoop = false;
     // if(node.attributes["bb-group"]) childrenLoop = false;
