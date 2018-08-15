@@ -143,8 +143,8 @@
                 });
             $(".bb-menu-area").disableSelection();
         });
-    </script>
-    <script>
-        $('#tab').addClass('active');
     </script>--}}
+    <script>
+        $('#nav-pages-tab').addClass('active');
+    </script>
 @stop
