@@ -1,3 +1,4 @@
+@section('footer')
 {!! render_mini_unit('btybug_unit_navbar_footer.default',\Btybug\Mini\Model\MiniSuperPainter::class) !!}
 <!-- ================== BEGIN BASE FOOTER JS ================== -->
 
@@ -13,3 +14,4 @@
 <!-- ================== BEGIN FOOTER PAGE LEVEL JS ================== -->
 {!! getFooterJs() !!}
 <!-- ================== END FOOTER PAGE LEVEL JS ================== -->
+    @stop
