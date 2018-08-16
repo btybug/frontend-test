@@ -90,7 +90,6 @@
         $(document).ready(function () {
             $("body").on('click','.show-page',function () {
                 var id = $(this).data('id');
-                alert(id);
                 $.ajax({
                     url: '{!! route('mini_page_show') !!}',
                     dataType: 'json',
@@ -143,11 +142,25 @@
 
             $("#add-new-page").click(function(e){
                 e.preventDefault()
-                let html = ` <li class="list-inline-item"><a href="">
+                $.ajax({
+                    url: '{!! route('mini_page_create') !!}',
+                    dataType: 'json',
+                    type: 'POST',
+                    data: {},
+                    headers: {
+                        'X-CSRF-TOKEN': $("input[name='_token']").val()
+                    },
+                    success: function(data){
+                        if(! data.error){
+                            let html = ` <li data-id="${data}" id="${data}" class="list-inline-item"><a href="">
                         <span class="icon"><i class="far fa-clipboard"></i></span>
                         <span class="name">Defualt page</span></a>
-                </li>`
-                $(".bb-menu-area").append(html)
+                            </li>`
+                            $(".bb-menu-area").append(html)
+                        }
+                    }
+                });
+                
             })
         });
     </script>
