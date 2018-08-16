@@ -1,9 +1,4 @@
-@inject('section','Btybug\btybug\Helpers\Tabs')
-@php
-    $tabs=$section->getTabs($index);
-@endphp
-@extends('mini::layouts.app')
-@section('content')
+@section('newTabcont')
     <div class="pages-manage d-flex flex-column">
         <div class="head d-flex">
             <div class="left d-flex align-items-center">
@@ -70,13 +65,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="page-manage-content">
-            <div class="tab-content" id="nav-tabContent">
-
-             @yield('tab')
-
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@
  * Date: 04.07.2018
  * Time: 13:27
  */
-Route::get('/', 'ClientController@account');
+Route::get('/', 'ClientController@account')->name('my-account');
 
 Route::get('/general', 'ClientController@accountGeneral')->name('mini_account_general');
 Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe', true)->name('mini_settings_iframe');

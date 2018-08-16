@@ -109,6 +109,20 @@ class ModuleServiceProvider extends ServiceProvider
                 ],
                 'layout' => 'mini::layouts.app'
             ],
+            'mini_main' => [
+                [
+                    'title' => 'Main',
+                    'url' => route('my-account'),
+                ],
+                'layout' => 'mini::layouts.app'
+            ],
+            'mini_more_sites' => [
+                [
+                    'title' => 'More Sites',
+                    'url' => route('mini_my_site_more_sites'),
+                ],
+                'layout' => 'mini::layouts.app'
+            ],
         ];
         \Eventy::action('my.tab', $tubs);
     }

@@ -54,8 +54,12 @@
     <!-- end #sidebar -->
     <!-- begin #content -->
     <div id="content" class="content">
-        @include('mini::_partials.navigation')
-
+        @inject('section','Btybug\btybug\Helpers\Tabs')
+        @php
+            $tabs=$section->getTabs($index);
+        @endphp
+        @include('mini::layouts.newTabs')
+        @yield('newTabcont')
         @yield('content')
 </div>
 </div>

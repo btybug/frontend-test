@@ -8,7 +8,6 @@
 }
 .pages-manage{
     background-color: #eeeeee;
-    min-height:100vh;
 }
 .pages-manage .page-manage-content,.pages-manage >.head{
     flex: 0 0 auto;

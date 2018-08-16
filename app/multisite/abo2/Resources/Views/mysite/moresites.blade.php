@@ -1,4 +1,4 @@
-@extends('mini::layouts.app')
+@extends('mini::layouts.app',['index'=>'mini_more_sites'])
 @section('content')
 
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
