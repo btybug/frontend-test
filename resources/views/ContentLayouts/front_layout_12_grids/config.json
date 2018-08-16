@@ -1,0 +1,42 @@
+{
+  "title": "Layout 12 Grids",
+  "author": "Edo",
+  "self_type": "page_sections",
+  "type": "general",
+  "version": 1,
+  "descrition": "Layout 12 Grids",
+  "layout": "main",
+  "panel": "panel",
+  "css": [
+    "style.css",
+    "setting-body.css"
+  ],
+  "js": [
+    "js.js"
+  ],
+  "settings": {
+    "file": "settings",
+    "css": [
+      "style.css"
+    ],
+    "js": [
+      "js.js"
+    ]
+  },
+  "placeholders": {
+    "general": {
+      "type": "unit",
+      "tag": "general",
+      "title": "General",
+      "s" : true
+    }
+  },
+  "folder": "front_layout_12_grids",
+  "active": false,
+  "tags":["front_pages_layout"],
+  "slug": "front_layout_12_grids",
+  "created_at": 1493719963,
+  "is_core": 0,
+  "place": "frontend",
+  "path": "resources\/views\/ContentLayouts\/front_layout_12_grids"
+}
