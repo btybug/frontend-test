@@ -45,12 +45,9 @@
     <title>Document</title>
 </head>
 <body>
-
-<div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">
-    <!-- begin #sidebar -->
-    @include('mini::_partials.sidebar')
-    @inject('section','Btybug\btybug\Helpers\Tabs')
-    @php
+@include('mini::_partials.sidebar')
+@inject('section','Btybug\btybug\Helpers\Tabs')
+@php
     if (isset($index))
     {
         $tabs=$section->getTabs($index);
@@ -58,9 +55,12 @@
     {
         $tabs = [];
     }
-    @endphp
-    @include('mini::layouts.newTabs')
-    @yield('newTabcont')
+@endphp
+@include('mini::layouts.newTabs')
+@yield('newTabcont')
+<div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">
+    <!-- begin #sidebar -->
+
     <div class="sidebar-bg"></div>
     <!-- end #sidebar -->
     <!-- begin #content -->
