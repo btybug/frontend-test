@@ -87,13 +87,6 @@
                                 <span>Feeds</span>
                             </a>
                         </li>
-                        <li class="ux-tabs__header">
-                            <a href="#"
-                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i
-                                        class="fas fa-clipboard"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
                     </ul>
                 </div>
 
