@@ -2,8 +2,8 @@
 @section('tab')
     <div class="tab-pane fade show active" id="nav-pages" role="tabpanel" aria-labelledby="nav-pages-tab">
         <div class="head-content">
-            <ul class="list-inline bb-menu-area" style="display: inline-block">
-                <li class="list-inline-item"><a href="">
+        <ul class="list-inline " style="display: inline-block">
+        <li class="list-inline-item"><a href="">
                         <span class="icon"><i class="fas fa-home"></i></span>
                         <span class="name">Profile</span></a>
                 </li>
@@ -11,6 +11,9 @@
                         <span class="icon"><i class="far fa-clipboard"></i></span>
                         <span class="name">Board</span></a>
                 </li>
+                </ul>
+            <ul class="list-inline bb-menu-area" style="display: inline-block">
+          
                 {!! hierarchyMiniUserPagesListFull($pages) !!}
                 
             </ul>
@@ -39,7 +42,7 @@
                             <div class="col-lg-8 top-head-left d-flex align-items-center ">
                                         <span class="name ">
                                             <i class="far fa-sticky-note"></i>
-                                            <span class="page-name">Page 1</span>
+                                            <span contenteditable="true" class="page-name">Page 1</span>
                                         </span>
                                 <div class="d-flex flex-wrap">
                                     <a href="" class="btn active">Unit Name</a>
@@ -92,6 +95,7 @@
                 var id = $(this).data('id');
                 var title = $(this).data('title');
                 $('.page-name').text(title);
+                $('.page-name').attr("data-id", id);
                 $.ajax({
                     url: '{!! route('mini_page_show') !!}',
                     dataType: 'json',
@@ -108,6 +112,14 @@
                     }
                 });
             });
+            $("body").on("blur keyup paste input", ".page-name", function(e){
+                    let id = $(this).attr("data-id")
+                    console.log(id)
+                    $(`[data-id='${id}']`).find(".name").text($(this).text())
+                    console.log()
+                    // $(`[id]`).text()
+            })
+            
 
             let items = $(".Item")
 
