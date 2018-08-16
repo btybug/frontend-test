@@ -1,5 +1,4 @@
-@extends('mini::layouts.app')
-@extends('mini::layouts.mTabs',['index'=>'mini_my_site_extra_units'])
+@extends('mini::layouts.app',['index'=>'mini_my_site_extra_units'])
 @section('tab')
     {{-- {{$units}}--}}
     <div class="ui-2_col">
@@ -154,6 +153,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
+            $('.head_name').text('Gears')
             $('body').on('click','.variations .grid-list button',function() {
                 if ($(this).hasClass('onGridButton')) {
                     $('.previews>.row>div').removeClass('col-sm-12 list').addClass('col-sm-6 grid');
