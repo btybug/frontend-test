@@ -6,7 +6,7 @@
  * Time: 13:27
  */
 Route::get('/', 'ClientController@account')->name('my-account');
-
+Route::post('/sorting','ClientController@sorting')->name('mini_page_sorting');
 Route::get('/general', 'ClientController@accountGeneral')->name('mini_account_general');
 Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe', true)->name('mini_settings_iframe');
 

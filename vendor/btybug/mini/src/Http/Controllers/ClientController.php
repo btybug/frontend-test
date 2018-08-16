@@ -21,6 +21,7 @@ use Btybug\Mini\Services\UnitService;
 use Btybug\Uploads\Repository\FormBuilderRepository;
 use Btybug\User\Repository\MembershipRepository;
 use Illuminate\Http\Request;
+use Zend\Diactoros\Response;
 
 
 class ClientController extends MiniController
@@ -347,5 +348,10 @@ class ClientController extends MiniController
     {
         $this->ennable($request);
         return $this->cms->home();
+    }
+
+    public function sorting(Request $request)
+    {
+        dd($request);
     }
 }

@@ -17,6 +17,7 @@
 }
 .pages-manage .page-manage-content,.pages-manage >.head{
     flex: 0 0 auto;
+    height: 70px;
 }
 
 .pages-manage ul {
