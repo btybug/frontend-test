@@ -87,7 +87,20 @@
                                 <span>Main</span>
                             </a>
                         </li>
+                        <li class="ux-tabs__header">
+                            <a href="#"
+                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i
+                                        class="fas fa-clipboard"></i>
+                                <span>Main</span>
+                            </a>
+                        </li>
                     </ul>
+                    <ul class="list-inline " style="display: inline-block">
+                        <li class="list-inline-item add" id="add-new-page"><a>
+                        <span class="icon"><i class="fas fa-plus"></i></span>
+                        <span class="name">New Page</span></a>
+                </li>
+                </ul>
                 </div>
 
             </div>
@@ -119,6 +132,52 @@
 <script src="{!!url('public/minicms/apps.min.js')!!}"></script>
 <script src="{!!url('public/minicms/home.js')!!}"></script>
 <script src="{!!url('public/minicms/main.js')!!}"></script>
+<script>
+//  $(".ux-tabs__headers")
+//                 .sortable({
+//                     cursor: "move",
+//                     revert: true,
+//                     stop: function (e, ui) {
+
+//                         let sorted = $(".ux-tabs__headers").sortable("toArray");
+
+//                         $.ajax({
+//                             url: '{!! route('mini_page_sorting') !!}',
+//                             dataType: 'json',
+//                             type: 'POST',
+//                             data: {data: sorted},
+//                             headers: {
+//                                 'X-CSRF-TOKEN': $("input[name='_token']").val()
+//                             },
+//                             success: function(data){
+
+//                             },
+//                             error: function(data){
+//                                 console.log(data);
+//                             }
+//                         });
+//                     }
+//                 })
+//                 .find(".Item[class~=ui-sortable-helper]")
+//                 .on("transitionend", function (e) {
+//                     $(this).css("transform", "rotate(0deg)");
+//                 });
+
+
+
+                $("#add-new-page").click(function(e){
+                e.preventDefault()
+                
+                           let html = `<li class="ux-tabs__header">
+                            <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i class="fas fa-clipboard"></i>
+                                <span>Default Item</span>
+                            </a>
+                        </li>`;
+                            $(".ux-tabs__headers").append(html)
+               
+                
+            })
+</script>
 <!-- ================== END FOOTER BASE JS ================== -->
 
 
