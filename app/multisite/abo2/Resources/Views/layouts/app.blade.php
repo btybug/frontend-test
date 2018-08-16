@@ -49,19 +49,18 @@
 <div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">
     <!-- begin #sidebar -->
     @include('mini::_partials.sidebar')
-
+    @inject('section','Btybug\btybug\Helpers\Tabs')
+    @php
+        $tabs=$section->getTabs($index);
+    @endphp
+    @include('mini::layouts.newTabs')
+    @yield('newTabcont')
     <div class="sidebar-bg"></div>
     <!-- end #sidebar -->
     <!-- begin #content -->
     <div id="content" class="content">
-        @inject('section','Btybug\btybug\Helpers\Tabs')
-        @php
-            $tabs=$section->getTabs($index);
-        @endphp
-        @include('mini::layouts.newTabs')
-        @yield('newTabcont')
         @yield('content')
-</div>
+    </div>
 </div>
 @yield('footer')
 
