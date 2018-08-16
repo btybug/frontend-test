@@ -812,7 +812,7 @@ table.dataTable thead .sorting_desc_disabled:after,
     left: 0;
     top: 0;
     bottom: 0;
-    padding-top: 50px;
+    padding-top: 70px;
     background: #2d353c;
     z-index: 1010;
     -webkit-transform: translateZ(0);
