@@ -72,7 +72,7 @@
                                             class="fas fa-home"></i>Home</a>
                                 <a class="dropdown-item d-flex align-items-center" href="/dashboard"><i
                                             class="fas fa-archway"></i> Dashboards</a>
-                                <a class="dropdown-item d-flex align-items-center" href="/communications"><i
+                                <a class="dropdown-item d-flex align-items-center" href="/notifications"><i
                                             class="far fa-comment-alt"></i> Communications</a>
                             </div>
                         </div>

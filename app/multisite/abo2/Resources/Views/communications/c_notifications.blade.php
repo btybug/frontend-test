@@ -72,7 +72,7 @@
                                             class="fas fa-home"></i>Home</a>
                                 <a class="dropdown-item d-flex align-items-center" href="/dashboard"><i
                                             class="fas fa-archway"></i> Dashboards</a>
-                                <a class="dropdown-item d-flex align-items-center" href="/communications"><i
+                                <a class="dropdown-item d-flex align-items-center" href="/notifications"><i
                                             class="far fa-comment-alt"></i> Communications</a>
                             </div>
                         </div>
@@ -81,21 +81,21 @@
                     </div>
                     <ul class="ux-tabs__headers">
                         <li class="ux-tabs__header active">
-                            <a href="{!! url('/communications/notifications') !!}"
+                            <a href="{!! url('/notifications') !!}"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
                                 <i class="fas fa-home"></i>
                                 <span>Notifications</span>
                             </a>
                         </li>
                         <li class="ux-tabs__header active">
-                            <a href="{!! url('/communications/messages') !!}"
+                            <a href="{!! url('/messages') !!}"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
                                 <i class="fas fa-home"></i>
                                 <span>Messages</span>
                             </a>
                         </li>
                         <li class="ux-tabs__header">
-                            <a href="{!! url('/communications/subscribers') !!}"
+                            <a href="{!! url('/subscribers') !!}"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i
                                         class="fas fa-clipboard"></i>
                                 <span>Subscribers</span>

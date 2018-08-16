@@ -40,7 +40,9 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapFrontRoutes();
         $this->mapFrontHome();
         $this->mapFrontDashboard();
-        $this->mapFrontCommuniactions();
+        $this->mapFrontNotifications();
+        $this->mapFrontMessages();
+        $this->mapFrontSubscribers();
         //
     }
 
@@ -129,7 +131,7 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
-    protected function mapFrontCommuniactions()
+    protected function mapFrontNotifications()
     {
         Route::group([
             'domain' => (string)env('DOMAIN'),
@@ -137,10 +139,42 @@ class RouteServiceProvider extends ServiceProvider
         ], function ($router) {
             Route::group([
                 'middleware' => ['auth'],
-                'prefix' => 'communications',
+                'prefix' => 'notifications',
                 'namespace' => $this->namespace,
             ], function ($router) {
-                require __DIR__ . '/../Routes/communiactions.php';
+                require __DIR__ . '/../Routes/notifications.php';
+            });
+        });
+    }
+
+    protected function mapFrontMessages()
+    {
+        Route::group([
+            'domain' => (string)env('DOMAIN'),
+            'middleware' => ['web','adminCheck']
+        ], function ($router) {
+            Route::group([
+                'middleware' => ['auth'],
+                'prefix' => 'messages',
+                'namespace' => $this->namespace,
+            ], function ($router) {
+                require __DIR__ . '/../Routes/messages.php';
+            });
+        });
+    }
+
+    protected function mapFrontSubscribers()
+    {
+        Route::group([
+            'domain' => (string)env('DOMAIN'),
+            'middleware' => ['web','adminCheck']
+        ], function ($router) {
+            Route::group([
+                'middleware' => ['auth'],
+                'prefix' => 'subscribers',
+                'namespace' => $this->namespace,
+            ], function ($router) {
+                require __DIR__ . '/../Routes/subscribers.php';
             });
         });
     }
