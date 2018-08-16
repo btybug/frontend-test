@@ -11,6 +11,7 @@ namespace Btybug\Mini\Http\Controllers;
 
 use Btybug\Mini\Generator;
 use Btybug\Mini\Http\Requests\PageCreateRequest;
+use Btybug\Mini\Model\MiniPainter;
 use Btybug\Mini\Services\PagesService;
 use Btybug\Console\Repository\FrontPagesRepository;
 use Illuminate\Http\Request;
@@ -118,7 +119,9 @@ class MySiteController extends MiniController
         $this->ennable($request);
         try {
             $page = $this->pageRepositroy->findOrFail($request->id);
-            $html = \View('mini::pages._partials.view')->with('page', $page)->render();
+            $unit=MiniPainter::findByVariation($page->template);
+            $variations=($unit)?$unit->variations()->all()->getItems()->pluck('title','id'):[];
+            $html = \View('mini::pages._partials.view',compact('page','variations','unit'))->render();
         } catch (\Exception $exception) {
             return $this->cms->responseJson(true, $exception->getMessage());
 
