@@ -51,7 +51,13 @@
     @include('mini::_partials.sidebar')
     @inject('section','Btybug\btybug\Helpers\Tabs')
     @php
+    if (isset($index))
+    {
         $tabs=$section->getTabs($index);
+    }else
+    {
+        $tabs = [];
+    }
     @endphp
     @include('mini::layouts.newTabs')
     @yield('newTabcont')
