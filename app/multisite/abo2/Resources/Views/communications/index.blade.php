@@ -68,12 +68,12 @@
                                 <span class="caret-down"><i class="fas fa-caret-down"></i></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item d-flex align-items-center" href="#"><i
-                                            class="far fa-heart"></i>Add to Favorite</a>
-                                <a class="dropdown-item d-flex align-items-center" href="#"><i
-                                            class="far fa-comment-alt"></i> Message</a>
-                                <a class="dropdown-item d-flex align-items-center" href="#"><i
-                                            class="far fa-flag"></i> Report</a>
+                                <a class="dropdown-item d-flex align-items-center" href="/home"><i
+                                            class="fas fa-home"></i>Home</a>
+                                <a class="dropdown-item d-flex align-items-center" href="/dashboard"><i
+                                            class="fas fa-archway"></i> Dashboards</a>
+                                <a class="dropdown-item d-flex align-items-center" href="/communications"><i
+                                            class="far fa-comment-alt"></i> Communications</a>
                             </div>
                         </div>
 
