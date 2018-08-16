@@ -45,160 +45,100 @@
 </head>
 <body>
 
-<div id="top-navigation" class="container-fluid nopadding profile">
-    <div class="row nopadding ident ui-bg-color01">
-        <div class="col-md-3 vc-photo photo nopadding">
-            <div class="h-100">
-                <div class="d-block d-md-none social-photo">
-                    <div class=" social-icons d-flex  align-items-center flex-column-reverse">
-                        <a class="secret" href="javascript:void(0);"><i class="fas fa-user-secret"></i></a>
-                        <a class="twitter" href="javascript:void(0);"><i class="fab fa-twitter"></i></a>
-                        <a class="facebook" href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a>
-
-                    </div>
-                </div>
-                <img src="/public/images/girl-cover.jpg" alt="girl">
-            </div>
-
-        </div>
-
-        <div class="col-md-9 main nopadding">
-            <div class="h-100 d-flex flex-column">
-                <div class="profile-top d-flex justify-content-between align-items-center flex-wrap">
-                    <div class="title-profesion">
-                        <div class="title d-flex align-items-center">
+<div class="container-fluid nopadding profile-sticky">
+    <div class="ux-tabs ">
+        <div class="row nopadding">
+            <div class="col-10 nopadding ">
+                <div class="stick-flex">
+                    <div class="sticky-user">
+                        <div class="img">
+                            <img src="girl-cover.jpg" alt="girl">
+                        </div>
+                        <div class="info d-flex align-items-center">
                             <h2>Rania Dewell</h2>
-                            <div class="circle d-flex align-items-center justify-content-center">
-                                <span></span>
+                            <a href="#">
+                                <span class="share"><i class="fas fa-share"></i></span>
+                            </a>
+
+                            <a href="#">
+                                <span class="favorite"><i class="far fa-heart"></i></span>
+                            </a>
+                            <a class="reply" href="javascript:void(0);" id="dropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret-down"><i class="fas fa-caret-down"></i></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                            class="far fa-heart"></i>Add to Favorite</a>
+                                <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                            class="far fa-comment-alt"></i> Message</a>
+                                <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                            class="far fa-flag"></i> Report</a>
                             </div>
                         </div>
 
-                        <p class="profesion">Graphic Designer</p>
-                    </div>
-                    <div class="icons d-flex flex-wrap align-items-center">
-                        <a class="reply" href="javascript:void(0);">
-                            <span><i class="fas fa-share"></i></span>
-                            <span class="count">207</span>
-                        </a>
-                        <a class="comment" href="javascript:void(0);"><span><i
-                                        class="far fa-comment-alt"></i></span></a>
-                        <a class="heart" href="javascript:void(0);"><span><i class="far fa-heart"></i></span></a>
-                        <a class="ellipsis" href="javascript:void(0);">
-                            <span class="d-none d-md-block"><i class="fas fa-ellipsis-v"></i></span>
-                            <span class="caret-down d-block d-md-none"><i class="fas fa-caret-down"></i></span>
-                        </a>
 
                     </div>
+                    <ul class="ux-tabs__headers">
+                        <li class="ux-tabs__header active">
+                            <a href="#"
+                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
+                                <i class="fas fa-home"></i>
+                                <span>home</span>
+                            </a>
+                        </li>
+                        <li class="ux-tabs__header">
+                            <a href="#"
+                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i
+                                        class="fas fa-clipboard"></i>
+                                <span>Board</span>
+                            </a>
+                        </li>
+                        <li class="ux-tabs__header">
+                            <a href="#"
+                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
+                                <i class="far fa-address-book"></i>
+                                <span>Resume</span>
+                            </a>
+                        </li>
+                        <li class="ux-tabs__header ">
+                            <a href="#"
+                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Portfolio</span></a>
+                        </li>
+                        <li class="ux-tabs__header">
+                            <a href="#"
+                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
+                                <i class="far fa-clone"></i>
+                                <span>About</span></a>
+                        </li>
+                        <li class="ux-tabs__header">
+                            <a href="#"
+                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
+                                <i class="fab fa-blogger"></i>
+                                <span>blog</span></a>
+                        </li>
+                        <li class="ux-tabs__header">
+                            <a href="#"
+                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
+                                <i class="fa fa-flag" aria-hidden="true"></i>
+                                <span>home</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="profile-bottom d-flex justify-content-between align-items-center ">
-                    <div class="info">
-                        <div class="desc d-flex">
-                            <q class="quote"></q>
-                            <p>Don’T Walk Behind Me; I May Not Lead. Don’T Walk In Front Of Me; I May Not Follow. Just
-                                Walk Beside Me And Be My Friend.</p>
-                        </div>
-                    </div>
-                    <div class="d-none d-md-block">
-                        <div class=" social-icons d-flex  align-items-center ">
-                            <a class="secret" href="javascript:void(0);"><i class="fas fa-user-secret"></i></a>
-                            <a class="twitter" href="javascript:void(0);"><i class="fab fa-twitter"></i></a>
-                            <a class="facebook" href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a>
 
-                        </div>
-                    </div>
+            </div>
+            <div class="col-2 nopadding">
+                <div class="ux-tabs__dropdown">
+                    <span class="icon"><i class="far fa-clone"></i></span>
+                    <span class="more">More</span>
+                    <i class="fas fa-angle-down"></i>
 
-                </div>
-                <div class="ux-tabs">
-
-                    <div class="row nopadding">
-                        <div class="col-10 nopadding ">
-                            <div class="stick-flex">
-                                <div class="sticky-user d-none">
-                                    <div class="img">
-                                        <img src="/public/images/girl-cover.jpg" alt="girl">
-                                    </div>
-                                    <div class="info d-flex align-items-center">
-                                        <h2>Rania Dewell</h2>
-                                        <a href="#">
-                                            <span class="share"><i class="fas fa-share"></i></span>
-                                        </a>
-                                        <a class="reply" href="javascript:void(0);" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="caret-down"><i class="fas fa-caret-down"></i></span>
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item d-flex align-items-center" href="#"><i class="far fa-heart"></i>Add to Favorite</a>
-                                            <a class="dropdown-item d-flex align-items-center" href="#"><i class="far fa-comment-alt"></i> Message</a>
-                                            <a class="dropdown-item d-flex align-items-center" href="#"><i class="far fa-flag"></i> Report</a>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                                <ul class="ux-tabs__headers">
-                                    <li class="ux-tabs__header active">
-                                        <a href="#"
-                                           class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
-                                            <i class="fas fa-home"></i>
-                                            <span>home</span>
-                                        </a>
-                                    </li>
-                                    <li class="ux-tabs__header">
-                                        <a href="#"
-                                           class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i
-                                                    class="fas fa-clipboard"></i>
-                                            <span>Board</span>
-                                        </a>
-                                    </li>
-                                    <li class="ux-tabs__header">
-                                        <a href="#"
-                                           class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
-                                            <i class="far fa-address-book"></i>
-                                            <span>Resume</span>
-                                        </a>
-                                    </li>
-                                    <li class="ux-tabs__header ">
-                                        <a href="#"
-                                           class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
-                                            <i class="fas fa-briefcase"></i>
-                                            <span>Portfolio</span></a>
-                                    </li>
-                                    <li class="ux-tabs__header">
-                                        <a href="#"
-                                           class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
-                                            <i class="far fa-clone"></i>
-                                            <span>About</span></a>
-                                    </li>
-                                    <li class="ux-tabs__header">
-                                        <a href="#"
-                                           class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
-                                            <i class="fab fa-blogger"></i>
-                                            <span>blog</span></a>
-                                    </li>
-                                    <li class="ux-tabs__header">
-                                        <a href="#"
-                                           class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
-                                            <i class="fa fa-flag" aria-hidden="true"></i>
-                                            <span>home</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                        <div class="col-2 nopadding">
-                            <div class="ux-tabs__dropdown">
-                                <span class="icon"><i class="far fa-clone"></i></span>
-                                <span class="more">More</span>
-                                <i class="fas fa-angle-down"></i>
-
-                                <ul class="ux-tabs__dropdown-items">
-                                    <li class="ux-tabs__dropdown-item">Item 1</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-
+                    <ul class="ux-tabs__dropdown-items">
+                        <li class="ux-tabs__dropdown-item">Item 1</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -216,6 +156,7 @@
 <script src="{!!url('public/minicms/js.cookie.js')!!}"></script>
 <script src="{!!url('public/minicms/js/default.js')!!}"></script>
 <script src="{!!url('public/minicms/apps.min.js')!!}"></script>
+<script src="{!!url('public/minicms/home.js')!!}"></script>
 <script src="{!!url('public/minicms/main.js')!!}"></script>
 <!-- ================== END FOOTER BASE JS ================== -->
 
