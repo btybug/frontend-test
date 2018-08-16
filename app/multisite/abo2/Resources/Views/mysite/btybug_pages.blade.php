@@ -119,15 +119,16 @@
                                 src: '/my-account/extra/gear/settings-iframe/' + data.response.page.template
                             });
                             //page_settings_form
-                            $(".content-preview").html(iframe);
-                            $(".content-preview").append(data.response.html);
                             if(data.response.page.template){
+                            $(".content-preview").html(iframe);
                                 var unit = data.response.page.template.split(".");
 
                             }else{
                                 $(".unit-variation").text('No Variation');
                                 $(".unit-name").text('No unit');
                             }
+                            $(".content-preview").append(data.response.html);
+
 
 
                         }
