@@ -50,9 +50,19 @@ class MySiteController extends MiniController
     public function pagesCreate(PageCreateRequest $request)
     {
         $this->ennable($request);
+       $i=null;
+        $exists= $this->user->frontPages()->where('title',$request->get('title') . ' page' )->exists();
+        if($exists){
+            $i=0;
+            do{
+                $i++;
+            }while ($this->user->frontPages()->where('title',$request->get('title') . ' page'."($i)" )->exists());
+            $i="($i)";
+        }
+
         $page = $this->user->frontPages()->where('parent_id', null)->first();
         $data = [
-            'title' => $request->get('title') . ' page',
+            'title' => $request->get('title') . ' page'.$i,
             'url' => $page->url . '/' . \Str::slug($request->get('title')),
             'user_id' => $this->user->id,
             'status' => 'published',

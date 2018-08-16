@@ -163,17 +163,16 @@
                     url: '{!! route('mini_page_create') !!}',
                     dataType: 'json',
                     type: 'POST',
-                    data: {title:'Defualt'},
+                    data: {title:'New'},
                     headers: {
                         'X-CSRF-TOKEN': $("input[name='_token']").val()
                     },
                     success: function(data){
                         console.log(data);
                         if(! data.error){
-                            console.log(data);
                            let html = ` <li data-id="${data.id}" id="${data.id}" data-title="${data.title}" class="show-page list-inline-item"><a href="#">
                         <span class="icon"><i class="far fa-clipboard"></i></span>
-                        <span class="name">Defualt page</span></a>
+                        <span class="name">${data.title}</span></a>
                             </li>`;
                             $(".bb-menu-area").append(html)
                         }
