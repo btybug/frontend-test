@@ -1,4 +1,4 @@
-{!! Form::model($page,['url' => route('mini_user_page_edit',$page->id), 'id' => 'page_settings_form','files' => true]) !!}
+{!! Form::model($page,['url' => route('mini_user_page_edit',$page->id), 'id' => 'page_settings_form','files' => true,'class'=>'hide']) !!}
 
 <div class="col-xs-9 col-sm-9 col-md-12 col-lg-12 col-xl-9 p-20">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 page-data p-20">

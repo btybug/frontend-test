@@ -35,9 +35,9 @@
                 <div class="col-md-2 pl-0">
                     <div class="menu">
                         <ul>
-                            <li class="active"><a href=""><span><i class="far fa-file-image"></i></span>Content</a>
+                            <li class="active"><a href="javascript:void(0)" class="page-content-button"><span><i class="far fa-file-image"></i></span>Content</a>
                             </li>
-                            <li><a href="javascript::void(0)" class="page-settings-button" data-id=""><span><i
+                            <li><a href="javascript:void(0)" class="page-settings-button" data-id=""><span><i
                                                 class="fas fa-cog"></i></span>Settings</a></li>
                         </ul>
                     </div>
@@ -115,11 +115,12 @@
                         if (!data.error) {
                             var iframe = $('<iframe/>', {
                                 width: '100%',
-                                height: '100%',
+                                height: '500px',
                                 src: '/my-account/extra/gear/settings-iframe/' + data.response.page.template
                             });
+                            //page_settings_form
                             $(".content-preview").html(iframe);
-                            $("#page-settings-hidden").html(data.response.html);
+                            $(".content-preview").append(data.response.html);
                             var unit = data.response.page.template.split(".");
                             $(".unit-variation").text(unit[1]);
                             $(".unit-name").text(unit[0]);
@@ -130,8 +131,12 @@
             });
 
             $('body').on('click', '.page-settings-button', function () {
-                let html = $("#page-settings-hidden").html();
-                $(".content-preview").html(html);
+                $(".content-preview").find('iframe').addClass('hide');
+                $(".content-preview").find("#page_settings_form").removeClass('hide');
+            });
+            $('body').on('click', '.page-content-button', function () {
+                $(".content-preview").find('iframe').removeClass('hide');
+                $(".content-preview").find("#page_settings_form").addClass('hide');
             });
 
             $("body").on("blur keyup paste input", ".page-name", function (e) {
