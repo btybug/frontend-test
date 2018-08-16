@@ -6,6 +6,7 @@
  * Time: 13:27
  */
 dd(123);
+
 Route::get('/', 'AdminController@getIndex', true)->name('mini_admin');
 Route::group(['prefix' => 'assets'], function () {
     Route::get('/', 'AdminController@getAssets', true)->name('mini_admin_assets');
@@ -16,8 +17,8 @@ Route::group(['prefix' => 'assets'], function () {
         Route::get('/', 'AdminController@assetsUnits', true)->name('mini_admin_assets_units');
         Route::get('/add', 'UnitsController@assetsUnitsAdd', true)->name('mini_admin_assets_units_add');
         Route::post('/add/upload', 'UnitsController@assetsUnitsAddupload', true)->name('mini_admin_assets_units_add_upload');
-    Route::group(['prefix' => '{id?}'], function () {
-        Route::get('/', 'AdminController@assetsUnits', true)->name('mini_admin_assets_units');
+        Route::group(['prefix' => '{id?}'], function () {
+            Route::get('/', 'AdminController@assetsUnits', true)->name('mini_admin_assets_units');
         });
         Route::get('variationdelete/{id}', 'UnitsController@UnitsVariationDelete', true)->name('mini_admin_assets_units_variation_delete');
         Route::get('variationedit/{slug}', 'UnitsController@UnitsVariationEdit', true)->name('mini_admin_assets_units_variation_edit');
@@ -60,19 +61,19 @@ Route::group(['prefix' => 'assets'], function () {
         Route::get('/', 'AdminPagesController@assetsPages', true)->name('mini_admin_assets_pages');
         Route::get('/delete/{id}', 'AdminPagesController@assetsPageDelete', true)->name('mini_admin_assets_page_delete');
     });
-        Route::get('/plugins', 'AdminController@assetsPlugins', true)->name('mini_admin_assets_plugins');
-        Route::get('/forms', 'AdminController@assetsForms', true)->name('mini_admin_assets_forms');
-        Route::get('/forms/create', 'AdminController@CreateForms', true)->name('mini_admin_assets_form_build');
-        Route::get('/forms/edit/{id}', 'AdminController@EditForms', true)->name('mini_admin_assets_form_edit');
-        Route::get('/forms/delete/{id}', 'AdminController@DeleteForms', true)->name('mini_admin_assets_form_delete');
-        Route::get('/forms/render/{id}', 'AdminController@RenderForms', true)->name('mini_admin_assets_form_render');
-        Route::get('/forms/publish/{id}', 'AdminController@formPublish', true)->name('mini_admin_assets_form_publish');
-        Route::get('/forms/clone/{id}', 'AdminController@formClone', true)->name('mini_admin_assets_form_clone');
-        Route::get('/forms/un-publish/{id}', 'AdminController@formUnPublish', true)->name('mini_admin_assets_form_unpublish');
-        Route::get('/forms/resinputs/{id}', 'AdminController@resultInput', true)->name('mini_admin_assets_form_result_input');
-        Route::post('/create-page', 'AdminPagesController@createPage', true)->name('minicms_create_page');
-        Route::post('/edit-page', 'AdminPagesController@editPage', true)->name('minicms_edit_page');
-        Route::post('/get-page-edit-form', 'AdminPagesController@getPageEditForl', true)->name('minicms_page_edit_form_page');
+    Route::get('/plugins', 'AdminController@assetsPlugins', true)->name('mini_admin_assets_plugins');
+    Route::get('/forms', 'AdminController@assetsForms', true)->name('mini_admin_assets_forms');
+    Route::get('/forms/create', 'AdminController@CreateForms', true)->name('mini_admin_assets_form_build');
+    Route::get('/forms/edit/{id}', 'AdminController@EditForms', true)->name('mini_admin_assets_form_edit');
+    Route::get('/forms/delete/{id}', 'AdminController@DeleteForms', true)->name('mini_admin_assets_form_delete');
+    Route::get('/forms/render/{id}', 'AdminController@RenderForms', true)->name('mini_admin_assets_form_render');
+    Route::get('/forms/publish/{id}', 'AdminController@formPublish', true)->name('mini_admin_assets_form_publish');
+    Route::get('/forms/clone/{id}', 'AdminController@formClone', true)->name('mini_admin_assets_form_clone');
+    Route::get('/forms/un-publish/{id}', 'AdminController@formUnPublish', true)->name('mini_admin_assets_form_unpublish');
+    Route::get('/forms/resinputs/{id}', 'AdminController@resultInput', true)->name('mini_admin_assets_form_result_input');
+    Route::post('/create-page', 'AdminPagesController@createPage', true)->name('minicms_create_page');
+    Route::post('/edit-page', 'AdminPagesController@editPage', true)->name('minicms_edit_page');
+    Route::post('/get-page-edit-form', 'AdminPagesController@getPageEditForl', true)->name('minicms_page_edit_form_page');
 });
 
 Route::group(['prefix' => 'users'], function () {
