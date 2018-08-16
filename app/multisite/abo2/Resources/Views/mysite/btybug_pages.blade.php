@@ -16,8 +16,18 @@
                 </li>
                 </ul>
             <ul class="list-inline bb-menu-area" style="display: inline-block">
-          
-                {!! hierarchyMiniUserPagesListFull($pages) !!}
+
+                @foreach ($pages as $item)
+                <li class="show-page list-inline-item " data-id="{!! $item->id !!}" id="{!! $item->id !!}" data-type="{!! $item->type !!}" data-title="{!! $item->title !!}">';
+                    <a href="#">
+                        <span class="left-icon"><i class="fas fa-caret-left"></i></span>
+                        <span class="icon"><i class="fas fa-clipboard-list"></i></span>
+                        <span class="name">{!! $item->title !!}</span>
+                        @if ($item->type == 'custom')
+                         <span class="del"><i class="fas fa-times delete_page" data-id="{!! $item->id !!}"></i></span>
+                        @endif
+                       <span class="right-icon"><i class="fas fa-caret-right"></i></span></a>
+                    @endforeach
                 
             </ul>
             <ul class="list-inline " style="display: inline-block">

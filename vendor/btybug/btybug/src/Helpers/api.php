@@ -768,18 +768,7 @@ function hierarchyMiniUserPagesListFull($data, $parent = true, $icon = true, $id
 {
     $output = '';
     if ($data) {
-        foreach ($data as $item) {
-            $output .= '<li class="show-page list-inline-item " data-id="' . $item->id . '" id="' . $item->id . '" data-type="' . $item->type . '" data-title="' . $item->title . '">';
-            $output .= '<a href="#">
-                                    <span class="left-icon"><i class="fas fa-caret-left"></i></span>
-                                    <span class="icon"><i class="fas fa-clipboard-list"></i></span>
-                                    <span class="name">' . $item->title . '</span>';
-            if ($item->type == 'custom') {
-                $output .= '<span class="del"><i class="fas fa-times delete_page" data-id="' . $item->id . '"></i></span>';
-            }
-            $output .= '<span class="right-icon"><i class="fas fa-caret-right"></i></span></a>';
-            $settings = json_decode($item->settings, true);
-        }
+
     }
 
     // Return data tree
