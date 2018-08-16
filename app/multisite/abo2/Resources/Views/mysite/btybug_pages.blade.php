@@ -3,7 +3,7 @@
 @section('tab')
     <div class="tab-pane fade show active" id="nav-pages" role="tabpanel" aria-labelledby="nav-pages-tab">
         <div class="head-content">
-            <ul class="list-inline">
+            <ul class="list-inline bb-menu-area">
                 <li class="list-inline-item"><a href="">
                         <span class="icon"><i class="fas fa-home"></i></span>
                         <span class="name">Profile</span></a>
