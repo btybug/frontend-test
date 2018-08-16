@@ -48,8 +48,8 @@
                                             <span contenteditable="true" class="page-name">Page 1</span>
                                         </span>
                                 <div class="d-flex flex-wrap">
-                                    <a href="" class="btn active">Unit Name</a>
-                                    <a href="" class="btn">Variation</a>
+                                    <a href="" class="btn active unit-name">Unit Name</a>
+                                    <a href="" class="btn unit-variation">Variation</a>
                                 </div>
 
                             </div>
@@ -109,8 +109,12 @@
                     },
                     success: function(data){
                         if(! data.error){
-                            console.log(data)
+
                             $(".content-preview").html(data.response.html);
+                            var unit=data.response.page.template.split(".");;
+                            $(".unit-variation").html(unit[1]);
+                            $(".unit-name").html(unit[0]);
+
                         }
                     }
                 });

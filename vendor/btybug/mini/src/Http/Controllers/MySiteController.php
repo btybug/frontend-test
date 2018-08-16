@@ -123,8 +123,7 @@ class MySiteController extends MiniController
             return $this->cms->responseJson(true, $exception->getMessage());
 
         }
-
-        return $this->cms->responseJson(false, 'successfully requested', ['html' => $html]);
+        return $this->cms->responseJson(false, 'successfully requested', ['html' => $html,'page'=>$page->toArray()]);
     }
     ///////////////////////////////////////////////// Bty Bug //////////////////////////////////////////////////
     public  function btybug(Request $request){
