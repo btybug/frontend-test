@@ -1,5 +1,8 @@
 @extends('mini::layouts.app')
 @extends( 'btybug::layouts.admin' )
+@php
+    $title = 'My Account';
+@endphp
 @section ('content')
     <div class="bb-form-header" style="display: none">
         <div class="row">

@@ -1,4 +1,5 @@
 @extends('mini::layouts.app',['index'=>'mini_my_site_extra_units'])
+
 @section('tab')
     {{-- {{$units}}--}}
     <div class="ui-2_col">

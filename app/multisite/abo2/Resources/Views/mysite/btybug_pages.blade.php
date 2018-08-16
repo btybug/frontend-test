@@ -1,4 +1,7 @@
 @extends('mini::layouts.app',['index'=>'mini_my_site_btybug'])
+@php
+    $title = 'Social';
+@endphp
 @section('tab')
     <div class="tab-pane fade show active" id="nav-pages" role="tabpanel" aria-labelledby="nav-pages-tab">
         <div class="head-content">

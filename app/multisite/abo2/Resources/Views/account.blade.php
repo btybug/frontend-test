@@ -1,4 +1,7 @@
-@extends('mini::layouts.app',['index'=>'mini_main'])
+@extends('mini::layouts.app')
+@php
+    $title = 'Dashboard';
+@endphp
 @section('content')
     <div class="add-unit text-right mb-2">
         <button type="button" class="btn btn-outline-dark btn-lg save-unit ml-3" style="float: right; opacity: 1; display: block" >Save</button>

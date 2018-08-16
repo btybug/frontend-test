@@ -5,7 +5,7 @@
                 <span class="icon-user">
                     <i class="far fa-user"></i>
                 </span>
-                <span class="name head_name">Manage Social</span>
+                <span class="name head_name">{{$title}}</span>
                 <a class="more" href="javascript:void(0);" id="dropdownManageHead" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     <span class="caret-down"><i class="fas fa-caret-down"></i></span>

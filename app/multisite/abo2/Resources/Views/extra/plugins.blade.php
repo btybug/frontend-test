@@ -1,5 +1,8 @@
 @extends('mini::layouts.app')
-@section('content')
+@php
+    $title = 'Plugins';
+@endphp
+@section('tab')
     <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
         <div class="col-md-12 pull-right">

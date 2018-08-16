@@ -1,4 +1,7 @@
 @extends('mini::layouts.app',['index'=>'mini_my_account_settings'])
+@php
+    $title = 'My Account';
+@endphp
 @section('tab')
     <div class="bb-form-header" style="display: none">
         <div class="row">

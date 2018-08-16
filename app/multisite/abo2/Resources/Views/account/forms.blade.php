@@ -1,5 +1,8 @@
 @extends('mini::layouts.app')
 @extends( 'btybug::layouts.admin' )
+@php
+$title = 'Forms';
+@endphp
 @section('content')
     <div class="ui-2_col">
         <div class="row">
