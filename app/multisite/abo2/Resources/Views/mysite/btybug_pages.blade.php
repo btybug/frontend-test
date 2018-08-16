@@ -152,11 +152,12 @@
                     },
                     success: function(data){
                         if(! data.error){
-                            let html = ` <li data-id="${data}" id="${data}" class="list-inline-item"><a href="">
+                            alert(data);
+                            /*let html = ` <li data-id="${data}" id="${data}" class="list-inline-item"><a href="">
                         <span class="icon"><i class="far fa-clipboard"></i></span>
                         <span class="name">Defualt page</span></a>
                             </li>`
-                            $(".bb-menu-area").append(html)
+                            $(".bb-menu-area").append(html)*/
                         }
                     }
                 });
