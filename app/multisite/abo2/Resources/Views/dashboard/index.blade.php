@@ -122,7 +122,7 @@
 
 
 
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: 20px;">
         <div class="add-unit text-right mb-2">
             <button type="button" class="btn btn-outline-dark btn-lg save-unit ml-3" style="float: right; opacity: 1; display: block" >Save</button>
             <button type="button" class="btn btn-outline-dark btn-lg add-unit-btn">Add unit<i class="fas fa-plus"></i></button>
@@ -298,7 +298,6 @@
 <script src="{!!url('public/minicms/js/dashboard.js')!!}"></script>
 <script src="{!!url('public/minicms/js/pages/dashboard.js')!!}"></script>
 <script src="{!!url('public/js/add-unit.js')!!}"></script>
->>>>>>> Stashed changes
 <!-- ================== END FOOTER BASE JS ================== -->
 
 
