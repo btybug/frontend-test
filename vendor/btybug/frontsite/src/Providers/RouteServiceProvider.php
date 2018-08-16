@@ -36,6 +36,7 @@ class RouteServiceProvider extends ServiceProvider
     public function map()
     {
         $this->mapWebRoutes();
+//        $this->mapAccountWebRoutes();
 
         $this->mapApiRoutes();
 
@@ -61,6 +62,22 @@ class RouteServiceProvider extends ServiceProvider
                 'namespace' => $this->namespace,
             ], function ($router) {
                 require __DIR__ . '/../Routes/web.php';
+            });
+        });
+    }
+
+    protected function mapAccountWebRoutes()
+    {
+        Route::group([
+            'domain' => (string)env('DOMAIN'),
+            'middleware' => ['web','adminCheck']
+        ], function ($router) {
+            Route::group([
+                'middleware' => ['auth'],
+                'prefix' => 'my-account',
+                'namespace' => $this->namespace,
+            ], function ($router) {
+                require __DIR__ . '/../Routes/account.php';
             });
         });
     }

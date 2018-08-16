@@ -30,18 +30,6 @@
         <ul class="nav">
             <li class="nav-header">Navigation</li>
             <li><a href="{!! url('/my-account') !!}"><i class="fa fa-th-large"></i>Dashboard</a></li>
-            <li class="has-sub">
-                <a href="javascript:;">
-                    <b class="caret"></b>
-                    <i class="fa fa-medkit"></i>
-                    <span>My Account</span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="{!! route('mini_account_settings') !!}">Settings</a></li>
-                    <li><a href="{!! route('mini_account_general') !!}">General</a></li>
-                    <li><a href="{!! route('mini_favourites') !!}">Favourites</a></li>
-                </ul>
-            </li>
 
             <li class="has-sub">
                 <a href="javascript:;">
