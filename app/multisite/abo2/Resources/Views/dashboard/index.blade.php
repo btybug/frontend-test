@@ -84,7 +84,7 @@
                             <a href="#"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i
                                         class="fas fa-clipboard"></i>
-                                <span>Dashboard</span>
+                                <span>Main</span>
                             </a>
                         </li>
                     </ul>

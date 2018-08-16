@@ -46,7 +46,7 @@
                                 <li data-id="#" data-type="plugin" class="">
                                     <div class="listinginfo bb-menu-item">
                                         <div class="lsitingbutton bb-menu-item-title" style="background: #e0090b;  !important">
-                                            <span class="listingtitle">Dashboard</span>
+                                            <span class="listingtitle">Main</span>
                                         </div>
                                     </div>
                                 </li>
