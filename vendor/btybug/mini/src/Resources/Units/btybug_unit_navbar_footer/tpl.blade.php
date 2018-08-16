@@ -125,7 +125,8 @@
         </div>
 
     </div>
-    <div class="profile-footer d-flex justify-content-end">
+    @if(Auth::check())
+    <div class="profile-footer logged-in d-flex justify-content-end">
         <div class="left justify-content-between align-items-center d-flex">
             <div class="create d-flex align-items-center">
                 <span class="add-icon"><i class="fas fa-plus"></i></span>
@@ -161,6 +162,45 @@
             </div>
         </div>
     </div>
+        @else
+        <div class="profile-footer logged-out d-flex justify-content-end">
+            <div class="left align-items-center d-flex">
+                <div class="logo-name">
+                    <div>
+                        <img src="/public/images/profile-footer-logo.png" alt="logo" class="black-logo">
+                        <span class="site-name">BTYBUG</span>
+                    </div>
+                </div>
+                <span class="heart"><i class="fas fa-search"></i></span>
+            </div>
+            <div class="right d-flex align-items-center">
+                <div class="login-reg">
+                    <ul class="d-flex align-items-center flex-wrap">
+                        <li>
+                            <a href="">
+                                <span>Login</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span>Register</span>
+                            </a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="panel-login-reg">
+            <div class="login-reg-view">
+                <div class="images">
+                    <img src="dark-logo-bag.png" alt="img">
+                </div>
+
+            </div>
+        </div>
+    @endif
 </div>
 
 

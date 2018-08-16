@@ -1,7 +1,7 @@
 $(document).ready(function () {
     function hidefooterTabs() {
         $('.profiles-navbar .footerTabs').hide();
-        $('.profile-footer .left .logo-name').removeClass('bg_dark');
+        $('.profile-footer.logged-in .left .logo-name').removeClass('bg_dark');
     }
 
     function hidefavorite() {
@@ -22,7 +22,7 @@ $(document).ready(function () {
         }
     });
 
-    $('body').on('click', '.profile-footer .left .logo-name', function (e) {
+    $('body').on('click', '.profile-footer.logged-in .left .logo-name', function (e) {
         e.preventDefault();
         e.stopPropagation();
         $(this).toggleClass('active');
@@ -61,13 +61,20 @@ $(document).ready(function () {
     });
 
 
-    $('body').on('click', '.profile-footer .left .icons a.message', function (e) {
+    $('body').on('click', '.profile-footer.logged-in .left .icons a.message', function (e) {
         e.preventDefault();
         e.stopPropagation();
         $('.notification-panel').toggleClass('active');
         $(this).toggleClass('active');
         $('.profiles-navbar .footerTabs').hide();
-        $('.profile-footer .left .logo-name').removeClass('active bg_dark');
+        $('.profile-footer.logged-in .left .logo-name').removeClass('active bg_dark');
+    });
+
+    $('body').on('click', '.profiles-navbar .profile-footer.logged-out .right ul', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $('.panel-login-reg').toggleClass('active');
+        $(this).toggleClass('active');
     });
 
     $(document).click(function (e) {
@@ -76,11 +83,17 @@ $(document).ready(function () {
             $('.profile-footer .left .icons a.message').removeClass('active');
         }
 
-        if ($('.profile-footer .left .logo-name').hasClass('active') && e.target.closest('.profiles-navbar .footerTabs') != $('.profiles-navbar .footerTabs')[0]) {
+
+        if ($('.profile-footer.logged-in .left .logo-name').hasClass('active') && e.target.closest('.profiles-navbar .footerTabs') != $('.profiles-navbar .footerTabs')[0]) {
 
             $('.profiles-navbar .footerTabs').hide();
-            $('.profile-footer .left .logo-name').removeClass('active bg_dark');
-            console.log(55);
+            $('.profile-footer.logged-in .left .logo-name').removeClass('active bg_dark');
+
+        }
+
+        if ($('.profiles-navbar .profile-footer.logged-out .right ul').hasClass('active') && e.target.closest('.panel-login-reg') != $('.panel-login-reg')[0]) {
+            $('.panel-login-reg').removeClass('active');
+            $('.profiles-navbar .profile-footer.logged-out .right ul').removeClass('active');
         }
 
     });
