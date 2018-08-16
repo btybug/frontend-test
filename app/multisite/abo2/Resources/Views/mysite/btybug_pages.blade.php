@@ -5,20 +5,10 @@
 @section('tab')
     <div class="tab-pane fade show active" id="nav-pages" role="tabpanel" aria-labelledby="nav-pages-tab">
         <div class="head-content">
-        <ul class="list-inline " style="display: inline-block">
-        <li class="list-inline-item"><a href="">
-                        <span class="icon"><i class="fas fa-home"></i></span>
-                        <span class="name">Profile</span></a>
-                </li>
-                <li class="list-inline-item"><a href="">
-                        <span class="icon"><i class="far fa-clipboard"></i></span>
-                        <span class="name">Board</span></a>
-                </li>
-                </ul>
             <ul class="list-inline bb-menu-area" style="display: inline-block">
 
                 @foreach ($pages as $item)
-                <li class="show-page list-inline-item " data-id="{!! $item->id !!}" id="{!! $item->id !!}" data-type="{!! $item->type !!}" data-title="{!! $item->title !!}">';
+                <li class="show-page list-inline-item " data-id="{!! $item->id !!}" id="{!! $item->id !!}" data-type="{!! $item->type !!}" data-title="{!! $item->title !!}">
                     <a href="#">
                         <span class="left-icon"><i class="fas fa-caret-left"></i></span>
                         <span class="icon"><i class="fas fa-clipboard-list"></i></span>
