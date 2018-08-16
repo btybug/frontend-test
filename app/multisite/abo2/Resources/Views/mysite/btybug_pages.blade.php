@@ -146,7 +146,7 @@
                     url: '{!! route('mini_page_create') !!}',
                     dataType: 'json',
                     type: 'POST',
-                    data: {},
+                    data: {title:'Defualt page'},
                     headers: {
                         'X-CSRF-TOKEN': $("input[name='_token']").val()
                     },

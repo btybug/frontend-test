@@ -22,11 +22,11 @@ class MySiteController extends MiniController
 
     public function __construct(
         PagesService $pagesService,
-        FrontPagesRepository $frontPagesRepository
+        FrontPagesRepository $pageRepositroy
     )
     {
         $this->pageService = $pagesService;
-        $this->pageRepositroy = $frontPagesRepository;
+        $this->pageRepositroy = $pageRepositroy;
     }
 
     public function settings(Request $request)
@@ -51,24 +51,46 @@ class MySiteController extends MiniController
     {
         $this->ennable($request);
         $page = $this->user->frontPages()->where('parent_id', null)->first();
-        $data = [
-            'title' => $request->get('title') . ' page',
-            'url' => $page->url . '/' . \Str::slug($request->get('title')),
-            'user_id' => $this->user->id,
-            'status' => 'published',
-            'parent_id'=>$page->id,
-            'page_access' => 0,
-            'slug' => str_slug($request->get('title') . $this->user->id),
-            'type' => 'custom',
-            'render_method' => true,
-            'content_type' => 'template',
-            'module_id' => 'btybug/mini',
-            'header' => 1,
-            'css_type' => Generator::DEFAULT_VALUE,
-            'js_type' => Generator::DEFAULT_VALUE
-        ];
-        $this->pageRepositroy->create($data);
-        return redirect()->back();
+        if ($request->get('title') !== 'Defualt page')
+        {
+            $data = [
+                'title' => $request->get('title') . ' page',
+                'url' => $page->url . '/' . \Str::slug($request->get('title')),
+                'user_id' => $this->user->id,
+                'status' => 'published',
+                'parent_id'=>$page->id,
+                'page_access' => 0,
+                'slug' => str_slug($request->get('title') . $this->user->id),
+                'type' => 'custom',
+                'render_method' => true,
+                'content_type' => 'template',
+                'module_id' => 'btybug/mini',
+                'header' => 1,
+                'css_type' => Generator::DEFAULT_VALUE,
+                'js_type' => Generator::DEFAULT_VALUE
+            ];
+            $this->pageRepositroy->create($data);
+            return redirect()->back;
+        }else{
+            $data = [
+                'title' => $request->get('title') . ' page',
+                'url' => $page->url . '/' . \Str::slug($request->get('title')),
+                'user_id' => $this->user->id,
+                'status' => 'published',
+                'parent_id'=>$page->id,
+                'page_access' => 0,
+                'slug' => str_slug($request->get('title') . $this->user->id),
+                'type' => 'custom',
+                'render_method' => true,
+                'content_type' => 'template',
+                'module_id' => 'btybug/mini',
+                'header' => 1,
+                'css_type' => Generator::DEFAULT_VALUE,
+                'js_type' => Generator::DEFAULT_VALUE
+            ];
+            $newPage = $this->pageRepositroy->create($data);
+            return redirect()->back(['id'=>$newPage->id]);
+        }
     }
 
     public function editUserPage(Request $request, $id)
