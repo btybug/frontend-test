@@ -37,9 +37,9 @@
                     <div class="right-content">
                         <div class="top-pages d-flex row align-items-center">
                             <div class="col-lg-8 top-head-left d-flex align-items-center ">
-                                        <span class="name">
+                                        <span class="name ">
                                             <i class="far fa-sticky-note"></i>
-                                            Page 1
+                                            <span class="page-name">Page 1</span>
                                         </span>
                                 <div class="d-flex flex-wrap">
                                     <a href="" class="btn active">Unit Name</a>
@@ -90,6 +90,8 @@
         $(document).ready(function () {
             $("body").on('click','.show-page',function () {
                 var id = $(this).data('id');
+                var title = $(this).data('title');
+                $('.page-name').text(title);
                 $.ajax({
                     url: '{!! route('mini_page_show') !!}',
                     dataType: 'json',
@@ -157,7 +159,7 @@
                            let html = ` <li data-id="${data}" id="${data}" class="show-page list-inline-item"><a href="#">
                         <span class="icon"><i class="far fa-clipboard"></i></span>
                         <span class="name">Defualt page</span></a>
-                            </li>`
+                            </li>`;
                             $(".bb-menu-area").append(html)
                         }
                     }
