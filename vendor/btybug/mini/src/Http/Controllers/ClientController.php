@@ -362,6 +362,24 @@ class ClientController extends MiniController
         return $this->cms->communications();
     }
 
+    public function communication_notifications(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->communication_notifications();
+    }
+
+    public function communication_messages(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->communication_messages();
+    }
+
+    public function communication_subscribers(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->communication_subscribers();
+    }
+
     public function sorting(Request $request)
     {
         dd($request);

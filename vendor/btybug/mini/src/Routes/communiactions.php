@@ -7,3 +7,6 @@
  */
 
 Route::get('/', 'ClientController@communications');
+Route::get('/notifications', 'ClientController@communication_notifications');
+Route::get('/messages', 'ClientController@communication_messages');
+Route::get('/subscribers', 'ClientController@communication_subscribers');

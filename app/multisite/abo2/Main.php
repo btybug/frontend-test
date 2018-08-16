@@ -312,4 +312,19 @@ class Main
         return view('mini::communications.index')->with(['user' => $this->user]);
     }
 
+    public function communication_notifications()
+    {
+        return view('mini::communications.c_notifications')->with(['user' => $this->user]);
+    }
+
+    public function communication_messages()
+    {
+        return view('mini::communications.c_messages')->with(['user' => $this->user]);
+    }
+
+    public function communication_subscribers()
+    {
+        return view('mini::communications.c_subscribers')->with(['user' => $this->user]);
+    }
+
 }
