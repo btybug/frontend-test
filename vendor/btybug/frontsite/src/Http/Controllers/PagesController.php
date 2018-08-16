@@ -79,10 +79,12 @@ class PagesController extends Controller
     )
     {
         $type = $request->get('type', 'core');
-        $pages = $frontPagesRepository->getGroupedWithModule();
+        $pages = $frontPagesRepository->getCorePages();
+
+        $pluginPages = $frontPagesRepository->getPluginPages();
 
         $admins = $userService->getAdmins()->pluck('username', 'id')->toArray();
-        return view('manage::frontend.pages.index', compact(['page', 'pages', 'admins', 'tags', 'type', 'classifierPageRelations']));
+        return view('manage::frontend.pages.index', compact(['page', 'pages','pluginPages', 'admins', 'tags', 'type', 'classifierPageRelations']));
     }
 
     public function getSettings(

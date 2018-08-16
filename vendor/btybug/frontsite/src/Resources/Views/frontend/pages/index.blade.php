@@ -19,6 +19,25 @@
                     <ol class="bb-menu-area">
                         {!! hierarchyAdminPagesListFull($pages) !!}
                     </ol>
+
+                    <h3>Plugin Pages</h3>
+                    <ol class="bb-menu-area">
+                        <li data-id="#" data-type="plugin" class="">
+                            <div class="listinginfo bb-menu-item">
+                                <div class="lsitingbutton bb-menu-item-title" style="background: #e0090b;  !important">
+                                    <span class="listingtitle">My Account</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-id="#" data-type="plugin" class="">
+                            <div class="listinginfo bb-menu-item">
+                                <div class="lsitingbutton bb-menu-item-title" style="background: #e0090b;  !important">
+                                    <span class="listingtitle">Home</span>
+                                </div>
+                            </div>
+                        </li>
+                        {!! hierarchyAdminPagesListFull($pluginPages) !!}
+                    </ol>
                 </div>
             </div>
         </article>

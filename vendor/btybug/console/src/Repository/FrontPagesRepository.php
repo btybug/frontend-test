@@ -28,6 +28,16 @@ class FrontPagesRepository extends GeneralRepository
         return $this->model->where('parent_id', NULL)->get();
     }
 
+    public function getCorePages()
+    {
+        return $this->model->where('parent_id', NULL)->where('module_id', NULL)->get();
+    }
+
+    public function getPluginPages()
+    {
+        return $this->model->where('parent_id', NULL)->where('module_id','!=', NULL)->get();
+    }
+
     public function getMain()
     {
         return $this->model->where('parent_id', NULL)->get();
