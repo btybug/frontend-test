@@ -148,15 +148,15 @@
                     url: '{!! route('mini_page_create') !!}',
                     dataType: 'json',
                     type: 'POST',
-                    data: {title:'Defualt page'},
+                    data: {title:'Defualt'},
                     headers: {
                         'X-CSRF-TOKEN': $("input[name='_token']").val()
                     },
                     success: function(data){
-                        console.log(data)
+                        console.log(data);
                         if(! data.error){
                             console.log(data);
-                           let html = ` <li data-id="${data}" id="${data}" class="show-page list-inline-item"><a href="#">
+                           let html = ` <li data-id="${data.id}" id="${data.id}" data-title="${data.title}" class="show-page list-inline-item"><a href="#">
                         <span class="icon"><i class="far fa-clipboard"></i></span>
                         <span class="name">Defualt page</span></a>
                             </li>`;

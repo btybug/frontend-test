@@ -68,7 +68,7 @@ class MySiteController extends MiniController
             'js_type' => Generator::DEFAULT_VALUE
         ];
         $newPage = $this->pageRepositroy->create($data);
-        return $newPage->id;
+        return \Response::json(['id' => $newPage->id,'title' => $newPage->title]);
     }
 
     public function editUserPage(Request $request, $id)
