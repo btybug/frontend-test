@@ -1,7 +1,7 @@
 <div class="notification-panel">
     <div class="notification">
             <div class="image">
-                <img src="dark-logo-bag.png" alt="">
+                <img src="/public/images/dark-logo-bag.png" alt="">
             </div>
             <div class="container-fluid">
                 <div class="row">
