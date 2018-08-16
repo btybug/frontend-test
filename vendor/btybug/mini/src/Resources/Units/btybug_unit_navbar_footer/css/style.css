@@ -671,3 +671,72 @@
     }
 }
 
+/*Notification*/
+.notification-panel.active{
+    right: 0;
+}
+.notification-panel{
+    position: fixed;
+    top: 0;
+    bottom: 80px;
+    width: 445px;
+    right: -445px;
+    z-index: 1020;
+    background: #303030;
+    /*padding: 15px;*/
+    color: #ffffff;
+    transition: right .2s linear;
+}
+
+.notification-panel .notification{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*overflow: scroll;*/
+    margin: 0;
+    /*padding: 20px;*/
+}
+
+.notification-panel .notification div.image{
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    opacity: 0.3;
+}
+.notification-panel .notification div.icon-menu{
+    position: relative;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+    background-color: #3f3f3f;
+}
+.notification-panel .notification div.active{
+    background: #2857a3;
+    background: -moz-linear-gradient(left, #2857a3 0%, #1ab3cf 100%, #ad1283 100%);
+    background: -webkit-linear-gradient(left, #2857a3 0%,#1ab3cf 100%,#ad1283 100%);
+    background: linear-gradient(to right, #2857a3 0%,#1ab3cf 100%,#ad1283 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2857a3', endColorstr='#ad1283',GradientType=1 );
+}
+.notification-panel .notification div.icon-menu:hover{
+    background: #2857a3;
+    background: -moz-linear-gradient(left, #2857a3 0%, #1ab3cf 100%, #ad1283 100%);
+    background: -webkit-linear-gradient(left, #2857a3 0%,#1ab3cf 100%,#ad1283 100%);
+    background: linear-gradient(to right, #2857a3 0%,#1ab3cf 100%,#ad1283 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2857a3', endColorstr='#ad1283',GradientType=1 );
+    cursor: pointer;
+}
+.notification-panel .notification div.number span{
+    position: absolute;
+    bottom: 43px;
+    left: 84px;
+    font-size: 14px;
+    border: 1px solid white;
+    border-radius: 50%;
+    padding-left: 6px;
+    padding-right: 6px;
+    height: 22px;
+    background-color: white;
+    color: black;
+}

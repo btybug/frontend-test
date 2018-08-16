@@ -52,5 +52,9 @@ $(document).ready(function () {
             }
         });
     });
+    $('body').on('click', '.profile-footer .left .icons a.message', function (e) {
+        e.preventDefault();
+        $('.notification-panel').toggleClass('active');
+    });
 
 });

@@ -1,4 +1,35 @@
+<div class="notification-panel">
+    <div class="notification">
+        <div class="image">
+            <img src="dark-logo-bag.png" alt="">
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 p-0">
+                    <div class="icon-menu active">
+                        <div class="number"><span>2</span></div>
+                        <i class="far fa-bell"></i>
+                    </div>
 
+                </div>
+                <div class="col-md-4 p-0">
+                    <div class="icon-menu">
+                        <div class="number"><span>1</span></div>
+                        <i class="far fa-comment-alt"></i>
+                    </div>
+
+                </div>
+                <div class="col-md-4 p-0">
+                    <div class="icon-menu">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="d-flex flex-column profiles-navbar">
     <div class="footerTabs">
         <div class="row">
