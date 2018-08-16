@@ -42,6 +42,15 @@
                                     <span class="listingtitle">Dashboard</span>
                                 </div>
                             </div>
+                            <ol>
+                                <li data-id="#" data-type="plugin" class="">
+                                    <div class="listinginfo bb-menu-item">
+                                        <div class="lsitingbutton bb-menu-item-title" style="background: #e0090b;  !important">
+                                            <span class="listingtitle">Dashboard</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
                         </li>
                         <li data-id="#" data-type="plugin" class="">
                             <div class="listinginfo bb-menu-item">
@@ -49,6 +58,29 @@
                                     <span class="listingtitle">Communications</span>
                                 </div>
                             </div>
+                            <ol>
+                                <li data-id="#" data-type="plugin" class="">
+                                    <div class="listinginfo bb-menu-item">
+                                        <div class="lsitingbutton bb-menu-item-title" style="background: #e0090b;  !important">
+                                            <span class="listingtitle">Notifications</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li data-id="#" data-type="plugin" class="">
+                                    <div class="listinginfo bb-menu-item">
+                                        <div class="lsitingbutton bb-menu-item-title" style="background: #e0090b;  !important">
+                                            <span class="listingtitle">Messages</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li data-id="#" data-type="plugin" class="">
+                                    <div class="listinginfo bb-menu-item">
+                                        <div class="lsitingbutton bb-menu-item-title" style="background: #e0090b;  !important">
+                                            <span class="listingtitle">Subscribers</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
                         </li>
                         {!! hierarchyAdminPagesListFull($pluginPages) !!}
                     </ol>

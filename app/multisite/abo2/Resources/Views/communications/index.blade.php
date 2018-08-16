@@ -84,14 +84,21 @@
                             <a href="#"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
                                 <i class="fas fa-home"></i>
-                                <span>Feeds</span>
+                                <span>Notifications</span>
+                            </a>
+                        </li>
+                        <li class="ux-tabs__header active">
+                            <a href="#"
+                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
+                                <i class="fas fa-home"></i>
+                                <span>Messages</span>
                             </a>
                         </li>
                         <li class="ux-tabs__header">
                             <a href="#"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i
                                         class="fas fa-clipboard"></i>
-                                <span>Dashboard</span>
+                                <span>Subscribers</span>
                             </a>
                         </li>
                     </ul>
