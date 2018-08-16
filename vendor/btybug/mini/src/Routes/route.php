@@ -60,9 +60,9 @@ Route::group(['prefix' => 'my-site'], function () {
         Route::get('/', 'MySiteController@moreSites')->name('mini_my_site_more_sites');
 
     });
-        Route::group(['prefix' => 'btybug'], function () {
+        Route::group(['prefix' => 'social'], function () {
 
-        Route::get('/', 'MySiteController@pagesFunction')->name('mini_my_site_btybug');
+        Route::get('/', 'MySiteController@pagesFunction')->name('mini_my_site_social');
         Route::group(['prefix' => 'pages'], function () {
             Route::get('/special', 'MySiteController@specialSettings')->name('mini_my_site_special_settings');
             Route::get('/', 'MySiteController@pagesFunction')->name('mini_my_site_btybug_pages');

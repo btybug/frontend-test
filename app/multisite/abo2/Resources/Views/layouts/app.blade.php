@@ -59,6 +59,13 @@
     <!-- end #sidebar -->
     <!-- begin #content -->
     <div id="content" class="content">
+        <div class="pages-manage d-flex flex-column" style="min-height: 0">
+            <div class="page-manage-content">
+                <div class="tab-content" id="nav-tabContent">
+                    @yield('tab')
+                </div>
+            </div>
+        </div>
         @yield('content')
     </div>
 </div>
