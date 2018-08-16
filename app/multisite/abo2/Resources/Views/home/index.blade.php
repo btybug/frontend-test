@@ -52,7 +52,7 @@
                 <div class="stick-flex">
                     <div class="sticky-user">
                         <div class="img">
-                            <img src="girl-cover.jpg" alt="girl">
+                            <img src="/public/images/girl-cover.jpg" alt="girl">
                         </div>
                         <div class="info d-flex align-items-center">
                             <h2>Rania Dewell</h2>
