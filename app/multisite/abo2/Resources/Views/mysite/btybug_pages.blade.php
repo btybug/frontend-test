@@ -12,11 +12,14 @@
                         <span class="name">Board</span></a>
                 </li>
                 {!! hierarchyMiniUserPagesListFull($pages) !!}
-                <li class="list-inline-item add"><a href="">
+                
+            </ul>
+            <ul class="list-inline ">
+            <li class="list-inline-item add" id="add-new-page"><a >
                         <span class="icon"><i class="fas fa-plus"></i></span>
                         <span class="name">New Page</span></a>
                 </li>
-            </ul>
+                </ul>
         </div>
         <input type="hidden" name="_token" value="{{csrf_token()}}">
         <div class="content-pages container-fluid">
@@ -137,6 +140,15 @@
                     $(this).css("transform", "rotate(0deg)");
                 });
             $(".bb-menu-area").disableSelection();
+
+            $("#add-new-page").click(function(e){
+                e.preventDefault()
+                let html = ` <li class="list-inline-item"><a href="">
+                        <span class="icon"><i class="far fa-clipboard"></i></span>
+                        <span class="name">Defualt page</span></a>
+                </li>`
+                $(".bb-menu-area").append(html)
+            })
         });
     </script>
     <script>
