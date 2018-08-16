@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{!!url('public/minicms/css/style.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/css/style-responsive.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/css/default.css')!!}">
-    <link rel="stylesheet" href="{!!url('public/minicms/btybug.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/minicms/btybug.css?v='.rand(111,999))!!}">
     <!-- ================== END PAGE BASE STYLE ================== -->
 
     <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
