@@ -117,12 +117,13 @@
     {!! HTML::style('public/minicms/plugins/jquery-jvectormap/jquery-jvectormap.css') !!}
     {!! HTML::style('public/minicms/plugins/bootstrap-datepicker/bootstrap-datepicker.css') !!}
     {!! HTML::style('public/minicms/plugins/gritter/jquery.gritter.css') !!}
-
+<style>
+    .add-unit {
+        margin-top: 40px;
+    }
+</style>
 @stop
 @section('js')
-    <script>
-        $('.pages-manage').empty();
-    </script>
     {!! HTML::script('public/minicms/plugins/gritter/jquery.gritter.js') !!}
     {!! HTML::script('public/minicms/plugins/flot/jquery.flot.min.js') !!}
     {!! HTML::script('public/minicms/plugins/flot/jquery.flot.time.min.js') !!}

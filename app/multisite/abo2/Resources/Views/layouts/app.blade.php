@@ -65,6 +65,7 @@
     <!-- end #sidebar -->
     <!-- begin #content -->
     <div id="content" class="content">
+        @if (!empty($__env->yieldContent('tab')))
         <div class="pages-manage d-flex flex-column" style="min-height: 0">
             <div class="page-manage-content">
                 <div class="tab-content" id="nav-tabContent">
@@ -72,6 +73,7 @@
                 </div>
             </div>
         </div>
+        @endif
         @yield('content')
     </div>
 </div>
