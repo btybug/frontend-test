@@ -700,9 +700,9 @@ function hierarchyAdminPagesListFull($data, $parent = true, $icon = true, $id = 
     // Loop through items
     if ($data) {
         foreach ($data as $item) {
-            if($item->module_id == 'btybug/mini' && BBGetUser($item->user_id) && $item->type== 'custom'){
+            if ($item->module_id == 'btybug/mini' && BBGetUser($item->user_id) && $item->type == 'custom') {
                 //
-            }else{
+            } else {
                 $children = $item->childs;
                 $output .= '<li data-id="' . $item->id . '" data-type="' . $item->type . '">';
                 $title = 'core';
@@ -769,17 +769,15 @@ function hierarchyMiniUserPagesListFull($data, $parent = true, $icon = true, $id
     $output = '';
     if ($data) {
         foreach ($data as $item) {
-            $children = $item->childs;
-            $output .= '<li class="show-page list-inline-item " data-id="' . $item->id . '" id="' . $item->id . '" data-type="' . $item->type . '" data-title="'.$item->title.'">';
+            $output .= '<li class="show-page list-inline-item " data-id="' . $item->id . '" id="' . $item->id . '" data-type="' . $item->type . '" data-title="' . $item->title . '">';
             $output .= '<a href="#">
                                     <span class="left-icon"><i class="fas fa-caret-left"></i></span>
                                     <span class="icon"><i class="fas fa-clipboard-list"></i></span>
-                                    <span class="name">'.$item->title.'</span>';
-            if ($item->type == 'custom')
-            {
+                                    <span class="name">' . $item->title . '</span>';
+            if ($item->type == 'custom') {
                 $output .= '<span class="del"><i class="fas fa-times delete_page" data-id="' . $item->id . '"></i></span>';
             }
-            $output .='<span class="right-icon"><i class="fas fa-caret-right"></i></span></a>';
+            $output .= '<span class="right-icon"><i class="fas fa-caret-right"></i></span></a>';
             $settings = json_decode($item->settings, true);
         }
     }
@@ -1677,7 +1675,7 @@ function compare_with_profile($type, $hash)
 
     $profileRepository = new \Btybug\Uploads\Repository\VersionProfilesRepository();
     $profile = $profileRepository->findOneByMultiple(['id' => $id, 'type' => $type]);
-    if(is_object($profile)){
+    if (is_object($profile)) {
         $assets = $profile->files;
         $file_ides = [];
         if ($type == 'css') {
@@ -2736,7 +2734,7 @@ function BBgetProfileAssets($id, $type = 'js', $section = 'headerJs')
             foreach ($assets[$section] as $item) {
                 $path = str_after($item['path'], 'public_html');
                 $path = str_after($path, 'public');
-                if (!starts_with($path, '/resources')) $path = 'public'.$path;
+                if (!starts_with($path, '/resources')) $path = 'public' . $path;
                 $path = str_replace('\\', '/', $path);
                 if ($type == 'js') {
                     if ($item['type'] == 'link') {
