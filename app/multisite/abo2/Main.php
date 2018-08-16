@@ -302,4 +302,14 @@ class Main
         return view('mini::home.index')->with(['user' => $this->user]);
     }
 
+    public function dashboard()
+    {
+        return view('mini::dashboard.index')->with(['user' => $this->user]);
+    }
+
+    public function communications()
+    {
+        return view('mini::communications.index')->with(['user' => $this->user]);
+    }
+
 }

@@ -39,6 +39,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
         $this->mapFrontRoutes();
         $this->mapFrontHome();
+        $this->mapFrontDashboard();
+        $this->mapFrontCommuniactions();
         //
     }
 
@@ -107,6 +109,38 @@ class RouteServiceProvider extends ServiceProvider
                 'namespace' => $this->namespace,
             ], function ($router) {
                 require __DIR__ . '/../Routes/home.php';
+            });
+        });
+    }
+
+    protected function mapFrontDashboard()
+    {
+        Route::group([
+            'domain' => (string)env('DOMAIN'),
+            'middleware' => ['web','adminCheck']
+        ], function ($router) {
+            Route::group([
+                'middleware' => ['auth'],
+                'prefix' => 'dashboard',
+                'namespace' => $this->namespace,
+            ], function ($router) {
+                require __DIR__ . '/../Routes/dashboard.php';
+            });
+        });
+    }
+
+    protected function mapFrontCommuniactions()
+    {
+        Route::group([
+            'domain' => (string)env('DOMAIN'),
+            'middleware' => ['web','adminCheck']
+        ], function ($router) {
+            Route::group([
+                'middleware' => ['auth'],
+                'prefix' => 'communications',
+                'namespace' => $this->namespace,
+            ], function ($router) {
+                require __DIR__ . '/../Routes/communiactions.php';
             });
         });
     }

@@ -36,6 +36,20 @@
                                 </div>
                             </div>
                         </li>
+                        <li data-id="#" data-type="plugin" class="">
+                            <div class="listinginfo bb-menu-item">
+                                <div class="lsitingbutton bb-menu-item-title" style="background: #e0090b;  !important">
+                                    <span class="listingtitle">Dashboard</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-id="#" data-type="plugin" class="">
+                            <div class="listinginfo bb-menu-item">
+                                <div class="lsitingbutton bb-menu-item-title" style="background: #e0090b;  !important">
+                                    <span class="listingtitle">Communications</span>
+                                </div>
+                            </div>
+                        </li>
                         {!! hierarchyAdminPagesListFull($pluginPages) !!}
                     </ol>
                 </div>

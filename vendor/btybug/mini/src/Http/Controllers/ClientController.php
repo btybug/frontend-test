@@ -350,5 +350,20 @@ class ClientController extends MiniController
         return $this->cms->home();
     }
 
-  
+    public function dashboard(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->dashboard();
+    }
+
+    public function communications(Request $request)
+    {
+        $this->ennable($request);
+        return $this->cms->communications();
+    }
+
+    public function sorting(Request $request)
+    {
+        dd($request);
+    }
 }
