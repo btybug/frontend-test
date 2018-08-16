@@ -5,7 +5,6 @@
  * Date: 04.07.2018
  * Time: 13:27
  */
-dd(123);
 Route::get('/', 'AdminController@getIndex', true)->name('mini_admin');
 Route::group(['prefix' => 'assets'], function () {
     Route::get('/', 'AdminController@getAssets', true)->name('mini_admin_assets');
