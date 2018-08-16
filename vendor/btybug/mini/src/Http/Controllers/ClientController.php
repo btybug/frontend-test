@@ -350,8 +350,5 @@ class ClientController extends MiniController
         return $this->cms->home();
     }
 
-    public function sorting(Request $request)
-    {
-        dd($request);
-    }
+  
 }
