@@ -30,12 +30,12 @@ class FrontPagesRepository extends GeneralRepository
 
     public function getCorePages()
     {
-        return $this->model->where('parent_id', NULL)->where('module_id', NULL)->get();
+        return $this->model->where('parent_id', NULL)->where('module_id', NULL)->where('type','core')->get();
     }
 
     public function getPluginPages()
     {
-        return $this->model->where('parent_id', NULL)->where('module_id','!=', NULL)->get();
+        return $this->model->where('parent_id', NULL)->where('module_id','!=', NULL)->where('type','plugin')->get();
     }
 
     public function getMain()
