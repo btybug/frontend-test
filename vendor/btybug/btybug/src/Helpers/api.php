@@ -700,7 +700,7 @@ function hierarchyAdminPagesListFull($data, $parent = true, $icon = true, $id = 
     // Loop through items
     if ($data) {
         foreach ($data as $item) {
-            if($item->module_id == 'btybug/mini' && BBGetUser($item->user_id)){
+            if($item->module_id == 'btybug/mini' && BBGetUser($item->user_id) && $item->type== 'custom'){
                 //
             }else{
                 $children = $item->childs;
