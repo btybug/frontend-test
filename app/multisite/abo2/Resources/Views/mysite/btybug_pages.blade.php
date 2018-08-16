@@ -2,7 +2,7 @@
 @section('tab')
     <div class="tab-pane fade show active" id="nav-pages" role="tabpanel" aria-labelledby="nav-pages-tab">
         <div class="head-content">
-            <ul class="list-inline bb-menu-area">
+            <ul class="list-inline bb-menu-area" style="display: inline-block">
                 <li class="list-inline-item"><a href="">
                         <span class="icon"><i class="fas fa-home"></i></span>
                         <span class="name">Profile</span></a>
@@ -14,8 +14,8 @@
                 {!! hierarchyMiniUserPagesListFull($pages) !!}
                 
             </ul>
-            <ul class="list-inline ">
-            <li class="list-inline-item add" id="add-new-page"><a >
+            <ul class="list-inline " style="display: inline-block">
+            <li class="list-inline-item add" id="add-new-page" ><a >
                         <span class="icon"><i class="fas fa-plus"></i></span>
                         <span class="name">New Page</span></a>
                 </li>
