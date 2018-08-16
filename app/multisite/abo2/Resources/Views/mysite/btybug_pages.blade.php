@@ -121,9 +121,14 @@
                             //page_settings_form
                             $(".content-preview").html(iframe);
                             $(".content-preview").append(data.response.html);
-                            var unit = data.response.page.template.split(".");
-                            $(".unit-variation").text(unit[1]);
-                            $(".unit-name").text(unit[0]);
+                            if(data.response.page.template){
+                                var unit = data.response.page.template.split(".");
+
+                            }else{
+                                $(".unit-variation").text('No Variation');
+                                $(".unit-name").text('No unit');
+                            }
+
 
                         }
                     }
