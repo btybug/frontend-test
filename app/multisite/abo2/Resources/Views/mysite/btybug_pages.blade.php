@@ -128,7 +128,7 @@
                     }
                 });
             });
-            
+
             $('body').on('click', '.page-settings-button', function () {
                 let html = $("#page-settings-hidden").html();
                 $(".content-preview").html(html);
