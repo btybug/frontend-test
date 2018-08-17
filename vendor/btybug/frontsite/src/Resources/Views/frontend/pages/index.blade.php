@@ -17,6 +17,13 @@
             <div class="bb-menu-container">
                 <div class="col-md-8 col-md-offset-2 bb-menu-group-body">
                     <ol class="bb-menu-area">
+                        <li data-id="#" data-type="core" class="">
+                            <div class="listinginfo bb-menu-item">
+                                <div class="lsitingbutton bb-menu-item-title" style="background: #0f4de0;  !important">
+                                    <span class="listingtitle">My Sites</span>
+                                </div>
+                            </div>
+                        </li>
                         {!! hierarchyAdminPagesListFull($pages) !!}
                         <li data-id="#" data-type="plugin" class="">
                             <div class="listinginfo bb-menu-item">
