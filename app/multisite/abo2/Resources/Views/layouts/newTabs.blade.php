@@ -1,3 +1,14 @@
+
+@inject('section','Btybug\btybug\Helpers\Tabs')
+@php
+    if (isset($index))
+    {
+        $tabs=$section->getTabs($index);
+    }else
+    {
+        $tabs = [];
+    }
+@endphp
 @section('newTabcont')
     <div class="pages-manage d-flex flex-column">
         <div class="head d-flex">
