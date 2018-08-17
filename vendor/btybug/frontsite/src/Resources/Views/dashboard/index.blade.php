@@ -55,14 +55,7 @@
                             <img src="/public/images/girl-cover.jpg" alt="girl">
                         </div>
                         <div class="info d-flex align-items-center">
-                            <h2>{!! BBGetUser() !!}</h2>
-                            <a href="#">
-                                <span class="share"><i class="fas fa-share"></i></span>
-                            </a>
-
-                            <a href="#">
-                                <span class="favorite"><i class="far fa-heart"></i></span>
-                            </a>
+                            <h2>Dashboard</h2>
                             <a class="reply" href="javascript:void(0);" id="dropdownMenuLink"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="caret-down"><i class="fas fa-caret-down"></i></span>
@@ -82,14 +75,14 @@
                             <a href="#"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i
                                         class="fas fa-clipboard"></i>
-                                <span>Main</span>
+                                <span>Posts</span>
                             </a>
                         </li>
                         <li class="ux-tabs__header">
                             <a href="#"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i
                                         class="fas fa-clipboard"></i>
-                                <span>Main</span>
+                                <span>Sites</span>
                             </a>
                         </li>
                     </ul>
