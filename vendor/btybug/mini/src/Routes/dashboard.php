@@ -6,4 +6,4 @@
  * Time: 02:40
  */
 
-Route::get('/', 'ClientController@dashboard');
+Route::get('/', 'ClientController@dashboard')->name('home_dashboard');

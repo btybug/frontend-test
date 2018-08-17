@@ -102,7 +102,7 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="social" role="tabpanel" aria-labelledby="social-tab">
                         <ul class="d-flex flex-wrap ">
-                            <li class="active"><a href="#" class="d-flex flex-column justify-content-center align-items-center">
+                            <li class="active"><a href="{!! route('mini_my_site_social') !!}" class="d-flex flex-column justify-content-center align-items-center">
                                     <span><i class="fas fa-user"></i></span>
                                     <span class="name">Social</span>
                                 </a>
@@ -155,6 +155,7 @@
                                 <li><a href="{!! url('my-account') !!}"><i class="fas fa-user"></i><span>Account</span></a></li>
                                 <li><a href="{!! url('my-account/favourites') !!}"><i class="far fa-heart"></i><span>Favorite</span></a></li>
                                 <li><a href="{!! url('my-account/media') !!}"><i class="fab fa-hubspot"></i><span>Media</span></a></li>
+                                <li><a href="{{route('home_dashboard')}}"><i class="fas fa-archway"></i><span>Dashboard</span></a></li>
                             </ul>
                         </div>
                     </div>

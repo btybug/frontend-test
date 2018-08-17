@@ -307,9 +307,9 @@ class Main
         return view('mini::home.index')->with(['user' => $this->user]);
     }
 
-    public function dashboard()
+    public function dashboard($units = null)
     {
-        return view('mini::dashboard.index')->with(['user' => $this->user]);
+        return view('mini::dashboard.index')->with(['user' => $this->user,'units' => $units]);
     }
 
     public function communications()

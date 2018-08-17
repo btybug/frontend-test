@@ -76,8 +76,6 @@
                                             class="far fa-comment-alt"></i> Communications</a>
                             </div>
                         </div>
-
-
                     </div>
                     <ul class="ux-tabs__headers">
                         <li class="ux-tabs__header">

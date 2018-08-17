@@ -353,7 +353,8 @@ class ClientController extends MiniController
     public function dashboard(Request $request)
     {
         $this->ennable($request);
-        return $this->cms->dashboard();
+        $units = $this->painter->where('self_type', 'units')->get();
+        return $this->cms->dashboard($units);
     }
 
     public function communications(Request $request)
