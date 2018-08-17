@@ -1,8 +1,9 @@
+@php
+    $title = 'Forms';
+    $attrib = ['forms' => route('mini_account_forms'),'Gear' => route('mini_extra_gears'),'Plugins' => route('mini_extra_plugins')];
+@endphp
 @extends('mini::layouts.app')
 @extends( 'btybug::layouts.admin' )
-@php
-$title = 'Forms';
-@endphp
 @section('content')
     <div class="ui-2_col">
         <div class="row">

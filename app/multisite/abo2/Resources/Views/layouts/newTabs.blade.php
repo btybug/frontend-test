@@ -1,4 +1,3 @@
-
 @inject('section','Btybug\btybug\Helpers\Tabs')
 @php
     if (isset($index))
@@ -22,12 +21,12 @@
                     <span class="caret-down"><i class="fas fa-caret-down"></i></span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownManageHead">
-                    <a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-cog"></i><span
-                                class="title">Item1</span></a>
-                    <a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-cog"></i><span
-                                class="title">Item2</span></a>
-                    <a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-cog"></i><span
-                                class="title">Item3</span></a>
+                    @if(isset($attrib))
+                        @foreach($attrib as $key => $item)
+                    <a class="dropdown-item d-flex align-items-center" href="{{$item}}"><i class="fas fa-cog"></i><span
+                                class="title">{{$key}}</span></a>
+                        @endforeach
+                    @endif
                 </div>
             </div>
             <div class="right d-flex align-items-center justify-content-between">

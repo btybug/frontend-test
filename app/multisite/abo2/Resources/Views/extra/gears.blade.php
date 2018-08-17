@@ -1,7 +1,8 @@
-@extends('mini::layouts.app',['index'=>'mini_my_site_extra_units'])
 @php
     $title = 'Gear';
+    $attrib = ['forms' => route('mini_account_forms'),'Gear' => route('mini_extra_gears'),'Plugins' => route('mini_extra_plugins')];
 @endphp
+@extends('mini::layouts.app',['index'=>'mini_my_site_extra_units'])
 @section('tab')
     {{-- {{$units}}--}}
     <div class="ui-2_col">

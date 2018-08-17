@@ -1,7 +1,7 @@
-@extends('mini::layouts.app',['index'=>'mini_media'])
 @php
     $title = 'Media';
 @endphp
+@extends('mini::layouts.app',['index'=>'mini_media'])
 @section('content')
     media
 @endsection
