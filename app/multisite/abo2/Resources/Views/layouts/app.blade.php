@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{!!url('public/minicms/css/style-responsive.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/css/default.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/btybug.css')!!}">
-    <link rel="stylesheet" href="{!!url('public/minicms/css/newTabs.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/minicms/css/newTabs.css?v=666')!!}">
 
     <!-- ================== END PAGE BASE STYLE ================== -->
 
