@@ -205,7 +205,7 @@
                                                 class="fas fa-user"></i><span>Account</span></a></li>
                                 <li><a href="{{route('front_page_favorites')}}"><i
                                                 class="far fa-heart"></i><span>Favorite</span></a></li>
-                                <li><a href="{{route('mini_media')}}"><i
+                                <li><a href="{{route('mini_media_drive')}}"><i
                                                 class="fab fa-hubspot"></i><span>Media</span></a></li>
                                 <li><a href="{{route('home_dashboard')}}"><i
                                                 class="fas fa-archway"></i><span>Dashboard</span></a></li>
