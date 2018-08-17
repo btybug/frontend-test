@@ -49,25 +49,25 @@
 
 @include('mini::layouts.newTabs')
 @yield('newTabcont')
-<div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">
     <!-- begin #sidebar -->
 
     {{--<div class="sidebar-bg"></div>--}}
     <!-- end #sidebar -->
     <!-- begin #content -->
-    <div id="content" class="content">
-        @if (!empty($__env->yieldContent('tab')))
-        <div class="pages-manage d-flex flex-column" style="min-height: 0">
-            <div class="page-manage-content">
-                <div class="tab-content" id="nav-tabContent">
+    <div class="site-manage-content">
+@yield('outTab')
+        <div class="content-pages container-fluid">
+            <div class="row">
+
+                    @yield('left')
+
                     @yield('tab')
                 </div>
             </div>
         </div>
-        @endif
+<div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">
         @yield('content')
     </div>
-</div>
 @yield('footer')
 
 @include('resources::assests.magicModal',['v'=>'b4'])
