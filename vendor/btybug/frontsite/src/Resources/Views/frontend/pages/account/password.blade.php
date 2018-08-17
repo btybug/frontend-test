@@ -421,20 +421,41 @@
                     <div class="manage-settings row ">
                         <div class="col-xl-6">
                             <div class="settings-left">
-                                {!! Form::open() !!}
+                                {!! Form::model(Auth::user(),['class'=>'form-horizontal']) !!}
+                                {!! Form::hidden('id',null) !!}
                                     <div class="form-group row align-items-center">
-                                        <label for="displayName" class="col-sm-3 col-form-label">Display
-                                            Name</label>
+                                        <label for="old_pass" class="col-sm-3 col-form-label">
+                                            Old Password</label>
                                         <div class="col-sm-8 pl-0">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" id="displayName"
+                                                <input type="password" name="old_pass" class="form-control" id="old_pass"
                                                        aria-label="Text input with dropdown button">
-                                                <div class="input-group-append blue-cl">
-                                                    <button class="btn btn-outline-secondary" type="button">
-                                                        <i class="fas fa-globe-asia"></i></button>
-                                                </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="form-group row align-items-center">
+                                        <label for="new_pass" class="col-sm-3 col-form-label">
+                                            New Password</label>
+                                        <div class="col-sm-8 pl-0">
+                                            <div class="input-group">
+                                                <input type="password" name="new_pass" class="form-control" id="new_pass"
+                                                       aria-label="Text input with dropdown button">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row align-items-center">
+                                        <label for="new_pass" class="col-sm-3 col-form-label">
+                                            Confirm Password</label>
+                                        <div class="col-sm-8 pl-0">
+                                            <div class="input-group">
+                                                <input type="password" name="confirm_pass" class="form-control" id="confirm_pass"
+                                                       aria-label="Text input with dropdown button">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group button">
+                                        <button class="btn btn-info pull-right" type="submit">Save</button>
                                     </div>
                                 {!! Form::close() !!}
                             </div>

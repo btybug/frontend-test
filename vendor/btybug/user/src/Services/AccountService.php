@@ -23,7 +23,6 @@ class AccountService extends GeneralService
 
     public function changePassword(array $data)
     {
-        $this->user->email = $data['email'];
         $this->user->password = bcrypt($data['password']);
         $this->user->save();
     }

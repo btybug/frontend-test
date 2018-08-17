@@ -83,10 +83,11 @@ Route::group(
         Route::post('/modality/main_body_modality/options', 'Admincp\ModalityController@postMainBodyOptions');
 
         //front pages
-        Route::get('account', '\Btybug\FrontSite\Http\Controllers\MyAccountController@index')->name('front_page_account');
-        Route::get('account/general', '\Btybug\FrontSite\Http\Controllers\MyAccountController@general')->name('front_page_account_general');
-        Route::get('account/general/password', '\Btybug\FrontSite\Http\Controllers\MyAccountController@password')->name('front_page_account_general_password');
-        Route::get('favorites', '\Btybug\FrontSite\Http\Controllers\MyAccountController@favorites')->name('front_page_favorites');
+        Route::get('account', '\Btybug\FrontSite\Http\Controllers\MyAccountController@index')->middleware('auth')->name('front_page_account');
+        Route::get('account/general', '\Btybug\FrontSite\Http\Controllers\MyAccountController@general')->middleware('auth')->name('front_page_account_general');
+        Route::get('account/general/password', '\Btybug\FrontSite\Http\Controllers\MyAccountController@password')->middleware('auth')->name('front_page_account_general_password');
+        Route::post('account/general/password', '\Btybug\FrontSite\Http\Controllers\MyAccountController@postPassword')->middleware('auth')->name('front_page_account_general_password_post');
+        Route::get('favorites', '\Btybug\FrontSite\Http\Controllers\MyAccountController@favorites')->middleware('auth')->name('front_page_favorites');
 
         Route::group(
             ['prefix' => '/admin', 'middleware' => ['admin:Users', 'sessionTimout', 'system']],
