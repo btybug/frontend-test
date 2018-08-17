@@ -1,5 +1,4 @@
 @include('btybug::layouts._partials.frontend.front_footer')
-
         <!doctype html>
 <html lang="en">
 <head>
@@ -45,6 +44,76 @@
 </head>
 <body>
 
+<div class="container-fluid nopadding profile-sticky">
+    <div class="ux-tabs ">
+        <div class="row nopadding">
+            <div class="col-10 nopadding ">
+                <div class="stick-flex">
+                    <div class="sticky-user">
+                        <div class="img">
+                            <img src="/public/images/girl-cover.jpg" alt="girl">
+                        </div>
+                        <div class="info d-flex align-items-center">
+                            <h2>Create</h2>
+                            <a class="reply" href="javascript:void(0);" id="dropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret-down"><i class="fas fa-caret-down"></i></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item d-flex align-items-center" href="/home"><i
+                                            class="fas fa-home"></i>Home</a>
+                                <a class="dropdown-item d-flex align-items-center" href="/dashboard"><i
+                                            class="fas fa-archway"></i> Dashboards</a>
+                                <a class="dropdown-item d-flex align-items-center" href="/notifications"><i
+                                            class="far fa-comment-alt"></i> Communications</a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="ux-tabs__headers">
+                        {{--<li class="ux-tabs__header">--}}
+                            {{--<a href="{!! url('media/drive') !!}"--}}
+                               {{--class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i--}}
+                                        {{--class="fas fa-clipboard"></i>--}}
+                                {{--<span>Drive</span>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                        {{--<li class="ux-tabs__header">--}}
+                            {{--<a href="{!! url('media/settings') !!}"--}}
+                               {{--class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i--}}
+                                        {{--class="fas fa-clipboard"></i>--}}
+                                {{--<span>Settings</span>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="col-2 nopadding">
+                <div class="ux-tabs__dropdown">
+                    <span class="icon"><i class="far fa-clone"></i></span>
+                    <span class="more">More</span>
+                    <i class="fas fa-angle-down"></i>
+
+                    <ul class="ux-tabs__dropdown-items">
+                        <li class="ux-tabs__dropdown-item">Item 1</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container-fluid" style="margin-top: 20px;">
+
+</div>
+
+
+
+
 @yield('footer')
 {{--<div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">--}}
 {{--<!-- begin #content -->--}}
@@ -59,6 +128,55 @@
 <script src="{!!url('public/minicms/apps.min.js')!!}"></script>
 <script src="{!!url('public/minicms/home.js')!!}"></script>
 <script src="{!!url('public/minicms/main.js')!!}"></script>
+<script>
+    //  $(".ux-tabs__headers")
+    //                 .sortable({
+    //                     cursor: "move",
+    //                     revert: true,
+    //                     stop: function (e, ui) {
+
+    //                         let sorted = $(".ux-tabs__headers").sortable("toArray");
+
+    //                         $.ajax({
+    //                             url: '{!! route('mini_page_sorting') !!}',
+    //                             dataType: 'json',
+    //                             type: 'POST',
+    //                             data: {data: sorted},
+    //                             headers: {
+    //                                 'X-CSRF-TOKEN': $("input[name='_token']").val()
+    //                             },
+    //                             success: function(data){
+
+    //                             },
+    //                             error: function(data){
+    //                                 console.log(data);
+    //                             }
+    //                         });
+    //                     }
+    //                 })
+    //                 .find(".Item[class~=ui-sortable-helper]")
+    //                 .on("transitionend", function (e) {
+    //                     $(this).css("transform", "rotate(0deg)");
+    //                 });
+
+
+
+    $("#add-new-page").click(function(e){
+        e.preventDefault()
+
+        let html = `<li class="ux-tabs__header">
+                            <a href="#" class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i class="fas fa-clipboard"></i>
+                                <span>Default Item</span>
+                            </a>
+                        </li>`;
+        $(".ux-tabs__headers").append(html)
+
+
+    })
+</script>
+<script src="{!!url('public/minicms/js/dashboard.js')!!}"></script>
+<script src="{!!url('public/minicms/js/pages/dashboard.js')!!}"></script>
+<script src="{!!url('public/js/add-unit.js')!!}"></script>
 <!-- ================== END FOOTER BASE JS ================== -->
 
 
