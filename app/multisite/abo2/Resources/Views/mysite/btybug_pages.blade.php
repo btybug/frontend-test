@@ -60,19 +60,24 @@
                 </div>
                 <div class="col-md-10">
                     <div class="right-content">
-                        <div class="top-pages d-flex row align-items-center">
+                        <div class="top-pages d-flex row align-items-center ">
                             <div class="col-lg-8 top-head-left d-flex align-items-center ">
                                         <span class="name ">
                                             <i class="far fa-sticky-note"></i>
                                             <span contenteditable="true" class="page-name">Page 1</span>
                                         </span>
-                                <div class="d-flex flex-wrap">
+                                        
+                                <div class="d-flex flex-wrap page-info">
                                     <a href="" class="btn active unit-name">Unit Name</a>
                                     <a href="" class="btn unit-variation">Variation</a>
                                 </div>
+                                <div class="d-flex flex-wrap new-page-info" style="display: none !important">
+                                    <a href="#" class="btn active unit-editor">Editor</a>
+                                    <a href="#" class="btn new-page-unit-select">Unit</a>
+                                </div>
 
                             </div>
-                            <div class="col-lg-4 top-head-right text-right">
+                            <div class="col-lg-4 top-head-right text-right page-info">
                                 <a class="btn edit">Edit</a>
                                 <a class="btn save">Save</a>
                             </div>
@@ -88,6 +93,7 @@
     <div class="hide" id="page-settings-hidden"></div>
 @stop
 @section('js')
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <script>
         $('.delete_page').on('click', function (e) {
             e.preventDefault();
@@ -120,6 +126,11 @@
                 var title = $(this).data('title');
                 $('.page-name').text(title);
                 $('.page-name').attr("data-id", id);
+                $(".page-info").attr("style", "display: block !important");
+                $(".new-page-info").attr("style", "display: none !important");
+
+                if($(this).text().trim().indexOf("New page") === -1) {
+               
                 $.ajax({
                     url: '{!! route('mini_page_show') !!}',
                     dataType: 'json',
@@ -153,6 +164,28 @@
                         }
                     }
                 });
+                }else {
+                    $(".page-info").attr("style", "display: none !important");
+                    $(".new-page-info").attr("style", "display: block !important");
+                    
+                    let html =  `<div class="unit-editor-tab" style="width: 100%"> <textarea  id="editor-html">Next, use our Get Started docs to setup Tiny!</textarea> </div>
+                    <div class="form-group new-page-unit-select-tab" style="display: none !important">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+                    `
+
+
+                    $(".content-preview").append(html);
+                    tinymce.init({ selector:'textarea' });
+                }
+               
             });
 
             $('body').on('click', '.page-settings-button', function () {
@@ -230,6 +263,17 @@
 
             })
         });
+        $("body").on("click",".unit-editor", function(){
+            $(".unit-editor-tab").attr("style", "display: block !important; width: 100%");
+            $(".new-page-unit-select-tab").attr("style", "display: none !important");
+
+        })
+        $("body").on("click",".new-page-unit-select", function(){
+            $(".new-page-unit-select-tab").attr("style", "display: block !important");
+            $(".unit-editor-tab").attr("style", "display: none !important");
+        })
+        
+                                    
     </script>
     <script>
         $('#nav-pages-tab').addClass('active');
