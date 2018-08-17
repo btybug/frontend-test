@@ -415,7 +415,7 @@
             <div class="col-md-2 pl-0">
                 <div class="menu">
                     <ul>
-                        <li class="active"><a href="{!! url('account/profiles/social') !!}">
+                        <li class="active"><a href="{!! url('account/profiles') !!}">
                                 <span><i class="fab fa-buromobelexperte"></i></span>Social profile</a>
                         </li>
                     </ul>

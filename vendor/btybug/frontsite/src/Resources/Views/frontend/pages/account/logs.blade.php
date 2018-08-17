@@ -417,12 +417,12 @@
                     <ul>
                         <li ><a href="{!! url('account/general') !!}"><span><i class="fab fa-buromobelexperte"></i></span>My Details</a>
                         </li>
-                        <li class="active"><a href="{!! url('account/general/password') !!}"><span><i
+                        <li ><a href="{!! url('account/general/password') !!}"><span><i
                                             class="far fa-address-book"></i></span>Password</a></li>
 
                         <li ><a href="{!! url('account/general/preferances') !!}"><span><i
                                             class="far fa-address-book"></i></span>Preferances</a></li>
-                        <li ><a href="{!! url('account/general/logs') !!}"><span><i
+                        <li class="active"><a href="{!! url('account/general/logs') !!}"><span><i
                                             class="far fa-address-book"></i></span>Logs</a></li>
                     </ul>
                 </div>
@@ -432,43 +432,7 @@
                     <div class="manage-settings row ">
                         <div class="col-xl-6">
                             <div class="settings-left">
-                                {!! Form::model(Auth::user(),['class'=>'form-horizontal']) !!}
-                                {!! Form::hidden('id',null) !!}
-                                    <div class="form-group row align-items-center">
-                                        <label for="old_pass" class="col-sm-3 col-form-label">
-                                            Old Password</label>
-                                        <div class="col-sm-8 pl-0">
-                                            <div class="input-group">
-                                                <input type="password" name="old_pass" class="form-control" id="old_pass"
-                                                       aria-label="Text input with dropdown button">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label for="new_pass" class="col-sm-3 col-form-label">
-                                            New Password</label>
-                                        <div class="col-sm-8 pl-0">
-                                            <div class="input-group">
-                                                <input type="password" name="new_pass" class="form-control" id="new_pass"
-                                                       aria-label="Text input with dropdown button">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label for="new_pass" class="col-sm-3 col-form-label">
-                                            Confirm Password</label>
-                                        <div class="col-sm-8 pl-0">
-                                            <div class="input-group">
-                                                <input type="password" name="confirm_pass" class="form-control" id="confirm_pass"
-                                                       aria-label="Text input with dropdown button">
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="form-group button">
-                                        <button class="btn btn-info pull-right" type="submit">Save</button>
-                                    </div>
-                                {!! Form::close() !!}
                             </div>
                         </div>
                     </div>

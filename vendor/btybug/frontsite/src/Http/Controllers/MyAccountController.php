@@ -56,6 +56,11 @@ class MyAccountController extends Controller
         return view('manage::frontend.pages.account.preferances', compact([]));
     }
 
+    public function logs()
+    {
+        return view('manage::frontend.pages.account.logs', compact([]));
+    }
+
     public function postPassword(ChangePassword $request)
     {
         $user = \Auth::user();
