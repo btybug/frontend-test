@@ -86,7 +86,7 @@
                             <a href="{!! url('/account/preferances') !!}"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
                                 <i class="fas fa-newspaper"></i>
-                                <span>Preferances</span>
+                                <span>Preferences</span>
                             </a>
                         </li>
                         <li class="ux-tabs__header ">
