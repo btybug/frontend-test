@@ -68,18 +68,19 @@
                                         </span>
                                         
                                 <div class="d-flex flex-wrap page-info">
-                                    <a href="" class="btn active unit-name">Unit Name</a>
-                                    <a href="" class="btn unit-variation">Variation</a>
+                                    <a href="#" class="btn active unit-name">Unit Name</a>
+                                    <a href="#" class="btn unit-variation">Variation</a>
+                                    <a href="#" class="btn unit-variation bb-modal-units new-page-unit-select BBbuttons" data-action="unit" data-key="5b76af328134f" data-type="form_layout" style="display: none">Select unit</a>
                                 </div>
                                 <div class="d-flex flex-wrap new-page-info" style="display: none !important">
                                 <div class="form-check">
-                                    <input class="form-check-input unit-editor" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <input class="form-check-input unit-editor" type="radio" name="exampleRadios" id="exampleRadios1" value="Editor" checked>
                                     <label class="form-check-label" for="exampleRadios1">
                                         Editor
                                     </label>
                                     </div>
                                     <div class="form-check">
-                                    <input class="form-check-input new-page-unit-select BBbuttons" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" data-action="unit" data-key="5b76af328134f" data-type="form_layout">
+                                    <input class="form-check-input " type="radio" name="exampleRadios" id="exampleRadios2" value="Unit" >
                                     <label class="form-check-label" for="exampleRadios2">
                                         Unit
                                     </label>
@@ -291,6 +292,23 @@
         //     $(".new-page-unit-select-tab").attr("style", "display: block !important");
         //     $(".unit-editor-tab").attr("style", "display: none !important");
         // })
+
+        $( "body" ).on( "click", "input[name=exampleRadios]", function(){
+            console.log();
+            if ($(this).val() == "Unit") {
+                $(".page-info").attr("style", "display: block !important");
+                $(".new-page-unit-select").attr("style", "display: block !important");
+            $(".unit-editor-tab").attr("style", "display: none !important");
+
+            }else {
+                $(".page-info").attr("style", "display: none !important");
+                $(".new-page-unit-select").attr("style", "display: none !important");
+            $(".unit-editor-tab").attr("style", "display: block !important; width: 100%");
+
+            }
+
+        } );
+
         
                                     
     </script>
