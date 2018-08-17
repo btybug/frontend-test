@@ -73,12 +73,12 @@
                                 </div>
                                 <div class="d-flex flex-wrap new-page-info" style="display: none !important">
                                     <a href="#"  class="btn active unit-editor">Editor</a>
-                                    <a href="#" class="btn new-page-unit-select">Unit</a>
+                                    <a href="#" class="btn new-page-unit-select  BBbuttons" data-action="unit" data-key="5b76af328134f" data-type="form_layout">Unit</a>
                                 </div>
 
                             </div>
                             <div class="col-lg-4 top-head-right text-right page-info">
-                                <a class="btn edit BBbuttons" data-action="unit" data-key="5b76af328134f" data-type="form_layout">Edit</a>
+                                <a class="btn edit">Edit</a>
                                 <a class="btn save">Save</a>
                             </div>
                         </div>
@@ -269,15 +269,15 @@
 
             })
         });
-        $("body").on("click",".unit-editor", function(){
-            $(".unit-editor-tab").attr("style", "display: block !important; width: 100%");
-            $(".new-page-unit-select-tab").attr("style", "display: none !important");
+        // $("body").on("click",".unit-editor", function(){
+        //     $(".unit-editor-tab").attr("style", "display: block !important; width: 100%");
+        //     $(".new-page-unit-select-tab").attr("style", "display: none !important");
 
-        })
-        $("body").on("click",".new-page-unit-select", function(){
-            $(".new-page-unit-select-tab").attr("style", "display: block !important");
-            $(".unit-editor-tab").attr("style", "display: none !important");
-        })
+        // })
+        // $("body").on("click",".new-page-unit-select", function(){
+        //     $(".new-page-unit-select-tab").attr("style", "display: block !important");
+        //     $(".unit-editor-tab").attr("style", "display: none !important");
+        // })
         
                                     
     </script>
