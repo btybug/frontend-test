@@ -24,6 +24,29 @@
                                 </div>
                             </div>
                         </li>
+                        <li data-id="#" data-type="core" class="">
+                            <div class="listinginfo bb-menu-item">
+                                <div class="lsitingbutton bb-menu-item-title" style="background: #0f4de0;  !important">
+                                    <span class="listingtitle">Media</span>
+                                </div>
+                            </div>
+                            <ol>
+                                <li data-id="#" data-type="plugin" class="">
+                                    <div class="listinginfo bb-menu-item">
+                                        <div class="lsitingbutton bb-menu-item-title" style="background: #0f4de0;  !important">
+                                            <span class="listingtitle">Drive</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li data-id="#" data-type="plugin" class="">
+                                    <div class="listinginfo bb-menu-item">
+                                        <div class="lsitingbutton bb-menu-item-title" style="background: #0f4de0;  !important">
+                                            <span class="listingtitle">Settings</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </li>
                         {!! hierarchyAdminPagesListFull($pages) !!}
                         <li data-id="#" data-type="plugin" class="">
                             <div class="listinginfo bb-menu-item">
@@ -95,16 +118,8 @@
                             </ol>
                         </li>
                     </ol>
-
                     <h3>Plugin Pages</h3>
                     <ol class="bb-menu-area">
-                        <li data-id="#" data-type="plugin" class="">
-                            <div class="listinginfo bb-menu-item">
-                                <div class="lsitingbutton bb-menu-item-title" style="background: #e0090b;  !important">
-                                    <span class="listingtitle">My Account</span>
-                                </div>
-                            </div>
-                        </li>
                         <li data-id="#" data-type="plugin" class="">
                             <div class="listinginfo bb-menu-item">
                                 <div class="lsitingbutton bb-menu-item-title" style="background: #e0090b;  !important">

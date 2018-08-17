@@ -148,4 +148,16 @@ class HomeController extends Controller
     {
         return view('btybug::mysites.index');
     }
+    public function media()
+    {
+        return view('btybug::media.index');
+    }
+    public function drive()
+    {
+        return view('btybug::media.drive');
+    }
+    public function settings()
+    {
+        return view('btybug::media.settings');
+    }
 }

@@ -10,3 +10,6 @@ Route::get('/notifications', '\Btybug\FrontSite\Http\Controllers\ClientControlle
 Route::get('/messages', '\Btybug\FrontSite\Http\Controllers\ClientController@communication_messages');
 Route::get('/subscribers', '\Btybug\FrontSite\Http\Controllers\ClientController@communication_subscribers');
 Route::get('/my-sites', 'HomeController@mySites');
+Route::get('/media', 'HomeController@media');
+Route::get('/media/drive', 'HomeController@drive');
+Route::get('/media/settings', 'HomeController@settings');
