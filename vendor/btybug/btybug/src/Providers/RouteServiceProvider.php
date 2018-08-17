@@ -39,6 +39,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $this->mapApiRoutes();
+        $this->mapFrontDashboard();
 
         //
     }
@@ -82,6 +83,21 @@ class RouteServiceProvider extends ServiceProvider
                 'namespace' => $this->namespace,
             ], function ($router) {
                 require __DIR__ . '/../Routes/api.php';
+            });
+        });
+    }
+
+    protected function mapFrontDashboard()
+    {
+        Route::group([
+            'domain' => (string)env('DOMAIN'),
+            'middleware' => ['web','adminCheck']
+        ], function ($router) {
+            Route::group([
+                'middleware' => ['auth'],
+                'namespace' => $this->namespace,
+            ], function ($router) {
+                require __DIR__ . '/../Routes/dashboard.php';
             });
         });
     }

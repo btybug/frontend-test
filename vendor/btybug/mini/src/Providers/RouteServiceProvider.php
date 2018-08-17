@@ -39,11 +39,6 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
         $this->mapFrontRoutes();
         $this->mapFrontHome();
-        $this->mapFrontDashboard();
-        $this->mapFrontNotifications();
-        $this->mapFrontMessages();
-        $this->mapFrontSubscribers();
-        //
     }
 
     /**
@@ -115,21 +110,7 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
-    protected function mapFrontDashboard()
-    {
-        Route::group([
-            'domain' => (string)env('DOMAIN'),
-            'middleware' => ['web','adminCheck']
-        ], function ($router) {
-            Route::group([
-                'middleware' => ['auth'],
-                'prefix' => 'dashboard',
-                'namespace' => $this->namespace,
-            ], function ($router) {
-                require __DIR__ . '/../Routes/dashboard.php';
-            });
-        });
-    }
+
 
     protected function mapFrontNotifications()
     {

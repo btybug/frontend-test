@@ -6,4 +6,3 @@
  * Time: 02:40
  */
 
-Route::get('/', 'ClientController@communication_subscribers');
