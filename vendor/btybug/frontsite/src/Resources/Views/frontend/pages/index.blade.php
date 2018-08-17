@@ -23,6 +23,11 @@
                                     <span class="listingtitle">My Sites</span>
                                 </div>
                             </div>
+                            <div class="listinginfo bb-menu-item">
+                                <div class="lsitingbutton bb-menu-item-title" style="background: #0f4de0;  !important">
+                                    <span class="listingtitle">Create</span>
+                                </div>
+                            </div>
                             <ol>
                                 <li data-id="#" data-type="plugin" class="">
                                     <div class="listinginfo bb-menu-item">

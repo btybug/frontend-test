@@ -13,3 +13,4 @@ Route::get('/my-site', 'HomeController@mySites');
 Route::get('/media', 'HomeController@media')->name('mini_media');
 Route::get('/media/drive', 'HomeController@drive')->name('mini_media_drive');
 Route::get('/media/settings', 'HomeController@settings')->name('mini_media_settings');
+Route::get('/create', 'HomeController@create')->name('mini_create');

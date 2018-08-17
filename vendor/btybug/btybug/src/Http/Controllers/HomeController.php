@@ -160,4 +160,9 @@ class HomeController extends Controller
     {
         return view('btybug::media.settings');
     }
+
+    public function create()
+    {
+        return view('btybug::create.index');
+    }
 }
