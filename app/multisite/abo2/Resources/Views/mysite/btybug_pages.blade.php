@@ -72,8 +72,21 @@
                                     <a href="" class="btn unit-variation">Variation</a>
                                 </div>
                                 <div class="d-flex flex-wrap new-page-info" style="display: none !important">
-                                    <a href="#"  class="btn active unit-editor">Editor</a>
-                                    <a href="#" class="btn new-page-unit-select  BBbuttons" data-action="unit" data-key="5b76af328134f" data-type="form_layout">Unit</a>
+                                <div class="form-check">
+                                    <input class="form-check-input unit-editor" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Editor
+                                    </label>
+                                    </div>
+                                    <div class="form-check">
+                                    <input class="form-check-input new-page-unit-select BBbuttons" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" data-action="unit" data-key="5b76af328134f" data-type="form_layout">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        Unit
+                                    </label>
+                                    </div>
+                                </div>
+                                <!-- <input type="radio" class=" unit-editor" name="select-page-attr" value="Editor">
+                                <input type="radio" class=" new-page-unit-select BBbuttons" name="select-page-attr" value="Unit" data-action="unit" data-key="5b76af328134f" data-type="form_layout"> -->
                                 </div>
 
                             </div>
@@ -176,15 +189,15 @@
                     
                     let html =  `<div class="unit-editor-tab" style="width: 100%"> <textarea  id="editor-html">Next, use our Get Started docs to setup Tiny!</textarea> </div>
                     <div class="form-group new-page-unit-select-tab" style="display: none !important">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
+                            <label for="exampleFormControlSelect1">Example select</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            </select>
+                        </div>
                     `
 
 
