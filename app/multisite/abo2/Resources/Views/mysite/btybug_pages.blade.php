@@ -5,9 +5,24 @@
 @section('tab')
     <div class="tab-pane fade show active" id="nav-pages" role="tabpanel" aria-labelledby="nav-pages-tab">
         <div class="head-content">
+            <ul class="list-inline" style="display: inline-block">
+                @foreach ($pages as $val)
+                    @if ($val->type == 'plugin')
+                    <li class="show-page list-inline-item " data-id="{!! $val->id !!}" id="{!! $val->id !!}"
+                        data-type="{!! $val->type !!}" data-title="{!! $val->title !!}">
+                        <a href="#">
+                            <span class="left-icon"><i class="fas fa-caret-left"></i></span>
+                            <span class="icon"><i class="fas fa-clipboard-list"></i></span>
+                            <span class="name">{!! $val->title !!}</span>
+                            <span class="right-icon"><i class="fas fa-caret-right"></i></span></a>
+                    @endif
+                @endforeach
+
+            </ul>
             <ul class="list-inline bb-menu-area" style="display: inline-block">
 
                 @foreach ($pages as $item)
+                    @if ($item->type !== 'plugin')
                     <li class="show-page list-inline-item " data-id="{!! $item->id !!}" id="{!! $item->id !!}"
                         data-type="{!! $item->type !!}" data-title="{!! $item->title !!}">
                         <a href="#">
@@ -19,6 +34,7 @@
                                                      data-id="{!! $item->id !!}"></i></span>
                             @endif
                             <span class="right-icon"><i class="fas fa-caret-right"></i></span></a>
+                    @endif
                 @endforeach
 
             </ul>
