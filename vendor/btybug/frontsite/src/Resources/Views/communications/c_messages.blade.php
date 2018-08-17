@@ -55,18 +55,14 @@
                             <img src="/public/images/girl-cover.jpg" alt="girl">
                         </div>
                         <div class="info d-flex align-items-center">
-                            <h2>{!! BBGetUser() !!}</h2>
-                            <a href="#">
-                                <span class="share"><i class="fas fa-share"></i></span>
-                            </a>
+                            <h2>Comunications</h2>
+                            {{--<a href="#">--}}
+                            {{--<span class="share"><i class="fas fa-share"></i></span>--}}
+                            {{--</a>--}}
 
-                            <a href="#">
-                                <span class="favorite"><i class="far fa-heart"></i></span>
-                            </a>
-                            <a class="reply" href="javascript:void(0);" id="dropdownMenuLink"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="caret-down"><i class="fas fa-caret-down"></i></span>
-                            </a>
+                            {{--<a href="#">--}}
+                            {{--<span class="favorite"><i class="far fa-heart"></i></span>--}}
+                            {{--</a>--}}
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item d-flex align-items-center" href="/home"><i
                                             class="fas fa-home"></i>Home</a>
