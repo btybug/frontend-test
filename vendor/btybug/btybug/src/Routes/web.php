@@ -84,6 +84,7 @@ Route::group(
 
         //front pages
         Route::get('account', '\Btybug\FrontSite\Http\Controllers\MyAccountController@index')->name('front_page_account');
+        Route::get('account/general', '\Btybug\FrontSite\Http\Controllers\MyAccountController@general')->name('front_page_account_general');
         Route::get('favorites', '\Btybug\FrontSite\Http\Controllers\MyAccountController@favorites')->name('front_page_favorites');
 
         Route::group(

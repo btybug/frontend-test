@@ -31,4 +31,9 @@ class MyAccountController extends Controller
         return view('manage::frontend.pages.account.favorites', compact([]));
     }
 
+    public function general()
+    {
+        return view('manage::frontend.pages.account.general', compact([]));
+    }
+
 }
