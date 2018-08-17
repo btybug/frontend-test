@@ -88,6 +88,10 @@ class ModuleServiceProvider extends ServiceProvider
                     'title' => 'Settings',
                     'url' => '/my-account/my-site/social/settings',
                 ],
+                [
+                    'title' => ' Site Cover',
+                    'url' => '#',
+                ],
                 'layout' => 'mini::layouts.app'
             ],
             'mini_my_account_settings' => [
