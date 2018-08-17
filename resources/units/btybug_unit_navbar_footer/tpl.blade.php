@@ -138,7 +138,7 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="social" role="tabpanel" aria-labelledby="social-tab">
                         <ul class="d-flex flex-wrap ">
-                            <li class="active"><a href="#"
+                            <li class="active"><a href="{{route('mini_my_site_social')}}"
                                                   class="d-flex flex-column justify-content-center align-items-center">
                                     <span><i class="fas fa-user"></i></span>
                                     <span class="name">Social</span>
