@@ -75,11 +75,25 @@
 
                     </div>
                     <ul class="ux-tabs__headers">
-                        <li class="ux-tabs__header active">
+                        <li class="ux-tabs__header ">
                             <a href="{!! url('/account/general') !!}"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
                                 <i class="fas fa-home"></i>
                                 <span>General</span>
+                            </a>
+                        </li>
+                        <li class="ux-tabs__header ">
+                            <a href="{!! url('/account/preferances') !!}"
+                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
+                                <i class="fas fa-newspaper"></i>
+                                <span>Preferances</span>
+                            </a>
+                        </li>
+                        <li class="ux-tabs__header ">
+                            <a href="{!! url('/account/logs') !!}"
+                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
+                                <i class="fab fa-stumbleupon"></i>
+                                <span>Logs</span>
                             </a>
                         </li>
 
