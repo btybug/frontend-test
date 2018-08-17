@@ -36,4 +36,9 @@ class MyAccountController extends Controller
         return view('manage::frontend.pages.account.general', compact([]));
     }
 
+    public function password()
+    {
+        return view('manage::frontend.pages.account.password', compact([]));
+    }
+
 }

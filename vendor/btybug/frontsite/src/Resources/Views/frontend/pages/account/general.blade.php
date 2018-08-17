@@ -409,9 +409,9 @@
             <div class="col-md-2 pl-0">
                 <div class="menu">
                     <ul>
-                        <li class="active"><a href=""><span><i class="fab fa-buromobelexperte"></i></span>My Details</a>
+                        <li class="active"><a href="{!! url('account/general') !!}"><span><i class="fab fa-buromobelexperte"></i></span>My Details</a>
                         </li>
-                        <li ><a href=""><span><i
+                        <li ><a href="{!! url('account/general/password') !!}"><span><i
                                             class="far fa-address-book"></i></span>Password</a></li>
                     </ul>
                 </div>
