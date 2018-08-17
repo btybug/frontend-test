@@ -137,18 +137,25 @@
                 </div>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="social" role="tabpanel" aria-labelledby="social-tab">
-                        <ul class="d-flex flex-wrap ">
+                        <ul class="d-flex flex-wrap top-ul">
                             <li class="active"><a href="{{route('mini_my_site_social')}}"
                                                   class="d-flex flex-column justify-content-center align-items-center">
                                     <span><i class="fas fa-user"></i></span>
                                     <span class="name">Social</span>
                                 </a>
                             </li>
-                            <li><a href="#"
-                                   class="d-flex flex-column justify-content-center align-items-center"><span><i
-                                                class="fas fa-briefcase"></i></span><span
-                                            class="name">Business</span></a></li>
+                            <li>
+                                <a href="#"
+                                   class="d-flex flex-column justify-content-center align-items-center"><span class="name">More sites</span></a></li>
                         </ul>
+                        <div class="site-name-manage mt-4">
+                            <div class="site-name">
+                                <span>Site Name</span>
+                            </div>
+                            <div class="button-manage mt-2">
+                                <button class="btn btn-info btn-lg">Manage</button>
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">2</div>
                     <div class="tab-pane fade" id="business3" role="tabpanel" aria-labelledby="business3-tab">

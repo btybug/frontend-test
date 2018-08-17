@@ -5,6 +5,7 @@
     right: 0;
     left: 0;
     color: white;
+    z-index: 999999;
 }
 
 .profiles-navbar a {
@@ -193,7 +194,23 @@
     padding: 0;
     margin: 0;
 }
+.profiles-navbar .footerTabs .site-name-manage{
+    color: white;
+    font-size: 20px;
+    margin-left: 35px;
+}
+.profiles-navbar .footerTabs .top-ul li:last-of-type a{
+    height: 100%;
+    border: 1px solid #ffffff;
+}
+.profiles-navbar .footerTabs .site-name-manage .button-manage button{
+    background: #3a5fa3;
+    background: -moz-linear-gradient(-45deg, #3a5fa3 0%, #30a9bb 100%);
+    background: -webkit-linear-gradient(-45deg, #3a5fa3 0%,#30a9bb 100%);
+    background: linear-gradient(135deg, #3a5fa3 0%,#30a9bb 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a5fa3', endColorstr='#30a9bb',GradientType=1 );
 
+}
 .profiles-navbar .footerTabs {
     display: none;
     box-shadow: 0 -2px 3px -1px #0000006b;
