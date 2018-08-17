@@ -434,7 +434,7 @@
                                     <div class="images-name d-flex mb-4">
                                         <div class="col-11 pr-0">
                                             <div class="image">
-                                                <img src="girl-cover.jpg" alt="">
+                                                <img src="/public/images/girl-cover.jpg" alt="">
                                                 <div class="site-image">
                                                     <span>Site Image</span>
                                                 </div>
@@ -515,6 +515,9 @@
 @section('css')
     {!! HTML::style('public/libs/tagsinput/bootstrap-tagsinput.css') !!}
     <style>
+        .site-manage-content{
+            margin-top: 77px;
+        }
         .site-manage-content a {
             text-decoration: none;
             -webkit-transition: 0.5s ease;
