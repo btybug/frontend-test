@@ -72,13 +72,13 @@
                                     <a href="" class="btn unit-variation">Variation</a>
                                 </div>
                                 <div class="d-flex flex-wrap new-page-info" style="display: none !important">
-                                    <a href="#" class="btn active unit-editor">Editor</a>
+                                    <a href="#"  class="btn active unit-editor">Editor</a>
                                     <a href="#" class="btn new-page-unit-select">Unit</a>
                                 </div>
 
                             </div>
                             <div class="col-lg-4 top-head-right text-right page-info">
-                                <a class="btn edit">Edit</a>
+                                <a class="btn edit BBbuttons" data-action="unit" data-key="5b76af328134f" data-type="form_layout">Edit</a>
                                 <a class="btn save">Save</a>
                             </div>
                         </div>
@@ -93,6 +93,7 @@
     <div class="hide" id="page-settings-hidden"></div>
 @stop
 @section('js')
+{!! HTML::script('public/js/bb_styles.js') !!}
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <script>
         $('.delete_page').on('click', function (e) {
