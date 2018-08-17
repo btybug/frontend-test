@@ -208,6 +208,11 @@ class Main
         return view('mini::mysite.settings')->with('user', $this->user);
 
     }
+    public function mySiteCover()
+    {
+        return view('mini::mysite.site_cover')->with('user', $this->user);
+
+    }
 
     public function mySiteSpecialSettings()
     {

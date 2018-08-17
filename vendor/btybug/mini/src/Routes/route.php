@@ -72,6 +72,9 @@ Route::group(['prefix' => 'my-site'], function () {
             Route::get('/', 'MySiteController@settingsFunction')->name('mini_my_site_btybug_settings');
             Route::get('/special', 'MySiteController@specialSettings')->name('mini_my_site_special_settings');
         });
+        Route::group(['prefix' => 'site-cover'], function () {
+            Route::get('/', 'MySiteController@siteCover')->name('mini_my_site_cover');
+        });
 
     });
 });

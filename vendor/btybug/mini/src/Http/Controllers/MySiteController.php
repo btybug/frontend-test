@@ -141,6 +141,10 @@ class MySiteController extends MiniController
         $this->ennable($request);
         return $this->cms->settingsFunction();
     }
+    public  function siteCover(Request $request){
+        $this->ennable($request);
+        return $this->cms->mySiteCover();
+    }
     //////////////////////////////////////////////////// More Sites //////////////////////////////////////////////
     public  function moreSites(Request $request)
     {
