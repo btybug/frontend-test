@@ -141,5 +141,4 @@ Route::group(
 
 
 );
-Route::get('/my-sites', 'HomeController@mySites');
 
