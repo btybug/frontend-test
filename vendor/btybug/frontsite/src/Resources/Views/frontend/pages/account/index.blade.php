@@ -39,8 +39,80 @@
     <title>Document</title>
 </head>
 <body>
+<div class="container-fluid nopadding profile-sticky">
+    <div class="ux-tabs ">
+        <div class="row nopadding">
+            <div class="col-10 nopadding ">
+                <div class="stick-flex">
+                    <div class="sticky-user">
+                        <div class="img">
+                            <img src="/public/images/girl-cover.jpg" alt="girl">
+                        </div>
+                        <div class="info d-flex align-items-center">
+                            <h2>{!! BBGetUser() !!}</h2>
+                            <a href="#">
+                                <span class="share"><i class="fas fa-share"></i></span>
+                            </a>
 
-my account
+                            <a href="#">
+                                <span class="favorite"><i class="far fa-heart"></i></span>
+                            </a>
+                            <a class="reply" href="javascript:void(0);" id="dropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret-down"><i class="fas fa-caret-down"></i></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item d-flex align-items-center" href="/home"><i
+                                            class="fas fa-home"></i>Home</a>
+                                <a class="dropdown-item d-flex align-items-center" href="/dashboard"><i
+                                            class="fas fa-archway"></i> Dashboards</a>
+                                <a class="dropdown-item d-flex align-items-center" href="/notifications"><i
+                                            class="far fa-comment-alt"></i> Communications</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <ul class="ux-tabs__headers">
+                        <li class="ux-tabs__header active">
+                            <a href="{!! url('/notifications') !!}"
+                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
+                                <i class="fas fa-home"></i>
+                                <span>Notifications</span>
+                            </a>
+                        </li>
+                        <li class="ux-tabs__header active">
+                            <a href="{!! url('/messages') !!}"
+                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
+                                <i class="fas fa-home"></i>
+                                <span>Messages</span>
+                            </a>
+                        </li>
+                        <li class="ux-tabs__header">
+                            <a href="{!! url('/subscribers') !!}"
+                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i
+                                        class="fas fa-clipboard"></i>
+                                <span>Subscribers</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-2 nopadding">
+                <div class="ux-tabs__dropdown">
+                    <span class="icon"><i class="far fa-clone"></i></span>
+                    <span class="more">More</span>
+                    <i class="fas fa-angle-down"></i>
+
+                    <ul class="ux-tabs__dropdown-items">
+                        <li class="ux-tabs__dropdown-item">Item 1</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @yield('footer')
 {{--<div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">--}}
 {{--<!-- begin #content -->--}}
