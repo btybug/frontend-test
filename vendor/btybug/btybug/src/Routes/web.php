@@ -45,6 +45,7 @@ Route::group(
         Route::post('save-form', function () {
 
         });
+
 //        Route::get('/', 'HomeController@pages');
         //deletable
         Route::get('login', '\Btybug\User\Http\Controllers\Auth\LoginController@showLoginForm')->middleware('guest')->name('login');
@@ -80,6 +81,10 @@ Route::group(
         Route::get('/modality/page-sections/modal/{slug}', 'Admincp\ModalityController@pageSectionPreview');
         Route::post('/modality/placeholder_section/options', 'Admincp\ModalityController@postSectionOptions');
         Route::post('/modality/main_body_modality/options', 'Admincp\ModalityController@postMainBodyOptions');
+
+        //front pages
+        Route::get('account', '\Btybug\FrontSite\Http\Controllers\MyAccountController@index')->name('front_page_account');
+        Route::get('favorites', '\Btybug\FrontSite\Http\Controllers\MyAccountController@favorites')->name('front_page_favorites');
 
         Route::group(
             ['prefix' => '/admin', 'middleware' => ['admin:Users', 'sessionTimout', 'system']],

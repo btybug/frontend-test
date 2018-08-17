@@ -21,5 +21,14 @@ class MyAccountController extends Controller
     {
     }
 
+    public function index()
+    {
+        return view('manage::frontend.pages.account.index', compact([]));
+    }
+
+    public function favorites()
+    {
+        return view('manage::frontend.pages.account.favorites', compact([]));
+    }
 
 }
