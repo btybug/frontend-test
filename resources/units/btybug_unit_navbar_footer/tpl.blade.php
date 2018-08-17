@@ -285,28 +285,37 @@
                     <img src="/public/images/dark-logo-bag.png" alt="img">
                     {!! Form::open() !!}
                     <fieldset>
+                        <h2>Please Login</h2>
+                        <hr class="colorgraph">
+                        <div class="form-group">
+                            <input type="text" name="usernameOremail" id="email" class="form-control input-lg"
+                                   placeholder="Username or Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" id="password" class="form-control input-lg"
+                                   placeholder="Password" value="">
+                        </div>
 
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Username or Email" name="usernameOremail">
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                        </div>
                         <div class="checkbox">
                             <label>
                                 <input name="remember" type="checkbox" value="Remember Me"> Remember Me
                             </label>
+                            <a href="{!! url('forgot')!!}" class="btn btn-link pull-right">Forgot Password?</a>
                         </div>
-                        <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
-                        <p class="text-center">
-                            <a href="{!! url('forgot')!!}" class="forgot-pass">Forget Password</a>
-                        </p>
-
-                        {{--{!! BBRenderWidget('57b1b22836979.57b1b22876ebb') !!}--}}
 
 
+                        <hr class="colorgraph">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <input type="submit" class="btn btn-lg btn-success btn-block" value="Login">
+                            </div>
+                        </div>
                     </fieldset>
                     {!! Form::close() !!}
+
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <a href="{!! url('register')!!}" class="btn btn-lg btn-primary btn-block">Not member ...Register</a>
+                    </div>
                 </div>
             </div>
         </div>
