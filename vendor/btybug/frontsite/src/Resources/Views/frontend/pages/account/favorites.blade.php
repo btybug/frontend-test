@@ -75,25 +75,18 @@
 
                     </div>
                     <ul class="ux-tabs__headers">
-                        <li class="ux-tabs__header active">
+                        <li class="ux-tabs__header ">
                             <a href="{!! url('/notifications') !!}"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
-                                <i class="fas fa-home"></i>
-                                <span>Notifications</span>
+                                <i class="fab fa-ioxhost"></i>
+                                <span>Posts</span>
                             </a>
                         </li>
-                        <li class="ux-tabs__header active">
+                        <li class="ux-tabs__header ">
                             <a href="{!! url('/messages') !!}"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
-                                <i class="fas fa-home"></i>
-                                <span>Messages</span>
-                            </a>
-                        </li>
-                        <li class="ux-tabs__header">
-                            <a href="{!! url('/subscribers') !!}"
-                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i
-                                        class="fas fa-clipboard"></i>
-                                <span>Subscribers</span>
+                                <i class="fas fa-sitemap"></i>
+                                <span>Sites</span>
                             </a>
                         </li>
                     </ul>
