@@ -45,14 +45,14 @@
     <title>Document</title>
 </head>
 <body>
-@include('mini::_partials.sidebar')
+{{--@include('mini::_partials.sidebar')--}}
 
 @include('mini::layouts.newTabs')
 @yield('newTabcont')
 <div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">
     <!-- begin #sidebar -->
 
-    <div class="sidebar-bg"></div>
+    {{--<div class="sidebar-bg"></div>--}}
     <!-- end #sidebar -->
     <!-- begin #content -->
     <div id="content" class="content">
