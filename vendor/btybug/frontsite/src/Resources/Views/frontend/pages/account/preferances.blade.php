@@ -426,7 +426,7 @@
                     <div class="manage-settings row ">
                         <div class="col-xl-6">
                             <div class="settings-left">
-                                
+
                             </div>
                         </div>
                     </div>
