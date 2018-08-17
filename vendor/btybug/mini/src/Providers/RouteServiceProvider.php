@@ -56,7 +56,7 @@ class RouteServiceProvider extends ServiceProvider
         ], function ($router) {
             Route::group([
                 'middleware' => ['auth'],
-                'prefix' => 'my-account',
+                'prefix' => 'my-site',
                 'namespace' => $this->namespace,
             ], function ($router) {
                 require __DIR__ . '/../Routes/route.php';

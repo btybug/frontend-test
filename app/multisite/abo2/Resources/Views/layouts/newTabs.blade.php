@@ -60,7 +60,7 @@
                                     @elseif($value['title'] == 'Pages')
                                         <i class="far fa-sticky-note"></i>
                                     @endif
-                                            <span>{!!$value['title']!!}</span></a>
+                                        <span>{!!$value['title']!!}</span></a>
                         @endforeach
 
                     </div>

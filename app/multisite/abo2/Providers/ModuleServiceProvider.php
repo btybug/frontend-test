@@ -56,11 +56,11 @@ class ModuleServiceProvider extends ServiceProvider
             'mini_my_site_settings' => [
                 [
                     'title' => 'General',
-                    'url' => '/my-account/my-site/settings',
+                    'url' => '/my-site/settings',
                 ],
                 [
                     'title' => 'Special',
-                    'url' => '/my-account/my-site/settings/special',
+                    'url' => '/my-site/settings/special',
                 ],
                 'layout' => 'mini::layouts.app'
             ],
@@ -82,15 +82,15 @@ class ModuleServiceProvider extends ServiceProvider
             'mini_my_site_btybug' => [
                 [
                     'title' => 'Pages',
-                    'url' => '/my-account/my-site/social/pages',
+                    'url' => '/my-site/social/pages',
                 ],
                 [
                     'title' => ' Site Cover',
-                    'url' => '/my-account/my-site/social/site-cover',
+                    'url' => '/my-site/social/site-cover',
                 ],
                 [
                     'title' => 'Settings',
-                    'url' => '/my-account/my-site/social/settings',
+                    'url' => '/my-site/social/settings',
                 ],
                 'layout' => 'mini::layouts.app'
             ],
