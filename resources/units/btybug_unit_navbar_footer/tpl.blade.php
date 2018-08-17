@@ -284,7 +284,7 @@
                 <div class="images">
                     <img src="/public/images/dark-logo-bag.png" alt="img">
                     <div class="row">
-                    {!! Form::open() !!}
+                    {!! Form::open(['url' => '/login']) !!}
                         <fieldset>
                             <h2>Please Login</h2>
                             <hr class="colorgraph">
