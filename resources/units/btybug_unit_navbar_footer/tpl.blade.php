@@ -269,7 +269,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="{!! url('/register') !!}">
                                 <span>Register</span>
                             </a>
                         </li>
@@ -283,8 +283,31 @@
             <div class="login-reg-view">
                 <div class="images">
                     <img src="/public/images/dark-logo-bag.png" alt="img">
-                </div>
+                    {!! Form::open() !!}
+                    <fieldset>
 
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Username or Email" name="usernameOremail">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input name="remember" type="checkbox" value="Remember Me"> Remember Me
+                            </label>
+                        </div>
+                        <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+                        <p class="text-center">
+                            <a href="{!! url('forgot')!!}" class="forgot-pass">Forget Password</a>
+                        </p>
+
+                        {{--{!! BBRenderWidget('57b1b22836979.57b1b22876ebb') !!}--}}
+
+
+                    </fieldset>
+                    {!! Form::close() !!}
+                </div>
             </div>
         </div>
     @endif
@@ -298,3 +321,4 @@
 
 {!! BBscript($_this->path.DS.'js'.DS.'owl.carousel.min.js',$_this) !!}
 {!! BBscript($_this->path.DS.'js'.DS.'custom.js',$_this) !!}
+
