@@ -5,62 +5,95 @@
         </div>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="col-sm-4 nav-item nav-link icon-menu active" id="nav-notifications-tab" data-toggle="tab" href="#nav-notifications" role="tab" aria-controls="nav-notifications" aria-selected="true">
+                <a class="col-sm-4 nav-item nav-link icon-menu active" id="nav-notifications-tab" data-toggle="tab"
+                   href="#nav-notifications" role="tab" aria-controls="nav-notifications" aria-selected="true">
                     <div class="number"><span>2</span></div>
                     <i class="far fa-bell"></i>
                 </a>
-                <a class="col-sm-4 nav-item nav-link icon-menu" id="nav-messages-tab" data-toggle="tab" href="#nav-messages" role="tab" aria-controls="nav-messages" aria-selected="false">
+                <a class="col-sm-4 nav-item nav-link icon-menu" id="nav-messages-tab" data-toggle="tab"
+                   href="#nav-messages" role="tab" aria-controls="nav-messages" aria-selected="false">
                     <div class="number"><span>1</span></div>
                     <i class="far fa-comment-alt"></i>
                 </a>
-                <a class="col-sm-4 nav-item nav-link icon-menu" id="nav-subscribers-tab" data-toggle="tab" href="#nav-subscribers" role="tab" aria-controls="nav-subscribers" aria-selected="false">
+                <a class="col-sm-4 nav-item nav-link icon-menu" id="nav-subscribers-tab" data-toggle="tab"
+                   href="#nav-subscribers" role="tab" aria-controls="nav-subscribers" aria-selected="false">
                     <i class="fas fa-user-friends"></i>
                 </a>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-notifications" role="tabpanel" aria-labelledby="nav-notifications-tab">
-                <div class="notifications-content">
-                    notifications - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, asperiores dignissimos et exercitationem hic illo incidunt iusto labore minima nihil obcaecati officia perferendis quis quod recusandae repellendus rerum veniam voluptates. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores doloribus, ducimus eligendi eos, est facere incidunt mollitia nisi nulla omnis, praesentium quam quasi quidem repellendus? Iste iusto nemo nihil. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ipsa laudantium nisi placeat repudiandae? Debitis dolorem hic ipsa libero nemo, quae quasi quibusdam quisquam repellendus rerum sit ut velit vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consectetur corporis earum facere quae quam quasi voluptate voluptatem. Ab accusamus assumenda doloribus earum, incidunt magni nemo numquam officiis porro quia!
+            <div class="tab-pane h-100 fade show active" id="nav-notifications" role="tabpanel"
+                 aria-labelledby="nav-notifications-tab">
+                <div class="notifications-content d-flex flex-column h-100">
+                    <div class="mb-1">
+                        notifications - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, asperiores
+                        dignissimos et exercitationem hic illo incidunt iusto labore minima nihil obcaecati officia
+                        perferendis quis quod recusandae repellendus rerum veniam voluptates. Lorem ipsum dolor sit
+                        amet, consectetur adipisicing elit. Aperiam asperiores doloribus, ducimus eligendi eos, est
+                        facere incidunt mollitia nisi nulla omnis, praesentium quam quasi quidem repellendus? Iste iusto
+                        nemo nihil. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ipsa laudantium
+                        nisi placeat repudiandae? Debitis dolorem hic ipsa libero nemo, quae quasi quibusdam quisquam
+                        repellendus rerum sit ut velit vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Autem consectetur corporis earum facere quae quam quasi voluptate voluptatem. Ab accusamus
+                        assumenda doloribus earum, incidunt magni nemo numquam officiis porro quia!
+                    </div>
+
+                    <div class="button-view-more mt-auto">
+                        <button class="btn btn-info btn-block">View More</button>
+                    </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="nav-messages" role="tabpanel" aria-labelledby="nav-messages-tab">
-                <div class="messages-content">
-                    messages - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consectetur eaque eius laborum quis. Accusamus aliquam animi laboriosam odit rem sint veritatis vitae, voluptas. Distinctio ipsam itaque iusto vel voluptatibus!</div>
+            <div class="tab-pane h-100 fade" id="nav-messages" role="tabpanel" aria-labelledby="nav-messages-tab">
+                <div class="messages-content d-flex flex-column h-100">
+                    <div class="mb-1">
+                        messages - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consectetur eaque
+                        eius laborum quis. Accusamus aliquam animi laboriosam odit rem sint veritatis vitae, voluptas.
+                        Distinctio ipsam itaque iusto vel voluptatibus!
+                    </div>
+                    <div class="button-view-more mt-auto">
+                        <button class="btn btn-info btn-block">View More</button>
+                    </div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="nav-subscribers" role="tabpanel" aria-labelledby="nav-subscribers-tab">
-                <div class="subscribers">
-                    <div class="head">
-                        <div class="select-members">
-                            <i class="fas fa-user-friends"></i>
-                            <span> Select Members</span>
+            <div class="tab-pane h-100 fade" id="nav-subscribers" role="tabpanel" aria-labelledby="nav-subscribers-tab">
+                <div class="subscribers  d-flex flex-column h-100">
+                    <div class="mb-1">
+                        <div class="head">
+                            <div class="select-members">
+                                <i class="fas fa-user-friends"></i>
+                                <span> Select Members</span>
+                            </div>
+                        </div>
+                        <div class="head2">
+                            <button type="button" class="btn btn-dark">Johan Smith
+                                <i class="fas fa-times ml-4"></i>
+                            </button>
+                            <i class="fas fa-search mt-3 mr-2" style="font-size: 27px"></i>
+                        </div>
+                        <div class="content-subscrib">
+                            <div class="johan-button">
+                                <label class="container">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <img src="/public/images/johan.png" alt="">
+                                <button type="button" class="btn btn-dark" style="width: 186px; height: 60px">Johan Smith
+                                </button>
+                            </div>
+                            <div class="johan-button">
+                                <label class="container">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <img src="/public/images/johan.png" alt="">
+                                <button type="button" class="btn btn-dark" style="width: 186px; height: 60px">Johan Smith
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div class="head2">
-                        <button type="button" class="btn btn-dark">Johan Smith
-                            <i class="fas fa-times ml-4"></i>
-                        </button>
-                        <i class="fas fa-search mt-3 mr-2" style="font-size: 27px"></i>
-                    </div>
-                    <div class="content-subscrib">
-                        <div class="johan-button">
-                            <label class="container">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <img src="/public/images/johan.png" alt="">
-                            <button type="button" class="btn btn-dark" style="width: 186px; height: 60px">Johan Smith
-                            </button>
-                        </div>
-                        <div class="johan-button">
-                            <label class="container">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <img src="/public/images/johan.png" alt="">
-                            <button type="button" class="btn btn-dark" style="width: 186px; height: 60px">Johan Smith
-                            </button>
-                        </div>
+
+                    <div class="button-view-more mt-auto">
+                        <button class="btn btn-info btn-block">View More</button>
                     </div>
                 </div>
 
@@ -81,15 +114,18 @@
                         </div>
                         <div class="nav-item col-3">
                             <a class="nav-link" id="business-tab" data-toggle="tab" href="#business" role="tab"
-                               aria-controls="business" aria-selected="false"><span class="mr-4"><i class="fas fa-cube"></i></span>Manage</a>
+                               aria-controls="business" aria-selected="false"><span class="mr-4"><i
+                                            class="fas fa-cube"></i></span>Manage</a>
                         </div>
                         <div class="nav-item col-3">
                             <a class="nav-link" id="business3-tab" data-toggle="tab" href="#business3" role="tab"
-                               aria-controls="business3" aria-selected="false"><span class="mr-4"><i class="fas fa-cube"></i></span>Extra</a>
+                               aria-controls="business3" aria-selected="false"><span class="mr-4"><i
+                                            class="fas fa-cube"></i></span>Extra</a>
                         </div>
                         <div class="nav-item col-3">
                             <a class="nav-link" id="business4-tab" data-toggle="tab" href="#business4" role="tab"
-                               aria-controls="business" aria-selected="false"><span class="mr-4"><i class="fas fa-cube"></i></span>More</a>
+                               aria-controls="business" aria-selected="false"><span class="mr-4"><i
+                                            class="fas fa-cube"></i></span>More</a>
                         </div>
                     </div>
                     <div class="search">
@@ -102,29 +138,35 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="social" role="tabpanel" aria-labelledby="social-tab">
                         <ul class="d-flex flex-wrap ">
-                            <li class="active"><a href="#" class="d-flex flex-column justify-content-center align-items-center">
+                            <li class="active"><a href="#"
+                                                  class="d-flex flex-column justify-content-center align-items-center">
                                     <span><i class="fas fa-user"></i></span>
                                     <span class="name">Social</span>
                                 </a>
                             </li>
                             <li><a href="#"
-                                   class="d-flex flex-column justify-content-center align-items-center"><span><i class="fas fa-briefcase"></i></span><span class="name">Business</span></a></li>
+                                   class="d-flex flex-column justify-content-center align-items-center"><span><i
+                                                class="fas fa-briefcase"></i></span><span
+                                            class="name">Business</span></a></li>
                         </ul>
                     </div>
                     <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">2</div>
                     <div class="tab-pane fade" id="business3" role="tabpanel" aria-labelledby="business3-tab">
                         <ul class="d-flex flex-wrap ">
-                            <li class="active"><a href="{!! route('mini_account_forms') !!}" class="d-flex flex-column justify-content-center align-items-center">
+                            <li class="active"><a href="{!! route('mini_account_forms') !!}"
+                                                  class="d-flex flex-column justify-content-center align-items-center">
                                     <span><i class="fa fa-align-left"></i></span>
                                     <span class="name">Forms</span>
                                 </a>
                             </li>
-                            <li class="active"><a href="{!! route('mini_extra_gears') !!}" class="d-flex flex-column justify-content-center align-items-center">
+                            <li class="active"><a href="{!! route('mini_extra_gears') !!}"
+                                                  class="d-flex flex-column justify-content-center align-items-center">
                                     <span><i class="fa fa-columns"></i></span>
                                     <span class="name">Gear</span>
                                 </a>
                             </li>
-                            <li class="active"><a href="{!! route('mini_extra_plugins') !!}" class="d-flex flex-column justify-content-center align-items-center">
+                            <li class="active"><a href="{!! route('mini_extra_plugins') !!}"
+                                                  class="d-flex flex-column justify-content-center align-items-center">
                                     <span><i class="fa fa-plug"></i></span>
                                     <span class="name">Plugins</span>
                                 </a>
@@ -152,10 +194,14 @@
                         </div>
                         <div class="col-md-5 col-lg-12 col-xl-5 col-5">
                             <ul class="links">
-                                <li><a href="{{route('my-account')}}"><i class="fas fa-user"></i><span>Account</span></a></li>
-                                <li><a href="{{route('mini_favourites')}}"><i class="far fa-heart"></i><span>Favorite</span></a></li>
-                                <li><a href="{{route('mini_media')}}"><i class="fab fa-hubspot"></i><span>Media</span></a></li>
-                                <li><a href="{{route('home_dashboard')}}"><i class="fas fa-archway"></i><span>Dashboard</span></a></li>
+                                <li><a href="{{route('my-account')}}"><i
+                                                class="fas fa-user"></i><span>Account</span></a></li>
+                                <li><a href="{{route('mini_favourites')}}"><i
+                                                class="far fa-heart"></i><span>Favorite</span></a></li>
+                                <li><a href="{{route('mini_media')}}"><i
+                                                class="fab fa-hubspot"></i><span>Media</span></a></li>
+                                <li><a href="{{route('home_dashboard')}}"><i
+                                                class="fas fa-archway"></i><span>Dashboard</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -179,7 +225,9 @@
 
                 </div>
                 <div class="icons d-flex">
-                    <a href="#" class="user-mobile"><span class="user-mobile-icon d-flex justify-content-center align-items-center"><i class="far fa-user"></i></span></a>
+                    <a href="#" class="user-mobile"><span
+                                class="user-mobile-icon d-flex justify-content-center align-items-center"><i
+                                    class="far fa-user"></i></span></a>
                     <a href="{!! url('/my-account/communications/messages') !!}" class="message">
 
                         <span class="count d-flex justify-content-center align-items-center">3</span>
@@ -241,10 +289,6 @@
         </div>
     @endif
 </div>
-
-
-
-
 
 
 {!! BBstyle($_this->path.DS.'css'.DS.'owl.carousel.min.css',$_this) !!}
