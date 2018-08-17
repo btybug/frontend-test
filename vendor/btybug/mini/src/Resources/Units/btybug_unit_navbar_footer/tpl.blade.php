@@ -42,7 +42,7 @@
                         </button>
                         <i class="fas fa-search mt-3 mr-2" style="font-size: 27px"></i>
                     </div>
-                    <div class="content">
+                    <div class="content-subscrib">
                         <div class="johan-button">
                             <label class="container">
                                 <input type="checkbox">
