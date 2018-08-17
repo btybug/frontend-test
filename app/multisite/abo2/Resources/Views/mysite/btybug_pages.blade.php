@@ -115,6 +115,7 @@
     <script>
         $(document).ready(function () {
             $("body").on('click', '.show-page', function () {
+                $(".content-preview").empty();
                 var id = $(this).data('id');
                 var title = $(this).data('title');
                 $('.page-name').text(title);
@@ -138,6 +139,8 @@
                             if(data.response.page.template){
                             $(".content-preview").html(iframe);
                                 var unit = data.response.page.template.split(".");
+                                $(".unit-variation").text(unit[1]);
+                                $(".unit-name").text(unit[0]);
 
                             }else{
                                 $(".unit-variation").text('No Variation');
