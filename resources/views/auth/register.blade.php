@@ -1,77 +1,71 @@
-@extends('layouts.app')
+@include('btybug::layouts._partials.frontend.front_footer')
+        <!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{!! BBstyle(base_path('vendor'.DS.'btybug'.DS.'mini'.DS.'src'.DS.'Resources'.DS.'Units'.DS.'btybug_unit_cover'.DS.'css'.DS.'style.css')) !!}
+<!-- ================== BEGIN PAGE BASE STYLE ================== -->
+    <link rel="stylesheet" href="{!!url('public/minicms/plugins/jquery-ui/jquery-ui.min.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/minicms/plugins/bootstrap/4/bootstrap.min.css')!!}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+          integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="{!!url('public/minicms/plugins/animate/animate.min.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/minicms/css/style.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/minicms/css/style-responsive.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/minicms/css/default.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/minicms/btybug.css?v='.rand(111,999))!!}">
+    <!-- ================== END PAGE BASE STYLE ================== -->
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+    <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+@yield('css')
+<!-- ================== END PAGE LEVEL STYLE ================== -->
+    @stack('css')
+    <!-- ================== BEGIN HEADER BASE JS ================== -->
+    <script src="{!!url('public/minicms/plugins/jquery/jquery-3.2.1.min.js')!!}"></script>
+    <script src="{!!url('public/minicms/plugins/jquery/jquery-migrate-1.1.0.min.js')!!}"></script>
+    <script src="{!!url('public/minicms/plugins/jquery-ui/jquery-ui.min.js')!!}"></script>
+    <script src="{!!url('public/minicms/plugins/bootstrap/4/bootstrap.bundle.min.js')!!}"></script>
+    <!--[if lt IE 9]>
+    <![endif]-->
+    <!-- ================== END HEADER BASE JS ================== -->
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+    <!-- ================== BEGIN HEADER PAGE LEVEL JS ================== -->
+    @yield('header_js')
+<!-- ================== END HEADER PAGE LEVEL JS ================== -->
+    {!! getCss() !!}
+    <title>Document</title>
+</head>
+<body>
 
-                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Username</label>
+{!! BBRenderUnits('registration_form_simple.default') !!}
+@yield('footer')
+{{--<div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">--}}
+{{--<!-- begin #content -->--}}
+{{--<div id="content" class="content">--}}
+{{--@yield('content')--}}
+{{--</div>--}}
+{{--</div>--}}
+<!-- ================== BEGIN FOOTER BASE JS ================== -->
+<script src="{!!url('public/minicms/jquery.slimscroll.min.js')!!}"></script>
+<script src="{!!url('public/minicms/js.cookie.js')!!}"></script>
+<script src="{!!url('public/minicms/js/default.js')!!}"></script>
+<script src="{!!url('public/minicms/apps.min.js')!!}"></script>
+<script src="{!!url('public/minicms/home.js')!!}"></script>
+<script src="{!!url('public/minicms/main.js')!!}"></script>
+<!-- ================== END FOOTER BASE JS ================== -->
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
 
-                                @if ($errors->has('username'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+@yield('js')
+<!-- ================== END PAGE LEVEL JS ================== -->
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+@stack('javascript')
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+<!-- ================== BEGIN FOOTER PAGE LEVEL JS ================== -->
+{!! getFooterJs() !!}
+<!-- ================== END FOOTER PAGE LEVEL JS ================== -->
+</body>
+</html>

@@ -1,5 +1,6 @@
 <div class="registration_forms">
     <div class="container">
+        <h2>Register</h2>
         <form>
             <div class="form-group container-fluid">
                 <div class="row">

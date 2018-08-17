@@ -136,7 +136,7 @@ Route::group(
             }
         }
 
-//        Route::get('register', '\Btybug\btybug\Http\Controllers\Auth\RegisterController@showRegistrationForm')->middleware('guest');
+        Route::get('register', '\Btybug\btybug\Http\Controllers\Auth\RegisterController@showRegistrationForm')->middleware('guest');
     }
 
 
