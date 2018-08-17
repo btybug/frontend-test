@@ -85,6 +85,7 @@ Route::group(
         //front pages
         Route::get('account', '\Btybug\FrontSite\Http\Controllers\MyAccountController@index')->middleware('auth')->name('front_page_account');
         Route::get('account/general', '\Btybug\FrontSite\Http\Controllers\MyAccountController@general')->middleware('auth')->name('front_page_account_general');
+        Route::get('account/profiles', '\Btybug\FrontSite\Http\Controllers\MyAccountController@profiles')->middleware('auth')->name('front_page_account_profiles');
         Route::get('account/general/password', '\Btybug\FrontSite\Http\Controllers\MyAccountController@password')->middleware('auth')->name('front_page_account_general_password');
         Route::post('account/general/password', '\Btybug\FrontSite\Http\Controllers\MyAccountController@postPassword')->middleware('auth')->name('front_page_account_general_password_post');
         Route::get('favorites', '\Btybug\FrontSite\Http\Controllers\MyAccountController@favorites')->middleware('auth')->name('front_page_favorites');

@@ -377,14 +377,14 @@
 
                     </div>
                     <ul class="ux-tabs__headers">
-                        <li class="ux-tabs__header active">
+                        <li class="ux-tabs__header ">
                             <a href="{!! url('/account/general') !!}"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
                                 <i class="fas fa-home"></i>
                                 <span>General</span>
                             </a>
                         </li>
-                        <li class="ux-tabs__header ">
+                        <li class="ux-tabs__header active">
                             <a href="{!! url('/account/profiles') !!}"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
                                 <i class="fas fa-newspaper"></i>
@@ -415,15 +415,9 @@
             <div class="col-md-2 pl-0">
                 <div class="menu">
                     <ul>
-                        <li class="active"><a href="{!! url('account/general') !!}"><span><i class="fab fa-buromobelexperte"></i></span>My Details</a>
+                        <li class="active"><a href="{!! url('account/profiles/social') !!}">
+                                <span><i class="fab fa-buromobelexperte"></i></span>Social profile</a>
                         </li>
-                        <li ><a href="{!! url('account/general/password') !!}"><span><i
-                                            class="far fa-address-book"></i></span>Password</a></li>
-
-                        <li ><a href="{!! url('account/general/preferances') !!}"><span><i
-                                            class="far fa-address-book"></i></span>Preferances</a></li>
-                        <li ><a href="{!! url('account/general/logs') !!}"><span><i
-                                            class="far fa-address-book"></i></span>Logs</a></li>
                     </ul>
                 </div>
             </div>
