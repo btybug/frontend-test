@@ -1,5 +1,4 @@
-<div class="pages-manage">
-    <div class="page-manage-content">
+    <div class="site-manage-content">
         <div class="content-pages container-fluid">
             <div class="row">
                 <div class="col-md-2 pl-0">
@@ -512,11 +511,11 @@
             </div>
         </div>
     </div>
-</div>
+
 @section('css')
     {!! HTML::style('public/libs/tagsinput/bootstrap-tagsinput.css') !!}
     <style>
-        .pages-manage a {
+        .site-manage-content a {
             text-decoration: none;
             -webkit-transition: 0.5s ease;
             -moz-transition: 0.5s ease;
@@ -524,31 +523,21 @@
             -o-transition: 0.5s ease;
             transition: 0.5s ease;
         }
-        .pages-manage{
-            background-color: #eeeeee;
-            min-height:100vh;
-        }
-        .pages-manage .page-manage-content,.pages-manage >.head{
-            flex: 0 0 auto;
-        }
 
-        .pages-manage ul {
+        .site-manage-content ul {
             list-style: none;
             margin: 0;
             padding: 0;
         }
-
-
-        .pages-manage .page-manage-content .content-pages {
+        .site-manage-content .content-pages {
             padding-top: 25px;
 
         }
 
-        .pages-manage .page-manage-content .content-pages .menu ul li {
+        .site-manage-content .content-pages .menu ul li {
             margin-bottom: 10px;
         }
-
-        .pages-manage .page-manage-content .content-pages .menu ul li a {
+         .site-manage-content .content-pages .menu ul li a {
             font-size: 22px;
             color: #5a5a5a;
             width: 85%;
@@ -558,27 +547,26 @@
             border: 1px solid #c5c5c5;
             display: block;
         }
-
-        .pages-manage .page-manage-content .content-pages .menu ul li a:hover {
+        .site-manage-content .content-pages .menu ul li a:hover {
             color: #4f4f4f;
         }
 
-        .pages-manage .page-manage-content .content-pages .menu ul li a:hover i {
+        .site-manage-content .content-pages .menu ul li a:hover i {
             color: #4f4f4f;
             background: -webkit-linear-gradient(#3a5fa3, #30a9bb);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .pages-manage .page-manage-content .content-pages .menu ul li a span {
+        .site-manage-content .content-pages .menu ul li a span {
             margin-right: 24px;
         }
 
-        .pages-manage .page-manage-content .content-pages .menu ul li a span i {
+        .site-manage-content .content-pages .menu ul li a span i {
             font-size: 28px;
         }
 
-        .pages-manage .page-manage-content .content-pages .menu ul li.active a {
+        .site-manage-content .content-pages .menu ul li.active a {
             display: block;
             background-color: #fff;
             padding: 15px;
@@ -587,13 +575,13 @@
             width: 100%;
         }
 
-        .pages-manage .page-manage-content .content-pages .menu ul li.active a span i {
+        .site-manage-content .content-pages .menu ul li.active a span i {
             background: -webkit-linear-gradient(#3a5fa3, #30a9bb);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .pages-manage .page-manage-content .content-pages .right-content {
+        .site-manage-content .content-pages .right-content {
             border: 1px solid #c5c5c5;
             background-color: #fff;
             padding:35px;
@@ -602,83 +590,83 @@
 
         /*dettings data*/
 
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-left .form-group label{
+        .site-manage-content .content-pages .right-content .manage-settings .settings-left .form-group label{
             font-size: 20px;
             color: #4f4f4f;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .form-control{
+         .site-manage-content .content-pages .right-content .manage-settings .form-control{
             height: 55px;
             border-radius: 0;
             border: 1px solid #d5d5d5;
             background-color: #f7f7f7;
             font-size: 20px;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-left .form-group .input-group-append{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-left .form-group .input-group-append{
             border: 1px solid #d5d5d5;
             color: white;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .blue-cl {
+         .site-manage-content .content-pages .right-content .manage-settings .blue-cl {
             background: #3a5fa3;
             background: -moz-linear-gradient(left, #3a5fa3 0%, #30a9bb 100%);
             background: -webkit-linear-gradient(left, #3a5fa3 0%,#30a9bb 100%);
             background: linear-gradient(to right, #3a5fa3 0%,#30a9bb 100%);
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a5fa3', endColorstr='#30a9bb',GradientType=1 );
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .red-cl {
+         .site-manage-content .content-pages .right-content .manage-settings .red-cl {
             background: #c6393b;
             background: -moz-linear-gradient(45deg, #c6393b 0%, #dd743a 100%);
             background: -webkit-linear-gradient(45deg, #c6393b 0%,#dd743a 100%);
             background: linear-gradient(45deg, #c6393b 0%,#dd743a 100%);
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c6393b', endColorstr='#dd743a',GradientType=1 );
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .green-cl {
+         .site-manage-content .content-pages .right-content .manage-settings .green-cl {
             background: #93cd5e;
             background: -moz-linear-gradient(45deg, #93cd5e 1%, #44b074 100%);
             background: -webkit-linear-gradient(45deg, #93cd5e 1%,#44b074 100%);
             background: linear-gradient(45deg, #93cd5e 1%,#44b074 100%);
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cd5e', endColorstr='#44b074',GradientType=1 );
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .yellow-cl {
+         .site-manage-content .content-pages .right-content .manage-settings .yellow-cl {
             background: #d6c760;
             background: -moz-linear-gradient(45deg, #d6c760 0%, #b5a746 100%);
             background: -webkit-linear-gradient(45deg, #d6c760 0%,#b5a746 100%);
             background: linear-gradient(45deg, #d6c760 0%,#b5a746 100%);
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6c760', endColorstr='#b5a746',GradientType=1 );
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .blue-light-cl {
+         .site-manage-content .content-pages .right-content .manage-settings .blue-light-cl {
             background-color: #31a2b9;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .none-cl {
+         .site-manage-content .content-pages .right-content .manage-settings .none-cl {
             background-color: #f7f7f7;
             border: 1px solid #ccc;
             border-right: none;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .none-cl+.form-control {
+         .site-manage-content .content-pages .right-content .manage-settings .none-cl+.form-control {
             border-left: none;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .none-cl .btn i{
+         .site-manage-content .content-pages .right-content .manage-settings .none-cl .btn i{
             color: #31a2b9;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .input-group-append .btn{
+         .site-manage-content .content-pages .right-content .manage-settings .input-group-append .btn{
             border: none;
             border-radius: 0;
             color: white;
             position: relative;
             min-width: 55px;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .input-group-append .btn:hover{
+         .site-manage-content .content-pages .right-content .manage-settings .input-group-append .btn:hover{
             background: none;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .input-group-append.show>.btn-outline-secondary.dropdown-toggle{
+         .site-manage-content .content-pages .right-content .manage-settings .input-group-append.show>.btn-outline-secondary.dropdown-toggle{
             background: none;
         }
 
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-left .form-group .socialmedia-add{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-left .form-group .socialmedia-add{
             margin-bottom: 5px;
             font-size: 29px;
             color: #d1573a;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-left .form-group .custom_select select{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-left .form-group .custom_select select{
             -webkit-appearance: none;
             -moz-appearance: none;
             -ms-appearance: none;
@@ -688,15 +676,15 @@
             background-image: none;
             cursor: pointer;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-left .form-group .custom_select select::-ms-expand{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-left .form-group .custom_select select::-ms-expand{
             display: none;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-left .form-group .custom_select{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-left .form-group .custom_select{
             position: relative;
             display: block;
             width: 100%;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-left .form-group .custom_select::after{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-left .form-group .custom_select::after{
             position: absolute;
             content: "";
             bottom: 0;
@@ -707,10 +695,10 @@
             border-color: #a2a1a1 transparent transparent transparent;
             transform: rotate(-45deg);
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-left .form-group{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-left .form-group{
             margin-bottom: 36px;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .input-group-append .btn.dropdown-toggle:after{
+         .site-manage-content .content-pages .right-content .manage-settings .input-group-append .btn.dropdown-toggle:after{
             border-top: 0.4em solid;
             border-right: .4em solid transparent;
             border-bottom: 0;
@@ -720,17 +708,17 @@
             right: 2px;
             transform: rotate(-45deg);
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .input-group-append .btn i{
+         .site-manage-content .content-pages .right-content .manage-settings .input-group-append .btn i{
             font-size: 22px;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-left .form-group .view{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-left .form-group .view{
 
             background: -webkit-linear-gradient(#93cd5e, #44b074);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 20px;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-left .form-group.group-for-tags .bootstrap-tagsinput{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-left .form-group.group-for-tags .bootstrap-tagsinput{
             padding: 7px;
             min-height: 55px;
             border-radius: 0;
@@ -740,7 +728,7 @@
             display: flex;
             flex-wrap: wrap;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-left .form-group.group-for-tags .tag{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-left .form-group.group-for-tags .tag{
             background-color: #555353;
             display: flex;
             align-items: center;
@@ -749,15 +737,15 @@
             margin-bottom: 4px;
         }
 
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-right .images-name .image{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-right .images-name .image{
             border: 1px solid #d5d5d5;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-right .images-name img{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-right .images-name img{
             width: 100%;
             height: 266px;
             object-fit: cover;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-right .images-name .site-image{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-right .images-name .site-image{
             font-size: 20px;
             color: white;
             background: #3a5fa3;
@@ -768,97 +756,64 @@
             padding: 20px;
             text-align: center;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-right .maps .blue-cl .btn{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-right .maps .blue-cl .btn{
             width: 100%;
             padding: 14px;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-right .maps .map-search{
+         .site-manage-content .content-pages .right-content .manage-settings .settings-right .maps .map-search{
             border: 1px solid #d5d5d5;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .icon-blue{
+         .site-manage-content .content-pages .right-content .manage-settings .icon-blue{
             color: #3296b5;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .icon-green{
+         .site-manage-content .content-pages .right-content .manage-settings .icon-green{
             color: #61ba73;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .icon-purple{
+         .site-manage-content .content-pages .right-content .manage-settings .icon-purple{
             color: #7f5dc5;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .icon-red{
+         .site-manage-content .content-pages .right-content .manage-settings .icon-red{
             color: #d2593a;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .dropdown-menu{
+         .site-manage-content .content-pages .right-content .manage-settings .dropdown-menu{
             margin: 0;
             padding: 0;
             border-radius: 0;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .dropdown-menu .dropdown-item{
+         .site-manage-content .content-pages .right-content .manage-settings .dropdown-menu .dropdown-item{
             padding:12px 60px 12px 15px;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .dropdown-menu .dropdown-item.active{
+         .site-manage-content .content-pages .right-content .manage-settings .dropdown-menu .dropdown-item.active{
             border-top:1px solid #d5d5d5;
             border-bottom:1px solid #d5d5d5;
             background-color: #f9f9f9;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .dropdown-menu .dropdown-item i{
+         .site-manage-content .content-pages .right-content .manage-settings .dropdown-menu .dropdown-item i{
             font-size: 22px;
             margin-right:15px;
         }
-        .pages-manage .page-manage-content .content-pages .right-content .manage-settings .dropdown-menu .dropdown-item .name{
+         .site-manage-content .content-pages .right-content .manage-settings .dropdown-menu .dropdown-item .name{
             color: #4f4f4f;
             font-size: 20px;
         }
 
         /*Responsive*/
-        @media  (max-width:1024px) {
-
-
-        }
         @media  (max-width:768px) {
-            .pages-manage .page-manage-content .content-pages .menu ul li a{
+             .site-manage-content .content-pages .menu ul li a{
                 text-overflow: ellipsis;
                 overflow: hidden;
                 padding: 15px;
             }
-            .pages-manage .page-manage-content .content-pages .menu ul li.active a{
+             .site-manage-content .content-pages .menu ul li.active a{
                 padding-left:15px;
             }
-            .pages-manage .page-manage-content .content-pages .menu ul li a span{
+             .site-manage-content .content-pages .menu ul li a span{
                 margin-right: 10px;
             }
-            .pages-manage .page-manage-content .content-pages .right-content .manage-settings .settings-right .maps .blue-cl .btn{
+             .site-manage-content .content-pages .right-content .manage-settings .settings-right .maps .blue-cl .btn{
                 min-width: 100%;
             }
 
-        }
-        @media  (max-width:600px) {
-            .pages-manage .head .left{
-                padding: 0 15px;
-            }
-            .pages-manage .head .left .name{
-                padding: 0 15px;
-                font-size: 20px;
-            }
-            .pages-manage .head .right{
-                flex-wrap: wrap;
-            }
-            .pages-manage .head .right .right-tooltip{
-                width: 100%;
-                margin: 0;
-                padding: 5px;
-            }
-            .pages-manage .head .right .right-tooltip a{
-                margin: 0 auto;
-                width: 30px;
-                height: 30px;
-            }
-            .pages-manage .head .right nav .nav a{
-                font-size: 18px;
-                padding-right: 12px;
-            }
-            .pages-manage .head .right .right-tooltip a i{
-                font-size: 14px;
-            }
         }
 
     </style>
