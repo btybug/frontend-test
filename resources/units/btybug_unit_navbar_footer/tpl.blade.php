@@ -194,9 +194,9 @@
                         </div>
                         <div class="col-md-5 col-lg-12 col-xl-5 col-5">
                             <ul class="links">
-                                <li><a href="{{route('my-account')}}"><i
+                                <li><a href="{{route('front_page_account')}}"><i
                                                 class="fas fa-user"></i><span>Account</span></a></li>
-                                <li><a href="{{route('mini_favourites')}}"><i
+                                <li><a href="{{route('front_page_favorites')}}"><i
                                                 class="far fa-heart"></i><span>Favorite</span></a></li>
                                 <li><a href="{{route('mini_media')}}"><i
                                                 class="fab fa-hubspot"></i><span>Media</span></a></li>
