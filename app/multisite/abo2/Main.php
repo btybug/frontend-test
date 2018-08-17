@@ -291,10 +291,9 @@ class Main
     public  function pagesDelete()
     {
         $id = $this->request->id;
-
         FrontendPage::where('id',$id)->delete();
         $pages = $this->user->frontPages()->orderBy('sorting')->get();
-        return view('mini::mysite.btybug_pages')->with(['user' => $this->user, 'pages' => $pages]);
+        return $this->responseJson(false,'page is deleted');
     }
 
     public function getFavourites()
