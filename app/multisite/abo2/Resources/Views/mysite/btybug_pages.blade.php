@@ -5,7 +5,7 @@
 @section('tab')
     <div class="tab-pane fade show active" id="nav-pages" role="tabpanel" aria-labelledby="nav-pages-tab">
         <div class="head-content">
-            <ul class="list-inline" style="display: inline-block">
+            <ul class="list-inline admin-pages" style="display: inline-block">
                 @foreach ($pages as $val)
                     @if ($val->type == 'plugin')
                     <li class="show-page list-inline-item " data-id="{!! $val->id !!}" id="{!! $val->id !!}"
@@ -19,7 +19,7 @@
                 @endforeach
 
             </ul>
-            <ul class="list-inline bb-menu-area" style="display: inline-block">
+            <ul class="list-inline bb-menu-area user-pages" style="display: inline-block">
 
                 @foreach ($pages as $item)
                     @if ($item->type !== 'plugin')
@@ -129,7 +129,12 @@
                 $('.page-name').attr("data-id", id);
                 $(".page-info").attr("style", "display: block !important");
                 $(".new-page-info").attr("style", "display: none !important");
+                if ($(this).parent().hasClass("admin-pages")) {
+                    $(".edit").hide()
+                }else {
+                    $(".edit").show()
 
+                }
                 if($(this).text().trim().indexOf("New page") === -1) {
                
                 $.ajax({
