@@ -50,18 +50,18 @@
                             <img src="/public/images/girl-cover.jpg" alt="girl">
                         </div>
                         <div class="info d-flex align-items-center">
-                            <h2>{!! BBGetUser() !!}</h2>
-                            <a href="#">
-                                <span class="share"><i class="fas fa-share"></i></span>
-                            </a>
+                            <h2>Account</h2>
+                            {{--<a href="#">--}}
+                                {{--<span class="share"><i class="fas fa-share"></i></span>--}}
+                            {{--</a>--}}
 
-                            <a href="#">
-                                <span class="favorite"><i class="far fa-heart"></i></span>
-                            </a>
-                            <a class="reply" href="javascript:void(0);" id="dropdownMenuLink"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="caret-down"><i class="fas fa-caret-down"></i></span>
-                            </a>
+                            {{--<a href="#">--}}
+                                {{--<span class="favorite"><i class="far fa-heart"></i></span>--}}
+                            {{--</a>--}}
+                            {{--<a class="reply" href="javascript:void(0);" id="dropdownMenuLink"--}}
+                               {{--data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+                                {{--<span class="caret-down"><i class="fas fa-caret-down"></i></span>--}}
+                            {{--</a>--}}
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item d-flex align-items-center" href="/home"><i
                                             class="fas fa-home"></i>Home</a>
@@ -76,26 +76,13 @@
                     </div>
                     <ul class="ux-tabs__headers">
                         <li class="ux-tabs__header active">
-                            <a href="{!! url('/notifications') !!}"
+                            <a href="{!! url('/account/general') !!}"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
                                 <i class="fas fa-home"></i>
-                                <span>Notifications</span>
+                                <span>General</span>
                             </a>
                         </li>
-                        <li class="ux-tabs__header active">
-                            <a href="{!! url('/messages') !!}"
-                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
-                                <i class="fas fa-home"></i>
-                                <span>Messages</span>
-                            </a>
-                        </li>
-                        <li class="ux-tabs__header">
-                            <a href="{!! url('/subscribers') !!}"
-                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100"><i
-                                        class="fas fa-clipboard"></i>
-                                <span>Subscribers</span>
-                            </a>
-                        </li>
+
                     </ul>
                 </div>
 
