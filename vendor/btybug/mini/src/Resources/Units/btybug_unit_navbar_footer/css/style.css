@@ -693,9 +693,28 @@
     left: 0;
     right: 0;
     bottom: 0;
-    /*overflow: scroll;*/
+    overflow: auto;
     margin: 0;
     /*padding: 20px;*/
+}
+/* width */
+.notification-panel .notification::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.notification-panel .notification::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.notification-panel .notification::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.notification-panel .notification::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .notification-panel .notification div.image{
@@ -703,22 +722,19 @@
     top: 50%;
     left: 33%;
     opacity: 0.3;
+    z-index: -1;
 }
-.notification-panel .notification div.icon-menu{
+.notification-panel .notification .icon-menu{
     position: relative;
     font-size: 40px;
     text-align: center;
     padding: 10px;
     background-color: #3f3f3f;
+    color: white;
+    border: none;
+    border-radius: 0;
 }
-.notification-panel .notification div.active{
-    background: #2857a3;
-    background: -moz-linear-gradient(left, #2857a3 0%, #1ab3cf 100%, #ad1283 100%);
-    background: -webkit-linear-gradient(left, #2857a3 0%,#1ab3cf 100%,#ad1283 100%);
-    background: linear-gradient(to right, #2857a3 0%,#1ab3cf 100%,#ad1283 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2857a3', endColorstr='#ad1283',GradientType=1 );
-}
-.notification-panel .notification div.icon-menu:hover{
+.notification-panel .notification .icon-menu.active,.notification-panel .notification .icon-menu:hover{
     background: #2857a3;
     background: -moz-linear-gradient(left, #2857a3 0%, #1ab3cf 100%, #ad1283 100%);
     background: -webkit-linear-gradient(left, #2857a3 0%,#1ab3cf 100%,#ad1283 100%);
@@ -726,6 +742,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2857a3', endColorstr='#ad1283',GradientType=1 );
     cursor: pointer;
 }
+
 .notification-panel .notification div.number span{
     position: absolute;
     bottom: 43px;
@@ -788,13 +805,179 @@
     left: 0;
     right: 0;
     bottom: 0;
-    /*overflow: scroll;*/
+    overflow: auto;
     margin: 0;
     /*padding: 20px;*/
+}
+/* width */
+.panel-login-reg .login-reg-view::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.panel-login-reg .login-reg-view::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.panel-login-reg .login-reg-view::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.panel-login-reg .login-reg-view::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 .panel-login-reg .login-reg-view .images{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
+}
+.notification-panel .notification .tab-content .notifications-content,.notification-panel .notification .tab-content .messages-content{
+    padding:15px;
+}
+/*subscribe*/
+.notification-panel .notification .subscribers div.head2 {
+    padding: 10px;
+    background-color: #3f3f3f;
+    display: flex;
+    justify-content: space-between;
+}
+
+.notification-panel .notification .subscribers div.head2 button {
+    background-color: #333333;
+    font-size: 20px;
+    width: 200px;
+    height: 53px;
+}
+
+.notification-panel .notification .subscribers div.head2 button:hover {
+    background-color: #333333;
+    border-color: #333333;
+}
+
+.notification-panel .notification .subscribers div.head2 i {
+    color: #ffffff;
+}
+
+.notification-panel .notification .subscribers div.content {
+    background-color: #303030;
+}
+
+.notification-panel .notification .subscribers div.johan-button {
+    padding-top: 8px;
+    margin-left: 56px;
+}
+
+.notification-panel .notification .subscribers div.johan-button button {
+    background-color: #272727;
+    font-size: 20px;
+    margin: -4px;
+    box-shadow: 2px 2px 2px #272727;
+    border: 0;
+    text-align: left;
+    padding-left: 21px;
+    letter-spacing: 1.1px;
+}
+
+.notification-panel .notification .subscribers div.johan-button button:hover {
+    background-color: #272727;
+    border-color: #272727;
+}
+
+.notification-panel .notification .subscribers div.johan-button button:focus {
+    box-shadow: none;
+}
+
+.notification-panel .notification .subscribers div.johan-button img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: right;
+    margin-left: 25px;
+}
+
+.notification-panel .notification .subscribers .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.notification-panel .notification .subscribers .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.notification-panel .notification .subscribers .checkmark {
+    position: absolute;
+    top: 28px;
+    left: -22px;
+    height: 29px;
+    width: 29px;
+    border: 1px solid white;
+}
+
+/* When the checkbox is checked, add a blue background */
+.notification-panel .notification .subscribers .container input:checked ~ .checkmark {
+    background-color: #5b9d5f;
+    border: 1px solid #5b9d5f;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.notification-panel .notification .subscribers .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.notification-panel .notification .subscribers .container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.notification-panel .notification .subscribers .container .checkmark:after {
+    left: 9px;
+    top: 3px;
+    width: 7px;
+    height: 14px;
+    border: solid;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.notification-panel .notification .subscribers div.head {
+    background: #2857a3;
+    background: -moz-linear-gradient(left, #2857a3 0%, #1ab3cf 100%, #ad1283 100%);
+    background: -webkit-linear-gradient(left, #2857a3 0%, #1ab3cf 100%, #ad1283 100%);
+    background: linear-gradient(to right, #2857a3 0%, #1ab3cf 100%, #ad1283 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2857a3', endColorstr='#ad1283', GradientType=1);
+}
+
+.notification-panel .notification .subscribers div.select-members {
+    padding: 14px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.notification-panel .notification .subscribers div.select-members i {
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.notification-panel .notification .subscribers div.select-members span {
+    font-size: 30px;
+    color: #ffffff;
 }

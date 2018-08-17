@@ -1,33 +1,71 @@
 <div class="notification-panel">
     <div class="notification">
-            <div class="image">
-                <img src="/public/images/dark-logo-bag.png" alt="">
+        <div class="image">
+            <img src="/public/images/dark-logo-bag.png" alt="">
+        </div>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="col-sm-4 nav-item nav-link icon-menu active" id="nav-notifications-tab" data-toggle="tab" href="#nav-notifications" role="tab" aria-controls="nav-notifications" aria-selected="true">
+                    <div class="number"><span>2</span></div>
+                    <i class="far fa-bell"></i>
+                </a>
+                <a class="col-sm-4 nav-item nav-link icon-menu" id="nav-messages-tab" data-toggle="tab" href="#nav-messages" role="tab" aria-controls="nav-messages" aria-selected="false">
+                    <div class="number"><span>1</span></div>
+                    <i class="far fa-comment-alt"></i>
+                </a>
+                <a class="col-sm-4 nav-item nav-link icon-menu" id="nav-subscribers-tab" data-toggle="tab" href="#nav-subscribers" role="tab" aria-controls="nav-subscribers" aria-selected="false">
+                    <i class="fas fa-user-friends"></i>
+                </a>
             </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-4 p-0">
-                        <div class="icon-menu active">
-                            <div class="number"><span>2</span></div>
-                            <i class="far fa-bell"></i>
-                        </div>
-
-                    </div>
-                    <div class="col-md-4 p-0">
-                        <div class="icon-menu">
-                            <div class="number"><span>1</span></div>
-                            <i class="far fa-comment-alt"></i>
-                        </div>
-
-                    </div>
-                    <div class="col-md-4 p-0">
-                        <div class="icon-menu">
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-notifications" role="tabpanel" aria-labelledby="nav-notifications-tab">
+                <div class="notifications-content">
+                    notifications - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, asperiores dignissimos et exercitationem hic illo incidunt iusto labore minima nihil obcaecati officia perferendis quis quod recusandae repellendus rerum veniam voluptates. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores doloribus, ducimus eligendi eos, est facere incidunt mollitia nisi nulla omnis, praesentium quam quasi quidem repellendus? Iste iusto nemo nihil. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ipsa laudantium nisi placeat repudiandae? Debitis dolorem hic ipsa libero nemo, quae quasi quibusdam quisquam repellendus rerum sit ut velit vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consectetur corporis earum facere quae quam quasi voluptate voluptatem. Ab accusamus assumenda doloribus earum, incidunt magni nemo numquam officiis porro quia!
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-messages" role="tabpanel" aria-labelledby="nav-messages-tab">
+                <div class="messages-content">
+                    messages - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consectetur eaque eius laborum quis. Accusamus aliquam animi laboriosam odit rem sint veritatis vitae, voluptas. Distinctio ipsam itaque iusto vel voluptatibus!</div>
+            </div>
+            <div class="tab-pane fade" id="nav-subscribers" role="tabpanel" aria-labelledby="nav-subscribers-tab">
+                <div class="subscribers">
+                    <div class="head">
+                        <div class="select-members">
                             <i class="fas fa-user-friends"></i>
+                            <span> Select Members</span>
                         </div>
-
+                    </div>
+                    <div class="head2">
+                        <button type="button" class="btn btn-dark">Johan Smith
+                            <i class="fas fa-times ml-4"></i>
+                        </button>
+                        <i class="fas fa-search mt-3 mr-2" style="font-size: 27px"></i>
+                    </div>
+                    <div class="content">
+                        <div class="johan-button">
+                            <label class="container">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <img src="/public/images/johan.png" alt="">
+                            <button type="button" class="btn btn-dark" style="width: 186px; height: 60px">Johan Smith
+                            </button>
+                        </div>
+                        <div class="johan-button">
+                            <label class="container">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <img src="/public/images/johan.png" alt="">
+                            <button type="button" class="btn btn-dark" style="width: 186px; height: 60px">Johan Smith
+                            </button>
+                        </div>
                     </div>
                 </div>
 
             </div>
+        </div>
     </div>
 </div>
 <div class="d-flex flex-column profiles-navbar">
@@ -195,7 +233,7 @@
         <div class="panel-login-reg">
             <div class="login-reg-view">
                 <div class="images">
-                    <img src="dark-logo-bag.png" alt="img">
+                    <img src="/public/images/dark-logo-bag.png" alt="img">
                 </div>
 
             </div>
