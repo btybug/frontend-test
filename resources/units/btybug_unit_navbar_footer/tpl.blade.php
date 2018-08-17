@@ -281,7 +281,7 @@
         </div>
         <div class="panel-login-reg">
             <div class="login-reg-view">
-                <div class="images">
+                <div class="images d-none">
                     <img src="/public/images/dark-logo-bag.png" alt="img">
                 </div>
                 <div>
