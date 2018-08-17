@@ -83,20 +83,12 @@
                             </a>
                         </li>
                         <li class="ux-tabs__header ">
-                            <a href="{!! url('/account/preferances') !!}"
+                            <a href="{!! url('/account/profiles') !!}"
                                class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
                                 <i class="fas fa-newspaper"></i>
-                                <span>Preferences</span>
+                                <span>Profiles</span>
                             </a>
                         </li>
-                        <li class="ux-tabs__header ">
-                            <a href="{!! url('/account/logs') !!}"
-                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
-                                <i class="fab fa-stumbleupon"></i>
-                                <span>Logs</span>
-                            </a>
-                        </li>
-
                     </ul>
                 </div>
 

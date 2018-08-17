@@ -413,6 +413,11 @@
                         </li>
                         <li ><a href="{!! url('account/general/password') !!}"><span><i
                                             class="far fa-address-book"></i></span>Password</a></li>
+
+                        <li ><a href="{!! url('account/general/preferances') !!}"><span><i
+                                            class="far fa-address-book"></i></span>Preferances</a></li>
+                        <li ><a href="{!! url('account/general/logs') !!}"><span><i
+                                            class="far fa-address-book"></i></span>Logs</a></li>
                     </ul>
                 </div>
             </div>
