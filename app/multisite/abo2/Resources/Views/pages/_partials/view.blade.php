@@ -1,3 +1,4 @@
+{!! $page->title !!}
 {!! Form::model($page,['url' => route('mini_user_page_edit',$page->id), 'id' => 'page_settings_form','files' => true,'class'=>'hide']) !!}
 
 <div class="col-xs-9 col-sm-9 col-md-12 col-lg-12 col-xl-9 p-20">
@@ -5,6 +6,7 @@
         <div class="panel panel-default custompanel m-t-20">
             <div class="panel-heading">General Settings</div>
             <div class="panel-body">
+                @if($page->type!='core' && $page->type!='plugin' )
                 <div class="form-group row">
                     <label for="page_name" class="col-2 col-form-label">Statuse</label>
                     <div class="col-10">
@@ -14,7 +16,7 @@
                     </div>
                 </div>
 
-                @if($page->type!='core')
+
                     <div class="form-group row">
                         <label for="page_name" class="col-2 col-form-label">Page Name</label>
                         <div class="col-10">
@@ -41,29 +43,15 @@
                         </div>
                     </div>
 
-                @endif
-                @if($page->mini_page_id)
-                    <div class="form-group row">
-                        <label for="page_name" class="col-2 col-form-label">Page Template</label>
-                        <div class="col-10">
-                            <div class="input-group">
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    {!! Form::text(null,BBgetMiniUnitAttr($page->template,'title'),['class'=>'form-control','readonly']) !!}
-                                    {!! Form::select('variations',$variations,null,['class'=>'form-control']) !!}
-                                    <button type="button" class="btn btn-secondary">Customize</button>
-                                </div>
+                        <div class="form-group row">
+                            <label for="page_name" class="col-2 col-form-label">Page Template</label>
+                            <div class="col-10">
+                                {!! BBbutton2('mini_unit','template',"user_unit","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','id'=>'chage-content','model'=>$page]) !!}
+                                {{--<a href="{!! route('mini_page_edit',$page->id) !!}" class="btn btn-primary">Change</a>--}}
                             </div>
                         </div>
-                    </div>
-                @else
-                    <div class="form-group row">
-                        <label for="page_name" class="col-2 col-form-label">Page Template</label>
-                        <div class="col-10">
-                            {!! BBbutton2('mini_unit','template',"user_unit","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','id'=>'chage-content','model'=>$page]) !!}
-                            {{--<a href="{!! route('mini_page_edit',$page->id) !!}" class="btn btn-primary">Change</a>--}}
-                        </div>
-                    </div>
                 @endif
+
 
 
                 <div class="form-group row">
