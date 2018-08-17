@@ -283,6 +283,7 @@
             <div class="login-reg-view">
                 <div class="images">
                     <img src="/public/images/dark-logo-bag.png" alt="img">
+                    <div class="row">
                     {!! Form::open() !!}
                         <fieldset>
                             <h2>Please Login</h2>
@@ -312,8 +313,9 @@
                             </div>
                         </fieldset>
                     {!! Form::close() !!}
+                    </div>
 
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="row">
                         <a href="{!! url('register')!!}" class="btn btn-lg btn-primary btn-block">Not member ...Register</a>
                     </div>
                 </div>
