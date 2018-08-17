@@ -143,4 +143,9 @@ class HomeController extends Controller
             var_dump($t);
         }
     }
+
+    public function mySites()
+    {
+        return view('btybug::mysites.index');
+    }
 }

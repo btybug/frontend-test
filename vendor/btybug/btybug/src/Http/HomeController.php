@@ -69,4 +69,6 @@ class HomeController extends Controller
         $response->header('Content-Type', 'application/javascript', false);
         return $response;
     }
+
+
 }
