@@ -11,10 +11,10 @@ Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIf
 Route::group(['prefix' => 'favourites'], function () {
     Route::get('/', 'ClientController@getFavourites')->name('mini_favourites');
 });
-Route::group(['prefix' => 'media'], function () {
-    Route::get('/', 'ClientController@media')->name('mini_media');
-    Route::get('/settings', 'ClientController@mediaSettings')->name('mini_media_settings');
-});
+//Route::group(['prefix' => 'media'], function () {
+//    Route::get('/', 'ClientController@media')->name('mini_media');
+//    Route::get('/settings', 'ClientController@mediaSettings')->name('mini_media_settings');
+//});
 
 Route::group(['prefix' => 'preferences'], function () {
     Route::get('/', 'ClientController@preferences')->name('mini_preferences');
