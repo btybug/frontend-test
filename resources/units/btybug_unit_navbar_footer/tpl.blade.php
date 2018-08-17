@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="button-view-more mt-auto">
-                        <button class="btn btn-info btn-block">View More</button>
+                        <a href="{!! url('notifications') !!}" class="btn btn-info btn-block">View More</a>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                         Distinctio ipsam itaque iusto vel voluptatibus!
                     </div>
                     <div class="button-view-more mt-auto">
-                        <button class="btn btn-info btn-block">View More</button>
+                        <a href="{!! url('messages') !!}" class="btn btn-info btn-block">View More</a>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@
                     </div>
 
                     <div class="button-view-more mt-auto">
-                        <button class="btn btn-info btn-block">View More</button>
+                        <a href="{!! url('subscribers') !!}" class="btn btn-info btn-block">View More</a>
                     </div>
                 </div>
 
