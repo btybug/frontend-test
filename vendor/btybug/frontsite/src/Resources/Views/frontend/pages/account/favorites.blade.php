@@ -1,4 +1,5 @@
-<!doctype html>
+@include('btybug::layouts._partials.frontend.front_footer')
+        <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -113,7 +114,6 @@
         </div>
     </div>
 </div>
-
 @yield('footer')
 {{--<div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">--}}
 {{--<!-- begin #content -->--}}
