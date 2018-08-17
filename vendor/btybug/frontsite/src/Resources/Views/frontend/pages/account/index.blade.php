@@ -1,3 +1,4 @@
+@include('btybug::layouts._partials.frontend.front_footer')
 <!doctype html>
 <html lang="en">
 <head>

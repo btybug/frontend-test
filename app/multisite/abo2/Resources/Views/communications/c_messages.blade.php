@@ -1,4 +1,4 @@
-@include('mini::_partials.footer')
+@include('btybug::layouts._partials.frontend.front_footer')
 
         <!doctype html>
 <html lang="en">

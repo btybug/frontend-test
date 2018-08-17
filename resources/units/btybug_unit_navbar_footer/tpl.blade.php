@@ -1,4 +1,73 @@
+<div class="notification-panel">
+    <div class="notification">
+        <div class="image">
+            <img src="/public/images/dark-logo-bag.png" alt="">
+        </div>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="col-sm-4 nav-item nav-link icon-menu active" id="nav-notifications-tab" data-toggle="tab" href="#nav-notifications" role="tab" aria-controls="nav-notifications" aria-selected="true">
+                    <div class="number"><span>2</span></div>
+                    <i class="far fa-bell"></i>
+                </a>
+                <a class="col-sm-4 nav-item nav-link icon-menu" id="nav-messages-tab" data-toggle="tab" href="#nav-messages" role="tab" aria-controls="nav-messages" aria-selected="false">
+                    <div class="number"><span>1</span></div>
+                    <i class="far fa-comment-alt"></i>
+                </a>
+                <a class="col-sm-4 nav-item nav-link icon-menu" id="nav-subscribers-tab" data-toggle="tab" href="#nav-subscribers" role="tab" aria-controls="nav-subscribers" aria-selected="false">
+                    <i class="fas fa-user-friends"></i>
+                </a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-notifications" role="tabpanel" aria-labelledby="nav-notifications-tab">
+                <div class="notifications-content">
+                    notifications - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, asperiores dignissimos et exercitationem hic illo incidunt iusto labore minima nihil obcaecati officia perferendis quis quod recusandae repellendus rerum veniam voluptates. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores doloribus, ducimus eligendi eos, est facere incidunt mollitia nisi nulla omnis, praesentium quam quasi quidem repellendus? Iste iusto nemo nihil. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi ipsa laudantium nisi placeat repudiandae? Debitis dolorem hic ipsa libero nemo, quae quasi quibusdam quisquam repellendus rerum sit ut velit vitae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consectetur corporis earum facere quae quam quasi voluptate voluptatem. Ab accusamus assumenda doloribus earum, incidunt magni nemo numquam officiis porro quia!
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-messages" role="tabpanel" aria-labelledby="nav-messages-tab">
+                <div class="messages-content">
+                    messages - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consectetur eaque eius laborum quis. Accusamus aliquam animi laboriosam odit rem sint veritatis vitae, voluptas. Distinctio ipsam itaque iusto vel voluptatibus!</div>
+            </div>
+            <div class="tab-pane fade" id="nav-subscribers" role="tabpanel" aria-labelledby="nav-subscribers-tab">
+                <div class="subscribers">
+                    <div class="head">
+                        <div class="select-members">
+                            <i class="fas fa-user-friends"></i>
+                            <span> Select Members</span>
+                        </div>
+                    </div>
+                    <div class="head2">
+                        <button type="button" class="btn btn-dark">Johan Smith
+                            <i class="fas fa-times ml-4"></i>
+                        </button>
+                        <i class="fas fa-search mt-3 mr-2" style="font-size: 27px"></i>
+                    </div>
+                    <div class="content-subscrib">
+                        <div class="johan-button">
+                            <label class="container">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <img src="/public/images/johan.png" alt="">
+                            <button type="button" class="btn btn-dark" style="width: 186px; height: 60px">Johan Smith
+                            </button>
+                        </div>
+                        <div class="johan-button">
+                            <label class="container">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <img src="/public/images/johan.png" alt="">
+                            <button type="button" class="btn btn-dark" style="width: 186px; height: 60px">Johan Smith
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+        </div>
+    </div>
+</div>
 <div class="d-flex flex-column profiles-navbar">
     <div class="footerTabs">
         <div class="row">
@@ -43,27 +112,49 @@
                         </ul>
                     </div>
                     <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">2</div>
-                    <div class="tab-pane fade" id="business3" role="tabpanel" aria-labelledby="business3-tab">3</div>
+                    <div class="tab-pane fade" id="business3" role="tabpanel" aria-labelledby="business3-tab">
+                        <ul class="d-flex flex-wrap ">
+                            <li class="active"><a href="{!! route('mini_account_forms') !!}" class="d-flex flex-column justify-content-center align-items-center">
+                                    <span><i class="fa fa-align-left"></i></span>
+                                    <span class="name">Forms</span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="{!! route('mini_extra_gears') !!}" class="d-flex flex-column justify-content-center align-items-center">
+                                    <span><i class="fa fa-columns"></i></span>
+                                    <span class="name">Gear</span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="{!! route('mini_extra_plugins') !!}" class="d-flex flex-column justify-content-center align-items-center">
+                                    <span><i class="fa fa-plug"></i></span>
+                                    <span class="name">Plugins</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="tab-pane fade" id="business4" role="tabpanel" aria-labelledby="business4-tab">4</div>
                 </div>
             </div>
             <div class="col-md-12 col-lg-3 pl-0 order-1 order-md-1">
                 <div class="user-footer">
                     <ul class="head row align-items-center">
-                        <li class="col-8"><span class="user-name">Rania Dewel</span></li>
-                        <li class="log_out col-4"><a href="">Log out</a></li>
+                        @if(Auth::check())
+                            <li class="col-8"><span class="user-name">{{Auth::user()->username}}</span></li>
+                            <li class="log_out col-4"><a href="{{ url('logout')}}">Log out</a></li>
+                        @else
+
+                        @endif
                     </ul>
                     <div class="user-img-links row">
                         <div class="col-md-7 col-lg-12 col-xl-7 col-7 pl-0">
                             <div class="img">
-                                <img src="girl-cover.jpg" alt="girl">
+                                <img src="/public/images/girl-cover.jpg" alt="girl">
                             </div>
                         </div>
                         <div class="col-md-5 col-lg-12 col-xl-5 col-5">
                             <ul class="links">
-                                <li><a href=""><i class="fas fa-user"></i><span>Account</span></a></li>
-                                <li><a href=""><i class="far fa-heart"></i><span>Favorite</span></a></li>
-                                <li><a href=""><i class="fab fa-hubspot"></i><span>Media</span></a></li>
+                                <li><a href="{!! url('my-account') !!}"><i class="fas fa-user"></i><span>Account</span></a></li>
+                                <li><a href="{!! url('my-account/favourites') !!}"><i class="far fa-heart"></i><span>Favorite</span></a></li>
+                                <li><a href="{!! url('my-account/media') !!}"><i class="fab fa-hubspot"></i><span>Media</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -72,65 +163,93 @@
         </div>
 
     </div>
-
-    <div class="profile-footer d-flex justify-content-end">
-        <div class="left justify-content-between align-items-center">
-            <div class="create d-flex align-items-center">
-                <span class="add-icon"><i class="fas fa-plus"></i></span>
-                <span class="heart"><i class="fas fa-search"></i></span>
-            </div>
-            <div class="logo-name">
-                <div>
-                    <img src="/public/images/profile-footer-logo.png" alt="logo" class="black-logo">
-                    <img src="/public/images/profile-footer-logo-white.png" alt="logo" class="white-logo">
+    @if(Auth::check())
+        <div class="profile-footer logged-in d-flex justify-content-end">
+            <div class="left justify-content-between align-items-center d-flex">
+                <div class="create d-flex align-items-center">
+                    <span class="add-icon"><i class="fas fa-plus"></i></span>
+                    <span class="heart"><i class="fas fa-search"></i></span>
                 </div>
+                <div class="logo-name">
+                    <div>
+                        <img src="/public/images/profile-footer-logo.png" alt="logo" class="black-logo">
+                        <img src="/public/images/profile-footer-logo-white.png" alt="logo" class="white-logo">
+                    </div>
 
-            </div>
-            <div class="icons d-flex">
-                <a href="#" class="user-mobile"><span class="user-mobile-icon d-flex justify-content-center align-items-center"><i class="far fa-user"></i></span></a>
-                <a href="" class="message">
+                </div>
+                <div class="icons d-flex">
+                    <a href="#" class="user-mobile"><span class="user-mobile-icon d-flex justify-content-center align-items-center"><i class="far fa-user"></i></span></a>
+                    <a href="{!! url('/my-account/communications/messages') !!}" class="message">
 
-                    <span class="count d-flex justify-content-center align-items-center">3</span>
-                </a>
+                        <span class="count d-flex justify-content-center align-items-center">3</span>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="right d-flex align-items-center">
-            <div class="icon d-flex align-items-center">
+            <div class="right d-flex align-items-center">
+                <div class="icon d-flex align-items-center">
             <span>
                 <i class="fas fa-angle-left"></i>
             </span>
 
+                </div>
+                <div class="image" id="click-image">
+                    <a href="{!! url('/home') !!}">
+                        <img src="/public/images/girl-cover.jpg" alt="user">
+                    </a>
+
+                </div>
             </div>
-            <div class="image" id="click-image">
-                <a href="javscript:void(0);">
-                    <img src="/public/images/girl-cover.jpg" alt="user">
-                </a>
+        </div>
+    @else
+        <div class="profile-footer logged-out d-flex justify-content-end">
+            <div class="left align-items-center d-flex">
+                <div class="logo-name">
+                    <div>
+                        <img src="/public/images/profile-footer-logo.png" alt="logo" class="black-logo">
+                        <span class="site-name">BTYBUG</span>
+                    </div>
+                </div>
+                <span class="heart"><i class="fas fa-search"></i></span>
+            </div>
+            <div class="right d-flex align-items-center">
+                <div class="login-reg">
+                    <ul class="d-flex align-items-center flex-wrap">
+                        <li>
+                            <a href="">
+                                <span>Login</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span>Register</span>
+                            </a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="panel-login-reg">
+            <div class="login-reg-view">
+                <div class="images">
+                    <img src="/public/images/dark-logo-bag.png" alt="img">
+                </div>
 
             </div>
         </div>
-    </div>
+    @endif
 </div>
 
 
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
 
 
 {!! BBstyle($_this->path.DS.'css'.DS.'owl.carousel.min.css',$_this) !!}
 {!! BBstyle($_this->path.DS.'css'.DS.'owl.theme.default.min.css',$_this) !!}
 {!! BBstyle($_this->path.DS.'css'.DS.'style.css',$_this) !!}
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+
 {!! BBscript($_this->path.DS.'js'.DS.'owl.carousel.min.js',$_this) !!}
 {!! BBscript($_this->path.DS.'js'.DS.'custom.js',$_this) !!}

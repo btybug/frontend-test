@@ -116,7 +116,7 @@
     font-size: 32px;
 }
 
-.profile-footer .right {
+.profile-footer.logged-in .right {
     background: #d44043;
     background: -moz-linear-gradient(left, #d44043 1%, #dd743a 100%);
     background: -webkit-linear-gradient(left, #d44043 1%,#dd743a 100%);
@@ -124,7 +124,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d44043', endColorstr='#dd743a',GradientType=1 );
 }
 
-.profile-footer .right .image {
+.profile-footer.logged-in .right .image {
     margin: 0 12px;
     align-self: stretch;
     display: flex;
@@ -133,24 +133,24 @@
     margin-left:0;
 }
 
-.profile-footer .right .image img {
+.profile-footer.logged-in .right .image img {
     height: 60px;
     width: 60px;
     object-fit: cover;
 }
 
-.profile-footer .right .icon {
+.profile-footer.logged-in .right .icon {
     padding: 0 10px;
     align-self: stretch;
     border-left: 2px solid #fff;
     cursor: pointer;
 }
 
-.profile-footer .right .icon i {
+.profile-footer.logged-in .right .icon i {
     font-size: 42px;
 }
 
-.profile-footer .right .name-user {
+.profile-footer.logged-in .right .name-user {
     background-color: #434343;
     align-self: stretch;
     padding: 0 40px;
@@ -159,16 +159,16 @@
     display: none;
 }
 
-.profile-footer .border-none {
+.profile-footer.logged-in .border-none {
     border: none;
 }
 
-.profile-footer .right.show {
+.profile-footer.logged-in .right.show {
     background-color: #434343;
     position: relative;
 }
 
-.profile-footer .right .dropdown-menu {
+.profile-footer.logged-in .right .dropdown-menu {
     background-color: #434343;
     border-radius: 3px 3px 0 0;
     border: 2px solid #434343;
@@ -177,13 +177,13 @@
     left: 5px !important;
 }
 
-.profile-footer .right .dropdown-menu .dropdown-item {
+.profile-footer.logged-in .right .dropdown-menu .dropdown-item {
     font-size: 19px;
     color: white;
     padding: .85rem 2.5rem;
 }
 
-.profile-footer .right .dropdown-menu .dropdown-item:hover, .profile-footer .right .dropdown-menu .dropdown-item:focus {
+.profile-footer.logged-in .right .dropdown-menu .dropdown-item:hover, .profile-footer.logged-in .right .dropdown-menu .dropdown-item:focus {
     background: none;
     font-weight: bold;
 }
@@ -557,34 +557,34 @@
     }
 }
 @media (max-width: 900px) {
-    .profile-footer .left{
+    .profile-footer.logged-in .left{
         display: flex;
     }
-    .profile-footer .right {
+    .profile-footer.logged-in .right {
         display: none !important;
     }
-    .profile-footer .left{
+    .profile-footer.logged-in .left{
         border-right: none;
         justify-content: space-around !important;
     }
-    .profile-footer .left>div{
+    .profile-footer.logged-in .left>div{
         flex: auto;
         justify-content: center;
     }
-    .profile-footer .left .create>span{
+    .profile-footer.logged-in .left .create>span{
         flex: auto;
     }
-    .profile-footer .left .logo-name{
+    .profile-footer.logged-in .left .logo-name{
         padding: 0;
         margin: 0;
     }
-    .profile-footer .left .icons{
+    .profile-footer.logged-in .left .icons{
         justify-content: space-between;
     }
-    .profile-footer .left .icons .user-mobile{
+    .profile-footer.logged-in .left .icons .user-mobile{
         display: block;
     }
-    .profile-footer .left .create .heart{
+    .profile-footer.logged-in .left .create .heart{
         justify-content: center;
     }
     .profiles-navbar .profile-favorite .tab-content .favorite-icon span{
@@ -607,7 +607,7 @@
         flex: auto;
     }
     .profiles-navbar{
-        top: 0;
+        /*top: 0;*/
     }
     .profiles-navbar .footerTabs>.row{
         height: calc(100vh - 71px);
@@ -629,7 +629,7 @@
         flex: auto;
         height: calc(100% - 100px);
     }
-    .profiles-navbar .profile-footer {
+    .profiles-navbar .profile-footer.logged-in {
         margin-top: auto;
     }
     .profiles-navbar .footerTabs .nav-tabs.left .search{
@@ -670,3 +670,314 @@
     }
 }
 
+/*Notification*/
+.notification-panel.active{
+    right: 0;
+}
+.notification-panel{
+    position: fixed;
+    top: 0;
+    bottom: 80px;
+    width: 445px;
+    right: -445px;
+    z-index: 1020;
+    background: #303030;
+    /*padding: 15px;*/
+    color: #ffffff;
+    transition: right .2s linear;
+}
+
+.notification-panel .notification{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    margin: 0;
+    /*padding: 20px;*/
+}
+/* width */
+.notification-panel .notification::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.notification-panel .notification::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.notification-panel .notification::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.notification-panel .notification::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.notification-panel .notification div.image{
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    opacity: 0.3;
+    z-index: -1;
+}
+.notification-panel .notification .icon-menu{
+    position: relative;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+    background-color: #3f3f3f;
+    color: white;
+    border: none;
+    border-radius: 0;
+}
+.notification-panel .notification .icon-menu.active,.notification-panel .notification .icon-menu:hover{
+    background: #2857a3;
+    background: -moz-linear-gradient(left, #2857a3 0%, #1ab3cf 100%, #ad1283 100%);
+    background: -webkit-linear-gradient(left, #2857a3 0%,#1ab3cf 100%,#ad1283 100%);
+    background: linear-gradient(to right, #2857a3 0%,#1ab3cf 100%,#ad1283 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2857a3', endColorstr='#ad1283',GradientType=1 );
+    cursor: pointer;
+}
+
+.notification-panel .notification div.number span{
+    position: absolute;
+    bottom: 43px;
+    left: 84px;
+    font-size: 14px;
+    border: 1px solid white;
+    border-radius: 50%;
+    padding-left: 6px;
+    padding-right: 6px;
+    height: 22px;
+    background-color: white;
+    color: black;
+}
+
+/*logged out*/
+.profiles-navbar .profile-footer.logged-out .logo-name span{
+    margin-left: 15px;
+    font-size: 24px;
+}
+.profiles-navbar .profile-footer.logged-out .left{
+    border: none;
+}
+.profiles-navbar .profile-footer.logged-out .right{
+    background-color: #272727;
+    padding-right:15px;
+}
+.profiles-navbar .profile-footer.logged-out .right ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.profiles-navbar .profile-footer.logged-out .right ul a{
+    color: white;
+    font-size: 20px;
+    margin-right:15px;
+}
+.profiles-navbar .profile-footer.logged-out{
+    min-height: 80px;
+}
+/*login reg view*/
+.panel-login-reg.active{
+    right: 0;
+}
+.panel-login-reg{
+    position: fixed;
+    top: 0;
+    bottom: 80px;
+    width: 445px;
+    right: -445px;
+    z-index: 1020;
+    background: #303030;
+    /*padding: 15px;*/
+    color: #ffffff;
+    transition: right .2s linear;
+}
+
+.panel-login-reg .login-reg-view{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    margin: 0;
+    /*padding: 20px;*/
+}
+/* width */
+.panel-login-reg .login-reg-view::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.panel-login-reg .login-reg-view::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.panel-login-reg .login-reg-view::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.panel-login-reg .login-reg-view::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+.panel-login-reg .login-reg-view .images{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.notification-panel .notification .tab-content .notifications-content,.notification-panel .notification .tab-content .messages-content{
+    padding:15px;
+}
+/*subscribe*/
+.notification-panel .notification .subscribers div.head2 {
+    padding: 10px;
+    background-color: #3f3f3f;
+    display: flex;
+    justify-content: space-between;
+}
+
+.notification-panel .notification .subscribers div.head2 button {
+    background-color: #333333;
+    font-size: 20px;
+    width: 200px;
+    height: 53px;
+}
+
+.notification-panel .notification .subscribers div.head2 button:hover {
+    background-color: #333333;
+    border-color: #333333;
+}
+
+.notification-panel .notification .subscribers div.head2 i {
+    color: #ffffff;
+}
+
+.notification-panel .notification .subscribers div.content-subscrib {
+    background-color: #303030;
+}
+
+.notification-panel .notification .subscribers div.johan-button {
+    padding-top: 8px;
+    margin-left: 56px;
+}
+
+.notification-panel .notification .subscribers div.johan-button button {
+    background-color: #272727;
+    font-size: 20px;
+    margin: -4px;
+    box-shadow: 2px 2px 2px #272727;
+    border: 0;
+    text-align: left;
+    padding-left: 21px;
+    letter-spacing: 1.1px;
+}
+
+.notification-panel .notification .subscribers div.johan-button button:hover {
+    background-color: #272727;
+    border-color: #272727;
+}
+
+.notification-panel .notification .subscribers div.johan-button button:focus {
+    box-shadow: none;
+}
+
+.notification-panel .notification .subscribers div.johan-button img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: right;
+    margin-left: 25px;
+}
+
+.notification-panel .notification .subscribers .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.notification-panel .notification .subscribers .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.notification-panel .notification .subscribers .checkmark {
+    position: absolute;
+    top: 28px;
+    left: -22px;
+    height: 29px;
+    width: 29px;
+    border: 1px solid white;
+}
+
+/* When the checkbox is checked, add a blue background */
+.notification-panel .notification .subscribers .container input:checked ~ .checkmark {
+    background-color: #5b9d5f;
+    border: 1px solid #5b9d5f;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.notification-panel .notification .subscribers .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.notification-panel .notification .subscribers .container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.notification-panel .notification .subscribers .container .checkmark:after {
+    left: 9px;
+    top: 3px;
+    width: 7px;
+    height: 14px;
+    border: solid;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.notification-panel .notification .subscribers div.head {
+    background: #2857a3;
+    background: -moz-linear-gradient(left, #2857a3 0%, #1ab3cf 100%, #ad1283 100%);
+    background: -webkit-linear-gradient(left, #2857a3 0%, #1ab3cf 100%, #ad1283 100%);
+    background: linear-gradient(to right, #2857a3 0%, #1ab3cf 100%, #ad1283 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2857a3', endColorstr='#ad1283', GradientType=1);
+}
+
+.notification-panel .notification .subscribers div.select-members {
+    padding: 14px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.notification-panel .notification .subscribers div.select-members i {
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.notification-panel .notification .subscribers div.select-members span {
+    font-size: 30px;
+    color: #ffffff;
+}
