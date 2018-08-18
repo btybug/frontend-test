@@ -54,19 +54,8 @@
                             <img src="/public/images/girl-cover.jpg" alt="girl">
                         </div>
                         <div class="info d-flex align-items-center">
-                            <h2>Media</h2>
-                            <a class="reply" href="javascript:void(0);" id="dropdownMenuLink"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="caret-down"><i class="fas fa-caret-down"></i></span>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item d-flex align-items-center" href="/home"><i
-                                            class="fas fa-home"></i>Home</a>
-                                <a class="dropdown-item d-flex align-items-center" href="/dashboard"><i
-                                            class="fas fa-archway"></i> Dashboards</a>
-                                <a class="dropdown-item d-flex align-items-center" href="/notifications"><i
-                                            class="far fa-comment-alt"></i> Communications</a>
-                            </div>
+                            <h2>Media Settings</h2>
+
                         </div>
                     </div>
                     <ul class="ux-tabs__headers">
