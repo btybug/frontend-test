@@ -14,8 +14,8 @@
 
 Route::get('/', 'IndexController@settings');
 Route::group(['prefix'=>'drive'],function (){
+    Route::get('/settings', 'Media\IndexController@getSettings',true)->name('admin_media_settinds');
     Route::get('/', 'Media\IndexController@index',true)->name('admin_media');
-    Route::get('/settings', 'Media\IndexController@getSettings')->name('admin_media_settinds');
     Route::post('/settings', 'Media\IndexController@postSettings');
 });
 

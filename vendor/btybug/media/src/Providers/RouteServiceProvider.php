@@ -88,7 +88,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::group([
             'domain' => (string)env('DOMAIN'),
-            'middleware' => ['web','adminCheck']
+            'middleware' => ['web']
         ], function ($router) {
             Route::group([
                 'middleware' => ['auth'],

@@ -29,15 +29,15 @@ class IndexController extends Controller
 
     public function getSettings()
     {
-        $uploaders = CmsItemReader::getAllGearsByType('units')
-            ->where('place', 'backend')
-            ->where('type', 'media')
-            ->run();
-        $uploaders = $uploaders ? $uploaders->pluck('title', 'slug') : NULL;
-        $settings = $this->settings->getSettingsBySection('folder_settings')
-            ? $this->settings->getSettingsBySection('folder_settings')->pluck('val', 'settingkey')
-            : null;
-        return view('media::drive.settings', compact(['uploaders', 'settings']));
+//        $uploaders = CmsItemReader::getAllGearsByType('units')
+//            ->where('place', 'backend')
+//            ->where('type', 'media')
+//            ->run();
+//        $uploaders = $uploaders ? $uploaders->pluck('title', 'slug') : NULL;
+//        $settings = $this->settings->getSettingsBySection('folder_settings')
+//            ? $this->settings->getSettingsBySection('folder_settings')->pluck('val', 'settingkey')
+//            : null;
+        return view('media::drive.settings');
     }
 
     public function postSettings(Request $request)
