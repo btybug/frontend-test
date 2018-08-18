@@ -84,6 +84,7 @@ class Generator
     private $root;
     private $user_id;
     private $name;
+    private $user;
     const DEFAULT_VALUE = 'default';
 
     public function __construct()
@@ -98,6 +99,7 @@ class Generator
 
         $this->name = $name->username;
         $this->user_id = $name->id;
+        $this->user = $name;
         $this->root = $this->root . DS . $this->name;
         \File::makeDirectory($this->root);
         $this->rekursiveMakeCms($this->tree, $this->root);
@@ -128,7 +130,7 @@ class Generator
 
         foreach ($corePages as $corePage) {
             if ($corePage->status == 'published') {
-                $url = ($corePage->url == null or $corePage->url == '/') ? '/' . $this->name : '/' . $this->name . '/' . $corePage->url;
+                $url = ($corePage->url == null or $corePage->url == '/') ? '/' . $this->user->site_url : '/' . $this->user->site_url . '/' . $corePage->url;
                 $newPages[] = [
                     'title' => $corePage->title,
                     'url' => $url,

@@ -15,6 +15,5 @@ Route::group(['middleware' => 'frontPermissions'], function () use ($pages) {
                 return $home->render($key, Request::all());
             });
         }
-
     }
 });
