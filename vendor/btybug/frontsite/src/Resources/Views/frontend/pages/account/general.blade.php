@@ -432,14 +432,13 @@
                     <div class="manage-settings row ">
                         <div class="col-xl-6">
                             <div class="settings-left">
-                                <form action="">
+                                {!! Form::model($user) !!}
                                     <div class="form-group row align-items-center">
-                                        <label for="displayName" class="col-sm-3 col-form-label">Display
-                                            Name</label>
+                                        <label for="displayName" class="col-sm-3 col-form-label">Social site url</label>
                                         <div class="col-sm-8 pl-0">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" id="displayName"
-                                                       aria-label="Text input with dropdown button">
+                                                <input readonly type="text" class="form-control" id="displayName"
+                                                    value="www.btybug.com/abo2"   aria-label="Text input with dropdown button">
                                                 <div class="input-group-append blue-cl">
                                                     <button class="btn btn-outline-secondary" type="button">
                                                         <i class="fas fa-globe-asia"></i></button>
@@ -447,477 +446,80 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row align-items-center">
-                                        <label for="displayEmail" class="col-sm-3 col-form-label">Display
-                                            Email</label>
-                                        <div class="col-sm-8 pl-0">
-                                            <div class="input-group">
-                                                <input type="email" class="form-control" id="displayEmail"
-                                                       aria-label="Text input with dropdown button">
-                                                <div class="input-group-append red-cl">
-                                                    <button class="btn btn-outline-secondary dropdown-toggle"
-                                                            type="button" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false"><i
-                                                                class="fas fa-lock"></i></button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-globe-asia icon-blue"></i>
-                                                            <span class="name">Public</span>
-                                                        </a>
-                                                        <a class="dropdown-item active" href="#">
-                                                            <i class="fas fa-user-friends icon-green"></i>
-                                                            <span class="name">Members</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-user-friends icon-purple"></i>
-                                                            <span class="name">All Members</span>
-                                                        </a>
 
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-lock icon-red"></i>
-                                                            <span class="name">Only Me</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label for="proffesion"
-                                               class="col-sm-3 col-form-label">Proffesion</label>
-                                        <div class="col-sm-8 pl-0">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="proffesion"
-                                                       aria-label="Text input with dropdown button">
-                                                <div class="input-group-append green-cl">
-                                                    <button class="btn btn-outline-secondary dropdown-toggle"
-                                                            type="button" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false"><i
-                                                                class="fas fa-user-friends"></i></button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-globe-asia icon-blue"></i>
-                                                            <span class="name">Public</span>
-                                                        </a>
-                                                        <a class="dropdown-item active" href="#">
-                                                            <i class="fas fa-user-friends icon-green"></i>
-                                                            <span class="name">Members</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-user-friends icon-purple"></i>
-                                                            <span class="name">All Members</span>
-                                                        </a>
-
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-lock icon-red"></i>
-                                                            <span class="name">Only Me</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-1 pl-0">
-                                            <span class="view">View</span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label for="gender"
-                                               class="col-sm-3 col-form-label">Proffesion</label>
-                                        <div class="col-sm-6 pl-0">
-                                            <div class="input-group flex-nowrap">
-                                                <div class="custom_select">
-                                                    <select name="" id="gender" class="form-control ">
-                                                        <option value="">Female</option>
-                                                        <option value="">Male</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="input-group-append blue-cl">
-                                                    <button class="btn btn-outline-secondary dropdown-toggle"
-                                                            type="button" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false"><i
-                                                                class="fas fa-globe-asia"></i></button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-globe-asia icon-blue"></i>
-                                                            <span class="name">Public</span>
-                                                        </a>
-                                                        <a class="dropdown-item active" href="#">
-                                                            <i class="fas fa-user-friends icon-green"></i>
-                                                            <span class="name">Members</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-user-friends icon-purple"></i>
-                                                            <span class="name">All Members</span>
-                                                        </a>
-
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-lock icon-red"></i>
-                                                            <span class="name">Only Me</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label for="country" class="col-sm-3 col-form-label">Country</label>
-                                        <div class="col-sm-6 pl-0">
-                                            <div class="input-group flex-nowrap">
-                                                <div class="custom_select">
-                                                    <select name="" id="country" class="form-control ">
-                                                        <option value="">UK</option>
-                                                        <option value="">RU</option>
-                                                        <option value="">IT</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="input-group-append blue-cl">
-                                                    <button class="btn btn-outline-secondary dropdown-toggle"
-                                                            type="button" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false"><i
-                                                                class="fas fa-globe-asia"></i></button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-globe-asia icon-blue"></i>
-                                                            <span class="name">Public</span>
-                                                        </a>
-                                                        <a class="dropdown-item active" href="#">
-                                                            <i class="fas fa-user-friends icon-green"></i>
-                                                            <span class="name">Members</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-user-friends icon-purple"></i>
-                                                            <span class="name">All Members</span>
-                                                        </a>
-
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-lock icon-red"></i>
-                                                            <span class="name">Only Me</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-sm-3 col-form-label">Data of Birth</label>
-                                        <div class="col-sm-8 pl-0">
-                                            <div class="d-flex">
-                                                <div class="col-2 p-0">
-                                                    <input type="text" placeholder="DD"
-                                                           class="form-control">
-                                                </div>
-                                                <div class="col-3 p-0">
-                                                    <div class="input-group">
-                                                        <input type="text" placeholder="MM"
-                                                               class="form-control"
-                                                               aria-label="Text input with dropdown button">
-
-                                                        <div class="input-group-append green-cl">
-                                                            <button class="btn btn-outline-secondary dropdown-toggle"
-                                                                    type="button" data-toggle="dropdown"
-                                                                    aria-haspopup="true"
-                                                                    aria-expanded="false"><i
-                                                                        class="fas fa-user-friends"></i>
-                                                            </button>
-                                                            <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="#">
-                                                                    <i class="fas fa-globe-asia icon-blue"></i>
-                                                                    <span class="name">Public</span>
-                                                                </a>
-                                                                <a class="dropdown-item active" href="#">
-                                                                    <i class="fas fa-user-friends icon-green"></i>
-                                                                    <span class="name">Members</span>
-                                                                </a>
-                                                                <a class="dropdown-item" href="#">
-                                                                    <i class="fas fa-user-friends icon-purple"></i>
-                                                                    <span class="name">All Members</span>
-                                                                </a>
-
-                                                                <a class="dropdown-item" href="#">
-                                                                    <i class="fas fa-lock icon-red"></i>
-                                                                    <span class="name">Only Me</span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-2 align-self-center">
-                                                    <span class="view">View</span>
-                                                </div>
-                                                <div class="col-5 p-0">
-                                                    <div class="input-group">
-                                                        <input type="text" placeholder="YYYY"
-                                                               class="form-control"
-                                                               aria-label="Text input with dropdown button">
-                                                        <div class="input-group-append red-cl">
-                                                            <button class="btn btn-outline-secondary dropdown-toggle"
-                                                                    type="button" data-toggle="dropdown"
-                                                                    aria-haspopup="true"
-                                                                    aria-expanded="false"><i
-                                                                        class="fas fa-lock"></i></button>
-                                                            <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="#">
-                                                                    <i class="fas fa-globe-asia icon-blue"></i>
-                                                                    <span class="name">Public</span>
-                                                                </a>
-                                                                <a class="dropdown-item active" href="#">
-                                                                    <i class="fas fa-user-friends icon-green"></i>
-                                                                    <span class="name">Members</span>
-                                                                </a>
-                                                                <a class="dropdown-item" href="#">
-                                                                    <i class="fas fa-user-friends icon-purple"></i>
-                                                                    <span class="name">All Members</span>
-                                                                </a>
-
-                                                                <a class="dropdown-item" href="#">
-                                                                    <i class="fas fa-lock icon-red"></i>
-                                                                    <span class="name">Only Me</span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center group-for-tags">
-                                        <label for="displaytags"
-                                               class="col-sm-3 col-form-label">Tags</label>
-                                        <div class="col-sm-8 pl-0">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control tags_custom"
-                                                       id="displaytags"
-                                                       aria-label="Text input with dropdown button"
-                                                       value="Designer" data-role="tagsinput">
-                                                <div class="input-group-append blue-cl">
-                                                    <button class="btn btn-outline-secondary dropdown-toggle"
-                                                            type="button" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false"><i
-                                                                class="fas fa-globe-asia"></i></button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-globe-asia icon-blue"></i>
-                                                            <span class="name">Public</span>
-                                                        </a>
-                                                        <a class="dropdown-item active" href="#">
-                                                            <i class="fas fa-user-friends icon-green"></i>
-                                                            <span class="name">Members</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-user-friends icon-purple"></i>
-                                                            <span class="name">All Members</span>
-                                                        </a>
-
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-lock icon-red"></i>
-                                                            <span class="name">Only Me</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row ">
-                                        <label for="socialMedia" class="col-sm-3 col-form-label">Social
-                                            Media</label>
-                                        <div class="col-sm-8 pl-0">
-                                            <div class="input-group">
-                                                <div class="input-group-append blue-cl">
-                                                    <button class="btn btn-outline-secondary dropdown-toggle"
-                                                            type="button" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false"><i
-                                                                class="fas fa-globe-asia"></i></button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-globe-asia icon-blue"></i>
-                                                            <span class="name">Public</span>
-                                                        </a>
-                                                        <a class="dropdown-item active" href="#">
-                                                            <i class="fas fa-user-friends icon-green"></i>
-                                                            <span class="name">Members</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-user-friends icon-purple"></i>
-                                                            <span class="name">All Members</span>
-                                                        </a>
-
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-lock icon-red"></i>
-                                                            <span class="name">Only Me</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <input type="text" class="form-control" id="socialMedia"
-                                                       aria-label="Text input with dropdown button"
-                                                       placeholder="Profile URL">
-                                                <div class="input-group-append blue-cl">
-                                                    <button class="btn btn-outline-secondary dropdown-toggle"
-                                                            type="button" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false"><i
-                                                                class="fas fa-globe-asia"></i></button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-globe-asia icon-blue"></i>
-                                                            <span class="name">Public</span>
-                                                        </a>
-                                                        <a class="dropdown-item active" href="#">
-                                                            <i class="fas fa-user-friends icon-green"></i>
-                                                            <span class="name">Members</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-user-friends icon-purple"></i>
-                                                            <span class="name">All Members</span>
-                                                        </a>
-
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-lock icon-red"></i>
-                                                            <span class="name">Only Me</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="input-group mt-4">
-                                                <div class="input-group-append yellow-cl">
-                                                    <button class="btn btn-outline-secondary dropdown-toggle"
-                                                            type="button" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false"><i
-                                                                class="fas fa-user-secret"></i></button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-globe-asia icon-blue"></i>
-                                                            <span class="name">Public</span>
-                                                        </a>
-                                                        <a class="dropdown-item active" href="#">
-                                                            <i class="fas fa-user-friends icon-green"></i>
-                                                            <span class="name">Members</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-user-friends icon-purple"></i>
-                                                            <span class="name">All Members</span>
-                                                        </a>
-
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-lock icon-red"></i>
-                                                            <span class="name">Only Me</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <input type="text" class="form-control"
-                                                       aria-label="Text input with dropdown button"
-                                                       placeholder="Profile URL">
-                                                <div class="input-group-append blue-cl">
-                                                    <button class="btn btn-outline-secondary dropdown-toggle"
-                                                            type="button" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false"><i
-                                                                class="fas fa-globe-asia"></i></button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-globe-asia icon-blue"></i>
-                                                            <span class="name">Public</span>
-                                                        </a>
-                                                        <a class="dropdown-item active" href="#">
-                                                            <i class="fas fa-user-friends icon-green"></i>
-                                                            <span class="name">Members</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-user-friends icon-purple"></i>
-                                                            <span class="name">All Members</span>
-                                                        </a>
-
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-lock icon-red"></i>
-                                                            <span class="name">Only Me</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-sm-1 pl-0 align-self-end socialmedia-add">
-                                            <span class="add-icon"><i class="fas fa-plus"></i></span>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-xl-5 offset-xl-1">
-                            <div class="settings-right">
-                                <div class="images-name d-flex mb-4">
-                                    <div class="col-11 pr-0">
-                                        <div class="image">
-                                            <img src="/public/images/girl-cover.jpg" alt="">
-                                            <div class="site-image">
-                                                <span>Site Image</span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-1 p-0">
-
-                                    </div>
-                                </div>
-                                <div class="maps d-flex">
-                                    <div class="col-11 pr-0">
-                                        <div class="map-search">
-                                            <div class="map">
-                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.72810776133!2d-0.24168051295924747!3d51.52877184056342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2z0JvQvtC90LTQvtC9LCDQktC10LvQuNC60L7QsdGA0LjRgtCw0L3QuNGP!5e0!3m2!1sru!2s!4v1534333971160"
-                                                        width="100%" height="350" frameborder="0"
-                                                        style="border:0" allowfullscreen></iframe>
-                                            </div>
-                                            <div class="location-input">
-                                                <div class="input-group">
-                                                    <div class="input-group-append none-cl">
-                                                        <button class="btn btn-outline-secondary"
-                                                                type="button">
-                                                            <i class="fas fa-map-marker-alt"></i>
-                                                        </button>
-
-                                                    </div>
-                                                    <input type="search" class="form-control"
-                                                           placeholder="Enter Location">
-                                                    <div class="input-group-append blue-light-cl">
-                                                        <button class="btn btn-outline-secondary" type="button">
-                                                            <i class="fas fa-crosshairs"></i>
-                                                        </button>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-1 p-0">
-                                        <div class="input-group-append blue-cl">
-                                            <button class="btn btn-outline-secondary dropdown-toggle"
-                                                    type="button" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false"><i
-                                                        class="fas fa-lock"></i></button>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fas fa-globe-asia icon-blue"></i>
-                                                    <span class="name">Public</span>
-                                                </a>
-                                                <a class="dropdown-item active" href="#">
-                                                    <i class="fas fa-user-friends icon-green"></i>
-                                                    <span class="name">Members</span>
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fas fa-user-friends icon-purple"></i>
-                                                    <span class="name">All Members</span>
-                                                </a>
-
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fas fa-lock icon-red"></i>
-                                                    <span class="name">Only Me</span>
-                                                </a>
+                                <div class="form-group row align-items-center">
+                                    <label for="f_name" class="col-sm-3 col-form-label">First Name</label>
+                                    <div class="col-sm-8 pl-0">
+                                        <div class="input-group">
+                                            {!! Form::text('f_name',null,
+                                            ['class' => 'form-control','id'=> 'f_name','aria-label' => 'Text input with dropdown button']) !!}
+                                            <div class="input-group-append blue-cl">
+                                                <button class="btn btn-outline-secondary" type="button">
+                                                    <i class="fas fa-globe-asia"></i></button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="form-group row align-items-center">
+                                    <label for="f_name" class="col-sm-3 col-form-label">Last Name</label>
+                                    <div class="col-sm-8 pl-0">
+                                        <div class="input-group">
+                                            {!! Form::text('l_name',null,
+                                            ['class' => 'form-control','id'=> 'l_name','aria-label' => 'Text input with dropdown button']) !!}
+                                            <div class="input-group-append blue-cl">
+                                                <button class="btn btn-outline-secondary" type="button">
+                                                    <i class="fas fa-globe-asia"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row align-items-center">
+                                    <label for="f_name" class="col-sm-3 col-form-label">Email</label>
+                                    <div class="col-sm-8 pl-0">
+                                        <div class="input-group">
+                                            {!! Form::email('email',null,
+                                            ['class' => 'form-control','id'=> 'email','aria-label' => 'Text input with dropdown button']) !!}
+                                            <div class="input-group-append blue-cl">
+                                                <button class="btn btn-outline-secondary" type="button">
+                                                    <i class="fas fa-globe-asia"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row align-items-center">
+                                    <label for="f_name" class="col-sm-3 col-form-label">Phone Number</label>
+                                    <div class="col-sm-8 pl-0">
+                                        <div class="input-group">
+                                            {!! Form::text('phone_number',null,
+                                            ['class' => 'form-control','id'=> 'phone_number','aria-label' => 'Text input with dropdown button']) !!}
+                                            <div class="input-group-append blue-cl">
+                                                <button class="btn btn-outline-secondary" type="button">
+                                                    <i class="fas fa-globe-asia"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row align-items-center">
+                                    <label for="f_name" class="col-sm-3 col-form-label">Address</label>
+                                    <div class="col-sm-8 pl-0">
+                                        <div class="input-group">
+                                            {!! Form::text('address',null,
+                                            ['class' => 'form-control','id'=> 'address','aria-label' => 'Text input with dropdown button']) !!}
+                                            <div class="input-group-append blue-cl">
+                                                <button class="btn btn-outline-secondary" type="button">
+                                                    <i class="fas fa-globe-asia"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row align-items-center">
+                                    <input type="submit" class="btn btn-success" value="Submit"/>
+                                </div>
+                                {!! Form::close() !!}
                             </div>
                         </div>
                     </div>

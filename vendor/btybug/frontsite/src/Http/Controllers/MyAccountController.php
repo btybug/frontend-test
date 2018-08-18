@@ -38,7 +38,14 @@ class MyAccountController extends Controller
 
     public function general()
     {
-        return view('manage::frontend.pages.account.general', compact([]));
+        $user = \Auth::user();
+        return view('manage::frontend.pages.account.general', compact(['user']));
+    }
+
+    public function postGeneral(Request $request)
+    {
+        $this->userRepository->update(\Auth::id(), $request->except('_token'));
+        return redirect()->back();
     }
 
     public function profiles()
