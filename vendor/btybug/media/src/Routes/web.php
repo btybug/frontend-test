@@ -18,6 +18,4 @@ Route::group(['prefix'=>'drive'],function (){
     Route::get('/settings', 'Media\IndexController@getSettings')->name('admin_media_settinds');
     Route::post('/settings', 'Media\IndexController@postSettings');
 });
-Route::any('php/{code}',function ($code){
-    include __DIR__.'/../Modules/elFinder/php/'.$code;
-});
+

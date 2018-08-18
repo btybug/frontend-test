@@ -3,5 +3,8 @@
 @endphp
 @extends('mini::layouts.app',['index'=>'mini_media'])
 @section('content')
-    media
+
 @endsection
+@section('js')
+
+@stop

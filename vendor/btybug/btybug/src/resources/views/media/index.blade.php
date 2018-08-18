@@ -113,7 +113,7 @@
 
 
 <div class="container-fluid" style="margin-top: 20px;">
-
+    @include('media::_partials.drive')
 </div>
 
 
@@ -184,7 +184,8 @@
 <script src="{!!url('public/js/add-unit.js')!!}"></script>
 <!-- ================== END FOOTER BASE JS ================== -->
 
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js" data-main="{!! url('public/elFinder/main.default.js') !!}"></script>
+<script src="{!! url('public/elFinder/elfinder.js') !!}"></script>
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
 @yield('js')
 <!-- ================== END PAGE LEVEL JS ================== -->

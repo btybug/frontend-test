@@ -38,6 +38,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $this->mapApiRoutes();
+        $this->mediaApi();
 
         //
     }
@@ -80,6 +81,23 @@ class RouteServiceProvider extends ServiceProvider
             'prefix' => 'api-medias',
         ], function ($router) {
             require __DIR__ . '/../Routes/api.php';
+        });
+    }
+
+    protected function mediaApi()
+    {
+        Route::group([
+            'domain' => (string)env('DOMAIN'),
+            'middleware' => ['web','adminCheck']
+        ], function ($router) {
+            Route::group([
+                'middleware' => ['auth'],
+                'prefix' => '/media/api',
+
+                'namespace' => $this->namespace,
+            ], function ($router) {
+                require __DIR__ . '/../Routes/user.php';
+            });
         });
     }
 }
