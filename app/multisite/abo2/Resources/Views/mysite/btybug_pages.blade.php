@@ -140,6 +140,7 @@
             <script>
                 $(document).ready(function () {
                     $("body").on('click', '.show-page', function () {
+                        var that = $(this)
                         $(".content-preview").empty();
                         var id = $(this).data('id');
                         var title = $(this).data('title');
@@ -153,7 +154,7 @@
                             $(".edit").show()
 
                         }
-                        // if ($(this).text().trim().indexOf("New page") === -1) {
+                    
 
                             $.ajax({
                                 url: '{!! route('mini_page_show') !!}',
@@ -181,33 +182,42 @@
                                             $(".unit-variation").text('No Variation');
                                             $(".unit-name").text('No unit');
                                         }
-                                        $(".content-preview").append(data.response.html);
+                                        console.log($(that).text().trim().indexOf("New page"));
+                                        if ($(that).text().trim().indexOf("New page") === -1) {
+                                            console.log(1);
+                                            console.log(data.response.html)
+                                            $(".content-preview").append(data.response.html);
+                                            
+                                        }else  {
+                                            console.log(2);
+                                            $(".page-info").attr("style", "display: none !important");
+                            $(".new-page-info").attr("style", "display: block !important");
+                    
+                            let html = `<div class="unit-editor-tab" style="width: 100%"> <textarea class="editor-html"  id="editor-html">Next, use our Get Started docs to setup Tiny!</textarea> </div>
+                    <div class="form-group new-page-unit-select-tab" style="display: none !important">
+                            <label for="exampleFormControlSelect1">Example select</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            </select>
+                        </div>
+                    `
+                    
+                            html += data.response.html
+                            $(".content-preview").append(html);
+                            tinymce.init({selector: '.editor-html'});
+                                        }
 
 
                                     }
                                 }
                             });
-                    //     } else {
-                    //         $(".page-info").attr("style", "display: none !important");
-                    //         $(".new-page-info").attr("style", "display: block !important");
-                    //
-                    //         let html = `<div class="unit-editor-tab" style="width: 100%"> <textarea  id="editor-html">Next, use our Get Started docs to setup Tiny!</textarea> </div>
-                    // <div class="form-group new-page-unit-select-tab" style="display: none !important">
-                    //         <label for="exampleFormControlSelect1">Example select</label>
-                    //         <select class="form-control" id="exampleFormControlSelect1">
-                    //         <option>1</option>
-                    //         <option>2</option>
-                    //         <option>3</option>
-                    //         <option>4</option>
-                    //         <option>5</option>
-                    //         </select>
-                    //     </div>
-                    // `
-                    //
-                    //
-                    //         $(".content-preview").append(html);
-                    //         tinymce.init({selector: 'textarea'});
-                    //     }
+                      
+                         
+                        
 
                     });
 
