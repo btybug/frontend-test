@@ -30,6 +30,7 @@
     {!! HTML::script("https://ilikenwf.github.io/jquery.mjs.nestedSortable.js") !!}
 
     {!! HTML::script("public/libs/beautify/beautify-html.js") !!}
+    {!! Html::script("public/js/framework/draggable.bundle.js") !!}
 
     {!! HTML::script('public/js/framework/he.js') !!}
     {!! HTML::style('public/js/framework/framework.css?rnd='. rand(999,9999)) !!}
@@ -127,7 +128,7 @@
         <div class="h-100 d-flex flex-column">
             <div class="tab-content d-flex" style="flex: 1;">
                 <div class="tab-pane fade h-100 w-100 show active" id="preview" role="tabpanel">
-                    <div class="preview-area"></div>
+                    <div dnd-placeholder="main" class="preview-area"></div>
                 </div>
                 <div class="tab-pane fade h-100 w-100" id="code" role="tabpanel">
                     <div id="code-editor"></div>

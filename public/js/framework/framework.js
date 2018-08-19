@@ -220,32 +220,39 @@ var framework = {
   makePreviewElement: function($this) {
     var elm = $this;
     var realElm = null;
-    if (elm.width()) {
-      let temp = framework.removeDnDAtrbutesInLayers($($this));
-      realElm = $this;
-      framework.codeWallet.forEach((item, index) => {
-        let newItem = framework.removeDnDAtrbutesInLayers(item);
-        if (newItem.outerHTML === temp.outerHTML) {
-          let id = "j-node-" + index;
-          $(".preview-area-selected").attr("id", `j-node-${index}`);
-        }
-      });
+    if ($($this).closest(`[data-filed]`).length) {
+      realElm = $($this).closest(`[data-filed]`);
     } else {
-      document
-        .querySelector(".preview-area")
-        .querySelectorAll("*")
-        .forEach(item => {
-          let newItem = $(item).prop("outerHTML");
-          newItem = framework.removeDnDAtrbutesInLayers($(newItem));
-          if (
-            $(newItem)
-              .prop("outerHTML")
-              .trim() === elm.prop("outerHTML")
-          ) {
-            realElm = $(item);
+      if (elm.width()) {
+        let temp = framework.removeDnDAtrbutesInLayers($($this));
+        realElm = $this;
+        framework.codeWallet.forEach((item, index) => {
+          let newItem = framework.removeDnDAtrbutesInLayers(item);
+
+          if (newItem.outerHTML === temp.outerHTML) {
+            let id = "j-node-" + index;
+            $(".preview-area-selected").attr("id", `j-node-${index}`);
           }
         });
+      } else {
+        document
+          .querySelector(".preview-area")
+          .querySelectorAll("*")
+          .forEach(item => {
+            let newItem = $(item).prop("outerHTML");
+            newItem = framework.removeDnDAtrbutesInLayers($(newItem));
+
+            if (
+              $(newItem)
+                .prop("outerHTML")
+                .trim() === elm.prop("outerHTML")
+            ) {
+              realElm = $(item);
+            }
+          });
+      }
     }
+
     let elmPostionData = {
       top: realElm.offset().top,
       left: realElm.offset().left,
@@ -257,9 +264,18 @@ var framework = {
       .addClass("displayToggle");
   },
   classAddRecus: function(data, index = 0, elementIndex = 1) {
-    $(data[index]).attr("dnd-placeholder", elementIndex);
+    if (!$(data[index]).attr("data-filed")) {
+      $(data[index]).attr("dnd-placeholder", elementIndex);
+    } else {
+      $(data[index]).attr("dnd-placeholder", elementIndex);
+      index++;
+      framework.classAddRecus(data, index, (elementIndex += 1));
+    }
 
-    if ($(data[index]).children().length) {
+    if (
+      $(data[index]).children().length &&
+      !$(data[index]).attr("data-filed")
+    ) {
       framework.classAddRecus(
         $(data[index]).children(),
         0,
@@ -312,9 +328,10 @@ var framework = {
     temp[0].removeAttribute("dnd-placeholder");
     temp[0].removeAttribute("data-bb-id");
     temp[0].removeAttribute("style");
+    temp[0].removeAttribute("tabindex");
 
     temp.removeClass(
-      "ui-sortable-handle ui-sortable bb-placeholder-area ui-droppable"
+      "ui-sortable-handle ui-sortable draggable-source--placed draggable-container--placed bb-placeholder-area ui-droppable ui-droppable-active draggable--original draggable-source--is-dragging"
     );
     if (temp[0].classList.length === 0) {
       temp.removeAttr("class");
@@ -323,18 +340,21 @@ var framework = {
     temp.find("*").removeAttr("data-bb-id");
     temp.find("*").removeAttr("dnd-placeholder");
     temp.find("*").removeAttr("style");
+    temp.find("*").removeAttr("tabindex");
     $.each(temp.find("*"), function(index, item) {
       item = $(item);
-      if (item[0].classList.length === 1) {
+      // if (item[0].classList.length === 1) {
+      //   item.removeAttr("class");
+      // } else {
+      item.removeClass("bb-placeholder-area");
+      item.removeClass("ui-droppable");
+      item.removeClass(
+        "ui-sortable-handle ui-sortable draggable-source--placed draggable-container--placed ui-droppable-active draggable--original draggable-source--is-dragging"
+      );
+      if (item[0].classList.length === 0) {
         item.removeAttr("class");
-      } else {
-        item.removeClass("bb-placeholder-area");
-        item.removeClass("ui-droppable");
-        item.removeClass("ui-sortable-handle ui-sortable");
-        if (item[0].classList.length === 0) {
-          item.removeAttr("class");
-        }
       }
+      // }
     });
     return temp[0];
   },
@@ -440,9 +460,10 @@ var framework = {
         $(node).addClass("bb-placeholder-area");
         childrenLoop = false;
       }
-
       if (nodeGroup === "Field") childrenLoop = false;
-      if (nodeGroup === "Jumbotron") childrenLoop = false;
+      if (node.attributes["data-filed"]) childrenLoop = false;
+
+      // if (nodeGroup === "Jumbotron") childrenLoop = false;
       // if(node.attributes["bb-group"]) childrenLoop = false;
 
       if (childrenLoop) {
@@ -498,7 +519,8 @@ var framework = {
       if (nodeClasses.indexOf("col-") !== -1) nodeGroup = "Column";
       if (nodeClasses.indexOf("container") !== -1) nodeGroup = "Container";
       if (nodeClasses.indexOf("main-wrapper") !== -1) nodeGroup = "Wrapper";
-      if (nodeClasses.indexOf("jumbotron") !== -1) nodeGroup = "Jumbotron";
+      if (node.attributes["data-filed"])
+        nodeGroup = node.getAttribute("data-filed");
     }
 
     if (node && node.attributes && node.attributes["data-field-id"])
@@ -1288,6 +1310,7 @@ $(function() {
           },
           success: function(data) {
             if (!data.error) {
+              // console.log(data.html);
               $(".preview-area").html(data.html);
 
               // Init CSS Studio
@@ -1305,7 +1328,7 @@ $(function() {
                   );
                   remAttrElement = $(remAttrElement);
                   let htmlElement = remAttrElement.prop("outerHTML");
-
+                  let html = "";
                   let code = codeEditor.getValue();
                   if (
                     ui.draggable
@@ -1313,46 +1336,125 @@ $(function() {
                       .parent()
                       .hasClass("components-tab")
                   ) {
-                    remAttrElement.append(ui.draggable.next().html());
+                    html =
+                      remAttrElement.prop("outerHTML") +
+                      ui.draggable.next().html();
                   } else {
                     remAttrElement.append(
                       `<${ui.draggable.text()}>Text</${ui.draggable.text()}>`
                     );
                   }
-
+                  remAttrElement = $(html);
                   if ($(htmlElement).html() === $(code).html()) {
                     codeEditor.setValue(remAttrElement.prop("outerHTML"));
                   } else {
-                    var newCode = code.replace(
-                      htmlElement,
-                      remAttrElement.prop("outerHTML")
-                    );
+                    var newCode = code.replace(htmlElement, html);
 
                     test = true;
-
                     framework.parseNewCodeToAll(newCode);
                   }
                 }
               });
-
-              $("[dnd-placeholder]").sortable({
-                connectWith: "[dnd-placeholder]",
-                delay: 150, //delay for drag vs click
-                revert: 0,
-                cursor: "move",
-                helper: "clone",
-                tolerance: "pointer",
-                placeholder: "ui-sortable-placeholder",
-                stop: function(e, ui) {
-                  let newHtml = "";
-                  $.each($(".preview-area").children(), function(index, item) {
-                    newHtml += framework.removeDnDAtrbutesInLayers(item)
-                      .outerHTML;
-                  });
-                  framework.parseNewCodeToAll(newHtml);
+              const sortable = new Draggable.Sortable(
+                document.querySelectorAll("[dnd-placeholder]"),
+                {
+                  draggable: "[dnd-placeholder]",
+                  mirror: {
+                    constrainDimensions: true
+                  }
+                }
+              );
+              // console.log(sortable);
+              // sortable.on("drag:start", e => {
+              //   console.log(e);
+              // });
+              // sortable.on("drag:over", e => {
+              //   console.log(e);
+              // });
+              // sortable.on("sortable:sort", event => {
+              //   console.log(event);
+              //   // Cancels sorting if `data-group` value does not match
+              //   // if (event.source.getAttribute('data-group') !== event.over.getAttribute('data-group')) {
+              //   //   event.cancel()
+              //   // }
+              // });
+              // var odlHtml = "";
+              // sortable.on("sortable:start", event => {
+              //   odlHtml = $(".preview-area").html();
+              //   console.log(odlHtml);
+              // });
+              sortable.on("sortable:stop", event => {
+                // console.log(event);
+                let newHtml = "";
+                if (!event.data.newContainer.getAttribute("data-filed")) {
                   test = true;
+                  console.log(1);
+                  setTimeout(function() {
+                    $.each($(".preview-area").children(), function(
+                      index,
+                      item
+                    ) {
+                      newHtml += framework.removeDnDAtrbutesInLayers(item)
+                        .outerHTML;
+                    });
+                    test = false;
+
+                    // test = true;
+
+                    console.log(newHtml);
+                    framework.parseNewCodeToAll(newHtml);
+                  });
+                } else {
+                  console.log(2);
+                  // $(".preview-area").html(tempppp);\
+                  console.log(tempppp);
+                  test = true;
+                  framework.parseNewCodeToAll(tempppp);
+                  test = false;
+
+                  // event.cancel();
+                  // sortable.dragging = false;
                 }
               });
+              // sortable.on("sortable:dropped", evt => {
+              //   evt.cancel();
+              // });
+              // sortable.on("sortable:start", sortableEvent => {
+              //   sortable.dragging = false;
+              //   sortableEvent.cancel();
+              // });
+              // sortable.on("drag:stop", event => {
+              //   console.log(event);
+              //   event.cancel();
+              // Cancels sorting if `data-group` value does not match
+              // if (event.source.getAttribute('data-group') !== event.over.getAttribute('data-group')) {
+              //   event.cancel()
+              // }
+
+              // $("[dnd-placeholder]").sortable({
+              //   // connectWith: "[dnd-placeholder]",
+              //   delay: 150, //delay for drag vs click
+              //   revert: 0,
+              //   cursor: "move",
+              //   helper: "clone",
+              //   tolerance: "pointer",
+              //   placeholder: "ui-sortable-placeholder",
+              //   dropOnEmpty: true,
+              //   start: function(e, ui) {
+              //     console.log(ui);
+              //   },
+              //   stop: function(e, ui) {
+              //     console.log(e);
+              //     console.log(ui);
+              //     let newHtml = "";
+              //     $.each($(".preview-area").children(), function(index, item) {
+              //       newHtml += framework.removeDnDAtrbutesInLayers(item)
+              //         .outerHTML;
+              //     });
+              //     framework.parseNewCodeToAll(newHtml);
+              //     test = true;
+              //   }
+              // });
 
               setTimeout(function() {
                 framework.showElement($(".openCSSEditor"));
@@ -1422,49 +1524,57 @@ $(function() {
                   test = true;
                 }
               });
-              $("[dnd-placeholder]").droppable({
-                accept: ".dnd-html-item",
-                greedy: true,
+              // $("[dnd-placeholder]").droppable({
+              //   accept: ".dnd-html-item",
+              //   greedy: true,
 
-                classes: {
-                  // "ui-droppable": "highlight",
-                  "ui-droppable-hover": "ankap-mi-ban"
-                },
-                drop: function(event, ui) {
-                  let remAttrElement = framework.removeDnDAtrbutesInLayers(
-                    $(this)
-                  );
-                  remAttrElement = $(remAttrElement);
-                  let htmlElement = remAttrElement.prop("outerHTML");
-                  let code = codeEditor.getValue();
-                  if (
-                    ui.draggable
-                      .parent()
-                      .parent()
-                      .hasClass("components-tab")
-                  ) {
-                    remAttrElement.append(ui.draggable.next().html());
-                  } else {
-                    remAttrElement.append(
-                      `<${ui.draggable.text()}>Text</${ui.draggable.text()}>`
-                    );
-                  }
+              //   classes: {
+              //     // "ui-droppable": "highlight",
+              //     "ui-droppable-hover": "ankap-mi-ban"
+              //   },
+              //   drop: function(event, ui) {
+              //     let remAttrElement = framework.removeDnDAtrbutesInLayers(
+              //       $(this)
+              //     );
+              //     remAttrElement = $(remAttrElement);
+              //     let htmlElement = remAttrElement.prop("outerHTML");
+              //     let code = codeEditor.getValue();
+              //     if (
+              //       ui.draggable
+              //         .parent()
+              //         .parent()
+              //         .hasClass("components-tab")
+              //     ) {
+              //       remAttrElement.append(ui.draggable.next().html());
+              //     } else {
+              //       remAttrElement.append(
+              //         `<${ui.draggable.text()}>Text</${ui.draggable.text()}>`
+              //       );
+              //     }
 
-                  if ($(htmlElement).html() === $(code).html()) {
-                    codeEditor.setValue(remAttrElement.prop("outerHTML"));
-                  } else {
-                    var newCode = code.replace(
-                      htmlElement,
-                      remAttrElement.prop("outerHTML")
-                    );
-                    // codeEditor.setValue(newCode);
-                    // codeEditor.clearSelection();
-                    test = true;
+              //     if ($(htmlElement).html() === $(code).html()) {
+              //       codeEditor.setValue(remAttrElement.prop("outerHTML"));
+              //     } else {
+              //       var newCode = code.replace(
+              //         htmlElement,
+              //         remAttrElement.prop("outerHTML")
+              //       );
+              //       // codeEditor.setValue(newCode);
+              //       // codeEditor.clearSelection();
+              //       test = true;
 
-                    framework.parseNewCodeToAll(newCode);
-                  }
-                }
-              });
+              //       framework.parseNewCodeToAll(newCode);
+              //     }
+              //   }
+              // });
+
+              // const sortable = new Draggable.Sortable(document.querySelectorAll("[dnd-placeholder]"), {
+              //   draggable: "[dnd-placeholder]",
+              //   mirror: {
+              //     constrainDimensions: true
+              //   }
+              // })
+
               // Init CSS Studio
               $("#bb-css-studio").html("");
 
@@ -1644,15 +1754,19 @@ let htmlJsPanel = `<ul class="nav nav-tabs" role="tablist">
 </div>
 <div role="tabpanel" class="tab-pane components-tab" id="fields">
   <div><p class="dnd-html-item">Jumporton</p> <span class="fileds-components" style="display: none">
-  <div class="jumbotron jumbotron-fluid">
+  <div class="jumbotron jumbotron-fluid" data-filed="jumbotron">
   <div class="container">
     <h1>Bootstrap Tutorial</h1> 
     <p>Bootstrap is the most popular HTML, CSS...</p> 
   </div>
 </div>
   </span> </div> 
+  <div><p class="dnd-html-item">Col-6</p> <span class="fileds-components" style="display: none">
+    <div class="col-sm-6 columns"> </div>
+  </span> </div> 
 </div>
 </div>
+
 `;
 
 jsPanel.create({
