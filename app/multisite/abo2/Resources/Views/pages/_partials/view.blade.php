@@ -1,8 +1,7 @@
 <div id="page_settings_form" class="hide">
     <div class="col-md-6">
         {!! Form::model($page,['url' => route('mini_user_page_edit',$page->id),'files' => true]) !!}
-        <div class="col-xs-9 col-sm-9 col-md-12 col-lg-12 col-xl-9 p-20">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 page-data p-20">
+            <div class="">
                 <div class="panel panel-default custompanel m-t-20">
                     <div class="panel-heading">General Settings</div>
                     <div class="panel-body">
@@ -66,8 +65,6 @@
                                   class="form-control"></textarea>
                             </div>
                         </div>
-
-
                         <div class="form-group row">
                             <div class="offset-2 col-10">
                                 <button name="submit" type="submit" class="btn btn-primary">Submit</button>
@@ -77,15 +74,12 @@
                     </div>
                 </div>
             </div>
-
-
-        </div>
         {!! Form::close() !!}
     </div>
     @if($page->type=='custom')
     <div class="col-md-6">
         <div class="col-md-4">
-            <button class="btn btn-warning"><i class="fa fa-trash"></i>Delete Page</button>
+            <button class="btn btn-warning delete_page" data-id="{!! $page->id !!}"><i class="fa fa-trash"></i>Delete Page</button>
         </div>
     </div>
     @endif
