@@ -114,25 +114,7 @@
             {!! HTML::script('public/js/bb_styles.js') !!}
             <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
             <script>
-                $('.delete_page').on('click', function (e) {
-                    e.preventDefault();
-                    var id = $(this).data('id');
-                    var token = $("input[name='_token']").val();
-                    $.ajax({
-                        url: '{!! route('mini_my_site_btybug_pages_delete') !!}',
-                        dataType: 'json',
-                        type: 'POST',
-                        data: {id: id},
-                        headers: {
-                            'X-CSRF-TOKEN': token
-                        },
-                        success: function (data) {
-                            if (!data.error) {
-                            }
-                        }
-                    });
-                    location.reload();
-                });
+               
             </script>
             {{-- {!! HTML::script('public/js/create_pages.js') !!}
              {!! HTML::script('public/js/admin_pages.js') !!}
@@ -325,6 +307,34 @@
                     }
 
                 });
+            
+                $("body").on("click",  ".delete_page", function(e) {
+                    e.preventDefault();
+
+                    let result = confirm("You want delete this page?")
+                    if (result) {
+                        var id = $(this).data('id');
+                    var token = $("input[name='_token']").val();
+                    $.ajax({
+                        url: '{!! route('mini_my_site_btybug_pages_delete') !!}',
+                        dataType: 'json',
+                        type: 'POST',
+                        data: {id: id},
+                        headers: {
+                            'X-CSRF-TOKEN': token
+                        },
+                        success: function (data) {
+                            console.log(data)
+                            if (!data.error) {
+
+                            }
+                        }
+                    });
+                    location.reload();
+                    }
+                    
+                    
+                })
 
 
             </script>
