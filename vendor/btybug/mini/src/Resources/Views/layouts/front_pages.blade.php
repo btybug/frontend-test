@@ -10,7 +10,7 @@
     @endif
     {!! BBRenderMiniFrontLayout($page,\Btybug\Mini\Model\MiniLayouts::class) !!}
 
-    {!! render_mini_unit('btybug_unit_navbar_footer.default',\Btybug\Mini\Model\MiniSuperPainter::class) !!}
+    {!! render_mini_unit('btybug_unit_navbar_footer.default',\Btybug\btybug\Models\Painter\Painter::class) !!}
     {{--@if($page->footer)--}}
         {{--{!! BBfooter() !!}--}}
     {{--@endif--}}
