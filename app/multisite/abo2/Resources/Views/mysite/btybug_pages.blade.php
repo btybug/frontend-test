@@ -223,11 +223,15 @@
 
                     $('body').on('click', '.page-settings-button', function () {
                         $(".content-preview").find('iframe').addClass('hide');
+                        $("body").find(".unit-editor-tab").addClass('hide');
                         $(".content-preview").find("#page_settings_form").removeClass('hide');
+                        
                     });
                     $('body').on('click', '.page-content-button', function () {
                         $(".content-preview").find('iframe').removeClass('hide');
                         $(".content-preview").find("#page_settings_form").addClass('hide');
+                        $("body").find(".unit-editor-tab").removeClass('hide');
+
                     });
 
                     $("body").on("blur keyup paste input", ".page-name", function (e) {
