@@ -384,13 +384,6 @@
                                 <span>General</span>
                             </a>
                         </li>
-                        <li class="ux-tabs__header ">
-                            <a href="{!! url('/account/profiles') !!}"
-                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
-                                <i class="fas fa-newspaper"></i>
-                                <span>Profiles</span>
-                            </a>
-                        </li>
                     </ul>
                 </div>
 
