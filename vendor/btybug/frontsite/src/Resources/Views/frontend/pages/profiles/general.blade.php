@@ -506,20 +506,20 @@
                             </div>
                             <div class="col-xl-5 offset-xl-1">
                                 <div class="settings-right">
-                                    <div class="images-name d-flex mb-4">
+                                    {!! BBmediaButton('site_image',null,['html'=>'<div class="images-name d-flex mb-4">
                                         <div class="col-11 pr-0">
                                             <div class="image">
-                                                <img src="/public/images/girl-cover.jpg" alt="">
+                                                <img class="image-main" src="/public/images/girl-cover.jpg" alt="">
                                                 <div class="site-image">
-                                                    <span>Site Image</span>
+                                                    <button type="button" class="btnsettingsModal  media-modal-open">Site Image</button>
                                                 </div>
                                             </div>
-
                                         </div>
                                         <div class="col-1 p-0">
-
                                         </div>
                                     </div>
+                                    ']) !!}
+
                                     <div class="maps d-flex">
                                         <div class="col-11 pr-0">
                                             <div class="map-search">
