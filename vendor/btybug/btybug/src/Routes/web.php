@@ -90,7 +90,7 @@ Route::group(
         Route::get('profiles', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@profiles')->middleware('auth')->name('front_page_account_profiles');
         Route::get('profiles/social', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@social')->middleware('auth')->name('front_page_account_profiles_social');
         Route::get('profiles/social/general', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@socialGeneral')->middleware('auth')->name('front_page_account_profiles_social_general');
-        Route::get('profiles/social/quickbug', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@socialQuickbug')->middleware('auth')->name('front_page_account_profiles_social_quickbug');
+        Route::get('profiles/social/quick-bugs', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@socialQuickbug')->middleware('auth')->name('front_page_account_profiles_social_quickbug');
         Route::get('profiles/social/travel', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@socialTravel')->middleware('auth')->name('front_page_account_profiles_social_travel');
         Route::get('profiles/social/places', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@socialPlaces')->middleware('auth')->name('front_page_account_profiles_social_places');
         Route::post('profiles/social/general', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@postSocialGeneral')->name('front_page_account_profiles_save');
