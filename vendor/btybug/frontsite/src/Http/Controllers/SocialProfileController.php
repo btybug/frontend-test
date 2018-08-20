@@ -56,4 +56,14 @@ class SocialProfileController extends Controller
         return view('manage::frontend.pages.profiles.quickbug', compact([]));
     }
 
+    public function socialTravel()
+    {
+        return view('manage::frontend.pages.profiles.travel', compact([]));
+    }
+
+    public function socialPlaces()
+    {
+        return view('manage::frontend.pages.profiles.places', compact([]));
+    }
+
 }
