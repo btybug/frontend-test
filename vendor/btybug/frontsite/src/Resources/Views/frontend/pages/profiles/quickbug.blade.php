@@ -158,7 +158,7 @@
                             <div class="main-content">
                                 <div class="happy d-flex align-items-center">
                                     <div class="title">
-                                        <span>Bug Sumething...</span>
+                                        <textarea name="" id="" cols="30" rows="10" placeholder="Bug Sumething..."></textarea>
                                     </div>
                                     <div class="icon">
                                         <i class="far fa-smile"></i>
