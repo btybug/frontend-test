@@ -1,7 +1,8 @@
 var elm = "";
 $("body").on("click", ".media-modal-open", function () {
     $("#mysettingsModal").addClass("in");
-    elm = $(this).attr("data-id");
+    console.log($(this).closest("#media-main-box").find(".bb-media-data-id"))
+    elm = $(this).closest("#media-main-box").find(".bb-media-data-id").attr("data-id");
 });
 $("body").on("click", ".media-modal-close", function () {
     console.log($(this));
@@ -12,13 +13,11 @@ $("body").on("click", ".media-modal-close", function () {
 
 $("body").on("click", ".media-select", function() {
   let location = document.querySelector("#path-location");
-  document.querySelector(`#${elm}`).value = "public/" + location.value;
-  let temp = (document.querySelector(
-    `#tmp_${elm}`
-  ).value = location.getAttribute("data-small-image"));
-    let temp2 = (document.querySelector(
-        `.tmp_${elm}`
-    ).src = location.getAttribute("data-small-image"));
+
+  document.querySelector(`#${elm}`) ?  document.querySelector(`#${elm}`).value = "public/" + location.value : null
+  document.querySelector('.image-main') ? document.querySelector('.image-main').src = "public/" + location.value : null
+  document.querySelector('.image-tmp') ? document.querySelector('.image-tmp').value = location.getAttribute("data-small-image") : null
+  document.querySelector(`.image-tmp`) ? document.querySelector(`.image-tmp`).src = location.getAttribute("data-small-image") : null
   $(this)
     .closest(".modal")
     .removeClass("in");

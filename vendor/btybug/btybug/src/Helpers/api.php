@@ -2761,7 +2761,7 @@ function BBgetLayoutAttribute($id, $attribute = 'title')
     return ($layout) ? $layout->$attribute : 'No Layout';
 }
 
-function BBmediaButton($name, $model = null, $text = 'Open Media')
+function BBmediaButton($name, $model = null,array $attributes)
 {
     static $a = 0;
     if (!$a) {
@@ -2787,7 +2787,8 @@ function BBmediaButton($name, $model = null, $text = 'Open Media')
                 $value_tmp = 'value=' . $model["tmp_" . $name];
         }
     }
-    return View::make('media::drive.galery', compact('a', 'value', 'value_tmp', 'name'))->render();
+    $html=($attributes['html'])??null;
+    return View::make('media::drive.galery', compact('a', 'value', 'value_tmp', 'name','html'))->render();
 }
 
 function BBgetUsersPluck()
