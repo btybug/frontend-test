@@ -50,7 +50,7 @@ class MyAccountController extends Controller
 
     public function profiles()
     {
-        return view('manage::frontend.pages.account.profiles', compact([]));
+        return view('manage::frontend.pages.profiles.social', compact([]));
     }
 
     public function password()

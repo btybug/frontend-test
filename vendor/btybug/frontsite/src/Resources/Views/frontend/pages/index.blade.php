@@ -41,6 +41,22 @@
                         <li data-id="#" data-type="core" class="">
                             <div class="listinginfo bb-menu-item">
                                 <div class="lsitingbutton bb-menu-item-title" style="background: #0f4de0;  !important">
+                                    <span class="listingtitle">Profiles</span>
+                                </div>
+                            </div>
+                            <ol>
+                                <li data-id="#" data-type="plugin" class="">
+                                    <div class="listinginfo bb-menu-item">
+                                        <div class="lsitingbutton bb-menu-item-title" style="background: #0f4de0;  !important">
+                                            <span class="listingtitle">Social profile</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </li>
+                        <li data-id="#" data-type="core" class="">
+                            <div class="listinginfo bb-menu-item">
+                                <div class="lsitingbutton bb-menu-item-title" style="background: #0f4de0;  !important">
                                     <span class="listingtitle">Media</span>
                                 </div>
                             </div>

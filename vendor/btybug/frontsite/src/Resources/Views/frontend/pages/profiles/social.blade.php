@@ -352,7 +352,7 @@
                             <img src="/public/images/girl-cover.jpg" alt="girl">
                         </div>
                         <div class="info d-flex align-items-center">
-                            <h2>Account</h2>
+                            <h2>Profiles</h2>
                             {{--<a href="#">--}}
                                 {{--<span class="share"><i class="fas fa-share"></i></span>--}}
                             {{--</a>--}}
@@ -377,20 +377,13 @@
 
                     </div>
                     <ul class="ux-tabs__headers">
-                        <li class="ux-tabs__header ">
-                            <a href="{!! url('/account/general') !!}"
-                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
-                                <i class="fas fa-home"></i>
-                                <span>General</span>
-                            </a>
-                        </li>
-                        <li class="ux-tabs__header active">
-                            <a href="{!! url('/account/profiles') !!}"
-                               class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">
-                                <i class="fas fa-newspaper"></i>
-                                <span>Profiles</span>
-                            </a>
-                        </li>
+                        {{--<li class="ux-tabs__header active">--}}
+                            {{--<a href="{!! url('/account/profiles') !!}"--}}
+                               {{--class="hvr-sweep-to-bottom d-flex justify-content-center align-items-center w-100">--}}
+                                {{--<i class="fas fa-newspaper"></i>--}}
+                                {{--<span>Profiles</span>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
                     </ul>
                 </div>
 
@@ -415,8 +408,8 @@
             <div class="col-md-2 pl-0">
                 <div class="menu">
                     <ul>
-                        <li class="active"><a href="{!! url('account/profiles') !!}">
-                                <span><i class="fab fa-buromobelexperte"></i></span>Social profile</a>
+                        <li class="active"><a href="{!! url('profiles') !!}">
+                            <span><i class="fab fa-buromobelexperte"></i></span>Social profile</a>
                         </li>
                     </ul>
                 </div>
