@@ -1311,6 +1311,7 @@ $(function() {
           success: function(data) {
             if (!data.error) {
               // console.log(data.html);
+              console.log(data.html);
               $(".preview-area").html(data.html);
 
               // Init CSS Studio
@@ -1355,15 +1356,77 @@ $(function() {
                   }
                 }
               });
-              const sortable = new Draggable.Sortable(
-                document.querySelectorAll("[dnd-placeholder]"),
-                {
-                  draggable: "[dnd-placeholder]",
-                  mirror: {
-                    constrainDimensions: true
-                  }
+              // const sortable = new Sortable(
+              //   document.querySelectorAll("[dnd-placeholder]"),
+              //   {
+              //     draggable: "[dnd-placeholder]"
+              //     // mirror: {
+              //     //   constrainDimensions: true
+              //     // }
+              //   }
+              // );
+
+              // const sortable = new Sortable(
+              //   document.querySelectorAll("[dnd-placeholder]"),
+              //   {
+              //     draggable: "[dnd-placeholder]"
+              //   }
+              // );
+              // const sortable = new Draggable.Sortable(
+              //   document.querySelectorAll("[dnd-placeholder]"),
+              //   {
+              //     draggable: "[dnd-placeholder]"
+              //   }
+              // );
+
+              $("[dnd-placeholder]").sortable({
+                connectWith: "[dnd-placeholder]",
+                placeholder: "itemPlaceholder",
+                cursor: "move"
+              });
+
+              $("[dnd-placeholder]").sortable({
+                items: "[dnd-placeholder]",
+                connectWith: "[dnd-placeholder]",
+                receive: function(event, ui) {
+                  console.log(ui)
+                  //alert('receive');
+                  //console.log(ui);
+                  //console.log(ui.item)
+                  //console.log($(ui.item).attr('class'))
+                  // if ($(ui.item).hasClass('groupItem')) {
+                  //   $(ui.sender).sortable("cancel");
+                  //   alert('Sorry! Groups cannot be nested');
+                  // }
                 }
-              );
+              });
+              // sortable.on("sortable:start", () =>
+              //   console.log("sortable:start")
+              // );
+              // sortable.on("sortable:sort", event => {
+              //   return false;
+              //   console.log(event);
+              //   let newContainer = event.data.over;
+              //   if ($(newContainer).hasClass("jumbotron")) {
+              //     console.log(1);
+              //     // return;
+              //     event.cancel();
+              //   }
+              //   console.log("sortable:sort");
+              // });
+              // sortable.on("sortable:sorted", event => {
+              //   let newContainer = event.data.newContainer;
+              //   if ($(newContainer).hasClass("jumbotron")) {
+              //     event.cancel();
+              //     return;
+              //   }
+              //   // console.log(event);
+              //   console.log("sortable:sorted");
+              // });
+              // sortable.on("sortable:stop", event => {
+              //   console.log(console.log("sortable:stop"));
+              // });
+
               // console.log(sortable);
               // sortable.on("drag:start", e => {
               //   console.log(e);
@@ -1383,39 +1446,39 @@ $(function() {
               //   odlHtml = $(".preview-area").html();
               //   console.log(odlHtml);
               // });
-              sortable.on("sortable:stop", event => {
-                // console.log(event);
-                let newHtml = "";
-                if (!event.data.newContainer.getAttribute("data-filed")) {
-                  test = true;
-                  console.log(1);
-                  setTimeout(function() {
-                    $.each($(".preview-area").children(), function(
-                      index,
-                      item
-                    ) {
-                      newHtml += framework.removeDnDAtrbutesInLayers(item)
-                        .outerHTML;
-                    });
-                    test = false;
+              // sortable.on("sortable:stop", event => {
+              //   // console.log(event);
+              //   let newHtml = "";
+              //   if (!event.data.newContainer.getAttribute("data-filed")) {
+              //     test = true;
+              //     console.log(1);
+              //     setTimeout(function() {
+              //       $.each($(".preview-area").children(), function(
+              //         index,
+              //         item
+              //       ) {
+              //         newHtml += framework.removeDnDAtrbutesInLayers(item)
+              //           .outerHTML;
+              //       });
+              //       test = false;
 
-                    // test = true;
+              //       // test = true;
 
-                    console.log(newHtml);
-                    framework.parseNewCodeToAll(newHtml);
-                  });
-                } else {
-                  console.log(2);
-                  // $(".preview-area").html(tempppp);\
-                  console.log(tempppp);
-                  test = true;
-                  framework.parseNewCodeToAll(tempppp);
-                  test = false;
+              //       console.log(newHtml);
+              //       framework.parseNewCodeToAll(newHtml);
+              //     });
+              //   } else {
+              //     console.log(2);
+              //     // $(".preview-area").html(tempppp);\
+              //     console.log(tempppp);
+              //     test = true;
+              //     framework.parseNewCodeToAll(tempppp);
+              //     test = false;
 
-                  // event.cancel();
-                  // sortable.dragging = false;
-                }
-              });
+              //     // event.cancel();
+              //     // sortable.dragging = false;
+              //   }
+              // });
               // sortable.on("sortable:dropped", evt => {
               //   evt.cancel();
               // });

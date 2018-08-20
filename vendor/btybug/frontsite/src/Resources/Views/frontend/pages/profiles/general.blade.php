@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{!!url('public/minicms/css/style.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/css/style-responsive.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/css/default.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/libs/tagsinput/bootstrap-tagsinput.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/btybug.css?v='.rand(111,999))!!}">
     <!-- ================== END PAGE BASE STYLE ================== -->
 
@@ -29,6 +30,7 @@
     <script src="{!!url('public/minicms/plugins/jquery/jquery-migrate-1.1.0.min.js')!!}"></script>
     <script src="{!!url('public/minicms/plugins/jquery-ui/jquery-ui.min.js')!!}"></script>
     <script src="{!!url('public/minicms/plugins/bootstrap/4/bootstrap.bundle.min.js')!!}"></script>
+    <script src="{!!url('public/libs/tagsinput/bootstrap-tagsinput.min.js')!!}"></script>
     <!--[if lt IE 9]>
     <![endif]-->
     <!-- ================== END HEADER BASE JS ================== -->
@@ -414,7 +416,7 @@
                                         </div>
                                         <div class="form-group row ">
                                             {{Form::label('socialMedia', 'Social Media', array('class' => 'col-sm-3 col-form-label'))}}
-                                            <div class="col-sm-8 pl-0">
+                                            <div class="col-sm-8 pl-0 social-medias-links">
                                                 <div class="input-group">
                                                     <div class="input-group-append blue-cl">
                                                         <button class="btn btn-outline-secondary dropdown-toggle"
@@ -602,6 +604,7 @@
 <script src="{!!url('public/minicms/apps.min.js')!!}"></script>
 <script src="{!!url('public/minicms/home.js')!!}"></script>
 <script src="{!!url('public/minicms/main.js')!!}"></script>
+
 <!-- ================== END FOOTER BASE JS ================== -->
 
 

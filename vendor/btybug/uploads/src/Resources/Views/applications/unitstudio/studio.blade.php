@@ -28,9 +28,10 @@
     {!! HTML::script("public/libs/autocomplete/jquery.easy-autocomplete.min.js") !!}
     {!! HTML::script("public/js/jquery-ui/jquery-ui.min.js") !!}
     {!! HTML::script("https://ilikenwf.github.io/jquery.mjs.nestedSortable.js") !!}
+    {!! HTML::script("https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.7/lib/draggable.bundle.js") !!}
+    
 
     {!! HTML::script("public/libs/beautify/beautify-html.js") !!}
-    {!! Html::script("public/js/framework/draggable.bundle.js") !!}
 
     {!! HTML::script('public/js/framework/he.js') !!}
     {!! HTML::style('public/js/framework/framework.css?rnd='. rand(999,9999)) !!}
