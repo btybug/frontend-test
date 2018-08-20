@@ -1,5 +1,5 @@
-<div id="page_settings_form" class="hide">
-    <div class="col-md-6">
+<div id="page_settings_form" class="d-flex w-100 hide">
+    <div class="col-lg-9 p-0">
         {!! Form::model($page,['url' => route('mini_user_page_edit',$page->id),'files' => true]) !!}
             <div class="">
                 <div class="panel panel-default custompanel m-t-20">
@@ -77,9 +77,11 @@
         {!! Form::close() !!}
     </div>
     @if($page->type=='custom')
-    <div class="col-md-6">
+    <div class="col-lg-3 pr-0">
+    <div class="bg-light m-t-20 h-100" >
         <div class="col-md-4">
             <button class="btn btn-warning delete_page" data-id="{!! $page->id !!}"><i class="fa fa-trash"></i>Delete Page</button>
+        </div>
         </div>
     </div>
     @endif

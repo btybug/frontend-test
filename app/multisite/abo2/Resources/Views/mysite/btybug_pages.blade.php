@@ -71,12 +71,29 @@
                                             <span contenteditable="true" class="page-name">Page 1</span>
                                         </span>
 
-                        <div class="d-flex flex-wrap page-info">
-                            <a href="#" class="btn active unit-name">Unit Name</a>
-                            <a href="#" class="btn unit-variation">Variation</a>
-                            <a href="#" class="btn unit-variation bb-modal-units new-page-unit-select BBbuttons"
+                        <!-- <div class="d-flex flex-wrap page-info mr-2">
+                            <div class="form-group">
+                                <label for="unit-name">Unit Name</label>
+                                <select class="form-control" id="unit-name">
+                                <option>Unit Name</option>
+                              
+                                </select>
+                            </div>
+                        </div> -->
+                           
+                            <a href="#" id="unit-name" class="btn active page-info unit-name">Unit Name</a>
+                            <!-- <a href="#" class="btn unit-variation">Variation</a> -->
+                            <!-- <a href="#" class="btn unit-variation bb-modal-units new-page-unit-select BBbuttons"
                                data-action="unit" data-key="5b76af328134f" data-type="form_layout"
-                               style="display: none">Select unit</a>
+                               style="display: none">Select unit</a> -->
+                        <div class="d-flex flex-wrap page-info">
+                            <div class="form-group">
+                                <label for="unit-variation">Variation</label>
+                                <select class="form-control" id="unit-variation">
+                                <option>Variation</option>
+                           
+                                </select>
+                            </div>
                         </div>
                         <div class="d-flex flex-wrap new-page-info" style="display: none !important">
                             <div class="form-check">
@@ -154,15 +171,18 @@
                                             src: '/my-account/extra/gear/settings-iframe/' + data.response.page.template
                                         });
                                         //page_settings_form
+                                        $("#unit-variation").empty()
+                                        $("#unit-name").empty()
                                         if (data.response.page.template) {
                                             $(".content-preview").html(iframe);
                                             var unit = data.response.page.template.split(".");
-                                            $(".unit-variation").text(unit[1]);
-                                            $(".unit-name").text(unit[0]);
+                                        
+                                            $("#unit-variation").append(`<option>${unit[1]}</option>`);
+                                            $("#unit-name").text(unit[0]);
 
                                         } else {
-                                            $(".unit-variation").text('No Variation');
-                                            $(".unit-name").text('No unit');
+                                            $("#unit-variation").append( `<option>No Variation</option>`);
+                                            $("#unit-name").text(`No unit`);
                                         }
                                         console.log($(that).text().trim().indexOf("New page"));
                                         if ($(that).text().trim().indexOf("New page") === -1) {
