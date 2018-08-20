@@ -2,7 +2,6 @@ var elm = "";
 $("body").on("click", ".media-modal-open", function () {
     $("#mysettingsModal").addClass("in");
     elm = $(this).attr("data-id");
-    console.log(elm);
 });
 $("body").on("click", ".media-modal-close", function () {
     console.log($(this));
@@ -19,8 +18,7 @@ $("body").on("click", ".media-select", function() {
   ).value = location.getAttribute("data-small-image"));
     let temp2 = (document.querySelector(
         `.tmp_${elm}`
-    ).src = "/" + location.getAttribute("data-small-image"));
-  console.log(temp);
+    ).src = location.getAttribute("data-small-image"));
   $(this)
     .closest(".modal")
     .removeClass("in");
