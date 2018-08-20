@@ -4,6 +4,7 @@ namespace Btybug\FrontSite\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Btybug\btybug\Repositories\HookRepository;
+use Btybug\FrontSite\Models\SocialProfile;
 use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\User\Http\Requests\User\ChangePassword;
 use Btybug\User\Repository\UserRepository;
@@ -50,7 +51,8 @@ class MyAccountController extends Controller
 
     public function profiles()
     {
-        return view('manage::frontend.pages.profiles.social', compact([]));
+        $social_profile = new SocialProfile();
+        return view('manage::frontend.pages.profiles.social', compact(['social_profile']));
     }
 
     public function password()
@@ -77,6 +79,11 @@ class MyAccountController extends Controller
 
         $this->userRepository->update($request->id,['password' => bcrypt($request->new_pass)]);
         return redirect()->back()->with('message','Password successfully changed');
+    }
+
+    public function profilesSave(Request $request)
+    {
+        dd($request->all());
     }
 
 }
