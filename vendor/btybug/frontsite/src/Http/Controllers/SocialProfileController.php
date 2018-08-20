@@ -46,7 +46,7 @@ class SocialProfileController extends Controller
 
     public function socialQuickbug()
     {
-        return view('manage::frontend.pages.profiles.general', compact([]));
+        return view('manage::frontend.pages.profiles.quickbug', compact([]));
     }
 
 }

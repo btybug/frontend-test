@@ -109,7 +109,7 @@
                         <li ><a href="{!! url('profiles/social/general') !!}">
                             <span><i class="fab fa-buromobelexperte"></i></span>General</a>
                         </li>
-                        <li class="active"><a href="{!! url('profiles/social/qucikbug') !!}">
+                        <li class="active"><a href="{!! url('profiles/social/quickbug') !!}">
                             <span><i class="fab fa-buromobelexperte"></i></span>Quick Bugs</a>
                         </li>
                         <li><a href="{!! url('profiles/social/travel') !!}">
