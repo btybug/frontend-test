@@ -86,8 +86,15 @@ Route::group(
         Route::get('account', '\Btybug\FrontSite\Http\Controllers\MyAccountController@index')->middleware('auth')->name('front_page_account');
         Route::get('account/general', '\Btybug\FrontSite\Http\Controllers\MyAccountController@general')->middleware('auth')->name('front_page_account_general');
         Route::post('account/general', '\Btybug\FrontSite\Http\Controllers\MyAccountController@postGeneral')->middleware('auth')->name('front_page_account_general_post');
-        Route::get('profiles', '\Btybug\FrontSite\Http\Controllers\MyAccountController@profiles')->middleware('auth')->name('front_page_account_profiles');
-        Route::post('profiles/submit', '\Btybug\FrontSite\Http\Controllers\MyAccountController@profilesSave')->name('front_page_account_profiles_save');
+
+        Route::get('profiles', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@profiles')->middleware('auth')->name('front_page_account_profiles');
+        Route::get('profiles/social', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@social')->middleware('auth')->name('front_page_account_profiles_social');
+        Route::get('profiles/social/general', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@socialGeneral')->middleware('auth')->name('front_page_account_profiles_social_general');
+        Route::get('profiles/social/qucikbug', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@socialQuickbug')->middleware('auth')->name('front_page_account_profiles_social_quickbug');
+        Route::get('profiles/social/travel', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@socialTravel')->middleware('auth')->name('front_page_account_profiles_social_travel');
+        Route::get('profiles/social/places', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@socialPlaces')->middleware('auth')->name('front_page_account_profiles_social_places');
+        Route::post('profiles/social/general', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@postSocialGeneral')->name('front_page_account_profiles_save');
+
         Route::get('account/general/password', '\Btybug\FrontSite\Http\Controllers\MyAccountController@password')->middleware('auth')->name('front_page_account_general_password');
         Route::get('account/general/preferances', '\Btybug\FrontSite\Http\Controllers\MyAccountController@preferances')->middleware('auth')->name('front_page_account_general_preferances');
         Route::get('account/general/logs', '\Btybug\FrontSite\Http\Controllers\MyAccountController@logs')->middleware('auth')->name('front_page_account_general_logs');
