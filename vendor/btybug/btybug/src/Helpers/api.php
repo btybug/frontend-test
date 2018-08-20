@@ -2787,7 +2787,6 @@ function BBmediaButton($name, $model = null, $text = 'Open Media')
                 $value_tmp = 'value=' . $model["tmp_" . $name];
         }
     }
-//    return "<button type='button' class='btn btn-info btn-md btnsettingsModal media-modal-open' data-id='".$name.'-'.$a."'>Open Media</button><input type='hidden' $value id='".$name.'-'.$a."' name='$name'>";
     return View::make('media::drive.galery', compact('a', 'value', 'value_tmp', 'name'))->render();
 }
 

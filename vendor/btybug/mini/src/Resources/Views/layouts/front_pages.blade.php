@@ -1,4 +1,4 @@
-@extends("btybug::layouts.frontend")
+@extends("`                     btybug::layouts.frontend")
 @section('contents')
 
     @if($page->header)
