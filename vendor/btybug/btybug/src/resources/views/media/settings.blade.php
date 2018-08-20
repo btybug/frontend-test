@@ -1,6 +1,6 @@
 @extends('btybug::layouts.static_pages')
 @section('content')
-   
+
 @stop
 @section('menu')
     @include('btybug::_partials.front_user_menu',['items'=>[

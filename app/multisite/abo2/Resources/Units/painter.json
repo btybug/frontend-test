@@ -4,5 +4,6 @@
   "unit_urkis_resume": "vendor\/btybug\/mini\/src\/Resources\/Units\/unit_urkis_resume",
   "widget": "vendor\/btybug\/mini\/src\/Resources\/Units\/widget",
   "btybug_header": "vendor\/btybug\/mini\/src\/Resources\/Units\/btybug_header",
-  "btybug_unit_cover": "vendor\/btybug\/mini\/src\/Resources\/Units\/btybug_unit_cover"
+  "btybug_unit_cover": "vendor\/btybug\/mini\/src\/Resources\/Units\/btybug_unit_cover",
+  "unit_posts_full": "vendor\/btybug\/mini\/src\/Resources\/Units\/unit_posts_full"
 }
