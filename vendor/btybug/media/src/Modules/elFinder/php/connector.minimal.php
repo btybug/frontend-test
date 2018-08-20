@@ -102,7 +102,7 @@ function access($attr, $path, $data, $volume, $isDir, $relpath) {
 }
 $path=public_path('files'.DS.Auth::user()->username);
 $trash=public_path('files'.DS.Auth::user()->username.DS.'.trash');
-$url='public/files/'.Auth::user()->username;
+$url=url('public/files/'.Auth::user()->username);
 $tmbURL = url('public/files/'.Auth::user()->username.'/.trash/.tmb/');
 if(!File::isDirectory($path)){
    File::makeDirectory($path);
