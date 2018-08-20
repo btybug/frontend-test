@@ -18,6 +18,7 @@ class SocialProfile extends Model
         'social_media' => 'json',
         'location' => 'json'
     ];
+
     public function user()
     {
         return $this->belongsTo(User::class, 'id');

@@ -7,6 +7,7 @@ use Btybug\FrontSite\Models\SocialProfile;
 
 class SocialProfileRepository extends GeneralRepository
 {
+    
     public function model()
     {
         return new SocialProfile();
