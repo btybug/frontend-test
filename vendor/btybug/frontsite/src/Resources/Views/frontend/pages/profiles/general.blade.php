@@ -587,6 +587,7 @@
         </div>
     </div>
 </div>
+{!! BBextraHtml() !!}
 @yield('footer')
 {{--<div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">--}}
 {{--<!-- begin #content -->--}}
