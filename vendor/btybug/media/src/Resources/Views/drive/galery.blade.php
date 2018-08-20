@@ -12,3 +12,4 @@
 </div>
 <input type='hidden' {!! $value !!} id='{!! $name.'-'.$a!!}' name='{!!$name!!}'>
 <input type='hidden' {!! $value_tmp !!} id='tmp_{!!$name.'-'.$a !!}' name='tmp_{!!$name!!}'>
+<input type="hidden" id="user-media-url" value="{!! 'public/files/'.Auth::user()->username !!}">
