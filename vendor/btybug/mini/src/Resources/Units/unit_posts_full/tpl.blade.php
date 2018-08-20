@@ -55,7 +55,7 @@
             </div>
             <div class="all-content">
                 <div class="daily">
-                    <span> <img src="{!! $_this->img('img/girl2.png') !!}" alt=""><span
+                    <span> <img src="public/img/girl2.png" alt=""><span
                                 style="margin-left: 20px">Rania Davan</span></span>
                     <div><span style="margin-right: 40px; letter-spacing: 1px"><i class="fas fa-calendar-alt"
                                                                                   style="padding-right: 10px"></i> Daily</span>
