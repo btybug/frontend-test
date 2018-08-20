@@ -4,7 +4,9 @@ namespace Btybug\FrontSite\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Btybug\btybug\Repositories\HookRepository;
+use Btybug\FrontSite\Http\Requests\SaveSocialGeneralRequest;
 use Btybug\FrontSite\Models\SocialProfile;
+use Btybug\FrontSite\Repository\SocialProfileRepository;
 use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\User\Http\Requests\User\ChangePassword;
 use Btybug\User\Repository\UserRepository;
@@ -15,12 +17,15 @@ class SocialProfileController extends Controller
 {
 
     private $userRepository;
+    private $socialProfileRepository;
 
     public function __construct (
-        UserRepository $userRepository
+        UserRepository $userRepository,
+        SocialProfileRepository $socialProfileRepository
     )
     {
         $this->userRepository = $userRepository;
+        $this->socialProfileRepository = $socialProfileRepository;
     }
 
     public function index()
@@ -35,13 +40,15 @@ class SocialProfileController extends Controller
 
     public function socialGeneral()
     {
-        $social_profile = new SocialProfile();
+        $social_profile = \Auth::user()->socialProfile;
         return view('manage::frontend.pages.profiles.general', compact(['social_profile']));
     }
 
-    public function postSocialGeneral(Request $request)
+    public function postSocialGeneral(SaveSocialGeneralRequest $request)
     {
-        dd($request->all());
+        $social_profile = \Auth::user()->socialProfile;
+        $this->socialProfileRepository->update($social_profile->id,$request->except('__token','day','month','year','social_media'));
+        return redirect()->back();
     }
 
     public function socialQuickbug()

@@ -173,9 +173,9 @@ class User extends Authenticatable
        return $this->hasMany(FrontendPage::class,'user_id') ;
     }
 
-    public function SocialProfile()
+    public function socialProfile()
     {
-        return $this->hasMany(SocialProfile::class,'user_id') ;
+        return $this->hasOne(SocialProfile::class,'user_id') ;
     }
 }
 

@@ -124,6 +124,7 @@
             <div class="col-md-10">
                 <div class="right-content">
                         {!! Form::model($social_profile,array('route' => 'front_page_account_profiles_save','files' => true )) !!}
+                        {!! Form::hidden('id',null) !!}
                         <div class="manage-settings row ">
                             <div class="col-xl-6">
                                 <div class="settings-left">
@@ -140,13 +141,16 @@
                                                             <i class="fas fa-globe-asia"></i></button>
                                                     </div>
                                                 </div>
+                                                @if($errors->has('display_name'))
+                                                    {{ $errors->first('display_name') }}
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="form-group row align-items-center">
                                             {{Form::label('email', 'Email', array('class' => 'col-sm-3 col-form-label'))}}
                                             <div class="col-sm-8 pl-0">
                                                 <div class="input-group">
-                                                    {!! Form::email('email',null,
+                                                    {!! Form::email('display_email',null,
                                                         ['class' => 'form-control','id'=> 'email','aria-label' => 'Text input with dropdown button']) !!}
                                                     <div class="input-group-append red-cl">
                                                         <button class="btn btn-outline-secondary dropdown-toggle"
@@ -174,6 +178,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @if($errors->has('display_email'))
+                                                    {{ $errors->first('display_email') }}
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="form-group row align-items-center">
@@ -248,6 +255,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @if($errors->has('gender'))
+                                                    {{ $errors->first('gender') }}
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="form-group row align-items-center">
@@ -431,7 +441,7 @@
                                                             </a>
                                                         </div>
                                                     </div>
-                                                    {!! Form::text('socialMedia[]', null, ['class' => 'form-control','id' => 'socialMedia','placeholder' => 'Profile URL','aria-label' => 'Text input with dropdown button']) !!}
+                                                    {!! Form::text('social_media[]', null, ['class' => 'form-control','id' => 'socialMedia','placeholder' => 'Profile URL','aria-label' => 'Text input with dropdown button']) !!}
                                                     <div class="input-group-append blue-cl">
                                                         <button class="btn btn-outline-secondary dropdown-toggle"
                                                                 type="button" data-toggle="dropdown"
