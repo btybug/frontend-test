@@ -1,7 +1,7 @@
 @php
     $pages = $page->author->frontPages()->where('status','published')->orderBy('sorting')->get();
     $currentUrl=\Request::server('REQUEST_URI');
-
+    $social_profile = $page->author->socialProfile;
 @endphp
 <div id="top-navigation" class="container-fluid nopadding profile">
     <div class="row nopadding ident ui-bg-color01">
@@ -25,13 +25,13 @@
                 <div class="profile-top d-flex justify-content-between align-items-center flex-wrap">
                     <div class="title-profesion">
                         <div class="title d-flex align-items-center">
-                            <h2>Rania Dewell</h2>
+                            <h2>{{ $social_profile->display_name }}</h2>
                             <div class="circle d-flex align-items-center justify-content-center">
                                 <span></span>
                             </div>
                         </div>
 
-                        <p class="profesion">Graphic Designer</p>
+                        <p class="profesion">{{ $social_profile->proffesion }}</p>
                     </div>
                     <div class="icons d-flex flex-wrap align-items-center">
                         <a class="reply" href="javascript:void(0);">
