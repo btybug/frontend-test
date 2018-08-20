@@ -511,7 +511,7 @@
                                             <div class="image">
                                                 <img class="image-main" src="/public/images/girl-cover.jpg" alt="">
                                                 <div class="site-image">
-                                                    <button type="button" class="btnsettingsModal  media-modal-open">Site Image</button>
+                                                    <span class="btnsettingsModal  media-modal-open">Site Image</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -586,8 +586,8 @@
             </div>
         </div>
     </div>
-</div>
 {!! BBextraHtml() !!}
+</div>
 @yield('footer')
 {{--<div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">--}}
 {{--<!-- begin #content -->--}}
