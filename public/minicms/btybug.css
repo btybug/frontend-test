@@ -1346,3 +1346,354 @@ ul.wysihtml5-toolbar div[data-wysihtml5-command-value="orange"] {
 .profile-sticky .sticky-user .dropdown-menu .dropdown-item i{
     margin-right:15px;
 }
+.quick_bug a{
+    text-decoration: none;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -ms-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+.quick_bug ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.quick_bug .main-bug .head{
+    color: white;
+    font-size: 22px;
+}
+.quick_bug .main-bug .head .title-icon i,.quick_bug .main-bug .head .icon i{
+    font-size: 32px;
+}
+.quick_bug .main-bug .head .title-icon,.quick_bug .main-bug .head .daily{
+    background: rgb(58,95,163);
+    background: -moz-linear-gradient(45deg, rgba(58,95,163,1) 0%, rgba(48,169,187,1) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(58,95,163,1) 0%,rgba(48,169,187,1) 100%);
+    background: linear-gradient(45deg, rgba(58,95,163,1) 0%,rgba(48,169,187,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a5fa3', endColorstr='#30a9bb',GradientType=1 );
+    padding: 11px 15px;
+}
+.quick_bug .main-bug .head .title-icon{
+    flex: auto;
+    border-right: 3px solid #ffffff;
+}
+
+.quick_bug .main-bug .head .title-icon span{
+    margin-left: 20px;
+}
+.quick_bug .main-bug .head .daily {
+    position: relative;
+}
+.quick_bug .main-bug .head .daily .icon{
+    margin-left: 14px;
+}
+.quick_bug .main-bug .head .daily .name{
+    padding: 0 33px;
+}
+.quick_bug .main-bug .head .daily .more{
+    position: absolute;
+    bottom: 0;
+    right: 8px;
+    color: white;
+}
+.quick_bug .main-bug .head .daily .more i{
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    font-size: 24px;
+}
+
+.quick_bug .main-bug .main-content{
+    background-color: #f7f7f7;
+    padding: 15px;
+    border: 1px solid #d5d5d5;
+}
+
+.quick_bug .main-bug .happy{
+    margin-bottom: 20px;
+}
+.quick_bug .main-bug .happy .title{
+    flex: auto;
+    font-size: 20px;
+    color: #4f4f4f;
+}
+.quick_bug .main-bug .happy .title span{
+    opacity: 0.7;
+}
+.quick_bug .main-bug .happy .icon i{
+    font-size: 32px;
+    margin-right: 15px;
+    opacity: 0.5;
+    color: #4f4f4f;
+}
+.quick_bug .main-bug .main-content .form-control{
+    height: 55px;
+    border-radius: 0;
+    border: 1px solid #d5d5d5;
+    background-color: #ffffff;
+    font-size: 20px;
+    color: #252525;
+}
+.quick_bug .main-bug .main-content .form-group .input-group-prepend{
+    border: 1px solid #d5d5d5;
+    color: white;
+}
+.quick_bug .main-bug .main-content .form-group .input-group-prepend.red-cl{
+    background-color: #ce4f3a;
+}
+.quick_bug .main-bug .main-content .form-group .input-group-prepend.green-cl{
+    background-color: #5bb86e;
+}
+.quick_bug .main-bug .main-content .form-group .input-group-prepend.blue-cl{
+    background-color: #3981ae;
+}
+.quick_bug .main-bug .main-content .form-group .input-group-prepend.purple-cl{
+    background-color: #a65aab;
+}
+.quick_bug .main-bug .main-content .form-group .input-group-prepend.blue-grad-cl{
+    background: rgb(58,95,163);
+    background: -moz-linear-gradient(45deg, rgba(58,95,163,1) 0%, rgba(48,169,187,1) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(58,95,163,1) 0%,rgba(48,169,187,1) 100%);
+    background: linear-gradient(45deg, rgba(58,95,163,1) 0%,rgba(48,169,187,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a5fa3', endColorstr='#30a9bb',GradientType=1 );
+}
+.quick_bug .main-bug .main-content .form-group .input-group-prepend .btn{
+    border: none;
+    border-radius: 0;
+    color: white;
+    position: relative;
+    min-width: 55px;
+}
+.quick_bug .main-bug .main-content .form-group .input-group-prepend .btn i{
+    font-size: 22px;
+}
+.quick_bug .main-bug .main-content .form-group .left-group{
+    flex: auto;
+}
+.quick_bug .main-bug .main-content .form-group .right-group{
+    margin-left: 15px;
+    min-width: 13px;
+}
+.quick_bug .main-bug .main-content .form-group .del-icon {
+    color: #919191;
+}
+.quick_bug .main-bug .main-content .form-group .left-group .map-custom{
+    border: 1px solid #d5d5d5;
+}
+.quick_bug .main-bug .main-content .form-group .del-icon i{
+    font-size: 20px;
+}
+.quick_bug .main-bug .main-content .group-for-tags .bootstrap-tagsinput {
+    padding: 7px;
+    min-height: 55px;
+    border-radius: 0;
+    border: 1px solid #d5d5d5;
+    background-color: #ffffff;
+    flex: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.quick_bug .main-bug .main-content .group-for-tags .tag {
+    background-color: #367ead;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+.quick_bug .main-bug .main-content .group-for-tags .tag >span{
+    font-size: 24px;
+}
+.quick_bug .main-bug .main-content .form-group  .input-group-prepend .btn.dropdown-toggle:after {
+    border-top: 0.4em solid;
+    border-right: .4em solid transparent;
+    border-bottom: 0;
+    border-left: .4em solid transparent;
+    position: absolute;
+    bottom: 4px;
+    right: 2px;
+    transform: rotate(-45deg);
+}
+
+.quick_bug .main-bug .bottom .icons li i{
+    font-size: 30px;
+}
+.quick_bug .main-bug .bottom .icons li .blue-cl-icon{
+    color: #367ead;
+}
+.quick_bug .main-bug .bottom .icons li .red-cl-icon{
+    color: #d2583a;
+}
+.quick_bug .main-bug .bottom .icons li .green-cl-icon{
+    color: #57b76f;
+}
+.quick_bug .main-bug .bottom .icons li .orange-cl-icon{
+    color: #d5623a;
+}
+.quick_bug .main-bug .bottom .icons li .purple-cl-icon{
+    color: #a65aab;
+}
+.quick_bug .main-bug .bottom .icons li .red-light-cl-icon{
+    color: #d75e5e;
+}
+.quick_bug .main-bug .bottom{
+    border: 1px solid #d5d5d5;
+    border-top: none;
+}
+.quick_bug .main-bug .bottom .icons{
+    padding: 15px 35px;
+    background-color: #fff;
+    flex: auto;
+}
+
+.quick_bug .main-bug .bottom .icons ul .list-inline-item:not(:last-child) {
+    margin-right: 1.5rem;
+}
+.quick_bug .main-bug .bottom .right-col{
+    align-self: stretch;
+    align-items: center;
+}
+
+.quick_bug .main-bug .bottom .right-col .button button{
+    position: relative;
+    color: #363636;
+}
+.quick_bug .main-bug .bottom .right-col .button  .btn.dropdown-toggle:after {
+    border-top: 0.4em solid;
+    border-right: .4em solid transparent;
+    border-bottom: 0;
+    border-left: .4em solid transparent;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-45deg);
+
+}
+.quick_bug .main-bug .bottom .right-col .button button i{
+    font-size: 30px;
+    color: #d6623a;
+}
+.quick_bug .main-bug .bottom .right-col .name,.quick_bug .main-bug .bottom .right-col .bug-it{
+    font-size: 20px;
+}
+.quick_bug .main-bug .bottom .right-col .bug-it{
+    background: rgb(198,57,59);
+    background: -moz-linear-gradient(45deg, rgba(198,57,59,1) 0%, rgba(221,116,58,1) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(198,57,59,1) 0%,rgba(221,116,58,1) 100%);
+    background: linear-gradient(45deg, rgba(198,57,59,1) 0%,rgba(221,116,58,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c6393b', endColorstr='#dd743a',GradientType=1 );
+    color: white;
+}
+.quick_bug .main-bug .bottom .right-col .bug-it .btn{
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    padding: 0 40px;
+}
+.quick_bug .main-bug .bottom .right-col .name{
+    padding: 0 40px 0 20px
+}
+.quick_bug .share-bug{
+    color: white;
+}
+.quick_bug .share-bug .custom-checkbox input{
+    display: none;
+}
+
+.quick_bug .share-bug .custom-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 0;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.quick_bug .share-bug .custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.quick_bug .share-bug .custom-checkbox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 16px;
+    height: 16px;
+    width: 16px;
+    background-color: #999999;
+}
+
+/* On mouse-over, add a grey background color */
+.quick_bug .share-bug .custom-checkbox .container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.quick_bug .share-bug .custom-checkbox input:checked ~ .checkmark {
+    background-color: #3981ae;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.quick_bug .share-bug .custom-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.quick_bug .share-bug .custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.quick_bug .share-bug .custom-checkbox .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.quick_bug .share-bug {
+    font-size: 20px;
+    padding:20px 0;
+    background-color: #737373;
+}
+.quick_bug .share-bug i{
+    font-size: 24px;
+}
+.quick_bug .share-bug a{
+    width: 60px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.quick_bug .share-bug a.facebook-link{
+    background-color: #447fb5;
+}
+.quick_bug .share-bug a.twitter-link{
+    background-color: #76a9ea;
+}
+.quick_bug .share-bug .twitter-share{
+    margin-left:10px;
+}
+.quick_bug .share-bug .share-also{
+    margin-right: 20px;
+}
