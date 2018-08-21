@@ -33,8 +33,7 @@ $("body").on("click", ".media-select", function() {
     : null;
   document.querySelector(".image-main")
     ? (document.querySelector(".image-main").src =
-        document.querySelector("#user-media-url").value.substring(0, 34) +
-        location.value)
+        document.querySelector("#user-media-url-relative").value+location.value)
     : null;
   document.querySelector(".image-tmp")
     ? (document.querySelector(".image-tmp").value = location.getAttribute(
