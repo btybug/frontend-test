@@ -1,3 +1,4 @@
+@if($v==3)
 <div class="settingsModal">
     <!-- Modal -->
     <div class="modal fade" id="mysettingsModal">
@@ -55,6 +56,7 @@
         background-color: #f0ad4e;
         color: white;
     }
+
     .settingsModal .modal-content .modal-header textarea{
         resize: none;
         height: 35px;
@@ -62,7 +64,7 @@
         border-radius: 0;
     }
 </style>
-<script>
-   
-</script>
-{{--@include('media::_partials.drive')--}}
+    @elseif($v==4)
+//Vahag jan aziz jan b4 i modal@ kgres ste
+
+@endif
