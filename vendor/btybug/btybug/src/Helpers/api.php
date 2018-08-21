@@ -2789,7 +2789,7 @@ function BBmediaButton($name, $model = null,array $attributes)
         }
     }
     $html=($attributes['html'])??null;
-    return View::make('media::drive.galery', compact('a', 'value', 'value_tmp', 'name','html'))->render();
+    return View::make('media::drive.galery', compact('a', 'value', 'value_tmp', 'name','html','attributes'))->render();
 }
 
 function BBgetUsersPluck()

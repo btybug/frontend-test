@@ -29,11 +29,11 @@ $("body").on("click", ".media-select", function() {
   let location = document.querySelector("#path-location");
 
   document.querySelector(`#${elm}`)
-    ? (document.querySelector(`#${elm}`).value = "public/" + location.value)
+    ? (document.querySelector(`#${elm}`).value = "/public/files/" + location.value)
     : null;
   document.querySelector(".image-main")
     ? (document.querySelector(".image-main").src =
-        document.querySelector("#user-media-url-relative").value+location.value)
+        document.querySelector("#user-media-url-relative").value+ "/" +location.value)
     : null;
   document.querySelector(".image-tmp")
     ? (document.querySelector(".image-tmp").value = location.getAttribute(

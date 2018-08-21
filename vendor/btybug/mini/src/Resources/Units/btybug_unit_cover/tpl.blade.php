@@ -15,7 +15,11 @@
 
                     </div>
                 </div>
-                <img src="/public/images/girl-cover.jpg" alt="girl">
+                @if($social_profile->site_image)
+                    <img src="{!! url($social_profile->site_image) !!}" alt="{{ $social_profile->display_name }}">
+                @else
+                    <img src="/public/images/girl-cover.jpg" alt="{{ $social_profile->display_name }}">
+                @endif
             </div>
 
         </div>

@@ -489,7 +489,7 @@
                             </div>
                             <div class="col-xl-5 offset-xl-1">
                                 <div class="settings-right">
-                                    {!! BBmediaButton('site_image',null,['version'=>4,'html'=>'<div class="images-name d-flex mb-4">
+                                    {!! BBmediaButton('site_image',$social_profile,['version'=>4,'html'=>'<div class="images-name d-flex mb-4">
                                         <div class="col-11 pr-0">
                                             <div class="image">
                                                 <img class="image-main" src="/public/images/girl-cover.jpg" alt="">
@@ -519,9 +519,10 @@
                                                             </button>
 
                                                         </div>
-                                                    
-                                                        <input id="pac-input" class="controls form-control" type="text" placeholder="Enter Location">
 
+                                                        {!! Form::text('location[name]',null,['class' => 'controls form-control','placeholder' => 'Enter Location','id' => 'pac-input']) !!}
+                                                        {!! Form::hidden('location[lang]',null,['class' => 'location_lang']) !!}
+                                                        {!! Form::hidden('location[lat]',null,['class' => 'location_lat']) !!}
                                                         <div class="input-group-append blue-light-cl">
                                                             <button class="btn btn-outline-secondary get-geolocation" type="button">
                                                                 <i class="fas fa-crosshairs"></i>
@@ -591,31 +592,48 @@
 
 function initAutocomplete() {
     var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -33.8688, lng: 151.2195},
+      center: {
+          lat: $(".location_lat").val() ?  Number($(".location_lat").val()): 40.7929026,
+          lng: $(".location_lang").val() ? Number($(".location_lang").val()): 43.84649710000008
+
+      },
       zoom: 13,
-      mapTypeId: 'roadmap'
+      mapTypeId: 'roadmap',
     });
 
+    var marker = new google.maps.Marker({
+        position: {
+            lat: $(".location_lat").val() ?  Number($(".location_lat").val()): 40.7929026,
+            lng: $(".location_lang").val() ? Number($(".location_lang").val()): 43.84649710000008
+
+        },
+        map: map,
+        title: $("#pac-input").val()
+    });
+    if($(".location_lang").val() || $(".location_lat").val()  ){
+        $(".map-box").show()
+    }
     // Create the search box and link it to the UI element.
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
     // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
     // Bias the SearchBox results towards current map's viewport.
-    map.addListener('bounds_changed', function() {
+    map.addListener('bounds_changed', function(event) {
       searchBox.setBounds(map.getBounds());
     });
 
     var markers = [];
     // Listen for the event fired when the user selects a prediction and retrieve
     // more details for that place.
-    searchBox.addListener('places_changed', function() {
+    searchBox.addListener('places_changed', function(event) {
         $(".map-box").show()
       var places = searchBox.getPlaces();
-
       if (places.length == 0) {
         return;
       }
+
+
 
       // Clear out the old markers.
       markers.forEach(function(marker) {
@@ -630,18 +648,20 @@ function initAutocomplete() {
           console.log("Returned place contains no geometry");
           return;
         }
-        var icon = {
-          url: place.icon,
-          size: new google.maps.Size(71, 71),
-          origin: new google.maps.Point(0, 0),
-          anchor: new google.maps.Point(17, 34),
-          scaledSize: new google.maps.Size(25, 25)
-        };
+        // var icon = {
+        //   url: place.icon,
+        //   size: new google.maps.Size(71, 71),
+        //   origin: new google.maps.Point(0, 0),
+        //   anchor: new google.maps.Point(17, 34),
+        //   scaledSize: new google.maps.Size(25, 25)
+        // };
 
         // Create a marker for each place.
+        $(".location_lang").val(place.geometry.location.lng())
+        $(".location_lat").val(place.geometry.location.lat())
         markers.push(new google.maps.Marker({
           map: map,
-          icon: icon,
+          // icon: icon,
           title: place.name,
           position: place.geometry.location
         }));
@@ -654,6 +674,7 @@ function initAutocomplete() {
         }
       });
       map.fitBounds(bounds);
+
     });
   }
 

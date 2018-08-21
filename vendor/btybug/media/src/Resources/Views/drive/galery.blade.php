@@ -16,7 +16,9 @@
     @endif
     <input type='hidden' class="bb-media-data-id"  data-id='{!! $name.'-'.$a !!}'>
     <input type='hidden' class="bb-media-main-image" {!! $value !!} id='{!! $name.'-'.$a!!}' name='{!!$name!!}'>
-    <input type='hidden' class="bb-media-tmp-image" {!! $value_tmp !!} id='tmp_{!!$name.'-'.$a !!}' name='tmp_{!!$name!!}'>
+    @if(isset($attributes['tmp']) && $attributes['tmp'] == true)
+        <input type='hidden' class="bb-media-tmp-image" {!! $value_tmp !!} id='tmp_{!!$name.'-'.$a !!}' name='tmp_{!!$name!!}'>
+    @endif
     <input type="hidden" id="user-media-url" value="{!! url('public/files/'.Auth::user()->username) !!}">
     <input type="hidden" id="user-media-url-relative" value="{!! url('public/files/') !!}">
 </div>

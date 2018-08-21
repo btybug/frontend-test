@@ -2034,3 +2034,7 @@ div.bug-something .link-bug-something button span {
 #target {
   width: 345px;
 }
+
+.site-image{
+  cursor: pointer;
+}
