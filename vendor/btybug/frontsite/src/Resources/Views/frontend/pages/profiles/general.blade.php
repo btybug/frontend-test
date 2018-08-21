@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{!!url('public/minicms/css/default.css')!!}">
     <link rel="stylesheet" href="{!!url('public/libs/tagsinput/bootstrap-tagsinput.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/btybug.css?v='.rand(111,999))!!}">
+   
     <!-- ================== END PAGE BASE STYLE ================== -->
 
     <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
@@ -525,10 +526,9 @@
                                     <div class="maps d-flex">
                                         <div class="col-11 pr-0">
                                             <div class="map-search">
-                                                <div>
-                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.72810776133!2d-0.24168051295924747!3d51.52877184056342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2z0JvQvtC90LTQvtC9LCDQktC10LvQuNC60L7QsdGA0LjRgtCw0L3QuNGP!5e0!3m2!1sru!2s!4v1534333971160"
-                                                            width="100%" height="350" frameborder="0"
-                                                            style="border:0" allowfullscreen></iframe>
+                                                <div class="map-box" style="display: none">
+                                                <div id="map"> 
+                                                </div>
                                                 </div>
                                                 <div class="location-input">
                                                     <div class="input-group">
@@ -539,9 +539,11 @@
                                                             </button>
 
                                                         </div>
-                                                        {{Form::search('location', $value = null, $attributes = array('class' => 'form-control','placeholder' => 'Enter Location'))}}
+                                                    
+                                                        <input id="pac-input" class="controls form-control" type="text" placeholder="Enter Location">
+
                                                         <div class="input-group-append blue-light-cl">
-                                                            <button class="btn btn-outline-secondary" type="button">
+                                                            <button class="btn btn-outline-secondary get-geolocation" type="button">
                                                                 <i class="fas fa-crosshairs"></i>
                                                             </button>
 
@@ -604,6 +606,95 @@
 <script src="{!!url('public/minicms/apps.min.js')!!}"></script>
 <script src="{!!url('public/minicms/home.js')!!}"></script>
 <script src="{!!url('public/minicms/main.js')!!}"></script>
+<script>
+
+function initAutocomplete() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -33.8688, lng: 151.2195},
+      zoom: 13,
+      mapTypeId: 'roadmap'
+    });
+
+    // Create the search box and link it to the UI element.
+    var input = document.getElementById('pac-input');
+    var searchBox = new google.maps.places.SearchBox(input);
+    // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+    // Bias the SearchBox results towards current map's viewport.
+    map.addListener('bounds_changed', function() {
+      searchBox.setBounds(map.getBounds());
+    });
+
+    var markers = [];
+    // Listen for the event fired when the user selects a prediction and retrieve
+    // more details for that place.
+    searchBox.addListener('places_changed', function() {
+        $(".map-box").show()
+      var places = searchBox.getPlaces();
+
+      if (places.length == 0) {
+        return;
+      }
+
+      // Clear out the old markers.
+      markers.forEach(function(marker) {
+        marker.setMap(null);
+      });
+      markers = [];
+
+      // For each place, get the icon, name and location.
+      var bounds = new google.maps.LatLngBounds();
+      places.forEach(function(place) {
+        if (!place.geometry) {
+          console.log("Returned place contains no geometry");
+          return;
+        }
+        var icon = {
+          url: place.icon,
+          size: new google.maps.Size(71, 71),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(17, 34),
+          scaledSize: new google.maps.Size(25, 25)
+        };
+
+        // Create a marker for each place.
+        markers.push(new google.maps.Marker({
+          map: map,
+          icon: icon,
+          title: place.name,
+          position: place.geometry.location
+        }));
+
+        if (place.geometry.viewport) {
+          // Only geocodes have viewport.
+          bounds.union(place.geometry.viewport);
+        } else {
+          bounds.extend(place.geometry.location);
+        }
+      });
+      map.fitBounds(bounds);
+    });
+  }
+
+// $("body").on("click", ".get-geolocation", getLocation)
+
+
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//     } else { 
+//         x.innerHTML = "Geolocation is not supported by this browser.";
+//     }
+// }
+
+// function showPosition(position) {
+//     console.log(position);
+//     // x.innerHTML = "Latitude: " + position.coords.latitude + 
+//     // "<br>Longitude: " + position.coords.longitude;
+// }
+
+</script>
+<script src="{!!url('https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyIau4tPD0XGRT6ANMUfhYzdv6G79SI0&libraries=places&callback=initAutocomplete" async defer')!!}"></script>
 
 <!-- ================== END FOOTER BASE JS ================== -->
 

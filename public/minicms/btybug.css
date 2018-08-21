@@ -1952,7 +1952,6 @@ div.bug-something div.button2 button {
   margin-top: 12px;
   margin-bottom: 9px;
 }
-
 div.bug-something div.img-friend img {
   width: 100%;
   max-height: 385px;
@@ -1990,7 +1989,48 @@ div.bug-something .link-bug-something button span {
 #bugModalCenter .modal-lg {
   max-width: 1200px;
 }
-
 .bootstrap-tagsinput input {
   display: block !important;
+}
+#map {
+  height: 350px;
+}
+/* Optional: Makes the sample page fill the window. */
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+#infowindow-content .title {
+  font-weight: bold;
+}
+#infowindow-content {
+  display: none;
+}
+#map #infowindow-content {
+  display: inline;
+}
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px;
+}
+#target {
+  width: 345px;
 }
