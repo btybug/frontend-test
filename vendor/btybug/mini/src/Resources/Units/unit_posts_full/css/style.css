@@ -1,42 +1,42 @@
 
 /*col2*/
-div.search-bugs{
+.bug-buttons .search-bugs{
     margin-top: 30px;
 }
-div.search-bugs i{
+.bug-buttons .search-bugs i{
     position: absolute;
     right: 25px;
     top: 37px;
     font-size: 25px;
     color: #b1b1b1;
 }
-div.search-bugs input{
+.bug-buttons .search-bugs input{
     height: 40px;
     font-size: 18px;
     letter-spacing: 1px;
     border-radius: 0;
 }
-div.search-bugs input:focus{
+.bug-buttons .search-bugs input:focus{
     box-shadow: none;
     border-color: #8f8f8f ;
 }
-div.drop-button{
+.bug-buttons .drop-button{
     display: flex;
     justify-content: space-between;
     margin-top: 25px;
 }
-div.drop-button span{
+.bug-buttons .drop-button span{
     font-size: 21px;
     align-self: center;
 }
-div.drop-button i{
+.bug-buttons .drop-button i{
     position: absolute;
     top: 16px;
     right: 0px;
     transform: rotate(-45deg);
     font-size: 30px;
 }
-div.one button{
+.bug-buttons .one button{
     background-color: #cc4b3a;
     border-color:#cc4b3a ;
     width: 182px;
@@ -44,35 +44,35 @@ div.one button{
     text-align: left;
     border-radius: 0;
 }
-div.one button:hover{
+.bug-buttons .one button:hover{
     background-color: #cc4b3a;
     border-color:#cc4b3a ;
 }
-div.one button:focus{
-    box-shadow: none;
+.bug-buttons .one button:focus{
+    box-shadow: none !important;
 }
-div.one button:active{
-    background-color: #cc4b3a;!important;
-    border-color:#cc4b3a ;!important;
+.bug-buttons .one button:active{
+    background-color: #cc4b3a !important;
+    border-color:#cc4b3a !important;
 }
-div.data{
+.bug-buttons .data{
     margin-top: 25px;
 }
-div.data label{
+.bug-buttons .data label{
     font-size: 20px;
     color: #8f8f8f;
 }
-div.data input.form-control{
+.bug-buttons .data input.form-control{
     font-size: 18px;
     color: #8f8f8f;
     border-color:#8f8f8f ;
     border-radius: 0;
 }
-div.data input.form-control:focus{
+.bug-buttons .data input.form-control:focus{
     box-shadow: none;
     border-color: #8f8f8f;
 }
-div.two i{
+.bug-buttons .two i{
     position: absolute;
     top: 16px;
     right: 0px;
@@ -80,7 +80,7 @@ div.two i{
     font-size: 30px;
     color: #8f8f8f;
 }
-div.two button{
+.bug-buttons .two button{
     width: 182px;
     height: 42px;
     text-align: left;
@@ -89,15 +89,19 @@ div.two button{
     color:#8f8f8f ;
     border-radius: 0;
 }
-div.two button:hover{
+.bug-buttons .two button:hover{
     background-color: white;
     border-color:#8f8f8f ;
     color:#8f8f8f ;
 }
-div.two button:focus{
-    box-shadow: none;
+.bug-buttons .two button:focus{
+    box-shadow: none !important;
 }
-div.show-button{
+.bug-buttons .two button:active{
+    background-color: white !important;
+    border-color:#8f8f8f !important; ;
+    color:#8f8f8f !important ;}
+.bug-buttons .show-button{
     display: flex;
     justify-content: space-between;
 }
@@ -237,24 +241,20 @@ div.all-content{
     border: 1px solid #d5d5d5;
 }
 div.foot{
-    padding-top: 8px;
-    padding-bottom: 8px;
+    line-height: 45px;
     font-size: 20px;
 }
 div.foot i{
-    font-size: 30px;
+    font-size: 33px;
     vertical-align: middle;
 }
-
-
-
-
-
-
-
+div.foot .col-md-1{
+    border-left: 1px solid #d5d5d5;
+    border-right: 1px solid #d5d5d5;
+}
 
 /*col3*/
-div.name-icon {
+.head3 .name-icon {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -267,31 +267,31 @@ div.name-icon {
     padding-left: 19px;
     padding-right: 19px;
 }
-div.icon {
+.head3 .icon {
     display: flex;
     color: white;
     font-size: 30px;
     align-items: center;
     margin-right: -25px;
 }
-div.icon i {
+.head3 .icon i {
     padding-right: 22px;
 }
-div.col-md-3 div.span {
+.head3 div.span {
     color: white;
     font-size: 22px;
     letter-spacing: 2.5px;
 }
-div.photo img {
+.head3 .photo img {
     width: 100%;
     height: 230px;
     object-fit: cover;
     border: 1px solid #fff;
 }
-div.number i{
+.head3 .number i{
     font-size: 17px;
 }
-div.wed-developer{
+.head3 .wed-developer{
     display: flex;
     justify-content: space-between ;
     background-color: #f8f8f8;
@@ -303,18 +303,18 @@ div.wed-developer{
     border-bottom: 1px solid #d5d5d5;
     letter-spacing: 1.5px;
 }
-#content .qoutes {
+.head3 .qoutes {
     quotes: "‘‘" "";
-    font-size: 20px;
-    color: gray;
+    font-size: 30px;
+    color: #9f9f9f;
 }
-div.info-photo{
+.head3 .info-photo{
     padding: 10px;
 }
 div.head3{
     border: 1px solid #d5d5d5;
 }
-div.info .content{
+.head3 .info .content{
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
@@ -324,10 +324,10 @@ div.info .content{
     height: 230px;
     line-height: 30px;
 }
-div.name-icon i.fa-caret-down{
+.head3 .name-icon i.fa-caret-down{
     position: absolute;
     top: 52px;
     left: 440px;
     transform: rotate(-45deg);
-    font-size: 28px;
+    font-size: 24px;
 }
