@@ -70,7 +70,7 @@ $(document).ready(function () {
         $('.profile-footer.logged-in .left .logo-name').removeClass('active bg_dark');
     });
 
-    $('body').on('click', '.profiles-navbar .profile-footer.logged-out .right ul', function (e) {
+    $('body').on('click', '.profiles-navbar .profile-footer.logged-out .right .login-link', function (e) {
         e.preventDefault();
         e.stopPropagation();
         $('.panel-login-reg').toggleClass('active');
@@ -91,9 +91,9 @@ $(document).ready(function () {
 
         }
 
-        if ($('.profiles-navbar .profile-footer.logged-out .right ul').hasClass('active') && e.target.closest('.panel-login-reg') != $('.panel-login-reg')[0]) {
+        if ($('.profiles-navbar .profile-footer.logged-out .right .login-link').hasClass('active') && e.target.closest('.panel-login-reg') != $('.panel-login-reg')[0]) {
             $('.panel-login-reg').removeClass('active');
-            $('.profiles-navbar .profile-footer.logged-out .right ul').removeClass('active');
+            $('.profiles-navbar .profile-footer.logged-out .right .login-link').removeClass('active');
         }
 
     });

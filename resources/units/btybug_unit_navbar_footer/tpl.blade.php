@@ -271,7 +271,7 @@
                 <div class="login-reg">
                     <ul class="d-flex align-items-center flex-wrap">
                         <li>
-                            <a href="">
+                            <a href="" class="login-link">
                                 <span>Login</span>
                             </a>
                         </li>
