@@ -19,12 +19,12 @@
             </li>
             @endforeach
         </ul>
-        <ul class="list-inline " style="display: inline-block">
-            <li class="list-inline-item add" id="add-new-page"><a  href="{!! route('mini_media_drive') !!}">
-                    <span class="icon"><i class="fas fa-plus"></i></span>
-                    <span class="name">New Page</span></a>
-            </li>
-        </ul>
+        {{--<ul class="list-inline " style="display: inline-block">--}}
+            {{--<li class="list-inline-item add" id="add-new-page"><a  href="{!! route('mini_media_drive') !!}">--}}
+                    {{--<span class="icon"><i class="fas fa-plus"></i></span>--}}
+                    {{--<span class="name">New Page</span></a>--}}
+            {{--</li>--}}
+        {{--</ul>--}}
     </div>
 
 </div>
