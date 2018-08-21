@@ -185,56 +185,65 @@ $(document).ready(function() {
 });
 
 $("body").on("click", ".add-icon", function() {
-  let html = `<div class="input-group">
-    <div class="input-group-append blue-cl">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe-asia"></i></button>
-        <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">
-                <i class="fas fa-globe-asia icon-blue"></i>
-                <span class="name">Public</span>
-            </a>
-            <a class="dropdown-item active" href="#">
-                <i class="fas fa-user-friends icon-green"></i>
-                <span class="name">Members</span>
-            </a>
-            <a class="dropdown-item" href="#">
-                <i class="fas fa-user-friends icon-purple"></i>
-                <span class="name">All Members</span>
-            </a>
+  let html = `<div class="d-flex">
+    <div class="col-sm-11 pl-0">
+        <div class="input-group mb-2">
+            <div class="input-group-append blue-cl">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe-asia"></i></button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">
+                        <i class="fab fa-facebook-f icon-blue"></i>
+                        <span class="name">Facebook</span>
+                    </a>
+                    <a class="dropdown-item active" href="#">
+                        <i class="fab fa-twitter icon-green"></i>
+                        <span class="name">Twitter</span>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fab fa-yahoo icon-purple"></i>
+                        <span class="name">Yahoo</span>
+                    </a>
 
-            <a class="dropdown-item" href="#">
-                <i class="fas fa-lock icon-red"></i>
-                <span class="name">Only Me</span>
-            </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fab fa-google icon-red"></i>
+                        <span class="name">Google</span>
+                    </a>
+                </div>
+            </div>
+            <input class="form-control" placeholder="Profile URL" aria-label="Text input with dropdown button"
+                   name="social_media[]" type="text">
+            <div class="input-group-append blue-cl">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe-asia"></i></button>
+                <div class="dropdown-menu" x-placement="bottom-start"
+                     style="position: absolute; transform: translate3d(395px, 54px, 0px); top: 0px; left: 0px; will-change: transform;">
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-globe-asia icon-blue"></i>
+                        <span class="name">Public</span>
+                    </a>
+                    <a class="dropdown-item active" href="#">
+                        <i class="fas fa-user-friends icon-green"></i>
+                        <span class="name">Members</span>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-user-friends icon-purple"></i>
+                        <span class="name">All Members</span>
+                    </a>
+
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-lock icon-red"></i>
+                        <span class="name">Only Me</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-    <input class="form-control"  placeholder="Profile URL" aria-label="Text input with dropdown button" name="social_media[]" type="text" >
-    
-    <div class="input-group-append blue-cl">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe-asia"></i></button>
-        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(395px, 54px, 0px); top: 0px; left: 0px; will-change: transform;">
-            <a class="dropdown-item" href="#">
-                <i class="fas fa-globe-asia icon-blue"></i>
-                <span class="name">Public</span>
-            </a>
-            <a class="dropdown-item active" href="#">
-                <i class="fas fa-user-friends icon-green"></i>
-                <span class="name">Members</span>
-            </a>
-            <a class="dropdown-item" href="#">
-                <i class="fas fa-user-friends icon-purple"></i>
-                <span class="name">All Members</span>
-            </a>
-
-            <a class="dropdown-item" href="#">
-                <i class="fas fa-lock icon-red"></i>
-                <span class="name">Only Me</span>
-            </a>
+    <div class="col-sm-1 pl-0 align-self-center">
+        <div class="col-sm-1 pl-0 align-self-end socialmedia-add">
+            <span class="remove-social-media-input"><i class="fas fa-minus"></i></span>
         </div>
     </div>
-    <div class="col-sm-1 pl-0 align-self-end socialmedia-add" style="margin-right: -37px">
-<span class="remove-social-media-input"><i class="fas fa-minus"></i></span>
-</div>
 </div>
 
 `;
@@ -244,6 +253,6 @@ $("body").on("click", ".add-icon", function() {
 
 $("body").on("click", ".remove-social-media-input", function() {
   $(this)
-    .closest(".input-group")
+    .closest(".d-flex")
     .remove();
 });

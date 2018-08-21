@@ -417,99 +417,79 @@
                                         </div>
                                         <div class="form-group row ">
                                             {{Form::label('socialMedia', 'Social Media', array('class' => 'col-sm-3 col-form-label'))}}
-                                            <div class="col-sm-8 pl-0 social-medias-links">
-                                                <div class="input-group">
-                                                    <div class="input-group-append blue-cl">
-                                                        <button class="btn btn-outline-secondary dropdown-toggle"
-                                                                type="button" data-toggle="dropdown"
-                                                                aria-haspopup="true" aria-expanded="false"><i
-                                                                    class="fas fa-globe-asia"></i></button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="#">
-                                                                <i class="fas fa-globe-asia icon-blue"></i>
-                                                                <span class="name">Public</span>
-                                                            </a>
-                                                            <a class="dropdown-item active" href="#">
-                                                                <i class="fas fa-user-friends icon-green"></i>
-                                                                <span class="name">Members</span>
-                                                            </a>
-                                                            <a class="dropdown-item" href="#">
-                                                                <i class="fas fa-user-friends icon-purple"></i>
-                                                                <span class="name">All Members</span>
-                                                            </a>
+                                            <div class="col-sm-9 pl-0 social-medias-links">
+                                                <div class="d-flex">
+                                                    <div class="col-sm-11 pl-0">
+                                                        <div class="input-group">
+                                                            <div class="input-group-append blue-cl">
+                                                                <button class="btn btn-outline-secondary dropdown-toggle"
+                                                                        type="button" data-toggle="dropdown"
+                                                                        aria-haspopup="true" aria-expanded="false"><i
+                                                                            class="fas fa-globe-asia"></i></button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <i class="fab fa-facebook-f icon-blue"></i>
+                                                                        <span class="name">Facebook</span>
+                                                                    </a>
+                                                                    <a class="dropdown-item active" href="#">
+                                                                        <i class="fab fa-twitter icon-green"></i>
+                                                                        <span class="name">Twitter</span>
+                                                                    </a>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <i class="fab fa-yahoo icon-purple"></i>
+                                                                        <span class="name">Yahoo</span>
+                                                                    </a>
 
-                                                            <a class="dropdown-item" href="#">
-                                                                <i class="fas fa-lock icon-red"></i>
-                                                                <span class="name">Only Me</span>
-                                                            </a>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <i class="fab fa-google icon-red"></i>
+                                                                        <span class="name">Google</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            {!! Form::text('social_media[]', null, ['class' => 'form-control','id' => 'socialMedia','placeholder' => 'Profile URL','aria-label' => 'Text input with dropdown button']) !!}
+                                                            <div class="input-group-append blue-cl">
+                                                                <button class="btn btn-outline-secondary dropdown-toggle"
+                                                                        type="button" data-toggle="dropdown"
+                                                                        aria-haspopup="true" aria-expanded="false"><i
+                                                                            class="fas fa-globe-asia"></i></button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <i class="fas fa-globe-asia icon-blue"></i>
+                                                                        <span class="name">Public</span>
+                                                                    </a>
+                                                                    <a class="dropdown-item active" href="#">
+                                                                        <i class="fas fa-user-friends icon-green"></i>
+                                                                        <span class="name">Members</span>
+                                                                    </a>
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <i class="fas fa-user-friends icon-purple"></i>
+                                                                        <span class="name">All Members</span>
+                                                                    </a>
+
+                                                                    <a class="dropdown-item" href="#">
+                                                                        <i class="fas fa-lock icon-red"></i>
+                                                                        <span class="name">Only Me</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    {!! Form::text('social_media[]', null, ['class' => 'form-control','id' => 'socialMedia','placeholder' => 'Profile URL','aria-label' => 'Text input with dropdown button']) !!}
-                                                    <div class="input-group-append blue-cl">
-                                                        <button class="btn btn-outline-secondary dropdown-toggle"
-                                                                type="button" data-toggle="dropdown"
-                                                                aria-haspopup="true" aria-expanded="false"><i
-                                                                    class="fas fa-globe-asia"></i></button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="#">
-                                                                <i class="fas fa-globe-asia icon-blue"></i>
-                                                                <span class="name">Public</span>
-                                                            </a>
-                                                            <a class="dropdown-item active" href="#">
-                                                                <i class="fas fa-user-friends icon-green"></i>
-                                                                <span class="name">Members</span>
-                                                            </a>
-                                                            <a class="dropdown-item" href="#">
-                                                                <i class="fas fa-user-friends icon-purple"></i>
-                                                                <span class="name">All Members</span>
-                                                            </a>
-
-                                                            <a class="dropdown-item" href="#">
-                                                                <i class="fas fa-lock icon-red"></i>
-                                                                <span class="name">Only Me</span>
-                                                            </a>
+                                                    <div class="col-sm-1 pl-0 align-self-center">
+                                                        <div class="pl-0 align-self-end socialmedia-add">
+                                                            <span class="add-icon"><i class="fas fa-plus"></i></span>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="input-group mt-4">
-                                                    <div class="input-group-append yellow-cl">
-                                                        <button class="btn btn-outline-secondary dropdown-toggle"
-                                                                type="button" data-toggle="dropdown"
-                                                                aria-haspopup="true" aria-expanded="false"><i
-                                                                    class="fas fa-user-secret"></i></button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="#">
-                                                                <i class="fas fa-globe-asia icon-blue"></i>
-                                                                <span class="name">Public</span>
-                                                            </a>
-                                                            <a class="dropdown-item active" href="#">
-                                                                <i class="fas fa-user-friends icon-green"></i>
-                                                                <span class="name">Members</span>
-                                                            </a>
-                                                            <a class="dropdown-item" href="#">
-                                                                <i class="fas fa-user-friends icon-purple"></i>
-                                                                <span class="name">All Members</span>
-                                                            </a>
-
-                                                            <a class="dropdown-item" href="#">
-                                                                <i class="fas fa-lock icon-red"></i>
-                                                                <span class="name">Only Me</span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
                                                 </div>
 
                                             </div>
-                                            <div class="col-sm-1 pl-0 align-self-end socialmedia-add">
-                                                <span class="add-icon"><i class="fas fa-plus"></i></span>
-                                            </div>
+
                                         </div>
                                 </div>
                             </div>
                             <div class="col-xl-5 offset-xl-1">
                                 <div class="settings-right">
-                                    {!! BBmediaButton('site_image',null,['html'=>'<div class="images-name d-flex mb-4">
+                                    {!! BBmediaButton('site_image',null,['version'=>4,'html'=>'<div class="images-name d-flex mb-4">
                                         <div class="col-11 pr-0">
                                             <div class="image">
                                                 <img class="image-main" src="/public/images/girl-cover.jpg" alt="">
@@ -583,7 +563,8 @@
                                     </div>
                                 </div>
                             </div>
-                            {{Form::submit('Save',  array('class' => 'btn btn-success btn-block save_button'))}}
+
+                            {{Form::submit('Save',  array('class' => 'btn btn-lg btn-warning save_button'))}}
                         </div>
                     {{ Form::close() }}
                 </div>
