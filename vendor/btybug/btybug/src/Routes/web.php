@@ -94,6 +94,7 @@ Route::group(
         Route::get('profiles/social/travel', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@socialTravel')->middleware('auth')->name('front_page_account_profiles_social_travel');
         Route::get('profiles/social/places', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@socialPlaces')->middleware('auth')->name('front_page_account_profiles_social_places');
         Route::post('profiles/social/general', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@postSocialGeneral')->name('front_page_account_profiles_save');
+        Route::post('profiles/social/bugit', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@postSocialBugit')->name('front_page_social_bugit');
 
         Route::get('account/general/password', '\Btybug\FrontSite\Http\Controllers\MyAccountController@password')->middleware('auth')->name('front_page_account_general_password');
         Route::get('account/general/preferances', '\Btybug\FrontSite\Http\Controllers\MyAccountController@preferances')->middleware('auth')->name('front_page_account_general_preferances');

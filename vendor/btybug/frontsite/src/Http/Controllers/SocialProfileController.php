@@ -10,6 +10,7 @@ use Btybug\FrontSite\Repository\SocialProfileRepository;
 use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\User\Http\Requests\User\ChangePassword;
 use Btybug\User\Repository\UserRepository;
+use View;
 use Illuminate\Http\Request;
 
 
@@ -64,6 +65,16 @@ class SocialProfileController extends Controller
     public function socialPlaces()
     {
         return view('manage::frontend.pages.profiles.places', compact([]));
+    }
+
+    public function postSocialBugit(Request $request)
+    {
+        dd($request->all());
+        $data = $request->all();
+        $user = \Auth::user()->socialProfile;
+        $html = View::make('manage::frontend.pages._partials.bug_render', compact(['data','user']))->render();
+
+        return \Response::json(['html' => $html, 'error' => false]);
     }
 
 }
