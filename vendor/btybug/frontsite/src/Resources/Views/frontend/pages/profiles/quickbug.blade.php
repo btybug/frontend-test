@@ -55,10 +55,7 @@
                                     </div>
                                     <div class="text">
                                         <p>
-                                            I had a great time with you <br>
-                                            I want to see you again <br>
-                                            Thank you for your nice conversation with me during your stay <br>
-                                            Many many thanks
+                                        Lorem ipsum
                                         </p>
                                     </div>
                                     <div class="button1 d-flex align-items-center">
@@ -101,7 +98,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
 
                 </div>
@@ -151,17 +147,17 @@
 
                             </div>
                         </div>
+                            {!! Form::open(['route'=>'front_page_social_bugit','id' => 'bugit_form']) !!}
                         <div class="main-content">
                             <div class="happy d-flex align-items-center">
                                 <div class="title">
-                                    <textarea name="post" id="" cols="30" rows="10" placeholder="Bug Sumething..."></textarea>
+                                    <textarea name="bugit" id="" cols="30" rows="10" placeholder="Bug Sumething..."></textarea>
                                 </div>
                                 <div class="icon">
                                     <i class="far fa-smile"></i>
                                 </div>
                             </div>
                             <div class="container-fluid">
-                                <form action="">
                                     <div data-group="hashtag" hidden class="form-group row align-items-center group-for-tags">
                                         <div class="left-group pl-0">
                                             <div class="input-group">
@@ -170,10 +166,9 @@
                                                             type="button">
                                                         <i class="fas fa-hashtag"></i>
                                                     </button>
-
                                                 </div>
-                                                <input type="text" class="form-control tags_bug_custom"
-                                                       value="Freindship" data-role="tagsinput">
+                                                <input name="tags" type="text" class="form-control tags_bug_custom"
+                                                        data-role="tagsinput">
 
                                             </div>
                                         </div>
@@ -191,7 +186,7 @@
                                                     </button>
 
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Mention Friends">
+                                                <input name="mention_friends" type="text" class="form-control" placeholder="Mention Friends">
                                             </div>
                                         </div>
                                         <div class="right-group">
@@ -209,7 +204,7 @@
                                                     </button>
 
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="With...">
+                                                <input name="greenfield" type="text" class="form-control" placeholder="With...">
                                             </div>
                                         </div>
                                         <div class="right-group">
@@ -247,14 +242,17 @@
                                                     </div>
 
                                                 </div>
-                                                <input type="search" class="form-control" placeholder="Search Youtube">
+                                                <input type="search " name="youtube" class="form-control search-youtube" placeholder="Search Youtube">
+                                                <input type="hidden" id="youtube-video-key">
                                             </div>
                                         </div>
                                         <div class="right-group">
                                             <a href="" class="del-icon"><i class="fas fa-times"></i></a>
                                         </div>
-                                    </div>
+                                        <div class="youtube-videos-list">
 
+                                        </div>
+                                    </div>
 
                                     <div data-group="images" hidden class="form-group row align-items-center">
                                         <div class="left-group pl-0">
@@ -271,7 +269,7 @@
 
 
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Url">
+                                                <input name="url" type="text" class="form-control" placeholder="Url">
                                             </div>
                                         </div>
                                         <div class="right-group">
@@ -289,7 +287,7 @@
                                                     </button>
 
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Mention Friends">
+                                                <input name="sound_cloude" type="text" class="form-control" placeholder="Sound cloude">
                                             </div>
                                         </div>
                                         <div class="right-group">
@@ -307,7 +305,7 @@
                                                     </button>
 
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="Mention Friends">
+                                                <input name="favorites" type="text" class="form-control" placeholder="Favorites">
                                             </div>
                                         </div>
                                         <div class="right-group">
@@ -327,7 +325,7 @@
                                                             </button>
 
                                                         </div>
-                                                        <input type="text" class="form-control" placeholder="With...">
+                                                        <input name="location" type="text" class="form-control" placeholder="Address">
                                                         <div class="input-group-prepend blue-grad-cl">
                                                             <button class="btn btn-outline-secondary"
                                                                     type="button">
@@ -360,7 +358,6 @@
                                         </div>
                                     </div>
 
-                                </form>
                             </div>
 
                         </div>
@@ -413,11 +410,12 @@
 
                                     </div>
                                     <div class="bug-it d-flex align-items-center align-self-stretch">
-                                        <button class="btn btn-link">Bug It</button>
+                                        <button class="btn btn-link bugit" data-dismiss="modal">Bug It</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                       {!! Form::close() !!}
                     </div>
                     <div class="share-bug">
                         <div class="d-flex justify-content-end">
@@ -462,4 +460,94 @@
 @stop
 @section('js')
     <script src="{!!url('public/libs/tagsinput/bootstrap-tagsinput.min.js')!!}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.bugit').on('click',function (e) {
+                e.preventDefault();
+                var form = $('#bugit_form').serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: "/profiles/social/bugit",
+                    datatype: 'json',
+                    data: form,
+                    headers: {
+                        'X-CSRF-TOKEN': $("input[name='_token']").val()
+                    },
+                    cache: false,
+                    success: function (data) {
+                        if (!data.error){
+                            $('.all-content').html(data.html);
+
+                        }
+                    }
+                });
+            })
+        })
+
+    </script>
+    <script>
+    $(function() {
+    $("body").on("keyup", ".search-youtube", function(e) {
+    $(".youtube-videos-list").show()
+
+    e.preventDefault();
+    // prepare the request
+    var request = gapi.client.youtube.search.list({
+    part: "snippet",
+    type: "video",
+    q: encodeURIComponent($(".search-youtube").val()).replace(/%20/g, "+"),
+    maxResults: 3,
+    order: "viewCount",
+    publishedAfter: "2015-01-01T00:00:00Z"
+    });
+    // execute the request
+    request.execute(function(response) {
+    var results = response.result;
+    $(".youtube-videos-list").empty();
+    $.each(results.items, function(index, item) {
+    $(".youtube-videos-list").append(youtubeHtml(item.id.videoId, item.snippet.thumbnails.default.url, item.snippet.title, item.snippet.description, item.snippet.channelTitle))
+    });
+    });
+    });
+
+    });
+
+
+    function youtubeHtml(id, imgUrl, title, description, author){
+    return `<div class="youtube-videos-list-item" id="${id}">
+        <div>
+            <img src="${imgUrl}" alt="${title}">
+            <h4 class="youtube-videos-list-item-title">${title}</h4>
+        </div>
+        <div>
+            <p>${description}</p>
+        </div>
+        <div>
+            <span>Posted by: ${author}</span>
+        </div>
+    </div>`
+    }
+
+
+    function init() {
+    gapi.client.setApiKey("AIzaSyCVyIau4tPD0XGRT6ANMUfhYzdv6G79SI0");
+    gapi.client.load("youtube", "v3", function() {
+    // yt api is ready
+    });
+    }
+
+    $("body").on("click", ".youtube-videos-list-item-title", function(){
+    let id = $(this).closest(".youtube-videos-list-item").attr("id")
+    console.log(id)
+    console.log($(this))
+    $("#youtube-video-key").val(id)
+    $(".search-youtube").val($(this).text())
+    $(".youtube-videos-list").hide()
+    $(".youtube-videos-list").empty();
+
+    })
+
+
+    </script>
+    <script src="{!!url('https://apis.google.com/js/client.js?onload=init')!!}"></script>
 @stop

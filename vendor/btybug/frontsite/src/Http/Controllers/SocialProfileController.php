@@ -69,10 +69,9 @@ class SocialProfileController extends Controller
 
     public function postSocialBugit(Request $request)
     {
-        dd($request->all());
         $data = $request->all();
         $user = \Auth::user()->socialProfile;
-        $html = View::make('manage::frontend.pages._partials.bug_render', compact(['data','user']))->render();
+        $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user']))->render();
 
         return \Response::json(['html' => $html, 'error' => false]);
     }

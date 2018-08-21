@@ -2,12 +2,12 @@
     <div class="daily">
      <span>
          <img src="/public/images/girl2.png" alt="">
-         <span style="margin-left: 20px">{!! $user->display_name !!}</span></span>
+         <span style="margin-left: 20px">{{$user->display_name}}</span></span>
         <div><span style="margin-right: 40px; letter-spacing: 1px"><i class="fas fa-calendar-alt"  style="padding-right: 10px"></i> Daily</span>
             <i class="fas fa-caret-down"></i></div>
     </div>
     <div class="pm">
-        <span>Yesterday At 06:17 PM</span>
+        <span>{{date("Y-m-d h:i:sa")}}</span>
         <i class="fas fa-thumbtack"></i>
     </div>
     <div class="text">
@@ -16,24 +16,28 @@
         </p>
     </div>
     <div class="button1 d-flex align-items-center">
-        <i class="fas fa-at"></i>
-        @if(isset($data['tags']))
-            @foreach($data as $item)
+        @if(isset($data['mention_friends']))
+            <i class="fas fa-at"></i>
+            @foreach($data['mention_friends'] as $item)
                 <button type="button" class="btn btn-primary">{{$item}}</button>
-                <button type="button" class="btn btn-primary">Jack Wilth</button>
-                <button type="button" class="btn btn-primary">Rania Dewell</button>
-                <button type="button" class="btn btn-primary">...</button>
             @endforeach
         @endif
     </div>
     <div class="button2 d-flex align-items-center">
-        <i class="fas fa-hashtag"></i>
-        <button type="button" class="btn btn-primary">Friendship</button>
-        <button type="button" class="btn btn-primary">Friends</button>
-        <button type="button" class="btn btn-primary">Love</button>
+        @if(isset($data['tags']))
+            <i class="fas fa-hashtag"></i>
+            @php
+                $tags = array();
+                $tags = explode(',',$data['tags'])
+            @endphp
+        @foreach($tags as $item)
+                <button type="button" class="btn btn-primary">{{$item}}</button>
+        @endforeach
+
+        @endif
     </div>
     <div class="img-friend">
-        <img src="/public/images/layer12.jpg" alt="">
+        <img src="{{issetReturn($data,'url','no url')}}" alt="image url">
     </div>
     <div class="container-fluid foot">
         <div class="row">
