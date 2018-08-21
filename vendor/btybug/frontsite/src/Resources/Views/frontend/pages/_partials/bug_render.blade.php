@@ -1,26 +1,29 @@
 <div class="all-content">
     <div class="daily">
      <span>
-         <img src="/public/images/girl2.png" alt="">
+         @if($user->site_image)
+            <img src="{!! url($user->site_image) !!}" alt="">
+         @else
+             <img src="/public/images/girl2.png" alt="">
+         @endif
+
          <span style="margin-left: 20px">{{$user->display_name}}</span></span>
         <div><span style="margin-right: 40px; letter-spacing: 1px"><i class="fas fa-calendar-alt"  style="padding-right: 10px"></i> Daily</span>
             <i class="fas fa-caret-down"></i></div>
     </div>
     <div class="pm">
-        <span>{{date("Y-m-d h:i:sa")}}</span>
+        <span>{{ BBgetDateFormat(date("Y-m-d h:i:sa")) }}</span>
         <i class="fas fa-thumbtack"></i>
     </div>
     <div class="text">
         <p>
-           {{ issetReturn($data,'bug','no message') }}
+           {{ issetReturn($data,'bugit','no message') }}
         </p>
     </div>
     <div class="button1 d-flex align-items-center">
         @if(isset($data['mention_friends']))
             <i class="fas fa-at"></i>
-            @foreach($data['mention_friends'] as $item)
-                <button type="button" class="btn btn-primary">{{$item}}</button>
-            @endforeach
+            <button type="button" class="btn btn-primary">{{$data['mention_friends']}}</button>
         @endif
     </div>
     <div class="button2 d-flex align-items-center">
@@ -37,7 +40,9 @@
         @endif
     </div>
     <div class="img-friend">
-        <img src="{{issetReturn($data,'url','no url')}}" alt="image url">
+        @if(isset($data['site_image']))
+            <img src="{!! url($data['site_image']) !!}" alt="image url">
+        @endif
     </div>
     <div class="container-fluid foot">
         <div class="row">
