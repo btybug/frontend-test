@@ -21,6 +21,8 @@
                     </ul>
                 </div>
             </div>
+            <input name="tagsss" type="text" class="form-control "
+                  id="autocomplete">
             <div class="col-md-10">
                 <div class="right-content">
                         <div class="bug-something">
@@ -278,7 +280,7 @@
                         </button>
                     </div>
                     <input name="tags" type="text" class="form-control tags_bug_custom"
-                           data-role="tagsinput">
+                           data-role="tagsinput" id="autocomplete">
 
                 </div>
             </div>
@@ -576,15 +578,12 @@
 
     })
 
-    $(function()
-    {
-        $( "#q" ).autocomplete({
-            source: "search/autocomplete",
-            minLength: 3,
-            select: function(event, ui) {
-                $('#q').val(ui.item.value);
-            }
-        });
+    $('#autocomplete').autocomplete({
+        source: "/search.php",
+        minLength: 2,
+        select: function( event, ui ) {
+            log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+        }
     });
 
     </script>
