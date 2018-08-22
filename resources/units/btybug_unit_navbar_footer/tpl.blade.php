@@ -227,7 +227,7 @@
                 <div class="user-footer">
                     <ul class="head row align-items-center">
                         @if(Auth::check())
-                            <li class="col-8"><span class="user-name">{{Auth::user()->f_name . '' .Auth::user()->l_name}}</span></li>
+                            <li class="col-8"><span class="user-name">{{Auth::user()->f_name . ' ' .Auth::user()->l_name}}</span></li>
                             <li class="log_out col-4"><a href="{{ url('logout')}}">Log out</a></li>
                         @else
 
