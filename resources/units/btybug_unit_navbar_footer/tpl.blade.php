@@ -166,32 +166,27 @@
                             <li class="active">
                                 <a href="{{route('mini_my_site_social')}}"
                                                   class="d-flex flex-column justify-content-center align-items-center">
-                                    <span><i class="fas fa-user"></i></span>
                                     <span class="name">Go to site</span>
                                 </a>
                             </li>
                             <li class="">
                                 <a href="{{url('my-site/social/pages')}}"
                                                   class="d-flex flex-column justify-content-center align-items-center">
-                                    <span><i class="fas fa-user"></i></span>
                                     <span class="name">Manage Page</span>
                                 </a>
                             </li> <li class="">
                                 <a href="#"
                                                   class="d-flex flex-column justify-content-center align-items-center">
-                                    <span><i class="fas fa-user"></i></span>
                                     <span class="name">Manage Header</span>
                                 </a>
                             </li> <li class="">
                                 <a href="#"
                                                   class="d-flex flex-column justify-content-center align-items-center">
-                                    <span><i class="fas fa-user"></i></span>
                                     <span class="name">Manage Profile</span>
                                 </a>
                             </li>
                             <li class="">
                                 <a href="#" class="d-flex flex-column justify-content-center align-items-center">
-                                    <span><i class="fas fa-user"></i></span>
                                     <span class="name">General Settings</span>
                                 </a>
                             </li>
