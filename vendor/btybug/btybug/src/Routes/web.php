@@ -103,6 +103,8 @@ Route::group(
         Route::post('account/general/password', '\Btybug\FrontSite\Http\Controllers\MyAccountController@postPassword')->middleware('auth')->name('front_page_account_general_password_post');
         Route::get('favorites', '\Btybug\FrontSite\Http\Controllers\MyAccountController@favorites')->middleware('auth')->name('front_page_favorites');
 
+        Route::get('bb/all-members', '\Btybug\FrontSite\Http\Controllers\BBController@allMembers')->middleware('auth')->name('front_page_bb_members');
+
         Route::group(
             ['prefix' => '/admin', 'middleware' => ['admin:Users', 'sessionTimout', 'system']],
             function () {
