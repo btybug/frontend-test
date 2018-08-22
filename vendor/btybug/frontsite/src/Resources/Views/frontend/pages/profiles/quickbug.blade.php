@@ -157,206 +157,7 @@
                                     <i class="far fa-smile"></i>
                                 </div>
                             </div>
-                            <div class="container-fluid">
-                                    <div data-group="hashtag" hidden class="form-group row align-items-center group-for-tags">
-                                        <div class="left-group pl-0">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend blue-cl">
-                                                    <button class="btn btn-outline-secondary"
-                                                            type="button">
-                                                        <i class="fas fa-hashtag"></i>
-                                                    </button>
-                                                </div>
-                                                <input name="tags" type="text" class="form-control tags_bug_custom"
-                                                        data-role="tagsinput">
-
-                                            </div>
-                                        </div>
-                                        <div class="right-group">
-                                            <a href="" class="del-icon"><i class="fas fa-times"></i></a>
-                                        </div>
-                                    </div>
-                                    <div data-group="at" hidden class="form-group row align-items-center">
-                                        <div class="left-group pl-0">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend red-cl">
-                                                    <button class="btn btn-outline-secondary"
-                                                            type="button">
-                                                        <i class="fas fa-at"></i>
-                                                    </button>
-
-                                                </div>
-                                                <input name="mention_friends" type="text" class="form-control" placeholder="Mention Friends">
-                                            </div>
-                                        </div>
-                                        <div class="right-group">
-                                            <a href="" class="del-icon"><i class="fas fa-times"></i></a>
-                                        </div>
-                                    </div>
-
-                                    <div data-group="sign" hidden class="form-group row align-items-center">
-                                        <div class="left-group pl-0">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend green-cl">
-                                                    <button class="btn btn-outline-secondary"
-                                                            type="button">
-                                                        <i class="fas fa-lira-sign"></i>
-                                                    </button>
-
-                                                </div>
-                                                <input name="greenfield" type="text" class="form-control" placeholder="With...">
-                                            </div>
-                                        </div>
-                                        <div class="right-group">
-                                            <a href="" class="del-icon"><i class="fas fa-times"></i></a>
-                                        </div>
-                                    </div>
-
-                                    <div data-group="youtube" hidden class="form-group row align-items-center">
-                                        <div class="left-group pl-0">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend red-cl">
-                                                    <button class="btn btn-outline-secondary dropdown-toggle"
-                                                            type="button" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false">
-                                                        <i class="fab fa-youtube"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-globe-asia icon-blue"></i>
-                                                            <span class="name">Item1</span>
-                                                        </a>
-                                                        <a class="dropdown-item active" href="#">
-                                                            <i class="fas fa-user-friends icon-green"></i>
-                                                            <span class="name">Item2</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-user-friends icon-purple"></i>
-                                                            <span class="name">Item3</span>
-                                                        </a>
-
-                                                        <a class="dropdown-item" href="#">
-                                                            <i class="fas fa-lock icon-red"></i>
-                                                            <span class="name">Item4</span>
-                                                        </a>
-                                                    </div>
-
-                                                </div>
-                                                <input type="search " name="youtube" class="form-control search-youtube" placeholder="Search Youtube">
-                                                <input type="hidden" id="youtube-video-key">
-                                            </div>
-                                        </div>
-                                        <div class="right-group">
-                                            <a href="" class="del-icon"><i class="fas fa-times"></i></a>
-                                        </div>
-                                        <div class="youtube-videos-list">
-
-                                        </div>
-                                    </div>
-
-                                    <div data-group="images" hidden class="form-group row align-items-center">
-                                        <div class="left-group pl-0">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend purple-cl">
-
-                                                    {!! BBmediaButton('site_image',null,['version'=>4,'html'=>'
-                                       <button class="btn btn-outline-secondary btnsettingsModal  media-modal-open h-100"
-                                                            type="button">
-                                                        <i class="far fa-images"></i>
-                                                    </button>']) !!}
-
-
-
-
-                                                </div>
-                                                <input name="url" type="text" class="form-control" placeholder="Url">
-                                            </div>
-                                        </div>
-                                        <div class="right-group">
-                                            <a href="" class="del-icon"><i class="fas fa-times"></i></a>
-                                        </div>
-                                    </div>
-
-                                    <div data-group="music" hidden class="form-group row align-items-center">
-                                        <div class="left-group pl-0">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend blue-cl">
-                                                    <button class="btn btn-outline-secondary"
-                                                            type="button">
-                                                        <i class="fas fa-music"></i>
-                                                    </button>
-
-                                                </div>
-                                                <input name="sound_cloude" type="text" class="form-control" placeholder="Sound cloude">
-                                            </div>
-                                        </div>
-                                        <div class="right-group">
-                                            <a href="" class="del-icon"><i class="fas fa-times"></i></a>
-                                        </div>
-                                    </div>
-
-                                    <div data-group="star" hidden class="form-group row align-items-center">
-                                        <div class="left-group pl-0">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend red-cl">
-                                                    <button class="btn btn-outline-secondary"
-                                                            type="button">
-                                                        <i class="far fa-star"></i>
-                                                    </button>
-
-                                                </div>
-                                                <input name="favorites" type="text" class="form-control" placeholder="Favorites">
-                                            </div>
-                                        </div>
-                                        <div class="right-group">
-                                            <a href="" class="del-icon"><i class="fas fa-times"></i></a>
-                                        </div>
-                                    </div>
-
-                                    <div data-group="location" hidden class="form-group row align-items-center">
-                                        <div class="left-group pl-0">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend blue-cl">
-                                                            <button class="btn btn-outline-secondary"
-                                                                    type="button">
-                                                                <i class="fas fa-map-marker-alt"></i>
-                                                            </button>
-
-                                                        </div>
-                                                        <input name="location" type="text" class="form-control" placeholder="Address">
-                                                        <div class="input-group-prepend blue-grad-cl">
-                                                            <button class="btn btn-outline-secondary"
-                                                                    type="button">
-                                                                <i class="fas fa-crosshairs"></i>
-                                                            </button>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <div class="d-flex justify-content-between">
-                                                        <div class="left-group">
-                                                            <div class="map-custom">
-                                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.72810776133!2d-0.24168051295924747!3d51.52877184056342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2z0JvQvtC90LTQvtC9LCDQktC10LvQuNC60L7QsdGA0LjRgtCw0L3QuNGP!5e0!3m2!1sru!2s!4v1534333971160"
-                                                                        width="100%" height="195" frameborder="0"
-                                                                        style="border:0" allowfullscreen></iframe>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="right-group">
-                                                            <a href="" class="del-icon"><i class="fas fa-times"></i></a>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="right-group">
-                                        </div>
-                                    </div>
+                            <div id="added_costom_template" class="container-fluid">
 
                             </div>
 
@@ -365,14 +166,17 @@
                             <div class="d-flex flex-wrap justify-content-between align-items-center">
                                 <div class="icons">
                                     <ul class="list-inline">
-                                        <li class="list-inline-item"><a href="" class="hashtag"><span class="blue-cl-icon"><i class="fas fa-hashtag"></i></span></a></li>
-                                        <li class="list-inline-item"><a href="" class="at"><span class="red-cl-icon"><i class="fas fa-at"></i></span></a></li>
-                                        <li class="list-inline-item"><a href="" class="sign"><span class="green-cl-icon"><i class="fas fa-lira-sign"></i></span></a></li>
-                                        <li class="list-inline-item"><a href="" class="youtube"><span class="orange-cl-icon"><i class="fab fa-youtube"></i></span></a></li>
-                                        <li class="list-inline-item"><a href="" class="images"><span class="purple-cl-icon"><i class="far fa-images"></i></span></a></li>
-                                        <li class="list-inline-item"><a href="" class="music"><span class="blue-cl-icon"><i class="fas fa-music"></i></span></a></li>
-                                        <li class="list-inline-item"><a href="" class="star"><span class="red-light-cl-icon"><i class="far fa-star"></i></span></a></li>
-                                        <li class="list-inline-item"><a href="" class="location"><span class="orange-cl-icon"><i class="fas fa-map-marker-alt"></i></span></a></li>
+                                        <li class="list-inline-item"><a href="" class="hashtag-link active"><span class="blue-cl-icon"><i class="fas fa-hashtag"></i></span></a></li>
+                                        <li class="list-inline-item"><a href="" class="at-link active"><span class="red-cl-icon"><i class="fas fa-at"></i></span></a></li>
+                                        <li class="list-inline-item"><a href="" class="sign-link active"><span class="green-cl-icon"><i class="fas fa-lira-sign"></i></span></a></li>
+                                        <li class="list-inline-item"><a href="" class="youtube-link active"><span class="orange-cl-icon"><i class="fab fa-youtube"></i></span></a></li>
+                                        <li class="list-inline-item"><a href="" class="images-link active"><span class="purple-cl-icon"><i class="far fa-images"></i></span></a></li>
+                                        <li class="list-inline-item"><a href="" class="music-link active"><span class="blue-cl-icon"><i class="fas fa-music"></i></span></a></li>
+                                        <li class="list-inline-item"><a href="" class="gif-link active"><span class="red-light-cl-icon">
+                                                    <img src="/public/images/gif-icon.png" alt="gif">
+                                                </span>
+                                            </a></li>
+                                        <li class="list-inline-item"><a href="" class="location-link active"><span class="blue-cl-icon"><i class="fas fa-map-marker-alt"></i></span></a></li>
                                     </ul>
                                 </div>
                                 <div class="right-col d-flex">
@@ -442,6 +246,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
             </div>
 
         </div>
@@ -460,6 +267,228 @@
 @stop
 @section('js')
     <script src="{!!url('public/libs/tagsinput/bootstrap-tagsinput.min.js')!!}"></script>
+    <script id="hidden-template-hashtag" type="text/x-custom-template">
+        <div data-group="hashtag" class="form-group row align-items-center group-for-tags">
+            <div class="left-group pl-0">
+                <div class="input-group">
+                    <div class="input-group-prepend blue_gradient-cl">
+                        <button class="btn btn-outline-secondary"
+                                type="button">
+                            <i class="fas fa-hashtag"></i>
+                        </button>
+                    </div>
+                    <input name="tags" type="text" class="form-control tags_bug_custom"
+                           data-role="tagsinput">
+
+                </div>
+            </div>
+            <div class="right-group">
+                <a href="" class="del-icon" data-delgroup="del-hashtag"><i class="fas fa-times"></i></a>
+            </div>
+        </div>
+    </script>
+    <script id="hidden-template-at" type="text/x-custom-template">
+        <div data-group="at" class="form-group row align-items-center">
+            <div class="left-group pl-0">
+                <div class="input-group">
+                    <div class="input-group-prepend red_gradient-cl">
+                        <button class="btn btn-outline-secondary"
+                                type="button">
+                            <i class="fas fa-at"></i>
+                        </button>
+
+                    </div>
+                    <input name="mention_friends" type="text" class="form-control" placeholder="Mention Friends">
+                </div>
+            </div>
+            <div class="right-group">
+                <a href="" class="del-icon" data-delgroup="del-at"><i class="fas fa-times"></i></a>
+            </div>
+        </div>
+    </script>
+    <script id="hidden-template-sign" type="text/x-custom-template">
+        <div data-group="sign" class="form-group row align-items-center">
+            <div class="left-group pl-0">
+                <div class="input-group">
+                    <div class="input-group-prepend green_gradient-cl">
+                        <button class="btn btn-outline-secondary"
+                                type="button">
+                            <i class="fas fa-lira-sign"></i>
+                        </button>
+
+                    </div>
+                    <input name="greenfield" type="text" class="form-control" placeholder="With...">
+                </div>
+            </div>
+            <div class="right-group">
+                <a href="" class="del-icon" data-delgroup="del-sign"><i class="fas fa-times"></i></a>
+            </div>
+        </div>
+    </script>
+    <script id="hidden-template-youtube" type="text/x-custom-template">
+        <div data-group="youtube" class="form-group row align-items-center">
+            <div class="left-group pl-0">
+                <div class="input-group">
+                    <div class="input-group-prepend red-cl">
+                        <button class="btn btn-outline-secondary dropdown-toggle"
+                                type="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            <i class="fab fa-youtube"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-globe-asia icon-blue"></i>
+                                <span class="name">Item1</span>
+                            </a>
+                            <a class="dropdown-item active" href="#">
+                                <i class="fas fa-user-friends icon-green"></i>
+                                <span class="name">Item2</span>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user-friends icon-purple"></i>
+                                <span class="name">Item3</span>
+                            </a>
+
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-lock icon-red"></i>
+                                <span class="name">Item4</span>
+                            </a>
+                        </div>
+
+                    </div>
+                    <input type="search " name="youtube" class="form-control search-youtube" placeholder="Search Youtube">
+                    <input type="hidden" id="youtube-video-key">
+                </div>
+            </div>
+            <div class="right-group">
+                <a href="" class="del-icon" data-delgroup="del-youtube"><i class="fas fa-times"></i></a>
+            </div>
+            <div class="youtube-videos-list">
+
+            </div>
+        </div>
+    </script>
+    <script id="hidden-template-images" type="text/x-custom-template">
+        <div data-group="images" class="form-group row align-items-center">
+            <div class="left-group pl-0">
+                <div class="input-group">
+                    <div class="input-group-prepend purple_gradient-cl">
+                        <button class="btn btn-outline-secondary"
+                                type="button">
+                            <i class="far fa-images"></i>
+                        </button>
+                    </div>
+                    <div class="btn-upload_img">
+                        {!! BBmediaButton('site_image',null,['version'=>4,'html'=>'
+            <button class="btn btn-link btnsettingsModal  media-modal-open h-100"
+                                 type="button">
+                             <i class="fas fa-plus"></i>
+                             Upload Media
+                         </button>']) !!}
+
+                    </div>
+                    <ul class="list-inline list-upload_img">
+                        <li class="list-inline-item">
+                            <img src="/public/images/girl2.png" alt="">
+                            <span class="del"><i class="fas fa-times"></i></span>
+                        </li>
+                        <li class="list-inline-item">
+                            <img src="/public/images/girl2.png" alt="">
+                            <span class="del"><i class="fas fa-times"></i></span>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="right-group">
+                <a href="" class="del-icon" data-delgroup="del-images"><i class="fas fa-times"></i></a>
+            </div>
+        </div>
+    </script>
+    <script id="hidden-template-music" type="text/x-custom-template">
+        <div data-group="music" class="form-group row align-items-center">
+            <div class="left-group pl-0">
+                <div class="input-group">
+                    <div class="input-group-prepend blue_gradient-cl">
+                        <button class="btn btn-outline-secondary"
+                                type="button">
+                            <i class="fas fa-music"></i>
+                        </button>
+
+                    </div>
+                    <input name="sound_cloude" type="text" class="form-control" placeholder="Sound cloude">
+                </div>
+            </div>
+            <div class="right-group">
+                <a href="" class="del-icon" data-delgroup="del-music"><i class="fas fa-times"></i></a>
+            </div>
+        </div>
+    </script>
+    <script id="hidden-template-gif" type="text/x-custom-template">
+        <div data-group="gif" class="form-group row align-items-center">
+            <div class="left-group pl-0">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary"
+                                type="button">
+                            <img src="/public/images/gif-icon.png" alt="gif">
+                        </button>
+
+                    </div>
+                    <input name="favorites" type="text" class="form-control" placeholder="Gif">
+                </div>
+            </div>
+            <div class="right-group">
+                <a href="" class="del-icon" data-delgroup="del-star"><i class="fas fa-times"></i></a>
+            </div>
+        </div>
+    </script>
+    <script id="hidden-template-location" type="text/x-custom-template">
+        <div data-group="location" class="form-group row align-items-center">
+            <div class="left-group pl-0">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend blue_gradient-cl">
+                                <button class="btn btn-outline-secondary"
+                                        type="button">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </button>
+
+                            </div>
+                            <input name="location" type="text" class="form-control" placeholder="Address">
+                            <div class="input-group-prepend blue-grad-cl">
+                                <button class="btn btn-outline-secondary"
+                                        type="button">
+                                    <i class="fas fa-crosshairs"></i>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex justify-content-between">
+                            <div class="left-group">
+                                <div class="map-custom">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.72810776133!2d-0.24168051295924747!3d51.52877184056342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2z0JvQvtC90LTQvtC9LCDQktC10LvQuNC60L7QsdGA0LjRgtCw0L3QuNGP!5e0!3m2!1sru!2s!4v1534333971160"
+                                            width="100%" height="195" frameborder="0"
+                                            style="border:0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+                            <div class="right-group">
+                                <a href="" class="del-icon" data-delgroup="del-location"><i class="fas fa-times"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="right-group">
+            </div>
+        </div>
+    </script>
     <script>
         $(document).ready(function () {
             $('.bugit').on('click',function (e) {

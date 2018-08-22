@@ -1,27 +1,98 @@
 $(document).ready(function() {
   //   $("#displaytags").tagsinput("items");
+    var templateHashtag,templateAt,templateSign,templateYoutube,templateImages,templateMusic,templateGif,templateLocation;
+    templateHashtag = $('#hidden-template-hashtag').html();
+    templateAt = $('#hidden-template-at').html();
+    templateSign = $('#hidden-template-sign').html();
+    templateYoutube = $('#hidden-template-youtube').html();
+    templateImages = $('#hidden-template-images').html();
+    templateMusic = $('#hidden-template-music').html();
+    templateGif = $('#hidden-template-gif').html();
+    templateLocation = $('#hidden-template-location').html();
 
-  $("body").on("click", ".quick_bug .main-bug .bottom .icons ul", function(e) {
+    $("body").on("click", ".quick_bug .main-bug .bottom .icons ul", templateAdded );
+function templateAdded(e) {
     e.preventDefault();
-    $(".quick_bug .main-content .form-group").each(function() {
-      if (
-        e.target.closest("a").className == $(this).data("group") &&
-        $(this).is(":hidden")
-      ) {
-        // console.log(this);
-        $(this).removeAttr("hidden");
-      }
-    });
-  });
+    var targetLink = e.target.closest("a");
+    var targetClass = targetLink.className;
+    var added_costom_template = $('#added_costom_template');
+    switch (targetClass) {
+        case 'hashtag-link active':
+            $(added_costom_template).append(templateHashtag);
+            targetLink.classList.remove('active');
+            break;
+        case 'at-link active':
+            $(added_costom_template).append(templateAt);
+            targetLink.classList.remove('active');
+            break;
+        case 'sign-link active':
+            $(added_costom_template).append(templateSign);
+            targetLink.classList.remove('active');
+            break;
+        case 'youtube-link active':
+            $(added_costom_template).append(templateYoutube);
+            targetLink.classList.remove('active');
+            break;
+        case 'images-link active':
+            $(added_costom_template).append(templateImages);
+            targetLink.classList.remove('active');
+            break;
+        case 'music-link active':
+            $(added_costom_template).append(templateMusic);
+            targetLink.classList.remove('active');
+            break;
+        case 'gif-link active':
+            $(added_costom_template).append(templateGif);
+            targetLink.classList.remove('active');
+            break;
+        case 'location-link active':
+            $(added_costom_template).append(templateLocation);
+            targetLink.classList.remove('active');
+            break;
+        default:
+            return;
+    }
+
+}
+
   $("body").on(
     "click",
     ".quick_bug .main-bug .main-content .form-group .del-icon",
     function(e) {
       e.preventDefault();
-      // console.log($(this).closest('.form-group')[0]);
+var classDel = $(this).data('delgroup');
+        switch (classDel) {
+            case 'del-hashtag':
+                $('body').find('.hashtag-link')[0].classList.add('active');
+                break;
+            case 'del-at':
+                $('body').find('.at-link')[0].classList.add('active');
+                break;
+            case 'del-sign':
+                $('body').find('.sign-link')[0].classList.add('active');
+                break;
+            case 'del-youtube':
+                $('body').find('.youtube-link')[0].classList.add('active');
+                break;
+            case 'del-images':
+                $('body').find('.images-link')[0].classList.add('active');
+                break;
+            case 'del-music':
+                $('body').find('.music-link')[0].classList.add('active');
+                break;
+            case 'del-star':
+                $('body').find('.gif-link')[0].classList.add('active');
+                break;
+            case 'del-location':
+                $('body').find('.location-link')[0].classList.add('active');
+                break;
+            default:
+                return;
+        }
+
       $(this)
         .closest(".form-group")[0]
-        .setAttribute("hidden", "hidden");
+        .remove();
     }
   );
   $(window).scroll(function() {

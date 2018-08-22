@@ -1409,6 +1409,7 @@ ul.wysihtml5-toolbar div[data-wysihtml5-command-value="orange"] {
 .profile-sticky .sticky-user .dropdown-menu .dropdown-item i {
   margin-right: 15px;
 }
+/*quick bug*/
 .quick_bug a {
   text-decoration: none;
   -webkit-transition: 0.5s ease;
@@ -1416,6 +1417,77 @@ ul.wysihtml5-toolbar div[data-wysihtml5-command-value="orange"] {
   -ms-transition: 0.5s ease;
   -o-transition: 0.5s ease;
   transition: 0.5s ease;
+}
+.blue_gradient-cl{
+  background: rgb(58,95,163);
+  background: -moz-linear-gradient(45deg, rgba(58,95,163,1) 0%, rgba(48,169,187,1) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(58,95,163,1) 0%,rgba(48,169,187,1) 100%);
+  background: linear-gradient(45deg, rgba(58,95,163,1) 0%,rgba(48,169,187,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a5fa3', endColorstr='#30a9bb',GradientType=1 );
+}
+.green_gradient-cl{
+  background: rgb(68,176,116);
+  background: -moz-linear-gradient(45deg, rgba(68,176,116,1) 0%, rgba(147,205,94,1) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(68,176,116,1) 0%,rgba(147,205,94,1) 100%);
+  background: linear-gradient(45deg, rgba(68,176,116,1) 0%,rgba(147,205,94,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#44b074', endColorstr='#93cd5e',GradientType=1 );
+}
+.red_gradient-cl{
+  background: rgb(198,57,59);
+  background: -moz-linear-gradient(45deg, rgba(198,57,59,1) 0%, rgba(221,116,58,1) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(198,57,59,1) 0%,rgba(221,116,58,1) 100%);
+  background: linear-gradient(45deg, rgba(198,57,59,1) 0%,rgba(221,116,58,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c6393b', endColorstr='#dd743a',GradientType=1 );
+}
+.purple_gradient-cl{
+  background: rgb(119,85,195);
+  background: -moz-linear-gradient(left, rgba(119,85,195,1) 0%, rgba(174,91,167,1) 100%);
+  background: -webkit-linear-gradient(left, rgba(119,85,195,1) 0%,rgba(174,91,167,1) 100%);
+  background: linear-gradient(to right, rgba(119,85,195,1) 0%,rgba(174,91,167,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7755c3', endColorstr='#ae5ba7',GradientType=1 );
+}
+.quick_bug .btn-upload_img{
+  height: 55px;
+}
+.quick_bug .btn-upload_img #media-main-box{
+  height: 100%;
+  margin-left: 13px;
+}
+.quick_bug .btn-upload_img .btnsettingsModal{
+  color: rgba(40, 40, 40, 0.81);
+  font-size: 20px;
+  border-radius: 0;
+  text-decoration: none;
+  border: 1px solid #d5d5d5;
+  background-color: #ffffff;
+  padding-right: 40px;
+}
+.quick_bug .btn-upload_img .btnsettingsModal i{
+  color:#d1573a ;
+  font-size: 26px;
+}
+.quick_bug .list-upload_img{
+  margin-left: 15px;
+}
+.quick_bug .list-upload_img li{
+position: relative;
+  height: 100%;
+}
+.quick_bug .list-upload_img li img{
+  width: 50px;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid #d5d5d5;
+}
+.quick_bug .list-upload_img li .del{
+position: absolute;
+  top: 0;
+  right: 0;
+  color: red;
+  cursor: pointer;
+}
+.quick_bug .gif-link img{
+  vertical-align: unset;
 }
 .quick_bug ul {
   list-style: none;
