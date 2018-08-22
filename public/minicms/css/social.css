@@ -12,6 +12,9 @@
     margin: 0;
     padding: 0;
 }
+.site-manage-content {
+    padding-bottom: 105px;
+}
 .site-manage-content .content-pages {
     padding-top: 25px;
 

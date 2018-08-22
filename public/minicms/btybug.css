@@ -2110,3 +2110,16 @@ div.bug-something .link-bug-something button span {
 .site-image{
   cursor: pointer;
 }
+/*Travel Form*/
+#bugModalTravel .modal-lg{
+  max-width: 1200px;
+}
+.travel_bug_form .travel_loc_from,.travel_bug_form .travel_loc_to{
+color: #4f4f4f;
+  font-size: 20px;
+  margin-right:20px;
+  margin-top: 12px;
+}
+.travel_bug_form .happy .icon i{
+  margin: 0;
+}
