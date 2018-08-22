@@ -97,17 +97,18 @@ class Generator
 
     public function make($name)
     {
-        return updateOrCreateUser($name->username);
+        updateOrCreateUser($name->username);
         $this->name = $name->username;
         $this->user_id = $name->id;
         $this->user = $name;
         $this->root = $this->root . DS . $this->name;
-        \File::makeDirectory($this->root);
+//        \File::makeDirectory($this->root);
         $this->makeSocialProfile();
-        $this->rekursiveMakeCms($this->tree, $this->root);
+//        $this->rekursiveMakeCms($this->tree, $this->root);
         $this->makePages();
         $this->makeLayouts();
         $this->makeUnits();
+
     }
 
     public function makeSocialProfile()
