@@ -74,10 +74,8 @@ class SocialProfileController extends Controller
     public function postSocialBugit(Request $request)
     {
         $data = $request->all();
-        if(count($data['tags']))
-        {
-            $this->tagsService->tagsSave($data['tags']);
-        }
+        $this->tagsService->tagsSave($request->get('tags',null));
+
         $user = \Auth::user()->socialProfile;
         $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user']))->render();
 
