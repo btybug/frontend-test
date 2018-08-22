@@ -13,44 +13,46 @@ $(document).ready(function() {
     $("body").on("click", ".quick_bug .main-bug .bottom .icons ul", templateAdded );
 function templateAdded(e) {
     e.preventDefault();
-    var targetLink = e.target.closest("a");
-    var targetClass = targetLink.className;
-    var added_costom_template = $('#added_costom_template');
-    switch (targetClass) {
-        case 'hashtag-link active':
-            $(added_costom_template).append(templateHashtag);
-            targetLink.classList.remove('active');
-            break;
-        case 'at-link active':
-            $(added_costom_template).append(templateAt);
-            targetLink.classList.remove('active');
-            break;
-        case 'sign-link active':
-            $(added_costom_template).append(templateSign);
-            targetLink.classList.remove('active');
-            break;
-        case 'youtube-link active':
-            $(added_costom_template).append(templateYoutube);
-            targetLink.classList.remove('active');
-            break;
-        case 'images-link active':
-            $(added_costom_template).append(templateImages);
-            targetLink.classList.remove('active');
-            break;
-        case 'music-link active':
-            $(added_costom_template).append(templateMusic);
-            targetLink.classList.remove('active');
-            break;
-        case 'gif-link active':
-            $(added_costom_template).append(templateGif);
-            targetLink.classList.remove('active');
-            break;
-        case 'location-link active':
-            $(added_costom_template).append(templateLocation);
-            targetLink.classList.remove('active');
-            break;
-        default:
-            return;
+    if(!$(e.target).hasClass("list-inline")){
+        var targetLink = e.target.closest("a");
+        var targetClass = targetLink.className;
+        var added_costom_template = $('#added_costom_template');
+        switch (targetClass) {
+            case 'hashtag-link active':
+                $(added_costom_template).append(templateHashtag);
+                targetLink.classList.remove('active');
+                break;
+            case 'at-link active':
+                $(added_costom_template).append(templateAt);
+                targetLink.classList.remove('active');
+                break;
+            case 'sign-link active':
+                $(added_costom_template).append(templateSign);
+                targetLink.classList.remove('active');
+                break;
+            case 'youtube-link active':
+                $(added_costom_template).append(templateYoutube);
+                targetLink.classList.remove('active');
+                break;
+            case 'images-link active':
+                $(added_costom_template).append(templateImages);
+                targetLink.classList.remove('active');
+                break;
+            case 'music-link active':
+                $(added_costom_template).append(templateMusic);
+                targetLink.classList.remove('active');
+                break;
+            case 'gif-link active':
+                $(added_costom_template).append(templateGif);
+                targetLink.classList.remove('active');
+                break;
+            case 'location-link active':
+                $(added_costom_template).append(templateLocation);
+                targetLink.classList.remove('active');
+                break;
+            default:
+                return;
+        }
     }
 
 }
