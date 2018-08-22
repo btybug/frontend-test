@@ -16,6 +16,7 @@ use Btybug\Mini\Model\MiniSuperPainter;
 use Btybug\Mini\Services\UnitService;
 use Btybug\Uploads\Repository\FormBuilderRepository;
 use Btybug\User\Repository\MembershipRepository;
+use Btybug\User\User;
 use Illuminate\Http\Request;
 use Btybug\Uploads\Repository\UnitsRepository;
 use Btybug\Uploads\Services\AppsService;
@@ -51,7 +52,7 @@ class AdminController extends Controller
         $this->tagsRepository = $tagsRepository;
         $this->membershipRepository = $membershipRepository;
         $this->formbuilderRepository = $formbuilderRepository;
-        $this->settings=$settings;
+        $this->settings = $settings;
         $this->unitsRepositorie = $unitsRepository;
     }
 
@@ -68,8 +69,9 @@ class AdminController extends Controller
         $forms = $this->formbuilderRepository->findAllByMultiple($settingForm);
         $selectedForm = Settings::where('section', 'minicms')->where('settingkey', 'default_user_form_id')->first();
         $selectedForm2 = Settings::where('section', 'minicms')->where('settingkey', 'user_details_form_id')->first();
-        return view('multisite::admin.settings', compact('header', 'layout','forms','selectedForm','selectedForm2'));
+        return view('multisite::admin.settings', compact('header', 'layout', 'forms', 'selectedForm', 'selectedForm2'));
     }
+
     public function generalSave(Request $request)
     {
         $header = $request->get('header');
@@ -80,6 +82,16 @@ class AdminController extends Controller
         $this->settings->createOrUpdate($layout, 'minicms', 'default_layout');
         $this->settings->createOrUpdate($user_form, 'minicms', 'default_user_form_id');
         $this->settings->createOrUpdate($user_details_form, 'minicms', 'user_details_form_id');
+        return redirect()->back();
+    }
+
+    public function update()
+    {
+        $users=User::where('role_id',0)->where('username','!=','abo2')->select('username')->get();
+        foreach ($users as $user){
+            $slug=$user->username;
+            updateOrCreateUser($slug);
+        }
         return redirect()->back();
     }
 
@@ -94,13 +106,14 @@ class AdminController extends Controller
         File::deleteDirectory($path);
         return redirect()->route('mini_admin_assets_units');
     }
+
     public function assetsUnits(Request $request, $slug = null)
     {
         $units = $this->painter->where('self_type', 'units')->get();
         $model = $this->unitService->getUnit($units, $slug) ?? null;
-        if ($model){
+        if ($model) {
             $tags = $model->tags;
-        }else{
+        } else {
             $tags = null;
         }
         $memberships = $this->membershipRepository->pluck('name', 'slug')->toArray();
@@ -111,14 +124,14 @@ class AdminController extends Controller
 
     public function postAssetsUnitsSettings(Request $request, $slug)
     {
-        $published = $request->get('published')?? null;
+        $published = $request->get('published') ?? null;
         $tags = ($request->get('tags')) ? explode(',', $request->get('tags')) : [];
 
         $memberships = $request->membership ? $request->membership : null;
 
-            foreach ($tags as $tag) {
-                $this->tagsRepository->create(['name' => $tag, 'type' => 'minicms']);
-            }
+        foreach ($tags as $tag) {
+            $this->tagsRepository->create(['name' => $tag, 'type' => 'minicms']);
+        }
         $unit = $this->painter->find($slug);
 
         $unit->setAttributes('tags', $tags)->setAttributes('memberships', $memberships)->setAttributes('status', $published)->edit();
@@ -137,12 +150,13 @@ class AdminController extends Controller
 
     public function formPublish($id)
     {
-        $this->formbuilderRepository->find($id)->update(['is_published'=>1]);
+        $this->formbuilderRepository->find($id)->update(['is_published' => 1]);
         return redirect()->back();
     }
+
     public function formUnPublish($id)
     {
-        $this->formbuilderRepository->find($id)->update(['is_published'=>0]);
+        $this->formbuilderRepository->find($id)->update(['is_published' => 0]);
         return redirect()->back();
     }
 
@@ -244,22 +258,23 @@ class AdminController extends Controller
         $compearable = ['is_clone' => $id];
         $clonable = $this->formbuilderRepository->findOrFail($id);
         $isClone = $this->formbuilderRepository->findOneByMultiple($compearable);
-        if (!$isClone){
+        if (!$isClone) {
             $arraydata = array();
             $clonable = json_encode($clonable);
             $clonable = json_decode($clonable);
-            foreach ($clonable as $key => $val){
+            foreach ($clonable as $key => $val) {
                 $arraydata[$key] = $val;
             }
             $arraydata['is_clone'] = $id;
             $created = $this->formbuilderRepository->create($arraydata);
-            return back()->with('message','The clone has been created');
-        }else{
-            return back()->with('message','The clone of this form allready exist');
+            return back()->with('message', 'The clone has been created');
+        } else {
+            return back()->with('message', 'The clone of this form allready exist');
         }
     }
 
-    public  function resultInput($id = null){
-            return view('multisite::admin.assets.inputresults');
+    public function resultInput($id = null)
+    {
+        return view('multisite::admin.assets.inputresults');
     }
 }

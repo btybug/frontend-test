@@ -2842,3 +2842,12 @@ function BBAddTab($section, array $tab)
     };
 
 }
+function updateOrCreateUser($slug){
+    \File::copyDirectory(app_path('multisite'.DS.'abo2'),app_path('multisite'.DS.$slug));
+    $files=\File::allFiles(app_path('multisite'.DS.$slug.DS));
+    foreach ($files as $file){
+        if(!\File::isDirectory($file)){
+            \File::put($file,str_replace('abo2',$slug,\File::get($file)),true);
+        }
+    }
+}

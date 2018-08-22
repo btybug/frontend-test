@@ -43,7 +43,7 @@ class ModuleServiceProvider extends ServiceProvider
                 ]
             ]
         ]);
-         \Btybug\btybug\Models\Routes::registerPages('btybug/media');
+//         \Btybug\btybug\Models\Routes::registerPages('btybug/media');
     }
 
     /**

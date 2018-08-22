@@ -97,7 +97,7 @@ class Generator
 
     public function make($name)
     {
-
+        return updateOrCreateUser($name->username);
         $this->name = $name->username;
         $this->user_id = $name->id;
         $this->user = $name;

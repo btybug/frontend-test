@@ -80,6 +80,7 @@ Route::group(['prefix' => 'users'], function () {
 Route::group(['prefix' => 'settings'], function () {
     Route::get('/', 'AdminController@getSettings', true)->name('mini_admin_settings');
     Route::post('/', 'AdminController@generalSave');
+    Route::post('/update', 'AdminController@update')->name('mini_cms_update');
 });
 
 
