@@ -27,7 +27,7 @@
                                 </div>
                             </div>
                         </div>
-                        <h3 class="name" itemprop="name">{!! $user->socialProfile->display_name !!}</h3>
+                        <h3 class="name" itemprop="name">{!! $user->socialProfile->display_name or $user->username !!}</h3>
                         <div class="job-title">{!! $user->socialProfile->proffesion or 'no Profession' !!}</div>
                         <div class="description">
                             <p>Cum sociis natoque penatibus et
