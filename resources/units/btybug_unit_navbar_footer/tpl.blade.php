@@ -137,6 +137,7 @@
                         </a>
                     </div>
                 </div>
+                
                 @if(Auth::check())
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="social" role="tabpanel" aria-labelledby="social-tab">
