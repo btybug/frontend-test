@@ -11,6 +11,7 @@ use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\User\Http\Requests\User\ChangePassword;
 use Btybug\User\Repository\UserRepository;
 use Btybug\FrontSite\Services\TagsService;
+use Btybug\FrontSite\Models\Tag;
 use View;
 use Illuminate\Http\Request;
 
@@ -80,5 +81,26 @@ class SocialProfileController extends Controller
 
         return \Response::json(['html' => $html, 'error' => false]);
     }
+
+    public function tagsAutocompleate(Request $request)
+    {
+        $data = $request->all();
+        $issetTag = Tag::where('type','=', 'minicms')
+            ->where('name', 'like', '%'.$data['term'].'%')->take(5)->get();
+        if ($issetTag)
+        {
+            $results = array();
+            foreach ($issetTag as $query)
+            {
+                $results[] = ['name' => $query->name];
+            }
+        dd($results);
+            return \Response::json(json_encode($results));
+        }else{
+            return \Response::json(['error' => true]);
+        }
+
+    }
+
 
 }
