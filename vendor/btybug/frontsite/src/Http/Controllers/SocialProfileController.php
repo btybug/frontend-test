@@ -75,7 +75,6 @@ class SocialProfileController extends Controller
     {
         $data = $request->all();
         $this->tagsService->tagsSave($request->get('tags',null));
-
         $user = \Auth::user()->socialProfile;
         $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user']))->render();
 
