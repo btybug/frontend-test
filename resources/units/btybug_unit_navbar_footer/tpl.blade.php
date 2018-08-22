@@ -138,93 +138,98 @@
                     </div>
                 </div>
                 @if(Auth::check())
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="social" role="tabpanel" aria-labelledby="social-tab">
-                        <ul class="d-flex flex-wrap top-ul">
-                            <li class="active">
-                                <a href="javascript:void(0)"
-                                                  class="d-flex flex-column justify-content-center align-items-center">
-                                    <span><i class="fas fa-user"></i></span>
-                                    <span class="name">Social</span>
-                                </a>
-                            </li>
-                            {{--<li>--}}
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="social" role="tabpanel" aria-labelledby="social-tab">
+                            <ul class="d-flex flex-wrap top-ul">
+                                <li class="active">
+                                    <a href="javascript:void(0)"
+                                       class="d-flex flex-column justify-content-center align-items-center">
+                                        <span><i class="fas fa-user"></i></span>
+                                        <span class="name">Social</span>
+                                    </a>
+                                </li>
+                                {{--<li>--}}
                                 {{--<a href="#"--}}
-                                   {{--class="d-flex flex-column justify-content-center align-items-center"><span--}}
-                                            {{--class="name">More sites</span></a></li>--}}
-                        </ul>
-                        <div class="site-name-manage mt-4">
-                            <div class="site-name">
-                                <span>{!! Auth::user()->username !!}</span>
-                            </div>
-                            {{--<div class="button-manage mt-2">--}}
+                                {{--class="d-flex flex-column justify-content-center align-items-center"><span--}}
+                                {{--class="name">More sites</span></a></li>--}}
+                            </ul>
+                            <div class="site-name-manage mt-4">
+                                <div class="site-name">
+                                    <span>{!! Auth::user()->username !!}</span>
+                                </div>
+                                {{--<div class="button-manage mt-2">--}}
                                 {{--<button class="btn btn-info btn-lg">Manage</button>--}}
-                            {{--</div>--}}
+                                {{--</div>--}}
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show active" id="social" role="tabpanel" aria-labelledby="social-tab">
+                            <ul class="d-flex flex-wrap top-ul">
+                                <li class="active">
+                                    <a href="{{route('mini_my_site_social')}}"
+                                       class="d-flex flex-column justify-content-center align-items-center">
+                                        <span class="name">Go to site</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="{{url('my-site/social/pages')}}"
+                                       class="d-flex flex-column justify-content-center align-items-center">
+                                        <span class="name">Manage Page</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="#"
+                                       class="d-flex flex-column justify-content-center align-items-center">
+                                        <span class="name">Manage Header</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="#"
+                                       class="d-flex flex-column justify-content-center align-items-center">
+                                        <span class="name">Manage Profile</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="#" class="d-flex flex-column justify-content-center align-items-center">
+                                        <span class="name">General Settings</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">2</div>
+                        <div class="tab-pane fade" id="business3" role="tabpanel" aria-labelledby="business3-tab">
+                            <ul class="d-flex flex-wrap ">
+                                <li class=""><a href="{!! route('mini_account_forms') !!}"
+                                                class="d-flex flex-column justify-content-center align-items-center">
+                                        <span><i class="fa fa-align-left"></i></span>
+                                        <span class="name">Forms</span>
+                                    </a>
+                                </li>
+                                <li class="active"><a href="{!! route('mini_extra_gears') !!}"
+                                                      class="d-flex flex-column justify-content-center align-items-center">
+                                        <span><i class="fa fa-columns"></i></span>
+                                        <span class="name">Gear</span>
+                                    </a>
+                                </li>
+                                <li class="active"><a href="{!! route('mini_extra_plugins') !!}"
+                                                      class="d-flex flex-column justify-content-center align-items-center">
+                                        <span><i class="fa fa-plug"></i></span>
+                                        <span class="name">Plugins</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="business4" role="tabpanel" aria-labelledby="business4-tab">4
                         </div>
                     </div>
-                    <div class="tab-pane fade show active" id="social" role="tabpanel" aria-labelledby="social-tab">
-                        <ul class="d-flex flex-wrap top-ul">
-                            <li class="active">
-                                <a href="{{route('mini_my_site_social')}}"
-                                                  class="d-flex flex-column justify-content-center align-items-center">
-                                    <span class="name">Go to site</span>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="{{url('my-site/social/pages')}}"
-                                                  class="d-flex flex-column justify-content-center align-items-center">
-                                    <span class="name">Manage Page</span>
-                                </a>
-                            </li> <li class="">
-                                <a href="#"
-                                                  class="d-flex flex-column justify-content-center align-items-center">
-                                    <span class="name">Manage Header</span>
-                                </a>
-                            </li> <li class="">
-                                <a href="#"
-                                                  class="d-flex flex-column justify-content-center align-items-center">
-                                    <span class="name">Manage Profile</span>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#" class="d-flex flex-column justify-content-center align-items-center">
-                                    <span class="name">General Settings</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">2</div>
-                    <div class="tab-pane fade" id="business3" role="tabpanel" aria-labelledby="business3-tab">
-                        <ul class="d-flex flex-wrap ">
-                            <li class=""><a href="{!! route('mini_account_forms') !!}"
-                                                  class="d-flex flex-column justify-content-center align-items-center">
-                                    <span><i class="fa fa-align-left"></i></span>
-                                    <span class="name">Forms</span>
-                                </a>
-                            </li>
-                            <li class="active"><a href="{!! route('mini_extra_gears') !!}"
-                                                  class="d-flex flex-column justify-content-center align-items-center">
-                                    <span><i class="fa fa-columns"></i></span>
-                                    <span class="name">Gear</span>
-                                </a>
-                            </li>
-                            <li class="active"><a href="{!! route('mini_extra_plugins') !!}"
-                                                  class="d-flex flex-column justify-content-center align-items-center">
-                                    <span><i class="fa fa-plug"></i></span>
-                                    <span class="name">Plugins</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade" id="business4" role="tabpanel" aria-labelledby="business4-tab">4</div>
-                </div>
-                    @endif
+                @endif
             </div>
             <div class="col-md-12 col-lg-3 pl-0 order-1 order-md-1">
                 <div class="user-footer">
                     <ul class="head row align-items-center">
                         @if(Auth::check())
-                            <li class="col-8"><span class="user-name">{{Auth::user()->f_name . ' ' .Auth::user()->l_name}}</span></li>
+                            <li class="col-8"><span
+                                        class="user-name">{{Auth::user()->f_name . ' ' .Auth::user()->l_name}}</span>
+                            </li>
                             <li class="log_out col-4"><a href="{{ url('logout')}}">Log out</a></li>
                         @else
 
