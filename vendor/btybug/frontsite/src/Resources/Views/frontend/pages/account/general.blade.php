@@ -482,11 +482,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group row align-items-center">
-                                    <label for="site_name" class="col-sm-3 col-form-label">Site Name</label>
+                                    <label for="display_name" class="col-sm-3 col-form-label">Display Name</label>
                                     <div class="col-sm-8 pl-0">
                                         <div class="input-group">
-                                            {!! Form::text('site_name',null,
-                                            ['class' => 'form-control','id'=> 'site_name','aria-label' => 'Text input with dropdown button']) !!}
+                                            {!! Form::text('display_name',null,
+                                            ['class' => 'form-control','id'=> 'display_name','aria-label' => 'Text input with dropdown button']) !!}
                                             <div class="input-group-append blue-cl">
                                                 <button class="btn btn-outline-secondary" type="button">
                                                     <i class="fas fa-globe-asia"></i></button>
