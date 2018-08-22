@@ -3,6 +3,7 @@
 namespace Btybug\User;
 
 use Auth;
+use Btybug\FrontSite\Models\Bugs;
 use Btybug\FrontSite\Models\FrontendPage;
 use Btybug\FrontSite\Models\SocialProfile;
 use File;
@@ -176,6 +177,10 @@ class User extends Authenticatable
     public function socialProfile()
     {
         return $this->hasOne(SocialProfile::class,'user_id') ;
+    }
+    public function Bugs()
+    {
+        return $this->hasOne(Bugs::class,'user_id') ;
     }
 }
 

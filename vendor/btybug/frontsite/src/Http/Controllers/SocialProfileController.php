@@ -12,6 +12,7 @@ use Btybug\User\Http\Requests\User\ChangePassword;
 use Btybug\User\Repository\UserRepository;
 use Btybug\FrontSite\Services\TagsService;
 use Btybug\FrontSite\Models\Tag;
+use Btybug\FrontSite\Services\SocialProfileService;
 use View;
 use Illuminate\Http\Request;
 
@@ -22,16 +23,19 @@ class SocialProfileController extends Controller
     private $userRepository;
     private $socialProfileRepository;
     private $tagsService;
+    private $socialProfileService;
 
     public function __construct (
         UserRepository $userRepository,
         SocialProfileRepository $socialProfileRepository,
-        TagsService $tagsService
+        TagsService $tagsService,
+        SocialProfileService $socialProfileService
     )
     {
         $this->userRepository = $userRepository;
         $this->socialProfileRepository = $socialProfileRepository;
         $this->tagsService = $tagsService;
+        $this->socialProfileService = $socialProfileService;
     }
 
     public function index()
@@ -59,7 +63,9 @@ class SocialProfileController extends Controller
 
     public function socialQuickbug()
     {
-        return view('manage::frontend.pages.profiles.quickbug', compact([]));
+        $user = \Auth::user()->socialProfile;
+        $bugs = $this->socialProfileService->getall($user);
+        return view('manage::frontend.pages.profiles.quickbug', compact(['user','bugs']));
     }
 
     public function socialTravel()
@@ -77,7 +83,9 @@ class SocialProfileController extends Controller
         $data = $request->all();
         $this->tagsService->tagsSave($request->get('tags',null));
         $user = \Auth::user()->socialProfile;
-        $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user']))->render();
+        $this->socialProfileService->bugsSave($data,$user);
+        $bugs = $this->socialProfileService->getall($user);
+        $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user','bugs']))->render();
 
         return \Response::json(['html' => $html, 'error' => false]);
     }
@@ -94,7 +102,6 @@ class SocialProfileController extends Controller
             {
                 $results[] = ['name' => $query->name];
             }
-        dd($results);
             return \Response::json(json_encode($results));
         }else{
             return \Response::json(['error' => true]);
