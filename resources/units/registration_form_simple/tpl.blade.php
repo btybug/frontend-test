@@ -1,6 +1,6 @@
 <div class="registration_forms">
     <div class="container">
-        <h2>Register</h2>
+        <h2>Register to BtyBug</h2>
         <form class="form-horizontal" method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
             <div class="form-group container-fluid">
