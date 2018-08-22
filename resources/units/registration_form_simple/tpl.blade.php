@@ -101,6 +101,19 @@
                 </div>
             </div>
             <div class="form-group container-fluid">
+                <div class="row">
+                    <label for="site_name" class="col-sm-2 col-form-label">Site Name </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="site_name" name="site_name" value="{{ old('site_name') }}" placeholder="Site Name">
+                        @if ($errors->has('site_name'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('site_name') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <div class="form-group container-fluid">
                 <div class="submit-button text-right">
                     <button type="submit" class="btn btn-outline-dark">Submit</button>
                 </div>

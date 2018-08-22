@@ -40,7 +40,7 @@ class SaveSocialGeneralRequest extends Request
         if ($this->isMethod('POST')) {
             return [
                 'gender' => 'required',
-                'display_name' => 'required|max:100',
+                'site_name' => 'required|max:100',
                 'display_email' => 'required|unique:social_profile,display_email,' . $this->id
             ];
         }

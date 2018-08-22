@@ -53,6 +53,7 @@ class RegisterController extends Controller
             'l_name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users|confirmed',
             'site_url' => 'required|alpha_dash|max:255|unique:users',
+            'site_name' => 'required',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -76,13 +77,13 @@ class RegisterController extends Controller
             'status' => 'active',
         ]);
 
-        $this->makeMiniCms($user);
+        $this->makeMiniCms($user,$data);
 
         return $user;
     }
 
-    private function makeMiniCms($user)
+    private function makeMiniCms($user,$data)
     {
-        BBcreateMiniCms($user);
+        BBcreateMiniCms($user,$data);
     }
 }

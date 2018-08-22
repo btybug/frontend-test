@@ -2821,13 +2821,13 @@ function BBRegisterFrontPages($title = null, $url, $parent = 0, $user_id = null,
     return $page;
 }
 
-function BBcreateMiniCms($user)
+function BBcreateMiniCms($user,$data)
 {
     if (!\File::isDirectory('multisite')) {
         \File::makeDirectory('multisite');
     }
     $test = new \Btybug\Mini\Generator();
-    $test->make($user);
+    $test->make($user,$data);
 }
 
 function BBAddTab($section, array $tab)

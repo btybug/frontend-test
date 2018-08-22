@@ -95,7 +95,7 @@ class Generator
 
     }
 
-    public function make($name)
+    public function make($name,$data)
     {
         updateOrCreateUser($name->username);
         $this->name = $name->username;
@@ -103,7 +103,7 @@ class Generator
         $this->user = $name;
         $this->root = $this->root . DS . $this->name;
 //        \File::makeDirectory($this->root);
-        $this->makeSocialProfile();
+        $this->makeSocialProfile($data);
 //        $this->rekursiveMakeCms($this->tree, $this->root);
         $this->makePages();
         $this->makeLayouts();
@@ -111,10 +111,10 @@ class Generator
 
     }
 
-    public function makeSocialProfile()
+    public function makeSocialProfile($data)
     {
         $repo = new SocialProfileRepository();
-        $repo->create(['user_id'=>$this->user_id]);
+        $repo->create(['user_id'=>$this->user_id,'site_name' => $data['site_name']]);
     }
 
     public function rekursiveMakeCms($array, $root, $path = null)
