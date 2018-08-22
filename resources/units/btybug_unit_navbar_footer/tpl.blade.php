@@ -77,7 +77,8 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <img src="/public/images/johan.png" alt="">
-                                <button type="button" class="btn btn-dark" style="width: 186px; height: 60px">Johan Smith
+                                <button type="button" class="btn btn-dark" style="width: 186px; height: 60px">Johan
+                                    Smith
                                 </button>
                             </div>
                             <div class="johan-button">
@@ -86,7 +87,8 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <img src="/public/images/johan.png" alt="">
-                                <button type="button" class="btn btn-dark" style="width: 186px; height: 60px">Johan Smith
+                                <button type="button" class="btn btn-dark" style="width: 186px; height: 60px">Johan
+                                    Smith
                                 </button>
                             </div>
                         </div>
@@ -138,29 +140,67 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="social" role="tabpanel" aria-labelledby="social-tab">
                         <ul class="d-flex flex-wrap top-ul">
-                            <li class="active"><a href="{{route('mini_my_site_social')}}"
+                            <li class="active">
+                                <a href="javascript:void(0)"
                                                   class="d-flex flex-column justify-content-center align-items-center">
                                     <span><i class="fas fa-user"></i></span>
                                     <span class="name">Social</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#"
-                                   class="d-flex flex-column justify-content-center align-items-center"><span class="name">More sites</span></a></li>
+                            {{--<li>--}}
+                                {{--<a href="#"--}}
+                                   {{--class="d-flex flex-column justify-content-center align-items-center"><span--}}
+                                            {{--class="name">More sites</span></a></li>--}}
                         </ul>
                         <div class="site-name-manage mt-4">
                             <div class="site-name">
-                                <span>Site Name</span>
+                                <span>{!! Auth::user()->username !!}</span>
                             </div>
-                            <div class="button-manage mt-2">
-                                <button class="btn btn-info btn-lg">Manage</button>
-                            </div>
+                            {{--<div class="button-manage mt-2">--}}
+                                {{--<button class="btn btn-info btn-lg">Manage</button>--}}
+                            {{--</div>--}}
                         </div>
+                    </div>
+                    <div class="tab-pane fade show active" id="social" role="tabpanel" aria-labelledby="social-tab">
+                        <ul class="d-flex flex-wrap top-ul">
+                            <li class="active">
+                                <a href="{{route('mini_my_site_social')}}"
+                                                  class="d-flex flex-column justify-content-center align-items-center">
+                                    <span><i class="fas fa-user"></i></span>
+                                    <span class="name">Go to site</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="{{url('my-site/social/pages')}}"
+                                                  class="d-flex flex-column justify-content-center align-items-center">
+                                    <span><i class="fas fa-user"></i></span>
+                                    <span class="name">Manage Page</span>
+                                </a>
+                            </li> <li class="">
+                                <a href="#"
+                                                  class="d-flex flex-column justify-content-center align-items-center">
+                                    <span><i class="fas fa-user"></i></span>
+                                    <span class="name">Manage Header</span>
+                                </a>
+                            </li> <li class="">
+                                <a href="#"
+                                                  class="d-flex flex-column justify-content-center align-items-center">
+                                    <span><i class="fas fa-user"></i></span>
+                                    <span class="name">Manage Profile</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="#" class="d-flex flex-column justify-content-center align-items-center">
+                                    <span><i class="fas fa-user"></i></span>
+                                    <span class="name">General Settings</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">2</div>
                     <div class="tab-pane fade" id="business3" role="tabpanel" aria-labelledby="business3-tab">
                         <ul class="d-flex flex-wrap ">
-                            <li class="active"><a href="{!! route('mini_account_forms') !!}"
+                            <li class=""><a href="{!! route('mini_account_forms') !!}"
                                                   class="d-flex flex-column justify-content-center align-items-center">
                                     <span><i class="fa fa-align-left"></i></span>
                                     <span class="name">Forms</span>
