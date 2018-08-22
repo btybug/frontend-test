@@ -10,6 +10,7 @@ use Btybug\FrontSite\Repository\SocialProfileRepository;
 use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\User\Http\Requests\User\ChangePassword;
 use Btybug\User\Repository\UserRepository;
+use Btybug\FrontSite\Services\TagsService;
 use View;
 use Illuminate\Http\Request;
 
@@ -19,14 +20,17 @@ class SocialProfileController extends Controller
 
     private $userRepository;
     private $socialProfileRepository;
+    private $tagsService;
 
     public function __construct (
         UserRepository $userRepository,
-        SocialProfileRepository $socialProfileRepository
+        SocialProfileRepository $socialProfileRepository,
+        TagsService $tagsService
     )
     {
         $this->userRepository = $userRepository;
         $this->socialProfileRepository = $socialProfileRepository;
+        $this->tagsService = $tagsService;
     }
 
     public function index()
@@ -70,6 +74,10 @@ class SocialProfileController extends Controller
     public function postSocialBugit(Request $request)
     {
         $data = $request->all();
+        if(count($data['tags']))
+        {
+            $this->tagsService->tagsSave($data['tags']);
+        }
         $user = \Auth::user()->socialProfile;
         $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user']))->render();
 

@@ -547,6 +547,16 @@
 
     })
 
+    $(function()
+    {
+        $( "#q" ).autocomplete({
+            source: "search/autocomplete",
+            minLength: 3,
+            select: function(event, ui) {
+                $('#q').val(ui.item.value);
+            }
+        });
+    });
 
     </script>
     <script src="{!!url('https://apis.google.com/js/client.js?onload=init')!!}"></script>
