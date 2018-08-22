@@ -137,6 +137,7 @@
                         </a>
                     </div>
                 </div>
+                @if(Auth::check())
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="social" role="tabpanel" aria-labelledby="social-tab">
                         <ul class="d-flex flex-wrap top-ul">
@@ -217,6 +218,7 @@
                     </div>
                     <div class="tab-pane fade" id="business4" role="tabpanel" aria-labelledby="business4-tab">4</div>
                 </div>
+                    @endif
             </div>
             <div class="col-md-12 col-lg-3 pl-0 order-1 order-md-1">
                 <div class="user-footer">
