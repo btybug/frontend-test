@@ -10,6 +10,7 @@ namespace Btybug\Mini;
 
 
 use Btybug\FrontSite\Models\FrontendPage;
+use Btybug\FrontSite\Repository\SocialProfileRepository;
 use Btybug\Mini\Model\MiniSuperLayouts;
 use Btybug\Mini\Model\MiniSuperPainter;
 use Btybug\Mini\Repositories\MinicmsPagesRepository;
@@ -102,10 +103,17 @@ class Generator
         $this->user = $name;
         $this->root = $this->root . DS . $this->name;
         \File::makeDirectory($this->root);
+        $this->makeSocialProfile();
         $this->rekursiveMakeCms($this->tree, $this->root);
         $this->makePages();
         $this->makeLayouts();
         $this->makeUnits();
+    }
+
+    public function makeSocialProfile()
+    {
+        $repo = new SocialProfileRepository();
+        $repo->create(['user_id'=>$this->user_id]);
     }
 
     public function rekursiveMakeCms($array, $root, $path = null)
