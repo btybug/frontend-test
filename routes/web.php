@@ -9,7 +9,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-dd(\Btybug\FrontSite\Models\FrontendPage::all()->toArray());
+$users=\Btybug\User\User::all()->pluck('id')->toArray();
+
+dd($users,\Btybug\FrontSite\Models\FrontendPage::all()->toArray());
 Route::get('/', function () {
     return view('welcome');
 });
