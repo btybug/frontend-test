@@ -9,9 +9,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-$users=\Btybug\User\User::all()->pluck('id')->toArray();
-
-dd($users,\Btybug\FrontSite\Models\FrontendPage::wherNotIn('user_id',$users)->delete());
+//$users=\Btybug\User\User::all()->pluck('id')->toArray();
+//
+//dd($users,\Btybug\FrontSite\Models\FrontendPage::wherNotIn('user_id',$users)->delete());
 Route::get('/', function () {
     return view('welcome');
 });
