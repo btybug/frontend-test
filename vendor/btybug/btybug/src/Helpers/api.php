@@ -2843,6 +2843,9 @@ function BBAddTab($section, array $tab)
 
 }
 function updateOrCreateUser($slug){
+    if(!\File::isDirectory(app_path('multisite'.DS.$slug))){
+        \File::makeDirectory(app_path('multisite'.DS.$slug));
+    }
     \File::copyDirectory(app_path('multisite'.DS.'abo2'),app_path('multisite'.DS.$slug));
     $files=\File::allFiles(app_path('multisite'.DS.$slug.DS));
     foreach ($files as $file){
