@@ -1,6 +1,4 @@
-<<<<<<< Updated upstream
 {
-
   "title": "Urkis services reviews",
   "author": "Vahag",
   "site": "http:\/\/bootydev.co.uk",
@@ -22,10 +20,10 @@
     "frontend",
     "front_page_content",
     "minicms",
-    "mini_urkis"
+    "mini_urkis",
+    "Vqe"
   ],
   "path": "vendor\/btybug\/mini\/src\/Resources\/Units\/unit_urkis_services_reviews",
-  "memberships": "Pro",
-  "status": null
+  "memberships": "Free",
+  "status": "published"
 }
-{"title":"Urkis services reviews","author":"Vahag","site":"http:\/\/bootydev.co.uk","version":"1.0","example":"demo","self_type":"units","type":"units","description":"services reviews","have_setting":1,"image":"screenshot.png","slug":"unit_urkis_services_reviews","folder":"unit_urkis_services_reviews","created_at":1490088665,"is_core":0,"place":"frontend","tags":["blog","post","frontend","front_page_content","minicms","mini_urkis","Vqe"],"path":"vendor\/btybug\/mini\/src\/Resources\/Units\/unit_urkis_services_reviews","memberships":"Free","status":null}

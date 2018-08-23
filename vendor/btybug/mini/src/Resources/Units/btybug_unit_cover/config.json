@@ -23,5 +23,6 @@
     }
   },
   "tags": ["profile_unit","minicms","user_unit","header"],
-  "path": "vendor\/btybug\/mini\/src\/Resources\/Units\/btybug_unit_cover"
+  "path": "vendor\/btybug\/mini\/src\/Resources\/Units\/btybug_unit_cover",
+  "status": "published"
 }
