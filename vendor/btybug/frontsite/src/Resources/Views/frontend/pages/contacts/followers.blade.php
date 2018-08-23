@@ -7,10 +7,10 @@
                     <div class="menu">
                         <ul>
                             <li class="active"><a href="{{route('front_page_social_contacts_followers')}}">
-                                    <span><i class="fab fa-buromobelexperte"></i></span>Followers</a>
+                                    <span><i class="fas fa-people-carry"></i></span>Followers</a>
                             </li>
                             <li><a href="{{route('front_page_social_contacts_following')}}">
-                                    <span><i class="fab fa-buromobelexperte"></i></span>Following</a>
+                                    <span><i class="fas fa-shoe-prints"></i></span>Following</a>
                             </li>
                             <li><a href="{{route('front_page_social_contacts_networks')}}">
                                     <span><i class="fab fa-buromobelexperte"></i></span>Networks</a>
@@ -28,8 +28,8 @@
 @stop
 @section('menu')
     @include('btybug::_partials.front_user_menu',['items'=>[
-    ['title'=>'Followers','url'=>'contacts/followers'],
-    ],'active'=>'Followers'])
+    ['title'=>'Contacts','url'=>'contacts'],
+    ],'active'=>'Contacts'])
 @stop
 
 @section('css')
