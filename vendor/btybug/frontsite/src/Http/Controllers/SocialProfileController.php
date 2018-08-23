@@ -109,5 +109,22 @@ class SocialProfileController extends Controller
 
     }
 
+    public function contactsIndex()
+    {
+        return view('manage::frontend.pages.contacts.contacts', compact([]));
+    }
+    public function contactsFollowing()
+    {
+        return view('manage::frontend.pages.contacts.following', compact([]));
+    }
+    public function contactsFollowers()
+    {
+        return view('manage::frontend.pages.contacts.followers', compact([]));
+    }
+    public function contactsNetworks()
+    {
+        return view('manage::frontend.pages.contacts.networks', compact([]));
+    }
+
 
 }

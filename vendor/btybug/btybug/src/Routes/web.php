@@ -97,6 +97,13 @@ Route::group(
         Route::post('profiles/social/bugit', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@postSocialBugit')->name('front_page_social_bugit');
         Route::get('profiles/social/tags/search', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@tagsAutocompleate')->name('front_page_social_bugit_autocomplete');
 
+        Route::group(['prefix' => 'contacts'], function () {
+            Route::get('/', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@contactsIndex', true)->name('front_page_social_contacts');
+            Route::get('/following', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@contactsFollowing', true)->name('front_page_social_contacts_following');
+            Route::get('/followers', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@contactsFollowers', true)->name('front_page_social_contacts_followers');
+            Route::get('/networks', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@contactsNetworks', true)->name('front_page_social_contacts_networks');
+        });
+
         Route::get('account/general/password', '\Btybug\FrontSite\Http\Controllers\MyAccountController@password')->middleware('auth')->name('front_page_account_general_password');
         Route::get('account/general/preferances', '\Btybug\FrontSite\Http\Controllers\MyAccountController@preferances')->middleware('auth')->name('front_page_account_general_preferances');
         Route::get('account/general/logs', '\Btybug\FrontSite\Http\Controllers\MyAccountController@logs')->middleware('auth')->name('front_page_account_general_logs');

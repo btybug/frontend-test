@@ -149,6 +149,14 @@
                                         <span class="name">Social</span>
                                     </a>
                                 </li>
+                                <li class="active">
+                                    <a href="{{route('front_page_social_contacts')}}"
+                                       class="d-flex flex-column justify-content-center align-items-center">
+                                        <span><i class="fas fa-address-card"></i></span>
+                                        <span class="name">Contacts</span>
+                                    </a>
+                                </li>
+
                                 {{--<li>--}}
                                 {{--<a href="#"--}}
                                 {{--class="d-flex flex-column justify-content-center align-items-center"><span--}}
