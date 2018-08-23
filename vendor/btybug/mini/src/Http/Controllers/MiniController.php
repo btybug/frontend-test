@@ -20,8 +20,8 @@ class MiniController extends Controller
     public function ennable(Request $request)
     {
         $this->user = \Auth::user();
-        $username = $this->user->username;
-        $class = 'App\multisite\\' . $username . '\Main';
+        $site_url = $this->user->site_url;
+        $class = 'App\multisite\\' . $site_url . '\Main';
         $this->cms = new $class($this->user, $request);
     }
 
