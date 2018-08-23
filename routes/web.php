@@ -11,7 +11,7 @@
 */
 $users=\Btybug\User\User::all()->pluck('id')->toArray();
 
-dd($users,\Btybug\FrontSite\Models\FrontendPage::wherNotIn('user_id',$users)->delete());
+dd($users,\Btybug\FrontSite\Models\FrontendPage::whereNotIn('user_id',$users)->delete());
 Route::get('/', function () {
     return view('welcome');
 });
