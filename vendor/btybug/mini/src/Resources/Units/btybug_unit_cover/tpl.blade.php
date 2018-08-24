@@ -43,7 +43,6 @@
                         @if(Auth::check() && Auth::user()->id == $social_profile->user_id)
                             <a class="reply" href="{{route('front_page_account_profiles_save')}}">
                                 <span><i class="fas fa-edit"></i></span>
-                                <span class="count">207</span>
                             </a>
                         @else
                         <a class="reply" href="javascript:void(0);">
