@@ -4,6 +4,7 @@ namespace Btybug\User;
 
 use Auth;
 use Btybug\FrontSite\Models\Bugs;
+use Btybug\FrontSite\Models\Favorites;
 use Btybug\FrontSite\Models\FrontendPage;
 use Btybug\FrontSite\Models\SocialProfile;
 use File;
@@ -181,6 +182,15 @@ class User extends Authenticatable
     public function Bugs()
     {
         return $this->hasOne(Bugs::class,'user_id') ;
+    }
+    public function favorite_sites()
+    {
+        return $this->hasMany(Favorites::class)->where('post_id',null);
+    }
+
+    public function favorite_bugs()
+    {
+        return $this->hasMany(Favorites::class)->where('sites_id',null);
     }
 }
 

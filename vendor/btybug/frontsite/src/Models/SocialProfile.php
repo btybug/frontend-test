@@ -3,6 +3,7 @@
 namespace Btybug\FrontSite\Models;
 
 use Btybug\User\User;
+use Btybug\FrontSite\Models\Favorites;
 use Illuminate\Database\Eloquent\Model;
 
 class SocialProfile extends Model
@@ -22,5 +23,9 @@ class SocialProfile extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+    public function favorites()
+    {
+        return $this->hasMany(Favorites::class, 'user_id');
     }
 }

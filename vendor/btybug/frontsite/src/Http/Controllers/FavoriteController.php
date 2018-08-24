@@ -11,14 +11,9 @@ use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\User\Http\Requests\User\ChangePassword;
 use Btybug\User\Repository\UserRepository;
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\Foreach_;
 
 
-/**
- * Class HooksController
- * @package Btybug\FrontSite\Http\Controllers
- */
-class MyAccountController extends Controller
+class FavoriteController extends Controller
 {
 
     private $userRepository;
@@ -46,16 +41,7 @@ class MyAccountController extends Controller
     public function favoriteSites()
     {
         $favorites = \Auth::user()->favorite_sites;
-        $sites = array();
-        foreach ($favorites as $item)
-        {
-            $sites[] = SocialProfile::where('id',$item->sites_id)->get();
-        }
-        foreach ($sites as $item)
-        {
-            
-        }
-        return view('manage::frontend.pages.favorites.favorite_sites', compact(['sites']));
+        return view('manage::frontend.pages.favorites.favorite_sites', compact([]));
     }
 
     public function favoriteposts()
@@ -73,8 +59,12 @@ class MyAccountController extends Controller
                 {
                     $data = ['user_id' => \Auth::user()->id,'sites_id' => $id];
                     $this->favoritesrepository->create($data);
+                    $favorites_sites = $this->favoritesrepository->model()->SocialProfile()->get();
+                    dd($favorites_sites);
                     return view('manage::frontend.pages.favorites.favorite_sites', compact([]));
                 }else{
+                    $favorites_sites = $this->favoritesrepository->model()->SocialProfile(\Auth::user()->id);
+                    dd($favorites_sites);
                     return \Response::json(['error' => true,'message' => 'This site is allready in your favorites']);
                 }
 
@@ -83,55 +73,5 @@ class MyAccountController extends Controller
 
     }
 
-
-
-    public function general()
-    {
-        $user = \Auth::user();
-        return view('manage::frontend.pages.account.general', compact(['user']));
-    }
-
-    public function postGeneral(Request $request)
-    {
-        $this->userRepository->update(\Auth::id(), $request->except('_token'));
-        return redirect()->back();
-    }
-
-    public function profiles()
-    {
-        $social_profile = new SocialProfile();
-        return view('manage::frontend.pages.profiles.social', compact(['social_profile']));
-    }
-
-    public function password()
-    {
-        return view('manage::frontend.pages.account.password', compact([]));
-    }
-
-    public function preferances()
-    {
-        return view('manage::frontend.pages.account.preferances', compact([]));
-    }
-
-    public function logs()
-    {
-        return view('manage::frontend.pages.account.logs', compact([]));
-    }
-
-    public function postPassword(ChangePassword $request)
-    {
-        $user = \Auth::user();
-        if (! \Hash::check($request->old_pass, $user->password)) {
-            return redirect()->back()->with('error','old password wrong');
-        }
-
-        $this->userRepository->update($request->id,['password' => bcrypt($request->new_pass)]);
-        return redirect()->back()->with('message','Password successfully changed');
-    }
-
-    public function profilesSave(Request $request)
-    {
-        dd($request->all());
-    }
 
 }
