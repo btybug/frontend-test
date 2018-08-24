@@ -38,7 +38,14 @@
 
                         <p class="profesion">{{ $social_profile->proffesion }}</p>
                     </div>
+
                     <div class="icons d-flex flex-wrap align-items-center">
+                        @if(Auth::check() && Auth::user()->id == $social_profile->user_id)
+                            <a class="reply" href="{{route('front_page_account_profiles_save')}}">
+                                <span><i class="fas fa-edit"></i></span>
+                                <span class="count">207</span>
+                            </a>
+                        @else
                         <a class="reply" href="javascript:void(0);">
                             <span><i class="fas fa-share"></i></span>
                             <span class="count">207</span>
@@ -50,7 +57,7 @@
                             <span class="d-none d-md-block"><i class="fas fa-ellipsis-v"></i></span>
                             <span class="caret-down d-block d-md-none"><i class="fas fa-caret-down"></i></span>
                         </a>
-
+                `       @endif
                     </div>
                 </div>
                 <div class="profile-bottom d-flex justify-content-between align-items-center ">
