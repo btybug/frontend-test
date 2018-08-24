@@ -41,7 +41,7 @@
 
                     <div class="icons d-flex flex-wrap align-items-center">
                         @if(Auth::check() && Auth::user()->id == $social_profile->user_id)
-                            <a class="reply" href="{{route('front_page_account_profiles_save')}}">
+                            <a class="reply" href="{{route('front_page_account_profiles_save')}}" title="Edit Profile">
                                 <span><i class="fas fa-edit"></i></span>
                             </a>
                         @else
