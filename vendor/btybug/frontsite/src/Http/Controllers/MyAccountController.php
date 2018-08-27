@@ -79,7 +79,7 @@ class MyAccountController extends Controller
                     $this->favoritesrepository->create($data);
                     return view('manage::frontend.pages.favorites.favorite_sites', compact([]));
                 }else{
-                    return \Response::json(['error' => true,'message' => 'This site is allready in your favorites']);
+                    return back()->with(['error' => true,'message' => 'This site is allready in your favorites']);
                 }
 
             }

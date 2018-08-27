@@ -16,6 +16,9 @@
 
                     </div>
                 </div>
+                @if(isset($message))
+                    {{$message}}
+                @endif
                 @if($social_profile->site_image)
                     <img src="{!! url($social_profile->site_image) !!}" alt="{{ $social_profile->display_name }}">
                 @else
@@ -35,10 +38,8 @@
                                 <span></span>
                             </div>
                         </div>
-
                         <p class="profesion">{{ $social_profile->proffesion }}</p>
                     </div>
-
                     <div class="icons d-flex flex-wrap align-items-center">
                         @if(Auth::check() && Auth::user()->id == $social_profile->user_id)
                             <a class="reply" href="{{route('front_page_account_profiles_save')}}" title="Edit Profile">
