@@ -13,6 +13,7 @@ use Btybug\User\Repository\UserRepository;
 use Btybug\FrontSite\Services\TagsService;
 use Btybug\FrontSite\Models\Tag;
 use Btybug\FrontSite\Services\SocialProfileService;
+use Btybug\User\User;
 use View;
 use Illuminate\Http\Request;
 
@@ -124,6 +125,11 @@ class SocialProfileController extends Controller
     public function contactsNetworks()
     {
         return view('manage::frontend.pages.contacts.networks', compact([]));
+    }
+
+    public function getAllUsers()
+    {
+        return User::where('role_id',0)->get();
     }
 
 

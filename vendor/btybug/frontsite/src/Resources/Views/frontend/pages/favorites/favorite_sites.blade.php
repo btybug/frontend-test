@@ -108,7 +108,11 @@
     </div>
 </div>
 @foreach($urls as $val)
-   <a href="{{url($val['url'])}}">{{$val['name']}}</a>
+    <div class="container">
+        <div class="row">
+                <a href="{{url($val['url'])}}">{{$val['name']}}</a>
+        </div>
+    </div>
 @endforeach
 @yield('footer')
 {{--<div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">--}}
