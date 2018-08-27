@@ -77,7 +77,7 @@ class MyAccountController extends Controller
                 {
                     $data = ['user_id' => \Auth::user()->id,'sites_id' => $id];
                     $this->favoritesrepository->create($data);
-                    return view('manage::frontend.pages.favorites.favorite_sites', compact([]));
+                    return back()->with(['error' => false,'message' => 'This site added to your favorites successfully']);
                 }else{
                     return back()->with(['error' => true,'message' => 'This site is allready in your favorites']);
                 }
