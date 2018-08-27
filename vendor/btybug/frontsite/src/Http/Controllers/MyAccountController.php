@@ -4,16 +4,11 @@ namespace Btybug\FrontSite\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Btybug\btybug\Repositories\HookRepository;
-use Btybug\FrontSite\Models\Favorites;
-use Btybug\FrontSite\Models\FrontendPage;
 use Btybug\FrontSite\Models\SocialProfile;
-use Btybug\FrontSite\Repository\FavoritesRepository;
 use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\User\Http\Requests\User\ChangePassword;
 use Btybug\User\Repository\UserRepository;
-use Btybug\User\User;
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\Foreach_;
 
 
 /**
@@ -24,14 +19,11 @@ class MyAccountController extends Controller
 {
 
     private $userRepository;
-    private $favoritesrepository;
 
     public function __construct (
-        UserRepository $userRepository,
-        FavoritesRepository $favoritesRepository
+        UserRepository $userRepository
     )
     {
-        $this->favoritesrepository = $favoritesRepository;
         $this->userRepository = $userRepository;
     }
 
@@ -42,52 +34,8 @@ class MyAccountController extends Controller
 
     public function favorites()
     {
-        return view('manage::frontend.pages.favorites.favorite_posts', compact([]));
+        return view('manage::frontend.pages.account.favorites', compact([]));
     }
-
-    public function favoriteSites()
-    {
-        $favorites = \Auth::user()->favorite_sites;
-        $sites = array();
-        foreach ($favorites as $item)
-        {
-            $sites[] = SocialProfile::find($favorites[0]->sites_id);
-        }
-        $urls = array();
-        foreach ($sites as $site)
-        {
-            $url = FrontendPage::where('user_id',$site->user_id)->where('title','profile')->get();
-            $urls[] = ['name' => $site->site_name,'url' => $url[0]->url];
-        }
-        return view('manage::frontend.pages.favorites.favorite_sites', compact(['urls']));
-    }
-
-    public function favoriteposts()
-    {
-        return view('manage::frontend.pages.favorites.favorite_posts', compact([]));
-    }
-
-    public function addToFavorites($id = null,$cond = null)
-    {
-        if ($id){
-            if ($cond == 'sites')
-            {
-                $isset = $this->favoritesrepository->checkIsset(['sites_id' => $id]);
-                if ($isset !== true)
-                {
-                    $data = ['user_id' => \Auth::user()->id,'sites_id' => $id];
-                    $this->favoritesrepository->create($data);
-                    return back()->with(['error' => false,'message' => 'This site added to your favorites successfully']);
-                }else{
-                    return back()->with(['error' => true,'message' => 'This site is allready in your favorites']);
-                }
-
-            }
-        }
-
-    }
-
-
 
     public function general()
     {

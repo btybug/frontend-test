@@ -16,9 +16,6 @@
 
                     </div>
                 </div>
-                @if(isset($message))
-                    {{$message}}
-                @endif
                 @if($social_profile->site_image)
                     <img src="{!! url($social_profile->site_image) !!}" alt="{{ $social_profile->display_name }}">
                 @else
@@ -38,26 +35,22 @@
                                 <span></span>
                             </div>
                         </div>
+
                         <p class="profesion">{{ $social_profile->proffesion }}</p>
                     </div>
                     <div class="icons d-flex flex-wrap align-items-center">
-                        @if(Auth::check() && Auth::user()->id == $social_profile->user_id)
-                            <a class="reply" href="{{route('front_page_account_profiles_save')}}" title="Edit Profile">
-                                <span><i class="fas fa-edit"></i></span>
-                            </a>
-                        @elseif(Auth::check() && Auth::user()->id !== $social_profile->user_id)
                         <a class="reply" href="javascript:void(0);">
                             <span><i class="fas fa-share"></i></span>
                             <span class="count">207</span>
                         </a>
                         <a class="comment" href="javascript:void(0);"><span><i
                                         class="far fa-comment-alt"></i></span></a>
-                        <a class="heart" href="{{route('front_page_favorite_addtofav',array($social_profile->id,'sites'))}}"><span><i class="far fa-heart"></i></span></a>
+                        <a class="heart" href="javascript:void(0);"><span><i class="far fa-heart"></i></span></a>
                         <a class="ellipsis" href="javascript:void(0);">
                             <span class="d-none d-md-block"><i class="fas fa-ellipsis-v"></i></span>
                             <span class="caret-down d-block d-md-none"><i class="fas fa-caret-down"></i></span>
                         </a>
-                `       @endif
+
                     </div>
                 </div>
                 <div class="profile-bottom d-flex justify-content-between align-items-center ">

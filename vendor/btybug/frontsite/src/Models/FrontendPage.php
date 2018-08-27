@@ -247,7 +247,7 @@ class FrontendPage extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function urlManager()
     {
@@ -277,5 +277,4 @@ class FrontendPage extends Model
         }
         return $html;
     }
-
 }

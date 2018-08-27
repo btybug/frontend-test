@@ -25,5 +25,4 @@ class UserRepository extends GeneralRepository
         return new User();
     }
 
-
 }

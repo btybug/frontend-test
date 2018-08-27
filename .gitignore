@@ -74,3 +74,4 @@ composer.lock
 /vendor/seld
 /vendor/composer
 /vendor/ralouphie
+/vendor/predis

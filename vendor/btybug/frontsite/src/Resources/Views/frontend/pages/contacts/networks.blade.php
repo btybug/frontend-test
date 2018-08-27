@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-2 pl-0">
                     <div class="menu">
-                        {{--<ul>
+                        <ul>
                             <li><a href="{{route('front_page_social_contacts_followers')}}">
                                     <span><i class="fas fa-people-carry"></i></span>Followers</a>
                             </li>
@@ -15,7 +15,7 @@
                             <li class="active"><a href="{{route('front_page_social_contacts_networks')}}">
                                     <span><i class="fab fa-buromobelexperte"></i></span>Networks</a>
                             </li>
-                        </ul>--}}
+                        </ul>
                     </div>
                 </div>
                 <div class="col-md-10">
@@ -28,10 +28,8 @@
 @stop
 @section('menu')
     @include('btybug::_partials.front_user_menu',['items'=>[
-    ['title'=>'Followers','url'=> route('front_page_social_contacts_followers')],
-    ['title'=>'Following','url'=> route('front_page_social_contacts_following')],
-    ['title'=>'Networks','url'=> route('front_page_social_contacts_networks')]
-    ],'active'=>'Networks'])
+    ['title'=>'Contacts','url'=>'contacts'],
+    ],'active'=>'Contacts'])
 @stop
 
 @section('css')

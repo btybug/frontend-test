@@ -13,7 +13,6 @@ use Btybug\User\Repository\UserRepository;
 use Btybug\FrontSite\Services\TagsService;
 use Btybug\FrontSite\Models\Tag;
 use Btybug\FrontSite\Services\SocialProfileService;
-use Btybug\User\User;
 use View;
 use Illuminate\Http\Request;
 
@@ -112,7 +111,7 @@ class SocialProfileController extends Controller
 
     public function contactsIndex()
     {
-        return view('manage::frontend.pages.contacts.followers', compact([]));
+        return view('manage::frontend.pages.contacts.contacts', compact([]));
     }
     public function contactsFollowing()
     {
@@ -125,13 +124,6 @@ class SocialProfileController extends Controller
     public function contactsNetworks()
     {
         return view('manage::frontend.pages.contacts.networks', compact([]));
-    }
-
-    public function getAllUsers(Request $request)
-    {
-        $term = $request->get('term');
-
-        return $this->userRepository->model()->where('username','like', '%'.$term.'%')->where('role_id',0)->pluck('username','id');
     }
 
 

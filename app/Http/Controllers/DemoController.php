@@ -17,5 +17,19 @@ class DemoController extends Controller
     }
     public function demo3(){
         return view("demo3");
+    }public function demo4(){
+        return view("demo4");
+    }
+
+
+    public function message(Request $request)
+    {
+        $user = \App\User::first();
+        $message = \App\ChatMessage::create([
+            'user_id' => $user->id,
+            'message' => $request->get('message')
+        ]);
+
+        event(new \App\Events\ChatMessageWasReceived($message, $user));
     }
 }

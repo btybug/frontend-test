@@ -14,10 +14,12 @@
 <meta name="geo.placename" content="London" />
 <meta name="geo.position" content="51.486024;-0.137304" />
 <meta name="ICBM" content="51.486024, -0.137304" />
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 
 <title>@yield('title')</title>
 @yield('metas')
+<link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
 <link type="image/x-icon" rel="icon" href="{{ asset('assets/favicon.ico') }}"/>
 <link type="image/x-icon" rel="shortcut icon" href="{{ asset('assets/favicon.ico') }}"/>
 <link rel="apple-touch-icon" href="{{ asset('assets/apple-touch-icon.png') }}"/>

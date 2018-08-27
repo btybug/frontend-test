@@ -24,7 +24,7 @@
                 <div class="col-md-10">
                     <div class="right-content">
                         <div class="bug-something">
-                            <div class="row">
+                            <div class="col-md-12">
                                 <div class="col-md-4">
                                     <div class="link-bug-something">
                                         <button type="button" class="btn btn-link " data-toggle="modal"
@@ -43,27 +43,27 @@
                             </div>
                             <div class="bugsContent">
                                 {{--@include('manage::frontend.pages._partials.bug_render')--}}
-                                <div class="new_post d-flex mb-4">
+                                <div class="new_post d-flex">
                                     <div class="post">
                                         <div class="head-rania d-flex">
                                             <div class="aug">
                                                 <div class="container-fluid">
                                                     <div class="row">
-                                                        <div class="col-lg-1 col-md-2">
-                                                            <div class="reg-times d-flex flex-md-column align-items-center">
+                                                        <div class="col-md-1">
+                                                            <div class="reg-times d-flex flex-column align-items-center">
                                                                 <span>21</span>
                                                                 <span>Aug</span>
                                                                 <i class="far fa-clock"></i>
                                                                 <span>10:17</span>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-2 col-md-3 p-0">
+                                                        <div class="col-md-2 p-0">
                                                             <div class="images">
                                                                 <img src="/public/images/girl2.png" alt="">
                                                             </div>
 
                                                         </div>
-                                                        <div class="col-lg-9 col-md-7">
+                                                        <div class="col-md-9">
                                                             <h4>Rania Davan</h4>
                                                             <span>& Johan Smith , Jan Wim Jack Wilth ...</span>
                                                         </div>
@@ -109,63 +109,99 @@
                                             </div>
                                         </div>
                                         <div class="post-map">
-                                            <div id="post-image-1" class="">
-                                                <img src=" https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?auto=compress&cs=tinysrgb&h=350"
-                                                     alt="">
-                                            </div>
-                                            <div id="post-image-2" class="">
-                                                <img src="https://lonelyplanetimages.imgix.net/a/g/hi/t/3cb45f6e59190e8213ce0a35394d0e11-nice.jpg?sharp=10&vib=20&w=1200"
-                                                     alt="">
-                                            </div>
-                                            <div id="post-image-3" class="">
-                                                <img src="https://www.telegraph.co.uk/content/dam/Travel/2018/February/nice-france-AP152995065.jpg?imwidth=450"
-                                                     alt="">
-                                            </div>
-                                            <div id="post-gif" class="">
-                                                <img src="https://media1.popsugar-assets.com/files/thumbor/sEsLflIEp_nfioQsE4aGa8zq9CY/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/01/03/278/n/1922398/addurlYAmgaN/i/Nope-Rat.gif"
-                                                     alt="">
-                                            </div>
-                                            <div id="post-youtube" class="">
-                                                <iframe width="100%" height="350"
-                                                        src="https://www.youtube.com/embed/Xc_toI7oMJY" frameborder="0"
-                                                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                            </div>
-                                            <div id="post-maps" class="active">
-                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.4733931849!2d-0.24167955985936765!3d51.528558243609965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2z0JvQvtC90LTQvtC9LCDQktC10LvQuNC60L7QsdGA0LjRgtCw0L3QuNGP!5e0!3m2!1sru!2s!4v1535098723187"
-                                                        width="100%" height="350" frameborder="0" style="border:0"
-                                                        allowfullscreen></iframe>
-                                            </div>
+                                            <div class="post-slider">
+                                                <div class="mySlides">
+                                                    <img src="https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?auto=compress&cs=tinysrgb&h=350"
+                                                         style="width:100%">
+                                                </div>
 
+                                                <div class="mySlides">
+                                                    <div class="numbertext">2 / 6</div>
+                                                    <img src="https://www.rencontres-arles.com/files/media_file_2106.jpg"
+                                                         style="width:100%">
+                                                </div>
+
+                                                <div class="mySlides">
+                                                    <div class="numbertext">3 / 6</div>
+                                                    <img src="https://picjumbo.com/wp-content/uploads/alone-with-his-thoughts_free_stock_photos_picjumbo_HNCK9089-1080x720.jpg"
+                                                         style="width:100%">
+                                                </div>
+
+                                                <div class="mySlides">
+                                                    <div class="numbertext">4 / 6</div>
+                                                    <img src="http://www.abc.net.au/news/image/9667872-3x2-700x467.jpg"
+                                                         style="width:100%">
+                                                </div>
+
+                                                <div class="mySlides">
+                                                    <div class="numbertext">5 / 6</div>
+                                                    <img src="https://cdn4.techly.com.au/wp-content/uploads/2018/03/techly-smartphone-camera-noise-799x423.jpg"
+                                                         style="width:100%">
+                                                </div>
+
+                                                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                                                <a class="next" onclick="plusSlides(1)">❯</a>
+
+                                                <div class="caption-container">
+                                                    <p id="caption"></p>
+                                                </div>
+
+                                                <div class="tumb-post-slider">
+                                                    <div class="column">
+                                                        <img class="demo cursor"
+                                                             src="https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?auto=compress&cs=tinysrgb&h=350"
+                                                             style="width:100%" onclick="currentSlide(1)"
+                                                             alt="The Woods">
+                                                    </div>
+                                                    <div class="column">
+                                                        <img class="demo cursor"
+                                                             src="https://www.rencontres-arles.com/files/media_file_2106.jpg"
+                                                             style="width:100%" onclick="currentSlide(2)"
+                                                             alt="Cinque Terre">
+                                                    </div>
+                                                    <div class="column">
+                                                        <img class="demo cursor"
+                                                             src="https://picjumbo.com/wp-content/uploads/alone-with-his-thoughts_free_stock_photos_picjumbo_HNCK9089-1080x720.jpg"
+                                                             style="width:100%" onclick="currentSlide(3)"
+                                                             alt="Mountains and fjords">
+                                                    </div>
+                                                    <div class="column">
+                                                        <img class="demo cursor"
+                                                             src="http://www.abc.net.au/news/image/9667872-3x2-700x467.jpg"
+                                                             style="width:100%" onclick="currentSlide(4)"
+                                                             alt="Northern Lights">
+                                                    </div>
+                                                    <div class="column">
+                                                        <img class="demo cursor"
+                                                             src="https://cdn4.techly.com.au/wp-content/uploads/2018/03/techly-smartphone-camera-noise-799x423.jpg"
+                                                             style="width:100%" onclick="currentSlide(5)"
+                                                             alt="Nature and sunrise">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="post-foot">
                                             <div class="post-foot-carousel owl-carousel owl-theme">
-                                                <div class="item"><a href="" data-view-post="post-maps"
-                                                                     class="blue-cl-icon active">
+                                                <div class="item"><a href="" class="blue-cl-icon active">
                                                         <div class="line"></div>
                                                         <i class="fas fa-map-marker-alt"></i></a></div>
-                                                <div class="item"><a href="" data-view-post="post-image-1"
-                                                                     class="purple-cl-icon">
+                                                <div class="item"><a href="" class="purple-cl-icon">
                                                         <div class="line"></div>
                                                         <i class="far fa-images"></i></a></div>
-                                                <div class="item"><a href="" data-view-post="post-image-2"
-                                                                     class="purple-cl-icon">
+                                                <div class="item"><a href="" class="purple-cl-icon">
                                                         <div class="line"></div>
                                                         <i class="far fa-images"></i></a></div>
-                                                <div class="item"><a href="" data-view-post="post-image-3"
-                                                                     class="purple-cl-icon">
+                                                <div class="item"><a href="" class="purple-cl-icon">
                                                         <div class="line"></div>
                                                         <i class="far fa-images"></i></a></div>
-                                                <div class="item"><a href="" data-view-post="post-gif"
-                                                                     class="green-cl-icon">
+                                                <div class="item"><a href="" class="green-cl-icon">
                                                         <div class="line"></div>
                                                         <img src="/public/images/gif-icon.png"
                                                              alt=""></a></div>
-                                                <div class="item"><a href="" data-view-post="post-youtube"
-                                                                     class="red-cl-icon">
+                                                <div class="item"><a href="" class="blue-cl-icon">
                                                         <div class="line"></div>
-                                                        <i class="fab fa-youtube"></i></a></div>
-                                                <div class="item"><a href="" data-view-post="post-image-3"
-                                                                     class="purple-cl-icon">
+                                                        <i class="fas fa-map-marker-alt"></i></a></div>
+                                                <div class="item"><a href="" class="purple-cl-icon">
                                                         <div class="line"></div>
                                                         <i class="far fa-images"></i></a></div>
 
@@ -174,350 +210,157 @@
                                         </div>
                                     </div>
                                     <div class="open-page no_open">
-                                        <div id="comment" class="">
-                                            <nav>
-                                                <div class="nav nav-tabs">
-                                                    <a class="nav-item nav-link active">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="name">Comments</span><span
-                                                                    class="count">63</span>
-                                                        </div>
-
-                                                    </a>
-                                                    <a class="nav-item nav-link share-link">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="name">Share</span><span
-                                                                    class="count">190</span>
-                                                        </div>
-                                                    </a>
-
-
-                                                    <a class="nav-item nav-link">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="name">Score</span><span
-                                                                    class="count">125,365</span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </nav>
-                                            <div class="tab-content ">
-                                                <div class="tab-pane">
-                                                    <div class="main-comments-content d-flex flex-column h-100">
-                                                        <div class="content-comments">
-                                                            <div class="message1">
-                                                                <div class="container-fluid">
-                                                                    <div class="row">
-                                                                        <div class="col-md-2">
-                                                                            <img src="/public/images/boy1.jpg" alt="">
-                                                                        </div>
-                                                                        <div class="col-md-10">
-                                                                            <div class="name">
-                                                                                <span>Sam Black</span>
-                                                                                <span style="color: #909090">17h</span>
-                                                                            </div>
-                                                                            <div class="text">
-                                                                                <p>Enjoy your time!</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="message2">
-                                                                <div class="container-fluid">
-                                                                    <div class="row">
-                                                                        <div class="col-md-2">
-                                                                            <img src="/public/images/boy2.jpg" alt="">
-                                                                        </div>
-                                                                        <div class="col-md-10">
-                                                                            <div class="name">
-                                                                                <span>Johan Smith</span>
-                                                                                <span style="color: #909090">21h</span>
-                                                                            </div>
-                                                                            <div class="text">
-                                                                                <p>I head a great time with you <br>
-                                                                                    I want to see you again <br>
-                                                                                    Thank you for your nice conver- <br>
-                                                                                    sation with me during your stay
-                                                                                </p>
-                                                                            </div>
-                                                                            <div class="reply">
-                                                                                <span style="margin-right: 22px">Reply</span>
-                                                                                <span>Light</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="message3">
-                                                                <div class="container-fluid">
-                                                                    <div class="row">
-                                                                        <div class="col-md-2">
-                                                                            <img src="/public/images/girl2.png" alt="">
-                                                                        </div>
-                                                                        <div class="col-md-10">
-                                                                            <div class="name">
-                                                                                <span>Rania Dewell</span>
-                                                                                <span style="color: #909090">22h</span>
-                                                                            </div>
-                                                                            <div class="text">
-                                                                                <p>Enjoy your time!</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="foot-comments d-flex">
-                                                            <div class="write">
-                                                                <div class="d-flex">
-                                                                    <img src="/public/images/girl2.png" alt="">
-                                                                    <input class="form-control form-control-lg"
-                                                                           type="text"
-                                                                           placeholder="Write a Comment ...">
-                                                                    <i class="far fa-smile"></i>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-
+                                        <nav>
+                                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                <a class="nav-item nav-link active" id="nav-comments-tab"
+                                                   data-toggle="tab"
+                                                   href="#nav-comments" role="tab" aria-controls="nav-comments"
+                                                   aria-selected="true">
+                                                    <div class="d-flex justify-content-between">
+                                                        <span class="name">Comments</span><span class="count">63</span>
                                                     </div>
-                                                </div>
+
+                                                </a>
+                                                <a class="nav-item nav-link share-link" id="nav-share-tab"
+                                                   data-toggle="tab"
+                                                   href="#nav-share" role="tab" aria-controls="nav-share"
+                                                   aria-selected="false">
+                                                    <div class="d-flex justify-content-between">
+                                                        <span class="name">Share</span><span class="count">190</span>
+                                                    </div>
+                                                </a>
+
+
+                                                <a class="nav-item nav-link" id="nav-score-tab" data-toggle="tab"
+                                                   href="#nav-score" role="tab" aria-controls="nav-score"
+                                                   aria-selected="false">
+                                                    <div class="d-flex justify-content-between">
+                                                        <span class="name">Score</span><span
+                                                                class="count">125,365</span>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </div>
-                                        <div id="share" class="">
-                                            <nav>
-                                                <div class="nav nav-tabs">
-                                                    <a class="nav-item nav-link">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="name">Comments</span><span
-                                                                    class="count">63</span>
-                                                        </div>
-
-                                                    </a>
-                                                    <a class="nav-item nav-link active share-link">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="name">Share</span><span
-                                                                    class="count">190</span>
-                                                        </div>
-                                                    </a>
-
-
-                                                    <a class="nav-item nav-link">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="name">Score</span><span
-                                                                    class="count">125,365</span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </nav>
-                                            <div class="tab-content ">
-                                                <div class="tab-pane">
-                                                    <div class="main-share-content">
-                                                        <div class="head d-flex justify-content-between align-items-center">
-                                                            <div class="rebug red_gradient-cl">
-                                                                <button class="btn btn-link"><img
-                                                                            src="/public/images/mushroom-icon.png"
-                                                                            alt="icon"><span>Rebug</span></button>
-                                                            </div>
-                                                            <div class="social-also d-flex align-items-center">
-                                                                <span class="text">Share also on:</span>
-                                                                <a href="" class="facebook-link"><i
-                                                                            class="fab fa-facebook-f"></i></a>
-                                                                <a href="" class="twitter-link"><i
-                                                                            class="fab fa-twitter"></i></a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="share-content">
+                                        </nav>
+                                        <div class="tab-content d-flex" id="nav-tabContent">
+                                            <div class="tab-pane fade show active" id="nav-comments" role="tabpanel"
+                                                 aria-labelledby="nav-comments-tab">
+                                                <div class="main-comments-content d-flex flex-column h-100">
+                                                    <div class="content-comments">
+                                                        <div class="message1">
                                                             <div class="container-fluid">
                                                                 <div class="row">
-                                                                    <div class="col-md-6 pl-0">
-                                                                        <div class="sam d-flex">
-                                                                            <a href="" class="link-share facebook-link align-self-center"><i class="fab fa-facebook-f"></i></a>
-                                                                            <img class="sam"
-                                                                                 src="/public/images/boy1.jpg" alt="">
-                                                                            <div class="margin-t"><span>Sam Black</span>
-                                                                                <span class="d-flex color">21h ago</span>
-                                                                            </div>
+                                                                    <div class="col-md-2">
+                                                                        <img src="/public/images/boy1.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="col-md-10">
+                                                                        <div class="name">
+                                                                            <span>Sam Black</span>
+                                                                            <span style="color: #909090">17h</span>
+                                                                        </div>
+                                                                        <div class="text">
+                                                                            <p>Enjoy your time!</p>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6 pr-0">
-                                                                        <div class="sam d-flex">
-                                                                            <a href="" class="link-share other-link red_gradient-cl align-self-center">
-                                                                                <img src="/public/images/mushroom-icon.png" alt="icon">
-                                                                            </a>
-                                                                            <img class="sam"
-                                                                                 src="/public/images/boy1.jpg" alt="">
-                                                                            <div class="margin-t"><span>Sam Black</span>
-                                                                                <span class="d-flex color">21h ago</span>
-                                                                            </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="message2">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-md-2">
+                                                                        <img src="/public/images/boy2.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="col-md-10">
+                                                                        <div class="name">
+                                                                            <span>Johan Smith</span>
+                                                                            <span style="color: #909090">21h</span>
+                                                                        </div>
+                                                                        <div class="text">
+                                                                            <p>I head a great time with you <br>
+                                                                                I want to see you again <br>
+                                                                                Thank you for your nice conver- <br>
+                                                                                sation with me during your stay
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="reply">
+                                                                            <span style="margin-right: 22px">Reply</span>
+                                                                            <span>Light</span>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6 pl-0 mt-4">
-                                                                        <div class="johan d-flex">
-                                                                            <a href="" class="link-share other-link red_gradient-cl align-self-center">
-                                                                                <img src="/public/images/mushroom-icon.png" alt="icon">
-                                                                            </a>
-                                                                            <img class="johan"
-                                                                                 src="/public/images/boy2.jpg" alt="">
-                                                                            <div class="margin-t">
-                                                                                <span>Johan Smith</span>
-                                                                                <span class="d-flex color">16h ago</span>
-                                                                            </div>
-                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="message3">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-md-2">
+                                                                        <img src="/public/images/girl2.png" alt="">
                                                                     </div>
-
-                                                                    <div class="col-md-6 pr-0 mt-4">
-                                                                        <div class="rania d-flex">
-                                                                            <a href="" class="link-share twitter-link align-self-center"><i class="fab fa-twitter"></i></a>
-                                                                            <img class="johan"
-                                                                                 src="/public/images/girl-cover.jpg"
-                                                                                 alt="">
-                                                                            <div class="margin-t">
-                                                                                <span>Rania Dewell</span>
-                                                                                <span class="d-flex color">5min ago</span>
-                                                                            </div>
+                                                                    <div class="col-md-10">
+                                                                        <div class="name">
+                                                                            <span>Rania Dewell</span>
+                                                                            <span style="color: #909090">22h</span>
+                                                                        </div>
+                                                                        <div class="text">
+                                                                            <p>Enjoy your time!</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="foot-comments d-flex">
+                                                        <div class="write">
+                                                            <div class="d-flex">
+                                                                <img src="/public/images/girl2.png" alt="">
+                                                                <input class="form-control form-control-lg" type="text"
+                                                                       placeholder="Write a Comment ...">
+                                                                <i class="far fa-smile"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div id="score" class="">
-                                            <nav>
-                                                <div class="nav nav-tabs">
-                                                    <a class="nav-item nav-link">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="name">Comments</span><span
-                                                                    class="count">63</span>
+                                            <div class="tab-pane fade" id="nav-share" role="tabpanel"
+                                                 aria-labelledby="nav-share-tab">
+                                                <div class="main-share-content">
+                                                    <div class="head d-flex justify-content-between align-items-center">
+                                                        <div class="rebug red_gradient-cl">
+                                                            <button class="btn btn-link"><img
+                                                                        src="/public/images/mushroom-icon.png"
+                                                                        alt="icon"><span>Rebug</span></button>
                                                         </div>
-
-                                                    </a>
-                                                    <a class="nav-item nav-link share-link">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="name">Share</span><span
-                                                                    class="count">190</span>
-                                                        </div>
-                                                    </a>
-
-
-                                                    <a class="nav-item nav-link active">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span class="name">Score</span><span
-                                                                    class="count">125,365</span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </nav>
-                                            <div class="tab-content ">
-                                                <div class="tab-pane">
-                                                    <div class="main-score-content">
-                                                        <div class="score-content1">
-                                                            <div class="container-fluid">
-                                                                <div class="row">
-                                                                    <div class="globus col-md-6">
-                                                                        <img src="/public/images/klorik.png" alt="">
-                                                                    </div>
-                                                                    <div class="total col-md-6">
-                                                                        <p class="margin"><i class="fas fa-plus"></i>
-                                                                            <span>126,885</span></p>
-                                                                        <p class="margin"><i class="fas fa-minus"></i>
-                                                                            <span>1,520</span></p>
-                                                                        <p>Total: <span class="color">125,365</span></p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="score-content2">
-                                                            <div class="container-fluid">
-                                                                <div class="row">
-                                                                    <div class="people1 col-md-6">
-                                                                        <div class="sam d-flex">
-                                                                            <p class="margin"><i
-                                                                                        class="fas fa-minus"></i></p>
-                                                                            <img class="sam"
-                                                                                 src="/public/images/boy1.jpg" alt="">
-                                                                            <div class="margin-t"><span>Sam Black</span>
-                                                                                <span class="d-flex color">21h ago</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="johan d-flex">
-                                                                            <p class="margin"><i
-                                                                                        class="fas fa-minus"></i></p>
-                                                                            <img class="johan"
-                                                                                 src="/public/images/boy2.jpg" alt="">
-                                                                            <div class="margin-t">
-                                                                                <span>Johan Smith</span>
-                                                                                <span class="d-flex color">16h ago</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="people2 col-md-6">
-                                                                        <div class="sam d-flex">
-                                                                            <p class="margin"><i
-                                                                                        class="fas fa-plus"></i></p>
-                                                                            <img class="sam"
-                                                                                 src="/public/images/boy1.jpg" alt="">
-                                                                            <div class="margin-t"><span>Sam Black</span>
-                                                                                <span class="d-flex color">21h ago</span>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="rania d-flex">
-                                                                            <p class="margin"><i
-                                                                                        class="fas fa-plus"></i></p>
-                                                                            <img class="johan"
-                                                                                 src="/public/images/girl-cover.jpg"
-                                                                                 alt="">
-                                                                            <div class="margin-t">
-                                                                                <span>Rania Dewell</span>
-                                                                                <span class="d-flex color">5min ago</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                        <div class="social-also d-flex align-items-center">
+                                                            <span class="text">Share also on:</span>
+                                                            <a href="" class="facebook-link"><i class="fab fa-facebook-f"></i></a>
+                                                            <a href="" class="twitter-link"><i class="fab fa-twitter"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="tab-pane fade" id="nav-score" role="tabpanel"
+                                                 aria-labelledby="nav-score-tab">3
+                                            </div>
                                         </div>
+
+
                                     </div>
-                                    <div class="action-bar d-flex align-items-center justify-content-between flex-md-column">
+                                    <div class="action-bar" style="align-items: center">
                                         <div class="open-close_tab">
-                                            <button type="button" class="btn btn-link " data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v" style="margin-top: 10px"></i>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <button class="dropdown-item" type="button">Edit post</button>
-                                                <button class="dropdown-item" type="button">Embed</button>
-                                                <button class="dropdown-item" type="button">Show in tab</button>
-                                                <div class="dropdown-divider"></div>
-                                                <button class="dropdown-item" type="button">Delete post</button>
-                                                <button class="dropdown-item" type="button">Change Privacy</button>
-                                            </div>
-
+                                            <i class="fas fa-ellipsis-v" style="margin-top: 10px"></i>
                                         </div>
-                                        <div class="d-flex flex-md-column align-items-center">
+                                        <div class="d-flex" style="flex-direction: column; align-items: center">
                                             <i class="fas fa-plus"></i>
-                                            <a href="" data-barlink="score">
-                                                <span style="color: #ffffff">125</span>
-                                            </a>
-
+                                            <span style="color: #ffffff">125</span>
                                             <span style="color: #ffffff">K</span>
                                             <i class="fas fa-minus"></i>
                                         </div>
-                                        <div class="d-flex flex-md-column align-items-center share-coment-icon">
-                                            <a href="" data-barlink="share">
-                                                <i class="fas fa-share" style="line-height: 1.2"></i>
-                                            </a>
+                                        <div class="d-flex" style="flex-direction: column; align-items: center">
+                                            <i class="fas fa-share" style="line-height: 1.2"></i>
                                             <span style="margin-bottom: 25px">190</span>
-                                            <a href="" data-barlink="comment">
-                                                <i class="far fa-comment-alt" style="line-height: 1.2"></i>
-                                            </a>
-
+                                            <i class="far fa-comment-alt" style="line-height: 1.2"></i>
                                             <span style="margin-bottom: 10px">63</span>
                                         </div>
                                     </div>
@@ -580,10 +423,6 @@
                             </div>
                             {!! Form::open(['route'=>'front_page_social_bugit','id' => 'bugit_form']) !!}
                             <div class="main-content">
-
-
-
-
                                 <div class="happy d-flex align-items-center">
                                     <div class="title">
                                         <textarea name="bugit" id="" cols="30" rows="10"
@@ -902,26 +741,21 @@
             <div class="left-group pl-0">
                 <div class="row">
                     <div class="col-6">
-                        <div class="location-input">
-                            <div class="input-group">
-                                <div class="input-group-prepend blue_gradient-cl">
-                                    <button class="btn btn-outline-secondary"
-                                            type="button">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </button>
+                        <div class="input-group">
+                            <div class="input-group-prepend blue_gradient-cl">
+                                <button class="btn btn-outline-secondary"
+                                        type="button">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </button>
 
-                                </div>
+                            </div>
+                            <input name="location" type="text" class="form-control" placeholder="Address">
+                            <div class="input-group-prepend blue-grad-cl">
+                                <button class="btn btn-outline-secondary"
+                                        type="button">
+                                    <i class="fas fa-crosshairs"></i>
+                                </button>
 
-                                {!! Form::text('location[name]',null,['class' => 'controls form-control','placeholder' => 'Enter Location','id' => 'pac-input']) !!}
-                                {!! Form::hidden('location[lang]',null,['class' => 'location_lang']) !!}
-                                {!! Form::hidden('location[lat]',null,['class' => 'location_lat']) !!}
-                                <div class="input-group-prepend blue-grad-cl">
-                                    <button class="btn btn-outline-secondary"
-                                            type="button">
-                                        <i class="fas fa-crosshairs"></i>
-                                    </button>
-
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -929,10 +763,9 @@
                         <div class="d-flex justify-content-between">
                             <div class="left-group">
                                 <div class="map-custom">
-                                    <div class="map-box">
-                                        <div id="map">
-                                        </div>
-                                    </div>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.72810776133!2d-0.24168051295924747!3d51.52877184056342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2z0JvQvtC90LTQvtC9LCDQktC10LvQuNC60L7QsdGA0LjRgtCw0L3QuNGP!5e0!3m2!1sru!2s!4v1534333971160"
+                                            width="100%" height="195" frameborder="0"
+                                            style="border:0" allowfullscreen></iframe>
                                 </div>
                             </div>
 
@@ -952,107 +785,71 @@
     </script>
 
     <script src="{!!url('public/libs/owlcarousel/owl.carousel.js')!!}"></script>
-    <script src="{!!url('public/minicms/js/new-post.js')!!}"></script>
-
-
 
     <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
 
-        $('#bugModalCenter').on('shown.bs.modal', function () {
-            initAutocomplete();
-        });
-            function initAutocomplete() {
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
 
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    center: {
-                        lat: $(".location_lat").val() ?  Number($(".location_lat").val()): 40.7929026,
-                        lng: $(".location_lang").val() ? Number($(".location_lang").val()): 43.84649710000008
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
 
-                    },
-                    zoom: 13,
-                    mapTypeId: 'roadmap',
-                });
+        function showSlides(n) {
+            var i;
+//            var slides = document.querySelector(".new_post .post .post-map .mySlides");
+//            var dots = document.querySelector(".new_post .post .post-map .demo");
+//            var captionText = document.querySelector(".new_post .post .post-map #caption");
+            var slides = document.querySelectorAll(".new_post .post .post-map .mySlides");
 
-                var marker = new google.maps.Marker({
-                    position: {
-                        lat: $(".location_lat").val() ?  Number($(".location_lat").val()): 40.7929026,
-                        lng: $(".location_lang").val() ? Number($(".location_lang").val()): 43.84649710000008
-
-                    },
-                    map: map,
-                    title: $("#pac-input").val()
-                });
-                if($(".location_lang").val() || $(".location_lat").val()  ){
-                    $(".map-box").show()
-                }
-                // Create the search box and link it to the UI element.
-                var input = document.getElementById('pac-input');
-                var searchBox = new google.maps.places.SearchBox(input);
-                // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-                // Bias the SearchBox results towards current map's viewport.
-                map.addListener('bounds_changed', function(event) {
-                    searchBox.setBounds(map.getBounds());
-                });
-
-                var markers = [];
-                // Listen for the event fired when the user selects a prediction and retrieve
-                // more details for that place.
-                searchBox.addListener('places_changed', function(event) {
-                    $(".map-box").show()
-                    var places = searchBox.getPlaces();
-                    if (places.length == 0) {
-                        return;
-                    }
-
-
-
-                    // Clear out the old markers.
-                    markers.forEach(function(marker) {
-                        marker.setMap(null);
-                    });
-                    markers = [];
-
-                    // For each place, get the icon, name and location.
-                    var bounds = new google.maps.LatLngBounds();
-                    places.forEach(function(place) {
-                        if (!place.geometry) {
-                            console.log("Returned place contains no geometry");
-                            return;
-                        }
-                        // var icon = {
-                        //   url: place.icon,
-                        //   size: new google.maps.Size(71, 71),
-                        //   origin: new google.maps.Point(0, 0),
-                        //   anchor: new google.maps.Point(17, 34),
-                        //   scaledSize: new google.maps.Size(25, 25)
-                        // };
-
-                        // Create a marker for each place.
-                        $(".location_lang").val(place.geometry.location.lng())
-                        $(".location_lat").val(place.geometry.location.lat())
-                        markers.push(new google.maps.Marker({
-                            map: map,
-                            // icon: icon,
-                            title: place.name,
-                            position: place.geometry.location
-                        }));
-
-                        if (place.geometry.viewport) {
-                            // Only geocodes have viewport.
-                            bounds.union(place.geometry.viewport);
-                        } else {
-                            bounds.extend(place.geometry.location);
-                        }
-                    });
-                    map.fitBounds(bounds);
-
-                });
+            var dots = document.querySelectorAll(".new_post .post .post-map .demo");
+            var captionText = document.querySelector(".new_post .post .post-map #caption");
+            if (n > slides.length) {
+                slideIndex = 1
             }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
 
+        $(function () {
+            $('body').on('click', '.new_post .action-bar .open-close_tab', function () {
+                $('.new_post .open-page').toggleClass('d-flex');
+            });
+            $('.post-foot-carousel').owlCarousel({
+                nav: true,
+                dots: false,
+                responsiveClass: true,
+                navText: ["<i class=\"fas fa-caret-left\"></i>", "<i class=\"fas fa-caret-right\"></i>"],
+                responsive: {
+                    0: {
+                        items: 5
+                    },
+                    600: {
+                        items: 5
+                    },
+                    1000: {
+                        items: 5
+                    },
+                    1600: {
+                        items: 5
+                    }
+                }
+            })
+        });
     </script>
-    <script src="{!!url('https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyIau4tPD0XGRT6ANMUfhYzdv6G79SI0&libraries=places&callback=initAutocomplete" async defer')!!}"></script>
-
     <script>
         $(document).ready(function () {
             $('.bugit').on('click', function (e) {

@@ -4,7 +4,6 @@ namespace Btybug\User;
 
 use Auth;
 use Btybug\FrontSite\Models\Bugs;
-use Btybug\FrontSite\Models\Favorites;
 use Btybug\FrontSite\Models\FrontendPage;
 use Btybug\FrontSite\Models\SocialProfile;
 use File;
@@ -13,6 +12,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Btybug\User\Models\Roles;
 use Btybug\User\Models\UsersProfile;
 use Btybug\User\Traits\ShinobiTrait;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Queue\SerializesModels;
 use Laravel\Passport\HasApiTokens;
 
 /**
@@ -22,7 +23,7 @@ use Laravel\Passport\HasApiTokens;
 class User extends Authenticatable
 {
 
-    use CanResetPassword, ShinobiTrait,HasApiTokens;
+    use Notifiable,CanResetPassword, ShinobiTrait,HasApiTokens;
     /**
      *
      */
@@ -183,19 +184,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Bugs::class,'user_id') ;
     }
-    public function favorite_sites()
+    public function recivesBroadcastNotificationsOn()
     {
-        return $this->hasMany(Favorites::class)->where('post_id',null);
-    }
 
-    public function favorite_bugs()
-    {
-        return $this->hasMany(Favorites::class)->where('sites_id',null);
-    }
-
-    public function frontendPages()
-    {
-        return $this->hasMany(FrontendPage::class);
     }
 }
 
