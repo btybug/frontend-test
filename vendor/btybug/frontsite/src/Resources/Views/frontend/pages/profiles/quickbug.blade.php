@@ -580,6 +580,10 @@
                             </div>
                             {!! Form::open(['route'=>'front_page_social_bugit','id' => 'bugit_form']) !!}
                             <div class="main-content">
+
+
+
+
                                 <div class="happy d-flex align-items-center">
                                     <div class="title">
                                         <textarea name="bugit" id="" cols="30" rows="10"
@@ -898,21 +902,26 @@
             <div class="left-group pl-0">
                 <div class="row">
                     <div class="col-6">
-                        <div class="input-group">
-                            <div class="input-group-prepend blue_gradient-cl">
-                                <button class="btn btn-outline-secondary"
-                                        type="button">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </button>
+                        <div class="location-input">
+                            <div class="input-group">
+                                <div class="input-group-prepend blue_gradient-cl">
+                                    <button class="btn btn-outline-secondary"
+                                            type="button">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </button>
 
-                            </div>
-                            <input name="location" type="text" class="form-control" placeholder="Address">
-                            <div class="input-group-prepend blue-grad-cl">
-                                <button class="btn btn-outline-secondary"
-                                        type="button">
-                                    <i class="fas fa-crosshairs"></i>
-                                </button>
+                                </div>
 
+                                {!! Form::text('location[name]',null,['class' => 'controls form-control','placeholder' => 'Enter Location','id' => 'pac-input']) !!}
+                                {!! Form::hidden('location[lang]',null,['class' => 'location_lang']) !!}
+                                {!! Form::hidden('location[lat]',null,['class' => 'location_lat']) !!}
+                                <div class="input-group-prepend blue-grad-cl">
+                                    <button class="btn btn-outline-secondary"
+                                            type="button">
+                                        <i class="fas fa-crosshairs"></i>
+                                    </button>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -920,9 +929,10 @@
                         <div class="d-flex justify-content-between">
                             <div class="left-group">
                                 <div class="map-custom">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.72810776133!2d-0.24168051295924747!3d51.52877184056342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2z0JvQvtC90LTQvtC9LCDQktC10LvQuNC60L7QsdGA0LjRgtCw0L3QuNGP!5e0!3m2!1sru!2s!4v1534333971160"
-                                            width="100%" height="195" frameborder="0"
-                                            style="border:0" allowfullscreen></iframe>
+                                    <div class="map-box">
+                                        <div id="map">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -942,9 +952,106 @@
     </script>
 
     <script src="{!!url('public/libs/owlcarousel/owl.carousel.js')!!}"></script>
-
     <script src="{!!url('public/minicms/js/new-post.js')!!}"></script>
 
+
+
+    <script>
+
+        $('#bugModalCenter').on('shown.bs.modal', function () {
+            initAutocomplete();
+        });
+            function initAutocomplete() {
+
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: {
+                        lat: $(".location_lat").val() ?  Number($(".location_lat").val()): 40.7929026,
+                        lng: $(".location_lang").val() ? Number($(".location_lang").val()): 43.84649710000008
+
+                    },
+                    zoom: 13,
+                    mapTypeId: 'roadmap',
+                });
+
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: $(".location_lat").val() ?  Number($(".location_lat").val()): 40.7929026,
+                        lng: $(".location_lang").val() ? Number($(".location_lang").val()): 43.84649710000008
+
+                    },
+                    map: map,
+                    title: $("#pac-input").val()
+                });
+                if($(".location_lang").val() || $(".location_lat").val()  ){
+                    $(".map-box").show()
+                }
+                // Create the search box and link it to the UI element.
+                var input = document.getElementById('pac-input');
+                var searchBox = new google.maps.places.SearchBox(input);
+                // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+                // Bias the SearchBox results towards current map's viewport.
+                map.addListener('bounds_changed', function(event) {
+                    searchBox.setBounds(map.getBounds());
+                });
+
+                var markers = [];
+                // Listen for the event fired when the user selects a prediction and retrieve
+                // more details for that place.
+                searchBox.addListener('places_changed', function(event) {
+                    $(".map-box").show()
+                    var places = searchBox.getPlaces();
+                    if (places.length == 0) {
+                        return;
+                    }
+
+
+
+                    // Clear out the old markers.
+                    markers.forEach(function(marker) {
+                        marker.setMap(null);
+                    });
+                    markers = [];
+
+                    // For each place, get the icon, name and location.
+                    var bounds = new google.maps.LatLngBounds();
+                    places.forEach(function(place) {
+                        if (!place.geometry) {
+                            console.log("Returned place contains no geometry");
+                            return;
+                        }
+                        // var icon = {
+                        //   url: place.icon,
+                        //   size: new google.maps.Size(71, 71),
+                        //   origin: new google.maps.Point(0, 0),
+                        //   anchor: new google.maps.Point(17, 34),
+                        //   scaledSize: new google.maps.Size(25, 25)
+                        // };
+
+                        // Create a marker for each place.
+                        $(".location_lang").val(place.geometry.location.lng())
+                        $(".location_lat").val(place.geometry.location.lat())
+                        markers.push(new google.maps.Marker({
+                            map: map,
+                            // icon: icon,
+                            title: place.name,
+                            position: place.geometry.location
+                        }));
+
+                        if (place.geometry.viewport) {
+                            // Only geocodes have viewport.
+                            bounds.union(place.geometry.viewport);
+                        } else {
+                            bounds.extend(place.geometry.location);
+                        }
+                    });
+                    map.fitBounds(bounds);
+
+                });
+            }
+
+    </script>
+    <script src="{!!url('https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyIau4tPD0XGRT6ANMUfhYzdv6G79SI0&libraries=places&callback=initAutocomplete" async defer')!!}"></script>
 
     <script>
         $(document).ready(function () {
