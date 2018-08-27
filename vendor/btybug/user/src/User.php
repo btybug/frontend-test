@@ -192,5 +192,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Favorites::class)->where('sites_id',null);
     }
+
+    public function frontendPages()
+    {
+        return $this->hasMany(FrontendPage::class);
+    }
 }
 

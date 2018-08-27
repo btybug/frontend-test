@@ -107,8 +107,8 @@
         </div>
     </div>
 </div>
-@foreach($sites as $val)
-   <a href="#">{{$val[0]->site_name}}</a>
+@foreach($urls as $val)
+   <a href="{{url($val['url'])}}">{{$val['name']}}</a>
 @endforeach
 @yield('footer')
 {{--<div id="page-container" class=" page-sidebar-fixed page-header-fixed page-content-full-height">--}}

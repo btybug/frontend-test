@@ -5,11 +5,13 @@ namespace Btybug\FrontSite\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Btybug\btybug\Repositories\HookRepository;
 use Btybug\FrontSite\Models\Favorites;
+use Btybug\FrontSite\Models\FrontendPage;
 use Btybug\FrontSite\Models\SocialProfile;
 use Btybug\FrontSite\Repository\FavoritesRepository;
 use Btybug\FrontSite\Repository\TagsRepository;
 use Btybug\User\Http\Requests\User\ChangePassword;
 use Btybug\User\Repository\UserRepository;
+use Btybug\User\User;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Foreach_;
 
@@ -49,13 +51,15 @@ class MyAccountController extends Controller
         $sites = array();
         foreach ($favorites as $item)
         {
-            $sites[] = SocialProfile::where('id',$item->sites_id)->get();
+            $sites[] = SocialProfile::find($favorites[0]->sites_id);
         }
-        foreach ($sites as $item)
+        $urls = array();
+        foreach ($sites as $site)
         {
-            
+            $url = FrontendPage::where('user_id',$site->user_id)->where('title','profile')->get();
+            $urls[] = ['name' => $site->site_name,'url' => $url[0]->url];
         }
-        return view('manage::frontend.pages.favorites.favorite_sites', compact(['sites']));
+        return view('manage::frontend.pages.favorites.favorite_sites', compact(['urls']));
     }
 
     public function favoriteposts()
