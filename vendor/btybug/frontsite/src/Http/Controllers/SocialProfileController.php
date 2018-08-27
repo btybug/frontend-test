@@ -129,7 +129,7 @@ class SocialProfileController extends Controller
 
     public function getAllUsers()
     {
-        return User::where('role_id',0)->get();
+        return User::where('role_id','!=',1)->get();
     }
 
 
