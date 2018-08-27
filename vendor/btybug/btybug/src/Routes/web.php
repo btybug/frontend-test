@@ -103,7 +103,7 @@ Route::group(
             Route::get('/followers', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@contactsFollowers', true)->name('front_page_social_contacts_followers');
             Route::get('/networks', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@contactsNetworks', true)->name('front_page_social_contacts_networks');
         });
-        Route::post('/getusers', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@getAllUsers')->name('get_all_users');
+        Route::get('/getusers', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@getAllUsers')->name('get_all_users');
 
         Route::get('account/general/password', '\Btybug\FrontSite\Http\Controllers\MyAccountController@password')->middleware('auth')->name('front_page_account_general_password');
         Route::get('account/general/preferances', '\Btybug\FrontSite\Http\Controllers\MyAccountController@preferances')->middleware('auth')->name('front_page_account_general_preferances');

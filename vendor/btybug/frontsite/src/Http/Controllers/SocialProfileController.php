@@ -127,9 +127,11 @@ class SocialProfileController extends Controller
         return view('manage::frontend.pages.contacts.networks', compact([]));
     }
 
-    public function getAllUsers()
+    public function getAllUsers(Request $request)
     {
-        return User::where('role_id','!=',1)->get();
+        $term = $request->get('term');
+
+        return $this->userRepository->model()->where('username','like', '%'.$term.'%')->where('role_id',0)->pluck('username','id');
     }
 
 
