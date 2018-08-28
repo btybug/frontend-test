@@ -41,7 +41,7 @@ class SaveSocialGeneralRequest extends Request
             return [
                 'gender' => 'required',
                 'site_name' => 'required|max:100',
-                'display_email' => 'required|unique:social_profile,display_email,' . $this->id
+                //'display_email' => 'required|unique:social_profile,display_email,' . $this->id
             ];
         }
         return [];

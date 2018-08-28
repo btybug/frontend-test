@@ -64,8 +64,10 @@ class SocialProfileController extends Controller
     public function socialQuickbug()
     {
         $user = \Auth::user()->socialProfile;
+        $curUser = $this->userRepository->model()->find($user->user_id);
+
         $bugs = $this->socialProfileService->getall($user);
-        return view('manage::frontend.pages.profiles.quickbug', compact(['user','bugs']));
+        return view('manage::frontend.pages.profiles.quickbug', compact(['user','bugs','curUser']));
     }
 
     public function socialTravel()
@@ -85,7 +87,8 @@ class SocialProfileController extends Controller
         $user = \Auth::user()->socialProfile;
         $this->socialProfileService->bugsSave($data,$user);
         $bugs = $this->socialProfileService->getall($user);
-        $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user','bugs']))->render();
+        $curUser = $this->userRepository->model()->find($user->user_id);
+        $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user','bugs','curUser']))->render();
 
         return \Response::json(['html' => $html, 'error' => false]);
     }
