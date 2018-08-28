@@ -17319,7 +17319,7 @@ window.io = __webpack_require__(57);
 if (typeof io !== 'undefined') {
     window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
         broadcaster: 'socket.io',
-        host: window.location.hostname + ':6001'
+        host: window.location.hostname + ':80'
     });
 }
 

@@ -18,4 +18,5 @@ Route::get('/demo1','DemoController@demo1');
 Route::get('/demo2','DemoController@demo2');
 Route::get('/demo3','DemoController@demo3');
 Route::get('/message','DemoController@demo4');
+Route::get('/socket.io','DemoController@socket');
 Route::post('/message','DemoController@message');

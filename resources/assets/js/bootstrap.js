@@ -62,7 +62,7 @@ window.io = require('socket.io-client');
 if (typeof io !== 'undefined') {
     window.Echo = new EchoLibrary({
         broadcaster: 'socket.io',
-        host:  'ws:/btybug.com:6001'
+        host: window.location.hostname + ':80'
     });
 }
 
