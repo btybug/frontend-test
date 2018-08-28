@@ -16,7 +16,7 @@ class SocialProfile extends Model
     protected $casts = [
         'tags' => 'json',
         'social_media' => 'json',
-        'location' => 'json'
+//        'location' => 'json'
     ];
 
     public function user()
