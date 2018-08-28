@@ -518,7 +518,7 @@
                             <div class="info-photo d-flex flex-wrap">
                                 <div class="col-lg-6 p-0">
                                     <div class="photo">
-                                        <img src="/public/images/{{$curUser->avatar}}" alt="">
+                                        <img src="/public/images/@if(isset($curUser->avatar)){{$curUser->avatar}}@else avatar.png @endif" alt="">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 p-0">
