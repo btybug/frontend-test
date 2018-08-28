@@ -136,6 +136,17 @@ class SocialProfileController extends Controller
 
         return $this->userRepository->model()->where('username','like', '%'.$term.'%')->where('role_id',0)->get();
     }
+    public function deleteBug(Request $request)
+    {
+        $success = $this->socialProfileService->bugDelete($request->id);
+        if($success)
+        {
+            return back();
+        }else{
+            return back();
+        }
+
+    }
 
 
 }

@@ -475,7 +475,7 @@
                                     <button class="dropdown-item" type="button">Embed</button>
                                     <button class="dropdown-item" type="button">Show in tab</button>
                                     <div class="dropdown-divider"></div>
-                                    <button class="dropdown-item" type="button">Delete post</button>
+                                    <button class="dropdown-item delete_bug" data-id="{{$bug->id}}" type="button">Delete post</button>
                                     <button class="dropdown-item" type="button">Change Privacy</button>
                                 </div>
 

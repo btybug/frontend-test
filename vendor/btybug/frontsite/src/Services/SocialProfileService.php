@@ -28,6 +28,11 @@ class SocialProfileService extends GeneralService
         $this->bugsRepository->create($data);
   }
 
+  public function bugDelete($id = null)
+  {
+        $this->bugsRepository->delete($id);
+  }
+
   public function getall($user)
   {
         $bugs = $this->bugsRepository->slectByuser($user);

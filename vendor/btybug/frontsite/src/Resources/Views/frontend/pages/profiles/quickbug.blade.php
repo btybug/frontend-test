@@ -38,6 +38,7 @@
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="formGroupExampleInput">
+                                        {{csrf_field()}}
                                     </div>
                                 </div>
                             </div>
@@ -200,7 +201,7 @@
                                 <div class="facebook-share d-flex align-items-center">
 
                                     <label class="container custom-checkbox">
-                                        <input type="checkbox">
+                                        <input name="facebook_share" type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                     <a href="" class="facebook-link"><i class="fab fa-facebook-f"></i></a>
@@ -208,7 +209,7 @@
                                 </div>
                                 <div class="twitter-share d-flex align-items-center">
                                     <label class="container custom-checkbox">
-                                        <input type="checkbox">
+                                        <input name="twitter_share" type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                     <a href="" class="twitter-link"><i class="fab fa-twitter"></i></a>
@@ -577,6 +578,26 @@
 
                 });
             }
+
+
+                $('.delete_bug').on('click',function (e) {
+                    e.preventDefault();
+                    var id = $(this).data('id');
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{route('delete_current_bug')}}",
+                        datatype: 'json',
+                        data: {id: id,key:'key'},
+                        headers: {
+                            'X-CSRF-TOKEN': $("input[name='_token']").val()
+                        },
+                        cache: false,
+                        success: function (data) {
+                            location.reload();
+                        }
+                    });
+                })
+
 
     </script>
 

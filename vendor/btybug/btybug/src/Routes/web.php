@@ -96,6 +96,7 @@ Route::group(
         Route::post('profiles/social/general', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@postSocialGeneral')->name('front_page_account_profiles_save');
         Route::post('profiles/social/bugit', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@postSocialBugit')->name('front_page_social_bugit');
         Route::get('profiles/social/tags/search', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@tagsAutocompleate')->name('front_page_social_bugit_autocomplete');
+        Route::post('/deletebug', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@deleteBug')->name('delete_current_bug');
 
         Route::group(['prefix' => 'contacts'], function () {
             Route::get('/', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@contactsIndex', true)->name('front_page_social_contacts');
