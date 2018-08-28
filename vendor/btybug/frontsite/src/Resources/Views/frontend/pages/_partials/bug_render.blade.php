@@ -518,15 +518,15 @@
                             <div class="info-photo d-flex flex-wrap">
                                 <div class="col-lg-6 p-0">
                                     <div class="photo">
-                                        <img src="/public/images/girl2.png" alt="">
+                                        <img src="/public/images/{{$curUser->avatar}}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 p-0">
                                     <div class="info">
                                         <div class="content d-flex">
-
                                             <p>
-                                                <q class="qoutes"></q>{{$bug->bugit}}</p>
+                                                <q class="qoutes"></q>{{$bug->bugit}}
+                                            </p>
 
                                         </div>
                                     </div>
