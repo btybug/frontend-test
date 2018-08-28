@@ -72,14 +72,16 @@
                                             @endforeach... </p>
                                     </div>
                                 @endif
-                                <div class="hash d-flex">
-                                    <p>
-                                        @foreach(explode(',',$bug->tags) as $tag)
-                                            <i class="fas fa-hashtag"></i>
-                                            <span>{{$tag}}</span>
-                                        @endforeach
-                                    </p>
-                                </div>
+                                @if($bug->tags)
+                                    <div class="hash d-flex">
+                                        <p>
+                                            @foreach(explode(',',$bug->tags) as $tag)
+                                                <i class="fas fa-hashtag"></i>
+                                                <span>{{$tag}}</span>
+                                            @endforeach
+                                        </p>
+                                    </div>
+                                @endif
                             </div>
                             <div class="post-map">
                                 @if(count(explode(',',$bug->site_image)))
@@ -93,20 +95,27 @@
                                         </div>
                                     @endforeach
                                 @endif
-                                <div id="post-gif" class="">
-                                    <img src="@if(isset($bug->gif)) @else https://media1.popsugar-assets.com/files/thumbor/sEsLflIEp_nfioQsE4aGa8zq9CY/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/01/03/278/n/1922398/addurlYAmgaN/i/Nope-Rat.gif @endif"
-                                         alt="">
-                                </div>
-                                <div id="post-youtube" class="">
-                                    <iframe width="100%" height="350"
-                                            src="@if(isset($bug->youtube))https://www.youtube.com/embed/{{$bug->youtube}}@endif" frameborder="0"
-                                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                </div>
-                                <div id="post-maps" class="active">
-                                    <iframe src="@if(count($bug->location)){{$bug->location['name']}} @else https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.4733931849!2d-0.24167955985936765!3d51.528558243609965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2z0JvQvtC90LTQvtC9LCDQktC10LvQuNC60L7QsdGA0LjRgtCw0L3QuNGP!5e0!3m2!1sru!2s!4v1535098723187 @endif"
-                                            width="100%" height="350" frameborder="0" style="border:0"
-                                            allowfullscreen></iframe>
-                                </div>
+                                @if(isset($bug->gif))
+                                    <div id="post-gif" class="">
+                                        <img src="{!! $bug->gif !!}" alt="GIF">
+                                    </div>
+                                @endif
+
+                                @if(isset($bug->youtube))
+                                    <div id="post-youtube" class="">
+                                        <iframe width="100%" height="350"
+                                                src="https://www.youtube.com/embed/{{ $bug->youtube }}" frameborder="0"
+                                                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                    </div>
+                                @endif
+
+                                @if($bug->location && count($bug->location))
+                                    <div id="post-maps" class="active">
+                                        <iframe src="https://maps.google.com/maps?q={{ $bug->location['lat'] }},{{ $bug->location['lang'] }}&z=10&output=embed"
+                                                width="100%" height="350" frameborder="0" style="border:0"
+                                                allowfullscreen></iframe>
+                                    </div>
+                                @endif
 
                             </div>
                             <div class="post-foot">

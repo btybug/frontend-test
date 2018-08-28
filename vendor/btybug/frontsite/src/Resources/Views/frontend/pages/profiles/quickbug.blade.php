@@ -338,9 +338,9 @@
                         </div>
 
                     </div>
-                    <input type="search " name="youtube" class="form-control search-youtube"
+                    <input type="search" class="form-control search-youtube"
                            placeholder="Search Youtube">
-                    <input type="hidden" id="youtube-video-key">
+                    <input type="hidden" name="youtube" id="youtube-video-key">
                 </div>
             </div>
             <div class="right-group">
@@ -418,10 +418,10 @@
                         </button>
 
                     </div>
-                    <input name="gif" type="text" class="form-control giphy-search" placeholder="Gif">
+                    <input type="text" class="form-control giphy-search" placeholder="Gif">
                     <input type="hidden" id="giphy-id">
                     <input type="hidden" id="giphy-title">
-                    <input type="hidden" id="giphy-url">
+                    <input type="hidden" name="gif" id="giphy-url">
 
                 </div>
             </div>
@@ -484,7 +484,6 @@
             </div>
         </div>
         <script src="{!!url('https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyIau4tPD0XGRT6ANMUfhYzdv6G79SI0&libraries=places&callback=initAutocomplete" async defer')!!}"></script>
-    </script>
 
     <script src="{!!url('public/libs/owlcarousel/owl.carousel.js')!!}"></script>
     <script src="{!!url('public/minicms/js/new-post.js')!!}"></script>
