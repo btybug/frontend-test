@@ -56,7 +56,7 @@ if (token) {
 // });]
 
 
-import EchoLibrary from "laravel-echo-server"
+import EchoLibrary from "laravel-echo"
 window.io = require('socket.io-client');
 // Have this in case you stop running your laravel echo server
 if (typeof io !== 'undefined') {
