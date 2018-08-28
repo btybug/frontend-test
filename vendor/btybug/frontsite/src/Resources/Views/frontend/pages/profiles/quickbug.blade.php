@@ -105,7 +105,9 @@
                                                     <div class="post-content">
                                                         <div class="at d-flex">
                                                             <p><i class="fas fa-at"></i>
-                                                                Johan Smith, Jack Wilth, Rania Dewell... </p>
+                                                                @foreach(explode(',',$bug->mention_friends) as $friends)
+                                                                    {{$friends}},
+                                                                @endforeach... </p>
                                                         </div>
 
                                                         <div class="hash d-flex">
