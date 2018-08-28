@@ -36,12 +36,12 @@ $(document).ready(function() {
         case "at-link active":
           $(added_costom_template).append(templateAt);
           targetLink.classList.remove("active");
-
+          console.log(11111);
           var citynames = new Bloodhound({
             datumTokenizer: Bloodhound.tokenizers.obj.whitespace("name"),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             prefetch: {
-              url: "http://multisite.loc/getusers",
+              url: "/getusers",
               filter: function(list) {
                 return $.map(list, function(item) {
                   console.log(item);
