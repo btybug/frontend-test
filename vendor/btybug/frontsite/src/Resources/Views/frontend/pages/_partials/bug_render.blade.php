@@ -89,20 +89,20 @@
                                         $i = 1;
                                     @endphp
                                     @foreach(explode(',',$bug->site_image) as $img)
-                                        <div id="post-image-{{$i++}}" class="">
+                                        <div class="post-image-{{$i++}}">
                                             <img src="{{$img}}"
                                                  alt="">
                                         </div>
                                     @endforeach
                                 @endif
                                 @if(isset($bug->gif))
-                                    <div id="post-gif" class="">
+                                    <div class="post-gif">
                                         <img src="{!! $bug->gif !!}" alt="GIF">
                                     </div>
                                 @endif
 
                                 @if(isset($bug->youtube))
-                                    <div id="post-youtube" class="">
+                                    <div class="post-youtube">
                                         <iframe width="100%" height="350"
                                                 src="https://www.youtube.com/embed/{{ $bug->youtube }}" frameborder="0"
                                                 allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -110,7 +110,7 @@
                                 @endif
 
                                 @if($bug->location && count($bug->location))
-                                    <div id="post-maps" class="active">
+                                    <div class="post-maps active">
                                         <iframe src="https://maps.google.com/maps?q={{ $bug->location['lat'] }},{{ $bug->location['lang'] }}&z=10&output=embed"
                                                 width="100%" height="350" frameborder="0" style="border:0"
                                                 allowfullscreen></iframe>

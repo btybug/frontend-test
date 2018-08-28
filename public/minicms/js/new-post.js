@@ -19,17 +19,23 @@ $(document).ready(function () {
     $('body').on('click', '.new_post >.post .post-foot', function (e) {
         e.preventDefault();
         if (!$(e.target).hasClass("post-foot") && e.target.closest('a')) {
-            var postFootLink = e.target.closest('a');
-            var dataPostLink = $(postFootLink).data("viewPost");
+            var postFootLink = $(e.target.closest('a'));
+            postFootLink.closest(".owl-stage").find("a").removeClass("active")
 
-            if (document.getElementById(dataPostLink)) {
-                $('.new_post >.post .post-map>div').removeClass('active');
-                document.getElementById(dataPostLink).classList.add('active');
-                $(this).find('a').removeClass('active');
+            console.log(postFootLink )
+
+            var dataPostLink = $(postFootLink).data("viewPost");
+            console.log(dataPostLink )
+            let posts = $(this).closest(".post").find(".post-map")
+            console.log(posts)
+            posts.children().removeClass("active")
+                // $('.new_post >.post .post-map>div').removeClass('active');
+                // document.getElementById(dataPostLink).classList.add('active');
+                // $(this).find('a').removeClass('active');
+                posts.find(`.${dataPostLink}`).addClass('active');
                 $(postFootLink).addClass('active');
 
 
-            }
         }
 
     });
@@ -53,16 +59,16 @@ $(document).ready(function () {
         navText: ["<i class=\"fas fa-caret-left\"></i>", "<i class=\"fas fa-caret-right\"></i>"],
         responsive: {
             0: {
-                items: 5
+                items: 3
             },
             600: {
-                items: 5
+                items: 3
             },
             1000: {
-                items: 5
+                items: 3
             },
             1600: {
-                items: 5
+                items: 3
             }
         }
     });
