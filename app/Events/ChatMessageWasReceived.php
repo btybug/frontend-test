@@ -28,7 +28,7 @@ class ChatMessageWasReceived  implements ShouldBroadcastNow
     public function broadcastOn()
     {
 
-//        return new PresenceChannel('socket.io' . $this->survey->id);
+        return new PresenceChannel('socket.io' . $this->survey->id);
 //        return dd(new PresenceChannel('socket.io'));
 
         echo 789;
