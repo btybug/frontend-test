@@ -62,16 +62,22 @@
                                                                             <span>10:17</span>
                                                                         </div>
                                                                     </div>
+                                                                    @if(count($curUser))
                                                                     <div class="col-lg-2 col-md-3 p-0">
                                                                         <div class="images">
-                                                                            <img src="/public/images/girl2.png" alt="">
+                                                                            <img src="/public/images/@if(isset($curUser->avatar)){{$curUser->avatar}}@else{{'avatar.png'}}@endif" alt="">
                                                                         </div>
 
                                                                     </div>
                                                                     <div class="col-lg-9 col-md-7">
-                                                                        <h4>Rania Davan</h4>
-                                                                        <span>& Johan Smith , Jan Wim Jack Wilth ...</span>
+                                                                        <h4>{{$curUser->username}}</h4>
+                                                                        <span>&  @foreach(explode(',',$bug->mention_friends) as $friends)
+                                                                                {{$friends}},
+                                                                            @endforeach
+                                                                            ...
+                                                                    </span>
                                                                     </div>
+                                                                    @endif
                                                                 </div>
                                                             </div>
                                                         </div>
