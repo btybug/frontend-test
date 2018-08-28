@@ -111,25 +111,26 @@
                                                         </div>
 
                                                         <div class="hash d-flex">
-                                                            <p>@foreach(explode(',',$bug->tags) as $tag)
+                                                            <p>
+                                                                @foreach(explode(',',$bug->tags) as $tag)
                                                                     <i class="fas fa-hashtag"></i>
                                                                     <span>{{$tag}}</span>
-                                                                @endforeach</p>
+                                                                @endforeach
+                                                            </p>
                                                         </div>
                                                     </div>
                                                     <div class="post-map">
-                                                        <div id="post-image-1" class="">
-                                                            <img src=" https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?auto=compress&cs=tinysrgb&h=350"
-                                                                 alt="">
-                                                        </div>
-                                                        <div id="post-image-2" class="">
-                                                            <img src="https://lonelyplanetimages.imgix.net/a/g/hi/t/3cb45f6e59190e8213ce0a35394d0e11-nice.jpg?sharp=10&vib=20&w=1200"
-                                                                 alt="">
-                                                        </div>
-                                                        <div id="post-image-3" class="">
-                                                            <img src="https://www.telegraph.co.uk/content/dam/Travel/2018/February/nice-france-AP152995065.jpg?imwidth=450"
-                                                                 alt="">
-                                                        </div>
+                                                        @if(count(explode(',',$bug->site_image)))
+                                                            @php
+                                                                $i = 1;
+                                                            @endphp
+                                                            @foreach(explode(',',$bug->site_image) as $img)
+                                                                <div id="post-image-{{$i++}}" class="">
+                                                                    <img src="{{$img}}"
+                                                                         alt="">
+                                                                </div>
+                                                            @endforeach
+                                                        @endif
                                                         <div id="post-gif" class="">
                                                             <img src="https://media1.popsugar-assets.com/files/thumbor/sEsLflIEp_nfioQsE4aGa8zq9CY/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/01/03/278/n/1922398/addurlYAmgaN/i/Nope-Rat.gif"
                                                                  alt="">
