@@ -17313,19 +17313,47 @@ if (token) {
 // });]
 
 
+// import EchoLibrary from "laravel-echo"
+// window.io = require('socket.io-client');
+// // Have this in case you stop running your laravel echo server
+// if (typeof io !== 'undefined') {
+//     window.Echo = new EchoLibrary({
+//         broadcaster: 'presence-socket.io',
+//         host: window.location.hostname + ':6001'
+//     });
+//     console.log(window.location.hostname);
+// }
+//
+// Echo.channel('presence-socket.io')
+//     .listen('ChatMessageWasReceived', (e) => {
+//     console.log(e.user, e.chatMessage);
+// });
+
 
 window.io = __webpack_require__(57);
 // Have this in case you stop running your laravel echo server
 if (typeof io !== 'undefined') {
     window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
         broadcaster: 'socket.io',
-        host: window.location.hostname + ':6001'
+        host: window.location.hostname + ':6001',
+        listenForBroadcast: function listenForBroadcast(survey_id) {
+            var _this = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a.join('survey.' + survey_id).here(function (users) {
+                _this.users_viewing = users;
+                _this.$forceUpdate();
+            }).joining(function (user) {
+                if (_this.checkIfUserAlreadyViewingSurvey(user)) {
+                    _this.users_viewing.push(user);
+                    _this.$forceUpdate();
+                }
+            }).leaving(function (user) {
+                _this.removeViewingUser(user);
+                _this.$forceUpdate();
+            });
+        }
     });
 }
-
-Echo.channel('socket.io').listen('ChatMessageWasReceived', function (e) {
-    console.log(e.user, e.chatMessage);
-});
 
 /***/ }),
 /* 35 */

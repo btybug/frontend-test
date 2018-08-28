@@ -56,20 +56,47 @@ if (token) {
 // });]
 
 
-import EchoLibrary from "laravel-echo"
+// import EchoLibrary from "laravel-echo"
+// window.io = require('socket.io-client');
+// // Have this in case you stop running your laravel echo server
+// if (typeof io !== 'undefined') {
+//     window.Echo = new EchoLibrary({
+//         broadcaster: 'presence-socket.io',
+//         host: window.location.hostname + ':6001'
+//     });
+//     console.log(window.location.hostname);
+// }
+//
+// Echo.channel('presence-socket.io')
+//     .listen('ChatMessageWasReceived', (e) => {
+//     console.log(e.user, e.chatMessage);
+// });
+
+import Echo from "laravel-echo"
 window.io = require('socket.io-client');
 // Have this in case you stop running your laravel echo server
 if (typeof io !== 'undefined') {
-    window.Echo = new EchoLibrary({
-        broadcaster: 'presence-socket.io',
-        host: window.location.hostname + ':6001'
+    window.Echo = new Echo({
+        broadcaster: 'socket.io',
+        host: window.location.hostname + ':6001',
+        listenForBroadcast(survey_id) {
+            Echo.join('survey.' + survey_id)
+                .here((users) => {
+                this.users_viewing = users;
+            this.$forceUpdate();
+        })
+        .joining((user) => {
+                if (this.checkIfUserAlreadyViewingSurvey(user)) {
+                this.users_viewing.push(user);
+                this.$forceUpdate();
+            }
+        })
+        .leaving((user) => {
+                this.removeViewingUser(user);
+            this.$forceUpdate();
+        });
+        }
     });
-    console.log(window.location.hostname);
 }
-
-Echo.channel('presence-socket.io')
-    .listen('ChatMessageWasReceived', (e) => {
-    console.log(e.user, e.chatMessage);
-});
 
 
