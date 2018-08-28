@@ -155,10 +155,10 @@
                                                                     <i class="fas fa-map-marker-alt"></i></a></div>
                                                             @if(count(explode(',',$bug->site_image)))
                                                                 @php
-                                                                    $i = 1;
+                                                                    $j = 1;
                                                                 @endphp
                                                                 @foreach(explode(',',$bug->site_image) as $img)
-                                                                    <div class="item"><a href="" data-view-post="post-image-{{$i++}}"
+                                                                    <div class="item"><a href="" data-view-post="post-image-{{$j++}}"
                                                                                          class="purple-cl-icon">
                                                                             <div class="line"></div>
                                                                             <i class="far fa-images"></i></a></div>
