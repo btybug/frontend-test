@@ -10,6 +10,8 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
+laravel-echo-server.json
+package-lock.json
 composer.lock
 /vendor/bin
 /vendor/composer/*
