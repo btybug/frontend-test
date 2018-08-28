@@ -137,7 +137,7 @@
                                                         </div>
                                                         <div id="post-youtube" class="">
                                                             <iframe width="100%" height="350"
-                                                                    src="https://www.youtube.com/embed/Xc_toI7oMJY" frameborder="0"
+                                                                    src="@if(isset($bug->youtube))https://www.youtube.com/embed/{{$bug->youtube}}@endif" frameborder="0"
                                                                     allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                                         </div>
                                                         <div id="post-maps" class="active">
