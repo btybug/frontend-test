@@ -133,7 +133,7 @@ class SocialProfileController extends Controller
     {
         $term = $request->get('term');
 
-        return $this->userRepository->model()->where('username','like', '%'.$term.'%')->where('role_id',0)->pluck('username','id');
+        return $this->userRepository->model()->where('username','like', '%'.$term.'%')->where('role_id',0)->get();
     }
 
 
