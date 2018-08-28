@@ -23,7 +23,7 @@ Broadcast::channel('survey.{survey_id}', function ($user, $survey_id) {
     ];
 });
 
-Broadcast::channel('presence-socket.io', function ($user, $chatroomId) {
+Broadcast::channel('socket.io', function ($user, $chatroomId) {
     if (true) { // Replace with real ACL
         return true;
     }
