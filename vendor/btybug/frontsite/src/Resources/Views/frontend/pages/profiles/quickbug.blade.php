@@ -141,7 +141,7 @@
                                                                     allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                                         </div>
                                                         <div id="post-maps" class="active">
-                                                            <iframe src="@if(isset($bug->location) && count($bug->location)){{$bug->location}} @else https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.4733931849!2d-0.24167955985936765!3d51.528558243609965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2z0JvQvtC90LTQvtC9LCDQktC10LvQuNC60L7QsdGA0LjRgtCw0L3QuNGP!5e0!3m2!1sru!2s!4v1535098723187 @endif"
+                                                            <iframe src="@if(isset($bug->location)){{$bug->location}} @else https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.4733931849!2d-0.24167955985936765!3d51.528558243609965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2z0JvQvtC90LTQvtC9LCDQktC10LvQuNC60L7QsdGA0LjRgtCw0L3QuNGP!5e0!3m2!1sru!2s!4v1535098723187 @endif"
                                                                     width="100%" height="350" frameborder="0" style="border:0"
                                                                     allowfullscreen></iframe>
                                                         </div>
@@ -153,18 +153,17 @@
                                                                                  class="blue-cl-icon active">
                                                                     <div class="line"></div>
                                                                     <i class="fas fa-map-marker-alt"></i></a></div>
-                                                            <div class="item"><a href="" data-view-post="post-image-1"
-                                                                                 class="purple-cl-icon">
-                                                                    <div class="line"></div>
-                                                                    <i class="far fa-images"></i></a></div>
-                                                            <div class="item"><a href="" data-view-post="post-image-2"
-                                                                                 class="purple-cl-icon">
-                                                                    <div class="line"></div>
-                                                                    <i class="far fa-images"></i></a></div>
-                                                            <div class="item"><a href="" data-view-post="post-image-3"
-                                                                                 class="purple-cl-icon">
-                                                                    <div class="line"></div>
-                                                                    <i class="far fa-images"></i></a></div>
+                                                            @if(count(explode(',',$bug->site_image)))
+                                                                @php
+                                                                    $j = 1;
+                                                                @endphp
+                                                                @foreach(explode(',',$bug->site_image) as $img)
+                                                                    <div class="item"><a href="" data-view-post="post-image-{{$j++}}"
+                                                                                         class="purple-cl-icon">
+                                                                            <div class="line"></div>
+                                                                            <i class="far fa-images"></i></a></div>
+                                                                @endforeach
+                                                            @endif
                                                             <div class="item"><a href="" data-view-post="post-gif"
                                                                                  class="green-cl-icon">
                                                                     <div class="line"></div>
