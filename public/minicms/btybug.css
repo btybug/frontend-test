@@ -2141,12 +2141,18 @@ flex: auto;
 
 .new_post .aug img {
   border: 1px solid #ffffff;
-  width: 100%;
+  width: 90px;
   height: 80px;
   object-fit: cover;
 cursor: pointer;
 }
-
+.new_post .post .head-post-times{
+  align-self: center;
+  padding-left: 15px;
+}
+.new_post .post .head-post-info {
+  flex: auto;
+}
 .new_post .aug h4 {
   line-height: 1;
   margin-top: 7px;
@@ -2236,9 +2242,11 @@ cursor: pointer;
 .new_post >.post {
   /*width:898px;*/
   /*flex: auto;*/
+  width: 100%;
   overflow: hidden;
   border: 1px solid #d5d5d5;
 }
+
 .new_post .head-rania .images{
   padding: 15px;
 }
@@ -2586,6 +2594,7 @@ float: right;
   background-color: #f8f8f8;
   padding:10px;
   border: 1px solid #d5d5d5;
+  flex-wrap: wrap;
 }
 .new_post .open-page .main-share-content .head .rebug{
   align-self: stretch;
@@ -2623,7 +2632,7 @@ font-size: 18px;
   margin-left: 10px;
 }
 .new_post .open-page{
-  min-width: 440px;
+  width: 440px;
 }
 .new_post .open-page>div{
   display: none;
@@ -2660,9 +2669,7 @@ font-size: 18px;
 .new_post >.post .post-map>div.active{
 display: block;
 }
-.new_post .open-page{
 
-}
 /*main-score-content*/
 .new_post .open-page .main-score-content .score-content1 {
   border: 1px solid #d4d4d4;

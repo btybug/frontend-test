@@ -12,22 +12,22 @@
                                 <div class="aug">
                                     <div class="container-fluid">
                                         <div class="row">
-                                            <div class="col-lg-1 col-md-2">
+                                            <div class="head-post-times">
                                                 <div class="reg-times d-flex flex-md-column align-items-center">
                                                     <span>{{ BBgetDateFormat($bug->created_at,'d') }}</span>
                                                     <span>{{ BBgetDateFormat($bug->created_at,'M') }}</span>
-                                                    <i class="far fa-clock"></i>
+                                                    <span><i class="far fa-clock"></i></span>
                                                     <span>{{ str_replace(' ', '', BBgetTimeFormat($bug->created_at)) }}</span>
                                                 </div>
                                             </div>
                                             @if(count($curUser))
-                                                <div class="col-lg-2 col-md-3 p-0">
+                                                <div class="head-post-img">
                                                     <div class="images">
                                                         <img src="/public/images/@if(isset($curUser->avatar)){{$curUser->avatar}}@else{{'avatar.png'}}@endif" alt="" data-id="{{$ident}}">
                                                     </div>
 
                                                 </div>
-                                                <div class="col-lg-9 col-md-7">
+                                                <div class="head-post-info">
                                                     <h4>{{$curUser->username}}</h4>
                                                     @if($bug->mention_friends)
                                                         <span>&
@@ -154,7 +154,7 @@
                             </div>
                         </div>
                         <div class="open-page no_open">
-                            <div id="comment" class="">
+                            <div class="comment">
                                 <nav>
                                     <div class="nav nav-tabs">
                                         <a class="nav-item nav-link active">
@@ -264,7 +264,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="share" class="">
+                            <div class="share">
                                 <nav>
                                     <div class="nav nav-tabs">
                                         <a class="nav-item nav-link">
@@ -365,7 +365,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="score" class="">
+                            <div class="score">
                                 <nav>
                                     <div class="nav nav-tabs">
                                         <a class="nav-item nav-link">

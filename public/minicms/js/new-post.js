@@ -4,11 +4,11 @@ $(document).ready(function () {
         if (!$(e.target).hasClass("action-bar") && e.target.closest('a')) {
             var sctionBarlink = e.target.closest('a');
             var datalink = $(sctionBarlink).data("barlink");
-            if (document.getElementById(datalink)) {
-                $('.new_post .open-page').removeClass('no_open');
-                $('.new_post .open-page>div').removeClass('active');
-                document.getElementById(datalink).classList.toggle('active');
-            }
+            var openPage = $(this).closest('.new_post').find('.open-page');
+            console.log($(openPage));
+            $(openPage).removeClass('no_open');
+            $(openPage).children().removeClass('active');
+            $(openPage).find(`.${datalink}`).addClass('active');
         } else {
             $('.new_post .open-page').addClass('no_open');
             $('.new_post .open-page>div').removeClass('active');
@@ -21,13 +21,9 @@ $(document).ready(function () {
         if (!$(e.target).hasClass("post-foot") && e.target.closest('a')) {
             var postFootLink = $(e.target.closest('a'));
             postFootLink.closest(".owl-stage").find("a").removeClass("active")
-
-            console.log(postFootLink )
-
             var dataPostLink = $(postFootLink).data("viewPost");
             console.log(dataPostLink )
             let posts = $(this).closest(".post").find(".post-map")
-            console.log(posts)
             posts.children().removeClass("active")
                 // $('.new_post >.post .post-map>div').removeClass('active');
                 // document.getElementById(dataPostLink).classList.add('active');
