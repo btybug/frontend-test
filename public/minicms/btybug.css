@@ -2839,7 +2839,7 @@ display: block;
     padding: 5px;
   }
   .new_post .open-page{
-    min-width: 100%;
+    width: 100%;
   }
   .new_post .open-page nav .nav{
     flex-wrap: wrap;
