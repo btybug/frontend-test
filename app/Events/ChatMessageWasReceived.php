@@ -22,14 +22,14 @@ class ChatMessageWasReceived  implements ShouldBroadcastNow
         $this->chatMessage = $chatMessage;
         $this->user = $user;
 
-
+        event(new MessagePushed('ewqererqwe'));
 
     }
 
     public function broadcastOn()
     {
 
-        return new PresenceChannel('socket.io' . $this->survey->id);
+       // return new PresenceChannel('socket.io' . $this->survey->id);
 //        return dd(new PresenceChannel('socket.io'));
 
         echo 789;
