@@ -532,6 +532,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="col-lg-4 pl-lg-4 p-0">
                                             <div class="head3 user-widget no-show">
                                                 <div class="name-icon">
