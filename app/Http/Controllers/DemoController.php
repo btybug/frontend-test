@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ChatMessage;
 use Illuminate\Http\Request;
 
 class DemoController extends Controller
@@ -28,7 +29,8 @@ class DemoController extends Controller
 
     public function demo4()
     {
-        return view("demo4");
+        $messages=ChatMessage::all();
+        return view("demo4",compact('messages'));
     }
 
     public function socket(Request $request)
@@ -46,5 +48,6 @@ class DemoController extends Controller
         ]);
 
         event(new \App\Events\ChatMessageWasReceived($message, $user));
+        return redirect()->back();
     }
 }

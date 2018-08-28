@@ -7,20 +7,17 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 
-class ChatMessageWasReceived  implements ShouldBroadcastNow
+class ChatMessageWasReceived implements ShouldBroadcastNow
 {
-    use Dispatchable,InteractsWithSockets, SerializesModels;
+    use  SerializesModels;
 
-    public $chatMessage;
-    public $user;
+
+    public $message;
 
     public function __construct($chatMessage, $user)
     {
 
-        echo 456;
-        $this->chatMessage = $chatMessage;
-        $this->user = $user;
-
+        $this->message = $chatMessage;
 
 
     }
@@ -31,9 +28,14 @@ class ChatMessageWasReceived  implements ShouldBroadcastNow
 //        return new PresenceChannel('socket.io' . $this->survey->id);
 //        return dd(new PresenceChannel('socket.io'));
 
-        echo 789;
+
         return [
-            "socket.io"
+            "chat"
         ];
+    }
+
+    public function broadcastAs()
+    {
+        return 'message';
     }
 }
