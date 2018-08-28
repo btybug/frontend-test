@@ -428,7 +428,7 @@
             <div class="right-group">
                 <a href="" class="del-icon" data-delgroup="del-star"><i class="fas fa-times"></i></a>
             </div>
-            <div class="giphy-container"></div>
+            <div class="giphy-container w-100"></div>
         </div>
     </script>
     <script id="hidden-template-location" type="text/x-custom-template">
