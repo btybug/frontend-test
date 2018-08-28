@@ -1,3 +1,6 @@
+@php
+ $ident = 0;
+@endphp
 @if(count($bugs))
     @foreach($bugs as $bug)
         <div class="container-fluid">
@@ -11,16 +14,21 @@
                                         <div class="row">
                                             <div class="col-lg-1 col-md-2">
                                                 <div class="reg-times d-flex flex-md-column align-items-center">
-                                                    <span>21</span>
-                                                    <span>Aug</span>
+                                                    @php
+                                                        $data = explode(',',BBgetDateFormat($bug->created_at));
+                                                        $time = BBgetTimeFormat($bug->created_at);
+                                                        $time = str_replace(' ', '', $time);
+                                                    @endphp
+                                                    <span>{{$data[0]}}</span>
+                                                    <span>{{explode(' ',$data[1])[1]}}</span>
                                                     <i class="far fa-clock"></i>
-                                                    <span>10:17</span>
+                                                    <span>{{$time}}</span>
                                                 </div>
                                             </div>
                                             @if(count($curUser))
                                                 <div class="col-lg-2 col-md-3 p-0">
                                                     <div class="images">
-                                                        <img src="/public/images/@if(isset($curUser->avatar)){{$curUser->avatar}}@else{{'avatar.png'}}@endif" alt="">
+                                                        <img src="/public/images/@if(isset($curUser->avatar)){{$curUser->avatar}}@else{{'avatar.png'}}@endif" alt="" data-id="{{$ident}}">
                                                     </div>
 
                                                 </div>
@@ -220,7 +228,7 @@
                                                             </div>
                                                             <div class="col-md-10">
                                                                 <div class="name">
-                                                                    <span>Rania Dewell</span>
+                                                                    <span>{{$curUser->username}}</span>
                                                                     <span style="color: #909090">22h</span>
                                                                 </div>
                                                                 <div class="text">
@@ -489,9 +497,9 @@
                 </div>
 
                 <div class="col-lg-4 pl-lg-4 p-0">
-                    <div class="head3 user-widget no-show">
+                    <div class="head3 user-widget no-show" data-id="{{$ident++}}">
                         <div class="name-icon">
-                            <div class="span"><span>Rania Davan</span></div>
+                            <div class="span"><span>{{$curUser->username}}</span></div>
                             <div class="icon">
                                 <div class="share-number">
                                     <i class="fas fa-share"></i>
@@ -503,7 +511,7 @@
                             </div>
                         </div>
                         <div class="wed-developer">
-                            <span class="align-self-center">Wed Developer</span>
+                            <span class="align-self-center">{{$user->proffesion}}</span>
                             <img src="/public/images/uk-flag.jpg" alt="flag">
                         </div>
                         <div class="content-image">
@@ -518,9 +526,7 @@
                                         <div class="content d-flex">
 
                                             <p>
-                                                <q class="qoutes"></q>Don’T Walk Behind Me; I May Not
-                                                Lead. Don’T Walk In Front Of Me; I May Not Follow. Just Walk Beside Me And
-                                                Be My Friend.</p>
+                                                <q class="qoutes"></q>{{$bug->bugit}}</p>
 
                                         </div>
                                     </div>

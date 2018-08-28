@@ -36,7 +36,15 @@ $(document).ready(function () {
 
     $('body').on('click','.new_post .aug img',function (e) {
         e.preventDefault();
-        $('.head3.user-widget').toggleClass('no-show');
+        var data_id = $(this).data('id');
+        var shoable = $('.head3.user-widget');
+        $.each(shoable,function (key,val) {
+            if ($(this).data('id') == data_id){
+                $(this).toggleClass('no-show');
+            }
+
+        });
+
     });
     $('.post-foot-carousel').owlCarousel({
         nav: true,
