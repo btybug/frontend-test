@@ -56,19 +56,19 @@ if (token) {
 // });]
 
 
-import EchoLibrary from "laravel-echo"
-window.io = require('socket.io-client');
-// Have this in case you stop running your laravel echo server
-if (typeof io !== 'undefined') {
-    window.Echo = new EchoLibrary({
-        broadcaster: 'socket.io',
-        host: window.location.hostname + ':80'
-    });
-}
-
-Echo.channel('socket.io')
-    .listen('ChatMessageWasReceived', (e) => {
-    console.log(e.user, e.chatMessage);
-});
+// import EchoLibrary from "laravel-echo"
+// window.io = require('socket.io-client');
+// // Have this in case you stop running your laravel echo server
+// if (typeof io !== 'undefined') {
+//     window.Echo = new EchoLibrary({
+//         broadcaster: 'socket.io',
+//         host: window.location.hostname + ':80'
+//     });
+// }
+//
+// Echo.channel('socket.io')
+//     .listen('ChatMessageWasReceived', (e) => {
+//     console.log(e.user, e.chatMessage);
+// });
 
 
