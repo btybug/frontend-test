@@ -62,22 +62,16 @@
                                                                             <span>10:17</span>
                                                                         </div>
                                                                     </div>
-                                                                    @if(count($curUser))
                                                                     <div class="col-lg-2 col-md-3 p-0">
                                                                         <div class="images">
-                                                                            <img src="/public/images/@if(isset($curUser->avatar)){{$curUser->avatar}}@else{{'avatar.png'}}@endif" alt="">
+                                                                            <img src="/public/images/girl2.png" alt="">
                                                                         </div>
 
                                                                     </div>
                                                                     <div class="col-lg-9 col-md-7">
-                                                                        <h4>{{$curUser->username}}</h4>
-                                                                        <span>&  @foreach(explode(',',$bug->mention_friends) as $friends)
-                                                                                {{$friends}},
-                                                                            @endforeach
-                                                                            ...
-                                                                        </span>
+                                                                        <h4>Rania Davan</h4>
+                                                                        <span>& Johan Smith , Jan Wim Jack Wilth ...</span>
                                                                     </div>
-                                                                    @endif
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -93,9 +87,11 @@
                                                     </div>
                                                     <div class="head-content">
                                                         <p>
-                                                            @if(isset($bug->bugit))
-                                                                {{$bug->bugit}}
-                                                            @endif
+                                                            I had a great time with you <br>
+                                                            I want to see you again <br>
+                                                            Thank you for your nice conversation with <br>
+                                                            me during your stay <br>
+                                                            Many many thanks
                                                         </p>
                                                         <div>
                                                             <i class="fas fa-thumbtack"></i>
@@ -105,43 +101,42 @@
                                                     <div class="post-content">
                                                         <div class="at d-flex">
                                                             <p><i class="fas fa-at"></i>
-                                                                @foreach(explode(',',$bug->mention_friends) as $friends)
-                                                                    {{$friends}},
-                                                                @endforeach... </p>
+                                                                Johan Smith, Jack Wilth, Rania Dewell... </p>
                                                         </div>
 
                                                         <div class="hash d-flex">
-                                                            <p>
-                                                                @foreach(explode(',',$bug->tags) as $tag)
-                                                                    <i class="fas fa-hashtag"></i>
-                                                                    <span>{{$tag}}</span>
-                                                                @endforeach
-                                                            </p>
+                                                            <p><i class="fas fa-hashtag"></i>
+                                                                <span>Friendship</span>
+                                                                <i class="fas fa-hashtag"></i>
+                                                                <span>Friends</span>
+                                                                <i class="fas fa-hashtag"></i>
+                                                                <span>Love</span></p>
                                                         </div>
                                                     </div>
                                                     <div class="post-map">
-                                                        @if(count(explode(',',$bug->site_image)))
-                                                            @php
-                                                                $i = 1;
-                                                            @endphp
-                                                            @foreach(explode(',',$bug->site_image) as $img)
-                                                                <div id="post-image-{{$i++}}" class="">
-                                                                    <img src="{{$img}}"
-                                                                         alt="">
-                                                                </div>
-                                                            @endforeach
-                                                        @endif
+                                                        <div id="post-image-1" class="">
+                                                            <img src=" https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?auto=compress&cs=tinysrgb&h=350"
+                                                                 alt="">
+                                                        </div>
+                                                        <div id="post-image-2" class="">
+                                                            <img src="https://lonelyplanetimages.imgix.net/a/g/hi/t/3cb45f6e59190e8213ce0a35394d0e11-nice.jpg?sharp=10&vib=20&w=1200"
+                                                                 alt="">
+                                                        </div>
+                                                        <div id="post-image-3" class="">
+                                                            <img src="https://www.telegraph.co.uk/content/dam/Travel/2018/February/nice-france-AP152995065.jpg?imwidth=450"
+                                                                 alt="">
+                                                        </div>
                                                         <div id="post-gif" class="">
-                                                            <img src="@if(isset($bug->gif)) @else https://media1.popsugar-assets.com/files/thumbor/sEsLflIEp_nfioQsE4aGa8zq9CY/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/01/03/278/n/1922398/addurlYAmgaN/i/Nope-Rat.gif @endif"
+                                                            <img src="https://media1.popsugar-assets.com/files/thumbor/sEsLflIEp_nfioQsE4aGa8zq9CY/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/01/03/278/n/1922398/addurlYAmgaN/i/Nope-Rat.gif"
                                                                  alt="">
                                                         </div>
                                                         <div id="post-youtube" class="">
                                                             <iframe width="100%" height="350"
-                                                                    src="@if(isset($bug->youtube))https://www.youtube.com/embed/{{$bug->youtube}}@endif" frameborder="0"
+                                                                    src="https://www.youtube.com/embed/Xc_toI7oMJY" frameborder="0"
                                                                     allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                                         </div>
                                                         <div id="post-maps" class="active">
-                                                            <iframe src="@if(isset($bug->location)){{$bug->location}} @endif"
+                                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.4733931849!2d-0.24167955985936765!3d51.528558243609965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2z0JvQvtC90LTQvtC9LCDQktC10LvQuNC60L7QsdGA0LjRgtCw0L3QuNGP!5e0!3m2!1sru!2s!4v1535098723187"
                                                                     width="100%" height="350" frameborder="0" style="border:0"
                                                                     allowfullscreen></iframe>
                                                         </div>
@@ -153,17 +148,18 @@
                                                                                  class="blue-cl-icon active">
                                                                     <div class="line"></div>
                                                                     <i class="fas fa-map-marker-alt"></i></a></div>
-                                                            @if(count(explode(',',$bug->site_image)))
-                                                                @php
-                                                                    $j = 1;
-                                                                @endphp
-                                                                @foreach(explode(',',$bug->site_image) as $img)
-                                                                    <div class="item"><a href="" data-view-post="post-image-{{$j++}}"
-                                                                                         class="purple-cl-icon">
-                                                                            <div class="line"></div>
-                                                                            <i class="far fa-images"></i></a></div>
-                                                                @endforeach
-                                                            @endif
+                                                            <div class="item"><a href="" data-view-post="post-image-1"
+                                                                                 class="purple-cl-icon">
+                                                                    <div class="line"></div>
+                                                                    <i class="far fa-images"></i></a></div>
+                                                            <div class="item"><a href="" data-view-post="post-image-2"
+                                                                                 class="purple-cl-icon">
+                                                                    <div class="line"></div>
+                                                                    <i class="far fa-images"></i></a></div>
+                                                            <div class="item"><a href="" data-view-post="post-image-3"
+                                                                                 class="purple-cl-icon">
+                                                                    <div class="line"></div>
+                                                                    <i class="far fa-images"></i></a></div>
                                                             <div class="item"><a href="" data-view-post="post-gif"
                                                                                  class="green-cl-icon">
                                                                     <div class="line"></div>
