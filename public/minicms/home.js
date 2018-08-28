@@ -1,96 +1,148 @@
 $(document).ready(function() {
-  //   $("#displaytags").tagsinput("items");
-    var templateHashtag,templateAt,templateSign,templateYoutube,templateImages,templateMusic,templateGif,templateLocation;
-    templateHashtag = $('#hidden-template-hashtag').html();
-    templateAt = $('#hidden-template-at').html();
-    templateSign = $('#hidden-template-sign').html();
-    templateYoutube = $('#hidden-template-youtube').html();
-    templateImages = $('#hidden-template-images').html();
-    templateMusic = $('#hidden-template-music').html();
-    templateGif = $('#hidden-template-gif').html();
-    templateLocation = $('#hidden-template-location').html();
+  var templateHashtag,
+    templateAt,
+    templateSign,
+    templateYoutube,
+    templateImages,
+    templateMusic,
+    templateGif,
+    templateLocation;
+  templateHashtag = $("#hidden-template-hashtag").html();
+  templateAt = $("#hidden-template-at").html();
+  templateSign = $("#hidden-template-sign").html();
+  templateYoutube = $("#hidden-template-youtube").html();
+  templateImages = $("#hidden-template-images").html();
+  templateMusic = $("#hidden-template-music").html();
+  templateGif = $("#hidden-template-gif").html();
+  templateLocation = $("#hidden-template-location").html();
 
-    $("body").on("click", ".quick_bug .main-bug .bottom .icons ul", templateAdded );
-function templateAdded(e) {
+  $("body").on(
+    "click",
+    ".quick_bug .main-bug .bottom .icons ul",
+    templateAdded
+  );
+  function templateAdded(e) {
     e.preventDefault();
-    if(!$(e.target).hasClass("list-inline")){
-        var targetLink = e.target.closest("a");
-        var targetClass = targetLink.className;
-        var added_costom_template = $('#added_costom_template');
-        switch (targetClass) {
-            case 'hashtag-link active':
-                $(added_costom_template).append(templateHashtag);
-                targetLink.classList.remove('active');
-                break;
-            case 'at-link active':
-                $(added_costom_template).append(templateAt);
-                targetLink.classList.remove('active');
-                break;
-            case 'sign-link active':
-                $(added_costom_template).append(templateSign);
-                targetLink.classList.remove('active');
-                break;
-            case 'youtube-link active':
-                $(added_costom_template).append(templateYoutube);
-                targetLink.classList.remove('active');
-                break;
-            case 'images-link active':
-                $(added_costom_template).append(templateImages);
-                targetLink.classList.remove('active');
-                break;
-            case 'music-link active':
-                $(added_costom_template).append(templateMusic);
-                targetLink.classList.remove('active');
-                break;
-            case 'gif-link active':
-                $(added_costom_template).append(templateGif);
-                targetLink.classList.remove('active');
-                break;
-            case 'location-link active':
-                $(added_costom_template).append(templateLocation);
-                targetLink.classList.remove('active');
-                break;
-            default:
-                return;
-        }
-    }
+    if (!$(e.target).hasClass("list-inline")) {
+      var targetLink = e.target.closest("a");
+      var targetClass = targetLink.className;
+      var added_costom_template = $("#added_costom_template");
+      switch (targetClass) {
+        case "hashtag-link active":
+          $(added_costom_template).append(templateHashtag);
+          targetLink.classList.remove("active");
+          $(".tags_bug_custom").tagsinput();
+          break;
+        case "at-link active":
+          $(added_costom_template).append(templateAt);
+          targetLink.classList.remove("active");
+          var citynames = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace("name"),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            prefetch: {
+              url: "http://multisite.loc/getusers",
+              filter: function(list) {
+                return $.map(list, function(item) {
+                  console.log(item);
+                  return { name: item.username };
+                });
+              }
+            }
+          });
+          citynames.initialize();
+          console.log($(".mention-friends"));
+          $(".mention-friends").tagsinput({
+            maxTags: 3,
+            typeaheadjs: {
+              name: "citynames",
+              displayKey: "name",
+              valueKey: "name",
+              source: citynames.ttAdapter()
+            }
+          });
 
-}
+          break;
+        case "sign-link active":
+          $(added_costom_template).append(templateSign);
+          targetLink.classList.remove("active");
+          break;
+        case "youtube-link active":
+          $(added_costom_template).append(templateYoutube);
+          targetLink.classList.remove("active");
+          break;
+        case "images-link active":
+          $(added_costom_template).append(templateImages);
+          targetLink.classList.remove("active");
+          break;
+        case "music-link active":
+          $(added_costom_template).append(templateMusic);
+          targetLink.classList.remove("active");
+          break;
+        case "gif-link active":
+          $(added_costom_template).append(templateGif);
+          targetLink.classList.remove("active");
+          break;
+        case "location-link active":
+          $(added_costom_template).append(templateLocation);
+          targetLink.classList.remove("active");
+          initAutocomplete();
+          break;
+        default:
+          return;
+      }
+    }
+  }
 
   $("body").on(
     "click",
     ".quick_bug .main-bug .main-content .form-group .del-icon",
     function(e) {
       e.preventDefault();
-var classDel = $(this).data('delgroup');
-        switch (classDel) {
-            case 'del-hashtag':
-                $('body').find('.hashtag-link')[0].classList.add('active');
-                break;
-            case 'del-at':
-                $('body').find('.at-link')[0].classList.add('active');
-                break;
-            case 'del-sign':
-                $('body').find('.sign-link')[0].classList.add('active');
-                break;
-            case 'del-youtube':
-                $('body').find('.youtube-link')[0].classList.add('active');
-                break;
-            case 'del-images':
-                $('body').find('.images-link')[0].classList.add('active');
-                break;
-            case 'del-music':
-                $('body').find('.music-link')[0].classList.add('active');
-                break;
-            case 'del-star':
-                $('body').find('.gif-link')[0].classList.add('active');
-                break;
-            case 'del-location':
-                $('body').find('.location-link')[0].classList.add('active');
-                break;
-            default:
-                return;
-        }
+      var classDel = $(this).data("delgroup");
+      switch (classDel) {
+        case "del-hashtag":
+          $("body")
+            .find(".hashtag-link")[0]
+            .classList.add("active");
+          break;
+        case "del-at":
+          $("body")
+            .find(".at-link")[0]
+            .classList.add("active");
+          break;
+        case "del-sign":
+          $("body")
+            .find(".sign-link")[0]
+            .classList.add("active");
+          break;
+        case "del-youtube":
+          $("body")
+            .find(".youtube-link")[0]
+            .classList.add("active");
+          break;
+        case "del-images":
+          $("body")
+            .find(".images-link")[0]
+            .classList.add("active");
+          break;
+        case "del-music":
+          $("body")
+            .find(".music-link")[0]
+            .classList.add("active");
+          break;
+        case "del-star":
+          $("body")
+            .find(".gif-link")[0]
+            .classList.add("active");
+          break;
+        case "del-location":
+          $("body")
+            .find(".location-link")[0]
+            .classList.add("active");
+          break;
+        default:
+          return;
+      }
 
       $(this)
         .closest(".form-group")[0]

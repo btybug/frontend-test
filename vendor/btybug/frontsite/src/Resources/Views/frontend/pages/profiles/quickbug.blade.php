@@ -236,10 +236,97 @@
     <link rel="stylesheet" href="{!!url('public/minicms/css/social.css?v='.rand(111,999))!!}">
     <link rel="stylesheet" href="{!!url('public/libs/owlcarousel/owl.carousel.css')!!}">
     <link rel="stylesheet" href="{!!url('public/libs/owlcarousel/owl.theme.default.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/tagsauto/typeahead.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/tagsauto/bootstrap-tagsinput.css')!!}">
+    <style>
+    body{ font-family:calibri;}
+	.twitter-typeahead { display:initial !important; }
+	.bootstrap-tagsinput {line-height:40px;display:block !important;}
+	.bootstrap-tagsinput .tag {background:#09F;padding:5px;border-radius:4px;}
+	.tt-hint {top:2px !important;}
+	.tt-input{vertical-align:baseline !important;}
+	.typeahead { border: 1px solid #CCCCCC;border-radius: 4px;padding: 8px 12px;width: 300px;font-size:1.5em;}
+	.tt-menu { width:300px; }
+	span.twitter-typeahead .tt-suggestion {padding: 10px 20px;	border-bottom:#CCC 1px solid;cursor:pointer;}
+	span.twitter-typeahead .tt-suggestion:last-child { border-bottom:0px; }
+	.demo-label {font-size:1.5em;color: #686868;font-weight: 500;}
+    .bgcolor {max-width: 440px;height: 200px;background-color: #c3e8cb;padding: 40px 70px;border-radius:4px;margin:20px 0px;}
+    
+    .youtube-videos-list-item-title {
+        cursor: pointer;
+    }
+    /* .still_gif:hover {
+        display: none !important;
+    }
+    .still_gif:hover+.moving_gif {
+        display: block !important;
+    } */
+    .gif_title {
+        cursor: pointer;
+    }
+    .quick_bug .main-bug .main-content .form-group.group-for-tags {
+        flex-wrap: nowrap;
+    }
+    .quick_bug .main-bug .main-content .group-for-tags .bootstrap-tagsinput{
+        display: flex !important;
+    }
+    .quick_bug .main-bug .main-content .group-for-at-tags .tag{
+        background-color: #d6623a;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    font-size: 20px;
+    margin-bottom: 4px;
+    }
+    .quick_bug .main-bug .main-content .group-for-at-tags .tag > span {
+    font-size: 24px;
+}
+.quick_bug .main-bug .main-content .form-group.group-for-at-tags {
+    flex-wrap: nowrap;
+}
+.quick_bug .main-bug .main-content .group-for-at-tags .bootstrap-tagsinput {
+    padding: 7px;
+    min-height: 55px;
+    border-radius: 0;
+    border: 1px solid #d5d5d5;
+    background-color: #ffffff;
+    flex: auto;
+    display: flex !important;
+    flex-wrap: wrap;
+}
+.quick_bug .main-bug .main-content .group-for-at-tags span.twitter-typeahead{
+    width: auto;
+}
+.giphy-container{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.giphy-container .gif_container{
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+.giphy-container .gif_container img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+.giphy-container .gif_container h4{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+    </style>
 @stop
 @section('js')
 
-    <script src="{!!url('public/libs/tagsinput/bootstrap-tagsinput.min.js')!!}"></script>
+
     <script id="hidden-template-hashtag" type="text/x-custom-template">
         <div data-group="hashtag" class="form-group row align-items-center group-for-tags">
             <div class="left-group pl-0">
@@ -251,7 +338,7 @@
                         </button>
                     </div>
                     <input name="tags" type="text" class="form-control tags_bug_custom"
-                           data-role="tagsinput" id="autocomplete">
+                           >
 
                 </div>
             </div>
@@ -259,9 +346,13 @@
                 <a href="" class="del-icon" data-delgroup="del-hashtag"><i class="fas fa-times"></i></a>
             </div>
         </div>
+       
+
+
+
     </script>
     <script id="hidden-template-at" type="text/x-custom-template">
-        <div data-group="at" class="form-group row align-items-center">
+        <div data-group="at" class="form-group row align-items-center group-for-at-tags">
             <div class="left-group pl-0">
                 <div class="input-group">
                     <div class="input-group-prepend red_gradient-cl">
@@ -271,13 +362,16 @@
                         </button>
 
                     </div>
-                    <input name="mention_friends" type="text" class="form-control" placeholder="Mention Friends">
+                    <input name="mention_friends" type="text" class="form-control mention-friends"  >
                 </div>
             </div>
             <div class="right-group">
                 <a href="" class="del-icon" data-delgroup="del-at"><i class="fas fa-times"></i></a>
             </div>
         </div>
+        
+       
+      
     </script>
     <script id="hidden-template-sign" type="text/x-custom-template">
         <div data-group="sign" class="form-group row align-items-center">
@@ -409,12 +503,17 @@
                         </button>
 
                     </div>
-                    <input name="gif" type="text" class="form-control" placeholder="Gif">
+                    <input name="gif" type="text" class="form-control giphy-search" placeholder="Gif">
+                    <input type="hidden" id="giphy-id">
+                    <input type="hidden" id="giphy-title">
+                    <input type="hidden" id="giphy-url">
+
                 </div>
             </div>
             <div class="right-group">
                 <a href="" class="del-icon" data-delgroup="del-star"><i class="fas fa-times"></i></a>
             </div>
+            <div class="giphy-container"></div>
         </div>
     </script>
     <script id="hidden-template-location" type="text/x-custom-template">
@@ -469,6 +568,7 @@
             <div class="right-group">
             </div>
         </div>
+        <script src="{!!url('https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyIau4tPD0XGRT6ANMUfhYzdv6G79SI0&libraries=places&callback=initAutocomplete" async defer')!!}"></script>
     </script>
 
     <script src="{!!url('public/libs/owlcarousel/owl.carousel.js')!!}"></script>
@@ -478,11 +578,10 @@
 
     <script>
 
-        $('#bugModalCenter').on('shown.bs.modal', function () {
-            initAutocomplete();
-        });
+        // $('#bugModalCenter').on('shown.bs.modal', function () {
+        //     initAutocomplete();
+        // });
             function initAutocomplete() {
-
                 var map = new google.maps.Map(document.getElementById('map'), {
                     center: {
                         lat: $(".location_lat").val() ?  Number($(".location_lat").val()): 40.7929026,
@@ -540,13 +639,7 @@
                             console.log("Returned place contains no geometry");
                             return;
                         }
-                        // var icon = {
-                        //   url: place.icon,
-                        //   size: new google.maps.Size(71, 71),
-                        //   origin: new google.maps.Point(0, 0),
-                        //   anchor: new google.maps.Point(17, 34),
-                        //   scaledSize: new google.maps.Size(25, 25)
-                        // };
+                     
 
                         // Create a marker for each place.
                         $(".location_lang").val(place.geometry.location.lng())
@@ -571,7 +664,7 @@
             }
 
     </script>
-    <script src="{!!url('https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyIau4tPD0XGRT6ANMUfhYzdv6G79SI0&libraries=places&callback=initAutocomplete" async defer')!!}"></script>
+
 
     <script>
         $(document).ready(function () {
@@ -627,17 +720,23 @@
 
 
         function youtubeHtml(id, imgUrl, title, description, author) {
-            return `<div class="youtube-videos-list-item" id="${id}">
-        <div>
+            return `<div class="youtube-videos-list-item bg-secondary text-white" id="${id}">
+            <div class="row">
+            <div class="col-sm-2">
             <img src="${imgUrl}" alt="${title}">
+            </div>
+            <div class="col-sm-10">
             <h4 class="youtube-videos-list-item-title">${title}</h4>
-        </div>
-        <div>
-            <p>${description}</p>
-        </div>
-        <div>
+            <div>
             <span>Posted by: ${author}</span>
         </div>
+            </div>
+            </div>
+       
+        <div class="mb-2 p-2 bg-dark">
+            <p>${description}</p>
+        </div>
+        
     </div>`
         }
 
@@ -650,66 +749,119 @@
         }
 
         $("body").on("click", ".youtube-videos-list-item-title", function () {
-            let id = $(this).closest(".youtube-videos-list-item").attr("id")
+            let elm = $(this).closest(".youtube-videos-list-item")
+            let id = elm.attr("id")
             console.log(id)
             console.log($(this))
             $("#youtube-video-key").val(id)
             $(".search-youtube").val($(this).text())
-            $(".youtube-videos-list").hide()
             $(".youtube-videos-list").empty();
+            $(".youtube-videos-list").append(elm)
+
+        })
+    $("body").on("keyup", ".giphy-search", function(){
+        $('.giphy-container').empty()
+            console.log(111);
+
+        // Deletes old gifs
+        // $('#animal_images').empty();
+
+        // Collect animal name data attribute from the button, replacing any spaces
+        let inputValue = $(this).val()
+
+        // Create the API URL
+        var publicKey = "PEsm8KVG94eHrL2Ol9hOueIVoiFDamQg"; // Public API Key
+        var limit = "10"; // Limit API to 10 gifs
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + inputValue + "&limit=" + limit + "&api_key=" + publicKey;
+        //console.log(queryURL);
+
+
+        // Creates AJAX call for the specific animal button being clicked
+        $.ajax({url: queryURL, method: 'GET'}).done(function(response){
+            console.log(response);
+                	// Loop through the JSON output to collect each Animal Object
+			for(var i = 0; i < response.data.length; i++){
+
+                // Collect the animal gif URLs
+                var currentStillURL = response.data[i].images.fixed_height_still.url; // still image 
+                var currentMovingURL = response.data[i].images.fixed_height.url; // moving image
+
+                // Collect the animal gif Ratings
+                var currentTitle = response.data[i].title;
+
+                // Create a Div to house Gif and Rating
+                var currentGifDiv = $('<div>');
+                currentGifDiv.addClass('gif_container'); // Added a class
+                currentGifDiv.attr('data-name', "unclicked"); // Added a Data Attributed for clicked
+                
+
+                // Append Rating to current gif
+                var currentGifTitle = $('<h4>');
+                currentGifTitle.text(currentTitle);
+                currentGifTitle.addClass("gif_title")
+                currentGifDiv.append(currentGifTitle);
+
+                // Append Still Image
+                var currentGifImage = $('<img>');
+                currentGifImage.addClass('still_gif'); // Added a class for still gif
+                currentGifImage.attr("src", currentStillURL);
+                currentGifDiv.append(currentGifImage);
+
+                // Append Moving Gif Image
+                var currentGif = $('<img>')
+                currentGif.addClass('moving_gif'); // Added a class for animated gif
+                currentGif.attr("src", currentMovingURL);
+                currentGif.hide(); // Hide the moving gif
+                currentGifDiv.append(currentGif);
+                currentGifDiv.attr('data-id',  response.data[i].id); 
+                currentGifDiv.attr('data-title', currentTitle); 
+                currentGifDiv.attr('data-url', currentMovingURL); 
+                // Append current Div to the DOM
+                $('.giphy-container').append(currentGifDiv);
+
+                }       
+
+     
 
         })
 
-        /*$(function() {
-            function split(val) {
-                return val.split(/,\s*!/);
-            }
+  
+   
 
-            function extractLast(term) {
-                return split(term).pop();
-            }
+    })
+    
 
-            $(document)
-            // don't navigate away from the field on tab when selecting an item
-                .on("keydown","#autocomplete",function( event ) {
-                    if ( event.keyCode === $.ui.keyCode.TAB &&
-                        $( this ).autocomplete( "instance" ).menu.active ) {
-                        event.preventDefault();
-                    }
-                })
-                .autocomplete({
-                    source: function( request, response ) {
-                        $.getJSON( "/profiles/social/tags/search", {
-                            term: extractLast( request.term )
-                        }, response );
-                    },
-                    search: function() {
-                        // custom minLength
-                        console.log($(this).find('#autocomplete').val());
-                        var term = extractLast( $(this).find('#autocomplete').val());
-                        if ( term.length < 2 ) {
-                            return false;
-                        }
-                    },
-                    focus: function() {
-                        // prevent value inserted on focus
-                        return false;
-                    },
-                    select: function( event, ui ) {
-                        var terms = split( this.value );
-                        // remove the current input
-                        terms.pop();
-                        // add the selected item
-                        terms.push( ui.item.value );
-                        // add placeholder to get the comma-and-space at the end
-                        terms.push( "" );
-                        this.value = terms.join( ", " );
-                        return false;
-                    }
-                });
-        });*/
-
-
+    $("body").on("click", ".gif_title", function(){
+        let elm = $(this).closest(".gif_container")
+        console.log("elm");
+        console.log(elm);
+        // console.log(object);
+        // console.log($(this))
+        console.log("elmid");
+        console.log(elm.data("id"));
+        $("#giphy-id").val(elm.data("id"))
+        $("#giphy-title").val(elm.data("title"))
+        $("#giphy-url").val(elm.data("url"))
+        $(".giphy-search").val($(this).text())
+        $(".giphy-container").empty();
+        $(".giphy-container").append(elm)
+    })
+    $("body").on("mousemove", ".still_gif", function(){
+        console.log($(this).next());
+        $(this).next().show()
+        $(this).hide()
+    })
+    $("body").on("mouseleave", ".moving_gif", function(){
+        console.log($(this).prev());
+        $(this).prev().show()
+        $(this).hide()
+    })
     </script>
     <script src="{!!url('https://apis.google.com/js/client.js?onload=init')!!}"></script>
+     
+    <script src="{!!url('/public/minicms/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js')!!}"></script>
+    <script src="{!!url('http://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js')!!}"></script>
+   
+
+
 @stop
