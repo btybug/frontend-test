@@ -75,7 +75,7 @@
                                                                                 {{$friends}},
                                                                             @endforeach
                                                                             ...
-                                                                    </span>
+                                                                        </span>
                                                                     </div>
                                                                     @endif
                                                                 </div>
@@ -93,11 +93,9 @@
                                                     </div>
                                                     <div class="head-content">
                                                         <p>
-                                                            I had a great time with you <br>
-                                                            I want to see you again <br>
-                                                            Thank you for your nice conversation with <br>
-                                                            me during your stay <br>
-                                                            Many many thanks
+                                                            @if($bug->bugit)
+                                                                {{$bug->bugit}}
+                                                            @endif
                                                         </p>
                                                         <div>
                                                             <i class="fas fa-thumbtack"></i>
