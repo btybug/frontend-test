@@ -12,11 +12,12 @@
     @include("btybug::layouts._partials.frontend.head")
 </head>
 <body>
-<div id="app">
+<div>
 @include("btybug::layouts._partials.frontend.notifications")
 @yield('contents')
 @yield('footer')
 </div>
+<div id="app"></div>
 <script src="{{ asset('public/js/app.js') }}"></script>
 
 </body>
