@@ -18,7 +18,7 @@
 @yield('footer')
 </div>
 <div id="app"></div>
-<script src="{{ asset('public/js/app.js') }}"></script>
+<script src="{{ asset('public/js/app.js?v='.rand(111,9999)) }}"></script>
 
 </body>
 </html>
