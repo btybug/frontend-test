@@ -132,7 +132,7 @@
                                                             @endforeach
                                                         @endif
                                                         <div id="post-gif" class="">
-                                                            <img src="https://media1.popsugar-assets.com/files/thumbor/sEsLflIEp_nfioQsE4aGa8zq9CY/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/01/03/278/n/1922398/addurlYAmgaN/i/Nope-Rat.gif"
+                                                            <img src="@if(isset($bug->gif)) @else https://media1.popsugar-assets.com/files/thumbor/sEsLflIEp_nfioQsE4aGa8zq9CY/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/01/03/278/n/1922398/addurlYAmgaN/i/Nope-Rat.gif @endif"
                                                                  alt="">
                                                         </div>
                                                         <div id="post-youtube" class="">
