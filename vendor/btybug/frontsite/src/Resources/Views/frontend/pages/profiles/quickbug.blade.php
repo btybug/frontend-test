@@ -111,12 +111,10 @@
                                                         </div>
 
                                                         <div class="hash d-flex">
-                                                            <p><i class="fas fa-hashtag"></i>
-                                                                <span>Friendship</span>
-                                                                <i class="fas fa-hashtag"></i>
-                                                                <span>Friends</span>
-                                                                <i class="fas fa-hashtag"></i>
-                                                                <span>Love</span></p>
+                                                            <p>@foreach(explode(',',$bug->tags) as $tag)
+                                                                    <i class="fas fa-hashtag"></i>
+                                                                    <span>{{$tag}}</span>
+                                                                @endforeach</p>
                                                         </div>
                                                     </div>
                                                     <div class="post-map">
