@@ -61,13 +61,13 @@ window.io = require('socket.io-client');
 // Have this in case you stop running your laravel echo server
 if (typeof io !== 'undefined') {
     window.Echo = new EchoLibrary({
-        broadcaster: 'socket.io',
+        broadcaster: 'presence-socket.io',
         host: window.location.hostname + ':6001'
     });
     console.log(window.location.hostname);
 }
 
-Echo.channel('socket.io')
+Echo.channel('presence-socket.io')
     .listen('ChatMessageWasReceived', (e) => {
     console.log(e.user, e.chatMessage);
 });
