@@ -36,6 +36,7 @@ $(document).ready(function() {
         case "at-link active":
           $(added_costom_template).append(templateAt);
           targetLink.classList.remove("active");
+
           var citynames = new Bloodhound({
             datumTokenizer: Bloodhound.tokenizers.obj.whitespace("name"),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
