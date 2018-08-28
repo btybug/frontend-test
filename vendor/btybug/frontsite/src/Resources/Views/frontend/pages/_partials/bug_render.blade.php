@@ -13,7 +13,7 @@
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="head-post-times">
-                                                <div class="reg-times d-flex flex-md-column align-items-center">
+                                                <div class="reg-times d-flex flex-column align-items-center">
                                                     <span>{{ BBgetDateFormat($bug->created_at,'d') }}</span>
                                                     <span>{{ BBgetDateFormat($bug->created_at,'M') }}</span>
                                                     <span><i class="far fa-clock"></i></span>

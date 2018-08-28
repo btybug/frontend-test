@@ -2872,6 +2872,19 @@ display: block;
   .new_post .action-bar .share-coment-icon{
    flex-wrap: wrap;
   }
+  .new_post .post .head-post-times{
+    width: 100%;
+    padding: 5px 15px;
+  }
+  .new_post .aug img{
+    width: 100%;
+  }
+  .new_post .post .head-post-info{
+    padding: 0 15px;
+  }
+  .new_post .head-rania .reg-times span{
+
+  }
 }
 
 .pac-container {
