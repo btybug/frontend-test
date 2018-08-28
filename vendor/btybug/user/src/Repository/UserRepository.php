@@ -25,4 +25,8 @@ class UserRepository extends GeneralRepository
         return new User();
     }
 
+    public function friendSearch($term)
+    {
+        return $this->model()->where('username','like', '%'.$term.'%')->where('role_id',0)->pluck('username','id');
+    }
 }
