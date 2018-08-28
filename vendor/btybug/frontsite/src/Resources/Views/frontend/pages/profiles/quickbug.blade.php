@@ -93,7 +93,7 @@
                                                     </div>
                                                     <div class="head-content">
                                                         <p>
-                                                            @if($bug->bugit)
+                                                            @if(isset($bug->bugit))
                                                                 {{$bug->bugit}}
                                                             @endif
                                                         </p>
