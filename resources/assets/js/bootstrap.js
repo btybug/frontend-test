@@ -56,7 +56,7 @@ if (token) {
 // });]
 
 
-import EchoLibrary from "laravel-echo"
+import EchoLibrary from "laravel-echo-server"
 window.io = require('socket.io-client');
 // Have this in case you stop running your laravel echo server
 if (typeof io !== 'undefined') {
@@ -64,6 +64,7 @@ if (typeof io !== 'undefined') {
         broadcaster: 'socket.io',
         host: window.location.hostname + ':6001'
     });
+    console.log(window.location.hostname);
 }
 
 Echo.channel('socket.io')
