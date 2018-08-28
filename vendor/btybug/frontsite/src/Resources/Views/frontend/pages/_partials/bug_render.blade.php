@@ -14,15 +14,10 @@
                                         <div class="row">
                                             <div class="col-lg-1 col-md-2">
                                                 <div class="reg-times d-flex flex-md-column align-items-center">
-                                                    @php
-                                                        $data = explode(',',BBgetDateFormat($bug->created_at));
-                                                        $time = BBgetTimeFormat($bug->created_at);
-                                                        $time = str_replace(' ', '', $time);
-                                                    @endphp
-                                                    <span>{{$data[0]}}</span>
-                                                    <span>{{explode(' ',$data[1])[1]}}</span>
+                                                    <span>{{ BBgetDateFormat($bug->created_at,'d') }}</span>
+                                                    <span>{{ BBgetDateFormat($bug->created_at,'M') }}</span>
                                                     <i class="far fa-clock"></i>
-                                                    <span>{{$time}}</span>
+                                                    <span>{{ str_replace(' ', '', BBgetTimeFormat($bug->created_at)) }}</span>
                                                 </div>
                                             </div>
                                             @if(count($curUser))
@@ -34,11 +29,14 @@
                                                 </div>
                                                 <div class="col-lg-9 col-md-7">
                                                     <h4>{{$curUser->username}}</h4>
-                                                    <span>&  @foreach(explode(',',$bug->mention_friends) as $friends)
-                                                            {{$friends}},
-                                                        @endforeach
-                                                        ...
-                                                                                    </span>
+                                                    @if($bug->mention_friends)
+                                                        <span>&
+                                                            @foreach(explode(',',$bug->mention_friends) as $friends)
+                                                                {{$friends}},
+                                                            @endforeach
+                                                            ...
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             @endif
                                         </div>
@@ -66,13 +64,14 @@
 
                             </div>
                             <div class="post-content">
-                                <div class="at d-flex">
-                                    <p><i class="fas fa-at"></i>
-                                        @foreach(explode(',',$bug->mention_friends) as $friends)
-                                            {{$friends}},
-                                        @endforeach... </p>
-                                </div>
-
+                                @if($bug->mention_friends)
+                                    <div class="at d-flex">
+                                        <p><i class="fas fa-at"></i>
+                                            @foreach(explode(',',$bug->mention_friends) as $friends)
+                                                {{$friends}},
+                                            @endforeach... </p>
+                                    </div>
+                                @endif
                                 <div class="hash d-flex">
                                     <p>
                                         @foreach(explode(',',$bug->tags) as $tag)

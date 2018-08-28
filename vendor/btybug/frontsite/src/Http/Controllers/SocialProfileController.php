@@ -88,6 +88,7 @@ class SocialProfileController extends Controller
         $this->socialProfileService->bugsSave($data,$user);
         $bugs = $this->socialProfileService->getall($user);
         $curUser = $this->userRepository->model()->find($user->user_id);
+
         $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user','bugs','curUser']))->render();
 
         return \Response::json(['html' => $html, 'error' => false]);
