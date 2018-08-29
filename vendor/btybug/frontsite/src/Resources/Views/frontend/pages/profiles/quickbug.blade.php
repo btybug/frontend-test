@@ -107,12 +107,12 @@
 
                                 <div class="happy d-flex align-items-center">
                                     <div class="title">
-                                        <textarea name="bugit" id="" cols="30" rows="10"
+                                        <textarea name="bugit" id="bugit-text" cols="30" rows="10"
                                                   placeholder="Bug Sumething..."></textarea>
                                     </div>
-                                    <div class="icon">
+                                    <!-- <div class="icon">
                                         <i class="far fa-smile"></i>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div id="added_costom_template" class="container-fluid">
 
@@ -239,6 +239,7 @@
     <link rel="stylesheet" href="{!!url('public/libs/owlcarousel/owl.theme.default.css')!!}">
     <link rel="stylesheet" href="{!!url('public/tagsauto/typeahead.css')!!}">
     <link rel="stylesheet" href="{!!url('public/tagsauto/bootstrap-tagsinput.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/emojionearea/emojionearea.min.css')!!}">
 @stop
 @section('js')
 
@@ -609,7 +610,16 @@
     <script src="{!!url('/public/minicms/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js')!!}"></script>
     <script src="{!!url('http://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js')!!}"></script>
     <script src="{!!url('/public/js/form-builder/handlebars.js')!!}"></script>
-
+    <script src="{!!url('/public/js/form-builder/handlebars.js')!!}"></script>
+    <script src="{!!url('/public/emojionearea/emojionearea.min.js')!!}"></script>
+    <script>
+    $("#bugit-text").emojioneArea({
+    pickerPosition: "left",
+    tonesStyle: "bullet",
+    saveEmojisAs: true
+  });
+    
+    </script>
    
 
 
