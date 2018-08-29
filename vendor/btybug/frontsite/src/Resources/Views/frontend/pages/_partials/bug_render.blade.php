@@ -156,315 +156,268 @@
                             </div>
                         </div>
                         <div class="open-page no_open">
-                            <div class="comment">
-                                <nav>
-                                    <div class="nav nav-tabs">
-                                        <a class="nav-item nav-link active">
-                                            <div class="d-flex justify-content-between">
-                                                <span class="name">Comments</span><span
-                                                        class="count">63</span>
-                                            </div>
-
-                                        </a>
-                                        <a class="nav-item nav-link share-link">
-                                            <div class="d-flex justify-content-between">
-                                                <span class="name">Share</span><span
-                                                        class="count">190</span>
-                                            </div>
-                                        </a>
-
-
-                                        <a class="nav-item nav-link">
-                                            <div class="d-flex justify-content-between">
-                                                <span class="name">Score</span><span
-                                                        class="count">125,365</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </nav>
-                                <div class="tab-content ">
-                                    <div class="tab-pane">
-                                        <div class="main-comments-content d-flex flex-column h-100">
-                                            <div class="content-comments">
-                                                <div class="message1">
-                                                    <div class="container-fluid">
-                                                        <div class="row">
-                                                            <div class="col-md-2">
-                                                                <img src="/public/images/boy1.jpg" alt="">
-                                                            </div>
-                                                            <div class="col-md-10">
-                                                                <div class="name">
-                                                                    <span>Sam Black</span>
-                                                                    <span style="color: #909090">17h</span>
-                                                                </div>
-                                                                <div class="text">
-                                                                    <p>Enjoy your time!</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="message2">
-                                                    <div class="container-fluid">
-                                                        <div class="row">
-                                                            <div class="col-md-2">
-                                                                <img src="/public/images/boy2.jpg" alt="">
-                                                            </div>
-                                                            <div class="col-md-10">
-                                                                <div class="name">
-                                                                    <span>Johan Smith</span>
-                                                                    <span style="color: #909090">21h</span>
-                                                                </div>
-                                                                <div class="text">
-                                                                    <p>I head a great time with you <br>
-                                                                        I want to see you again <br>
-                                                                        Thank you for your nice conver- <br>
-                                                                        sation with me during your stay
-                                                                    </p>
-                                                                </div>
-                                                                <div class="reply">
-                                                                    <span style="margin-right: 22px">Reply</span>
-                                                                    <span>Light</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="message3">
-                                                    <div class="container-fluid">
-                                                        <div class="row">
-                                                            <div class="col-md-2">
-                                                                <img src="/public/images/girl2.png" alt="">
-                                                            </div>
-                                                            <div class="col-md-10">
-                                                                <div class="name">
-                                                                    <span>{{ $user->username }}</span>
-                                                                    <span style="color: #909090">22h</span>
-                                                                </div>
-                                                                <div class="text">
-                                                                    <p>Enjoy your time!</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="foot-comments d-flex">
-                                                <div class="write">
-                                                    <div class="d-flex">
-                                                        <img src="/public/images/girl2.png" alt="">
-                                                        <input class="form-control form-control-lg"
-                                                               type="text"
-                                                               placeholder="Write a Comment ...">
-                                                        <i class="far fa-smile"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
+                            <nav>
+                                <div class="nav nav-tabs" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-comment-tab" data-toggle="tab" href="#nav-comment" role="tab" aria-controls="nav-comment" aria-selected="true">
+                                        <div class="d-flex justify-content-between">
+                                            <span class="name">Comments</span><span
+                                                    class="count">63</span>
                                         </div>
-                                    </div>
+
+                                    </a>
+                                    <a class="nav-item nav-link share-link" id="nav-share-tab" data-toggle="tab" href="#nav-share" role="tab" aria-controls="nav-share" aria-selected="false">
+                                        <div class="d-flex justify-content-between">
+                                            <span class="name">Share</span><span
+                                                    class="count">190</span>
+                                        </div>
+                                    </a>
+
+
+                                    <a class="nav-item nav-link" id="nav-score-tab" data-toggle="tab" href="#nav-score" role="tab" aria-controls="nav-score" aria-selected="false">
+                                        <div class="d-flex justify-content-between">
+                                            <span class="name">Score</span><span
+                                                    class="count">125,365</span>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="share">
-                                <nav>
-                                    <div class="nav nav-tabs">
-                                        <a class="nav-item nav-link">
-                                            <div class="d-flex justify-content-between">
-                                                <span class="name">Comments</span><span
-                                                        class="count">63</span>
-                                            </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
 
-                                        </a>
-                                        <a class="nav-item nav-link active share-link">
-                                            <div class="d-flex justify-content-between">
-                                                <span class="name">Share</span><span
-                                                        class="count">190</span>
-                                            </div>
-                                        </a>
-
-
-                                        <a class="nav-item nav-link">
-                                            <div class="d-flex justify-content-between">
-                                                <span class="name">Score</span><span
-                                                        class="count">125,365</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </nav>
-                                <div class="tab-content ">
-                                    <div class="tab-pane">
-                                        <div class="main-share-content">
-                                            <div class="head d-flex justify-content-between align-items-center">
-                                                <div class="rebug red_gradient-cl">
-                                                    <button class="btn btn-link"><img
-                                                                src="/public/images/mushroom-icon.png"
-                                                                alt="icon"><span>Rebug</span></button>
-                                                </div>
-                                                <div class="social-also d-flex align-items-center">
-                                                    <span class="text">Share also on:</span>
-                                                    <a href="" class="facebook-link"><i
-                                                                class="fab fa-facebook-f"></i></a>
-                                                    <a href="" class="twitter-link"><i
-                                                                class="fab fa-twitter"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="share-content">
-                                                <div class="container-fluid">
-                                                    <div class="row">
-                                                        <div class="col-md-6 pl-0">
-                                                            <div class="sam d-flex">
-                                                                <a href="" class="link-share facebook-link align-self-center"><i class="fab fa-facebook-f"></i></a>
-                                                                <img class="sam"
-                                                                     src="/public/images/boy1.jpg" alt="">
-                                                                <div class="margin-t"><span>Sam Black</span>
-                                                                    <span class="d-flex color">21h ago</span>
+                                        <div class="tab-pane fade show active" id="nav-comment" role="tabpanel" aria-labelledby="nav-comments-tab">
+                                            <div class="comment">
+                                            <div class="main-comments-content d-flex flex-column h-100">
+                                                <div class="content-comments">
+                                                    <div class="message1">
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <img src="/public/images/boy1.jpg" alt="">
+                                                                </div>
+                                                                <div class="col-md-10">
+                                                                    <div class="name">
+                                                                        <span>Sam Black</span>
+                                                                        <span style="color: #909090">17h</span>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <p>Enjoy your time!</p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6 pr-0">
-                                                            <div class="sam d-flex">
-                                                                <a href="" class="link-share other-link red_gradient-cl align-self-center">
-                                                                    <img src="/public/images/mushroom-icon.png" alt="icon">
-                                                                </a>
-                                                                <img class="sam"
-                                                                     src="/public/images/boy1.jpg" alt="">
-                                                                <div class="margin-t"><span>Sam Black</span>
-                                                                    <span class="d-flex color">21h ago</span>
+                                                    </div>
+                                                    <div class="message2">
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <img src="/public/images/boy2.jpg" alt="">
+                                                                </div>
+                                                                <div class="col-md-10">
+                                                                    <div class="name">
+                                                                        <span>Johan Smith</span>
+                                                                        <span style="color: #909090">21h</span>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <p>I head a great time with you <br>
+                                                                            I want to see you again <br>
+                                                                            Thank you for your nice conver- <br>
+                                                                            sation with me during your stay
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="reply">
+                                                                        <span style="margin-right: 22px">Reply</span>
+                                                                        <span>Light</span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6 pl-0 mt-4">
-                                                            <div class="johan d-flex">
-                                                                <a href="" class="link-share other-link red_gradient-cl align-self-center">
-                                                                    <img src="/public/images/mushroom-icon.png" alt="icon">
-                                                                </a>
-                                                                <img class="johan"
-                                                                     src="/public/images/boy2.jpg" alt="">
-                                                                <div class="margin-t">
-                                                                    <span>Johan Smith</span>
-                                                                    <span class="d-flex color">16h ago</span>
+                                                    </div>
+                                                    <div class="message3">
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <img src="/public/images/girl2.png" alt="">
                                                                 </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-md-6 pr-0 mt-4">
-                                                            <div class="rania d-flex">
-                                                                <a href="" class="link-share twitter-link align-self-center"><i class="fab fa-twitter"></i></a>
-                                                                <img class="johan"
-                                                                     src="/public/images/girl-cover.jpg"
-                                                                     alt="">
-                                                                <div class="margin-t">
-                                                                    <span>Rania Dewell</span>
-                                                                    <span class="d-flex color">5min ago</span>
+                                                                <div class="col-md-10">
+                                                                    <div class="name">
+                                                                        <span>{{ $user->username }}</span>
+                                                                        <span style="color: #909090">22h</span>
+                                                                    </div>
+                                                                    <div class="text">
+                                                                        <p>Enjoy your time!</p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="foot-comments d-flex">
+                                                    <div class="write">
+                                                        <div class="d-flex">
+                                                            <img src="/public/images/girl2.png" alt="">
+                                                            <input class="form-control form-control-lg"
+                                                                   type="text"
+                                                                   placeholder="Write a Comment ...">
+                                                            <i class="far fa-smile"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="score">
-                                <nav>
-                                    <div class="nav nav-tabs">
-                                        <a class="nav-item nav-link">
-                                            <div class="d-flex justify-content-between">
-                                                <span class="name">Comments</span><span
-                                                        class="count">63</span>
-                                            </div>
-
-                                        </a>
-                                        <a class="nav-item nav-link share-link">
-                                            <div class="d-flex justify-content-between">
-                                                <span class="name">Share</span><span
-                                                        class="count">190</span>
-                                            </div>
-                                        </a>
 
 
-                                        <a class="nav-item nav-link active">
-                                            <div class="d-flex justify-content-between">
-                                                <span class="name">Score</span><span
-                                                        class="count">125,365</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </nav>
-                                <div class="tab-content ">
-                                    <div class="tab-pane">
-                                        <div class="main-score-content">
-                                            <div class="score-content1">
-                                                <div class="container-fluid">
-                                                    <div class="row">
-                                                        <div class="globus col-md-6">
-                                                            <img src="/public/images/klorik.png" alt="">
-                                                        </div>
-                                                        <div class="total col-md-6">
-                                                            <p class="margin"><i class="fas fa-plus"></i>
-                                                                <span>126,885</span></p>
-                                                            <p class="margin"><i class="fas fa-minus"></i>
-                                                                <span>1,520</span></p>
-                                                            <p>Total: <span class="color">125,365</span></p>
-                                                        </div>
+
+                                        <div class="tab-pane fade" id="nav-share" role="tabpanel" aria-labelledby="nav-share-tab">
+                                            <div class="share">
+                                            <div class="main-share-content">
+                                                <div class="head d-flex justify-content-between align-items-center">
+                                                    <div class="rebug red_gradient-cl">
+                                                        <button class="btn btn-link"><img
+                                                                    src="/public/images/mushroom-icon.png"
+                                                                    alt="icon"><span>Rebug</span></button>
+                                                    </div>
+                                                    <div class="social-also d-flex align-items-center">
+                                                        <span class="text">Share also on:</span>
+                                                        <a href="" class="facebook-link"><i
+                                                                    class="fab fa-facebook-f"></i></a>
+                                                        <a href="" class="twitter-link"><i
+                                                                    class="fab fa-twitter"></i></a>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="score-content2">
-                                                <div class="container-fluid">
-                                                    <div class="row">
-                                                        <div class="people1 col-md-6">
-                                                            <div class="sam d-flex">
-                                                                <p class="margin"><i
-                                                                            class="fas fa-minus"></i></p>
-                                                                <img class="sam"
-                                                                     src="/public/images/boy1.jpg" alt="">
-                                                                <div class="margin-t"><span>Sam Black</span>
-                                                                    <span class="d-flex color">21h ago</span>
+                                                <div class="share-content">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="col-md-6 pl-0">
+                                                                <div class="sam d-flex">
+                                                                    <a href="" class="link-share facebook-link align-self-center"><i class="fab fa-facebook-f"></i></a>
+                                                                    <img class="sam"
+                                                                         src="/public/images/boy1.jpg" alt="">
+                                                                    <div class="margin-t"><span>Sam Black</span>
+                                                                        <span class="d-flex color">21h ago</span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="johan d-flex">
-                                                                <p class="margin"><i
-                                                                            class="fas fa-minus"></i></p>
-                                                                <img class="johan"
-                                                                     src="/public/images/boy2.jpg" alt="">
-                                                                <div class="margin-t">
-                                                                    <span>Johan Smith</span>
-                                                                    <span class="d-flex color">16h ago</span>
+                                                            <div class="col-md-6 pr-0">
+                                                                <div class="sam d-flex">
+                                                                    <a href="" class="link-share other-link red_gradient-cl align-self-center">
+                                                                        <img src="/public/images/mushroom-icon.png" alt="icon">
+                                                                    </a>
+                                                                    <img class="sam"
+                                                                         src="/public/images/boy1.jpg" alt="">
+                                                                    <div class="margin-t"><span>Sam Black</span>
+                                                                        <span class="d-flex color">21h ago</span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="people2 col-md-6">
-                                                            <div class="sam d-flex">
-                                                                <p class="margin"><i
-                                                                            class="fas fa-plus"></i></p>
-                                                                <img class="sam"
-                                                                     src="/public/images/boy1.jpg" alt="">
-                                                                <div class="margin-t"><span>Sam Black</span>
-                                                                    <span class="d-flex color">21h ago</span>
+                                                            <div class="col-md-6 pl-0 mt-4">
+                                                                <div class="johan d-flex">
+                                                                    <a href="" class="link-share other-link red_gradient-cl align-self-center">
+                                                                        <img src="/public/images/mushroom-icon.png" alt="icon">
+                                                                    </a>
+                                                                    <img class="johan"
+                                                                         src="/public/images/boy2.jpg" alt="">
+                                                                    <div class="margin-t">
+                                                                        <span>Johan Smith</span>
+                                                                        <span class="d-flex color">16h ago</span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="rania d-flex">
-                                                                <p class="margin"><i
-                                                                            class="fas fa-plus"></i></p>
-                                                                <img class="johan"
-                                                                     src="/public/images/girl-cover.jpg"
-                                                                     alt="">
-                                                                <div class="margin-t">
-                                                                    <span>Rania Dewell</span>
-                                                                    <span class="d-flex color">5min ago</span>
+
+                                                            <div class="col-md-6 pr-0 mt-4">
+                                                                <div class="rania d-flex">
+                                                                    <a href="" class="link-share twitter-link align-self-center"><i class="fab fa-twitter"></i></a>
+                                                                    <img class="johan"
+                                                                         src="/public/images/girl-cover.jpg"
+                                                                         alt="">
+                                                                    <div class="margin-t">
+                                                                        <span>Rania Dewell</span>
+                                                                        <span class="d-flex color">5min ago</span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+
+
+                                        <div class="tab-pane fade" id="nav-score" role="tabpanel" aria-labelledby="nav-score-tab">
+                                            <div class="score">
+                                            <div class="main-score-content">
+                                                <div class="score-content1">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="globus col-md-6">
+                                                                <img src="/public/images/klorik.png" alt="">
+                                                            </div>
+                                                            <div class="total col-md-6">
+                                                                <p class="margin"><i class="fas fa-plus"></i>
+                                                                    <span>126,885</span></p>
+                                                                <p class="margin"><i class="fas fa-minus"></i>
+                                                                    <span>1,520</span></p>
+                                                                <p>Total: <span class="color">125,365</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="score-content2">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="people1 col-md-6">
+                                                                <div class="sam d-flex">
+                                                                    <p class="margin"><i
+                                                                                class="fas fa-minus"></i></p>
+                                                                    <img class="sam"
+                                                                         src="/public/images/boy1.jpg" alt="">
+                                                                    <div class="margin-t"><span>Sam Black</span>
+                                                                        <span class="d-flex color">21h ago</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="johan d-flex">
+                                                                    <p class="margin"><i
+                                                                                class="fas fa-minus"></i></p>
+                                                                    <img class="johan"
+                                                                         src="/public/images/boy2.jpg" alt="">
+                                                                    <div class="margin-t">
+                                                                        <span>Johan Smith</span>
+                                                                        <span class="d-flex color">16h ago</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="people2 col-md-6">
+                                                                <div class="sam d-flex">
+                                                                    <p class="margin"><i
+                                                                                class="fas fa-plus"></i></p>
+                                                                    <img class="sam"
+                                                                         src="/public/images/boy1.jpg" alt="">
+                                                                    <div class="margin-t"><span>Sam Black</span>
+                                                                        <span class="d-flex color">21h ago</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rania d-flex">
+                                                                    <p class="margin"><i
+                                                                                class="fas fa-plus"></i></p>
+                                                                    <img class="johan"
+                                                                         src="/public/images/girl-cover.jpg"
+                                                                         alt="">
+                                                                    <div class="margin-t">
+                                                                        <span>Rania Dewell</span>
+                                                                        <span class="d-flex color">5min ago</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
                             </div>
+
                         </div>
                         <div class="action-bar d-flex align-items-center justify-content-between flex-md-column">
                             <div class="open-close_tab">

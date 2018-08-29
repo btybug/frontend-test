@@ -2649,11 +2649,14 @@ font-size: 18px;
 .new_post .open-page>div .tab-content .tab-pane{
   display: block;
 }
-.new_post .open-page>div.active{
+
+.new_post .open-page>.tab-content{
+  width: 494.6px;
+}
+.new_post .open-page>.tab-content .tab-pane>div {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 494.6px;
 }
 .new_post .open-page.no_open{
    display: none;
@@ -2852,7 +2855,7 @@ display: block;
   .new_post .open-page{
     width: 100%;
   }
-  .new_post .open-page>div.active{
+  .new_post .open-page>div.tab-content{
     width: 100%;
   }
   .new_post .open-page nav .nav{
