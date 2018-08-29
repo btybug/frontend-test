@@ -68,9 +68,11 @@ class SocialProfileController extends Controller
 
     public function socialQuickbug()
     {
+        \Eventy::action('my.scripts', ['url' => '//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js?v='.rand(999,9999), 'attributes' => ['data-main' => url('public/elFinder/main.default.js?v='.rand(999,9999))]]);
+        \Eventy::action('my.scripts', ['url' => url('public/elFinder/elfinder.js?v='.rand(999,9999))]);
+        \Eventy::action('my.scripts', ['url' => url('public/elFinder/media_button.js?v='.rand(999,9999))]);
         $user = \Auth::user()->socialProfile;
         $curUser = $this->userRepository->model()->find($user->user_id);
-
         $bugs = $this->socialProfileService->getall($user);
         return view('manage::frontend.pages.profiles.quickbug', compact(['user','bugs','curUser']));
     }
