@@ -5,7 +5,6 @@ $(document).ready(function () {
             var sctionBarlink = e.target.closest('a');
             var datalink = $(sctionBarlink).data("barlink");
             var openPage = $(this).closest('.new_post').find('.open-page');
-            console.log($(openPage).closest('.new_post').parent());
             $(openPage).closest('.new_post').parent().addClass('col-lg-12');
             $(openPage).closest('.new_post').parent().next().find('.user-widget').addClass('no-show');
             $(openPage).removeClass('no_open');
@@ -14,7 +13,6 @@ $(document).ready(function () {
         } else {
             $(this).closest('.new_post').find('.open-page').addClass('no_open');
             $(this).closest('.new_post').find('.open-page').children().removeClass('active');
-            // console.log($(openPage).closest('.new_post').parent());
             $(this).closest('.new_post').parent().removeClass('col-lg-12');
         }
 
@@ -26,7 +24,6 @@ $(document).ready(function () {
             var postFootLink = $(e.target.closest('a'));
             postFootLink.closest(".owl-stage").find("a").removeClass("active")
             var dataPostLink = $(postFootLink).data("viewPost");
-            console.log(dataPostLink )
             let posts = $(this).closest(".post").find(".post-map")
             posts.children().removeClass("active")
                 // $('.new_post >.post .post-map>div').removeClass('active');
