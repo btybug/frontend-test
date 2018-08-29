@@ -39,33 +39,24 @@ $(document).ready(function() {
           $(added_costom_template).append(templateAt);
           targetLink.classList.remove("active");
           var userList = null;
-          $.get("/getusers", function(data) {
-            console.log(data);
-            userList = data;
+          $.ajax({
+            url: "/getusers",
+            type: "POST",
+            dataType: "json",
+            headers: {
+              "X-CSRF-TOKEN": $("input[name='_token']").val()
+            },
+            success: function(data) {
+              userList = data;
+            }
           });
-          // var citynames = new Bloodhound({
-          //   datumTokenizer: Bloodhound.tokenizers.whitespace,
-          //   queryTokenizer: Bloodhound.tokenizers.whitespace,
-          //   prefetch: {
-          //     url: "/getusers",
-          //     filter: function(list) {
-          //       console.log(list);
-          //       return $.map(list, function(item) {
-          //         console.log(item);
-          //         return { name: item.aaa, avatar: item.avatar };
-          //       });
-          //     }
-          //   }
-          // });
-          // citynames.initialize();
-          // console.log(citynames.ttAdapter());
           $(".mention-friends").tagsinput({
             maxTags: 5,
             confirmKeys: [13, 32, 44],
             typeaheadjs: {
               // name: "citynames",
-              // displayKey: "avatar",
-              // valueKey: "avatar",
+              displayKey: "username",
+              valueKey: "username",
               source: function(query, processSync, processAsync) {
                 return $.ajax({
                   url: "/getusers",
@@ -73,11 +64,9 @@ $(document).ready(function() {
                   data: { query: query },
                   dataType: "json",
                   headers: {
-                      'X-CSRF-TOKEN': $("input[name='_token']").val()
+                    "X-CSRF-TOKEN": $("input[name='_token']").val()
                   },
-
-                    success: function(json) {
-                    console.log(json);
+                  success: function(json) {
                     return processAsync(json);
                   }
                 });
@@ -88,16 +77,11 @@ $(document).ready(function() {
                   "No results",
                   "</div>"
                 ].join("\n"),
-                header: "<h4>PRODUCTS</h4><hr>",
+                header: "<h4>Friends</h4><hr>",
                 suggestion: function(data) {
-                  console.log(data);
-                  return (
-                    '<div class="user-search-result"><img src="' +
-                    data.avatar +
-                    '" /><h3>' +
-                    data.username +
-                    "</h3></div>"
-                  );
+                  return `<div class="user-search-result"><img width=25 src="${
+                    data.avatar ? data.avatar : "/public/images/avatar.png"
+                  }" ><span> ${data.username} </span></div>`;
                 }
               }
             }
