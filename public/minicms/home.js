@@ -69,10 +69,14 @@ $(document).ready(function() {
               source: function(query, processSync, processAsync) {
                 return $.ajax({
                   url: "/getusers",
-                  type: "GET",
+                  type: "POST",
                   data: { query: query },
                   dataType: "json",
-                  success: function(json) {
+                  headers: {
+                      'X-CSRF-TOKEN': $("input[name='_token']").val()
+                  },
+
+                    success: function(json) {
                     console.log(json);
                     return processAsync(json);
                   }
