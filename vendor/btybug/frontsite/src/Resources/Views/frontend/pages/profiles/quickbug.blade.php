@@ -608,6 +608,8 @@
      
     <script src="{!!url('/public/minicms/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js')!!}"></script>
     <script src="{!!url('http://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js')!!}"></script>
+    <script src="{!!url('/public/js/form-builder/handlebars.js')!!}"></script>
+
    
 
 

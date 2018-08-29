@@ -31,35 +31,76 @@ $(document).ready(function() {
         case "hashtag-link active":
           $(added_costom_template).append(templateHashtag);
           targetLink.classList.remove("active");
-          $(".tags_bug_custom").tagsinput();
+          $(".tags_bug_custom").tagsinput({
+            confirmKeys: [13, 32, 44]
+          });
           break;
         case "at-link active":
           $(added_costom_template).append(templateAt);
           targetLink.classList.remove("active");
-          console.log(11111);
-          var citynames = new Bloodhound({
-            datumTokenizer: Bloodhound.tokenizers.obj.whitespace("name"),
-            queryTokenizer: Bloodhound.tokenizers.whitespace,
-            prefetch: {
-              url: "/getusers",
-              filter: function(list) {
-                return $.map(list, function(item) {
-                  console.log(item);
-                  return { name: item.username };
+          var userList = null;
+          $.get("/getusers", function(data) {
+            console.log(data);
+            userList = data;
+          });
+          // var citynames = new Bloodhound({
+          //   datumTokenizer: Bloodhound.tokenizers.whitespace,
+          //   queryTokenizer: Bloodhound.tokenizers.whitespace,
+          //   prefetch: {
+          //     url: "/getusers",
+          //     filter: function(list) {
+          //       console.log(list);
+          //       return $.map(list, function(item) {
+          //         console.log(item);
+          //         return { name: item.aaa, avatar: item.avatar };
+          //       });
+          //     }
+          //   }
+          // });
+          // citynames.initialize();
+          // console.log(citynames.ttAdapter());
+          $(".mention-friends").tagsinput({
+            maxTags: 5,
+            confirmKeys: [13, 32, 44],
+            typeaheadjs: {
+              // name: "citynames",
+              // displayKey: "avatar",
+              // valueKey: "avatar",
+              source: function(query, processSync, processAsync) {
+                return $.ajax({
+                  url: "/getusers",
+                  type: "GET",
+                  data: { query: query },
+                  dataType: "json",
+                  success: function(json) {
+                    console.log(json);
+                    return processAsync(json);
+                  }
                 });
+              },
+              templates: {
+                empty: [
+                  '<div class="empty-message">',
+                  "No results",
+                  "</div>"
+                ].join("\n"),
+                header: "<h4>PRODUCTS</h4><hr>",
+                suggestion: function(data) {
+                  console.log(data);
+                  return (
+                    '<div class="user-search-result"><img src="' +
+                    data.avatar +
+                    '" /><h3>' +
+                    data.username +
+                    "</h3></div>"
+                  );
+                }
               }
             }
           });
-          citynames.initialize();
-          console.log($(".mention-friends"));
-          $(".mention-friends").tagsinput({
-            maxTags: 3,
-            typeaheadjs: {
-              name: "citynames",
-              displayKey: "name",
-              valueKey: "name",
-              source: citynames.ttAdapter()
-            }
+          $(".mention-friends").on("beforeItemAdd", function(event) {
+            checkUser = userList.some(item => item.username === event.item);
+            event.cancel = !checkUser;
           });
 
           break;
