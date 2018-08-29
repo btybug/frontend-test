@@ -95,12 +95,11 @@ class SocialProfileController extends Controller
     public function postSocialBugit(Request $request)
     {
         $data = $request->all();
-        $user = \Auth::user()->socialProfile;
+        $user = $this->userRepository->find(\Auth::id());
         $bug = $this->socialProfileService->bugsSave($data,$user);
         $this->tagsService->tagsSave($request->get('tags',null),$bug['id']);
         $bugs = $this->socialProfileService->getall($user);
         //poxvuma
-        $curUser = $this->userRepository->model()->find($user->user_id);
         $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user','bugs','curUser']))->render();
 
         return \Response::json(['html' => $html, 'error' => false]);
