@@ -363,7 +363,7 @@
                         </button>
                     </div>
                     <div class="btn-upload_img">
-                        {!! BBmediaButton('site_image',null,['version'=>4,'html'=>'
+                        {!! BBmediaButton('site_image',null,['version'=>4, 'tmp' => true,'html'=>'
             <button class="btn btn-link btnsettingsModal  media-modal-open h-100"
                                  type="button">
                              <i class="fas fa-plus"></i>
