@@ -1,7 +1,16 @@
 $(document).ready(function() {
   $(".bugit").on("click", function(e) {
+      $(".mention-friends-id").val("")
+      document.querySelectorAll(".label-info").forEach(item => {
+        userList.forEach(item2 => {
+          if(item2.username === item.textContent){
+          $(".mention-friends-id").val($(".mention-friends-id").val() + item2.id + ",");
+          }
+      })
+      })
     e.preventDefault();
     var form = $("#bugit_form").serialize();
+    console.log(form)
     $.ajax({
       type: "POST",
       url: "/profiles/social/bugit",

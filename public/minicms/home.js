@@ -1,5 +1,8 @@
+var userList = null;
+
 $(document).ready(function() {
-  var templateHashtag,
+
+    var templateHashtag,
     templateAt,
     templateSign,
     templateYoutube,
@@ -38,7 +41,6 @@ $(document).ready(function() {
         case "at-link active":
           $(added_costom_template).append(templateAt);
           targetLink.classList.remove("active");
-          var userList = null;
           $.ajax({
             url: "/getusers",
             type: "POST",
@@ -87,7 +89,12 @@ $(document).ready(function() {
             }
           });
           $(".mention-friends").on("beforeItemAdd", function(event) {
-            checkUser = userList.some(item => item.username === event.item);
+            checkUser = userList.some(item => {
+
+
+                return item.username === event.item
+
+                });
             event.cancel = !checkUser;
           });
 

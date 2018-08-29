@@ -29,10 +29,11 @@
                                                 </div>
                                                 <div class="head-post-info">
                                                     <h4>{{$user->username}}</h4>
-                                                    @if($bug->mention_friends)
+
+                                                    @if(count($bug->friends))
                                                         <span>&
-                                                            @foreach(explode(',',$bug->mention_friends) as $friends)
-                                                                {{$friends}},
+                                                            @foreach($bug->friends as $friend)
+                                                                {{ $friend->username }},
                                                             @endforeach
                                                             ...
                                                         </span>
@@ -64,12 +65,14 @@
 
                             </div>
                             <div class="post-content">
-                                @if($bug->mention_friends)
+                                @if(count($bug->friends))
                                     <div class="at d-flex">
-                                        <p><i class="fas fa-at"></i>
-                                            @foreach(explode(',',$bug->mention_friends) as $friends)
-                                                {{$friends}},
-                                            @endforeach... </p>
+                                    <p> @foreach($bug->friends as $friend)
+                                            <a href="#" style="color: red" data-id="{{$friend->id}}" class="user_widget_link">
+                                            <i class="fas fa-at"></i>
+                                            {{ $friend->username }},
+                                            </a>
+                                        @endforeach... </p>
                                     </div>
                                 @endif
                                 @if(count($bug->tags))

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Btybug\btybug\Repositories\HookRepository;
 use Btybug\FrontSite\Http\Requests\SaveSocialGeneralRequest;
 use Btybug\FrontSite\Models\SocialProfile;
+use Btybug\FrontSite\Repository\BugFriendsRepository;
 use Btybug\FrontSite\Repository\BugsRepository;
 use Btybug\FrontSite\Repository\SocialProfileRepository;
 use Btybug\FrontSite\Repository\TagsRepository;
@@ -30,6 +31,7 @@ class SocialProfileController extends Controller
     private $socialProfileService;
     private $bugTagsRepository;
     private $bugRepository;
+    private $bugFriendsRepository;
 
     public function __construct (
         UserRepository $userRepository,
@@ -38,7 +40,8 @@ class SocialProfileController extends Controller
         TagsRepository $tagsRepository,
         SocialProfileService $socialProfileService,
         BugTagsRepository $bugTagsRepository,
-        BugsRepository $bugsRepository
+        BugsRepository $bugsRepository,
+        BugFriendsRepository $bugFriendsRepository
     )
     {
         $this->userRepository = $userRepository;
@@ -48,6 +51,7 @@ class SocialProfileController extends Controller
         $this->tagsRepository = $tagsRepository;
         $this->socialProfileService = $socialProfileService;
         $this->bugTagsRepository = $bugTagsRepository;
+        $this->bugFriendsRepository = $bugFriendsRepository;
     }
 
     public function index()
@@ -78,7 +82,6 @@ class SocialProfileController extends Controller
 
         $user = $this->userRepository->find(\Auth::id());
         $bugs = $user->bugits()->orderBy('created_at', 'DESC')->get();
-
         return view('manage::frontend.pages.profiles.quickbug', compact(['user','bugs']));
     }
 
@@ -98,7 +101,8 @@ class SocialProfileController extends Controller
         $user = $this->userRepository->find(\Auth::id());
         $bug = $this->socialProfileService->bugsSave($data,$user);
         $this->tagsService->tagsSave($request->get('tags',null),$bug['id']);
-        $$bugs = $user->bugits()->orderBy('created_at', 'DESC')->get();
+        $this->bugFriendsRepository->save($bug['id'],$data['user_id']);
+        $bugs = $user->bugits()->orderBy('created_at', 'DESC')->get();
         $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user','bugs']))->render();
 
         return \Response::json(['html' => $html, 'error' => false]);

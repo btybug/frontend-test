@@ -22,23 +22,26 @@ class TagsService extends GeneralService
 
   public function tagsSave($data,$bugId)
   {
-      $data = explode(',', $data);
-
-      if (count($data))
+      if ($data)
       {
-          foreach ($data as $tag)
+          $data = explode(',', $data);
+          if (count($data))
           {
-              $tagged = $this->tagsRepository->create(['name' => $tag, 'type' => 'minicms']);
-              if ($tagged['id'])
+              foreach ($data as $tag)
               {
-                  $this->bugTagsRepository->create(['bug_id' => $bugId,'tag_id' => $tagged['id']]);
-              }else{
-                  $isTagged = $this->tagsRepository->model()->where('name',$tag)->first();
-                  $this->bugTagsRepository->create(['bug_id' => $bugId,'tag_id' => $isTagged->id]);
-              }
+                  $tagged = $this->tagsRepository->create(['name' => $tag, 'type' => 'minicms']);
+                  if ($tagged['id'])
+                  {
+                      $this->bugTagsRepository->create(['bug_id' => $bugId,'tag_id' => $tagged['id']]);
+                  }else{
+                      $isTagged = $this->tagsRepository->model()->where('name',$tag)->first();
+                      $this->bugTagsRepository->create(['bug_id' => $bugId,'tag_id' => $isTagged->id]);
+                  }
 
+              }
           }
       }
+
 
   }
 

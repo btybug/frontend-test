@@ -29,4 +29,9 @@ class Bugs extends Model
     {
         return $this->belongsToMany(Tag::class,'bug_tags','bug_id');
     }
+
+    public function friends()
+    {
+        return $this->belongsToMany(User::class,'bugs_users','bugs_id');
+    }
 }
