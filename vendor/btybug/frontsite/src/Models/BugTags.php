@@ -5,26 +5,25 @@ namespace Btybug\FrontSite\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Tag extends Model
+class BugTags extends Model
 {
-    /**
-     * @var string
-     */
-    protected $table = 'tags';
+    protected $table = 'social_profile';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name','type'];
+    protected $fillable = ['bug_id','tag_id'];
 
-    public static function boot()
+    public function bugs()
     {
-        self::creating(function ($model) {
-            if (self::where('name', $model->name)->where('type',$model->type)->count()) {
-                return false;
-            }
-        });
+        return $this->belongsTo(Bugs::class, 'id');
     }
+
+    public function tags()
+    {
+        return $this->belongsTo(Tag::class, 'id');
+    }
+
 
 }
