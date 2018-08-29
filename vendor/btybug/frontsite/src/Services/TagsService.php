@@ -20,9 +20,10 @@ class TagsService extends GeneralService
       $this->bugTagsRepository = $bugTagsRepository;
   }
 
-  public function tagsSave($data,$bugId = null)
+  public function tagsSave($data,$bugId)
   {
       $data = explode(',', $data);
+
       if (count($data))
       {
           foreach ($data as $tag)
@@ -32,12 +33,21 @@ class TagsService extends GeneralService
               {
                   $this->bugTagsRepository->create(['bug_id' => $bugId,'tag_id' => $tagged['id']]);
               }else{
-                  $isTagged = $this->tagsRepository->model()->where('name',$tag)->get();
-                  $this->bugTagsRepository->create(['bug_id' => $bugId,'tag_id' => $isTagged['id']]);
+                  $isTagged = $this->tagsRepository->model()->where('name',$tag)->first();
+                  $this->bugTagsRepository->create(['bug_id' => $bugId,'tag_id' => $isTagged->id]);
               }
 
           }
       }
 
+  }
+
+  public function tagIdGet($name = null)
+  {
+     return $id =  $tagged = $this->tagsRepository->model()->where('name',$name)->pluck('id');
+  }
+  public function bugIdGet($tagId = null)
+  {
+     return $this->bugTagsRepository->model()->where('tag_id',$tagId)->pluck('bug_id');
   }
 }

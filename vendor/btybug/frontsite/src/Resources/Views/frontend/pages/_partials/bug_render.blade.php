@@ -20,15 +20,15 @@
                                                     <span>{{ str_replace(' ', '', BBgetTimeFormat($bug->created_at)) }}</span>
                                                 </div>
                                             </div>
-                                            @if(isset($curUser))
+                                            @if(isset($user))
                                                 <div class="head-post-img">
                                                     <div class="images">
-                                                        <img src="/public/images/@if(isset($curUser->avatar)){{$curUser->avatar}}@else{{'avatar.png'}}@endif" alt="" data-id="{{$ident}}">
+                                                        <img src="/public/images/@if(isset($user->avatar)){{$user->avatar}}@else{{'avatar.png'}}@endif" alt="" data-id="{{$ident}}">
                                                     </div>
 
                                                 </div>
                                                 <div class="head-post-info">
-                                                    <h4>{{$curUser->username}}</h4>
+                                                    <h4>{{$user->username}}</h4>
                                                     @if($bug->mention_friends)
                                                         <span>&
                                                             @foreach(explode(',',$bug->mention_friends) as $friends)
@@ -72,12 +72,12 @@
                                             @endforeach... </p>
                                     </div>
                                 @endif
-                                @if($bug->tags)
+                                @if(count($bug->tags))
                                     <div class="hash d-flex">
                                         <p>
-                                            @foreach(explode(',',$bug->tags) as $tag)
-                                                <a href="{{route('front_page_social_bug_tags_show',$tag)}}"><i class="fas fa-hashtag"></i>
-                                                    <span>{{$tag}}</span></a>
+                                            @foreach($bug->tags as $tag)
+                                                <a href="{{route('front_page_social_bug_tags_show',$tag->id)}}"><i class="fas fa-hashtag"></i>
+                                                    <span>{{ $tag->name }}</span></a>
                                             @endforeach
                                         </p>
                                     </div>
@@ -238,7 +238,7 @@
                                                             </div>
                                                             <div class="col-md-10">
                                                                 <div class="name">
-                                                                    <span>{{$curUser->username}}</span>
+                                                                    <span>{{ $user->username }}</span>
                                                                     <span style="color: #909090">22h</span>
                                                                 </div>
                                                                 <div class="text">
@@ -509,7 +509,7 @@
                 <div class="col-lg-4 pl-lg-4 p-0">
                     <div class="head3 user-widget no-show" data-id="{{$ident++}}">
                         <div class="name-icon">
-                            <div class="span"><span>{{$curUser->username}}</span></div>
+                            <div class="span"><span>{{$user->username}}</span></div>
                             <div class="icon">
                                 <div class="share-number">
                                     <i class="fas fa-share"></i>
@@ -521,14 +521,14 @@
                             </div>
                         </div>
                         <div class="wed-developer">
-                            <span class="align-self-center">{{$user->proffesion}}</span>
+                            <span class="align-self-center">{{$user->socialProfile->proffesion}}</span>
                             <img src="/public/images/uk-flag.jpg" alt="flag">
                         </div>
                         <div class="content-image">
                             <div class="info-photo d-flex flex-wrap">
                                 <div class="col-lg-6 p-0">
                                     <div class="photo">
-                                        <img src="/public/images/{{$curUser->avatar}}" alt="">
+                                        <img src="/public/images/{{$user->avatar}}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 p-0">
@@ -548,7 +548,5 @@
 
             </div>
         </div>
-
-
     @endforeach
 @endif

@@ -180,10 +180,11 @@ class User extends Authenticatable
     {
         return $this->hasOne(SocialProfile::class,'user_id') ;
     }
-    public function Bugs()
+    public function bugits()
     {
-        return $this->hasOne(Bugs::class,'user_id') ;
+        return $this->hasMany(Bugs::class,'user_id','id') ;
     }
+
     public function recivesBroadcastNotificationsOn()
     {
 

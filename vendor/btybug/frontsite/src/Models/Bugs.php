@@ -25,8 +25,8 @@ class Bugs extends Model
     }
 
 
-    public function bug_tags()
+    public function tags()
     {
-        return $this->hasMany(BugTags::class, 'bug_id');
+        return $this->belongsToMany(Tag::class,'bug_tags','bug_id');
     }
 }

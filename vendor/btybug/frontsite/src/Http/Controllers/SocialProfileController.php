@@ -14,6 +14,7 @@ use Btybug\User\Repository\UserRepository;
 use Btybug\FrontSite\Services\TagsService;
 use Btybug\FrontSite\Models\Tag;
 use Btybug\FrontSite\Services\SocialProfileService;
+use Btybug\User\User;
 use View;
 use Btybug\FrontSite\Repository\BugTagsRepository;
 use Illuminate\Http\Request;
@@ -25,20 +26,26 @@ class SocialProfileController extends Controller
     private $userRepository;
     private $socialProfileRepository;
     private $tagsService;
+    private $tagsRepository;
     private $socialProfileService;
     private $bugTagsRepository;
+    private $bugRepository;
 
     public function __construct (
         UserRepository $userRepository,
         SocialProfileRepository $socialProfileRepository,
         TagsService $tagsService,
+        TagsRepository $tagsRepository,
         SocialProfileService $socialProfileService,
-        BugTagsRepository $bugTagsRepository
+        BugTagsRepository $bugTagsRepository,
+        BugsRepository $bugsRepository
     )
     {
         $this->userRepository = $userRepository;
+        $this->bugRepository = $bugsRepository;
         $this->socialProfileRepository = $socialProfileRepository;
         $this->tagsService = $tagsService;
+        $this->tagsRepository = $tagsRepository;
         $this->socialProfileService = $socialProfileService;
         $this->bugTagsRepository = $bugTagsRepository;
     }
@@ -69,10 +76,10 @@ class SocialProfileController extends Controller
     public function socialQuickbug()
     {
 
-        $user = \Auth::user()->socialProfile;
-        $curUser = $this->userRepository->model()->find($user->user_id);
-        $bugs = $this->socialProfileService->getall($user);
-        return view('manage::frontend.pages.profiles.quickbug', compact(['user','bugs','curUser']));
+        $user = $this->userRepository->find(\Auth::id());
+        $bugs = $user->bugits;
+
+        return view('manage::frontend.pages.profiles.quickbug', compact(['user','bugs']));
     }
 
     public function socialTravel()
@@ -92,6 +99,7 @@ class SocialProfileController extends Controller
         $bug = $this->socialProfileService->bugsSave($data,$user);
         $this->tagsService->tagsSave($request->get('tags',null),$bug['id']);
         $bugs = $this->socialProfileService->getall($user);
+        //poxvuma
         $curUser = $this->userRepository->model()->find($user->user_id);
         $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user','bugs','curUser']))->render();
 
@@ -150,6 +158,14 @@ class SocialProfileController extends Controller
             return back();
         }
 
+    }
+
+    public function getBugsByTags($id)
+    {
+        $user = $this->userRepository->find(\Auth::id());
+        $tag = $this->tagsRepository->find($id);
+        $bugs = $tag->bugs;
+        return view('manage::frontend.pages.profiles.bugsByTags', compact(['user','bugs']));
     }
 
 

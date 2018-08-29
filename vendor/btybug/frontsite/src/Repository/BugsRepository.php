@@ -13,9 +13,4 @@ class BugsRepository extends GeneralRepository
     {
         return new Bugs();
     }
-
-    public function slectByuser($user){
-        $bugs = Bugs::where('user_id',$user->user_id)->get();
-        return $bugs;
-    }
 }

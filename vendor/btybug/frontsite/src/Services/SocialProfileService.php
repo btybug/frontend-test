@@ -37,7 +37,11 @@ class SocialProfileService extends GeneralService
 
   public function getall($user)
   {
-        $bugs = $this->bugsRepository->slectByuser($user);
+        $bugs = $this->bugsRepository->selectByuser($user);
         return $bugs;
+  }
+  public function getallById($bugId)
+  {
+        return $this->bugsRepository->model()->find($bugId);
   }
 }
