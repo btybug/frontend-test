@@ -78,7 +78,7 @@
 
 <!-- ================== BEGIN FOOTER PAGE LEVEL JS ================== -->
 {!! getFooterJs() !!}
-<!-- {!! BBscriptsHook() !!} -->
+{!! BBscriptsHook() !!}
 <!-- ================== END FOOTER PAGE LEVEL JS ================== -->
 </body>
 </html>

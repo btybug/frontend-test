@@ -708,15 +708,15 @@ function hierarchyAdminPagesListFull($data, $parent = true, $icon = true, $id = 
                 $title = 'core';
                 $output .= '<div class="listinginfo bb-menu-item">';
                 switch ($item->type) {
-                    case  "custom" :
+                    case "custom":
                         $title = 'custom';
                         $output .= '<div class="lsitingbutton bb-menu-item-title" style="background: #36e0a0; !important">';
                         break;
-                    case  "a_special" :
+                    case "a_special":
                         $title = 'special custom';
                         $output .= '<div class="lsitingbutton bb-menu-item-title" style="background: #ffea00; !important">';
                         break;
-                    case  "plugin" :
+                    case "plugin":
                         $title = 'plugin';
                         $output .= '<div class="lsitingbutton bb-menu-item-title" style="background: #e0223c;  !important">';
                         break;
@@ -727,7 +727,7 @@ function hierarchyAdminPagesListFull($data, $parent = true, $icon = true, $id = 
                 $output .= '<span class="listingtitle">' . $item->title . ' - ' . $title . '</span>';
                 $settings = json_decode($item->settings, true);
 
-                if($item->type != 'plugin'){
+                if ($item->type != 'plugin') {
                     if (isset($settings['edit_url'])) {
                         $output .= '<a href="' . url($settings['edit_url']) . '" class="btn"><i class="fa fa-cog fa-spin pull-right"></i></a>';
                     } else {
@@ -1548,7 +1548,7 @@ function BBstyle($path, $unit = null)
         if (!isset($actives[$contentMD5])) {
             $exploaded = explode(DS, $path);
             $name = explode('.', ($exploaded[count($exploaded) - 1]))[0];
-            checker:{
+            checker : {
                 if (File::exists(public_path('cache' . DS . 'css' . DS . $name . '.css')) && !compare_with_profile('css', $contentMD5)) {
                     if (md5(File::get(public_path('cache' . DS . 'css' . DS . $name . '.css'))) != $contentMD5) {
                         $flag = true;
@@ -1606,7 +1606,7 @@ function BBscript($path, $unit = null, $position = 'footer')
 
             $exploaded = explode(DS, $path);
             $name = explode('.', ($exploaded[count($exploaded) - 1]))[0];
-            checker:{
+            checker : {
                 if (File::exists(public_path('cache' . DS . 'js' . DS . $name . '.js')) && !compare_with_profile('js', $contentMD5)) {
                     if (md5(File::get(public_path('cache' . DS . 'js' . DS . $name . '.js'))) != $contentMD5) {
                         $flag = true;
@@ -2345,7 +2345,7 @@ function get_field_data($field)
 {
     if ($field && count($field['json_data'])) {
         switch ($field['data_source']) {
-            case "related" :
+            case "related":
                 if (isset($field['json_data']['data_source_table_name']) && isset($field['json_data']['data_source_columns'])) {
                     $table = $field['json_data']['data_source_table_name'];
                     $column = $field['json_data']['data_source_columns'];
@@ -2356,7 +2356,7 @@ function get_field_data($field)
                     }
                 }
                 break;
-            case "manual" :
+            case "manual":
                 if (isset($field['json_data']['manual']) && $field['json_data']['manual']) {
                     return (count(explode(',', $field['json_data']['manual']))) ? explode(',', $field['json_data']['manual']) : [];
                 }
@@ -2761,15 +2761,16 @@ function BBgetLayoutAttribute($id, $attribute = 'title')
     return ($layout) ? $layout->$attribute : 'No Layout';
 }
 
-function BBmediaButton($name, $model = null,array $attributes)
+function BBmediaButton($name, $model = null, array $attributes)
 {
-    $v=($attributes['version'])??3;
+    $v = ($attributes['version']) ?? 3;
     static $a = 0;
     if (!$a) {
-        \Eventy::action('my.scripts', ['url' => '//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js?v='.rand(999,9999), 'attributes' => ['data-main' => url('public/elFinder/main.default.js?v='.rand(999,9999))]]);
-        \Eventy::action('my.scripts', ['url' => url('public/elFinder/elfinder.js?v='.rand(999,9999))]);
-        \Eventy::action('my.scripts', ['url' => url('public/elFinder/media_button.js?v='.rand(999,9999))]);
-        $modalHtml = View::make('media::_partials.modal',compact('v'))->render();
+        \Eventy::action('my.scripts', ['url' => url('public/elFinder/js/elfinder.min.js?v=' . rand(999, 9999))]);
+        \Eventy::action('my.scripts', ['url' => '//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js?v=' . rand(999, 9999), 'attributes' => ['data-main' => url('public/elFinder/main.default.js?v=' . rand(999, 9999))]]);
+        \Eventy::action('my.scripts', ['url' => url('public/elFinder/elfinder.js?v=' . rand(999, 9999))]);
+        \Eventy::action('my.scripts', ['url' => url('public/elFinder/media_button.js?v=' . rand(999, 9999))]);
+        $modalHtml = View::make('media::_partials.modal', compact('v'))->render();
         \Eventy::action('my.extraHtml', $modalHtml);
     }
     $a++;
@@ -2788,8 +2789,8 @@ function BBmediaButton($name, $model = null,array $attributes)
                 $value_tmp = 'value=' . $model["tmp_" . $name];
         }
     }
-    $html=($attributes['html'])??null;
-    return View::make('media::drive.galery', compact('a', 'value', 'value_tmp', 'name','html','attributes'))->render();
+    $html = ($attributes['html']) ?? null;
+    return View::make('media::drive.galery', compact('a', 'value', 'value_tmp', 'name', 'html', 'attributes'))->render();
 }
 
 function BBgetUsersPluck()
@@ -2821,13 +2822,13 @@ function BBRegisterFrontPages($title = null, $url, $parent = 0, $user_id = null,
     return $page;
 }
 
-function BBcreateMiniCms($user,$data)
+function BBcreateMiniCms($user, $data)
 {
     if (!\File::isDirectory('multisite')) {
         \File::makeDirectory('multisite');
     }
     $test = new \Btybug\Mini\Generator();
-    $test->make($user,$data);
+    $test->make($user, $data);
 }
 
 function BBAddTab($section, array $tab)
@@ -2842,15 +2843,16 @@ function BBAddTab($section, array $tab)
     };
 
 }
-function updateOrCreateUser($slug){
-    if(!\File::isDirectory(app_path('multisite'.DS.$slug))){
-        \File::makeDirectory(app_path('multisite'.DS.$slug));
+function updateOrCreateUser($slug)
+{
+    if (!\File::isDirectory(app_path('multisite' . DS . $slug))) {
+        \File::makeDirectory(app_path('multisite' . DS . $slug));
     }
-    \File::copyDirectory(app_path('multisite'.DS.'abo2'),app_path('multisite'.DS.$slug));
-    $files=\File::allFiles(app_path('multisite'.DS.$slug.DS));
-    foreach ($files as $file){
-        if(!\File::isDirectory($file)){
-            \File::put($file,str_replace('abo2',$slug,\File::get($file)),true);
+    \File::copyDirectory(app_path('multisite' . DS . 'abo2'), app_path('multisite' . DS . $slug));
+    $files = \File::allFiles(app_path('multisite' . DS . $slug . DS));
+    foreach ($files as $file) {
+        if (!\File::isDirectory($file)) {
+            \File::put($file, str_replace('abo2', $slug, \File::get($file)), true);
         }
     }
 }
