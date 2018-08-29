@@ -30,7 +30,7 @@ $(function() {
       part: "snippet",
       type: "video",
       q: encodeURIComponent($(".search-youtube").val()).replace(/%20/g, "+"),
-      maxResults: 3,
+      maxResults: 25,
       order: "viewCount",
       publishedAfter: "2015-01-01T00:00:00Z"
     });
@@ -93,17 +93,12 @@ $("body").on("click", ".youtube-videos-list-item-title", function() {
 });
 $("body").on("keyup", ".giphy-search", function() {
   $(".giphy-container").empty();
-  console.log(111);
 
-  // Deletes old gifs
-  // $('#animal_images').empty();
-
-  // Collect animal name data attribute from the button, replacing any spaces
   let inputValue = $(this).val();
 
   // Create the API URL
   var publicKey = "PEsm8KVG94eHrL2Ol9hOueIVoiFDamQg"; // Public API Key
-  var limit = "10"; // Limit API to 10 gifs
+  var limit = "25"; // Limit API to 10 gifs
   var queryURL =
     "http://api.giphy.com/v1/gifs/search?q=" +
     inputValue +
@@ -176,13 +171,13 @@ $("body").on("mousemove", ".still_gif", function() {
   console.log($(this).next());
   $(this)
     .next()
-    .show();
-  $(this).hide();
+    .attr("style", "display: block !important");
+  $(this).attr("style", "display: none !important");
 });
 $("body").on("mouseleave", ".moving_gif", function() {
   console.log($(this).prev());
   $(this)
     .prev()
-    .show();
-  $(this).hide();
+    .attr("style", "display: block !important");
+  $(this).attr("style", "display: none !important");
 });
