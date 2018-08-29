@@ -20,7 +20,7 @@
                                                     <span>{{ str_replace(' ', '', BBgetTimeFormat($bug->created_at)) }}</span>
                                                 </div>
                                             </div>
-                                            @if(count($curUser))
+                                            @if(isset($curUser))
                                                 <div class="head-post-img">
                                                     <div class="images">
                                                         <img src="/public/images/@if(isset($curUser->avatar)){{$curUser->avatar}}@else{{'avatar.png'}}@endif" alt="" data-id="{{$ident}}">
