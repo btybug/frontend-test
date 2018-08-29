@@ -103,7 +103,7 @@
 
                                 @if(isset($bug->youtube))
                                     <div class="post-youtube">
-                                        <iframe width="100%" height="350"
+                                        <iframe width="100%" height="100%"
                                                 src="https://www.youtube.com/embed/{{ $bug->youtube }}" frameborder="0"
                                                 allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                     </div>
@@ -112,7 +112,7 @@
                                 @if($bug->location && count($bug->location))
                                     <div class="post-maps active">
                                         <iframe src="https://maps.google.com/maps?q={{ $bug->location['lat'] }},{{ $bug->location['lang'] }}&z=10&output=embed"
-                                                width="100%" height="350" frameborder="0" style="border:0"
+                                                width="100%" height="100%" frameborder="0" style="border:0"
                                                 allowfullscreen></iframe>
                                     </div>
                                 @endif
