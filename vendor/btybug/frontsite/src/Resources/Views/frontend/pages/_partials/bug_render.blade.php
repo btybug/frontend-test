@@ -120,11 +120,13 @@
                             </div>
                             <div class="post-foot">
                                 <div class="post-foot-carousel owl-carousel owl-theme">
+                                    @if($bug->location && count($bug->location))
                                     <div class="item"><a href="" data-view-post="post-maps"
                                                          class="blue-cl-icon active">
                                             <div class="line"></div>
                                             <i class="fas fa-map-marker-alt"></i></a></div>
-                                    @if(count(explode(',',$bug->site_image)))
+                                    @endif
+                                    @if($bug->site_image && count(explode(',',$bug->site_image)))
                                         @php
                                             $j = 1;
                                         @endphp
@@ -135,19 +137,19 @@
                                                     <i class="far fa-images"></i></a></div>
                                         @endforeach
                                     @endif
+                                    @if(isset($bug->gif))
                                     <div class="item"><a href="" data-view-post="post-gif"
                                                          class="green-cl-icon">
                                             <div class="line"></div>
                                             <img src="/public/images/gif-icon.png"
                                                  alt=""></a></div>
+                                    @endif
+                                    @if(isset($bug->youtube))
                                     <div class="item"><a href="" data-view-post="post-youtube"
                                                          class="red-cl-icon">
                                             <div class="line"></div>
                                             <i class="fab fa-youtube"></i></a></div>
-                                    <div class="item"><a href="" data-view-post="post-image-3"
-                                                         class="purple-cl-icon">
-                                            <div class="line"></div>
-                                            <i class="far fa-images"></i></a></div>
+                                    @endif
 
                                 </div>
 
