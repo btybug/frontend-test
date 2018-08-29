@@ -28,13 +28,14 @@ class SocialProfileController extends Controller
     private $socialProfileService;
     private $bugTagsRepository;
 
-    public function __construct(
+    public function __construct (
         UserRepository $userRepository,
         SocialProfileRepository $socialProfileRepository,
         TagsService $tagsService,
         SocialProfileService $socialProfileService,
         BugTagsRepository $bugTagsRepository
-    ) {
+    )
+    {
         $this->userRepository = $userRepository;
         $this->socialProfileRepository = $socialProfileRepository;
         $this->tagsService = $tagsService;
@@ -61,7 +62,7 @@ class SocialProfileController extends Controller
     public function postSocialGeneral(SaveSocialGeneralRequest $request)
     {
         $social_profile = \Auth::user()->socialProfile;
-        $this->socialProfileRepository->update($social_profile->id, $request->except('__token', 'day', 'month', 'year', 'social_media'));
+        $this->socialProfileRepository->update($social_profile->id,$request->except('__token','day','month','year','social_media'));
         return redirect()->back();
     }
 
@@ -69,8 +70,9 @@ class SocialProfileController extends Controller
     {
         $user = \Auth::user()->socialProfile;
         $curUser = $this->userRepository->model()->find($user->user_id);
+
         $bugs = $this->socialProfileService->getall($user);
-        return view('manage::frontend.pages.profiles.quickbug', compact(['user', 'bugs', 'curUser']));
+        return view('manage::frontend.pages.profiles.quickbug', compact(['user','bugs','curUser']));
     }
 
     public function socialTravel()
@@ -87,11 +89,11 @@ class SocialProfileController extends Controller
     {
         $data = $request->all();
         $user = \Auth::user()->socialProfile;
-        $bug = $this->socialProfileService->bugsSave($data, $user);
-        $this->tagsService->tagsSave($request->get('tags', null), $bug);
+        $bug = $this->socialProfileService->bugsSave($data,$user);
+        $this->tagsService->tagsSave($request->get('tags',null),$bug['id']);
         $bugs = $this->socialProfileService->getall($user);
         $curUser = $this->userRepository->model()->find($user->user_id);
-        $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data', 'user', 'bugs', 'curUser']))->render();
+        $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user','bugs','curUser']))->render();
 
         return \Response::json(['html' => $html, 'error' => false]);
     }
@@ -99,15 +101,17 @@ class SocialProfileController extends Controller
     public function tagsAutocompleate(Request $request)
     {
         $data = $request->all();
-        $issetTag = Tag::where('type', '=', 'minicms')
-            ->where('name', 'like', '%' . $data['term'] . '%')->take(5)->get();
-        if ($issetTag) {
+        $issetTag = Tag::where('type','=', 'minicms')
+            ->where('name', 'like', '%'.$data['term'].'%')->take(5)->get();
+        if ($issetTag)
+        {
             $results = array();
-            foreach ($issetTag as $query) {
+            foreach ($issetTag as $query)
+            {
                 $results[] = ['name' => $query->name];
             }
             return \Response::json(json_encode($results));
-        } else {
+        }else{
             return \Response::json(['error' => true]);
         }
 
@@ -134,14 +138,15 @@ class SocialProfileController extends Controller
     {
         $term = $request->get('query');
 
-        return $this->userRepository->model()->where('username', 'like', '%' . $term . '%')->where('role_id', 0)->get();
+        return $this->userRepository->model()->where('username','like', '%'.$term.'%')->where('role_id',0)->get();
     }
     public function deleteBug(Request $request)
     {
         $success = $this->socialProfileService->bugDelete($request->id);
-        if ($success) {
+        if($success)
+        {
             return back();
-        } else {
+        }else{
             return back();
         }
 

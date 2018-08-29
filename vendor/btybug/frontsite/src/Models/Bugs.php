@@ -23,4 +23,10 @@ class Bugs extends Model
     {
         return $this->belongsTo(User::class, 'id');
     }
+
+
+    public function bug_tags()
+    {
+        return $this->hasMany(BugTags::class, 'bug_id');
+    }
 }

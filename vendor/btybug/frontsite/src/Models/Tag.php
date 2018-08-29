@@ -27,4 +27,9 @@ class Tag extends Model
         });
     }
 
+    public function bug_tags()
+    {
+        return $this->hasMany(BugTags::class, 'tag_id');
+    }
+
 }

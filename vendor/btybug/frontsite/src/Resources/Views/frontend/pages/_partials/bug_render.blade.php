@@ -76,8 +76,8 @@
                                     <div class="hash d-flex">
                                         <p>
                                             @foreach(explode(',',$bug->tags) as $tag)
-                                                <i class="fas fa-hashtag"></i>
-                                                <span>{{$tag}}</span>
+                                                <a href="{{route('front_page_social_bug_tags_show',$tag)}}"><i class="fas fa-hashtag"></i>
+                                                    <span>{{$tag}}</span></a>
                                             @endforeach
                                         </p>
                                     </div>

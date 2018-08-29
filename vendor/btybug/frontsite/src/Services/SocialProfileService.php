@@ -19,19 +19,21 @@ class SocialProfileService extends GeneralService
   {
       $this->tagsRepository = $tagsRepository;
       $this->bugsRepository = $bugsRepository;
+
   }
 
   public function bugsSave($data,$user)
   {
         $data['user_id'] = $user->user_id;
         unset($data['_token']);
-        $this->bugsRepository->create($data);
+        return $this->bugsRepository->create($data);
   }
 
   public function bugDelete($id = null)
   {
         $this->bugsRepository->delete($id);
   }
+
 
   public function getall($user)
   {

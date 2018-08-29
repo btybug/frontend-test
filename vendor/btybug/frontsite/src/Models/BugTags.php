@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BugTags extends Model
 {
-    protected $table = 'social_profile';
+    protected $table = 'bug_tags';
     /**
      * The attributes that are mass assignable.
      *
