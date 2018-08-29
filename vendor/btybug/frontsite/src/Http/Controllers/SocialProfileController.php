@@ -77,7 +77,7 @@ class SocialProfileController extends Controller
     {
 
         $user = $this->userRepository->find(\Auth::id());
-        $bugs = $user->bugits;
+        $bugs = $user->bugits()->orderBy('created_at', 'DESC')->get();
 
         return view('manage::frontend.pages.profiles.quickbug', compact(['user','bugs']));
     }
@@ -98,7 +98,7 @@ class SocialProfileController extends Controller
         $user = $this->userRepository->find(\Auth::id());
         $bug = $this->socialProfileService->bugsSave($data,$user);
         $this->tagsService->tagsSave($request->get('tags',null),$bug['id']);
-        $bugs = $user->bugits;
+        $$bugs = $user->bugits()->orderBy('created_at', 'DESC')->get();
         $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user','bugs']))->render();
 
         return \Response::json(['html' => $html, 'error' => false]);
