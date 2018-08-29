@@ -64,8 +64,8 @@
 <script src="{!!url('public/minicms/apps.min.js')!!}"></script>
 <script src="{!!url('public/minicms/home.js?v='.rand(111,999))!!}"></script>
 <script src="{!!url('public/minicms/main.js')!!}"></script>
-<script src="{!!url('public/minicms/js/dashboard.js')!!}"></script>
-<script src="{!!url('public/minicms/js/pages/dashboard.js')!!}"></script>
+<!-- <script src="{!!url('public/minicms/js/dashboard.js')!!}"></script> -->
+<!-- <script src="{!!url('public/minicms/js/pages/dashboard.js')!!}"></script> -->
 <script src="{!!url('public/js/add-unit.js')!!}"></script>
 <!-- ================== END FOOTER BASE JS ================== -->
 
