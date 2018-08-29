@@ -98,9 +98,8 @@ class SocialProfileController extends Controller
         $user = $this->userRepository->find(\Auth::id());
         $bug = $this->socialProfileService->bugsSave($data,$user);
         $this->tagsService->tagsSave($request->get('tags',null),$bug['id']);
-        $bugs = $this->socialProfileService->getall($user);
-        //poxvuma
-        $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user','bugs','curUser']))->render();
+        $bugs = $user->bugits;
+        $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user','bugs']))->render();
 
         return \Response::json(['html' => $html, 'error' => false]);
     }

@@ -24,8 +24,9 @@ class SocialProfileService extends GeneralService
 
   public function bugsSave($data,$user)
   {
-        $data['user_id'] = $user->user_id;
+        $data['user_id']= $user->id;
         unset($data['_token']);
+        unset($data['tags']);
         return $this->bugsRepository->create($data);
   }
 
