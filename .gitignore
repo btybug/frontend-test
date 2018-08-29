@@ -77,3 +77,4 @@ composer.lock
 /vendor/composer
 /vendor/ralouphie
 /vendor/predis
+/vendor/emojione
