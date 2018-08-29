@@ -5,13 +5,17 @@ $(document).ready(function () {
             var sctionBarlink = e.target.closest('a');
             var datalink = $(sctionBarlink).data("barlink");
             var openPage = $(this).closest('.new_post').find('.open-page');
-            console.log($(openPage));
+            console.log($(openPage).closest('.new_post').parent());
+            $(openPage).closest('.new_post').parent().addClass('col-lg-12');
+            $(openPage).closest('.new_post').parent().next().find('.user-widget').addClass('no-show');
             $(openPage).removeClass('no_open');
             $(openPage).children().removeClass('active');
             $(openPage).find(`.${datalink}`).addClass('active');
         } else {
-            $('.new_post .open-page').addClass('no_open');
-            $('.new_post .open-page>div').removeClass('active');
+            $(this).closest('.new_post').find('.open-page').addClass('no_open');
+            $(this).closest('.new_post').find('.open-page').children().removeClass('active');
+            // console.log($(openPage).closest('.new_post').parent());
+            $(this).closest('.new_post').parent().removeClass('col-lg-12');
         }
 
     });
@@ -42,6 +46,9 @@ $(document).ready(function () {
         var shoable = $('.head3.user-widget');
         $.each(shoable,function (key,val) {
             if ($(this).data('id') == data_id){
+                $(this).parent().prev().find('.open-page').addClass('no_open');
+                $(this).parent().prev().find('.open-page').children().removeClass('active');
+                $(this).parent().prev().removeClass('col-lg-12');
                 $(this).toggleClass('no-show');
             }
 
@@ -51,20 +58,21 @@ $(document).ready(function () {
     $('.post-foot-carousel').owlCarousel({
         nav: true,
         dots: false,
+        // autoWidth:true,
         responsiveClass: true,
         navText: ["<i class=\"fas fa-caret-left\"></i>", "<i class=\"fas fa-caret-right\"></i>"],
         responsive: {
             0: {
-                items: 3
+                items: 5
             },
             600: {
-                items: 3
+                items: 5
             },
             1000: {
-                items: 3
+                items: 5
             },
             1600: {
-                items: 3
+                items: 5
             }
         }
     });
