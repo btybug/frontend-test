@@ -55,7 +55,7 @@
                             <div class="head-content">
                                 <p>
                                     @if($bug->bugit)
-                                        {{$bug->bugit}}
+                                        {!!  \Emojione\Emojione::shortnameToImage($bug->bugit)!!}
                                     @endif
                                 </p>
                                 <div>

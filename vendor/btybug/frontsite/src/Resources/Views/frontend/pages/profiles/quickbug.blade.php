@@ -103,8 +103,6 @@
                             <div class="main-content">
 
 
-
-
                                 <div class="happy d-flex align-items-center">
                                     <div class="title">
                                         <textarea name="bugit" id="bugit-text" cols="30" rows="10"
@@ -255,7 +253,7 @@
                         </button>
                     </div>
                     <input name="tags" type="text" class="form-control tags_bug_custom"
-                           >
+                    >
 
                 </div>
             </div>
@@ -263,8 +261,6 @@
                 <a href="" class="del-icon" data-delgroup="del-hashtag"><i class="fas fa-times"></i></a>
             </div>
         </div>
-       
-
 
 
     </script>
@@ -279,16 +275,15 @@
                         </button>
 
                     </div>
-                    <input name="mention_friends" type="text" class="form-control mention-friends"  >
+                    <input name="mention_friends" type="text" class="form-control mention-friends">
                 </div>
             </div>
             <div class="right-group">
                 <a href="" class="del-icon" data-delgroup="del-at"><i class="fas fa-times"></i></a>
             </div>
         </div>
-        
-       
-      
+
+
     </script>
     <script id="hidden-template-sign" type="text/x-custom-template">
         <div data-group="sign" class="form-group row align-items-center">
@@ -498,129 +493,127 @@
         // $('#bugModalCenter').on('shown.bs.modal', function () {
         //     initAutocomplete();
         // });
-            function initAutocomplete() {
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    center: {
-                        lat: $(".location_lat").val() ?  Number($(".location_lat").val()): 40.7929026,
-                        lng: $(".location_lang").val() ? Number($(".location_lang").val()): 43.84649710000008
+        function initAutocomplete() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: $(".location_lat").val() ? Number($(".location_lat").val()) : 40.7929026,
+                    lng: $(".location_lang").val() ? Number($(".location_lang").val()) : 43.84649710000008
 
-                    },
-                    zoom: 13,
-                    mapTypeId: 'roadmap',
-                });
+                },
+                zoom: 13,
+                mapTypeId: 'roadmap',
+            });
 
-                var marker = new google.maps.Marker({
-                    position: {
-                        lat: $(".location_lat").val() ?  Number($(".location_lat").val()): 40.7929026,
-                        lng: $(".location_lang").val() ? Number($(".location_lang").val()): 43.84649710000008
+            var marker = new google.maps.Marker({
+                position: {
+                    lat: $(".location_lat").val() ? Number($(".location_lat").val()) : 40.7929026,
+                    lng: $(".location_lang").val() ? Number($(".location_lang").val()) : 43.84649710000008
 
-                    },
-                    map: map,
-                    title: $("#pac-input").val()
-                });
-                if($(".location_lang").val() || $(".location_lat").val()  ){
-                    $(".map-box").show()
+                },
+                map: map,
+                title: $("#pac-input").val()
+            });
+            if ($(".location_lang").val() || $(".location_lat").val()) {
+                $(".map-box").show()
+            }
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+            // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener('bounds_changed', function (event) {
+                searchBox.setBounds(map.getBounds());
+            });
+
+            var markers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener('places_changed', function (event) {
+                $(".map-box").show()
+                var places = searchBox.getPlaces();
+                if (places.length == 0) {
+                    return;
                 }
-                // Create the search box and link it to the UI element.
-                var input = document.getElementById('pac-input');
-                var searchBox = new google.maps.places.SearchBox(input);
-                // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-                // Bias the SearchBox results towards current map's viewport.
-                map.addListener('bounds_changed', function(event) {
-                    searchBox.setBounds(map.getBounds());
+
+                // Clear out the old markers.
+                markers.forEach(function (marker) {
+                    marker.setMap(null);
                 });
+                markers = [];
 
-                var markers = [];
-                // Listen for the event fired when the user selects a prediction and retrieve
-                // more details for that place.
-                searchBox.addListener('places_changed', function(event) {
-                    $(".map-box").show()
-                    var places = searchBox.getPlaces();
-                    if (places.length == 0) {
+                // For each place, get the icon, name and location.
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function (place) {
+                    if (!place.geometry) {
+                        console.log("Returned place contains no geometry");
                         return;
                     }
 
 
+                    // Create a marker for each place.
+                    $(".location_lang").val(place.geometry.location.lng())
+                    $(".location_lat").val(place.geometry.location.lat())
+                    markers.push(new google.maps.Marker({
+                        map: map,
+                        // icon: icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    }));
 
-                    // Clear out the old markers.
-                    markers.forEach(function(marker) {
-                        marker.setMap(null);
-                    });
-                    markers = [];
-
-                    // For each place, get the icon, name and location.
-                    var bounds = new google.maps.LatLngBounds();
-                    places.forEach(function(place) {
-                        if (!place.geometry) {
-                            console.log("Returned place contains no geometry");
-                            return;
-                        }
-                     
-
-                        // Create a marker for each place.
-                        $(".location_lang").val(place.geometry.location.lng())
-                        $(".location_lat").val(place.geometry.location.lat())
-                        markers.push(new google.maps.Marker({
-                            map: map,
-                            // icon: icon,
-                            title: place.name,
-                            position: place.geometry.location
-                        }));
-
-                        if (place.geometry.viewport) {
-                            // Only geocodes have viewport.
-                            bounds.union(place.geometry.viewport);
-                        } else {
-                            bounds.extend(place.geometry.location);
-                        }
-                    });
-                    map.fitBounds(bounds);
-
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
                 });
-            }
+                map.fitBounds(bounds);
+
+            });
+        }
 
 
-                $('.delete_bug').on('click',function (e) {
-                    e.preventDefault();
-                    var id = $(this).data('id');
-                    $.ajax({
-                        type: 'POST',
-                        url: "{{route('delete_current_bug')}}",
-                        datatype: 'json',
-                        data: {id: id,key:'key'},
-                        headers: {
-                            'X-CSRF-TOKEN': $("input[name='_token']").val()
-                        },
-                        cache: false,
-                        success: function (data) {
-                            location.reload();
-                        }
-                    });
-                })
+        $('.delete_bug').on('click', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            $.ajax({
+                type: 'POST',
+                url: "{{route('delete_current_bug')}}",
+                datatype: 'json',
+                data: {id: id, key: 'key'},
+                headers: {
+                    'X-CSRF-TOKEN': $("input[name='_token']").val()
+                },
+                cache: false,
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        })
 
 
     </script>
 
 
-    
-   
+
+
     <script src="{!!url('https://apis.google.com/js/client.js?onload=init')!!}"></script>
-     
+
     <script src="{!!url('/public/minicms/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js')!!}"></script>
     <script src="{!!url('http://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js')!!}"></script>
     <script src="{!!url('/public/js/form-builder/handlebars.js')!!}"></script>
     <script src="{!!url('/public/js/form-builder/handlebars.js')!!}"></script>
     <script src="{!!url('/public/emojionearea/emojionearea.min.js')!!}"></script>
     <script>
-    $("#bugit-text").emojioneArea({
-    pickerPosition: "left",
-    tonesStyle: "bullet",
-    saveEmojisAs: true
-  });
-    
+        $("#bugit-text").emojioneArea({
+            pickerPosition: "left",
+            tonesStyle: "bullet",
+            saveEmojisAs: 'shortname'
+        });
     </script>
-   
+
 
 
 @stop

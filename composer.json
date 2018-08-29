@@ -17,6 +17,7 @@
         "caffeinated/shinobi": "^3.0@dev",
         "chumper/zipper": "1.0.x",
         "doctrine/dbal": "2.5.x",
+        "emojione/emojione": "dev-master",
         "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "^6.3@dev",
         "laravel/framework": "5.5.*",
