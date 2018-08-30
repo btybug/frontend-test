@@ -361,7 +361,10 @@
                                                     <div class="container-fluid">
                                                         <div class="row">
                                                             <div class="globus col-md-6">
-                                                                <img src="/public/images/klorik.png" alt="">
+                                                                    <div class="canvas-holder h-100 w-100">
+                                                                        <canvas   id="chart-area-1" height="300"></canvas>
+                                                                    </div>
+
                                                             </div>
                                                             <div class="total col-md-6">
                                                                 <p class="margin"><i class="fas fa-plus"></i>

@@ -24,6 +24,7 @@
                 <div class="col-md-10">
                     <div class="right-content">
                         <div class="bug-something">
+
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="link-bug-something">
@@ -480,6 +481,43 @@
     <script src="{!!url('/public/minicms/plugins/select2/select2.min.js')!!}"></script>
     <script src="{!!url('public/minicms/js/new-post.js')!!}"></script>
     <script src="{!!url('public/minicms/quickbugCustom.js')!!}"></script>
+    <script src="{!!url('public/minicms/js/Chart.bundle.js')!!}"></script>
+    <script src="{!!url('public/minicms/js/utils.js')!!}"></script>
+    <script>
+        function config (data1, data2){
+            return {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [
+                            data1,
+                            data2
+                        ],
+                        backgroundColor: [
+                            window.chartColors.darkorange,
+                            window.chartColors.newgreen
+                        ],
+                        label: 'Dataset 1'
+                    }],
+                    labels: [
+                        'Minus',
+                        'Plus'
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    legend: {
+                        display: false
+                    }
+
+                }
+            }
+        }
+        window.onload = function() {
+            window.myPie = new Chart(document.getElementById('chart-area-1').getContext('2d'), config(45, 145));
+//            window.myPie = new Chart(document.getElementById('chart-area-2').getContext('2d'), config(5, 200));
+        };
+    </script>
 
 
 
