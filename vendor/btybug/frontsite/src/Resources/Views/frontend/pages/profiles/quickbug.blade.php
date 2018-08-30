@@ -66,6 +66,7 @@
                 <div class="modal-body">
                     <div class="quick_bug">
                         <div class="main-bug">
+                            {!! Form::open(['route'=>'front_page_social_bugit','id' => 'bugit_form']) !!}
                             <div class="head">
                                 <div class="d-flex">
                                     <div class="title-icon d-flex align-items-center">
@@ -73,27 +74,27 @@
                                         <span>Quick Bug</span>
                                     </div>
                                     <div class="daily d-flex align-items-center">
-                                        <select id="bug_select_head">
-                                                <option data-icon="far fa-calendar-alt">
+                                        <select id="bug_select_head" name="type">
+                                            <option data-icon="far fa-calendar-alt" value="Daily" selected>
                                                 <span class="icon">
                                                     <i class="far fa-calendar-alt"></i>
                                                 </span>
-                                                    <span class="name">Daily</span>
-                                                </option>
-                                                <option data-icon="fas fa-cog">
+                                                <span class="name">Daily</span>
+                                            </option>
+                                            <option data-icon="fas fa-cog" value="General">
                                                     <span class="icon">
                                                         <i class="fas fa-cog"></i>
                                                     </span>
-                                                    <span class="title">General</span>
-                                                </option>
+                                                <span class="title">General</span>
+                                            </option>
 
-                                            <option data-icon="fas fa-cog">
+                                            <option data-icon="fas fa-cog" value="Funny">
                                                 <span class="icon">
                                                     <i class="fas fa-cog"></i>
                                                 </span>
                                                 <span class="title">Funny</span>
                                             </option>
-                                            <option data-icon="fas fa-cog">
+                                            <option data-icon="fas fa-cog" value="News">
                                                 <span class="icon">
                                                     <i class="fas fa-cog"></i>
                                                 </span>
@@ -157,18 +158,18 @@
                                     </div>
                                     <div class="right-col d-flex">
                                         <div class="d-flex align-items-center align-self-stretch bg-white">
-                                            <select id="bug_select_bottom">
-                                                <option data-icon="fas fa-user-lock">
+                                            <select id="bug_select_bottom" name="privacy">
+                                                <option data-icon="fas fa-user-lock" value="Only Me" selected>
                                                     <span class="name">Only Me</span>
                                                 </option>
-                                                <option data-icon="fas fa-user-secret">
+                                                <option data-icon="fas fa-user-secret" value="Guests">
                                                     <span class="name">Guests</span>
                                                 </option>
 
-                                                <option data-icon="fas fa-user-friends">
+                                                <option data-icon="fas fa-user-friends" value="All Members">
                                                     <span class="name">All Members</span>
                                                 </option>
-                                                <option data-icon="fas fa-user-cog">
+                                                <option data-icon="fas fa-user-cog" value="Custom Members">
                                                     <span class="name">Custom Members</span>
                                                 </option>
                                             </select>

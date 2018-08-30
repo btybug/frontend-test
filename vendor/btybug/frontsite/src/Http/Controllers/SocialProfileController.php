@@ -109,7 +109,10 @@ class SocialProfileController extends Controller
         $user = $this->userRepository->find(\Auth::id());
         $bug = $this->socialProfileService->bugsSave($data,$user);
         $this->tagsService->tagsSave($request->get('tags',null),$bug['id']);
-        $this->bugFriendsRepository->save($bug['id'],$data['user_id']);
+        if (isset($data['user_id']) && isset($bug['id']))
+        {
+            $this->bugFriendsRepository->save($bug['id'],$data['user_id']);
+        }
         $bugs = $user->bugits()->orderBy('created_at', 'DESC')->get();
         $html = \View::make('manage::frontend.pages._partials.bug_render', compact(['data','user','bugs']))->render();
 
