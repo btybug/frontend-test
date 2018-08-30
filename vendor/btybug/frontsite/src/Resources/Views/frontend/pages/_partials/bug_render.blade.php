@@ -429,11 +429,11 @@
                             </div>
 
                             <div class="d-flex flex-md-column align-items-center">
-                                <i class="fas fa-plus {!! ($score->like_or_dislike != 1) ? 'score-plus' : 'score-plus-active' !!}" data-bugid="{{$bug->id}}"></i>
+                                <i class="fas fa-plus {!! ($score && $score->like_or_dislike == 1) ? 'score-plus-active' : 'score-plus' !!}" data-bugid="{{$bug->id}}"></i>
                                 <a href="" data-barlink="score">
                                     <span style="color: #ffffff">{{ thousandsCurrencyFormat($averageScore) }}</span>
                                 </a>
-                                <i class="fas fa-minus {!! ($score->like_or_dislike != -1) ? 'score-minus' : 'score-minus-active' !!}"  data-bugid="{{$bug->id}}"></i>
+                                <i class="fas fa-minus {!! ($score && $score->like_or_dislike == -1) ? 'score-minus-active' : 'score-minus' !!}"  data-bugid="{{$bug->id}}"></i>
                             </div>
                             <div class="d-flex flex-md-column align-items-center share-coment-icon">
                                 <a href="" data-barlink="share">
