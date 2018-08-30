@@ -3107,6 +3107,12 @@ span.twitter-typeahead .tt-suggestion:last-child { border-bottom:0px; }
   white-space: nowrap;
 }
 .score-plus,.score-minus{ cursor:pointer; }
+.score-plus-active{
+  background-color: #5ab76e;
+}
+.score-minus-active{
+  background-color: #d35c3a;
+}
 /*bugs select*/
 .quick_bug .main-bug .head .daily .select2-selection--single{
   background: none;
