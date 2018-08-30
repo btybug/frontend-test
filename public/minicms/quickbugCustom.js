@@ -1,16 +1,18 @@
 $(document).ready(function() {
   $(".bugit").on("click", function(e) {
-      $(".mention-friends-id").val("")
-      document.querySelectorAll(".label-info").forEach(item => {
-        userList.forEach(item2 => {
-          if(item2.username === item.textContent){
-          $(".mention-friends-id").val($(".mention-friends-id").val() + item2.id + ",");
-          }
-      })
-      })
+    $(".mention-friends-id").val("");
+    document.querySelectorAll(".label-info").forEach(item => {
+      userList.forEach(item2 => {
+        if (item2.username === item.textContent) {
+          $(".mention-friends-id").val(
+            $(".mention-friends-id").val() + item2.id + ","
+          );
+        }
+      });
+    });
     e.preventDefault();
     var form = $("#bugit_form").serialize();
-    console.log(form)
+    console.log(form);
     $.ajax({
       type: "POST",
       url: "/profiles/social/bugit",
@@ -189,4 +191,23 @@ $("body").on("mouseleave", ".moving_gif", function() {
     .prev()
     .attr("style", "display: block !important");
   $(this).attr("style", "display: none !important");
+});
+
+$("body").on("click", ".score-plus, .score-minus", function() {
+  let symbol = $(this).hasClass("score-plus") ? "+" : "-";
+  $.ajax({
+    type: "POST",
+    url: "/score",
+    datatype: "json",
+    data: symbol,
+    headers: {
+      "X-CSRF-TOKEN": $("input[name='_token']").val()
+    },
+    cache: false,
+    success: function(data) {
+      if (!data.error) {
+        console.log("all okay");
+      }
+    }
+  });
 });

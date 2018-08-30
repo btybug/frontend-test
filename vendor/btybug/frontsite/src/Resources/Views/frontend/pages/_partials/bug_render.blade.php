@@ -439,13 +439,13 @@
 
                             </div>
                             <div class="d-flex flex-md-column align-items-center">
-                                <i class="fas fa-plus"></i>
+                                <i class="fas fa-plus score-plus"></i>
                                 <a href="" data-barlink="score">
                                     <span style="color: #ffffff">125</span>
                                 </a>
 
                                 <span style="color: #ffffff">K</span>
-                                <i class="fas fa-minus"></i>
+                                <i class="fas fa-minus score-minus"></i>
                             </div>
                             <div class="d-flex flex-md-column align-items-center share-coment-icon">
                                 <a href="" data-barlink="share">
