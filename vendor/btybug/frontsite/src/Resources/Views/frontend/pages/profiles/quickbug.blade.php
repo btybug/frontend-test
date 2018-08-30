@@ -679,6 +679,28 @@
             }
         });
     })
+        $(function () {
+//            comment-atea
+            $('.comment-atea').keypress(function (e) {
+                if (e.which == 13) {
+                    e.preventDefault();
+                    let data=$(this).closest('form').serialize();
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{route('bug_comment')}}",
+                        datatype: 'json',
+                        data: data,
+                        headers: {
+                            'X-CSRF-TOKEN': $("input[name='_token']").val()
+                        },
+                        cache: false,
+                        success: function (data) {
+                          console.log(data);
+                        }
+                    });
+                }
+            });
+        })
     </script>
    
 

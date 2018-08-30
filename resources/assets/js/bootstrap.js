@@ -55,6 +55,7 @@ if (token) {
 //     encrypted: true
 // });]
 
+console.log(122)
 
 import EchoLibrary from "laravel-echo"
 window.io = require('socket.io-client');
@@ -62,13 +63,36 @@ window.io = require('socket.io-client');
 if (typeof io !== 'undefined') {
     window.Echo = new EchoLibrary({
         broadcaster: 'socket.io',
-        host: window.location.hostname + ':80'
+        host: window.location.hostname + ':6001'
     });
 }
 
-Echo.channel('socket.io')
-    .listen('ChatMessageWasReceived', (e) => {
-    console.log(e.user, e.chatMessage);
+Echo.private('socket.io')
+    .listen('MessagePushed', (e) => {
+    console.log(e,);
+    $('body').find(`div[data-id=${e.post.id}]`).append(`<div class=" col-md-12 red">${e.comment}</div>`);
+});
+Echo.private('socket.io')
+    .listen('CommentPushed', (e) => {
+   let html=`<div class="message1">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <img src="${ e.user.avatar}" alt="">
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                <div class="name">
+                                                                    <span>${ e.user.f_name} ${ e.user.l_name}</span>
+                                                                    <span style="color: #909090">17h</span>
+                                                                </div>
+                                                                <div class="text">
+                                                                    <p>${e.comment.comment}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>`;
+   $('body').find(`.bug-comments-${e.bug_id}`).append(html);
 });
 
 

@@ -99,6 +99,7 @@ Route::group(
         Route::get('profiles/social/tags/{id}', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@getBugsByTags')->name('front_page_social_bug_tags_show');
         Route::post('profiles/social/widget', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@widgetPreviewOnRight')->name('widget_preview_on_right');
         Route::post('/deletebug', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@deleteBug')->name('delete_current_bug');
+        Route::post('/bug-comment', '\Btybug\FrontSite\Http\Controllers\BugCommentsController@pushComment')->name('bug_comment');
 
         Route::post('/score', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@postScoreing')->name('post_scoreing');
 

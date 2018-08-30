@@ -2,29 +2,32 @@
 
 namespace App\Events;
 
-use App\ChatMessage;
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class MessagePushed implements ShouldBroadcastNow
+class CommentPushed implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $post;
-    public $comment;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(ChatMessage $post,$comment)
+    public $comment;
+    public $user;
+    public $bug_id;
+    public function __construct($user,$comment,$bug_id)
     {
-        $this->post = $post;
-        $this->comment = $comment;
+        $this->user=$user;
+        $this->comment=$comment;
+        $this->bug_id=$bug_id;
     }
 
     /**
@@ -36,6 +39,4 @@ class MessagePushed implements ShouldBroadcastNow
     {
         return new PrivateChannel('socket.io');
     }
-
-
 }

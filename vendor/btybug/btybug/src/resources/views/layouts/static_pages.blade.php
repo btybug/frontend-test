@@ -6,7 +6,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 {!! BBstyle(base_path('vendor'.DS.'btybug'.DS.'mini'.DS.'src'.DS.'Resources'.DS.'Units'.DS.'btybug_unit_cover'.DS.'css'.DS.'style.css')) !!}
+
 <!-- ================== BEGIN PAGE BASE STYLE ================== -->
     <link rel="stylesheet" href="{!!url('public/minicms/plugins/jquery-ui/jquery-ui.min.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/plugins/bootstrap/4/bootstrap.min.css')!!}">
@@ -41,7 +43,8 @@
     {!! getCss() !!}
     <title>Document</title>
 </head>
-<body>
+
+<body id="app">
 <div class="container-fluid nopadding profile-sticky">
     <div class="ux-tabs ">
         <div class="row nopadding">
@@ -80,5 +83,6 @@
 {!! getFooterJs() !!}
 {!! BBscriptsHook() !!}
 <!-- ================== END FOOTER PAGE LEVEL JS ================== -->
+{!! Html::script('public/js/app.js') !!}
 </body>
 </html>

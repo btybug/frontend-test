@@ -38,4 +38,9 @@ class Bugs extends Model
     {
         return $this->hasMany(Score::class,'bugs_id');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(BugComments::class,'bug_id');
+    }
 }

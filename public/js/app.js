@@ -17242,6 +17242,7 @@ window.Vue = __webpack_require__(81);
  */
 
 Vue.component('example-component', __webpack_require__(84));
+// Vue.component('socket', require('./components/Socket.vue'));
 
 var app = new Vue({
   el: '#app'
@@ -17312,6 +17313,7 @@ if (token) {
 //     encrypted: true
 // });]
 
+console.log(122);
 
 
 window.io = __webpack_require__(57);
@@ -17319,12 +17321,17 @@ window.io = __webpack_require__(57);
 if (typeof io !== 'undefined') {
     window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
         broadcaster: 'socket.io',
-        host: window.location.hostname + ':80'
+        host: window.location.hostname + ':6001'
     });
 }
 
-Echo.channel('socket.io').listen('ChatMessageWasReceived', function (e) {
-    console.log(e.user, e.chatMessage);
+Echo.private('socket.io').listen('MessagePushed', function (e) {
+    console.log(e);
+    $('body').find('div[data-id=' + e.post.id + ']').append('<div class=" col-md-12 red">' + e.comment + '</div>');
+});
+Echo.private('socket.io').listen('CommentPushed', function (e) {
+    var html = '<div class="message1">\n                                                    <div class="container-fluid">\n                                                        <div class="row">\n                                                            <div class="col-md-2">\n                                                                <img src="' + e.user.avatar + '" alt="">\n                                                            </div>\n                                                            <div class="col-md-10">\n                                                                <div class="name">\n                                                                    <span>' + e.user.f_name + ' ' + e.user.l_name + '</span>\n                                                                    <span style="color: #909090">17h</span>\n                                                                </div>\n                                                                <div class="text">\n                                                                    <p>' + e.comment.comment + '</p>\n                                                                </div>\n                                                            </div>\n                                                        </div>\n                                                    </div>\n                                                </div>';
+    $('body').find('.bug-comments-' + e.bug_id).append(html);
 });
 
 /***/ }),
