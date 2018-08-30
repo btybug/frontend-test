@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="travel d-flex flex-column justify-content-center">
                                     <div class="traveling">
-                                        <span class="d-flex flex-wrap"><i class="fas fa-globe-americas"></i>{{$bug->type}}</span>
+                                        <span class="d-flex flex-wrap"><i class="fas fa-globe-americas"></i>{{ $bug->type }}</span>
                                         <hr>
                                     </div>
                                     <div class="by-train">

@@ -3108,10 +3108,10 @@ span.twitter-typeahead .tt-suggestion:last-child { border-bottom:0px; }
 }
 .score-plus,.score-minus{ cursor:pointer; }
 .score-plus-active{
-  background-color: #5ab76e;
+  background-color: #5ab76e !important;
 }
 .score-minus-active{
-  background-color: #d35c3a;
+  background-color: #d35c3a !important;
 }
 /*bugs select*/
 .quick_bug .main-bug .head .daily .select2-selection--single{
