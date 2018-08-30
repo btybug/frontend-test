@@ -684,7 +684,9 @@
             $('.comment-atea').keypress(function (e) {
                 if (e.which == 13) {
                     e.preventDefault();
+
                     let data=$(this).closest('form').serialize();
+                    $(this).val("");
                     $.ajax({
                         type: 'POST',
                         url: "{{route('bug_comment')}}",
