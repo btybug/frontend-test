@@ -78,5 +78,34 @@ $(document).ready(function () {
             }
         }
     });
+    function formatState (state) {
+        if (!state.id) {
+            return state.text;
 
+        }
+
+        var $state = $(
+            `<span class="icon">
+                    <i class="${state.element.dataset.icon}"></i>
+                    </span>
+                    <span class="name">${state.text}</span>`
+
+        );
+        return $state;
+
+    };
+
+
+    $('#bug_select_head').select2({
+        minimumResultsForSearch: -1,
+        templateResult: formatState,
+        templateSelection:formatState
+//                dropdownParent: $('.quick_bug .main-bug .head .daily')
+
+    });
+    $('#bug_select_bottom').select2({
+        minimumResultsForSearch: -1,
+        templateResult: formatState,
+        templateSelection:formatState
+    });
 });

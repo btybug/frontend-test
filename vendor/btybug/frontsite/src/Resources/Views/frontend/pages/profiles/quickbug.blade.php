@@ -71,32 +71,35 @@
                                         <i class="far fa-newspaper"></i>
                                         <span>Quick Bug</span>
                                     </div>
-
                                     <div class="daily d-flex align-items-center">
-<span class="icon">
-                    <i class="far fa-calendar-alt"></i>
-                </span>
-                                        <span class="name">Daily</span>
-                                        <a class="more" href="javascript:void(0);" id="dropdownBugHead"
-                                           data-toggle="dropdown"
-                                           aria-haspopup="true" aria-expanded="false">
-                                            <span class="caret-down"><i class="fas fa-caret-down"></i></span>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right"
-                                             aria-labelledby="dropdownBugHead">
-                                            <a class="dropdown-item d-flex align-items-center" href="#"><i
-                                                        class="fas fa-cog"></i><span
-                                                        class="title">General</span></a>
-                                            <a class="dropdown-item active d-flex align-items-center" href="#"><i
-                                                        class="fas fa-cog"></i><span
-                                                        class="title">Funny</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="#"><i
-                                                        class="fas fa-cog"></i><span
-                                                        class="title">News</span></a>
-                                        </div>
+                                        <select id="bug_select_head">
+                                                <option data-icon="far fa-calendar-alt">
+                                                <span class="icon">
+                                                    <i class="far fa-calendar-alt"></i>
+                                                </span>
+                                                    <span class="name">Daily</span>
+                                                </option>
+                                                <option data-icon="fas fa-cog">
+                                                    <span class="icon">
+                                                        <i class="fas fa-cog"></i>
+                                                    </span>
+                                                    <span class="title">General</span>
+                                                </option>
+
+                                            <option data-icon="fas fa-cog">
+                                                <span class="icon">
+                                                    <i class="fas fa-cog"></i>
+                                                </span>
+                                                <span class="title">Funny</span>
+                                            </option>
+                                            <option data-icon="fas fa-cog">
+                                                <span class="icon">
+                                                    <i class="fas fa-cog"></i>
+                                                </span>
+                                                <span class="title">News</span>
+                                            </option>
+                                        </select>
                                     </div>
-
-
                                 </div>
                             </div>
                             {!! Form::open(['route'=>'front_page_social_bugit','id' => 'bugit_form']) !!}
@@ -153,37 +156,21 @@
                                     </div>
                                     <div class="right-col d-flex">
                                         <div class="d-flex align-items-center align-self-stretch bg-white">
-                                            <div class="button">
-                                                <button class="btn btn-link dropdown-toggle"
-                                                        type="button" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fas fa-lock"></i>
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fas fa-globe-asia icon-blue"></i>
-                                                        <span class="name">Item1</span>
-                                                    </a>
-                                                    <a class="dropdown-item active" href="#">
-                                                        <i class="fas fa-user-friends icon-green"></i>
-                                                        <span class="name">Item2</span>
-                                                    </a>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fas fa-user-friends icon-purple"></i>
-                                                        <span class="name">Item3</span>
-                                                    </a>
+                                            <select id="bug_select_bottom">
+                                                <option data-icon="fas fa-user-lock">
+                                                    <span class="name">Only Me</span>
+                                                </option>
+                                                <option data-icon="fas fa-user-secret">
+                                                    <span class="name">Guests</span>
+                                                </option>
 
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fas fa-lock icon-red"></i>
-                                                        <span class="name">Item4</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="name">
-                                                <span>Only Me</span>
-                                            </div>
-
-
+                                                <option data-icon="fas fa-user-friends">
+                                                    <span class="name">All Members</span>
+                                                </option>
+                                                <option data-icon="fas fa-user-cog">
+                                                    <span class="name">Custom Members</span>
+                                                </option>
+                                            </select>
                                         </div>
                                         <div class="bug-it d-flex align-items-center align-self-stretch">
                                             <button class="btn btn-link bugit" data-dismiss="modal">Bug It</button>
@@ -240,6 +227,7 @@
     <link rel="stylesheet" href="{!!url('public/tagsauto/typeahead.css')!!}">
     <link rel="stylesheet" href="{!!url('public/tagsauto/bootstrap-tagsinput.css')!!}">
     <link rel="stylesheet" href="{!!url('public/emojionearea/emojionearea.min.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/minicms/plugins/select2/select2.min.css')!!}">
 @stop
 @section('js')
 
@@ -489,8 +477,10 @@
         <script src="{!!url('https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyIau4tPD0XGRT6ANMUfhYzdv6G79SI0&libraries=places&callback=initAutocomplete" async defer')!!}"></script>
 
     <script src="{!!url('public/libs/owlcarousel/owl.carousel.js')!!}"></script>
+    <script src="{!!url('/public/minicms/plugins/select2/select2.min.js')!!}"></script>
     <script src="{!!url('public/minicms/js/new-post.js')!!}"></script>
     <script src="{!!url('public/minicms/quickbugCustom.js')!!}"></script>
+
 
 
 
@@ -613,6 +603,8 @@
     <script src="{!!url('/public/js/form-builder/handlebars.js')!!}"></script>
     <script src="{!!url('/public/js/form-builder/handlebars.js')!!}"></script>
     <script src="{!!url('/public/emojionearea/emojionearea.min.js')!!}"></script>
+
+
     <script>
     $("#bugit-text").emojioneArea({
     pickerPosition: "left",
