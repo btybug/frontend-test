@@ -28,6 +28,7 @@ class SocialProfileService extends GeneralService
         unset($data['_token']);
         unset($data['tags']);
         unset($data['mention_friends']);
+        unset($data['tmp_site_image']);
         return $this->bugsRepository->create($data);
   }
 
