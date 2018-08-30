@@ -169,6 +169,15 @@ class SocialProfileController extends Controller
         $bugs = $tag->bugs;
         return view('manage::frontend.pages.profiles.bugsByTags', compact(['user','bugs']));
     }
+    public function widgetPreviewOnRight(Request $request)
+    {
+        $user_id = $request->userid;
+        $ident = $request->ident;
+        $user = $this->userRepository->find($user_id);
+        $html = \View::make('manage::frontend.pages._partials.widget', compact(['user']))->render();
+        $return_data = ['html' => $html,'ident' => $ident];
+        return $return_data;
+    }
 
 
 }

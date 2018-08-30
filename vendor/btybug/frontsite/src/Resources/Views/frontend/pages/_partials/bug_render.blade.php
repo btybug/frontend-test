@@ -23,7 +23,7 @@
                                             @if(isset($user))
                                                 <div class="head-post-img">
                                                     <div class="images">
-                                                        <img src="/public/images/@if(isset($user->avatar)){{$user->avatar}}@else{{'avatar.png'}}@endif" alt="" data-id="{{$ident}}">
+                                                        <img src="/public/images/@if(isset($user->avatar)){{$user->avatar}}@else{{'avatar.png'}}@endif" class="user_widget_link" data-ident="{{$ident}}" data-userid="{{$user->id}}" alt="" data-id="{{$ident}}">
                                                     </div>
 
                                                 </div>
@@ -68,7 +68,7 @@
                                 @if(count($bug->friends))
                                     <div class="at d-flex">
                                     <p> @foreach($bug->friends as $friend)
-                                            <a href="#" style="color: red" data-id="{{$friend->id}}" class="user_widget_link">
+                                            <a href="#" style="color: red" data-ident="{{$ident}}" data-userid="{{$friend->id}}" class="user_widget_link">
                                             <i class="fas fa-at"></i>
                                             {{ $friend->username }},
                                             </a>

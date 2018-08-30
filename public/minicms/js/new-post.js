@@ -42,7 +42,7 @@ $(document).ready(function () {
 
     });
 
-    $('body').on('click','.new_post .aug img',function (e) {
+    /*$('body').on('click','.new_post .aug img',function (e) {
         e.preventDefault();
         var data_id = $(this).data('id');
         var shoable = $('.head3.user-widget');
@@ -56,7 +56,7 @@ $(document).ready(function () {
 
         });
 
-    });
+    });*/
     $('.post-foot-carousel').owlCarousel({
         nav: true,
         dots: false,

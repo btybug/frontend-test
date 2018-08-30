@@ -620,9 +620,29 @@
     saveEmojisAs: true
   });
     
-    $('.user_widget_link').on('click',function () {
-       var user_id = $(this).data('id');
-        
+    $('.user_widget_link').on('click',function (e) {
+        e.preventDefault();
+       var userid = $(this).data('userid');
+       var ident = $(this).data('ident');
+        $.ajax({
+            type: 'POST',
+            url: "{{route('widget_preview_on_right')}}",
+            datatype: 'json',
+            data: {userid: userid,ident: ident},
+            headers: {
+                'X-CSRF-TOKEN': $("input[name='_token']").val()
+            },
+            cache: false,
+            success: function (data) {
+                $.each($('.user-widget'),function () {
+                    if ($(this).data('id') == data.ident)
+                    {
+                        $(this).toggleClass('no-show');
+                        $(this).html(data.html);
+                    }
+                })
+            }
+        });
     })
     </script>
    
