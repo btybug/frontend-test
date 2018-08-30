@@ -3,6 +3,12 @@
 @endphp
 @if(count($bugs))
     @foreach($bugs as $bug)
+        @php
+            $score = $bug->scores()->where('user_id',Auth::id())->where('bugs_id',$bug->id)->first();
+            $descored = $bug->scores()->where('bugs_id',$bug->id)->where('like_or_dislike','<',0)->count();
+            $scored = $bug->scores()->where('bugs_id',$bug->id)->where('like_or_dislike','>',0)->count();
+            $averageScore = $bug->scores()->where('bugs_id',$bug->id)->sum('like_or_dislike');
+        @endphp
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-8 p-0">
@@ -179,7 +185,7 @@
                                     <a class="nav-item nav-link" id="nav-score-tab" data-toggle="tab" href="#nav-score" role="tab" aria-controls="nav-score" aria-selected="false">
                                         <div class="d-flex justify-content-between">
                                             <span class="name">Score</span><span
-                                                    class="count">125,365</span>
+                                                    class="count">{{ $averageScore }}</span>
                                         </div>
                                     </a>
                                 </div>
@@ -359,10 +365,10 @@
                                                             </div>
                                                             <div class="total col-md-6">
                                                                 <p class="margin"><i class="fas fa-plus"></i>
-                                                                    <span>126,885</span></p>
+                                                                    <span>{{ $scored }} </span></p>
                                                                 <p class="margin"><i class="fas fa-minus"></i>
-                                                                    <span>1,520</span></p>
-                                                                <p>Total: <span class="color">125,365</span></p>
+                                                                    <span>{{ $descored }}</span></p>
+                                                                <p>Total: <span class="color">{{ $averageScore }}</span></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -370,49 +376,32 @@
                                                 <div class="score-content2">
                                                     <div class="container-fluid">
                                                         <div class="row">
-                                                            <div class="people1 col-md-6">
-                                                                <div class="sam d-flex">
-                                                                    <p class="margin"><i
-                                                                                class="fas fa-minus"></i></p>
-                                                                    <img class="sam"
-                                                                         src="/public/images/boy1.jpg" alt="">
-                                                                    <div class="margin-t"><span>Sam Black</span>
-                                                                        <span class="d-flex color">21h ago</span>
+                                                            @php
+                                                                $lastScoredPeople = $bug->scores()->orderBy('created_at','DESC')->take(4)->get();
+                                                            @endphp
+
+                                                            @if(count($lastScoredPeople))
+                                                                @foreach($lastScoredPeople as $lastScoredPerson)
+                                                                    <div class="col-md-6">
+                                                                        <div class="d-flex">
+                                                                            @if($lastScoredPerson->like_or_dislike > 0)
+                                                                                <p class="margin"><i class="fas fa-plus"></i></p>
+                                                                            @else
+                                                                                <p class="margin"><i class="fas fa-minus"></i></p>
+                                                                            @endif
+
+                                                                            @if($lastScoredPerson->user && $lastScoredPerson->user->socialProfile && $lastScoredPerson->user->socialProfile->site_image)
+                                                                                <img class="sam" src="{!! url($lastScoredPerson->user->socialProfile->site_image) !!}" alt="">
+                                                                            @else
+                                                                                <img class="sam" src="/public/images/girl2.png" alt="">
+                                                                            @endif
+                                                                            <div class="margin-t"><span>{!! $lastScoredPerson->user->username !!}</span>
+                                                                                <span class="d-flex color">{!! timeago($lastScoredPerson->created_at) !!}</span>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="johan d-flex">
-                                                                    <p class="margin"><i
-                                                                                class="fas fa-minus"></i></p>
-                                                                    <img class="johan"
-                                                                         src="/public/images/boy2.jpg" alt="">
-                                                                    <div class="margin-t">
-                                                                        <span>Johan Smith</span>
-                                                                        <span class="d-flex color">16h ago</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="people2 col-md-6">
-                                                                <div class="sam d-flex">
-                                                                    <p class="margin"><i
-                                                                                class="fas fa-plus"></i></p>
-                                                                    <img class="sam"
-                                                                         src="/public/images/boy1.jpg" alt="">
-                                                                    <div class="margin-t"><span>Sam Black</span>
-                                                                        <span class="d-flex color">21h ago</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="rania d-flex">
-                                                                    <p class="margin"><i
-                                                                                class="fas fa-plus"></i></p>
-                                                                    <img class="johan"
-                                                                         src="/public/images/girl-cover.jpg"
-                                                                         alt="">
-                                                                    <div class="margin-t">
-                                                                        <span>Rania Dewell</span>
-                                                                        <span class="d-flex color">5min ago</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                                @endforeach
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
@@ -438,14 +427,13 @@
                                 </div>
 
                             </div>
-                            <div class="d-flex flex-md-column align-items-center">
-                                <i class="fas fa-plus score-plus"></i>
-                                <a href="" data-barlink="score">
-                                    <span style="color: #ffffff">125</span>
-                                </a>
 
-                                <span style="color: #ffffff">K</span>
-                                <i class="fas fa-minus score-minus"></i>
+                            <div class="d-flex flex-md-column align-items-center">
+                                <i class="fas fa-plus {!! ($score->like_or_dislike != 1) ? 'score-plus' : 'score-plus-active' !!}" data-bugid="{{$bug->id}}"></i>
+                                <a href="" data-barlink="score">
+                                    <span style="color: #ffffff">{{ thousandsCurrencyFormat($averageScore) }}</span>
+                                </a>
+                                <i class="fas fa-minus {!! ($score->like_or_dislike != -1) ? 'score-minus' : 'score-minus-active' !!}"  data-bugid="{{$bug->id}}"></i>
                             </div>
                             <div class="d-flex flex-md-column align-items-center share-coment-icon">
                                 <a href="" data-barlink="share">

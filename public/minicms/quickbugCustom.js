@@ -194,7 +194,11 @@ $("body").on("mouseleave", ".moving_gif", function() {
 });
 
 $("body").on("click", ".score-plus, .score-minus", function() {
-  let symbol = $(this).hasClass("score-plus") ? "+" : "-";
+
+  let symbol = {
+    symbol: $(this).hasClass("score-plus") ? "+" : "-",
+    bugs_id: $(this).data('bugid')
+  };
   $.ajax({
     type: "POST",
     url: "/score",
@@ -206,7 +210,9 @@ $("body").on("click", ".score-plus, .score-minus", function() {
     cache: false,
     success: function(data) {
       if (!data.error) {
-        console.log("all okay");
+          $(".bugsContent").html(data.html);
+      }else{
+        console.log(data.error);
       }
     }
   });

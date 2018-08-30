@@ -2856,3 +2856,65 @@ function updateOrCreateUser($slug)
         }
     }
 }
+
+function get_client_ip() {
+    $ipaddress = '';
+    if (getenv('HTTP_CLIENT_IP'))
+        $ipaddress = getenv('HTTP_CLIENT_IP');
+    else if(getenv('HTTP_X_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+    else if(getenv('HTTP_X_FORWARDED'))
+        $ipaddress = getenv('HTTP_X_FORWARDED');
+    else if(getenv('HTTP_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_FORWARDED_FOR');
+    else if(getenv('HTTP_FORWARDED'))
+        $ipaddress = getenv('HTTP_FORWARDED');
+    else if(getenv('REMOTE_ADDR'))
+        $ipaddress = getenv('REMOTE_ADDR');
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
+
+function timeago($date,$short = true) {
+    $timestamp = strtotime($date);
+
+    if($short){
+        $strTime = array("sec", "min", "h", "day", "month", "year");
+    }else{
+        $strTime = array("second", "minute", "hour", "day", "month", "year");
+    }
+
+    $length = array("60","60","24","30","12","10");
+
+    $currentTime = time();
+    if($currentTime >= $timestamp) {
+        $diff     = time()- $timestamp;
+        for($i = 0; $diff >= $length[$i] && $i < count($length)-1; $i++) {
+            $diff = $diff / $length[$i];
+        }
+
+        $diff = round($diff);
+        return $diff . " " . $strTime[$i] . "(s) ago ";
+    }
+}
+
+function thousandsCurrencyFormat($num) {
+
+  if($num>=1000) {
+
+      $x = round($num);
+      $x_number_format = number_format($x);
+      $x_array = explode(',', $x_number_format);
+      $x_parts = array('k', 'm', 'b', 't');
+      $x_count_parts = count($x_array) - 1;
+      $x_display = $x;
+      $x_display = $x_array[0] . ((int) $x_array[1][0] !== 0 ? '.' . $x_array[1][0] : '');
+      $x_display .= $x_parts[$x_count_parts - 1];
+
+      return $x_display;
+
+  }
+
+  return $num;
+}

@@ -34,7 +34,7 @@ class Bugs extends Model
     {
         return $this->belongsToMany(User::class,'bugs_users','bugs_id');
     }
-    public function score()
+    public function scores()
     {
         return $this->hasMany(Score::class,'bugs_id');
     }

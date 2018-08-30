@@ -8,8 +8,10 @@ use Btybug\FrontSite\Http\Requests\SaveSocialGeneralRequest;
 use Btybug\FrontSite\Models\SocialProfile;
 use Btybug\FrontSite\Repository\BugFriendsRepository;
 use Btybug\FrontSite\Repository\BugsRepository;
+use Btybug\FrontSite\Repository\ScoreRepository;
 use Btybug\FrontSite\Repository\SocialProfileRepository;
 use Btybug\FrontSite\Repository\TagsRepository;
+use Btybug\FrontSite\Services\ScoreService;
 use Btybug\User\Http\Requests\User\ChangePassword;
 use Btybug\User\Repository\UserRepository;
 use Btybug\FrontSite\Services\TagsService;
@@ -32,6 +34,8 @@ class SocialProfileController extends Controller
     private $bugTagsRepository;
     private $bugRepository;
     private $bugFriendsRepository;
+    private $scoreRepository;
+    private $scoreService;
 
     public function __construct (
         UserRepository $userRepository,
@@ -41,7 +45,9 @@ class SocialProfileController extends Controller
         SocialProfileService $socialProfileService,
         BugTagsRepository $bugTagsRepository,
         BugsRepository $bugsRepository,
-        BugFriendsRepository $bugFriendsRepository
+        BugFriendsRepository $bugFriendsRepository,
+        ScoreRepository $scoreRepository,
+        ScoreService $scoreService
     )
     {
         $this->userRepository = $userRepository;
@@ -52,6 +58,8 @@ class SocialProfileController extends Controller
         $this->socialProfileService = $socialProfileService;
         $this->bugTagsRepository = $bugTagsRepository;
         $this->bugFriendsRepository = $bugFriendsRepository;
+        $this->scoreRepository = $scoreRepository;
+        $this->scoreService = $scoreService;
     }
 
     public function index()
@@ -175,8 +183,13 @@ class SocialProfileController extends Controller
         $ident = $request->ident;
         $user = $this->userRepository->find($user_id);
         $html = \View::make('manage::frontend.pages._partials.widget', compact(['user']))->render();
-        $return_data = ['html' => $html,'ident' => $ident];
-        return $return_data;
+        return ['html' => $html,'ident' => $ident];
+    }
+
+    public function postScoreing(Request $request)
+    {
+        $result = $this->scoreService->doScore($request->symbol,$request->bugs_id);
+        return $result;
     }
 
 

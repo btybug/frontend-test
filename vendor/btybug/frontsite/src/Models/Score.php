@@ -18,12 +18,12 @@ class Score extends Model
 
     public function bugs()
     {
-        return $this->belongsTo(Bugs::class, 'id');
+        return $this->belongsTo(Bugs::class, 'bugs_id');
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 
