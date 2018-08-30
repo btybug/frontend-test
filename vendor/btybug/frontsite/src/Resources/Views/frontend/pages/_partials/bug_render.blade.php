@@ -68,7 +68,7 @@
                                 @if(count($bug->friends))
                                     <div class="at d-flex">
                                     <p> @foreach($bug->friends as $friend)
-                                            <a href="#" style="color: red" data-ident="{{$ident}}" data-userid="{{$friend->id}}" class="user_widget_link">
+                                            <a href="#" style="color: #cc493b" data-ident="{{$ident}}" data-userid="{{$friend->id}}" class="user_widget_link">
                                             <i class="fas fa-at"></i>
                                             {{ $friend->username }},
                                             </a>

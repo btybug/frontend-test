@@ -6,6 +6,7 @@ use Auth;
 use Btybug\FrontSite\Models\Bugs;
 use Btybug\FrontSite\Models\BugUsers;
 use Btybug\FrontSite\Models\FrontendPage;
+use Btybug\FrontSite\Models\Score;
 use Btybug\FrontSite\Models\SocialProfile;
 use File;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -188,6 +189,10 @@ class User extends Authenticatable
     public function bugits()
     {
         return $this->hasMany(Bugs::class,'user_id','id') ;
+    }
+    public function score()
+    {
+        return $this->hasOne(Score::class,'user_id') ;
     }
 
     public function recivesBroadcastNotificationsOn()

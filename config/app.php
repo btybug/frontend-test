@@ -166,8 +166,6 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
         Caffeinated\Shinobi\ShinobiServiceProvider::class,
-        Chumper\Zipper\ZipperServiceProvider::class,
-
         /*
          * Package Service Providers...
          */
@@ -245,7 +243,6 @@ return [
         'HTML' => Collective\Html\HtmlFacade::class,
         'Route' => \Btybug\btybug\Models\Route::class,
         'Str'       => Illuminate\Support\Str::class,
-//        'Zipper' => 'Chumper\Zipper\Zipper'
 
     ],
 

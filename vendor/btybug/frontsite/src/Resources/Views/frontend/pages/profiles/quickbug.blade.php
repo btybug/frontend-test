@@ -635,10 +635,14 @@
             cache: false,
             success: function (data) {
                 $.each($('.user-widget'),function () {
+                    $(this).addClass('no-show');
                     if ($(this).data('id') == data.ident)
                     {
-                        $(this).toggleClass('no-show');
-                        $(this).html(data.html);
+                        if($(this).hasClass('no-show'))
+                        {
+                            $(this).html(data.html);
+                            $(this).toggleClass('no-show');
+                        }
                     }
                 })
             }

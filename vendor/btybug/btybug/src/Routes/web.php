@@ -100,6 +100,9 @@ Route::group(
         Route::post('profiles/social/widget', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@widgetPreviewOnRight')->name('widget_preview_on_right');
         Route::post('/deletebug', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@deleteBug')->name('delete_current_bug');
 
+        Route::post('/score', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@postScoreing')->name('post_scoreing');
+
+
         Route::group(['prefix' => 'contacts'], function () {
             Route::get('/', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@contactsIndex', true)->name('front_page_social_contacts');
             Route::get('/following', '\Btybug\FrontSite\Http\Controllers\SocialProfileController@contactsFollowing', true)->name('front_page_social_contacts_following');
