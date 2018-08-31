@@ -458,7 +458,7 @@
                                     <i class="fas fa-ellipsis-v" style="margin-top: 10px"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <button class="dropdown-item" type="button">Edit post</button>
+                                    <button class="dropdown-item" id="edit_post" data-bugid="{{$bug->id}}" type="button">Edit post</button>
                                     <button class="dropdown-item" type="button">Embed</button>
                                     <button class="dropdown-item" type="button">Show in tab</button>
                                     <div class="dropdown-divider"></div>

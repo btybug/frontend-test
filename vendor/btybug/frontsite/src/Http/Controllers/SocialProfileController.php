@@ -195,5 +195,13 @@ class SocialProfileController extends Controller
         return $result;
     }
 
+    public function bugEdit(Request $request)
+    {
+        $user = $this->userRepository->find(\Auth::id());
+        $bug = $user->bugits()->find($request->bug_id);
+        $html = \View::make('manage::frontend.pages._partials.edit', compact(['user','bug']))->render();
+        return $html;
+    }
+
 
 }

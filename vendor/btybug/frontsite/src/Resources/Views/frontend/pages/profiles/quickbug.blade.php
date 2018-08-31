@@ -104,7 +104,6 @@
                                     </div>
                                 </div>
                             </div>
-                            {!! Form::open(['route'=>'front_page_social_bugit','id' => 'bugit_form']) !!}
                             <div class="main-content">
 
 
@@ -478,6 +477,7 @@
             <div class="right-group">
             </div>
         </div>
+    </script>
         <script src="{!!url('https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyIau4tPD0XGRT6ANMUfhYzdv6G79SI0&libraries=places&callback=initAutocomplete" async defer')!!}"></script>
 
 
@@ -529,6 +529,7 @@
             };
 
 
+
             $('.delete_bug').on('click', function (e) {
                 e.preventDefault();
                 var id = $(this).data('id');
@@ -578,7 +579,34 @@
                 });
             })
         });
-        
+
+        $(document).ready(function () {
+            $('#edit_post').on('click',function (e) {
+                e.preventDefault();
+                var bug_id = $(this).data('bugid');
+                $.ajax({
+                    type: 'POST',
+                    url: "{{route('bug_edit')}}",
+                    datatype: 'json',
+                    data: {bug_id: bug_id, key: 'key'},
+                    headers: {
+                        'X-CSRF-TOKEN': $("input[name='_token']").val()
+                    },
+                    cache: false,
+                    success: function (data) {
+
+                        $('.modal-dialog-centered').html(data);
+                        $('#bugModalCenter').modal('toggle');
+                        $.getScript( "public/minicms/js/new-post.js");
+                        $.getScript( "public/minicms/js/utils.js");
+                        $.getScript( "public/minicms/quickbugCustom.js");
+                        $.getScript( "https://apis.google.com/js/client.js?onload=init");
+                        initAutocomplete();
+                    }
+                });
+            })
+        });
+
             function initAutocomplete() {
                 var map = new google.maps.Map(document.getElementById('map'), {
                     center: {
