@@ -2060,7 +2060,7 @@ div.bug-something .link-bug-something button span {
 }
 #bugModalCenter .modal-lg {
   max-width: 1200px;
-  margin-top: 110px;
+  padding-top: 110px;
   -webkit-transform: translate(0,-80px);
   transform: translate(0, -80px);
 }
