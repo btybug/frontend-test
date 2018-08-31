@@ -177,7 +177,7 @@
                                        href="#nav-comment-{{$ident}}" role="tab" aria-controls="nav-comment" aria-selected="true">
                                         <div class="d-flex justify-content-between">
                                             <span class="name">Comments</span><span
-                                                    class="count">63</span>
+                                                    class="count comments-count-{!! $bug->id !!}">{!! $comments->count() !!}</span>
                                         </div>
 
                                     </a>
@@ -488,7 +488,7 @@
                                     <i class="far fa-comment-alt" style="line-height: 1.2"></i>
                                 </a>
 
-                                <span style="margin-bottom: 10px">{!! $comments->count() !!}</span>
+                                <span class="comments-count-{!! $bug->id !!}" style="margin-bottom: 10px">{!! $comments->count() !!}</span>
                             </div>
                         </div>
                     </div>

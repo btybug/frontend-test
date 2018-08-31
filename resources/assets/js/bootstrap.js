@@ -75,6 +75,7 @@ Echo.private("socket.io").listen("MessagePushed", e => {
     .append(`<div class=" col-md-12 red">${e.comment}</div>`);
 });
 Echo.private("socket.io").listen("CommentPushed", e => {
+    console.log(e);
   let html = `<div class="message1">
                                                     <div class="container-fluid">
                                                         <div class="row">
@@ -111,4 +112,7 @@ Echo.private("socket.io").listen("CommentPushed", e => {
   $("body")
     .find(`.bug-comments-${e.bug_id}`)
     .append(html);
+  $("body")
+    .find(`.comments-count-${e.bug_id}`)
+    .text(e.comment.count);
 });
