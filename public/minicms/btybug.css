@@ -2374,8 +2374,28 @@ color: #3772a9;
   color: #ffffff;
   font-size: 18px;
   flex: auto;
+  height: 633px;
+  overflow: auto;
+}
+/* width */
+.new_post .content-comments::-webkit-scrollbar {
+  width: 10px;
 }
 
+/* Track */
+.new_post .content-comments::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.new_post .content-comments::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.new_post .content-comments::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 .new_post .content-comments .message1 img {
   width: 62px;
   object-fit: none;
@@ -2499,6 +2519,9 @@ color: #3772a9;
   background: linear-gradient(to right, #6337c8 0%, #6337c8 0%, #cb60b3 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6337c8', endColorstr='#cb60b3', GradientType=1);
 }
+.new_post .foot-comments form{
+  flex: auto;
+}
 
 .new_post .foot-comments .write input {
   border-radius: 0;
@@ -2517,7 +2540,7 @@ color: #3772a9;
   color: white;
   position: absolute;
   right: 26px;
-  bottom: 24px;
+  bottom: 22px;
 }
 
 /*action-bar*/
