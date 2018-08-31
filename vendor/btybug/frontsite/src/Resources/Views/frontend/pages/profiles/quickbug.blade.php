@@ -108,8 +108,6 @@
                             <div class="main-content">
 
 
-
-
                                 <div class="happy d-flex align-items-center">
                                     <div class="title">
                                         <textarea name="bugit" id="bugit-text" cols="30" rows="10"
@@ -231,6 +229,16 @@
     <link rel="stylesheet" href="{!!url('public/emojionearea/emojionearea.min.css')!!}">
     <link rel="stylesheet" href="{!!url('public/minicms/plugins/select2/select2.min.css')!!}">
 @stop
+
+@section('header_js')
+    <script src="{!!url('public/libs/owlcarousel/owl.carousel.js')!!}"></script>
+    <script src="{!!url('/public/minicms/plugins/select2/select2.min.js')!!}"></script>
+    <script src="{!!url('public/minicms/js/Chart.bundle.js')!!}"></script>
+    <script src="{!!url('/public/minicms/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js')!!}"></script>
+    <script src="{!!url('http://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js')!!}"></script>
+    <script src="{!!url('/public/emojionearea/emojionearea.min.js')!!}"></script>
+
+@stop
 @section('js')
 
 
@@ -245,7 +253,7 @@
                         </button>
                     </div>
                     <input name="tags" type="text" class="form-control tags_bug_custom"
-                           >
+                    >
 
                 </div>
             </div>
@@ -253,8 +261,6 @@
                 <a href="" class="del-icon" data-delgroup="del-hashtag"><i class="fas fa-times"></i></a>
             </div>
         </div>
-       
-
 
 
     </script>
@@ -269,7 +275,7 @@
                         </button>
 
                     </div>
-                    <input name="mention_friends" type="text" class="form-control mention-friends"  >
+                    <input name="mention_friends" type="text" class="form-control mention-friends">
                     <input type="hidden" name="user_id" class="mention-friends-id">
                 </div>
             </div>
@@ -277,9 +283,8 @@
                 <a href="" class="del-icon" data-delgroup="del-at"><i class="fas fa-times"></i></a>
             </div>
         </div>
-        
-       
-      
+
+
     </script>
     <script id="hidden-template-sign" type="text/x-custom-template">
         <div data-group="sign" class="form-group row align-items-center">
@@ -478,66 +483,55 @@
         </div>
         <script src="{!!url('https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyIau4tPD0XGRT6ANMUfhYzdv6G79SI0&libraries=places&callback=initAutocomplete" async defer')!!}"></script>
 
-    <script src="{!!url('public/libs/owlcarousel/owl.carousel.js')!!}"></script>
-    <script src="{!!url('/public/minicms/plugins/select2/select2.min.js')!!}"></script>
+
     <script src="{!!url('public/minicms/js/new-post.js')!!}"></script>
-    <script src="{!!url('public/minicms/quickbugCustom.js')!!}"></script>
-    <script src="{!!url('public/minicms/js/Chart.bundle.js')!!}"></script>
     <script src="{!!url('public/minicms/js/utils.js')!!}"></script>
     <script>
-        function config (data1, data2){
-            return {
-                type: 'pie',
-                data: {
-                    datasets: [{
-                        data: [
-                            data1,
-                            data2
-                        ],
-                        backgroundColor: [
-                            window.chartColors.darkorange,
-                            window.chartColors.newgreen
-                        ],
-                        label: 'Dataset 1'
-                    }],
-                    labels: [
-                        'Minus',
-                        'Plus'
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    legend: {
-                        display: false
-                    }
+        $(document).ready(function () {
+            function config(data1, data2) {
+                return {
+                    type: 'pie',
+                    data: {
+                        datasets: [{
+                            data: [
+                                data1,
+                                data2
+                            ],
+                            backgroundColor: [
+                                window.chartColors.darkorange,
+                                window.chartColors.newgreen
+                            ],
+                            label: 'Dataset 1'
+                        }],
+                        labels: [
+                            'Minus',
+                            'Plus'
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        legend: {
+                            display: false
+                        }
 
+                    }
                 }
             }
-        }
-        window.onload = function() {
-            $.each($('.post'),function () {
-                var ident = $(this).data('ident');
-                var scored = $(this).data('scored');
-                var descored = $(this).data('descored');
-                    window.myPie = new Chart(document.getElementById('chart-area-'+ident).getContext('2d'), config(descored, scored));
-            })
-        };
 
-    </script>
+            window.onload = function () {
+                $.each($('.post'), function () {
+                    var ident = $(this).data('ident');
+                    var scored = $(this).data('scored');
+                    var descored = $(this).data('descored');
+                    window.myPie = new Chart(document.getElementById('chart-area-' + ident).getContext('2d'), config(descored, scored));
+                })
+            };
 
-
-
-
-    <script>
-
-        // $('#bugModalCenter').on('shown.bs.modal', function () {
-        //     initAutocomplete();
-        // });
             function initAutocomplete() {
                 var map = new google.maps.Map(document.getElementById('map'), {
                     center: {
-                        lat: $(".location_lat").val() ?  Number($(".location_lat").val()): 40.7929026,
-                        lng: $(".location_lang").val() ? Number($(".location_lang").val()): 43.84649710000008
+                        lat: $(".location_lat").val() ? Number($(".location_lat").val()) : 40.7929026,
+                        lng: $(".location_lang").val() ? Number($(".location_lang").val()) : 43.84649710000008
 
                     },
                     zoom: 13,
@@ -546,14 +540,14 @@
 
                 var marker = new google.maps.Marker({
                     position: {
-                        lat: $(".location_lat").val() ?  Number($(".location_lat").val()): 40.7929026,
-                        lng: $(".location_lang").val() ? Number($(".location_lang").val()): 43.84649710000008
+                        lat: $(".location_lat").val() ? Number($(".location_lat").val()) : 40.7929026,
+                        lng: $(".location_lang").val() ? Number($(".location_lang").val()) : 43.84649710000008
 
                     },
                     map: map,
                     title: $("#pac-input").val()
                 });
-                if($(".location_lang").val() || $(".location_lat").val()  ){
+                if ($(".location_lang").val() || $(".location_lat").val()) {
                     $(".map-box").show()
                 }
                 // Create the search box and link it to the UI element.
@@ -562,14 +556,14 @@
                 // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
                 // Bias the SearchBox results towards current map's viewport.
-                map.addListener('bounds_changed', function(event) {
+                map.addListener('bounds_changed', function (event) {
                     searchBox.setBounds(map.getBounds());
                 });
 
                 var markers = [];
                 // Listen for the event fired when the user selects a prediction and retrieve
                 // more details for that place.
-                searchBox.addListener('places_changed', function(event) {
+                searchBox.addListener('places_changed', function (event) {
                     $(".map-box").show()
                     var places = searchBox.getPlaces();
                     if (places.length == 0) {
@@ -577,21 +571,20 @@
                     }
 
 
-
                     // Clear out the old markers.
-                    markers.forEach(function(marker) {
+                    markers.forEach(function (marker) {
                         marker.setMap(null);
                     });
                     markers = [];
 
                     // For each place, get the icon, name and location.
                     var bounds = new google.maps.LatLngBounds();
-                    places.forEach(function(place) {
+                    places.forEach(function (place) {
                         if (!place.geometry) {
                             console.log("Returned place contains no geometry");
                             return;
                         }
-                     
+
 
                         // Create a marker for each place.
                         $(".location_lang").val(place.geometry.location.lng())
@@ -615,82 +608,68 @@
                 });
             }
 
-
-                $('.delete_bug').on('click',function (e) {
-                    e.preventDefault();
-                    var id = $(this).data('id');
-                    $.ajax({
-                        type: 'POST',
-                        url: "{{route('delete_current_bug')}}",
-                        datatype: 'json',
-                        data: {id: id,key:'key'},
-                        headers: {
-                            'X-CSRF-TOKEN': $("input[name='_token']").val()
-                        },
-                        cache: false,
-                        success: function (data) {
-                            location.reload();
-                        }
-                    });
-                })
-
-
+            $('.delete_bug').on('click', function (e) {
+                e.preventDefault();
+                var id = $(this).data('id');
+                $.ajax({
+                    type: 'POST',
+                    url: "{{route('delete_current_bug')}}",
+                    datatype: 'json',
+                    data: {id: id, key: 'key'},
+                    headers: {
+                        'X-CSRF-TOKEN': $("input[name='_token']").val()
+                    },
+                    cache: false,
+                    success: function (data) {
+                        location.reload();
+                    }
+                });
+            })
+            $("#bugit-text").emojioneArea({
+                pickerPosition: "left",
+                tonesStyle: "bullet",
+                saveEmojisAs: true
+            });
+            $('.user_widget_link').on('click', function (e) {
+                e.preventDefault();
+                var userid = $(this).data('userid');
+                var ident = $(this).data('ident');
+                $.ajax({
+                    type: 'POST',
+                    url: "{{route('widget_preview_on_right')}}",
+                    datatype: 'json',
+                    data: {userid: userid, ident: ident},
+                    headers: {
+                        'X-CSRF-TOKEN': $("input[name='_token']").val()
+                    },
+                    cache: false,
+                    success: function (data) {
+                        $.each($('.user-widget'), function () {
+                            $(this).addClass('no-show');
+                            if ($(this).data('id') == data.ident) {
+                                if ($(this).hasClass('no-show')) {
+                                    $(this).html(data.html);
+                                    $(this).toggleClass('no-show');
+                                }
+                            }
+                        })
+                    }
+                });
+            })
+        });
     </script>
 
-
-    
-   
     <script src="{!!url('https://apis.google.com/js/client.js?onload=init')!!}"></script>
-     
-    <script src="{!!url('/public/minicms/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js')!!}"></script>
-    <script src="{!!url('http://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js')!!}"></script>
-    <script src="{!!url('/public/js/form-builder/handlebars.js')!!}"></script>
-    <script src="{!!url('/public/js/form-builder/handlebars.js')!!}"></script>
-    <script src="{!!url('/public/emojionearea/emojionearea.min.js')!!}"></script>
-
+    <script src="{!!url('public/minicms/quickbugCustom.js')!!}"></script>
 
     <script>
-    $("#bugit-text").emojioneArea({
-    pickerPosition: "left",
-    tonesStyle: "bullet",
-    saveEmojisAs: true
-  });
-    
-    $('.user_widget_link').on('click',function (e) {
-        e.preventDefault();
-       var userid = $(this).data('userid');
-       var ident = $(this).data('ident');
-        $.ajax({
-            type: 'POST',
-            url: "{{route('widget_preview_on_right')}}",
-            datatype: 'json',
-            data: {userid: userid,ident: ident},
-            headers: {
-                'X-CSRF-TOKEN': $("input[name='_token']").val()
-            },
-            cache: false,
-            success: function (data) {
-                $.each($('.user-widget'),function () {
-                    $(this).addClass('no-show');
-                    if ($(this).data('id') == data.ident)
-                    {
-                        if($(this).hasClass('no-show'))
-                        {
-                            $(this).html(data.html);
-                            $(this).toggleClass('no-show');
-                        }
-                    }
-                })
-            }
-        });
-    })
         $(function () {
 //            comment-atea
             $('.comment-atea').keypress(function (e) {
                 if (e.which == 13) {
                     e.preventDefault();
 
-                    let data=$(this).closest('form').serialize();
+                    let data = $(this).closest('form').serialize();
                     $(this).val("");
                     $.ajax({
                         type: 'POST',
@@ -702,14 +681,11 @@
                         },
                         cache: false,
                         success: function (data) {
-                          console.log(data);
+                            console.log(data);
                         }
                     });
                 }
             });
         })
     </script>
-   
-
-
 @stop
