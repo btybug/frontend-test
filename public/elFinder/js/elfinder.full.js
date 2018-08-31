@@ -10,7 +10,7 @@
 	if (typeof define === 'function' && define.amd) {
 		// AMD
 		define(['jquery','jquery-ui'], factory);
-	} else if (typeof exports !== 'undefined') {
+	} else if (typeof exports !== 'undefained') {
 		// CommonJS
 		var $, ui;
 		try {
