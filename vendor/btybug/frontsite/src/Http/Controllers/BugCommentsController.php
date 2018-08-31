@@ -6,6 +6,7 @@ namespace Btybug\FrontSite\Http\Controllers;
 use App\Events\CommentPushed;
 use App\Http\Controllers\Controller;
 use Btybug\FrontSite\Repository\BugCommentsRepository;
+use Btybug\User\User;
 use Illuminate\Http\Request;
 
 /**
@@ -33,7 +34,10 @@ class BugCommentsController extends Controller
         $data=$request->except('_token');
         $data['author_id']=\Auth::id();
         $comment=$this->bugCommentsRepository->create($data);
-        broadcast(new CommentPushed(\Auth::user(),$comment,$data['bug_id']));
+        $user=User::where('id',\Auth::id())
+            ->join('social_profile', 'users.id', '=', 'social_profile.user_id')
+            ->select('users.*', 'social_profile.site_image')->first();
+        broadcast(new CommentPushed($user,$comment,$data['bug_id']));
     }
 
 
