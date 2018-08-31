@@ -2527,6 +2527,7 @@ color: #3772a9;
   border-radius: 0;
   background-color: #ad6fc1;
   border-color: #ad6fc1;
+  height: 100%;
 }
 .new_post .foot-comments .write input:focus{
   box-shadow: none;
