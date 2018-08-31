@@ -34,7 +34,13 @@ $(document).ready(function() {
 $(function() {
   $("body").on("keyup", ".search-youtube", function(e) {
     $(".youtube-videos-list").show();
-
+    function init() {
+      gapi.client.setApiKey("AIzaSyCVyIau4tPD0XGRT6ANMUfhYzdv6G79SI0");
+      gapi.client.load("youtube", "v3", function() {
+        // yt api is ready
+      });
+    }
+    init();
     e.preventDefault();
     // prepare the request
     var request = gapi.client.youtube.search.list({
@@ -83,13 +89,6 @@ function youtubeHtml(id, imgUrl, title, description, author) {
 </div>
 
 </div>`;
-}
-
-function init() {
-  gapi.client.setApiKey("AIzaSyCVyIau4tPD0XGRT6ANMUfhYzdv6G79SI0");
-  gapi.client.load("youtube", "v3", function() {
-    // yt api is ready
-  });
 }
 
 $("body").on("click", ".youtube-videos-list-item-title", function() {
@@ -194,10 +193,9 @@ $("body").on("mouseleave", ".moving_gif", function() {
 });
 
 $("body").on("click", ".score-plus, .score-minus", function() {
-
   let symbol = {
     symbol: $(this).hasClass("score-plus") ? "+" : "-",
-    bugs_id: $(this).data('bugid')
+    bugs_id: $(this).data("bugid")
   };
   $.ajax({
     type: "POST",
@@ -210,8 +208,8 @@ $("body").on("click", ".score-plus, .score-minus", function() {
     cache: false,
     success: function(data) {
       if (!data.error) {
-          $(".bugsContent").html(data.html);
-      }else{
+        $(".bugsContent").html(data.html);
+      } else {
         console.log(data.error);
       }
     }

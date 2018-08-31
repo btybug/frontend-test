@@ -36,11 +36,11 @@
     // Start elFinder (REQUIRED)
     start = function(elFinder, editors, config) {
       // load jQueryUI CSS
-      elFinder.prototype.loadCss(
-        "//cdnjs.cloudflare.com/ajax/libs/jqueryui/" +
-          uiver +
-          "/themes/smoothness/jquery-ui.css"
-      );
+      // elFinder.prototype.loadCss(
+      //   "//cdnjs.cloudflare.com/ajax/libs/jqueryui/" +
+      //     uiver +
+      //     "/themes/smoothness/jquery-ui.css"
+      // );
 
       $(function() {
         var optEditors = {

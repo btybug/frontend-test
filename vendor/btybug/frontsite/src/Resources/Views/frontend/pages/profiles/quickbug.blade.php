@@ -141,9 +141,6 @@
                                             <li class="list-inline-item"><a href="" class="images-link active"><span
                                                             class="purple-cl-icon"><i class="far fa-images"></i></span></a>
                                             </li>
-                                            <li class="list-inline-item"><a href="" class="music-link active"><span
-                                                            class="blue-cl-icon"><i class="fas fa-music"></i></span></a>
-                                            </li>
                                             <li class="list-inline-item"><a href="" class="gif-link active"><span
                                                             class="red-light-cl-icon">
                                                     <img src="/public/images/gif-icon.png" alt="gif">
@@ -527,7 +524,57 @@
                 })
             };
 
-            function initAutocomplete() {
+         
+            $('.delete_bug').on('click', function (e) {
+                e.preventDefault();
+                var id = $(this).data('id');
+                $.ajax({
+                    type: 'POST',
+                    url: "{{route('delete_current_bug')}}",
+                    datatype: 'json',
+                    data: {id: id, key: 'key'},
+                    headers: {
+                        'X-CSRF-TOKEN': $("input[name='_token']").val()
+                    },
+                    cache: false,
+                    success: function (data) {
+                        location.reload();
+                    }
+                });
+            })
+            $("#bugit-text").emojioneArea({
+                pickerPosition: "left",
+                tonesStyle: "bullet",
+                saveEmojisAs: true
+            });
+            $('.user_widget_link').on('click', function (e) {
+                e.preventDefault();
+                var userid = $(this).data('userid');
+                var ident = $(this).data('ident');
+                $.ajax({
+                    type: 'POST',
+                    url: "{{route('widget_preview_on_right')}}",
+                    datatype: 'json',
+                    data: {userid: userid, ident: ident},
+                    headers: {
+                        'X-CSRF-TOKEN': $("input[name='_token']").val()
+                    },
+                    cache: false,
+                    success: function (data) {
+                        $.each($('.user-widget'), function () {
+                            $(this).addClass('no-show');
+                            if ($(this).data('id') == data.ident) {
+                                if ($(this).hasClass('no-show')) {
+                                    $(this).html(data.html);
+                                    $(this).toggleClass('no-show');
+                                }
+                            }
+                        })
+                    }
+                });
+            })
+        });
+        function initAutocomplete() {
                 var map = new google.maps.Map(document.getElementById('map'), {
                     center: {
                         lat: $(".location_lat").val() ? Number($(".location_lat").val()) : 40.7929026,
@@ -608,55 +655,6 @@
                 });
             }
 
-            $('.delete_bug').on('click', function (e) {
-                e.preventDefault();
-                var id = $(this).data('id');
-                $.ajax({
-                    type: 'POST',
-                    url: "{{route('delete_current_bug')}}",
-                    datatype: 'json',
-                    data: {id: id, key: 'key'},
-                    headers: {
-                        'X-CSRF-TOKEN': $("input[name='_token']").val()
-                    },
-                    cache: false,
-                    success: function (data) {
-                        location.reload();
-                    }
-                });
-            })
-            $("#bugit-text").emojioneArea({
-                pickerPosition: "left",
-                tonesStyle: "bullet",
-                saveEmojisAs: true
-            });
-            $('.user_widget_link').on('click', function (e) {
-                e.preventDefault();
-                var userid = $(this).data('userid');
-                var ident = $(this).data('ident');
-                $.ajax({
-                    type: 'POST',
-                    url: "{{route('widget_preview_on_right')}}",
-                    datatype: 'json',
-                    data: {userid: userid, ident: ident},
-                    headers: {
-                        'X-CSRF-TOKEN': $("input[name='_token']").val()
-                    },
-                    cache: false,
-                    success: function (data) {
-                        $.each($('.user-widget'), function () {
-                            $(this).addClass('no-show');
-                            if ($(this).data('id') == data.ident) {
-                                if ($(this).hasClass('no-show')) {
-                                    $(this).html(data.html);
-                                    $(this).toggleClass('no-show');
-                                }
-                            }
-                        })
-                    }
-                });
-            })
-        });
     </script>
 
     <script src="{!!url('https://apis.google.com/js/client.js?onload=init')!!}"></script>
