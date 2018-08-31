@@ -174,7 +174,7 @@
                             <nav>
                                 <div class="nav nav-tabs" role="tablist">
                                     <a class="nav-item nav-link active" id="nav-comment-tab" data-toggle="tab"
-                                       href="#nav-comment" role="tab" aria-controls="nav-comment" aria-selected="true">
+                                       href="#nav-comment-{{$ident}}" role="tab" aria-controls="nav-comment" aria-selected="true">
                                         <div class="d-flex justify-content-between">
                                             <span class="name">Comments</span><span
                                                     class="count">63</span>
@@ -182,7 +182,7 @@
 
                                     </a>
                                     <a class="nav-item nav-link share-link" id="nav-share-tab" data-toggle="tab"
-                                       href="#nav-share" role="tab" aria-controls="nav-share" aria-selected="false">
+                                       href="#nav-share-{{$ident}}" role="tab" aria-controls="nav-share" aria-selected="false">
                                         <div class="d-flex justify-content-between">
                                             <span class="name">Share</span><span
                                                     class="count">190</span>
@@ -201,7 +201,7 @@
                             </nav>
                             <div class="tab-content" id="nav-tabContent">
 
-                                <div class="tab-pane fade show active" id="nav-comment" role="tabpanel"
+                                <div class="tab-pane fade show active" id="nav-comment-{{$ident}}" role="tabpanel"
                                      aria-labelledby="nav-comments-tab">
                                     <div class="comment">
                                         <div class="main-comments-content d-flex flex-column h-100">
@@ -295,7 +295,7 @@
                                 </div>
 
 
-                                <div class="tab-pane fade" id="nav-share" role="tabpanel"
+                                <div class="tab-pane fade" id="nav-share-{{$ident}}" role="tabpanel"
                                      aria-labelledby="nav-share-tab">
                                     <div class="share">
                                         <div class="main-share-content">
