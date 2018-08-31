@@ -26,8 +26,8 @@
 @stack('css')
 
 <!-- ================== BEGIN HEADER BASE JS ================== -->
-    <script src="{!!url('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js')!!}"></script>
-    <script src="{!!url('public/minicms/plugins/jquery/jquery-migrate-1.1.0.min.js')!!}"></script>
+    <script src="{!!url('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'  )!!}"></script>
+    <!-- <script src="{!!url('public/minicms/plugins/jquery/jquery-migrate-1.1.0.min.js')!!}"></script> -->
     <script src="{!!url('https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js')!!}"></script>
     <script src="{!!url('public/minicms/plugins/bootstrap/4/bootstrap.bundle.min.js')!!}"></script>
     <!--[if lt IE 9]>
@@ -81,7 +81,7 @@
 
 <!-- ================== BEGIN FOOTER PAGE LEVEL JS ================== -->
 {!! getFooterJs() !!}
-{{--{!! BBscriptsHook() !!}--}}
+{!! BBscriptsHook() !!}
 <!-- ================== END FOOTER PAGE LEVEL JS ================== -->
 {!! Html::script('public/js/app.js') !!}
 </body>

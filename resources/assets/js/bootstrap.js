@@ -1,6 +1,5 @@
-
-window._ = require('lodash');
-window.Popper = require('popper.js').default;
+window._ = require("lodash");
+window.Popper = require("popper.js").default;
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -8,11 +7,11 @@ window.Popper = require('popper.js').default;
  * code may be modified to fit the specific needs of your application.
  */
 
-try {
-    window.$ = window.jQuery = require('jquery');
+// try {
+//     window.$ = window.jQuery = require('jquery');
 
-    require('bootstrap');
-} catch (e) {}
+//     require('bootstrap');
+// } catch (e) {}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -20,9 +19,9 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+window.axios = require("axios");
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
@@ -33,9 +32,11 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 let token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+  window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 } else {
-    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+  console.error(
+    "CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token"
+  );
 }
 
 /**
@@ -55,45 +56,56 @@ if (token) {
 //     encrypted: true
 // });]
 
-console.log(122)
+console.log(122);
 
-import EchoLibrary from "laravel-echo"
-window.io = require('socket.io-client');
+import EchoLibrary from "laravel-echo";
+window.io = require("socket.io-client");
 // Have this in case you stop running your laravel echo server
-if (typeof io !== 'undefined') {
-    window.Echo = new EchoLibrary({
-        broadcaster: 'socket.io',
-        host: window.location.hostname + ':6001'
-    });
+if (typeof io !== "undefined") {
+  window.Echo = new EchoLibrary({
+    broadcaster: "socket.io",
+    host: window.location.hostname + ":6001"
+  });
 }
 
-Echo.private('socket.io')
-    .listen('MessagePushed', (e) => {
-    console.log(e,);
-    $('body').find(`div[data-id=${e.post.id}]`).append(`<div class=" col-md-12 red">${e.comment}</div>`);
+Echo.private("socket.io").listen("MessagePushed", e => {
+  console.log(e);
+  $("body")
+    .find(`div[data-id=${e.post.id}]`)
+    .append(`<div class=" col-md-12 red">${e.comment}</div>`);
 });
-Echo.private('socket.io')
-    .listen('CommentPushed', (e) => {
-        console.log(e);
-   let html=`<div class="message1">
+Echo.private("socket.io").listen("CommentPushed", e => {
+  console.log(e);
+  let html = `<div class="message1">
                                                     <div class="container-fluid">
                                                         <div class="row">
                                                             <div class="col-md-2">
-                                                                <img src="${e.user.site_image}" alt="">
+                                                                <img src="${
+                                                                  e.user
+                                                                    .site_image
+                                                                }" alt="">
                                                             </div>
                                                             <div class="col-md-10">
                                                                 <div class="name">
-                                                                    <span>${ e.user.f_name} ${ e.user.l_name}</span>
+                                                                    <span>${
+                                                                      e.user
+                                                                        .f_name
+                                                                    } ${
+    e.user.l_name
+  }</span>
                                                                     <span style="color: #909090">17h</span>
                                                                 </div>
                                                                 <div class="text">
-                                                                    <p>${e.comment.comment}</p>
+                                                                    <p>${
+                                                                      e.comment
+                                                                        .comment
+                                                                    }</p>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>`;
-   $('body').find(`.bug-comments-${e.bug_id}`).append(html);
+  $("body")
+    .find(`.bug-comments-${e.bug_id}`)
+    .append(html);
 });
-
-
