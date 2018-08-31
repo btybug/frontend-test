@@ -2058,11 +2058,14 @@ div.bug-something .link-bug-something button {
 div.bug-something .link-bug-something button span {
   margin-left: 15px;
 }
+#bugModalCenter{
+  bottom: 80px;
+}
 #bugModalCenter .modal-lg {
   max-width: 1200px;
-  padding-top: 110px;
-  -webkit-transform: translate(0,-80px);
-  transform: translate(0, -80px);
+  /*padding-top: 110px;*/
+  /*-webkit-transform: translate(0,-80px);*/
+  /*transform: translate(0, -80px);*/
 }
 
 .bootstrap-tagsinput input {
