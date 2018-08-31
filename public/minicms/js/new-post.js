@@ -14,7 +14,8 @@ $(document).ready(function () {
                 $(openPage).find('.nav.nav-tabs a').removeClass('active show');
                 $(openPage).find(`#nav-${datalink}-tab`).addClass('active show');
                 $(openPage).find('.tab-content .tab-pane').removeClass('active show');
-                $(openPage).find(`#nav-${datalink}`).addClass('active show');
+                // $(openPage).find(`#nav-${datalink}`).addClass('active show');
+                $(openPage).find(`[aria-labelledby="nav-${datalink}-tab"]`).addClass('active show');
 
             } else {
                 $(this).closest('.new_post').find('.open-page').addClass('no_open');
