@@ -2766,7 +2766,7 @@ display: block;
 .new_post .open-page .main-score-content .score-content2 img.sam{
   width: 60px;
   height: 60px;
-  object-fit: none;
+  object-fit: cover;
   border: 1px solid #d5d5d5;
 }
 .new_post .open-page .main-score-content .score-content2 img.johan{
