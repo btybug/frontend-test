@@ -34,9 +34,10 @@ class BugCommentsController extends Controller
         $data=$request->except('_token');
         $data['author_id']=\Auth::id();
         $comment=$this->bugCommentsRepository->create($data);
-        $user=User::where('id',\Auth::id())
-            ->join('social_profile', 'users.id', '=', 'social_profile.user_id')
-            ->select('users.*', 'social_profile.site_image')->first();
+        $user=User::join('social_profile', 'users.id', '=', 'social_profile.user_id')
+            ->where('users.id',\Auth::id())
+            ->select('users.*', 'social_profile.site_image')
+        ->first();
         broadcast(new CommentPushed($user,$comment,$data['bug_id']));
     }
 
