@@ -33,7 +33,8 @@ class BugCommentsController extends Controller
     {
         $data=$request->except('_token');
         $data['author_id']=\Auth::id();
-        $comment=$this->bugCommentsRepository->create($data);
+        $comment=$this->bugCommentsRepository->create($data)->toArray();
+        $comment['created_at']=timeago($comment['created_at']);
         $user=User::join('social_profile', 'users.id', '=', 'social_profile.user_id')
             ->where('users.id',\Auth::id())
             ->select('users.f_name','users.l_name', 'social_profile.site_image')

@@ -93,7 +93,7 @@ Echo.private("socket.io").listen("CommentPushed", e => {
                                                                     } ${
     e.user.l_name
   }</span>
-                                                                    <span style="color: #909090">17h</span>
+                                                                    <span style="color: #909090">${e.comment.created_at}</span>
                                                                 </div>
                                                                 <div class="text">
                                                                     <p>${
