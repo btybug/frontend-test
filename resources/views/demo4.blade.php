@@ -8,34 +8,47 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Profile user 3</title>
+    {!! Html::style('public/css/app.css') !!}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .red{
             background-color: red;
         }
+        .post{
+            height: 50px;
+            border: 1px solid;
+        }
+        .active{
+            height: 50px;
+            border: 1px solid red;
+            background-color: rgba(14, 15, 213, 0.35);
+        }
     </style>
 </head>
-<body>
+<body id ='app'>
+<div class="row">
+    @foreach($messages as $message)
+        <div class="col-md-3 post" data-id="{!! $message->id !!}">
+            <div class="col-md-12">{!! $message->message !!}</div>
+        </div>
+    @endforeach
+</div>
+
 {!! Form::open() !!}
-    <ul id="chat">
-        @foreach($messages as $message)
-        <li>{!! $message->message !!}</li>
-            @endforeach
-    </ul>
-    <textarea name="message" id="" cols="30" rows="10"></textarea>
-    <button type="submit" id="send">Send</button>
+<input type="hidden" id="post-id" name="post_id" value="">
+<textarea name="message" id="" cols="30" rows="10"></textarea>
+<button type="submit" id="send">Send</button>
 {!! Form::close() !!}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+{!! Html::script('public/js/app.js') !!}
 <script>
-    var socket = io(':6001');
-    function addMessage(msg) {
-        $('#chat').append('<li class="red">'+msg.message+'</li>')
-    }
-    socket.on('chat:message', function(msg){
-       addMessage(msg);
-    });
+    $(function () {
+        $('.post').on('click',function () {
+            $('.post').removeClass('active')
+            $(this).addClass('active')
+            $('#post-id').val($(this).data('id'))
+        })
+    })
 </script>
 </body>
 </html>

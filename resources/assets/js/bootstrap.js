@@ -79,7 +79,7 @@ Echo.private('socket.io')
                                                     <div class="container-fluid">
                                                         <div class="row">
                                                             <div class="col-md-2">
-                                                                <img src="${e.user.avatar}" alt="">
+                                                                <img src="${e.user.site_image}" alt="">
                                                             </div>
                                                             <div class="col-md-10">
                                                                 <div class="name">

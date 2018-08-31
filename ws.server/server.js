@@ -7,7 +7,8 @@ var io=require('socket.io')(6001),
 redis.psubscribe('*',function (error,count) {
 });
 redis.on('pmessage',function (pattern,channel,message) {
+    console.log(message)
     message=JSON.parse(message);
     console.log( message);
-    io.emit(channel+':'+message.event,message.data.message);
-})
+    io.emit(channel+':'+message.event,message.data);
+});
