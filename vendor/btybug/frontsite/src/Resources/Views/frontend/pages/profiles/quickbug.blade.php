@@ -522,9 +522,13 @@
                     var descored = $(this).data('descored');
                     window.myPie = new Chart(document.getElementById('chart-area-' + ident).getContext('2d'), config(descored, scored));
                 })
+
+                $('.item').first().children('.iccon').addClass('active');
+                $('.posted').first().addClass('active');
+
             };
 
-         
+
             $('.delete_bug').on('click', function (e) {
                 e.preventDefault();
                 var id = $(this).data('id');
@@ -574,7 +578,8 @@
                 });
             })
         });
-        function initAutocomplete() {
+        
+            function initAutocomplete() {
                 var map = new google.maps.Map(document.getElementById('map'), {
                     center: {
                         lat: $(".location_lat").val() ? Number($(".location_lat").val()) : 40.7929026,

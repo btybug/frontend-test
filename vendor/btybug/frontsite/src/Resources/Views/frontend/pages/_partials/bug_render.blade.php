@@ -99,45 +99,45 @@
                                 @endif
                             </div>
                             <div class="post-map">
+                                @if($bug->location && count($bug->location))
+                                    <div class="posted post-maps active">
+                                        <iframe src="https://maps.google.com/maps?q={{ $bug->location['lat'] }},{{ $bug->location['lang'] }}&z=10&output=embed"
+                                                width="100%" height="100%" frameborder="0" style="border:0"
+                                                allowfullscreen></iframe>
+                                    </div>
+                                @endif
                                 @if(count(explode(',',$bug->site_image)))
                                     @php
                                         $i = 1;
                                     @endphp
                                     @foreach(explode(',',$bug->site_image) as $img)
-                                        <div class="post-image-{{$i++}}">
+                                        <div class="posted post-image-{{$i++}}">
                                             <img src="{{$img}}"
                                                  alt="">
                                         </div>
                                     @endforeach
                                 @endif
                                 @if(isset($bug->gif))
-                                    <div class="post-gif">
+                                    <div class="posted post-gif">
                                         <img src="{!! $bug->gif !!}" alt="GIF">
                                     </div>
                                 @endif
 
                                 @if(isset($bug->youtube))
-                                    <div class="post-youtube">
+                                    <div class="posted post-youtube">
                                         <iframe width="100%" height="100%"
                                                 src="https://www.youtube.com/embed/{{ $bug->youtube }}" frameborder="0"
                                                 allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                     </div>
                                 @endif
 
-                                @if($bug->location && count($bug->location))
-                                    <div class="post-maps active">
-                                        <iframe src="https://maps.google.com/maps?q={{ $bug->location['lat'] }},{{ $bug->location['lang'] }}&z=10&output=embed"
-                                                width="100%" height="100%" frameborder="0" style="border:0"
-                                                allowfullscreen></iframe>
-                                    </div>
-                                @endif
 
                             </div>
                             <div class="post-foot">
                                 <div class="post-foot-carousel owl-carousel owl-theme">
                                     @if($bug->location && count($bug->location))
-                                        <div class="item"><a href="" data-view-post="post-maps"
-                                                             class="blue-cl-icon active">
+                                        <div class="item" data-pi="1"><a href="" data-view-post="post-maps"
+                                                             class="blue-cl-icon iccon">
                                                 <div class="line"></div>
                                                 <i class="fas fa-map-marker-alt"></i></a></div>
                                     @endif
@@ -146,22 +146,22 @@
                                             $j = 1;
                                         @endphp
                                         @foreach(explode(',',$bug->site_image) as $img)
-                                            <div class="item"><a href="" data-view-post="post-image-{{$j++}}"
-                                                                 class="purple-cl-icon">
+                                            <div class="item" data-pi="2"><a href="" data-view-post="post-image-{{$j++}}"
+                                                                 class="purple-cl-icon iccon">
                                                     <div class="line"></div>
                                                     <i class="far fa-images"></i></a></div>
                                         @endforeach
                                     @endif
                                     @if(isset($bug->gif))
-                                        <div class="item"><a href="" data-view-post="post-gif"
-                                                             class="green-cl-icon">
+                                        <div class="item" data-pi="3"><a href="" data-view-post="post-gif"
+                                                             class="green-cl-icon iccon">
                                                 <div class="line"></div>
                                                 <img src="/public/images/gif-icon.png"
                                                      alt=""></a></div>
                                     @endif
                                     @if(isset($bug->youtube))
-                                        <div class="item"><a href="" data-view-post="post-youtube"
-                                                             class="red-cl-icon">
+                                        <div class="item" data-pi="4"><a href="" data-view-post="post-youtube"
+                                                             class="red-cl-icon iccon">
                                                 <div class="line"></div>
                                                 <i class="fab fa-youtube"></i></a></div>
                                     @endif
