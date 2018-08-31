@@ -488,7 +488,7 @@
                                     <i class="far fa-comment-alt" style="line-height: 1.2"></i>
                                 </a>
 
-                                <span style="margin-bottom: 10px">63</span>
+                                <span style="margin-bottom: 10px">{!! $comments->count() !!}</span>
                             </div>
                         </div>
                     </div>
