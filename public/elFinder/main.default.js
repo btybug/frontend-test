@@ -36,11 +36,11 @@
     // Start elFinder (REQUIRED)
     start = function(elFinder, editors, config) {
       // load jQueryUI CSS
-      elFinder.prototype.loadCss(
-        "//cdnjs.cloudflare.com/ajax/libs/jqueryui/" +
-          uiver +
-          "/themes/smoothness/jquery-ui.css"
-      );
+      // elFinder.prototype.loadCss(
+      //   "//cdnjs.cloudflare.com/ajax/libs/jqueryui/" +
+      //     uiver +
+      //     "/themes/smoothness/jquery-ui.css"
+      // );
 
       $(function() {
         var optEditors = {
@@ -96,12 +96,16 @@
     },
     // JavaScript loader (REQUIRED)
     load = function() {
-      if(typeof jQuery != "undefined"){
-        define('jquery', function() { return jQuery; }); //tell requireJS to not load jQuery
-    }
-    if(jQuery && typeof jQuery.ui != "undefined"){
-        define('jquery-ui', function() { return jQuery.ui; }); //tell requireJS to not load jQueryUI
-    }
+      if (typeof jQuery != "undefined") {
+        define("jquery", function() {
+          return jQuery;
+        }); //tell requireJS to not load jQuery
+      }
+      if (jQuery && typeof jQuery.ui != "undefined") {
+        define("jquery-ui", function() {
+          return jQuery.ui;
+        }); //tell requireJS to not load jQueryUI
+      }
       require([
         "elfinder",
         "/public/elFinder/js/extras/editors.default.min.js", // load text, image editors
