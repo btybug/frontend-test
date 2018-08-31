@@ -221,6 +221,10 @@
                                                                 <div class="text">
                                                                     <p>{!! $comment->comment !!}</p>
                                                                 </div>
+                                                                <div class="reply">
+                                                                    <span style="margin-right: 22px">Reply</span>
+                                                                    <span>Light</span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
