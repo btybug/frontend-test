@@ -74,11 +74,12 @@ Echo.private('socket.io')
 });
 Echo.private('socket.io')
     .listen('CommentPushed', (e) => {
+        console.log(e);
    let html=`<div class="message1">
                                                     <div class="container-fluid">
                                                         <div class="row">
                                                             <div class="col-md-2">
-                                                                <img src="${ e.user.avatar}" alt="">
+                                                                <img src="${e.user.avatar}" alt="">
                                                             </div>
                                                             <div class="col-md-10">
                                                                 <div class="name">

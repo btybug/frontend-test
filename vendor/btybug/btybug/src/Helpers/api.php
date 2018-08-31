@@ -2766,10 +2766,10 @@ function BBmediaButton($name, $model = null, array $attributes)
     $v = ($attributes['version']) ?? 3;
     static $a = 0;
     if (!$a) {
-        \Eventy::action('my.scripts', ['url' => url('public/elFinder/js/elfinder.min.js?v=' . rand(999, 9999))]);
-        \Eventy::action('my.scripts', ['url' => '//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js?v=' . rand(999, 9999), 'attributes' => ['data-main' => url('public/elFinder/main.default.js?v=' . rand(999, 9999))]]);
-        \Eventy::action('my.scripts', ['url' => url('public/elFinder/elfinder.js?v=' . rand(999, 9999))]);
-        \Eventy::action('my.scripts', ['url' => url('public/elFinder/media_button.js?v=' . rand(999, 9999))]);
+        \Eventy::action('my.scripts', ['url' => url('public/elFinder/js/elfinder.min.js?v=' . rand(111, 9999))]);
+        \Eventy::action('my.scripts', ['url' => '//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js?v=' . rand(111, 9999), 'attributes' => ['data-main' => url('public/elFinder/main.default.js?v='.rand(111, 9999))]]);
+        \Eventy::action('my.scripts', ['url' => url('public/elFinder/elfinder.js?v=' . rand(111, 9999))]);
+        \Eventy::action('my.scripts', ['url' => url('public/elFinder/media_button.js?v=' . rand(111, 9999))]);
         $modalHtml = View::make('media::_partials.modal', compact('v'))->render();
         \Eventy::action('my.extraHtml', $modalHtml);
     }
