@@ -216,7 +216,7 @@
                                                             <div class="col-md-10">
                                                                 <div class="name">
                                                                     <span>{!! $comment->author->f_name.' '.$comment->author->l_name !!}</span>
-                                                                    <span style="color: #909090">{!! timeago($comment->creted_at) !!}</span>
+                                                                    <span style="color: #909090">{!! timeago($comment->created_at) !!}</span>
                                                                 </div>
                                                                 <div class="text">
                                                                     <p>{!! $comment->comment !!}</p>
