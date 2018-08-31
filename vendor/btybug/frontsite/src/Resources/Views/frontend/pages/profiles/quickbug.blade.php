@@ -515,9 +515,14 @@
             }
         }
         window.onload = function() {
-            window.myPie = new Chart(document.getElementById('chart-area-1').getContext('2d'), config(45, 145));
-//            window.myPie = new Chart(document.getElementById('chart-area-2').getContext('2d'), config(5, 200));
+            $.each($('.post'),function () {
+                var ident = $(this).data('ident');
+                var scored = $(this).data('scored');
+                var descored = $(this).data('descored');
+                    window.myPie = new Chart(document.getElementById('chart-area-'+ident).getContext('2d'), config(descored, scored));
+            })
         };
+
     </script>
 
 

@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-lg-8 p-0">
                     <div class="new_post d-flex mb-4">
-                        <div class="post">
+                        <div class="post" data-ident="{{$ident}}" data-scored="{{$scored}}" data-descored="{{$descored}}">
                             <div class="head-rania d-flex">
                                 <div class="aug">
                                     <div class="container-fluid">
@@ -190,7 +190,7 @@
                                     </a>
 
 
-                                    <a class="nav-item nav-link" id="nav-score-tab" data-toggle="tab" href="#nav-score"
+                                    <a class="nav-item nav-link" id="nav-score-tab" data-toggle="tab" href="#nav-score-{{$ident}}"
                                        role="tab" aria-controls="nav-score" aria-selected="false">
                                         <div class="d-flex justify-content-between">
                                             <span class="name">Score</span><span
@@ -380,7 +380,7 @@
                                 </div>
 
 
-                                <div class="tab-pane fade" id="nav-score" role="tabpanel"
+                                <div class="tab-pane fade" id="nav-score-{{$ident}}" role="tabpanel"
                                      aria-labelledby="nav-score-tab">
                                     <div class="score">
                                         <div class="main-score-content">
@@ -389,7 +389,7 @@
                                                     <div class="row">
                                                         <div class="globus col-md-6">
                                                             <div class="canvas-holder h-100 w-100">
-                                                                <canvas id="chart-area-1" height="300"></canvas>
+                                                                <canvas id="chart-area-{{$ident}}" height="300"></canvas>
                                                             </div>
 
                                                         </div>
