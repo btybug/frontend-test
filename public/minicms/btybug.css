@@ -1599,6 +1599,7 @@ position: absolute;
   font-size: 20px;
   color: #252525;
 }
+
 .quick_bug .main-bug .main-content .form-group .input-group-prepend {
   border: 1px solid #d5d5d5;
   color: white;
@@ -2906,6 +2907,25 @@ display: block;
   }
   .new_post >.post .post-map{
     height: 230px;
+  }
+  .quick_bug .main-bug .head>div{
+    flex-wrap: wrap;
+  }
+  .quick_bug .main-bug .head .title-icon{
+    border-right: none;
+  }
+  .quick_bug .main-bug .head .daily{
+    width: 100%;
+    border-top: 1px solid #fff;
+  }
+  .quick_bug .main-bug .bottom .right-col .select2.select2-container.select2-container--default{
+    width: auto !important;
+  }
+  .quick_bug .main-bug .bottom .right-col{
+    flex-wrap: wrap;
+  }
+  .quick_bug .main-bug .bottom .right-col .select2-container--default .select2-selection--single .select2-selection__arrow{
+    bottom: 7px;
   }
 }
 
