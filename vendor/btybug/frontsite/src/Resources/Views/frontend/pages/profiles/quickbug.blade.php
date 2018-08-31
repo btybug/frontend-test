@@ -528,8 +528,6 @@
 
             };
 
-
-
             $('.delete_bug').on('click', function (e) {
                 e.preventDefault();
                 var id = $(this).data('id');
@@ -546,7 +544,8 @@
                         location.reload();
                     }
                 });
-            })
+            });
+
             $("#bugit-text").emojioneArea({
                 pickerPosition: "left",
                 tonesStyle: "bullet",
@@ -595,13 +594,10 @@
                     cache: false,
                     success: function (data) {
 
-                        $('.modal-dialog-centered').html(data);
-                        $('#bugModalCenter').modal('toggle');
-                        $.getScript( "public/minicms/js/new-post.js");
-                        $.getScript( "public/minicms/js/utils.js");
-                        $.getScript( "public/minicms/quickbugCustom.js");
+                        $('#bugModalCenter').html(data);
+                        $.getScript( "https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyIau4tPD0XGRT6ANMUfhYzdv6G79SI0&libraries=places&callback=initAutocomplete");
                         $.getScript( "https://apis.google.com/js/client.js?onload=init");
-                        initAutocomplete();
+                        $('#bugModalCenter').modal('toggle');
                     }
                 });
             })
